@@ -1,40 +1,40 @@
-# Super Minds 2 Unit 7 - 现在进行时精讲
+# Super Minds 2 Unit 7 - Present Continuous Tense Course
 
-> 🎓 专为孩子设计的互动英语学习资源
+> 🎓 An interactive English learning resource designed for children
 
-## 📚 关于本课程
+## 📚 About This Course
 
-这是一个帮助孩子学习 **现在进行时 (Present Continuous Tense)** 的互动网页课程。
+This is an interactive web-based course to help children learn the **Present Continuous Tense**.
 
-通过生动有趣的方式，让孩子轻松掌握：
-- 📝 现在进行时的构成规则
-- 🎯 be 动词的正确使用
-- ✏️ 动词现在分词的变化规则
-- 🎮 互动练习题巩固所学知识
+Through engaging and fun methods, children can easily master:
+- 📝 The structure and rules of present continuous tense
+- 🎯 Correct usage of "be" verbs (am/is/are)
+- ✏️ Spelling rules for verb present participles (-ing forms)
+- 🎮 Interactive exercises to reinforce learning
 
-## 🌐 在线访问
+## 🌐 Access the Course
 
-**点击以下链接即可开始学习：**
+**Click the link below to start learning:**
 
 👉 **[https://ben1009.github.io/super-minds-unit7/](https://ben1009.github.io/super-minds-unit7/)**
 
-无需安装任何软件，直接在浏览器中打开即可使用！
+No installation required — just open it in your browser!
 
-## 🎨 课程特色
+## ✨ Features
 
-- 🖼️ 精美的视觉设计，吸引孩子注意力
-- 🖱️ 互动式学习体验
-- 📖 清晰的知识结构
-- ✅ 即时反馈的练习题
+- 🖼️ Beautiful visual design to capture children's attention
+- 🖱️ Interactive learning experience
+- 📖 Clear and organized knowledge structure
+- ✅ Instant feedback on practice exercises
 
-## 📄 许可证
+## 📄 License
 
-本项目采用双重许可证：
+This project uses a dual-license model:
 
-| 类别 | 许可证 | 说明 |
-|------|--------|------|
-| **源代码** | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) | 代码部分可自由使用、修改和分发 |
-| **课程内容** | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) | 内容仅供非商业用途，需署名并相同方式共享 |
+| Component | License | Description |
+|-----------|---------|-------------|
+| **Source Code** | [Apache License 2.0](./LICENSE) | The code is freely available for use, modification, and distribution |
+| **Course Content** | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) | The educational content is for non-commercial use only, with attribution and share-alike requirements |
 
 ---
 
