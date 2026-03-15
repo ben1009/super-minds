@@ -16,7 +16,7 @@ Through engaging and fun methods, children can easily master:
 
 **Click the link below to start learning:**
 
-👉 **[https://ben1009.github.io/super-minds-unit7/](https://ben1009.github.io/super-minds-unit7/)**
+👉 **[https://ben1009.github.io/super-minds/](https://ben1009.github.io/super-minds/)**
 
 No installation required — just open it in your browser!
 
