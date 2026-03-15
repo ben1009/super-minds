@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>现在进行时 · Present Continuous</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5f0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(120, 120, 120, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(80, 80, 80, 0.03) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+            font-family: 'Noto Serif SC', serif;
+        }
+        .calligraphy { font-family: 'Ma Shan Zheng', cursive; }
+        .ink-gradient { background: linear-gradient(135deg, #2c3e50 0%, #1e3a5f 100%); }
+        .cinnabar { color: #c93756; }
+        .bg-cinnabar { background-color: #c93756; }
+        
+        .flashcard { perspective: 1000px; height: 200px; }
+        .flashcard-inner {
+            position: relative; width: 100%; height: 100%;
+            text-align: center; transition: transform 0.6s;
+            transform-style: preserve-3d; cursor: pointer;
+        }
+        .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+        .flashcard-front, .flashcard-back {
+            position: absolute; width: 100%; height: 100%;
+            backface-visibility: hidden; border-radius: 12px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        .flashcard-back { transform: rotateY(180deg); background: #fafaf8; }
+        
+        .tab-content { display: none; opacity: 0; transition: opacity 0.3s ease; }
+        .tab-content.active { display: block; opacity: 1; }
+        
+        .timeline-container { position: relative; padding-left: 2rem; }
+        .timeline-container::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+            width: 2px; background: linear-gradient(to bottom, #d1d5db, #1e3a5f, #d1d5db);
+        }
+        .timeline-node {
+            position: relative; margin-bottom: 2rem; padding-left: 1.5rem;
+            transition: all 0.3s;
+        }
+        .timeline-node::before {
+            content: ''; position: absolute; left: -1.75rem; top: 0.5rem;
+            width: 12px; height: 12px; border-radius: 50%; background: #d1d5db;
+            border: 2px solid #f5f5f0; transition: all 0.3s;
+        }
+        .timeline-node.active::before { background: #1e3a5f; transform: scale(1.2); }
+        .timeline-content {
+            background: white; border-radius: 12px; padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.08);
+            cursor: pointer; transition: all 0.3s;
+        }
+        .timeline-content:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); transform: translateX(5px); }
+        .timeline-detail {
+            max-height: 0; overflow: hidden; transition: max-height 0.6s ease-out, opacity 0.3s ease;
+            margin-top: 0; opacity: 0;
+        }
+        .timeline-detail.expanded { 
+            max-height: 2000px;
+            margin-top: 1rem; 
+            opacity: 1; 
+        }
+        
+        /* 可点击答案样式 - 修复文字遮挡问题 */
+        .answer-mask {
+            background: repeating-linear-gradient(45deg, #e5e5e5, #e5e5e5 10px, #f0f0f0 10px, #f0f0f0 20px);
+            cursor: pointer; transition: all 0.3s ease; border-radius: 6px;
+            padding: 0.5rem 1rem; color: transparent; user-select: none;
+            border: 2px dashed #ccc; display: inline-block; min-width: 120px; text-align: center;
+            font-weight: 600; position: relative;
+            line-height: 1.5; /* 增加行高防止文字挤压 */
+            white-space: normal; /* 允许换行 */
+            word-break: break-word; /* 长单词换行 */
+        }
+        .answer-mask.revealed {
+            background: #fef3c7; color: #1e3a5f; border: 2px solid #fcd34d;
+            font-weight: 600; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            white-space: normal; /* 确保显示时也能换行 */
+        }
+        .answer-mask:hover {
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .answer-mask.revealed:hover {
+            background: #fde68a;
+        }
+        
+        /* 提示文字 - 修复定位防止遮挡 */
+        .answer-mask::after {
+            content: '👆 点击显示';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: #9ca3af;
+            font-size: 0.75rem;
+            font-weight: normal;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 10;
+        }
+        .answer-mask.revealed::after {
+            content: '👆 点击隐藏';
+            color: #d97706;
+            font-size: 0.7rem;
+            position: static; /* 显示时改为静态定位，不遮挡内容 */
+            transform: none;
+            display: block;
+            margin-top: 0.25rem;
+            text-align: center;
+        }
+        
+        /* 对话气泡样式 */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .chat-row {
+            display: grid;
+            grid-template-columns: 40px 1fr;
+            gap: 0.75rem;
+            align-items: start;
+        }
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .chat-bubble {
+            background: white;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            line-height: 1.8;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .chat-row:nth-child(odd) .chat-bubble {
+            border-top-left-radius: 4px;
+            background: #eff6ff;
+            border-color: #bfdbfe;
+        }
+        .chat-row:nth-child(even) .chat-bubble {
+            border-top-right-radius: 4px;
+            background: #f0fdf4;
+            border-color: #bbf7d0;
+        }
+        
+        .check-item { transition: all 0.3s; }
+        .check-item.completed { opacity: 0.6; text-decoration: line-through; color: #6b7280; }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeInUp 0.6s ease-out; }
+        
+        .badge {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 28px; height: 28px; border-radius: 50%;
+            background: #1e3a5f; color: white; font-size: 0.875rem;
+            font-weight: bold; margin-right: 0.75rem; flex-shrink: 0;
+        }
+        .badge.red { background: #c93756; }
+        .badge.green { background: #059669; }
+        
+        .therebe-box {
+            background: #f8fafc; 
+            border-left: 4px solid #3b82f6;
+            padding: 1rem; 
+            margin: 0.75rem 0; 
+            border-radius: 0 8px 8px 0;
+            font-family: 'Noto Serif SC', monospace; 
+            font-size: 0.95rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        .therebe-box:hover {
+            background: #f1f5f9;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+    </style>
+</head>
+<body class="text-gray-800 min-h-screen">
+
+    <header class="ink-gradient text-white py-12 px-4 shadow-lg relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'200\' height=\'200\' viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0,100 Q50,50 100,100 T200,100\' fill=\'none\' stroke=\'white\' stroke-width=\'2\'/%3E%3C/svg%3E'); background-size: 100px;"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10 animate-fade-in">
+            <div class="text-sm opacity-80 mb-2 tracking-widest">Superminds 2 · Unit 7</div>
+            <h1 class="text-5xl md:text-6xl calligraphy mb-4">现在进行时</h1>
+            <p class="text-xl md:text-2xl font-light opacity-90 italic">Present Continuous</p>
+            <div class="mt-6 text-sm opacity-75">2026年3月14日 · 语法专题</div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-12">
+
+        <!-- 语法核心 -->
+        <section class="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-gray-200">
+            <h2 class="text-3xl calligraphy cinnabar mb-6 flex items-center gap-2">
+                <span class="text-4xl">§</span> 语法结构
+            </h2>
+            
+            <div class="flex flex-wrap gap-2 mb-6 border-b border-gray-200 pb-2">
+                <button onclick="switchTab('affirmative')" class="tab-btn px-6 py-2 rounded-full bg-blue-900 text-white transition-all hover:shadow-lg font-medium" id="btn-affirmative">肯定句 ✓</button>
+                <button onclick="switchTab('negative')" class="tab-btn px-6 py-2 rounded-full bg-gray-200 text-gray-700 transition-all hover:shadow-lg" id="btn-negative">否定句 ✗</button>
+                <button onclick="switchTab('question')" class="tab-btn px-6 py-2 rounded-full bg-gray-200 text-gray-700 transition-all hover:shadow-lg" id="btn-question">疑问句 ?</button>
+            </div>
+
+            <div id="affirmative" class="tab-content active">
+                <div class="bg-blue-50 rounded-xl p-6 mb-4 border-l-4 border-blue-900">
+                    <p class="text-lg font-semibold mb-4 text-blue-900">结构：人/物 + am/is/are + 动词-ing + 其他</p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
+                                <span class="text-2xl">👧</span>
+                                <span class="font-mono text-lg">She <span class="text-blue-700 font-bold">is</span> playing basketball.</span>
+                            </div>
+                            <div class="flex items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
+                                <span class="text-2xl">👦</span>
+                                <span class="font-mono text-lg">He <span class="text-blue-700 font-bold">is</span> playing basketball.</span>
+                            </div>
+                            <div class="flex items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
+                                <span class="text-2xl">🐱</span>
+                                <span class="font-mono text-lg">It <span class="text-blue-700 font-bold">is</span> playing basketball.</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
+                                <span class="text-2xl">👥</span>
+                                <span class="font-mono text-lg">They <span class="text-green-700 font-bold">are</span> playing basketball.</span>
+                            </div>
+                            <div class="flex items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
+                                <span class="text-2xl">🎭</span>
+                                <span class="font-mono text-lg">You <span class="text-green-700 font-bold">are</span> playing basketball.</span>
+                            </div>
+                            <div class="flex items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
+                                <span class="text-2xl">👥</span>
+                                <span class="font-mono text-lg">We <span class="text-green-700 font-bold">are</span> playing basketball.</span>
+                            </div>
+                            <div class="flex items-center gap-2 p-3 bg-white rounded-lg shadow-sm border-2 border-yellow-400">
+                                <span class="text-2xl">🙋</span>
+                                <span class="font-mono text-lg">I <span class="text-red-700 font-bold">am</span> playing basketball.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="negative" class="tab-content">
+                <div class="bg-red-50 rounded-xl p-6 mb-4 border-l-4 border-red-700">
+                    <p class="text-lg font-semibold mb-4 text-red-900">结构：人/物 + am/is/are + <span class="text-red-700 font-bold">not</span> + 动词-ing + 其他</p>
+                    <div class="space-y-3 md:grid md:grid-cols-2 md:gap-4">
+                        <div class="flex items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
+                            <span class="text-2xl">🙅</span>
+                            <span class="font-mono text-lg">I <span class="text-red-700 font-bold">am not</span> eating breakfast.</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
+                            <span class="text-2xl">🚫</span>
+                            <span class="font-mono text-lg">She <span class="text-red-700 font-bold">is not</span> playing basketball.</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
+                            <span class="text-2xl">🚗</span>
+                            <span class="font-mono text-lg">I <span class="text-red-700 font-bold">am not</span> driving.</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
+                            <span class="text-2xl">📚</span>
+                            <span class="font-mono text-lg">I <span class="text-red-700 font-bold">am not</span> having a class now.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="question" class="tab-content">
+                <div class="bg-yellow-50 rounded-xl p-6 mb-4 border-l-4 border-yellow-600">
+                    <p class="text-lg font-semibold mb-4 text-yellow-900">结构：Am/Is/Are + 人/物 + 动词-ing + 其他?</p>
+                    <div class="space-y-4">
+                        <!-- 修复：改为可点击切换，统一样式 -->
+                        <div class="bg-white rounded-lg p-4 shadow-sm">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-yellow-700 font-bold text-lg">Q:</span>
+                                <span class="font-mono text-base">Are you eating breakfast?</span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 text-sm ml-8">
+                                <span class="answer-mask inline-block" onclick="toggleAnswer(this)">Yes, I am.</span>
+                                <span class="answer-mask inline-block" onclick="toggleAnswer(this)">No, I am not.</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-4 shadow-sm">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-yellow-700 font-bold text-lg">Q:</span>
+                                <span class="font-mono text-base">Is he kicking the ball?</span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 text-sm ml-8">
+                                <span class="answer-mask inline-block" onclick="toggleAnswer(this)">Yes, he is.</span>
+                                <span class="answer-mask inline-block" onclick="toggleAnswer(this)">No, he isn't.</span>
+                            </div>
+                        </div>
+                        
+                        <!-- 修复：Are you flying a kite? 统一为可点击样式，解决文字遮挡 -->
+                        <div class="bg-white rounded-lg p-4 shadow-sm">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-yellow-700 font-bold text-lg">Q:</span>
+                                <span class="font-mono text-base flex flex-wrap items-center gap-1">
+                                    Are you flying a kite?
+                                    <span class="text-gray-500 text-xs bg-gray-100 px-2 py-0.5 rounded">你在放风筝吗？</span>
+                                </span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 text-sm ml-8">
+                                <span class="answer-mask inline-flex items-center justify-center min-h-[40px]" onclick="toggleAnswer(this)">Yes, I am. 是的，我正在放风筝 🪁</span>
+                                <span class="answer-mask inline-flex items-center justify-center min-h-[40px]" onclick="toggleAnswer(this)">No, I am not. 不是，我没在放风筝</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 生词互动卡 -->
+        <section class="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-gray-200">
+            <h2 class="text-3xl calligraphy cinnabar mb-6 flex items-center gap-2">
+                <span class="text-4xl">文</span> 生词表
+            </h2>
+            <p class="text-gray-600 mb-6 italic">点击卡片查看现在进行时例句</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front bg-gradient-to-br from-blue-50 to-white">
+                            <div class="text-4xl mb-2">🚌</div>
+                            <h3 class="text-xl font-bold text-gray-800">waiting for a bus</h3>
+                            <p class="text-sm text-gray-600 mt-2">等公共汽车</p>
+                            <div class="mt-4 text-xs text-gray-400">点击查看例句</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="text-sm text-gray-500 mb-2">Q: What is Tiantian doing?</div>
+                            <div class="text-lg font-semibold text-blue-900">He is waiting for a bus.</div>
+                            <div class="mt-4 text-xs text-gray-400">点击翻转</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front bg-gradient-to-br from-green-50 to-white">
+                            <div class="text-4xl mb-2">🚗</div>
+                            <h3 class="text-xl font-bold text-gray-800">playing with cars</h3>
+                            <p class="text-sm text-gray-600 mt-2">玩小汽车</p>
+                            <div class="mt-4 text-xs text-gray-400">点击查看例句</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="text-lg font-semibold text-blue-900">They are playing with cars.</div>
+                            <div class="mt-4 flex gap-2 justify-center">
+                                <span class="text-2xl">🚗</span><span class="text-2xl">🚕</span><span class="text-2xl">🚙</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front bg-gradient-to-br from-indigo-50 to-white">
+                            <div class="text-4xl mb-2">⛵</div>
+                            <h3 class="text-xl font-bold text-gray-800">sailing a boat</h3>
+                            <p class="text-sm text-gray-600 mt-2">在玩帆船</p>
+                            <div class="mt-4 text-xs text-gray-400">点击查看例句</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="text-sm text-gray-500 mb-2">Q: What are Peter and Simon doing?</div>
+                            <div class="text-lg font-semibold text-blue-900">They are sailing a boat.</div>
+                            <div class="mt-2 text-4xl">⛵</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front bg-gradient-to-br from-purple-50 to-white">
+                            <div class="text-4xl mb-2">🛹</div>
+                            <h3 class="text-xl font-bold text-gray-800">looking for a skateboard</h3>
+                            <p class="text-sm text-gray-600 mt-2">在找滑板</p>
+                            <div class="mt-4 text-xs text-gray-400">点击查看例句</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="text-sm text-gray-500 mb-2">Q: What are Tiantian and Claire doing?</div>
+                            <div class="text-lg font-semibold text-blue-900">They are looking for a skateboard.</div>
+                            <div class="mt-2 text-xs text-gray-500">Q: What is Annie doing? <br> She is...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 完整故事线：The Bus Trip -->
+        <section class="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-gray-200">
+            <h2 class="text-3xl calligraphy cinnabar mb-8 flex items-center gap-2">
+                <span class="text-4xl">故</span> Story: The Bus Trip
+                <span class="text-sm font-sans text-gray-500 font-normal ml-2">乘大巴去旅行 · 完整版</span>
+            </h2>
+
+            <div class="timeline-container">
+                
+                <div class="timeline-node" onclick="toggleTimeline(this)">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-2">
+                            <span class="badge">1</span>
+                            <h3 class="text-xl font-bold text-gray-800">The Bus Trip</h3>
+                        </div>
+                        <p class="text-gray-600 ml-10">乘大巴去旅行</p>
+                    </div>
+                    <div class="timeline-detail">
+                        <div class="bg-blue-50 p-4 rounded-lg ml-10">
+                            <p class="text-blue-900">今天我们来讲述一次乘大巴去海滩的旅行故事。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-node" onclick="toggleTimeline(this)">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-2">
+                            <span class="badge">2</span>
+                            <h3 class="text-xl font-bold text-gray-800">A day at the beach</h3>
+                        </div>
+                        <p class="text-gray-600 ml-10">海滩一日游</p>
+                    </div>
+                    <div class="timeline-detail">
+                        <div class="bg-orange-50 p-4 rounded-lg ml-10 border-l-4 border-orange-400">
+                            <p class="text-orange-900 font-semibold mb-2">excited: 激动的</p>
+                            <p class="italic text-gray-700">"We are going to the beach! We are very excited!"</p>
+                            <p class="text-sm text-gray-600 mt-2">我们要去海滩了！我们很激动！</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-node" onclick="toggleTimeline(this)">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-2">
+                            <span class="badge">3</span>
+                            <h3 class="text-xl font-bold text-gray-800">Off we go!</h3>
+                        </div>
+                        <p class="text-gray-600 ml-10">我们出发了！</p>
+                    </div>
+                    <div class="timeline-detail">
+                        <div class="bg-green-50 p-4 rounded-lg ml-10">
+                            <p class="text-green-900 font-semibold">大巴开动了！</p>
+                            <p class="text-sm text-gray-600 mt-2">大家兴奋地说："Off we go!"（我们走啦！）</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-node" onclick="toggleTimeline(this)">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-2">
+                            <span class="badge red">4</span>
+                            <h3 class="text-xl font-bold text-gray-800">Moving</h3>
+                        </div>
+                        <p class="text-gray-600 ml-10">正在开动 / 行驶中</p>
+                    </div>
+                    <div class="timeline-detail">
+                        <div class="bg-red-50 p-4 rounded-lg ml-10 border-l-4 border-red-500">
+                            <p class="text-red-900 font-semibold mb-3">现在进行时状态描述</p>
+                            <div class="bg-white p-3 rounded mb-2 shadow-sm">
+                                <span class="font-mono text-lg">The bus <span class="text-red-700 font-bold">is moving</span>.</span>
+                                <p class="text-sm text-gray-600 mt-1">大巴正在行驶。</p>
+                            </div>
+                            <div class="text-sm text-gray-700 space-y-1 mt-3">
+                                <p>🚌 车动起来了！We are moving!</p>
+                                <p>⚠️ 注意：moving 表示"正在移动/开动"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-node" onclick="toggleTimeline(this)">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-2">
+                            <span class="badge">5</span>
+                            <h3 class="text-xl font-bold text-gray-800">Let's ask the driver</h3>
+                        </div>
+                        <p class="text-gray-600 ml-10">我们去问司机吧</p>
+                    </div>
+                    <div class="timeline-detail">
+                        <div class="bg-yellow-50 p-4 rounded-lg ml-10">
+                            <p class="text-yellow-900 font-semibold mb-2">旅途中遇到问题，询问司机</p>
+                            <p class="italic text-gray-700">"Excuse me, how long is the trip?"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- There be 句型观察 - 修复版 -->
+                <div class="timeline-node" onclick="toggleTimeline(this)">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-2">
+                            <span class="badge green">6</span>
+                            <h3 class="text-xl font-bold text-gray-800">There be 句型观察</h3>
+                        </div>
+                        <p class="text-gray-600 ml-10">描述看到的景象（点击展开查看全部例句）</p>
+                    </div>
+                    <div class="timeline-detail">
+                        <div class="ml-10 space-y-4">
+                            <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
+                                <p class="text-base text-gray-700 mb-4 font-semibold border-b border-gray-300 pb-2">路上看到了什么：</p>
+                                
+                                <div class="therebe-box">
+                                    <div class="flex items-center justify-between flex-wrap gap-2">
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-2xl">🐑</span>
+                                            <span class="text-blue-700 font-bold text-lg">There are</span>
+                                            <span>lots of sheep on the road.</span>
+                                        </div>
+                                        <span class="text-gray-500 text-sm bg-white px-2 py-1 rounded shadow-sm">路上有很多羊</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="therebe-box">
+                                    <div class="flex items-center justify-between flex-wrap gap-2">
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-2xl">👥</span>
+                                            <span class="text-blue-700 font-bold text-lg">There are</span>
+                                            <span>lots of people in the park.</span>
+                                        </div>
+                                        <span class="text-gray-500 text-sm bg-white px-2 py-1 rounded shadow-sm">公园里有很多人</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="therebe-box">
+                                    <div class="flex items-center justify-between flex-wrap gap-2">
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-2xl">🐱</span>
+                                            <span class="text-blue-700 font-bold text-lg">There is</span>
+                                            <span>a cat on the floor.</span>
+                                        </div>
+                                        <span class="text-gray-500 text-sm bg-white px-2 py-1 rounded shadow-sm">地板上有一只猫</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="therebe-box">
+                                    <div class="flex items-center justify-between flex-wrap gap-2">
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-2xl">🚁</span>
+                                            <span class="text-blue-700 font-bold text-lg">There are</span>
+                                            <span>lots of helicopters in the sky.</span>
+                                        </div>
+                                        <span class="text-gray-500 text-sm bg-white px-2 py-1 rounded shadow-sm">天空中有很多直升机</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="therebe-box">
+                                    <div class="flex items-center justify-between flex-wrap gap-2">
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-2xl">🚁</span>
+                                            <span class="text-blue-700 font-bold text-lg">There is</span>
+                                            <span>a helicopter in the sky.</span>
+                                        </div>
+                                        <span class="text-gray-500 text-sm bg-white px-2 py-1 rounded shadow-sm">天空中有一架直升机</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-4 rounded-xl text-base text-blue-900 border border-blue-200">
+                                <strong>💡 语法提示：</strong><br>
+                                <span class="font-mono bg-white px-2 py-1 rounded mx-1 border">There is</span> + 单数名词<br>
+                                <span class="font-mono bg-white px-2 py-1 rounded mx-1 border">There are</span> + 复数名词
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-node" onclick="toggleTimeline(this)">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-2">
+                            <span class="badge red">7</span>
+                            <h3 class="text-xl font-bold text-gray-800">We have got a problem!</h3>
+                        </div>
+                        <p class="text-gray-600 ml-10">我们遇到了麻烦！</p>
+                    </div>
+                    <div class="timeline-detail">
+                        <div class="ml-10 space-y-3">
+                            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-2xl">⚠️</span>
+                                    <span class="font-bold text-red-900 text-lg">tyre: 轮胎</span>
+                                </div>
+                                <div class="bg-white p-3 rounded shadow-sm mb-3">
+                                    <p class="font-mono text-red-800 font-semibold">We have got a problem with the tyre.</p>
+                                    <p class="text-sm text-gray-600 mt-1">我们的轮胎出了问题了。</p>
+                                </div>
+                                
+                                <div class="border-t border-red-200 pt-3 space-y-2 text-sm">
+                                    <div class="flex items-start gap-2">
+                                        <span>🧍</span>
+                                        <div>
+                                            <span class="font-mono">I have got a problem with my neck.</span>
+                                            <p class="text-gray-600">我的脖子不舒服。</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-2">
+                                        <span>🚗</span>
+                                        <div>
+                                            <span class="font-mono">They have got a problem with their car.</span>
+                                            <p class="text-gray-600">他们的车出了问题。</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-2">
+                                        <span>🚽</span>
+                                        <div>
+                                            <span class="font-mono">We have got a problem with our toilet.</span>
+                                            <p class="text-gray-600">我们的马桶坏了。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-node" onclick="toggleTimeline(this)">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-2">
+                            <span class="badge green">8</span>
+                            <h3 class="text-xl font-bold text-gray-800">Here we are!</h3>
+                        </div>
+                        <p class="text-gray-600 ml-10">我们到了！</p>
+                    </div>
+                    <div class="timeline-detail">
+                        <div class="bg-green-50 p-4 rounded-lg ml-10 border-l-4 border-green-500">
+                            <p class="text-green-900 font-bold text-lg mb-2">🎉 终于到达目的地！</p>
+                            <p class="text-gray-700">经过一路波折，大巴终于到达了海滩。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-node" onclick="toggleTimeline(this)">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-2">
+                            <span class="badge">9</span>
+                            <h3 class="text-xl font-bold text-gray-800">This is the bus to...</h3>
+                        </div>
+                        <p class="text-gray-600 ml-10">这是去...的大巴</p>
+                    </div>
+                    <div class="timeline-detail">
+                        <div class="bg-blue-50 p-4 rounded-lg ml-10">
+                            <div class="bg-white p-3 rounded shadow-sm">
+                                <p class="font-mono text-blue-900 font-semibold">This is the bus to the airport.</p>
+                                <p class="text-sm text-gray-600 mt-1">这是去机场的大巴。</p>
+                            </div>
+                            <div class="mt-3 text-sm text-gray-700 space-y-1">
+                                <p>🚌 This is the bus to <span class="text-blue-700 font-semibold">the zoo</span>.</p>
+                                <p>🚌 This is the bus to <span class="text-blue-700 font-semibold">the station</span>.</p>
+                                <p>🚌 This is the bus to <span class="text-blue-700 font-semibold">school</span>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-node" onclick="toggleTimeline(this)">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-2">
+                            <span class="badge">10</span>
+                            <h3 class="text-xl font-bold text-gray-800">Now it is my turn...</h3>
+                        </div>
+                        <p class="text-gray-600 ml-10">轮到我...了</p>
+                    </div>
+                    <div class="timeline-detail">
+                        <div class="bg-purple-50 p-4 rounded-lg ml-10 border-l-4 border-purple-500">
+                            <div class="space-y-3">
+                                <div class="bg-white p-3 rounded shadow-sm">
+                                    <p class="font-mono text-purple-900 font-semibold">Now it is my turn to help you.</p>
+                                    <p class="text-sm text-gray-600 mt-1">轮到我帮你了。</p>
+                                </div>
+                                <div class="bg-white p-3 rounded shadow-sm">
+                                    <p class="font-mono text-purple-900 font-semibold">Now it is my turn to take care of our cat.</p>
+                                    <p class="text-sm text-gray-600 mt-1">轮到我照顾我们的猫了。</p>
+                                </div>
+                            </div>
+                            <div class="mt-3 text-sm text-gray-700 bg-purple-100 p-2 rounded">
+                                <strong>句型：</strong>It is one's turn to do something<br>
+                                轮到某人做某事了
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 互动练习 -->
+        <section class="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-gray-200">
+            <h2 class="text-3xl calligraphy cinnabar mb-6 flex items-center gap-2">
+                <span class="text-4xl">练</span> 互动练习 <span class="text-sm font-sans text-gray-500">（点击显示/隐藏答案）</span>
+            </h2>
+
+            <div class="space-y-6">
+                <!-- Exercise 1 -->
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <h3 class="font-bold text-lg mb-4 text-gray-800">1. 句型转换练习</h3>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap items-center gap-2 text-lg">
+                            <span>肯定句：She</span>
+                            <span class="px-2 py-1 bg-white rounded border">is</span>
+                            <span>(play) basketball.</span>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="text-gray-600">→ 否定句：</span>
+                            <span class="answer-mask" onclick="toggleAnswer(this)">She is not playing basketball.</span>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="text-gray-600">→ 疑问句：</span>
+                            <span class="answer-mask" onclick="toggleAnswer(this)">Is she playing basketball?</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercise 2 -->
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <h3 class="font-bold text-lg mb-4 text-gray-800">2. 造句练习（使用生词）</h3>
+                    <p class="text-sm text-gray-600 mb-4">用现在进行时完成句子，点击灰色区域显示答案，再次点击隐藏</p>
+                    
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-blue-400">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="text-2xl">🚌</span>
+                                <span class="font-medium">Tiantian / wait / bus</span>
+                            </div>
+                            <div class="answer-mask inline-block" onclick="toggleAnswer(this)">
+                                What is Tiantian doing? He is waiting for a bus.
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-green-400">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="text-2xl">⛵</span>
+                                <span class="font-medium">Peter and Simon / sail / boat</span>
+                            </div>
+                            <div class="answer-mask inline-block" onclick="toggleAnswer(this)">
+                                What are Peter and Simon doing? They are sailing a boat.
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-purple-400">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="text-2xl">🛹</span>
+                                <span class="font-medium">Claire / look for / skateboard</span>
+                            </div>
+                            <div class="answer-mask inline-block" onclick="toggleAnswer(this)">
+                                What is Claire doing? She is looking for a skateboard.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercise 3: Story Recall -->
+                <div class="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl p-6 border border-orange-200">
+                    <h3 class="font-bold text-lg mb-4 text-gray-800">3. 故事复述练习</h3>
+                    <p class="text-sm text-gray-600 mb-4">根据记忆补全故事中的关键句子（点击显示/隐藏）</p>
+                    
+                    <div class="space-y-3">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="text-gray-700 font-medium w-24 flex-shrink-0">轮胎坏了：</span>
+                            <span class="answer-mask flex-1" onclick="toggleAnswer(this)">We have got a problem with the tyre.</span>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="text-gray-700 font-medium w-24 flex-shrink-0">大巴开动：</span>
+                            <span class="answer-mask flex-1" onclick="toggleAnswer(this)">The bus is moving.</span>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="text-gray-700 font-medium w-24 flex-shrink-0">到达海滩：</span>
+                            <span class="answer-mask flex-1" onclick="toggleAnswer(this)">Here we are! This is a day at the beach.</span>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="text-gray-700 font-medium w-24 flex-shrink-0">轮流帮忙：</span>
+                            <span class="answer-mask flex-1" onclick="toggleAnswer(this)">Now it is my turn to help you.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dialogue Practice -->
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">4. 对话创作工坊（6-8句）</h3>
+                            <p class="text-sm text-gray-600">点击灰色区域显示答案，再次点击隐藏；点击复制按钮获取完整文本</p>
+                        </div>
+                        <button onclick="copyDialogue()" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium shadow-sm flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            复制对话
+                        </button>
+                    </div>
+                    
+                    <div class="chat-container bg-white/50 rounded-lg p-4" onclick="event.stopPropagation()">
+                        
+                        <div class="chat-row">
+                            <div class="chat-avatar bg-blue-100 text-blue-800">A</div>
+                            <div class="chat-bubble">
+                                <div class="leading-relaxed">
+                                    Hi! What <span class="text-red-600 font-bold">are</span> you <span class="text-red-600 font-bold">doing</span> now?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-row">
+                            <div class="chat-avatar bg-green-100 text-green-800">B</div>
+                            <div class="chat-bubble">
+                                <div class="leading-relaxed flex flex-wrap items-center gap-1">
+                                    <span>I</span>
+                                    <span class="text-red-600 font-bold">am</span>
+                                    <span class="answer-mask text-sm py-1 px-3" onclick="toggleAnswer(this); event.stopPropagation()">waiting for a bus</span>
+                                    <span>. What about you?</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-row">
+                            <div class="chat-avatar bg-blue-100 text-blue-800">A</div>
+                            <div class="chat-bubble">
+                                <div class="leading-relaxed flex flex-wrap items-center gap-1">
+                                    <span>I</span>
+                                    <span class="text-red-600 font-bold">am</span>
+                                    <span class="answer-mask text-sm py-1 px-3" onclick="toggleAnswer(this); event.stopPropagation()">playing with my toy cars</span>
+                                    <span>.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-row">
+                            <div class="chat-avatar bg-green-100 text-green-800">B</div>
+                            <div class="chat-bubble">
+                                <div class="leading-relaxed flex flex-wrap items-center gap-1">
+                                    <span>Look! The bus</span>
+                                    <span class="text-red-600 font-bold">is</span>
+                                    <span class="answer-mask text-sm py-1 px-3" onclick="toggleAnswer(this); event.stopPropagation()">moving</span>
+                                    <span>!</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-row">
+                            <div class="chat-avatar bg-blue-100 text-blue-800">A</div>
+                            <div class="chat-bubble">
+                                <div class="leading-relaxed flex flex-wrap items-center gap-1">
+                                    <span>Great! But there</span>
+                                    <span class="text-red-600 font-bold">are</span>
+                                    <span>lots of sheep on the road.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-row">
+                            <div class="chat-avatar bg-green-100 text-green-800">B</div>
+                            <div class="chat-bubble">
+                                <div class="leading-relaxed flex flex-wrap items-center gap-1">
+                                    <span>Don't worry. We</span>
+                                    <span class="text-red-600 font-bold">are having</span>
+                                    <span>a bus trip. It</span>
+                                    <span class="text-red-600 font-bold">is</span>
+                                    <span class="answer-mask text-sm py-1 px-3" onclick="toggleAnswer(this); event.stopPropagation()">exciting</span>
+                                    <span>!</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-row">
+                            <div class="chat-avatar bg-blue-100 text-blue-800">A</div>
+                            <div class="chat-bubble">
+                                <div class="leading-relaxed flex flex-wrap items-center gap-1">
+                                    <span>Look! There</span>
+                                    <span class="text-red-600 font-bold">is</span>
+                                    <span>a helicopter in the sky.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-row">
+                            <div class="chat-avatar bg-green-100 text-green-800">B</div>
+                            <div class="chat-bubble">
+                                <div class="leading-relaxed flex flex-wrap items-center gap-1">
+                                    <span>Yes! And now it</span>
+                                    <span class="text-red-600 font-bold">is</span>
+                                    <span>my turn to</span>
+                                    <span class="answer-mask text-sm py-1 px-3" onclick="toggleAnswer(this); event.stopPropagation()">take photos</span>
+                                    <span>.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="copy-feedback" class="text-green-600 text-sm mt-2 hidden text-center font-medium">✓ 已复制到剪贴板</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 作业清单 -->
+        <section class="ink-gradient text-white rounded-2xl shadow-xl p-6 md:p-8">
+            <h2 class="text-3xl calligraphy mb-6 flex items-center gap-2">
+                <span class="text-4xl">业</span> 作业清单 <span class="text-sm font-sans opacity-75 ml-2">3/14/2026</span>
+            </h2>
+            
+            <div class="space-y-4">
+                <label class="check-item flex items-start gap-4 p-4 bg-white bg-opacity-10 rounded-lg cursor-pointer hover:bg-opacity-20 transition-all">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-2 border-white bg-transparent checked:bg-cinnabar checked:border-cinnabar" onchange="toggleComplete(this)">
+                    <div>
+                        <div class="font-bold text-lg">复习现在进行时三种句式</div>
+                        <div class="text-sm opacity-80">肯定句、否定句、一般疑问句结构</div>
+                    </div>
+                </label>
+
+                <label class="check-item flex items-start gap-4 p-4 bg-white bg-opacity-10 rounded-lg cursor-pointer hover:bg-opacity-20 transition-all">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-2 border-white bg-transparent checked:bg-cinnabar checked:border-cinnabar" onchange="toggleComplete(this)">
+                    <div>
+                        <div class="font-bold text-lg">用现在进行时三种句式造句</div>
+                        <div class="text-sm opacity-80">使用生词1中的短语（waiting for a bus, playing with cars等）</div>
+                    </div>
+                </label>
+
+                <label class="check-item flex items-start gap-4 p-4 bg-white bg-opacity-10 rounded-lg cursor-pointer hover:bg-opacity-20 transition-all">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-2 border-white bg-transparent checked:bg-cinnabar checked:border-cinnabar" onchange="toggleComplete(this)">
+                    <div>
+                        <div class="font-bold text-lg">熟读并复述故事 "The Bus Trip"</div>
+                        <div class="text-sm opacity-80">掌握故事中的基本句子（moving, have got a problem, Here we are等）</div>
+                    </div>
+                </label>
+
+                <label class="check-item flex items-start gap-4 p-4 bg-white bg-opacity-10 rounded-lg cursor-pointer hover:bg-opacity-20 transition-all">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-2 border-white bg-transparent checked:bg-cinnabar checked:border-cinnabar" onchange="toggleComplete(this)">
+                    <div>
+                        <div class="font-bold text-lg">完成现在进行时对话</div>
+                        <div class="text-sm opacity-80">编写6-8句对话，使用现在进行时（包含 The bus is moving 等故事元素）</div>
+                    </div>
+                </label>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-white border-opacity-20 text-center">
+                <div class="text-sm opacity-75 mb-2">完成进度</div>
+                <div class="w-full bg-white bg-opacity-20 rounded-full h-2">
+                    <div id="progress-bar" class="bg-cinnabar h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+                <div id="progress-text" class="mt-2 text-sm font-bold">0/4 完成</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 text-gray-500 text-sm">
+        <p>Superminds 2 · Unit 7 · Present Continuous</p>
+        <p class="mt-1 opacity-75">学习是一场旅行，享受过程 🚌</p>
+    </footer>
+
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-900', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            document.getElementById('btn-' + tabName).classList.remove('bg-gray-200', 'text-gray-700');
+            document.getElementById('btn-' + tabName).classList.add('bg-blue-900', 'text-white');
+        }
+
+        function toggleTimeline(node) {
+            const detail = node.querySelector('.timeline-detail');
+            const isExpanded = detail.classList.contains('expanded');
+            
+            if (isExpanded) {
+                detail.classList.remove('expanded');
+                node.classList.remove('active');
+            } else {
+                detail.classList.add('expanded');
+                node.classList.add('active');
+            }
+        }
+
+        function toggleAnswer(element) {
+            element.classList.toggle('revealed');
+            
+            // 添加点击反馈动画
+            element.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                element.style.transform = '';
+            }, 100);
+        }
+
+        function toggleComplete(checkbox) {
+            const label = checkbox.closest('label');
+            if (checkbox.checked) {
+                label.classList.add('completed');
+            } else {
+                label.classList.remove('completed');
+            }
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+            const progress = (checked.length / checkboxes.length) * 100;
+            
+            document.getElementById('progress-bar').style.width = progress + '%';
+            document.getElementById('progress-text').textContent = checked.length + '/' + checkboxes.length + ' 完成';
+            
+            const progressData = {
+                checked: Array.from(checkboxes).map(cb => cb.checked),
+                date: new Date().toLocaleDateString()
+            };
+            localStorage.setItem('homeworkProgress', JSON.stringify(progressData));
+        }
+
+        window.onload = function() {
+            const saved = localStorage.getItem('homeworkProgress');
+            if (saved) {
+                const data = JSON.parse(saved);
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach((cb, index) => {
+                    if (data.checked[index]) {
+                        cb.checked = true;
+                        cb.closest('label').classList.add('completed');
+                    }
+                });
+                updateProgress();
+            }
+        };
+
+        function copyDialogue() {
+            const dialogue = `A: Hi! What are you doing now?
+B: I am waiting for a bus. What about you?
+A: I am playing with my toy cars.
+B: Look! The bus is moving!
+A: Great! But there are lots of sheep on the road.
+B: Don't worry. We are having a bus trip. It is exciting!
+A: Look! There is a helicopter in the sky.
+B: Yes! And now it is my turn to take photos.`;
+            
+            navigator.clipboard.writeText(dialogue).then(() => {
+                const feedback = document.getElementById('copy-feedback');
+                feedback.classList.remove('hidden');
+                setTimeout(() => feedback.classList.add('hidden'), 2000);
+            });
+        }
+    </script>
+</body>
+</html>
