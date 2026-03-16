@@ -197,6 +197,38 @@
 </head>
 <body class="p-4 md:p-8">
 
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-gradient-to-r from-blue-600 to-blue-800 border-b-4 border-yellow-400 shadow-lg mb-8 -mt-4 -mx-4 px-4 md:-mx-8 md:px-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-14">
+                <div class="flex items-center space-x-3">
+                    <i data-lucide="book-open" class="text-white w-6 h-6"></i>
+                    <span class="text-white text-lg font-bold">Super Minds 2</span>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-1">
+                    <a href="../index.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">首页 Home</a>
+                    <a href="index.html" class="px-3 py-2 text-sm font-medium text-white bg-white/20 rounded-lg border-b-2 border-yellow-400">Unit 7</a>
+                    <a href="../unit8/index.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">Unit 8</a>
+                    <a href="homework.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">作业 Homework</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="../index.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">首页 Home</a>
+                    <a href="index.html" class="px-3 py-2 text-sm font-medium text-white bg-white/20 rounded-lg border-l-4 border-yellow-400">Unit 7</a>
+                    <a href="../unit8/index.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">Unit 8</a>
+                    <a href="homework.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">作业 Homework</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <!-- Header -->
     <header class="max-w-6xl mx-auto mb-8 text-center text-white">
         <div class="inline-block mb-4 px-6 py-2 bg-white/20 rounded-full backdrop-blur-sm border border-white/30">
@@ -768,6 +800,12 @@
     <script>
         // 初始化图标
         lucide.createIcons();
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
 
         // 互动练习点击显示答案和翻译
         function toggleQuizAnswer(element) {
