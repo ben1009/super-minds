@@ -4,21 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super Minds - 英语学习平台</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJ6EXQH8SW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QJ6EXQH8SW');
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Ma+Shan+Zheng&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #f5f5f0;
+            background-color: #1a472a;
             background-image: 
-                radial-gradient(circle at 20% 50%, rgba(120, 120, 120, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(80, 80, 80, 0.03) 0%, transparent 50%),
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
-            font-family: 'Noto Serif SC', serif;
+                linear-gradient(0deg, transparent 24%, rgba(255,255,255,.03) 25%, rgba(255,255,255,.03) 26%, transparent 27%, transparent 74%, rgba(255,255,255,.03) 75%, rgba(255,255,255,.03) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(255,255,255,.03) 25%, rgba(255,255,255,.03) 26%, transparent 27%, transparent 74%, rgba(255,255,255,.03) 75%, rgba(255,255,255,.03) 76%, transparent 77%, transparent),
+                radial-gradient(ellipse at center, #2d5a3d 0%, #1a472a 100%);
+            background-size: 50px 50px, 50px 50px, 100% 100%;
+            font-family: 'Nunito', 'Noto Serif SC', sans-serif;
+            min-height: 100vh;
         }
         .calligraphy { font-family: 'Ma Shan Zheng', cursive; }
-        .ink-gradient { background: linear-gradient(135deg, #2c3e50 0%, #1e3a5f 100%); }
-        .cinnabar { color: #c93756; }
-        .bg-cinnabar { background-color: #c93756; }
+        
+        /* Baseball diamond gradient */
+        .baseball-gradient { 
+            background: linear-gradient(135deg, #1e3a5f 0%, #c41e3a 100%); 
+        }
+        
+        /* Dirt/Clay color */
+        .dirt { color: #8b4513; }
+        .bg-dirt { background-color: #8b4513; }
+        
+        /* Baseball red stitches color */
+        .stitches { color: #c41e3a; }
+        .bg-stitches { background-color: #c41e3a; }
+        
+        /* Navy blue - team color */
+        .navy { color: #1e3a5f; }
+        .bg-navy { background-color: #1e3a5f; }
+        
+        /* Baseball white */
+        .ball-white { color: #f8f9fa; }
+        .bg-ball-white { background-color: #f8f9fa; }
         
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -30,24 +59,82 @@
             transition: all 0.3s ease;
         }
         .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transform: translateY(-5px) rotate(1deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
         
         .unit-badge {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+            border: 2px solid #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        /* Baseball stitch pattern */
+        .stitch-pattern {
+            background-image: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(196, 30, 58, 0.1) 10px,
+                rgba(196, 30, 58, 0.1) 12px
+            );
+        }
+        
+        /* Baseball card style */
+        .baseball-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f0f0f0 100%);
+            border: 3px solid #1e3a5f;
+            position: relative;
+            overflow: hidden;
+        }
+        .baseball-card::before {
+            content: '⚾';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            transform: rotate(30deg);
+        }
+        
+        /* Header with stadium lights effect */
+        .stadium-header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0d1f33 50%, #1e3a5f 100%);
+            position: relative;
+        }
+        .stadium-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 10%, rgba(255,255,255,0.15) 0%, transparent 40%);
+        }
+        
+        /* Dirt base path pattern */
+        .base-path {
+            background: linear-gradient(90deg, #8b4513 0%, #a0522d 50%, #8b4513 100%);
         }
     </style>
 </head>
-<body class="text-gray-800 min-h-screen">
+<body class="text-gray-800">
 
-    <header class="ink-gradient text-white py-16 px-4 shadow-lg relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'200\' height=\'200\' viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0,100 Q50,50 100,100 T200,100\' fill=\'none\' stroke=\'white\' stroke-width=\'2\'/%3E%3C/svg%3E'); background-size: 100px;"></div>
+    <header class="stadium-header text-white py-16 px-4 shadow-2xl relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.2\'%3E%3Cpath d=\'M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
         <div class="max-w-4xl mx-auto text-center relative z-10 animate-fade-in">
-            <div class="text-sm opacity-80 mb-2 tracking-widest uppercase">English Learning Platform</div>
-            <h1 class="text-6xl md:text-7xl calligraphy mb-4">Super Minds</h1>
+            <div class="text-6xl mb-4">⚾</div>
+            <div class="text-sm opacity-80 mb-2 tracking-widest uppercase font-bold">English Learning Platform</div>
+            <h1 class="text-6xl md:text-7xl calligraphy mb-4 text-white drop-shadow-lg">Super Minds</h1>
             <p class="text-xl md:text-2xl font-light opacity-90">英语学习资源导航</p>
-            <div class="mt-6 text-sm opacity-75">探索精彩课程内容</div>
+            <div class="mt-6 text-sm opacity-75 flex items-center justify-center gap-4">
+                <span>🧢</span>
+                <span>Play Ball! 探索精彩课程内容</span>
+                <span>🧢</span>
+            </div>
         </div>
     </header>
 
@@ -55,45 +142,46 @@
 
         <!-- 课程单元列表 -->
         <section class="animate-fade-in">
-            <h2 class="text-3xl calligraphy cinnabar mb-8 flex items-center gap-3">
+            <h2 class="text-3xl calligraphy text-white mb-8 flex items-center gap-3 drop-shadow-lg">
                 <span class="text-4xl">📚</span> 课程单元
+                <span class="text-sm font-sans opacity-75 ml-2">选择你的训练项目</span>
             </h2>
             
             <div class="grid md:grid-cols-2 gap-6">
                 <!-- Unit 7 -->
                 <a href="unit7/index.html" class="block">
-                    <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 card-hover">
+                    <div class="baseball-card rounded-2xl shadow-2xl p-6 card-hover">
                         <div class="flex items-start justify-between mb-4">
                             <div class="unit-badge text-white px-4 py-2 rounded-full text-sm font-bold">
                                 Unit 7
                             </div>
-                            <span class="text-3xl">🚌</span>
+                            <span class="text-4xl">⚾</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">现在进行时</h3>
+                        <h3 class="text-xl font-bold navy mb-2">现在进行时</h3>
                         <p class="text-gray-600 mb-4">Present Continuous · The Bus Trip</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">语法</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs">故事</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">互动练习</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-bold border border-green-300">🏟️ 语法</span>
+                            <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-bold border border-amber-300">📖 故事</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-bold border border-blue-300">🎯 互动练习</span>
                         </div>
                     </div>
                 </a>
 
                 <!-- Homework -->
                 <a href="unit7/homework.html" class="block">
-                    <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 card-hover">
+                    <div class="baseball-card rounded-2xl shadow-2xl p-6 card-hover" style="border-color: #8b4513;">
                         <div class="flex items-start justify-between mb-4">
-                            <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full text-sm font-bold">
+                            <div class="bg-dirt text-white px-4 py-2 rounded-full text-sm font-bold border-2 border-white shadow-lg">
                                 作业
                             </div>
-                            <span class="text-3xl">✏️</span>
+                            <span class="text-4xl">📝</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Unit 7 作业</h3>
+                        <h3 class="text-xl font-bold text-amber-900 mb-2">Unit 7 作业</h3>
                         <p class="text-gray-600 mb-4">Homework · 3/14/2026</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs">句型转换</span>
-                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">造句练习</span>
-                            <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-xs">对话创作</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs font-bold border border-orange-300">🔄 句型转换</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-bold border border-yellow-300">✏️ 造句练习</span>
+                            <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-xs font-bold border border-pink-300">💬 对话创作</span>
                         </div>
                     </div>
                 </a>
@@ -102,29 +190,30 @@
 
         <!-- 快速链接 -->
         <section class="animate-fade-in">
-            <h2 class="text-3xl calligraphy cinnabar mb-8 flex items-center gap-3">
+            <h2 class="text-3xl calligraphy text-white mb-8 flex items-center gap-3 drop-shadow-lg">
                 <span class="text-4xl">🔗</span> 快速链接
+                <span class="text-sm font-sans opacity-75 ml-2">快速进入场地</span>
             </h2>
             
-            <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-200">
+            <div class="bg-white rounded-2xl shadow-2xl p-6 border-4 border-white" style="background: linear-gradient(145deg, #ffffff 0%, #f5f5f5 100%);">
                 <div class="grid md:grid-cols-2 gap-4">
-                    <a href="unit7/index.html" class="flex items-center gap-4 p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white text-xl">
+                    <a href="unit7/index.html" class="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 transition-all border-2 border-green-300">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center text-white text-2xl shadow-lg border-4 border-white">
                             📖
                         </div>
                         <div>
-                            <div class="font-bold text-gray-800">课程主页</div>
-                            <div class="text-sm text-gray-600">查看完整课程内容</div>
+                            <div class="font-bold text-green-900 text-lg">课程主页</div>
+                            <div class="text-sm text-green-700">查看完整课程内容</div>
                         </div>
                     </a>
                     
-                    <a href="unit7/homework.html" class="flex items-center gap-4 p-4 rounded-xl bg-orange-50 hover:bg-orange-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center text-white text-xl">
+                    <a href="unit7/homework.html" class="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-amber-50 to-amber-100 hover:from-amber-100 hover:to-amber-200 transition-all border-2 border-amber-300">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center text-white text-2xl shadow-lg border-4 border-white">
                             📝
                         </div>
                         <div>
-                            <div class="font-bold text-gray-800">作业页面</div>
-                            <div class="text-sm text-gray-600">完成作业练习</div>
+                            <div class="font-bold text-amber-900 text-lg">作业页面</div>
+                            <div class="text-sm text-amber-700">完成作业练习</div>
                         </div>
                     </a>
                 </div>
@@ -133,25 +222,30 @@
 
         <!-- 学习提示 -->
         <section class="animate-fade-in">
-            <div class="ink-gradient text-white rounded-2xl shadow-xl p-8">
+            <div class="baseball-gradient text-white rounded-2xl shadow-2xl p-8 border-4 border-white relative overflow-hidden">
+                <!-- Baseball decoration -->
+                <div class="absolute top-4 right-4 text-8xl opacity-10">⚾</div>
+                <div class="absolute bottom-4 left-4 text-6xl opacity-10">🧢</div>
+                
                 <h2 class="text-2xl calligraphy mb-6 flex items-center gap-3">
                     <span class="text-3xl">💡</span> 学习小贴士
+                    <span class="text-sm font-sans opacity-75">Coach's Tips</span>
                 </h2>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-white bg-opacity-10 rounded-xl p-4">
+                <div class="grid md:grid-cols-3 gap-6 relative z-10">
+                    <div class="bg-white bg-opacity-15 rounded-xl p-4 border-2 border-white border-opacity-30 backdrop-blur-sm">
                         <div class="text-3xl mb-3">🎯</div>
                         <h3 class="font-bold mb-2">目标明确</h3>
                         <p class="text-sm opacity-90">每次学习专注于一个语法点，循序渐进掌握知识。</p>
                     </div>
-                    <div class="bg-white bg-opacity-10 rounded-xl p-4">
+                    <div class="bg-white bg-opacity-15 rounded-xl p-4 border-2 border-white border-opacity-30 backdrop-blur-sm">
                         <div class="text-3xl mb-3">🔄</div>
                         <h3 class="font-bold mb-2">反复练习</h3>
                         <p class="text-sm opacity-90">通过造句、对话等方式巩固所学内容。</p>
                     </div>
-                    <div class="bg-white bg-opacity-10 rounded-xl p-4">
-                        <div class="text-3xl mb-3">🎉</div>
+                    <div class="bg-white bg-opacity-15 rounded-xl p-4 border-2 border-white border-opacity-30 backdrop-blur-sm">
+                        <div class="text-3xl mb-3">🏆</div>
                         <h3 class="font-bold mb-2">享受过程</h3>
-                        <p class="text-sm opacity-90">学习是一场旅行，保持好奇心和热情。</p>
+                        <p class="text-sm opacity-90">学习是一场精彩的球赛，保持好奇心和热情！</p>
                     </div>
                 </div>
             </div>
@@ -159,9 +253,13 @@
 
     </main>
 
-    <footer class="text-center py-8 text-gray-500 text-sm">
-        <p>Super Minds English Learning Platform</p>
-        <p class="mt-1 opacity-75">让英语学习变得简单有趣 🌟</p>
+    <footer class="text-center py-8 text-white text-sm opacity-80">
+        <p class="flex items-center justify-center gap-2">
+            <span>⚾</span>
+            <span>Super Minds English Learning Platform</span>
+            <span>⚾</span>
+        </p>
+        <p class="mt-2 opacity-75">让英语学习变得简单有趣，像打棒球一样精彩！🧢</p>
     </footer>
 
 </body>
