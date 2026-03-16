@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Minds 2 Unit 8 - 动名词作主语 | 棒球主题英语学习</title>
+    
+    <!-- Google Analytics -->
+    <script src="../ga.js"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --leather-primary: #F5F5DC;
+            --leather-dark: #D2B48C;
+            --leather-shadow: #8B4513;
+            --stitch-red: #DC143C;
+            --field-green: #2E5D34;
+            --field-light: #3A6B3F;
+            --baseball-white: #FAFAFA;
+        }
+        
+        body {
+            background-color: var(--field-green);
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.05) 0%, transparent 50%),
+                linear-gradient(135deg, #2E5D34 0%, #1B4332 100%);
+            font-family: 'Noto Sans SC', sans-serif;
+            min-height: 100vh;
+        }
+        
+        .baseball-font {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.05em;
+        }
+        
+        .chinese-font {
+            font-family: 'Noto Serif SC', serif;
+        }
+        
+        .leather-card {
+            background: linear-gradient(135deg, #F5F5DC 0%, #E8DCC4 100%);
+            border: 3px solid #8B4513;
+            box-shadow: 
+                0 10px 30px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.5);
+            position: relative;
+        }
+        
+        .leather-card::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 2px dashed var(--stitch-red);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+        
+        .stitch-border {
+            border: 3px solid var(--stitch-red);
+            border-radius: 12px;
+            position: relative;
+            background: #FAFAFA;
+        }
+        
+        .stitch-border::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border: 2px dashed var(--baseball-white);
+            border-radius: 16px;
+            opacity: 0.6;
+        }
+        
+        .baseball-btn {
+            background: linear-gradient(135deg, #DC143C 0%, #B91C1C 100%);
+            color: white;
+            border: 2px solid #8B4513;
+            box-shadow: 0 4px 15px rgba(220,20,60,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .baseball-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220,20,60,0.4);
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.9);
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .nav-link:hover {
+            color: white;
+            border-bottom-color: var(--stitch-red);
+        }
+        
+        .ball-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            margin-right: 12px;
+            font-size: 24px;
+            border: 2px solid #ddd;
+        }
+        
+        .word-card {
+            background: white;
+            border-left: 4px solid var(--stitch-red);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .word-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .fill-blank {
+            display: inline-block;
+            min-width: 100px;
+            padding: 4px 12px;
+            border-bottom: 3px solid var(--stitch-red);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            color: #333;
+            background: white;
+            border-radius: 4px;
+            margin: 0 4px;
+        }
+        
+        .fill-blank.revealed {
+            background: #FEF3C7;
+            border: 2px solid #F59E0B;
+            color: #92400e;
+            transform: scale(1.05);
+        }
+        
+        .grammar-box {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            border-radius: 12px;
+            border: 3px solid #fbbf24;
+        }
+        
+        .interactive-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+        }
+        
+        .interactive-answer.show {
+            max-height: 500px;
+            margin-top: 10px;
+            padding: 12px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .song-lyric {
+            line-height: 2.2;
+            font-size: 1.1rem;
+        }
+        
+        .section-title {
+            background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            display: inline-block;
+            border: 2px solid #F5F5DC;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .reading-paragraph {
+            cursor: pointer;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+            padding-left: 12px;
+        }
+        
+        .reading-paragraph:hover {
+            border-left-color: var(--stitch-red);
+            background: rgba(220,20,60,0.05);
+        }
+        
+        .diamond-pattern {
+            background-image: 
+                linear-gradient(45deg, rgba(255,255,255,0.03) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(255,255,255,0.03) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.03) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.03) 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+        
+        .baseball-diamond {
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(45deg);
+            margin: 20px auto;
+            border: 4px solid rgba(255,255,255,0.3);
+            position: relative;
+        }
+        
+        .base { width: 20px; height: 20px; background: white; position: absolute; border-radius: 50%; }
+        .base.home { bottom: -10px; right: -10px; background: var(--stitch-red); }
+        .base.first { top: -10px; right: -10px; }
+        .base.second { top: -10px; left: -10px; }
+        .base.third { bottom: -10px; left: -10px; }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .bounce-animation:hover {
+            animation: bounce 0.6s ease infinite;
+        }
+        
+        .grammar-highlight {
+            background: linear-gradient(120deg, #fef3c7 0%, #fef3c7 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 88%;
+            padding: 0 4px;
+            font-weight: bold;
+            color: #92400e;
+        }
+    </style>
+</head>
+<body class="diamond-pattern">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-gradient-to-r from-green-900 to-green-800 border-b-4 border-red-700 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-baseball-ball text-white text-2xl animate-spin" style="animation-duration: 3s;"></i>
+                    <span class="baseball-font text-white text-xl font-bold">Super Minds 2</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="nav-link px-3 py-2 text-sm font-medium">首页 Home</a>
+                    <a href="../unit7/index.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 7</a>
+                    <a href="index.html" class="nav-link px-3 py-2 text-sm font-medium border-b-2 border-red-500">Unit 8</a>
+                    <a href="../unit7/homework.html" class="nav-link px-3 py-2 text-sm font-medium">作业 Homework</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <!-- Header Section -->
+        <div class="text-center mb-12">
+            <div class="leather-card p-8 rounded-lg inline-block max-w-3xl w-full">
+                <h1 class="baseball-font text-4xl md:text-5xl font-black text-green-900 mb-4">
+                    <i class="fas fa-trophy text-yellow-600 mr-3"></i>Unit 8
+                </h1>
+                <h2 class="chinese-font text-2xl md:text-3xl font-bold text-amber-900 mb-4">
+                    动名词作主语 · 球类运动
+                </h2>
+                <p class="text-gray-700 text-lg">Gerunds as Subjects · Ball Sports</p>
+                <div class="mt-4 flex justify-center">
+                    <div class="baseball-diamond">
+                        <div class="base home"></div>
+                        <div class="base first"></div>
+                        <div class="base second"></div>
+                        <div class="base third"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vocabulary Section -->
+        <div class="mb-12">
+            <div class="text-center mb-8">
+                <div class="section-title">
+                    <i class="fas fa-futbol mr-2"></i>词汇 Vocabulary · 10个球类运动
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('soccer')">
+                    <div class="ball-icon">⚽</div>
+                    <div>
+                        <div class="font-bold text-lg text-gray-800">soccer</div>
+                        <div class="text-sm text-gray-600">足球</div>
+                    </div>
+                    <i class="fas fa-volume-up ml-auto text-red-600"></i>
+                </div>
+                
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('basketball')">
+                    <div class="ball-icon">🏀</div>
+                    <div>
+                        <div class="font-bold text-lg text-gray-800">basketball</div>
+                        <div class="text-sm text-gray-600">篮球</div>
+                    </div>
+                    <i class="fas fa-volume-up ml-auto text-red-600"></i>
+                </div>
+                
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('tennis')">
+                    <div class="ball-icon">🎾</div>
+                    <div>
+                        <div class="font-bold text-lg text-gray-800">tennis</div>
+                        <div class="text-sm text-gray-600">网球</div>
+                    </div>
+                    <i class="fas fa-volume-up ml-auto text-red-600"></i>
+                </div>
+                
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('volleyball')">
+                    <div class="ball-icon">🏐</div>
+                    <div>
+                        <div class="font-bold text-lg text-gray-800">volleyball</div>
+                        <div class="text-sm text-gray-600">排球</div>
+                    </div>
+                    <i class="fas fa-volume-up ml-auto text-red-600"></i>
+                </div>
+                
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('golf')">
+                    <div class="ball-icon">⛳</div>
+                    <div>
+                        <div class="font-bold text-lg text-gray-800">golf</div>
+                        <div class="text-sm text-gray-600">高尔夫球</div>
+                    </div>
+                    <i class="fas fa-volume-up ml-auto text-red-600"></i>
+                </div>
+                
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('bowling')">
+                    <div class="ball-icon">🎳</div>
+                    <div>
+                        <div class="font-bold text-lg text-gray-800">bowling</div>
+                        <div class="text-sm text-gray-600">保龄球</div>
+                    </div>
+                    <i class="fas fa-volume-up ml-auto text-red-600"></i>
+                </div>
+                
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center border-2 border-red-500 bg-red-50" onclick="speak('baseball')">
+                    <div class="ball-icon">⚾</div>
+                    <div>
+                        <div class="font-bold text-lg text-red-800">baseball</div>
+                        <div class="text-sm text-red-600">棒球 ⭐</div>
+                    </div>
+                    <i class="fas fa-volume-up ml-auto text-red-600"></i>
+                </div>
+                
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('badminton')">
+                    <div class="ball-icon">🏸</div>
+                    <div>
+                        <div class="font-bold text-lg text-gray-800">badminton</div>
+                        <div class="text-sm text-gray-600">羽毛球</div>
+                    </div>
+                    <i class="fas fa-volume-up ml-auto text-red-600"></i>
+                </div>
+                
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('rugby')">
+                    <div class="ball-icon">🏉</div>
+                    <div>
+                        <div class="font-bold text-lg text-gray-800">rugby</div>
+                        <div class="text-sm text-gray-600">橄榄球</div>
+                    </div>
+                    <i class="fas fa-volume-up ml-auto text-red-600"></i>
+                </div>
+                
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('ping pong')">
+                    <div class="ball-icon">🏓</div>
+                    <div>
+                        <div class="font-bold text-lg text-gray-800">ping-pong</div>
+                        <div class="text-sm text-gray-600">乒乓球</div>
+                    </div>
+                    <i class="fas fa-volume-up ml-auto text-red-600"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grammar Section -->
+        <div class="mb-12">
+            <div class="text-center mb-8">
+                <div class="section-title">
+                    <i class="fas fa-book-open mr-2"></i>语法 Grammar · 动名词作主语
+                </div>
+            </div>
+            
+            <div class="leather-card p-8 rounded-lg max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-amber-900 mb-6 text-center chinese-font">核心结构：Playing + is + 形容词</h3>
+                
+                <div class="grammar-box p-6 mb-6">
+                    <div class="text-center text-lg mb-4 text-yellow-300">公式 Formula</div>
+                    <div class="text-center text-2xl md:text-3xl font-bold">
+                        <span class="text-blue-400">Playing</span> + <span class="text-green-400">球类</span> + <span class="text-purple-400">is</span> + <span class="text-pink-400">形容词</span>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="stitch-border p-4 bg-white">
+                        <div class="text-lg font-bold text-gray-800 mb-2">
+                            <span class="grammar-highlight">Playing soccer</span> is fun.
+                        </div>
+                        <div class="text-gray-600">踢足球很有趣。</div>
+                    </div>
+                    
+                    <div class="stitch-border p-4 bg-white">
+                        <div class="text-lg font-bold text-gray-800 mb-2">
+                            <span class="grammar-highlight">Playing basketball</span> is cool.
+                        </div>
+                        <div class="text-gray-600">打篮球很酷。</div>
+                    </div>
+                    
+                    <div class="stitch-border p-4 bg-white">
+                        <div class="text-lg font-bold text-gray-800 mb-2">
+                            <span class="grammar-highlight">Playing tennis</span> is easy.
+                        </div>
+                        <div class="text-gray-600">打网球很简单。</div>
+                    </div>
+                    
+                    <div class="stitch-border p-4 bg-white">
+                        <div class="text-lg font-bold text-gray-800 mb-2">
+                            <span class="grammar-highlight">Playing baseball</span> is exciting.
+                        </div>
+                        <div class="text-gray-600">打棒球令人兴奋。</div>
+                    </div>
+                    
+                    <div class="stitch-border p-4 bg-white">
+                        <div class="text-lg font-bold text-gray-800 mb-2">
+                            <span class="grammar-highlight">Bowling</span> is great fun.
+                        </div>
+                        <div class="text-gray-600">打保龄球很有趣。（直接用动名词作主语）</div>
+                    </div>
+                    
+                    <div class="stitch-border p-4 bg-white">
+                        <div class="text-lg font-bold text-gray-800 mb-2">
+                            <span class="grammar-highlight">Playing golf</span> is relaxing.
+                        </div>
+                        <div class="text-gray-600">打高尔夫让人放松。</div>
+                    </div>
+                </div>
+                
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
+                    <div class="flex items-start">
+                        <i class="fas fa-lightbulb text-amber-500 mt-1 mr-3"></i>
+                        <div>
+                            <div class="font-bold text-amber-900 mb-1">语法要点 Grammar Point</div>
+                            <div class="text-amber-800 text-sm leading-relaxed">
+                                动名词（Gerund）是动词的 -ing 形式，在这里充当句子的主语。记住：<br>
+                                • <strong>Playing + 球类</strong> = 主语（第三人称单数）<br>
+                                • 谓语动词用 <strong>is</strong>（不用 are/am）<br>
+                                • 形容词描述这项运动的特性
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Song Fill-in Section (Fixed) -->
+        <div class="mb-12">
+            <div class="text-center mb-8">
+                <div class="section-title">
+                    <i class="fas fa-music mr-2"></i>歌曲填空 Song Activity
+                </div>
+            </div>
+            
+            <div class="leather-card p-8 rounded-lg max-w-3xl mx-auto">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-green-900 mb-2">Complete the Song!</h3>
+                    <p class="text-gray-600">点击空白处查看答案 · Click blanks to reveal answers</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-inner mb-6 stitch-border">
+                    <div class="text-center text-sm text-gray-500 mb-4">Word Bank: playing · flying · singing · painting</div>
+                    
+                    <div class="song-lyric text-center space-y-4">
+                        <div>
+                            <span class="fill-blank" data-answer="Playing" onclick="toggleAnswer(this)">_____</span> tennis is great fun.<br>
+                            It's fun for everyone.<br>
+                            So come on, everyone,<br>
+                            Come and join the fun!
+                        </div>
+                        
+                        <div class="mt-6">
+                            <span class="fill-blank" data-answer="Flying" onclick="toggleAnswer(this)">_____</span> kites is easy,<br>
+                            Easy for you and me.<br>
+                            So come and fly with me,<br>
+                            Oh, come on, it's so easy!<br>
+                            It's so easy!
+                        </div>
+                        
+                        <div class="mt-6">
+                            <span class="fill-blank" data-answer="Singing" onclick="toggleAnswer(this)">_____</span> songs is great fun.<br>
+                            It's fun for everyone.<br>
+                            So come on, everyone,<br>
+                            Come and join the fun!
+                        </div>
+                        
+                        <div class="mt-6">
+                            <span class="fill-blank" data-answer="Painting" onclick="toggleAnswer(this)">_____</span> pictures is easy.<br>
+                            Easy for you and me.<br>
+                            So come and paint with me,<br>
+                            Oh, come on, it's so easy!<br>
+                            It's so easy!
+                        </div>
+                        
+                        <div class="mt-6 text-xl font-bold text-green-800">
+                            Come and join the fun! 🎵
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
+                    <div class="bg-blue-100 p-3 rounded-lg">
+                        <div class="font-bold text-blue-800">1. Playing</div>
+                        <div class="text-xs text-blue-600">tennis</div>
+                    </div>
+                    <div class="bg-green-100 p-3 rounded-lg">
+                        <div class="font-bold text-green-800">2. Flying</div>
+                        <div class="text-xs text-green-600">kites</div>
+                    </div>
+                    <div class="bg-purple-100 p-3 rounded-lg">
+                        <div class="font-bold text-purple-800">3. Singing</div>
+                        <div class="text-xs text-purple-600">songs</div>
+                    </div>
+                    <div class="bg-pink-100 p-3 rounded-lg">
+                        <div class="font-bold text-pink-800">4. Painting</div>
+                        <div class="text-xs text-pink-600">pictures</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reading Section 1 -->
+        <div class="mb-12">
+            <div class="text-center mb-8">
+                <div class="section-title">
+                    <i class="fas fa-book-reader mr-2"></i>阅读 Reading 1
+                </div>
+            </div>
+            
+            <div class="leather-card p-8 rounded-lg max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-amber-900 mb-6 text-center">Sports Club Is Fun!</h3>
+                
+                <div class="space-y-4" id="reading1">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans1')">
+                        <p class="text-lg text-gray-800">I like sports. <span class="grammar-highlight">Playing sports</span> is great! I go to a sports club with my friends.</p>
+                        <div id="trans1" class="interactive-answer">
+                            <p class="text-gray-700">我喜欢运动。做运动很棒！我和朋友们去体育俱乐部。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans2')">
+                        <p class="text-lg text-gray-800">Tom is in the club. <span class="grammar-highlight">Playing soccer</span> is fun for him. He kicks the ball. He runs fast.</p>
+                        <div id="trans2" class="interactive-answer">
+                            <p class="text-gray-700">汤姆在俱乐部里。踢足球对他来说很有趣。他踢球，跑得很快。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans3')">
+                        <p class="text-lg text-gray-800">Lucy likes basketball. She is tall. <span class="grammar-highlight">Playing basketball</span> is cool. She can shoot well.</p>
+                        <div id="trans3" class="interactive-answer">
+                            <p class="text-gray-700">露西喜欢篮球。她很高。打篮球很酷。她投篮投得很好。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans4')">
+                        <p class="text-lg text-gray-800">Sam and Jim play tennis. <span class="grammar-highlight">Playing tennis</span> is easy for them. Hit the ball! Bounce the ball!</p>
+                        <div id="trans4" class="interactive-answer">
+                            <p class="text-gray-700">萨姆和吉姆打网球。打网球对他们来说很容易。击球！让球弹跳！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans5')">
+                        <p class="text-lg text-gray-800">Look at Mary. <span class="grammar-highlight">Playing volleyball</span> is interesting. She hits the ball with her hands. Smash!</p>
+                        <div id="trans5" class="interactive-answer">
+                            <p class="text-gray-700">看玛丽。打排球很有趣。她用手击球。扣球！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans6')">
+                        <p class="text-lg text-gray-800">Peter is on the grass. <span class="grammar-highlight">Playing golf</span> is relaxing. He hits the ball slowly. It goes far.</p>
+                        <div id="trans6" class="interactive-answer">
+                            <p class="text-gray-700">彼得在草地上。打高尔夫很放松。他慢慢地击球。球飞得很远。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans7')">
+                        <p class="text-lg text-gray-800">My friends like bowling. <span class="grammar-highlight">Bowling</span> is great fun! Roll the ball. Boom! The pins fall down.</p>
+                        <div id="trans7" class="interactive-answer">
+                            <p class="text-gray-700">我的朋友们喜欢保龄球。打保龄球很有趣！滚动球。砰！球瓶倒下了。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans8')">
+                        <p class="text-lg text-gray-800">Some boys play baseball. <span class="grammar-highlight">Playing baseball</span> is good. Catch the ball with a glove. Throw it fast.</p>
+                        <div id="trans8" class="interactive-answer">
+                            <p class="text-gray-700">一些男孩在打棒球。打棒球很好。用手套接球。快速传球。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans9')">
+                        <p class="text-lg text-gray-800">Lily and Mike play badminton. <span class="grammar-highlight">Playing badminton</span> is exciting. The shuttlecock flies up and down.</p>
+                        <div id="trans9" class="interactive-answer">
+                            <p class="text-gray-700">莉莉和迈克打羽毛球。打羽毛球很刺激。羽毛球上下飞舞。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans10')">
+                        <p class="text-lg text-gray-800">Rugby boys are strong. <span class="grammar-highlight">Playing rugby</span> is hard. Run! Pass the ball! Don't drop it!</p>
+                        <div id="trans10" class="interactive-answer">
+                            <p class="text-gray-700">橄榄球男孩们很强壮。打橄榄球很难。跑！传球！别掉了！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans11')">
+                        <p class="text-lg text-gray-800">I like ping-pong. <span class="grammar-highlight">Playing ping-pong</span> is my favorite. Ping! Pang! The ball goes fast.</p>
+                        <div id="trans11" class="interactive-answer">
+                            <p class="text-gray-700">我喜欢乒乓球。打乒乓球是我的最爱。乒！乓！球很快。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg bg-yellow-50" onclick="toggleTrans('trans12')">
+                        <p class="text-xl font-bold text-amber-900"><span class="grammar-highlight">Playing sports</span> is happy. <span class="grammar-highlight">Being with friends</span> is nice. Come and join us!</p>
+                        <div id="trans12" class="interactive-answer">
+                            <p class="text-gray-700 font-bold">做运动很快乐。和朋友们在一起很好。来加入我们吧！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reading Section 2 -->
+        <div class="mb-12">
+            <div class="text-center mb-8">
+                <div class="section-title">
+                    <i class="fas fa-running mr-2"></i>阅读 Reading 2
+                </div>
+            </div>
+            
+            <div class="leather-card p-8 rounded-lg max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-amber-900 mb-6 text-center">Finding the Fun in Sports</h3>
+                
+                <div class="space-y-4" id="reading2">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans13')">
+                        <p class="text-lg text-gray-800">Do you like sports? <span class="grammar-highlight">Playing ball games</span> is a great way to have fun and make friends. Let me tell you about some of my friends and their favorite sports.</p>
+                        <div id="trans13" class="interactive-answer">
+                            <p class="text-gray-700">你喜欢运动吗？玩球类游戏是玩得开心和交朋友的好方法。让我告诉你一些关于我的朋友和他们最喜欢的运动。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans14')">
+                        <p class="text-lg text-gray-800">This is Tom. <span class="grammar-highlight">Playing soccer</span> is easy for him. He loves running and kicking the ball. He says, "Kicking a soccer ball is exciting!"</p>
+                        <div id="trans14" class="interactive-answer">
+                            <p class="text-gray-700">这是汤姆。踢足球对他来说很容易。他喜欢奔跑和踢球。他说："踢足球很刺激！"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans15')">
+                        <p class="text-lg text-gray-800">Look at Lucy. She is very tall. <span class="grammar-highlight">Playing basketball</span> is her favorite. "Shooting a basketball is difficult," she says, "but it is also very cool!"</p>
+                        <div id="trans15" class="interactive-answer">
+                            <p class="text-gray-700">看露西。她很高。打篮球是她的最爱。"投篮很难，"她说，"但也很酷！"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans16')">
+                        <p class="text-lg text-gray-800">Here come Sam and Jim. They are holding a small yellow ball. <span class="grammar-highlight">Playing tennis</span> is their hobby. They think hitting a tennis ball is fun.</p>
+                        <div id="trans16" class="interactive-answer">
+                            <p class="text-gray-700">萨姆和吉姆来了。他们拿着一个黄色的小球。打网球是他们的爱好。他们认为击打网球很有趣。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans17')">
+                        <p class="text-lg text-gray-800">In the gym, we can see Mary. <span class="grammar-highlight">Playing volleyball</span> is what she does after school. She practices with her friends. For her, spiking a volleyball is not easy, but it is interesting.</p>
+                        <div id="trans17" class="interactive-answer">
+                            <p class="text-gray-700">在体育馆里，我们可以看到玛丽。放学后她打排球。她和朋友们一起练习。对她来说，扣球不容易，但很有趣。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans18')">
+                        <p class="text-lg text-gray-800">What about Peter? He is on the grass. <span class="grammar-highlight">Playing golf</span> is a quiet sport. He says, "Hitting a golf ball is relaxing. I like it."</p>
+                        <div id="trans18" class="interactive-answer">
+                            <p class="text-gray-700">彼得呢？他在草地上。高尔夫是一项安静的运动。他说："打高尔夫球很放松。我喜欢。"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans19')">
+                        <p class="text-lg text-gray-800">Over there, some students are in the bowling alley. <span class="grammar-highlight">Bowling</span> is a social sport. They think rolling the ball to hit the pins is great fun.</p>
+                        <div id="trans19" class="interactive-answer">
+                            <p class="text-gray-700">在那边，一些学生在保龄球馆。保龄球是一项社交运动。他们认为滚动球击中球瓶很有趣。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans20')">
+                        <p class="text-lg text-gray-800">Some other students are on the baseball field. <span class="grammar-highlight">Playing baseball</span> needs a lot of skill. Catching a baseball with a big glove is amazing.</p>
+                        <div id="trans20" class="interactive-answer">
+                            <p class="text-gray-700">其他一些学生在棒球场上。打棒球需要很多技巧。用大手套接住棒球很令人惊奇。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans21')">
+                        <p class="text-lg text-gray-800">On the badminton court, Lily and Mike are playing. <span class="grammar-highlight">Playing badminton</span> is fast and quick. They think hitting the shuttlecock is a good workout.</p>
+                        <div id="trans21" class="interactive-answer">
+                            <p class="text-gray-700">在羽毛球场上，莉莉和迈克正在打球。打羽毛球又快又迅速。他们认为击打羽毛球是很好的锻炼。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans22')">
+                        <p class="text-lg text-gray-800">Don't forget about rugby. <span class="grammar-highlight">Playing rugby</span> looks very tough. Those boys say, "Running with the rugby ball is powerful!"</p>
+                        <div id="trans22" class="interactive-answer">
+                            <p class="text-gray-700">别忘了橄榄球。打橄榄球看起来很艰难。那些男孩说："带着橄榄球跑很有力量！"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans23')">
+                        <p class="text-lg text-gray-800">Finally, let's watch the ping-pong table. <span class="grammar-highlight">Playing ping-pong</span> is very popular in our school. Hitting the small white ball is really fast and requires quick hands.</p>
+                        <div id="trans23" class="interactive-answer">
+                            <p class="text-gray-700">最后，让我们看乒乓球桌。打乒乓球在我们学校很受欢迎。击打白色小球真的很快，需要敏捷的手。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reading-paragraph p-4 rounded-lg bg-green-50" onclick="toggleTrans('trans24')">
+                        <p class="text-xl font-bold text-green-900">So, you see, <span class="grammar-highlight">playing different ball games</span> is always a good time. Which one do you want to try? Remember, <span class="grammar-highlight">trying a new sport</span> is never a waste of time!</p>
+                        <div id="trans24" class="interactive-answer">
+                            <p class="text-gray-700 font-bold">所以，你看，玩不同的球类游戏总是很好的时光。你想尝试哪一种？记住，尝试新运动永远不是浪费时间！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Translation Exercise -->
+        <div class="mb-12">
+            <div class="text-center mb-8">
+                <div class="section-title">
+                    <i class="fas fa-language mr-2"></i>汉译英练习 Translation
+                </div>
+            </div>
+            
+            <div class="leather-card p-8 rounded-lg max-w-4xl mx-auto">
+                <h3 class="text-xl font-bold text-amber-900 mb-6 text-center">用动名词短语作主语翻译下列句子</h3>
+                <p class="text-center text-gray-600 mb-6">点击句子查看答案 · Click to reveal answers</p>
+                
+                <div class="space-y-4">
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans1')">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg text-gray-800">1. 踢足球很有趣。</span>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </div>
+                        <div id="ans1" class="interactive-answer">
+                            <p class="font-bold text-green-800">Playing soccer is fun.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans2')">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg text-gray-800">2. 打篮球很难，但是很酷。</span>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </div>
+                        <div id="ans2" class="interactive-answer">
+                            <p class="font-bold text-green-800">Playing basketball is difficult, but it is cool.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans3')">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg text-gray-800">3. 打网球很棒。</span>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </div>
+                        <div id="ans3" class="interactive-answer">
+                            <p class="font-bold text-green-800">Playing tennis is great.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans4')">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg text-gray-800">4. 打排球令人快乐。</span>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </div>
+                        <div id="ans4" class="interactive-answer">
+                            <p class="font-bold text-green-800">Playing volleyball is happy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans5')">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg text-gray-800">5. 打高尔夫球让人放松。</span>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </div>
+                        <div id="ans5" class="interactive-answer">
+                            <p class="font-bold text-green-800">Playing golf is relaxing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans6')">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg text-gray-800">6. 打保龄球是很有趣的。</span>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </div>
+                        <div id="ans6" class="interactive-answer">
+                            <p class="font-bold text-green-800">Bowling is great fun. / Playing bowling is great fun.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans7')">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg text-gray-800">7. 接住一个棒球很令人惊叹。</span>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </div>
+                        <div id="ans7" class="interactive-answer">
+                            <p class="font-bold text-green-800">Catching a baseball is amazing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans8')">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg text-gray-800">8. 打羽毛球是一项很好的锻炼。</span>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </div>
+                        <div id="ans8" class="interactive-answer">
+                            <p class="font-bold text-green-800">Playing badminton is a good workout.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans9')">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg text-gray-800">9. 带着橄榄球跑动很有力量感。</span>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </div>
+                        <div id="ans9" class="interactive-answer">
+                            <p class="font-bold text-green-800">Running with a rugby ball is powerful.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Check -->
+        <div class="mb-12">
+            <div class="text-center mb-8">
+                <div class="section-title">
+                    <i class="fas fa-check-circle mr-2"></i>理解测验 Quick Check
+                </div>
+            </div>
+            
+            <div class="leather-card p-8 rounded-lg max-w-3xl mx-auto">
+                <div class="space-y-4">
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('check1')">
+                        <div class="font-bold text-gray-800 mb-2">Q1: What sport does Tom like?</div>
+                        <div id="check1" class="interactive-answer">
+                            <p>A: He likes playing soccer. / Playing soccer is fun for him.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('check2')">
+                        <div class="font-bold text-gray-800 mb-2">Q2: Why is playing basketball cool for Lucy?</div>
+                        <div id="check2" class="interactive-answer">
+                            <p>A: Because she is tall and she can shoot well.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('check3')">
+                        <div class="font-bold text-gray-800 mb-2">Q3: Which sport is described as "relaxing"?</div>
+                        <div id="check3" class="interactive-answer">
+                            <p>A: Playing golf.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('check4')">
+                        <div class="font-bold text-gray-800 mb-2">Q4: What do you need to catch a baseball?</div>
+                        <div id="check4" class="interactive-answer">
+                            <p>A: A big glove.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center py-8 text-white/80">
+            <div class="leather-card inline-block px-8 py-4 rounded-lg">
+                <p class="text-amber-900 font-bold">Super Minds 2 Unit 8</p>
+                <p class="text-sm text-gray-600 mt-1">Baseball Theme English Learning</p>
+                <div class="mt-3 flex justify-center space-x-4 text-2xl">
+                    <span>⚾</span>
+                    <span>🏀</span>
+                    <span>⚽</span>
+                    <span>🎾</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // ✅ 修复后的歌曲填空函数 - 使用 dataset API 和 classList 状态检查
+        function toggleAnswer(element) {
+            const answer = element.dataset.answer;
+            const isRevealed = element.classList.contains('revealed');
+            
+            if (isRevealed) {
+                element.textContent = '_____';
+                element.classList.remove('revealed');
+            } else {
+                element.textContent = answer;
+                element.classList.add('revealed');
+            }
+        }
+        
+        // 文本朗读
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+            }
+        }
+        
+        // 切换翻译显示
+        function toggleTrans(id) {
+            const element = document.getElementById(id);
+            if (element.classList.contains('show')) {
+                element.classList.remove('show');
+            } else {
+                element.classList.add('show');
+            }
+        }
+        
+        // 切换答案显示
+        function toggleAns(id) {
+            const element = document.getElementById(id);
+            if (element.classList.contains('show')) {
+                element.classList.remove('show');
+            } else {
+                element.classList.add('show');
+            }
+        }
+    </script>
+</body>
+</html>
