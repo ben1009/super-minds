@@ -4,21 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super Minds - 英语学习平台</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script>
+        const GA_MEASUREMENT_ID = 'G-QJ6EXQH8SW';
+        
+        // Dynamically load gtag script to ensure ID consistency
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+        document.head.appendChild(script);
+        
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', GA_MEASUREMENT_ID);
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #f5f5f0;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(120, 120, 120, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(80, 80, 80, 0.03) 0%, transparent 50%),
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+            background-image: url('https://m.media-amazon.com/images/I/61fD+O0s1DL._AC_SL1000_.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             font-family: 'Noto Serif SC', serif;
         }
         .calligraphy { font-family: 'Ma Shan Zheng', cursive; }
-        .ink-gradient { background: linear-gradient(135deg, #2c3e50 0%, #1e3a5f 100%); }
-        .cinnabar { color: #c93756; }
-        .bg-cinnabar { background-color: #c93756; }
+        .ink-gradient { background: linear-gradient(135deg, #1e3a5f 0%, #0d1f33 50%, #1e3a5f 100%); }
+        .cinnabar { color: #c41e3a; }
+        .bg-cinnabar { background-color: #c41e3a; }
         
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -31,11 +46,13 @@
         }
         .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
         
         .unit-badge {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+            border: 2px solid #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
     </style>
 </head>

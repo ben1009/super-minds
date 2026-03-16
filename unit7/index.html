@@ -6,6 +6,15 @@
     <title>Super Minds 2 Unit 7 现在进行时精讲</title>
     
     <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJ6EXQH8SW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QJ6EXQH8SW');
+    </script>
+    
+    <!-- Google tag (gtag.js) -->
     <script>
         const GA_MEASUREMENT_ID = 'G-QJ6EXQH8SW';
         
@@ -27,53 +36,64 @@
     <style>
         body {
             font-family: 'Nunito', 'Noto Sans SC', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-image: url('https://m.media-amazon.com/images/I/61fD+O0s1DL._AC_SL1000_.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             min-height: 100vh;
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.97);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 3px solid #1e3a5f;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
         }
 
         .hamburger-layer { transition: all 0.3s ease; }
-        .hamburger-layer:hover { transform: translateX(5px); }
+        .hamburger-layer:hover { transform: translateX(5px) scale(1.02); }
 
-        .verb-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .verb-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .verb-card { 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            border: 2px solid #1e3a5f;
+        }
+        .verb-card:hover { 
+            transform: translateY(-5px) scale(1.02); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2); 
+            border-color: #c41e3a;
+        }
 
         .sentence-part { transition: all 0.2s; }
         .sentence-part:hover { filter: brightness(1.1); }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
         }
         .float-anim { animation: float 3s ease-in-out infinite; }
 
         /* 互动练习样式 - 答案和翻译合并 */
         .quiz-item {
-            background: #f3f4f6;
+            background: linear-gradient(145deg, #f8f9fa 0%, #e9ecef 100%);
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 16px;
-            border: 2px solid #e5e7eb;
+            border: 3px solid #1e3a5f;
             cursor: pointer;
             transition: all 0.3s;
         }
         .quiz-item:hover {
-            background: #ede9fe;
-            border-color: #7c3aed;
+            background: linear-gradient(145deg, #e8f4f8 0%, #d1e7dd 100%);
+            border-color: #c41e3a;
+            transform: translateX(5px);
         }
         .quiz-answer {
             display: none;
             margin-top: 16px;
             padding: 16px;
-            background: #d1fae5;
+            background: linear-gradient(145deg, #d1fae5 0%, #a7f3d0 100%);
             border-radius: 8px;
-            border-left: 4px solid #10b981;
+            border-left: 4px solid #059669;
         }
         .quiz-answer.show { 
             display: block; 
@@ -85,22 +105,23 @@
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 12px;
-            border: 2px solid #22d3ee;
+            border: 3px solid #1e3a5f;
             cursor: pointer;
             transition: all 0.3s;
         }
         .comp-item:hover {
-            background: #ecfeff;
-            border-color: #0891b2;
+            background: #f0f9ff;
+            border-color: #0369a1;
+            transform: translateX(5px);
         }
         .comp-a {
             display: none;
             margin-top: 12px;
             padding: 12px;
-            background: #dbeafe;
+            background: linear-gradient(145deg, #dbeafe 0%, #bfdbfe 100%);
             border-radius: 8px;
-            color: #1e40af;
-            border-left: 4px solid #3b82f6;
+            color: #1e3a5f;
+            border-left: 4px solid #1e3a5f;
         }
         .comp-a.show { display: block; }
 
@@ -113,10 +134,11 @@
             margin: 0 4px;
             text-align: center;
             font-weight: bold;
-            border: 2px dashed #9ca3af;
-            background: white;
+            border: 2px dashed #8b4513;
+            background: #faf8f5;
             cursor: pointer;
             position: relative;
+            color: #8b4513;
         }
         .blank.filled {
             border-style: solid;
@@ -124,12 +146,12 @@
         }
         .blank.correct {
             background: #d1fae5;
-            border-color: #10b981;
+            border-color: #059669;
             color: #065f46;
         }
         .blank.wrong {
             background: #fee2e2;
-            border-color: #ef4444;
+            border-color: #c41e3a;
             color: #991b1b;
         }
 
@@ -139,12 +161,12 @@
             left: 50%;
             transform: translateX(-50%);
             background: white;
-            border: 2px solid #e5e7eb;
+            border: 3px solid #1e3a5f;
             border-radius: 8px;
             padding: 8px;
             margin-top: 8px;
             z-index: 50;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
             display: none;
             min-width: 120px;
         }
@@ -161,10 +183,12 @@
             background: white;
             cursor: pointer;
             transition: all 0.2s;
+            font-weight: 600;
         }
         .option-btn:hover {
-            background: #ede9fe;
-            border-color: #7c3aed;
+            background: #1e3a5f;
+            color: white;
+            border-color: #1e3a5f;
         }
 
         .wave-bg {
