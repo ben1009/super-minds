@@ -254,11 +254,25 @@
                     <span class="text-2xl">📚</span>
                     <span class="text-white text-lg font-bold">Super Minds 2</span>
                 </div>
+                <!-- Desktop Navigation -->
                 <div class="hidden md:flex space-x-1">
                     <a href="../index.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">首页 Home</a>
                     <a href="index.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">Unit 7</a>
                     <a href="../unit8/index.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">Unit 8</a>
                     <a href="homework.html" class="px-3 py-2 text-sm font-medium text-white bg-white/20 rounded-lg border-b-2 border-yellow-400">作业 Homework</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10 text-xl">
+                    ☰
+                </button>
+            </div>
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="../index.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">首页 Home</a>
+                    <a href="index.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">Unit 7</a>
+                    <a href="../unit8/index.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">Unit 8</a>
+                    <a href="homework.html" class="px-3 py-2 text-sm font-medium text-white bg-white/20 rounded-lg border-l-4 border-yellow-400">作业 Homework</a>
                 </div>
             </div>
         </div>
@@ -1028,6 +1042,12 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
         function switchTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
