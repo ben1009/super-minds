@@ -54,9 +54,9 @@ This refactoring aims to eliminate code duplication, improve maintainability, an
 **Problem:** Navigation HTML structure is duplicated in every page with minor variations.
 
 **Tasks:**
-- [ ] Create consistent navigation markup pattern
-- [ ] Document the navigation structure in AGENTS.md
-- [ ] Ensure all pages use identical nav component
+- [x] Create consistent navigation markup pattern
+- [x] Document the navigation structure in AGENTS.md
+- [x] Ensure all pages use identical nav component
 
 ---
 
@@ -95,7 +95,7 @@ This refactoring aims to eliminate code duplication, improve maintainability, an
 | 1 | Remove duplicate ga.js from baseball folder | ✅ done |
 | 2 | Extract shared CSS variables and keyframes | ✅ done |
 | 3 | Create shared JavaScript utilities module | ✅ done |
-| 4 | Standardize mobile navigation component | pending |
+| 4 | Standardize mobile navigation component | ✅ done |
 | 5 | Consolidate toggle/accordion functionality | pending |
 | 6 | Unify Lucide icons initialization | pending |
 | 7 | Update documentation | pending |
