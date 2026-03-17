@@ -27,10 +27,10 @@ This refactoring aims to eliminate code duplication, improve maintainability, an
 - Common utility classes
 
 **Tasks:**
-- [ ] Create `css/common.css` with shared styles
-- [ ] Extract common keyframes (fadeInUp, float, etc.)
-- [ ] Extract common body background styles
-- [ ] Update all HTML files to include shared CSS
+- [x] Create `css/common.css` with shared styles
+- [x] Extract common keyframes (fadeInUp, float, etc.)
+- [x] Extract common body background styles
+- [x] Update all HTML files to include shared CSS
 
 ---
 
@@ -93,7 +93,7 @@ This refactoring aims to eliminate code duplication, improve maintainability, an
 | Phase | Task | Status |
 |-------|------|--------|
 | 1 | Remove duplicate ga.js from baseball folder | ✅ done |
-| 2 | Extract shared CSS variables and keyframes | pending |
+| 2 | Extract shared CSS variables and keyframes | ✅ done |
 | 3 | Create shared JavaScript utilities module | pending |
 | 4 | Standardize mobile navigation component | pending |
 | 5 | Consolidate toggle/accordion functionality | pending |

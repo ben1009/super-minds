@@ -1043,88 +1043,8 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
-        }
-
-        function switchTab(tabName) {
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            document.getElementById(tabName).classList.add('active');
-            
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('bg-blue-900', 'text-white');
-                btn.classList.add('bg-gray-200', 'text-gray-700');
-            });
-            document.getElementById('btn-' + tabName).classList.remove('bg-gray-200', 'text-gray-700');
-            document.getElementById('btn-' + tabName).classList.add('bg-blue-900', 'text-white');
-        }
-
-        function toggleTimeline(node) {
-            const detail = node.querySelector('.timeline-detail');
-            const isExpanded = detail.classList.contains('expanded');
-            
-            if (isExpanded) {
-                detail.classList.remove('expanded');
-                node.classList.remove('active');
-            } else {
-                detail.classList.add('expanded');
-                node.classList.add('active');
-            }
-        }
-
-        function toggleAnswer(element) {
-            element.classList.toggle('revealed');
-            
-            // 添加点击反馈动画
-            element.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                element.style.transform = '';
-            }, 100);
-        }
-
-        function toggleComplete(checkbox) {
-            const label = checkbox.closest('label');
-            if (checkbox.checked) {
-                label.classList.add('completed');
-            } else {
-                label.classList.remove('completed');
-            }
-            updateProgress();
-        }
-
-        function updateProgress() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            const checked = document.querySelectorAll('input[type="checkbox"]:checked');
-            const progress = (checked.length / checkboxes.length) * 100;
-            
-            document.getElementById('progress-bar').style.width = progress + '%';
-            document.getElementById('progress-text').textContent = checked.length + '/' + checkboxes.length + ' 完成';
-            
-            const progressData = {
-                checked: Array.from(checkboxes).map(cb => cb.checked),
-                date: new Date().toLocaleDateString()
-            };
-            localStorage.setItem('homeworkProgress', JSON.stringify(progressData));
-        }
-
-        window.onload = function() {
-            const saved = localStorage.getItem('homeworkProgress');
-            if (saved) {
-                const data = JSON.parse(saved);
-                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                checkboxes.forEach((cb, index) => {
-                    if (data.checked[index]) {
-                        cb.checked = true;
-                        cb.closest('label').classList.add('completed');
-                    }
-                });
-                updateProgress();
-            }
-        };
+        // Using shared functions from common.js:
+        // toggleMobileMenu, switchTab, toggleTimeline, toggleAnswer, toggleComplete, updateProgress, restoreProgress
 
         function copyDialogue() {
             const dialogue = `A: Hi! What are you doing now?
@@ -1143,5 +1063,6 @@ B: Yes! And now it is my turn to take photos.`;
             });
         }
     </script>
+    <script src="../js/common.js"></script>
 </body>
 </html>

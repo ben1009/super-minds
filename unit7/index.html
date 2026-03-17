@@ -772,42 +772,8 @@
         // 初始化图标
         lucide.createIcons();
 
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
-        }
-
-        // 互动练习点击显示答案和翻译
-        function toggleQuizAnswer(element) {
-            const answer = element.querySelector('.quiz-answer');
-            const icon = element.querySelector('[data-lucide="chevron-down"]');
-            answer.classList.toggle('show');
-            if (answer.classList.contains('show')) {
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                icon.style.transform = 'rotate(0deg)';
-            }
-            lucide.createIcons();
-        }
-
-        // 故事翻译切换
-        function toggleTranslation(element) {
-            const trans = element.querySelector('.translation');
-            const icon = element.querySelector('.chevron-icon');
-            trans.classList.toggle('show');
-            if (trans.classList.contains('show')) {
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                icon.style.transform = 'rotate(0deg)';
-            }
-        }
-
-        // 理解测验点击显示答案
-        function toggleCompAnswer(element) {
-            const answer = element.querySelector('.comp-a');
-            answer.classList.toggle('show');
-        }
+        // Using shared functions from common.js:
+        // toggleMobileMenu, toggleQuizAnswer, toggleTranslation, toggleCompAnswer
 
         // 完形填空交互
         document.querySelectorAll('.blank').forEach(blank => {
@@ -880,5 +846,6 @@
             }
         }
     </script>
+    <script src="../js/common.js"></script>
 </body>
 </html>
