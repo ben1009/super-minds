@@ -379,6 +379,9 @@ jobs:
             args: ['--no-sandbox', '--disable-setuid-sandbox']
           });
           
+          // Helper function for delay
+          const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+          
           const pages = [
             { url: 'http://localhost:8000/', name: 'homepage' },
             { url: 'http://localhost:8000/unit7/index.html', name: 'unit7' },
@@ -389,8 +392,8 @@ jobs:
           for (const { url, name } of pages) {
             const page = await browser.newPage();
             await page.setViewport({ width: 1280, height: 720 });
-            await page.goto(url);
-            await page.waitForTimeout(2000); // Wait for animations
+            await page.goto(url, { waitUntil: 'networkidle0' });
+            await delay(2000); // Wait for animations
             await page.screenshot({ path: `screenshot-${name}-desktop.png`, fullPage: true });
             console.log(`✅ Screenshot: ${name} (desktop)`);
             await page.close();
@@ -400,8 +403,8 @@ jobs:
           for (const { url, name } of pages) {
             const page = await browser.newPage();
             await page.setViewport({ width: 375, height: 667 });
-            await page.goto(url);
-            await page.waitForTimeout(2000);
+            await page.goto(url, { waitUntil: 'networkidle0' });
+            await delay(2000); // Wait for animations
             await page.screenshot({ path: `screenshot-${name}-mobile.png`, fullPage: true });
             console.log(`✅ Screenshot: ${name} (mobile)`);
             await page.close();
