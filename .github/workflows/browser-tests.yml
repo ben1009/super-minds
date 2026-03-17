@@ -101,7 +101,7 @@ jobs:
           
           test('homepage has navigation links', async ({ page }) => {
             await page.goto('http://localhost:8000/');
-            const unit7Link = page.locator('a[href="unit7/index.html"]');
+            const unit7Link = page.locator('a[href="unit7/index.html"]').first();
             await expect(unit7Link).toBeVisible();
           });
           
@@ -184,7 +184,7 @@ jobs:
           test('answer masks toggle on click', async ({ page }) => {
             await page.goto('http://localhost:8000/unit7/homework.html');
             const answerMask = page.locator('.answer-mask').first();
-            await expect(answerMask).toBeVisible();
+            await answerMask.waitFor({ state: 'visible' });
             await answerMask.click();
             await expect(answerMask).toHaveClass(/revealed/);
           });
