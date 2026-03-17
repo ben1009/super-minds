@@ -9,57 +9,12 @@
     <script src="ga.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
     <style>
-        body {
-            background: linear-gradient(180deg, #87CEEB 0%, #98FB98 40%, #228B22 100%);
-            font-family: 'Nunito', 'Noto Serif SC', sans-serif;
-            min-height: 100vh;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.3) 0%, transparent 40%),
-                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2) 0%, transparent 40%);
-            pointer-events: none;
-        }
-        .calligraphy { font-family: 'Ma Shan Zheng', cursive; }
-        .ink-gradient { 
-            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 50%, #FF6B6B 100%);
-            border-bottom: 6px solid #FFD93D;
-            box-shadow: 0 8px 0 rgba(0,0,0,0.1);
-        }
-        .cinnabar { color: #FF6B6B; }
-        .bg-cinnabar { background-color: #FF6B6B; }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in { animation: fadeInUp 0.6s ease-out; }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-8px) rotate(2deg);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2), 0 0 0 6px #FFD93D;
-        }
-        
-        .unit-badge {
-            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
-            border: 4px solid #FFD93D;
-            box-shadow: 0 6px 0 rgba(0,0,0,0.2), 0 8px 15px rgba(0,0,0,0.2);
-            border-radius: 20px;
-            transform: rotate(-3deg);
-        }
+        /* Page-specific styles only */
     </style>
 </head>
-<body class="text-gray-800 min-h-screen">
+<body class="text-gray-800 min-h-screen sm-body">
 
     <header class="ink-gradient text-white py-16 px-4 shadow-lg relative overflow-hidden">
         <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'200\' height=\'200\' viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0,100 Q50,50 100,100 T200,100\' fill=\'none\' stroke=\'white\' stroke-width=\'2\'/%3E%3C/svg%3E'); background-size: 100px;"></div>

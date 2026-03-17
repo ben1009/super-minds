@@ -13,9 +13,9 @@ This refactoring aims to eliminate code duplication, improve maintainability, an
 **Problem:** The `super-minds-baseball/ga.js` is identical to the root `ga.js`, violating DRY principle.
 
 **Tasks:**
-- [ ] Delete `super-minds-baseball/ga.js`
-- [ ] Update reference in `super-minds-baseball/index.html` from `ga.js` to `../ga.js`
-- [ ] Verify all baseball pages use the shared script
+- [x] Delete `super-minds-baseball/ga.js`
+- [x] Update reference in `super-minds-baseball/index.html` from `ga.js` to `../ga.js`
+- [x] Verify all baseball pages use the shared script
 
 ---
 
@@ -92,7 +92,7 @@ This refactoring aims to eliminate code duplication, improve maintainability, an
 
 | Phase | Task | Status |
 |-------|------|--------|
-| 1 | Remove duplicate ga.js from baseball folder | pending |
+| 1 | Remove duplicate ga.js from baseball folder | ✅ done |
 | 2 | Extract shared CSS variables and keyframes | pending |
 | 3 | Create shared JavaScript utilities module | pending |
 | 4 | Standardize mobile navigation component | pending |
