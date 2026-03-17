@@ -4,6 +4,16 @@
  */
 
 // ============================================
+// Constants
+// ============================================
+
+/**
+ * Selector for homework progress checkboxes
+ * Using specific class to avoid conflicts with other checkboxes on the page
+ */
+const HOMEWORK_CHECKBOX_SELECTOR = '.check-item input[type="checkbox"]';
+
+// ============================================
 // Mobile Navigation
 // ============================================
 
@@ -123,8 +133,9 @@ function toggleAnswer(element) {
  * @param {string} storageKey - Key for localStorage (default: 'homeworkProgress')
  */
 function updateProgress(storageKey = 'homeworkProgress') {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+    // Use specific selector to only target homework checklist checkboxes
+    const checkboxes = document.querySelectorAll(HOMEWORK_CHECKBOX_SELECTOR);
+    const checked = document.querySelectorAll(HOMEWORK_CHECKBOX_SELECTOR + ':checked');
     const progress = (checked.length / checkboxes.length) * 100;
     
     const progressBar = document.getElementById('progress-bar');
@@ -165,7 +176,8 @@ function restoreProgress(storageKey = 'homeworkProgress') {
     if (saved) {
         try {
             const data = JSON.parse(saved);
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            // Use specific selector to only target homework checklist checkboxes
+            const checkboxes = document.querySelectorAll(HOMEWORK_CHECKBOX_SELECTOR);
             
             checkboxes.forEach((cb, index) => {
                 if (data.checked && data.checked[index]) {
