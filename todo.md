@@ -108,8 +108,8 @@ All refactoring phases completed successfully!
 
 ### Changes Made:
 
-1. **Updated**: `super-minds-baseball/index.html` - Use `../../ga.js` to reference root ga.js
-2. **Kept**: `super-minds-baseball/ga.js` - Maintained for nested page compatibility (unit7, unit8)
+1. **Updated**: `super-minds-baseball/` - All pages use `../../ga.js` to reference root ga.js
+   - index.html, unit7/index.html, unit7/homework.html, unit8/index.html
 3. **Created**: `css/common.css` - Shared styles (variables, animations, utilities)
 3. **Created**: `js/common.js` - Shared JavaScript utilities (12+ functions)
 4. **Updated**: All HTML files to use shared resources
@@ -162,8 +162,8 @@ Three types of tests are now available:
 ✅ Created: test.sh
 ✅ Modified: index.html, unit7/*.html (use shared resources)
 ✅ Modified: AGENTS.md (updated documentation)
-✅ Modified: super-minds-baseball/index.html (use ../../ga.js)
-✅ Kept: super-minds-baseball/ga.js (for nested page compatibility)
+✅ Modified: super-minds-baseball/*.html (all use ../../ga.js)
+✅ Deleted: super-minds-baseball/ga.js (truly removed, all pages reference root)
 ```
 
 ---
