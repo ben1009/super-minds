@@ -282,6 +282,39 @@ python3 -m http.server 8000
 
 ## Testing Strategy
 
+### Automated Testing (CI/CD)
+
+项目使用 GitHub Actions 进行自动化测试：
+
+**Workflows:**
+
+| Workflow | Trigger | Description |
+|----------|---------|-------------|
+| `quick-test.yml` | Push/PR to master | 文件结构、引用检查、HTML基础验证 |
+| `ci.yml` | Manual/Scheduled | HTML/CSS/JS验证、链接检查、功能测试 |
+| `browser-tests.yml` | Push/PR to master | 无头浏览器E2E测试、Lighthouse、视觉回归 |
+
+**Headless Browser Testing:**
+- 使用 Puppeteer 和 Playwright 进行浏览器自动化
+- 在 CI 环境中以 headless 模式运行
+- 测试覆盖率包括：页面加载、交互功能、响应式设计
+
+**本地运行测试:**
+```bash
+# 快速验证
+./test.sh
+
+# 无头浏览器测试
+npm install puppeteer
+node smoke-test.js
+
+# 本地服务器测试
+python3 -m http.server 8000
+# 访问 http://localhost:8000
+```
+
+### Manual Testing
+
 - **手动测试**: 在 Chrome、Safari、Firefox 中测试交互功能
 - **响应式测试**: 使用浏览器 DevTools 测试不同屏幕尺寸
 - **功能测试**: 

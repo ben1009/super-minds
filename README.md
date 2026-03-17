@@ -31,6 +31,26 @@ Key learning points:
 
 No installation required — just open it in your browser!
 
+## 🏗️ Project Structure
+
+```
+├── index.html              # Homepage - course navigation
+├── css/
+│   └── common.css          # Shared styles (variables, animations)
+├── js/
+│   └── common.js           # Shared utilities (navigation, toggles, progress)
+├── unit7/
+│   ├── index.html          # Unit 7: Present Continuous Tense
+│   └── homework.html       # Unit 7 Homework
+├── unit8/
+│   └── index.html          # Unit 8: Gerunds as Subjects
+├── super-minds-baseball/   # Baseball-themed edition
+│   ├── index.html
+│   ├── unit7/
+│   └── unit8/
+└── .github/workflows/      # CI/CD automation
+```
+
 ## ✨ Features
 
 - 🖼️ Beautiful visual design to capture children's attention
@@ -38,6 +58,29 @@ No installation required — just open it in your browser!
 - 📖 Clear and organized knowledge structure
 - ✅ Instant feedback on practice exercises
 - ⚾ Baseball-themed special edition available
+- 🔄 Shared code architecture for maintainability
+- ✅ Automated testing with GitHub Actions
+
+## 🧪 Testing
+
+This project includes comprehensive automated testing:
+
+| Test Type | Tool | Coverage |
+|-----------|------|----------|
+| File Structure | Bash | Required files, references |
+| HTML/CSS/JS | html-validate, stylelint, ESLint | Syntax validation |
+| Functional | Puppeteer, Playwright | Headless browser E2E tests |
+| Performance | Lighthouse CI | Performance, accessibility |
+| Visual | Puppeteer | Screenshot comparisons |
+
+**Run tests locally:**
+```bash
+# File structure validation
+./test.sh
+
+# Start local server
+python3 -m http.server 8000
+```
 
 ## 📄 License
 
