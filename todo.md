@@ -42,10 +42,10 @@ This refactoring aims to eliminate code duplication, improve maintainability, an
 - Progress tracking logic
 
 **Tasks:**
-- [ ] Create `js/common.js` with shared utilities
-- [ ] Move `toggleMobileMenu()` to shared module
-- [ ] Move common toggle functionality to shared module
-- [ ] Update all HTML files to include shared JS
+- [x] Create `js/common.js` with shared utilities
+- [x] Move `toggleMobileMenu()` to shared module
+- [x] Move common toggle functionality to shared module
+- [x] Update all HTML files to include shared JS
 
 ---
 
@@ -94,7 +94,7 @@ This refactoring aims to eliminate code duplication, improve maintainability, an
 |-------|------|--------|
 | 1 | Remove duplicate ga.js from baseball folder | ✅ done |
 | 2 | Extract shared CSS variables and keyframes | ✅ done |
-| 3 | Create shared JavaScript utilities module | pending |
+| 3 | Create shared JavaScript utilities module | ✅ done |
 | 4 | Standardize mobile navigation component | pending |
 | 5 | Consolidate toggle/accordion functionality | pending |
 | 6 | Unify Lucide icons initialization | pending |

@@ -8,6 +8,7 @@
     <!-- Google Analytics -->
     <script src="../ga.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/common.css">
     <style>
@@ -252,7 +253,7 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-14">
                 <div class="flex items-center space-x-3">
-                    <span class="text-2xl">📚</span>
+                    <i data-lucide="book-open" class="text-white w-6 h-6"></i>
                     <span class="text-white text-lg font-bold">Super Minds 2</span>
                 </div>
                 <!-- Desktop Navigation -->
@@ -263,8 +264,8 @@
                     <a href="homework.html" class="px-3 py-2 text-sm font-medium text-white bg-white/20 rounded-lg border-b-2 border-yellow-400">作业 Homework</a>
                 </div>
                 <!-- Mobile Menu Button -->
-                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10 text-xl">
-                    ☰
+                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
             <!-- Mobile Navigation -->
