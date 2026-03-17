@@ -290,8 +290,10 @@ function initCommon() {
     // Initialize icons
     initIcons();
     
-    // Restore progress if on homework page
-    if (document.querySelector('input[type="checkbox"]')) {
+    // Restore progress only on homework pages (check for progress bar element)
+    // Using #progress-bar as it's specific to homework pages and won't conflict
+    // with other pages that might have checkboxes for different purposes
+    if (document.getElementById('progress-bar')) {
         restoreProgress();
     }
 }
