@@ -229,7 +229,13 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex space-x-8">
                     <a href="../index.html" class="nav-link px-3 py-2 text-sm font-medium">首页 Home</a>
-                    <a href="../unit7/index.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 7</a>
+                    <div class="relative group">
+                        <a href="../unit7/index.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 7 <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                            <a href="../unit7/index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">📖 现在进行时 Course</a>
+                            <a href="../unit7/homework.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">✏️ 作业 Homework</a>
+                        </div>
+                    </div>
                     <div class="relative group">
                         <a href="index.html" class="nav-link px-3 py-2 text-sm font-medium border-b-2 border-red-500">Unit 8 ⚾</a>
                         <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
@@ -248,7 +254,11 @@
             <div id="mobileMenu" class="hidden md:hidden pb-4">
                 <div class="flex flex-col space-y-2">
                     <a href="../index.html" class="nav-link px-3 py-2 text-sm font-medium">首页 Home</a>
-                    <a href="../unit7/index.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 7</a>
+                    <div class="px-3 py-2">
+                        <div class="text-white/70 text-xs mb-1">Unit 7</div>
+                        <a href="../unit7/index.html" class="nav-link px-3 py-2 text-sm font-medium block">📖 现在进行时 Course</a>
+                        <a href="../unit7/homework.html" class="nav-link px-3 py-2 text-sm font-medium block">✏️ 作业 Homework</a>
+                    </div>
                     <div class="px-3 py-2">
                         <div class="text-white/70 text-xs mb-1">Unit 8</div>
                         <a href="index.html" class="nav-link px-3 py-2 text-sm font-medium block">⚾ 球类运动 Sports</a>
