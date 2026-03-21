@@ -179,15 +179,20 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex space-x-1 items-center">
                     <a href="../index.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">首页 Home</a>
-                    <a href="index.html" class="px-3 py-2 text-sm font-medium text-white bg-white/20 rounded-lg border-b-2 border-yellow-400">Unit 7</a>
+                    <div class="relative group">
+                        <a href="index.html" class="px-3 py-2 text-sm font-medium text-white bg-white/20 rounded-lg border-b-2 border-yellow-400 flex items-center gap-1">Unit 7 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
+                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                            <a href="index.html" class="block px-4 py-2 text-sm text-gray-700 bg-blue-50 font-medium">📖 现在进行时 Course</a>
+                            <a href="homework.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">✏️ 作业 Homework</a>
+                        </div>
+                    </div>
                     <div class="relative group">
                         <a href="../unit8/index.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all flex items-center gap-1">Unit 8 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
-                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
                             <a href="../unit8/index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">⚾ 球类运动 Sports</a>
                             <a href="../unit8/amazing-vehicles.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">🚌 交通工具 Vehicles</a>
                         </div>
                     </div>
-                    <a href="homework.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">作业 Homework</a>
                 </div>
                 <!-- Mobile Menu Button -->
                 <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
@@ -198,13 +203,16 @@
             <div id="mobileMenu" class="hidden md:hidden pb-4">
                 <div class="flex flex-col space-y-2">
                     <a href="../index.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">首页 Home</a>
-                    <a href="index.html" class="px-3 py-2 text-sm font-medium text-white bg-white/20 rounded-lg border-l-4 border-yellow-400">Unit 7</a>
+                    <div class="px-3 py-2">
+                        <div class="text-white/70 text-xs mb-1">Unit 7</div>
+                        <a href="index.html" class="block px-3 py-2 text-sm font-medium text-white bg-white/20 rounded-lg border-l-4 border-yellow-400">📖 现在进行时 Course</a>
+                        <a href="homework.html" class="block px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">✏️ 作业 Homework</a>
+                    </div>
                     <div class="px-3 py-2">
                         <div class="text-white/70 text-xs mb-1">Unit 8</div>
                         <a href="../unit8/index.html" class="block px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">⚾ 球类运动 Sports</a>
                         <a href="../unit8/amazing-vehicles.html" class="block px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">🚌 交通工具 Vehicles</a>
                     </div>
-                    <a href="homework.html" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">作业 Homework</a>
                 </div>
             </div>
         </div>
