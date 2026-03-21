@@ -16,12 +16,21 @@ Through engaging and fun methods, children can easily master:
 ### Unit 8 - Gerunds as Subjects (动名词作主语)
 A baseball-themed course focusing on **using gerunds as subjects** with ball sports vocabulary.
 
-Key learning points:
-- 🏀 10 ball sports vocabulary words (soccer, basketball, tennis, volleyball, golf, bowling, baseball, badminton, rugby, ping-pong)
-- 📝 Grammar structure: Playing + sport + is + adjective
-- 🎵 Song activities with fill-in-the-blank exercises
-- 📖 Reading comprehension with interactive translations
-- ✏️ Chinese-to-English translation practice
+**Two learning tracks available:**
+
+1. **Ball Sports** (`unit8/index.html`)
+   - 🏀 10 ball sports vocabulary words (soccer, basketball, tennis, volleyball, golf, bowling, baseball, badminton, rugby, ping-pong)
+   - 📝 Grammar structure: Playing + sport + is + adjective
+   - 🎵 Song activities with fill-in-the-blank exercises
+   - 📖 Reading comprehension with interactive translations
+   - ✏️ Chinese-to-English translation practice
+
+2. **Amazing Vehicles** (`unit8/amazing-vehicles.html`)
+   - 🚌 9 vehicle-related vocabulary words (amazing, because, inside, difficult, front, back, party, drive, pool)
+   - 📏 Grammar: Measure vs Measuring, There be with length units (1cm=10mm, 1m=100cm)
+   - 📖 Two reading passages with comprehension questions
+   - 📝 Cloze exercise with interactive blanks
+   - ✏️ Homework todo list with progress tracking
 
 ## 🌐 Access the Course
 
@@ -43,7 +52,8 @@ No installation required — just open it in your browser!
 │   ├── index.html          # Unit 7: Present Continuous Tense
 │   └── homework.html       # Unit 7 Homework
 ├── unit8/
-│   └── index.html          # Unit 8: Gerunds as Subjects
+│   ├── index.html          # Unit 8: Gerunds as Subjects (Ball Sports)
+│   └── amazing-vehicles.html  # Unit 8: Amazing Vehicles (Reading & Vocabulary)
 ├── super-minds-baseball/   # Baseball-themed edition
 │   ├── index.html
 │   ├── unit7/
