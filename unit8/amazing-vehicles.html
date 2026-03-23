@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super Minds 2 Unit 8 - Amazing Vehicles</title>
-    
+
     <!-- Google Analytics -->
     <script src="../ga.js"></script>
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -17,52 +20,61 @@
             --stitch-red: #DC143C;
             --field-green: #2E5D34;
         }
-        
+
         body {
             background-color: var(--field-green);
-            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
+            background-image: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
                 linear-gradient(135deg, #2E5D34 0%, #1B4332 100%);
             font-family: 'Noto Sans SC', sans-serif;
             min-height: 100vh;
         }
-        
-        .baseball-font { font-family: 'Cinzel', serif; letter-spacing: 0.05em; }
-        .chinese-font { font-family: 'Noto Serif SC', serif; }
-        
+
+        .baseball-font {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .chinese-font {
+            font-family: 'Noto Serif SC', serif;
+        }
+
         .leather-card {
             background: linear-gradient(135deg, #F5F5DC 0%, #E8DCC4 100%);
             border: 3px solid #8B4513;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
             position: relative;
         }
-        
+
         .leather-card::before {
             content: '';
             position: absolute;
-            top: 8px; left: 8px; right: 8px; bottom: 8px;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
             border: 2px dashed var(--stitch-red);
             border-radius: 8px;
             pointer-events: none;
         }
-        
+
         .stitch-border {
             border: 3px solid var(--stitch-red);
             border-radius: 12px;
             position: relative;
             background: #FAFAFA;
         }
-        
+
         .nav-link {
-            color: rgba(255,255,255,0.9);
+            color: rgba(255, 255, 255, 0.9);
             transition: all 0.3s ease;
             border-bottom: 2px solid transparent;
         }
-        
+
         .nav-link:hover {
             color: white;
             border-bottom-color: var(--stitch-red);
         }
-        
+
         .section-title {
             background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
             color: white;
@@ -70,9 +82,9 @@
             border-radius: 8px;
             display: inline-block;
             border: 2px solid #F5F5DC;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .interactive-answer {
             max-height: 0;
             overflow: hidden;
@@ -80,26 +92,26 @@
             background: #FEF3C7;
             border-left: 4px solid #F59E0B;
         }
-        
+
         .interactive-answer.show {
             max-height: 500px;
             margin-top: 10px;
             padding: 12px;
             border-radius: 0 8px 8px 0;
         }
-        
+
         .word-card {
             background: white;
             border-left: 4px solid var(--stitch-red);
             transition: all 0.3s ease;
             cursor: pointer;
         }
-        
+
         .word-card:hover {
             transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
         }
-        
+
         .fill-blank {
             display: inline-block;
             min-width: 80px;
@@ -115,42 +127,53 @@
             margin: 0 4px;
             user-select: none;
         }
-        
+
         .fill-blank.revealed {
             background: #FEF3C7;
             border: 2px solid #F59E0B;
             color: #92400e;
             transform: scale(1.05);
         }
-        
+
         .grammar-box {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             color: white;
             border-radius: 12px;
             border: 3px solid #fbbf24;
         }
-        
+
         .reading-paragraph {
             cursor: pointer;
             transition: all 0.3s;
             border-left: 3px solid transparent;
             padding-left: 12px;
         }
-        
+
         .reading-paragraph:hover {
             border-left-color: var(--stitch-red);
-            background: rgba(220,20,60,0.05);
+            background: rgba(220, 20, 60, 0.05);
         }
-        
+
         .todo-item {
             transition: all 0.3s;
             cursor: pointer;
         }
-        
-        .todo-item:hover { transform: translateX(5px); }
-        .todo-item.completed { opacity: 0.7; border-left-color: #4CAF50; background: #F1F8E9; }
-        .todo-item.completed .todo-title { text-decoration: line-through; color: #666; }
-        
+
+        .todo-item:hover {
+            transform: translateX(5px);
+        }
+
+        .todo-item.completed {
+            opacity: 0.7;
+            border-left-color: #4CAF50;
+            background: #F1F8E9;
+        }
+
+        .todo-item.completed .todo-title {
+            text-decoration: line-through;
+            color: #666;
+        }
+
         .todo-checkbox {
             width: 28px;
             height: 28px;
@@ -163,12 +186,12 @@
             background: white;
             transition: all 0.3s;
         }
-        
+
         .todo-item.completed .todo-checkbox {
             background: #4CAF50;
             border-color: #4CAF50;
         }
-        
+
         .todo-checkbox::after {
             content: '✓';
             color: white;
@@ -177,27 +200,43 @@
             opacity: 0;
             transition: opacity 0.3s;
         }
-        
-        .todo-item.completed .todo-checkbox::after { opacity: 1; }
-        
+
+        .todo-item.completed .todo-checkbox::after {
+            opacity: 1;
+        }
+
         .nav-card {
             background: white;
             border-radius: 20px;
             padding: 20px 15px;
             text-align: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             border: 4px solid transparent;
             transition: all 0.3s;
         }
-        
-        .nav-card:nth-child(1) { border-color: #FF6B6B; }
-        .nav-card:nth-child(2) { border-color: #4ECDC4; }
-        .nav-card:nth-child(3) { border-color: #45B7D1; }
-        .nav-card:nth-child(4) { border-color: #96CEB4; }
-        
-        .nav-card:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 15px 35px rgba(0,0,0,0.3); }
-        
+
+        .nav-card:nth-child(1) {
+            border-color: #FF6B6B;
+        }
+
+        .nav-card:nth-child(2) {
+            border-color: #4ECDC4;
+        }
+
+        .nav-card:nth-child(3) {
+            border-color: #45B7D1;
+        }
+
+        .nav-card:nth-child(4) {
+            border-color: #96CEB4;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
         .grammar-highlight {
             background: linear-gradient(120deg, #fef3c7 0%, #fef3c7 100%);
             background-repeat: no-repeat;
@@ -207,15 +246,16 @@
             font-weight: bold;
             color: #92400e;
         }
-        
-        .option.correct { 
-            background: #C8E6C9; 
-            border-color: #2E7D32; 
-            color: #2E7D32; 
+
+        .option.correct {
+            background: #C8E6C9;
+            border-color: #2E7D32;
+            color: #2E7D32;
             font-weight: 700;
         }
     </style>
 </head>
+
 <body>
 
     <!-- Navigation -->
@@ -230,22 +270,31 @@
                 <div class="hidden md:flex space-x-8">
                     <a href="../index.html" class="nav-link px-3 py-2 text-sm font-medium">首页 Home</a>
                     <div class="relative group">
-                        <a href="../unit7/index.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 7 <i class="fas fa-chevron-down text-xs"></i></a>
-                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
-                            <a href="../unit7/index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">📖 现在进行时 Course</a>
-                            <a href="../unit7/homework.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">✏️ 作业 Homework</a>
+                        <a href="../unit7/index.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 7 <i
+                                class="fas fa-chevron-down text-xs"></i></a>
+                        <div
+                            class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                            <a href="../unit7/index.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">📖 现在进行时 Course</a>
+                            <a href="../unit7/homework.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">✏️ 作业 Homework</a>
                         </div>
                     </div>
                     <div class="relative group">
-                        <a href="index.html" class="nav-link px-3 py-2 text-sm font-medium border-b-2 border-red-500">Unit 8 ⚾</a>
-                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
-                            <a href="index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">球类运动 Sports</a>
-                            <a href="amazing-vehicles.html" class="block px-4 py-2 text-sm text-gray-700 bg-gray-100 font-medium">交通工具 Vehicles</a>
+                        <a href="index.html"
+                            class="nav-link px-3 py-2 text-sm font-medium border-b-2 border-red-500">Unit 8 ⚾</a>
+                        <div
+                            class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                            <a href="index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">球类运动
+                                Sports</a>
+                            <a href="amazing-vehicles.html"
+                                class="block px-4 py-2 text-sm text-gray-700 bg-gray-100 font-medium">交通工具 Vehicles</a>
                         </div>
                     </div>
                 </div>
                 <!-- Mobile Menu Button -->
-                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
+                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu"
+                    class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
@@ -255,13 +304,17 @@
                     <a href="../index.html" class="nav-link px-3 py-2 text-sm font-medium">首页 Home</a>
                     <div class="px-3 py-2">
                         <div class="text-white/70 text-xs mb-1">Unit 7</div>
-                        <a href="../unit7/index.html" class="nav-link px-3 py-2 text-sm font-medium block">📖 现在进行时 Course</a>
-                        <a href="../unit7/homework.html" class="nav-link px-3 py-2 text-sm font-medium block">✏️ 作业 Homework</a>
+                        <a href="../unit7/index.html" class="nav-link px-3 py-2 text-sm font-medium block">📖 现在进行时
+                            Course</a>
+                        <a href="../unit7/homework.html" class="nav-link px-3 py-2 text-sm font-medium block">✏️ 作业
+                            Homework</a>
                     </div>
                     <div class="px-3 py-2">
                         <div class="text-white/70 text-xs mb-1">Unit 8</div>
                         <a href="index.html" class="nav-link px-3 py-2 text-sm font-medium block">⚾ 球类运动 Sports</a>
-                        <a href="amazing-vehicles.html" class="nav-link px-3 py-2 text-sm font-medium block text-white border-l-4 border-red-500 pl-4">🚌 交通工具 Vehicles</a>
+                        <a href="amazing-vehicles.html"
+                            class="nav-link px-3 py-2 text-sm font-medium block text-white border-l-4 border-red-500 pl-4">🚌
+                            交通工具 Vehicles</a>
                     </div>
                 </div>
             </div>
@@ -287,7 +340,7 @@
             <div class="nav-card" onclick="scrollTo('vocab')">
                 <i class="fas fa-book text-3xl text-red-500 mb-2"></i>
                 <div class="font-bold text-lg text-gray-800">单词学习</div>
-                <div class="text-sm text-gray-600">9个核心词汇</div>
+                <div class="text-sm text-gray-600">13个核心词汇</div>
             </div>
             <div class="nav-card" onclick="scrollTo('grammar')">
                 <i class="fas fa-ruler text-3xl text-teal-500 mb-2"></i>
@@ -306,15 +359,16 @@
             </div>
         </div>
 
-        <!-- Vocabulary -->
+        <!-- Vocabulary Task 1 -->
         <div id="vocab" class="mb-12">
             <div class="text-center mb-8">
                 <div class="section-title">
-                    <i class="fas fa-book mr-2"></i>任务1：单词与例句
+                    <i class="fas fa-book mr-2"></i>任务1：单词与例句 (13个核心词汇)
                 </div>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- 1. amazing -->
                 <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('amazing')">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
@@ -322,12 +376,14 @@
                         </div>
                         <i class="fas fa-volume-up text-red-600"></i>
                     </div>
-                    <div class="text-sm text-gray-600 mb-2">令人惊叹的 <small class="text-gray-400">very surprising or wonderful</small></div>
+                    <div class="text-sm text-gray-600 mb-2">令人惊叹的 <small class="text-gray-400">very surprising or
+                            wonderful</small></div>
                     <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
                         "This car has got an amazing swimming pool inside."
                     </div>
                 </div>
-                
+
+                <!-- 2. because -->
                 <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('because')">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
@@ -335,12 +391,14 @@
                         </div>
                         <i class="fas fa-volume-up text-red-600"></i>
                     </div>
-                    <div class="text-sm text-gray-600 mb-2">因为 <small class="text-gray-400">for the reason that</small></div>
+                    <div class="text-sm text-gray-600 mb-2">因为 <small class="text-gray-400">for the reason that</small>
+                    </div>
                     <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
                         "I like this bus because it has got a bed and a TV."
                     </div>
                 </div>
-                
+
+                <!-- 3. inside -->
                 <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('inside')">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
@@ -348,101 +406,201 @@
                         </div>
                         <i class="fas fa-volume-up text-red-600"></i>
                     </div>
-                    <div class="text-sm text-gray-600 mb-2">在里面 <small class="text-gray-400">in or into the inner part</small></div>
+                    <div class="text-sm text-gray-600 mb-2">在里面 <small class="text-gray-400">in or into the inner part
+                            of
+                            something</small></div>
                     <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
                         "There are a lot of sofas inside the long car."
                     </div>
                 </div>
-                
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('difficult')">
+
+                <!-- 4. TVs and beds -->
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('TVs and beds')">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
-                            <i class="fas fa-mountain text-red-500 mr-2"></i>difficult
+                            <i class="fas fa-tv text-blue-500 mr-2"></i>TVs and beds
                         </div>
                         <i class="fas fa-volume-up text-red-600"></i>
                     </div>
-                    <div class="text-sm text-gray-600 mb-2">困难的 <small class="text-gray-400">not easy</small></div>
+                    <div class="text-sm text-gray-600 mb-2">电视和床 <small class="text-gray-400">televisions and pieces of
+                            furniture for sleeping</small></div>
                     <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
-                        "This car is difficult to drive."
+                        "The amazing car has got TVs and beds for you."
                     </div>
                 </div>
-                
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('front')">
+
+                <!-- 5. a lot of sofas -->
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('a lot of sofas')">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
-                            <i class="fas fa-arrow-right text-green-500 mr-2"></i>front
+                            <i class="fas fa-couch text-purple-500 mr-2"></i>a lot of sofas
                         </div>
                         <i class="fas fa-volume-up text-red-600"></i>
                     </div>
-                    <div class="text-sm text-gray-600 mb-2">前面 <small class="text-gray-400">the forward part</small></div>
+                    <div class="text-sm text-gray-600 mb-2">很多沙发 <small class="text-gray-400">a large number of long
+                            soft
+                            seats</small></div>
+                    <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                        "There are a lot of sofas at the back of the car."
+                    </div>
+                </div>
+
+                <!-- 6. go on the roads -->
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('go on the roads')">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="font-bold text-lg text-gray-800">
+                            <i class="fas fa-road text-gray-500 mr-2"></i>go on the roads
+                        </div>
+                        <i class="fas fa-volume-up text-red-600"></i>
+                    </div>
+                    <div class="text-sm text-gray-600 mb-2">在路上行驶 <small class="text-gray-400">travel or drive on the
+                            roads</small></div>
+                    <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                        "Big cars can go on the roads, but they are difficult to drive."
+                    </div>
+                </div>
+
+                <!-- 7. very often -->
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('very often')">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="font-bold text-lg text-gray-800">
+                            <i class="fas fa-redo text-orange-500 mr-2"></i>very often
+                        </div>
+                        <i class="fas fa-volume-up text-red-600"></i>
+                    </div>
+                    <div class="text-sm text-gray-600 mb-2">经常 <small class="text-gray-400">frequently</small></div>
+                    <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                        "We don't see a car with a swimming pool very often."
+                    </div>
+                </div>
+
+                <!-- 8. difficult to drive -->
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('difficult to drive')">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="font-bold text-lg text-gray-800">
+                            <i class="fas fa-mountain text-red-500 mr-2"></i>difficult to drive
+                        </div>
+                        <i class="fas fa-volume-up text-red-600"></i>
+                    </div>
+                    <div class="text-sm text-gray-600 mb-2">难以驾驶 <small class="text-gray-400">not easy to operate a
+                            vehicle</small></div>
+                    <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                        "This car has got a swimming pool, so it is difficult to drive."
+                    </div>
+                </div>
+
+                <!-- 9. at the front -->
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('at the front')">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="font-bold text-lg text-gray-800">
+                            <i class="fas fa-arrow-right text-green-500 mr-2"></i>at the front
+                        </div>
+                        <i class="fas fa-volume-up text-red-600"></i>
+                    </div>
+                    <div class="text-sm text-gray-600 mb-2">在前面 <small class="text-gray-400">in the forward part</small>
+                    </div>
                     <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
                         "There is a big sofa at the front of the bus."
                     </div>
                 </div>
-                
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('back')">
+
+                <!-- 10. at the back -->
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('at the back')">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
-                            <i class="fas fa-arrow-left text-green-500 mr-2"></i>back
+                            <i class="fas fa-arrow-left text-green-500 mr-2"></i>at the back
                         </div>
                         <i class="fas fa-volume-up text-red-600"></i>
                     </div>
-                    <div class="text-sm text-gray-600 mb-2">后面 <small class="text-gray-400">the rear part</small></div>
+                    <div class="text-sm text-gray-600 mb-2">在后面 <small class="text-gray-400">in the rear part</small>
+                    </div>
                     <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
                         "At the back, there are two beds and a TV."
                     </div>
                 </div>
-                
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('party')">
+
+                <!-- 11. use -->
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('use')">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
-                            <i class="fas fa-gift text-pink-500 mr-2"></i>party
+                            <i class="fas fa-hand-pointer text-indigo-500 mr-2"></i>use
                         </div>
                         <i class="fas fa-volume-up text-red-600"></i>
                     </div>
-                    <div class="text-sm text-gray-600 mb-2">聚会 <small class="text-gray-400">a celebration</small></div>
+                    <div class="text-sm text-gray-600 mb-2">使用 <small class="text-gray-400">to do something with a tool
+                            or
+                            for a purpose</small></div>
+                    <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                        "People can use the swimming pool when the car stops."
+                    </div>
+                </div>
+
+                <!-- 12. for special parties -->
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('for special parties')">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="font-bold text-lg text-gray-800">
+                            <i class="fas fa-gift text-pink-500 mr-2"></i>for special parties
+                        </div>
+                        <i class="fas fa-volume-up text-red-600"></i>
+                    </div>
+                    <div class="text-sm text-gray-600 mb-2">用于特别聚会 <small class="text-gray-400">for unusual or important
+                            celebrations</small></div>
                     <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
                         "Some people use this bus for special parties."
                     </div>
                 </div>
-                
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('drive')">
+
+                <!-- 13. go for a drive -->
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('go for a drive')">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
-                            <i class="fas fa-car text-blue-500 mr-2"></i>drive
+                            <i class="fas fa-car text-blue-500 mr-2"></i>go for a drive
                         </div>
                         <i class="fas fa-volume-up text-red-600"></i>
                     </div>
-                    <div class="text-sm text-gray-600 mb-2">驾驶 <small class="text-gray-400">to operate a vehicle</small></div>
+                    <div class="text-sm text-gray-600 mb-2">开车兜风 <small class="text-gray-400">take a trip in a vehicle
+                            for
+                            pleasure</small></div>
                     <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
                         "We often go for a drive in my dad's amazing car."
-                    </div>
-                </div>
-                
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('pool')">
-                    <div class="flex justify-between items-center mb-2">
-                        <div class="font-bold text-lg text-gray-800">
-                            <i class="fas fa-swimming-pool text-cyan-500 mr-2"></i>pool
-                        </div>
-                        <i class="fas fa-volume-up text-red-600"></i>
-                    </div>
-                    <div class="text-sm text-gray-600 mb-2">游泳池 <small class="text-gray-400">swimming pool</small></div>
-                    <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
-                        "There is a small pool inside the car."
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Grammar -->
+        <!-- Grammar Task 2 -->
         <div id="grammar" class="mb-12">
             <div class="text-center mb-8">
                 <div class="section-title">
                     <i class="fas fa-ruler mr-2"></i>任务2：Measure 与 There be 句式
                 </div>
             </div>
-            
+
             <div class="leather-card p-8 rounded-lg max-w-4xl mx-auto">
+                <!-- 动词+ing示例 -->
+                <div
+                    class="bg-gradient-to-br from-yellow-50 to-yellow-100 border-4 border-yellow-500 rounded-xl p-6 mb-6">
+                    <div class="font-bold text-yellow-800 text-xl mb-4">
+                        <i class="fas fa-pencil-alt mr-2"></i>类似动词+ing 的例子
+                    </div>
+                    <div class="bg-white border-4 border-yellow-400 rounded-lg p-6 mb-4">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                            <div class="bg-yellow-50 p-3 rounded-lg font-bold text-gray-800">
+                                read → <span class="text-blue-600">reading</span>
+                            </div>
+                            <div class="bg-yellow-50 p-3 rounded-lg font-bold text-gray-800">
+                                write → <span class="text-blue-600">writing</span>
+                            </div>
+                            <div class="bg-yellow-50 p-3 rounded-lg font-bold text-gray-800">
+                                draw → <span class="text-blue-600">drawing</span>
+                            </div>
+                            <div class="bg-yellow-50 p-3 rounded-lg font-bold text-gray-800">
+                                learn → <span class="text-blue-600">learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="bg-gradient-to-br from-green-50 to-green-100 border-4 border-green-600 rounded-xl p-6 mb-6">
                     <div class="font-bold text-green-800 text-xl mb-4">
                         <i class="fas fa-ruler-combined mr-2"></i>Measure vs Measuring
@@ -465,8 +623,10 @@
                     </div>
                     <div class="bg-white border-4 border-orange-400 rounded-lg p-6 text-center mb-4">
                         <div class="text-xl font-bold text-orange-700">
-                            There are <span class="text-green-600">10 mm</span> in every <span class="text-orange-600">cm</span><br>
-                            There are <span class="text-green-600">100 cm</span> in every <span class="text-blue-600">meter</span>
+                            There are <span class="text-green-600">10 mm</span> in every <span
+                                class="text-orange-600">cm</span><br>
+                            There are <span class="text-green-600">100 cm</span> in every <span
+                                class="text-blue-600">meter</span>
                         </div>
                     </div>
                     <div class="flex justify-center">
@@ -492,19 +652,27 @@
                     <i class="fas fa-book-reader mr-2"></i>任务3：阅读理解 & 任务4：完形填空
                 </div>
             </div>
-            
+
             <div class="leather-card p-8 rounded-lg max-w-4xl mx-auto">
                 <!-- Reading A -->
                 <div class="mb-8">
-                    <div class="bg-gradient-to-b from-yellow-50 to-amber-100 border-4 border-amber-600 rounded-xl p-6 mb-6">
-                        <div class="text-center font-bold text-amber-900 text-xl mb-4 pb-3 border-b-2 border-dashed border-red-500">
+                    <div
+                        class="bg-gradient-to-b from-yellow-50 to-amber-100 border-4 border-amber-600 rounded-xl p-6 mb-6">
+                        <div
+                            class="text-center font-bold text-amber-900 text-xl mb-4 pb-3 border-b-2 border-dashed border-red-500">
                             <i class="fas fa-bus mr-2"></i>Reading A: An Amazing Double-Decker Bus
                         </div>
                         <p class="text-gray-800 leading-relaxed mb-4">
-                            This bus is special because it has two floors. Inside, there is a small cinema on the top floor. You can watch films with your friends while travelling. On the bottom floor, there is a kitchen and a dining area. You can even find a mini garden at the back!
+                            This bus is special because it has two floors. Inside, there is a small cinema on the top
+                            floor.
+                            You can watch films with your friends while travelling. On the bottom floor, there is a
+                            kitchen
+                            and a dining area. You can even find a mini garden at the back!
                         </p>
                         <p class="text-gray-800 leading-relaxed">
-                            The bus does not take people to school or work. It is used for tours and parties. It needs a special driver because it is very tall and long. Sometimes there are parties inside, and everyone dances to music.
+                            The bus does not take people to school or work. It is used for tours and parties. It needs a
+                            special driver because it is very tall and long. Sometimes there are parties inside, and
+                            everyone dances to music.
                         </p>
                     </div>
 
@@ -520,9 +688,13 @@
                                 <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">c) Three floors</span>
                             </div>
                             <div id="ans-q-a1" class="interactive-answer">
-                                <span class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓ 正确答案</span>
+                                <span
+                                    class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓
+                                    正确答案</span>
                                 <div class="font-bold text-green-800">b) Two floors</div>
-                                <div class="text-gray-600 text-sm mt-1 italic">文中明确提到"This bus is special because it has <strong>two floors</strong>"。</div>
+                                <div class="text-gray-600 text-sm mt-1 italic">文中明确提到"This bus is special because it has
+                                    <strong>two floors</strong>"。
+                                </div>
                             </div>
                         </div>
 
@@ -537,9 +709,13 @@
                                 <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">c) Dance to music</span>
                             </div>
                             <div id="ans-q-a2" class="interactive-answer">
-                                <span class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓ 正确答案</span>
+                                <span
+                                    class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓
+                                    正确答案</span>
                                 <div class="font-bold text-green-800">b) Watch films</div>
-                                <div class="text-gray-600 text-sm mt-1 italic">文中说"there is a small cinema on the top floor. You can <strong>watch films</strong> with your friends"。</div>
+                                <div class="text-gray-600 text-sm mt-1 italic">文中说"there is a small cinema on the top
+                                    floor.
+                                    You can <strong>watch films</strong> with your friends"。</div>
                             </div>
                         </div>
 
@@ -551,12 +727,17 @@
                             <div class="flex flex-wrap gap-2 mb-2" id="opts-a3">
                                 <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">a) On the top floor</span>
                                 <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">b) In the kitchen</span>
-                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">c) At the back of the bus</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">c) At the back of the
+                                    bus</span>
                             </div>
                             <div id="ans-q-a3" class="interactive-answer">
-                                <span class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓ 正确答案</span>
+                                <span
+                                    class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓
+                                    正确答案</span>
                                 <div class="font-bold text-green-800">c) At the back of the bus</div>
-                                <div class="text-gray-600 text-sm mt-1 italic">文中明确提到"You can even find a mini garden <strong>at the back</strong>!"。</div>
+                                <div class="text-gray-600 text-sm mt-1 italic">文中明确提到"You can even find a mini garden
+                                    <strong>at the back</strong>!"。
+                                </div>
                             </div>
                         </div>
 
@@ -566,14 +747,22 @@
                                 <i class="fas fa-chevron-down text-gray-400"></i>
                             </div>
                             <div class="flex flex-wrap gap-2 mb-2" id="opts-a4">
-                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">a) Because it is very fast</span>
-                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">b) Because it is very tall and long</span>
-                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">c) Because it has a swimming pool</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">a) Because it is very
+                                    fast</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">b) Because it is very tall and
+                                    long</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">c) Because it has a swimming
+                                    pool</span>
                             </div>
                             <div id="ans-q-a4" class="interactive-answer">
-                                <span class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓ 正确答案</span>
+                                <span
+                                    class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓
+                                    正确答案</span>
                                 <div class="font-bold text-green-800">b) Because it is very tall and long</div>
-                                <div class="text-gray-600 text-sm mt-1 italic">文中说"It needs a special driver because it is <strong>very tall and long</strong>"。</div>
+                                <div class="text-gray-600 text-sm mt-1 italic">文中说"It needs a special driver because it
+                                    is
+                                    <strong>very tall and long</strong>"。
+                                </div>
                             </div>
                         </div>
 
@@ -588,9 +777,12 @@
                                 <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">c) For going to work</span>
                             </div>
                             <div id="ans-q-a5" class="interactive-answer">
-                                <span class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓ 正确答案</span>
+                                <span
+                                    class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓
+                                    正确答案</span>
                                 <div class="font-bold text-green-800">b) For tours and parties</div>
-                                <div class="text-gray-600 text-sm mt-1 italic">文中明确说明"It is used for <strong>tours and parties</strong>"，而不是上学或上班。</div>
+                                <div class="text-gray-600 text-sm mt-1 italic">文中明确说明"It is used for <strong>tours and
+                                        parties</strong>"，而不是上学或上班。</div>
                             </div>
                         </div>
                     </div>
@@ -598,18 +790,28 @@
 
                 <!-- Reading B -->
                 <div class="mb-8">
-                    <div class="bg-gradient-to-b from-yellow-50 to-amber-100 border-4 border-amber-600 rounded-xl p-6 mb-6">
-                        <div class="text-center font-bold text-amber-900 text-xl mb-4 pb-3 border-b-2 border-dashed border-red-500">
+                    <div
+                        class="bg-gradient-to-b from-yellow-50 to-amber-100 border-4 border-amber-600 rounded-xl p-6 mb-6">
+                        <div
+                            class="text-center font-bold text-amber-900 text-xl mb-4 pb-3 border-b-2 border-dashed border-red-500">
                             <i class="fas fa-car mr-2"></i>Reading B: An Amazing Car for Films and Parties
                         </div>
                         <p class="text-gray-800 leading-relaxed mb-4">
-                            This car is not like a normal car. It is very long, so it cannot go on small roads. Inside, it has everything for a party. You can see comfortable sofas, soft beds, and even a big TV. But the most exciting thing is the swimming pool! Yes, there is a small pool inside the car.
+                            This car is not like a normal car. It is very long, so it cannot go on small roads. Inside,
+                            it
+                            has everything for a party. You can see comfortable sofas, soft beds, and even a big TV. But
+                            the
+                            most exciting thing is the swimming pool! Yes, there is a small pool inside the car.
                         </p>
                         <p class="text-gray-800 leading-relaxed mb-4">
-                            Driving this car is difficult. One driver is not enough because the driver cannot see the back. That is why there are two drivers — one at the front and one at the back. They must work together to turn corners and stop safely.
+                            Driving this car is difficult. One driver is not enough because the driver cannot see the
+                            back.
+                            That is why there are two drivers — one at the front and one at the back. They must work
+                            together to turn corners and stop safely.
                         </p>
                         <p class="text-gray-800 leading-relaxed">
-                            People do not use this car every day. They use it in films or for special parties. Would you like to ride in it?
+                            People do not use this car every day. They use it in films or for special parties. Would you
+                            like to ride in it?
                         </p>
                     </div>
 
@@ -620,20 +822,28 @@
                                 <i class="fas fa-chevron-down text-gray-400"></i>
                             </div>
                             <div class="flex flex-wrap gap-2 mb-2" id="opts-b1">
-                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">a) Because it is too fast</span>
-                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">b) Because it is very long</span>
-                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">c) Because it has two drivers</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">a) Because it is too
+                                    fast</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">b) Because it is very
+                                    long</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">c) Because it has two
+                                    drivers</span>
                             </div>
                             <div id="ans-q-b1" class="interactive-answer">
-                                <span class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓ 正确答案</span>
+                                <span
+                                    class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓
+                                    正确答案</span>
                                 <div class="font-bold text-green-800">b) Because it is very long</div>
-                                <div class="text-gray-600 text-sm mt-1 italic">文中说"It is <strong>very long</strong>, so it cannot go on small roads"。</div>
+                                <div class="text-gray-600 text-sm mt-1 italic">文中说"It is <strong>very long</strong>, so
+                                    it
+                                    cannot go on small roads"。</div>
                             </div>
                         </div>
 
                         <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAnswer('q-b2')">
                             <div class="flex justify-between items-center mb-2">
-                                <span class="font-bold text-gray-800">2. What is the most exciting thing inside the car?</span>
+                                <span class="font-bold text-gray-800">2. What is the most exciting thing inside the
+                                    car?</span>
                                 <i class="fas fa-chevron-down text-gray-400"></i>
                             </div>
                             <div class="flex flex-wrap gap-2 mb-2" id="opts-b2">
@@ -642,9 +852,12 @@
                                 <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">c) The swimming pool</span>
                             </div>
                             <div id="ans-q-b2" class="interactive-answer">
-                                <span class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓ 正确答案</span>
+                                <span
+                                    class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓
+                                    正确答案</span>
                                 <div class="font-bold text-green-800">c) The swimming pool</div>
-                                <div class="text-gray-600 text-sm mt-1 italic">文中明确提到"But <strong>the most exciting thing</strong> is the swimming pool!"。</div>
+                                <div class="text-gray-600 text-sm mt-1 italic">文中明确提到"But <strong>the most exciting
+                                        thing</strong> is the swimming pool!"。</div>
                             </div>
                         </div>
 
@@ -659,9 +872,12 @@
                                 <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">c) Three</span>
                             </div>
                             <div id="ans-q-b3" class="interactive-answer">
-                                <span class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓ 正确答案</span>
+                                <span
+                                    class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓
+                                    正确答案</span>
                                 <div class="font-bold text-green-800">b) Two</div>
-                                <div class="text-gray-600 text-sm mt-1 italic">文中说"That is why there are <strong>two drivers</strong> — one at the front and one at the back"。</div>
+                                <div class="text-gray-600 text-sm mt-1 italic">文中说"That is why there are <strong>two
+                                        drivers</strong> — one at the front and one at the back"。</div>
                             </div>
                         </div>
 
@@ -671,14 +887,21 @@
                                 <i class="fas fa-chevron-down text-gray-400"></i>
                             </div>
                             <div class="flex flex-wrap gap-2 mb-2" id="opts-b4">
-                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">a) Because one driver cannot see the back</span>
-                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">b) Because the car has two floors</span>
-                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">c) Because the car goes very fast</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">a) Because one driver cannot
+                                    see
+                                    the back</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">b) Because the car has two
+                                    floors</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">c) Because the car goes very
+                                    fast</span>
                             </div>
                             <div id="ans-q-b4" class="interactive-answer">
-                                <span class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓ 正确答案</span>
+                                <span
+                                    class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓
+                                    正确答案</span>
                                 <div class="font-bold text-green-800">a) Because one driver cannot see the back</div>
-                                <div class="text-gray-600 text-sm mt-1 italic">文中解释"One driver is not enough because the driver <strong>cannot see the back</strong>"。</div>
+                                <div class="text-gray-600 text-sm mt-1 italic">文中解释"One driver is not enough because the
+                                    driver <strong>cannot see the back</strong>"。</div>
                             </div>
                         </div>
 
@@ -690,12 +913,17 @@
                             <div class="flex flex-wrap gap-2 mb-2" id="opts-b5">
                                 <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">a) Every day for work</span>
                                 <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">b) For school trips</span>
-                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">c) In films or for special parties</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">c) In films or for special
+                                    parties</span>
                             </div>
                             <div id="ans-q-b5" class="interactive-answer">
-                                <span class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓ 正确答案</span>
+                                <span
+                                    class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">✓
+                                    正确答案</span>
                                 <div class="font-bold text-green-800">c) In films or for special parties</div>
-                                <div class="text-gray-600 text-sm mt-1 italic">文中最后一段说"They use it <strong>in films or for special parties</strong>"。</div>
+                                <div class="text-gray-600 text-sm mt-1 italic">文中最后一段说"They use it <strong>in films or
+                                        for
+                                        special parties</strong>"。</div>
                             </div>
                         </div>
                     </div>
@@ -703,32 +931,283 @@
 
                 <!-- Cloze -->
                 <div>
-                    <div class="inline-block bg-gradient-to-r from-sky-100 to-sky-200 border-4 border-sky-400 rounded-xl px-6 py-3 mb-4">
+                    <div
+                        class="inline-block bg-gradient-to-r from-sky-100 to-sky-200 border-4 border-sky-400 rounded-xl px-6 py-3 mb-4">
                         <div class="font-bold text-amber-900 text-xl">
                             <i class="fas fa-edit mr-2"></i>任务4：完形填空 (Cloze) - 点击空格查看答案
                         </div>
                     </div>
-                    
+
                     <div class="bg-white border-4 border-blue-300 rounded-xl p-6 mb-4 leading-loose text-lg">
-                        This bus is special because it <span class="fill-blank" data-answer="has" onclick="toggleBlank(this)">_____</span> (1) two floors.
-                        Inside, there is a small cinema on the top floor. You can <span class="fill-blank" data-answer="watch" onclick="toggleBlank(this)">_____</span> (2) films with your friends while travelling.
-                        On the bottom floor, there is a kitchen and a dining area. You can even <span class="fill-blank" data-answer="find" onclick="toggleBlank(this)">_____</span> (3) a mini garden at the back!
+                        This bus is special because it <span class="fill-blank" data-answer="has"
+                            onclick="toggleBlank(this)">_____</span> (1) two floors.
+                        Inside, there is a small cinema on the top floor. You can <span class="fill-blank"
+                            data-answer="watch" onclick="toggleBlank(this)">_____</span> (2) films with your friends
+                        while
+                        travelling.
+                        On the bottom floor, there is a kitchen and a dining area. You can even <span class="fill-blank"
+                            data-answer="find" onclick="toggleBlank(this)">_____</span> (3) a mini garden at the back!
                         <br><br>
-                        The bus does not <span class="fill-blank" data-answer="take" onclick="toggleBlank(this)">_____</span> (4) people to school or work.
+                        The bus does not <span class="fill-blank" data-answer="take"
+                            onclick="toggleBlank(this)">_____</span> (4) people to school or work.
                         It is used for tours and parties. It needs a special driver because it is very tall and long.
-                        Sometimes there are parties inside, and everyone <span class="fill-blank" data-answer="dances" onclick="toggleBlank(this)">_____</span> (5) to music.
-                        Would you like to <span class="fill-blank" data-answer="have" onclick="toggleBlank(this)">_____</span> (6) a party on this bus?
+                        Sometimes there are parties inside, and everyone <span class="fill-blank" data-answer="dances"
+                            onclick="toggleBlank(this)">_____</span> (5) to music.
+                        Would you like to <span class="fill-blank" data-answer="have"
+                            onclick="toggleBlank(this)">_____</span> (6) a party on this bus?
                     </div>
-                    
+
                     <div class="bg-yellow-50 border-4 border-dashed border-yellow-400 rounded-xl p-5">
                         <div class="text-center font-bold text-amber-900 mb-3">Word Bank 词库（点击可朗读）</div>
                         <div class="flex flex-wrap justify-center gap-3">
-                            <span class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition" onclick="speak('has')">has</span>
-                            <span class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition" onclick="speak('watch')">watch</span>
-                            <span class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition" onclick="speak('find')">find</span>
-                            <span class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition" onclick="speak('take')">take</span>
-                            <span class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition" onclick="speak('dances')">dances</span>
-                            <span class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition" onclick="speak('have')">have</span>
+                            <span
+                                class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition"
+                                onclick="speak('has')">has</span>
+                            <span
+                                class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition"
+                                onclick="speak('watch')">watch</span>
+                            <span
+                                class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition"
+                                onclick="speak('find')">find</span>
+                            <span
+                                class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition"
+                                onclick="speak('take')">take</span>
+                            <span
+                                class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition"
+                                onclick="speak('dances')">dances</span>
+                            <span
+                                class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition"
+                                onclick="speak('have')">have</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Extra Vocabulary Task 3 -->
+        <div id="extra-vocab" class="mb-12">
+            <div class="text-center mb-8">
+                <div class="section-title">
+                    <i class="fas fa-graduation-cap mr-2"></i>任务5：补充词汇（预习/下节课内容）
+                </div>
+            </div>
+
+            <div class="leather-card p-8 rounded-lg max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- 1. look down -->
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('look down')">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-bold text-lg text-gray-800">
+                                <i class="fas fa-eye text-teal-500 mr-2"></i>look down
+                            </div>
+                            <i class="fas fa-volume-up text-red-600"></i>
+                        </div>
+                        <div class="text-sm text-gray-600 mb-2">往下看 <small class="text-gray-400">to look at the ground
+                                or at
+                                something below you</small></div>
+                        <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                            "Look down! There is a puddle in front of you."
+                        </div>
+                    </div>
+
+                    <!-- 2. puddle -->
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('puddle')">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-bold text-lg text-gray-800">
+                                <i class="fas fa-water text-cyan-500 mr-2"></i>puddle
+                            </div>
+                            <i class="fas fa-volume-up text-red-600"></i>
+                        </div>
+                        <div class="text-sm text-gray-600 mb-2">水坑 <small class="text-gray-400">a small pool of water on
+                                the
+                                ground</small></div>
+                        <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                            "After rain, there is a big puddle on the road."
+                        </div>
+                    </div>
+
+                    <!-- 3. in front of -->
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('in front of')">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-bold text-lg text-gray-800">
+                                <i class="fas fa-arrow-circle-right text-green-500 mr-2"></i>in front of
+                            </div>
+                            <i class="fas fa-volume-up text-red-600"></i>
+                        </div>
+                        <div class="text-sm text-gray-600 mb-2">在…前面 <small class="text-gray-400">in a position that is
+                                ahead of something</small></div>
+                        <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                            "The bus stops in front of the school."
+                        </div>
+                    </div>
+
+                    <!-- 4. rain stops -->
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('rain stops')">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-bold text-lg text-gray-800">
+                                <i class="fas fa-cloud-sun text-blue-400 mr-2"></i>rain stops
+                            </div>
+                            <i class="fas fa-volume-up text-red-600"></i>
+                        </div>
+                        <div class="text-sm text-gray-600 mb-2">雨停了 <small class="text-gray-400">the rain ends</small>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                            "When the rain stops, I close my umbrella."
+                        </div>
+                    </div>
+
+                    <!-- 5. close -->
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('close')">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-bold text-lg text-gray-800">
+                                <i class="fas fa-door-closed text-gray-600 mr-2"></i>close
+                            </div>
+                            <i class="fas fa-volume-up text-red-600"></i>
+                        </div>
+                        <div class="text-sm text-gray-600 mb-2">关上 <small class="text-gray-400">to shut
+                                something</small>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                            "Please close the window."
+                        </div>
+                    </div>
+
+                    <!-- 6. umbrella -->
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('umbrella')">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-bold text-lg text-gray-800">
+                                <i class="fas fa-umbrella text-purple-500 mr-2"></i>umbrella
+                            </div>
+                            <i class="fas fa-volume-up text-red-600"></i>
+                        </div>
+                        <div class="text-sm text-gray-600 mb-2">雨伞 <small class="text-gray-400">a thing that you open to
+                                keep rain off you</small></div>
+                        <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                            "She has got a red umbrella."
+                        </div>
+                    </div>
+
+                    <!-- 7. wait for -->
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('wait for')">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-bold text-lg text-gray-800">
+                                <i class="fas fa-clock text-orange-500 mr-2"></i>wait for
+                            </div>
+                            <i class="fas fa-volume-up text-red-600"></i>
+                        </div>
+                        <div class="text-sm text-gray-600 mb-2">等待 <small class="text-gray-400">to stay somewhere until
+                                something happens</small></div>
+                        <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                            "I wait for the bus every morning."
+                        </div>
+                    </div>
+
+                    <!-- 8. bus number -->
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('bus number')">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-bold text-lg text-gray-800">
+                                <i class="fas fa-hashtag text-red-500 mr-2"></i>bus number
+                            </div>
+                            <i class="fas fa-volume-up text-red-600"></i>
+                        </div>
+                        <div class="text-sm text-gray-600 mb-2">公交车路号 <small class="text-gray-400">the number of a bus
+                                route</small></div>
+                        <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                            "We are waiting for bus number 11."
+                        </div>
+                    </div>
+
+                    <!-- 9. open -->
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('open')">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-bold text-lg text-gray-800">
+                                <i class="fas fa-door-open text-green-600 mr-2"></i>open
+                            </div>
+                            <i class="fas fa-volume-up text-red-600"></i>
+                        </div>
+                        <div class="text-sm text-gray-600 mb-2">打开 <small class="text-gray-400">to move something so
+                                that it
+                                is no longer closed</small></div>
+                        <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                            "Open your umbrella when it rains."
+                        </div>
+                    </div>
+
+                    <!-- 10. start to rain -->
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('start to rain')">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-bold text-lg text-gray-800">
+                                <i class="fas fa-cloud-rain text-blue-600 mr-2"></i>start to rain
+                            </div>
+                            <i class="fas fa-volume-up text-red-600"></i>
+                        </div>
+                        <div class="text-sm text-gray-600 mb-2">开始下雨 <small class="text-gray-400">begin to rain</small>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                            "It starts to rain, so I open my umbrella."
+                        </div>
+                    </div>
+
+                    <!-- 11. jump out of the way -->
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('jump out of the way')">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-bold text-lg text-gray-800">
+                                <i class="fas fa-running text-red-500 mr-2"></i>jump out of the way
+                            </div>
+                            <i class="fas fa-volume-up text-red-600"></i>
+                        </div>
+                        <div class="text-sm text-gray-600 mb-2">跳开 <small class="text-gray-400">to move quickly to avoid
+                                something</small></div>
+                        <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                            "Jump out of the way of the puddle!"
+                        </div>
+                    </div>
+
+                    <!-- 12. too late -->
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('too late')">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-bold text-lg text-gray-800">
+                                <i class="fas fa-hourglass-end text-gray-500 mr-2"></i>too late
+                            </div>
+                            <i class="fas fa-volume-up text-red-600"></i>
+                        </div>
+                        <div class="text-sm text-gray-600 mb-2">太迟了 <small class="text-gray-400">after the time when it
+                                is
+                                possible to do something</small></div>
+                        <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                            "I try to jump, but it is too late."
+                        </div>
+                    </div>
+
+                    <!-- 13. splash -->
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('splash')">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-bold text-lg text-gray-800">
+                                <i class="fas fa-tint text-blue-400 mr-2"></i>splash
+                            </div>
+                            <i class="fas fa-volume-up text-red-600"></i>
+                        </div>
+                        <div class="text-sm text-gray-600 mb-2">溅水声；溅起水花 <small class="text-gray-400">the sound or
+                                action of
+                                water scattering</small></div>
+                        <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                            "I step in the puddle and there is a big splash!"
+                        </div>
+                    </div>
+
+                    <!-- 14. here comes -->
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('here comes')">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-bold text-lg text-gray-800">
+                                <i class="fas fa-bus-alt text-yellow-600 mr-2"></i>here comes
+                            </div>
+                            <i class="fas fa-volume-up text-red-600"></i>
+                        </div>
+                        <div class="text-sm text-gray-600 mb-2">…来了 <small class="text-gray-400">used to say that
+                                something
+                                or someone is arriving</small></div>
+                        <div class="bg-gray-50 p-3 rounded text-sm italic text-gray-700 border-l-4 border-yellow-400">
+                            "Look! Here comes the bus."
                         </div>
                     </div>
                 </div>
@@ -742,19 +1221,22 @@
                     <i class="fas fa-pencil-alt mr-2"></i>作业 Homework - 3月21日
                 </div>
             </div>
-            
+
             <div class="leather-card p-8 rounded-lg max-w-4xl mx-auto">
                 <div class="bg-gradient-to-br from-orange-50 to-amber-100 border-4 border-orange-500 rounded-xl p-6">
                     <div class="text-center font-bold text-orange-800 text-2xl mb-4">
                         <i class="fas fa-clipboard-list mr-2"></i>今日作业任务
                     </div>
-                    
+
                     <div class="bg-white rounded-full p-1 mb-6 shadow-inner">
-                        <div id="progressBar" class="h-8 bg-gradient-to-r from-green-500 to-green-400 rounded-full flex items-center justify-center text-white font-bold transition-all duration-500" style="width: 0%">0%</div>
+                        <div id="progressBar"
+                            class="h-8 bg-gradient-to-r from-green-500 to-green-400 rounded-full flex items-center justify-center text-white font-bold transition-all duration-500"
+                            style="width: 0%">0%</div>
                     </div>
-                    
+
                     <div class="space-y-4">
-                        <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-orange-500" data-todo="1" onclick="toggleTodo(this)">
+                        <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-orange-500"
+                            data-todo="1" onclick="toggleTodo(this)">
                             <div class="todo-checkbox"></div>
                             <div class="flex-1">
                                 <div class="font-bold text-gray-800 text-lg todo-title">1. 单词掌握 Vocabulary</div>
@@ -764,8 +1246,9 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-orange-500" data-todo="2" onclick="toggleTodo(this)">
+
+                        <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-orange-500"
+                            data-todo="2" onclick="toggleTodo(this)">
                             <div class="todo-checkbox"></div>
                             <div class="flex-1">
                                 <div class="font-bold text-gray-800 text-lg todo-title">2. 课文朗读 Reading</div>
@@ -775,19 +1258,22 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-orange-500" data-todo="3" onclick="toggleTodo(this)">
+
+                        <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-orange-500"
+                            data-todo="3" onclick="toggleTodo(this)">
                             <div class="todo-checkbox"></div>
                             <div class="flex-1">
                                 <div class="font-bold text-gray-800 text-lg todo-title">3. 阅读练习 Exercises</div>
                                 <div class="text-gray-600">
                                     完成PDF里的两篇阅读理解（共10题）和完形填空。<br>
-                                    <em class="text-gray-400 text-sm">Complete the reading passages (10 questions) and cloze.</em>
+                                    <em class="text-gray-400 text-sm">Complete the reading passages (10 questions) and
+                                        cloze.</em>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-orange-500" data-todo="4" onclick="toggleTodo(this)">
+
+                        <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-orange-500"
+                            data-todo="4" onclick="toggleTodo(this)">
                             <div class="todo-checkbox"></div>
                             <div class="flex-1">
                                 <div class="font-bold text-gray-800 text-lg todo-title">4. 上传作业 Upload</div>
@@ -798,14 +1284,17 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="text-center mt-4">
-                        <button class="bg-gradient-to-b from-gray-500 to-gray-600 text-white font-bold px-6 py-2 rounded-full shadow-lg hover:scale-105 transition" onclick="resetTodos()">
+                        <button
+                            class="bg-gradient-to-b from-gray-500 to-gray-600 text-white font-bold px-6 py-2 rounded-full shadow-lg hover:scale-105 transition"
+                            onclick="resetTodos()">
                             <i class="fas fa-redo mr-2"></i>重置所有任务
                         </button>
                     </div>
-                    
-                    <div class="bg-yellow-100 border-4 border-dashed border-yellow-400 rounded-xl p-5 mt-6 flex items-start gap-4">
+
+                    <div
+                        class="bg-yellow-100 border-4 border-dashed border-yellow-400 rounded-xl p-5 mt-6 flex items-start gap-4">
                         <i class="fas fa-lightbulb text-3xl text-yellow-600"></i>
                         <div>
                             <h4 class="font-bold text-yellow-800 mb-1">家长提示 Parent Tips</h4>
@@ -831,17 +1320,8 @@
         </footer>
     </div>
 
+    <script src="../js/common.js"></script>
     <script>
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            var menu = document.getElementById('mobileMenu');
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-            } else {
-                menu.classList.add('hidden');
-            }
-        }
-
         // Smooth scroll
         function scrollTo(id) {
             var element = document.getElementById(id);
@@ -864,13 +1344,13 @@
         // Toggle answer for reading comprehension
         function toggleAnswer(qid) {
             var answerDiv = document.getElementById('ans-' + qid);
-            var optionsDiv = document.getElementById('opts-' + qid);
-            
+            var optionsDiv = document.getElementById(qid.replace('q-', 'opts-'));
+
             if (answerDiv.classList.contains('show')) {
                 answerDiv.classList.remove('show');
                 if (optionsDiv) {
                     var options = optionsDiv.querySelectorAll('span');
-                    options.forEach(function(opt) {
+                    options.forEach(function (opt) {
                         opt.classList.remove('correct');
                     });
                 }
@@ -880,7 +1360,7 @@
                 var correctIndex = 1; // Default to b)
                 if (qid === 'q-a3' || qid === 'q-b2' || qid === 'q-b5') correctIndex = 2; // c)
                 if (qid === 'q-b4') correctIndex = 0; // a)
-                
+
                 if (optionsDiv) {
                     var options = optionsDiv.querySelectorAll('span');
                     if (options[correctIndex]) {
@@ -895,7 +1375,7 @@
         function toggleBlank(element) {
             var answer = element.getAttribute('data-answer');
             var key = answer + element.innerText;
-            
+
             if (blankStates[key]) {
                 element.textContent = '_____';
                 element.classList.remove('revealed');
@@ -909,18 +1389,18 @@
 
         // Todo list functionality
         var todoStates = {};
-        
+
         // Load from localStorage
         try {
             var saved = localStorage.getItem('amazingVehiclesTodos');
             if (saved) todoStates = JSON.parse(saved);
-        } catch(e) {}
+        } catch (e) { }
 
         function updateProgress() {
             var todos = document.querySelectorAll('.todo-item');
             var completed = document.querySelectorAll('.todo-item.completed');
             var progress = Math.round((completed.length / todos.length) * 100);
-            
+
             var bar = document.getElementById('progressBar');
             bar.style.width = progress + '%';
             bar.textContent = progress === 100 ? '🎉 100% 完成！' : progress + '%';
@@ -928,7 +1408,7 @@
 
         function toggleTodo(item) {
             var id = item.getAttribute('data-todo');
-            
+
             if (item.classList.contains('completed')) {
                 item.classList.remove('completed');
                 todoStates[id] = false;
@@ -936,31 +1416,31 @@
                 item.classList.add('completed');
                 todoStates[id] = true;
             }
-            
+
             try {
                 localStorage.setItem('amazingVehiclesTodos', JSON.stringify(todoStates));
-            } catch(e) {}
-            
+            } catch (e) { }
+
             updateProgress();
         }
 
         function resetTodos() {
             if (confirm('确定要重置所有作业任务吗？')) {
-                document.querySelectorAll('.todo-item').forEach(function(item) {
+                document.querySelectorAll('.todo-item').forEach(function (item) {
                     item.classList.remove('completed');
                 });
                 todoStates = {};
                 try {
                     localStorage.setItem('amazingVehiclesTodos', '{}');
-                } catch(e) {}
+                } catch (e) { }
                 updateProgress();
             }
         }
 
         // Initialize on load
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Restore todo states
-            Object.keys(todoStates).forEach(function(id) {
+            Object.keys(todoStates).forEach(function (id) {
                 if (todoStates[id]) {
                     var item = document.querySelector('[data-todo="' + id + '"]');
                     if (item) item.classList.add('completed');
@@ -970,4 +1450,5 @@
         });
     </script>
 </body>
+
 </html>
