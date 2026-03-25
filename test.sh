@@ -9,6 +9,7 @@ echo "1. Checking shared files..."
 [ -f "css/common.css" ] && echo "   ✓ css/common.css exists" || echo "   ✗ css/common.css missing"
 [ -f "js/common.js" ] && echo "   ✓ js/common.js exists" || echo "   ✗ js/common.js missing"
 [ -f "ga.js" ] && echo "   ✓ ga.js exists" || echo "   ✗ ga.js missing"
+[ -f "favicon.svg" ] && echo "   ✓ favicon.svg exists" || echo "   ✗ favicon.svg missing"
 [ ! -f "super-minds-baseball/ga.js" ] && echo "   ✓ Duplicate ga.js removed" || echo "   ✗ Duplicate ga.js still exists"
 
 echo ""
@@ -32,15 +33,9 @@ done
 echo ""
 echo "4. Checking favicon on all pages..."
 ERRORS=0
-for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html; do
-    if grep -q 'rel="icon"' "$file"; then
-        echo "   ✓ $file has favicon"
-    else
-        echo "   ✗ $file missing favicon!"
-        ERRORS=$((ERRORS + 1))
-    fi
-done
-for file in super-minds-baseball/index.html super-minds-baseball/unit7/index.html super-minds-baseball/unit7/homework.html super-minds-baseball/unit8/index.html; do
+
+# Combined loop for all HTML files
+for file in index.html unit7/*.html unit8/*.html super-minds-baseball/index.html super-minds-baseball/unit7/*.html super-minds-baseball/unit8/*.html; do
     if [ -f "$file" ]; then
         if grep -q 'rel="icon"' "$file"; then
             echo "   ✓ $file has favicon"
