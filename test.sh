@@ -30,6 +30,32 @@ grep -l "../ga.js" super-minds-baseball/*.html super-minds-baseball/*/*.html 2>/
 done
 
 echo ""
+echo "4. Checking favicon on all pages..."
+ERRORS=0
+for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html; do
+    if grep -q 'rel="icon"' "$file"; then
+        echo "   ✓ $file has favicon"
+    else
+        echo "   ✗ $file missing favicon!"
+        ERRORS=$((ERRORS + 1))
+    fi
+done
+for file in super-minds-baseball/index.html super-minds-baseball/unit7/index.html super-minds-baseball/unit7/homework.html super-minds-baseball/unit8/index.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'rel="icon"' "$file"; then
+            echo "   ✓ $file has favicon"
+        else
+            echo "   ✗ $file missing favicon!"
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
 echo "=== Test Complete ==="
 echo ""
 echo "Next steps:"
