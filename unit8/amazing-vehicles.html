@@ -940,22 +940,22 @@
                     </div>
 
                     <div class="bg-white border-4 border-blue-300 rounded-xl p-6 mb-4 leading-loose text-lg">
-                        This bus is special because it <span class="fill-blank" data-answer="has"
-                            onclick="toggleBlank(this)">_____</span> (1) two floors.
+                        This bus is special because it <span class="fill-blank" data-answer="has" data-index="1"
+                            onclick="toggleBlank(this)">_____(1)</span> two floors.
                         Inside, there is a small cinema on the top floor. You can <span class="fill-blank"
-                            data-answer="watch" onclick="toggleBlank(this)">_____</span> (2) films with your friends
+                            data-answer="watch" data-index="2" onclick="toggleBlank(this)">_____(2)</span> films with your friends
                         while
                         travelling.
                         On the bottom floor, there is a kitchen and a dining area. You can even <span class="fill-blank"
-                            data-answer="find" onclick="toggleBlank(this)">_____</span> (3) a mini garden at the back!
+                            data-answer="find" data-index="3" onclick="toggleBlank(this)">_____(3)</span> a mini garden at the back!
                         <br><br>
-                        The bus does not <span class="fill-blank" data-answer="take"
-                            onclick="toggleBlank(this)">_____</span> (4) people to school or work.
+                        The bus does not <span class="fill-blank" data-answer="take" data-index="4"
+                            onclick="toggleBlank(this)">_____(4)</span> people to school or work.
                         It is used for tours and parties. It needs a special driver because it is very tall and long.
-                        Sometimes there are parties inside, and everyone <span class="fill-blank" data-answer="dances"
-                            onclick="toggleBlank(this)">_____</span> (5) to music.
-                        Would you like to <span class="fill-blank" data-answer="have"
-                            onclick="toggleBlank(this)">_____</span> (6) a party on this bus?
+                        Sometimes there are parties inside, and everyone <span class="fill-blank" data-answer="dances" data-index="5"
+                            onclick="toggleBlank(this)">_____(5)</span> to music.
+                        Would you like to <span class="fill-blank" data-answer="have" data-index="6"
+                            onclick="toggleBlank(this)">_____(6)</span> a party on this bus?
                     </div>
 
                     <div class="bg-yellow-50 border-4 border-dashed border-yellow-400 rounded-xl p-5">
@@ -1375,10 +1375,11 @@
         var blankStates = {};
         function toggleBlank(element) {
             var answer = element.getAttribute('data-answer');
-            var key = answer + element.innerText;
+            var index = element.getAttribute('data-index');
+            var key = 'blank-' + index;
 
             if (blankStates[key]) {
-                element.textContent = '_____';
+                element.textContent = '_____(' + index + ')';
                 element.classList.remove('revealed');
                 blankStates[key] = false;
             } else {
