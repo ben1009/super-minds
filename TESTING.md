@@ -22,6 +22,7 @@ Runs on every push to master/main and on pull requests:
 - ✅ All pages reference shared CSS/JS correctly
 - ✅ Baseball pages use correct `../ga.js` path
 - ✅ HTML has proper DOCTYPE and viewport meta
+- ✅ All pages have favicon (`<link rel="icon">`)
 
 ### Full CI Tests
 
@@ -86,12 +87,24 @@ Then open http://localhost:8000 in your browser.
 
 ## Testing Checklist
 
-### ✅ Phase 1: GA Script Consolidation
+### ✅ Phase 1: GA Script Consolidation & Favicon
 
 - [ ] Open browser DevTools (F12) → Network tab
 - [ ] Visit http://localhost:8000/super-minds-baseball/
 - [ ] Verify `ga.js` loads from `../ga.js` (not `ga.js`)
 - [ ] No 404 errors for ga.js in console
+
+**Favicon Check:**
+- [ ] Browser tab shows 🧠 icon on homepage
+- [ ] Browser tab shows 🧠 icon on Unit 7 page
+- [ ] Browser tab shows 🧠 icon on Unit 8 page
+- [ ] Browser tab shows 🧠 icon on all baseball pages
+
+**Verify in HTML:**
+```bash
+# Check all pages have favicon
+grep -l 'rel="icon"' index.html unit7/*.html unit8/*.html super-minds-baseball/*.html super-minds-baseball/*/*.html
+```
 
 **Files to check:**
 - `/super-minds-baseball/index.html`

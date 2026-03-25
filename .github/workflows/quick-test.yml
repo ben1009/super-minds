@@ -96,7 +96,7 @@ jobs:
         echo "🔍 Validating HTML Structure..."
         
         # Check for basic HTML structure
-        for file in index.html unit7/index.html unit7/homework.html unit8/index.html; do
+        for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html; do
           if [ -f "$file" ]; then
             # Check for doctype
             if head -1 "$file" | grep -qi "<!doctype html>"; then
@@ -114,6 +114,37 @@ jobs:
             fi
           fi
         done
+        
+    - name: Validate Favicon
+      run: |
+        echo ""
+        echo "🔍 Validating Favicon..."
+        
+        ERRORS=0
+        
+        # Check favicon.svg exists
+        if [ -f "favicon.svg" ]; then
+          echo "  ✅ favicon.svg exists"
+        else
+          echo "  ❌ favicon.svg missing!"
+          ERRORS=$((ERRORS + 1))
+        fi
+        
+        # Check all pages have favicon
+        for file in index.html unit7/*.html unit8/*.html super-minds-baseball/index.html super-minds-baseball/unit7/*.html super-minds-baseball/unit8/*.html; do
+          if [ -f "$file" ]; then
+            if grep -q 'rel="icon"' "$file"; then
+              echo "  ✅ $file has favicon"
+            else
+              echo "  ❌ $file missing favicon!"
+              ERRORS=$((ERRORS + 1))
+            fi
+          fi
+        done
+        
+        if [ $ERRORS -gt 0 ]; then
+          exit 1
+        fi
         
     - name: Run Test Script
       run: |
