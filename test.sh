@@ -76,6 +76,26 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
+echo "6. Checking reading page navigation links..."
+ERRORS=0
+
+# Check that reading.html is linked from all relevant pages
+for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'reading.html' "$file"; then
+            echo "   ✓ $f has link to reading.html"
+        else
+            echo "   ✗ $file missing link to reading.html!"
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
 echo "=== Test Complete ==="
 echo ""
 echo "Next steps:"
