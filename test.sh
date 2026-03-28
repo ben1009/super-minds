@@ -24,6 +24,31 @@ grep -l "common.js" index.html unit7/*.html 2>/dev/null | while read f; do
     echo "   ✓ $f references common.js"
 done
 
+# Check Unit 8 reading.html has required elements
+echo ""
+echo "5. Checking Unit 8 reading.html..."
+if [ -f "unit8/reading.html" ]; then
+    if grep -q 'data-correct-option' "unit8/reading.html"; then
+        echo "   ✓ reading.html uses data-correct-option attributes"
+    else
+        echo "   ⚠️ reading.html may be missing data-correct-option attributes"
+    fi
+    
+    if grep -q 'function speak(text, cardElement)' "unit8/reading.html"; then
+        echo "   ✓ speak() function has cardElement parameter"
+    else
+        echo "   ⚠️ speak() function may need updating"
+    fi
+    
+    if grep -q '<button type="button"' "unit8/reading.html"; then
+        echo "   ✓ reading.html uses semantic button elements"
+    else
+        echo "   ⚠️ reading.html may not use button elements"
+    fi
+else
+    echo "   ✗ unit8/reading.html not found"
+fi
+
 echo ""
 echo "3. Checking baseball folder uses ../ga.js..."
 grep -l "../ga.js" super-minds-baseball/*.html super-minds-baseball/*/*.html 2>/dev/null | while read f; do
@@ -35,7 +60,7 @@ echo "4. Checking favicon on all pages..."
 ERRORS=0
 
 # Combined loop for all HTML files
-for file in index.html unit7/*.html unit8/*.html super-minds-baseball/index.html super-minds-baseball/unit7/*.html super-minds-baseball/unit8/*.html; do
+for file in index.html unit7/*.html unit8/*.html unit8/reading.html super-minds-baseball/index.html super-minds-baseball/unit7/*.html super-minds-baseball/unit8/*.html; do
     if [ -f "$file" ]; then
         if grep -q 'rel="icon"' "$file"; then
             echo "   ✓ $file has favicon"
@@ -56,4 +81,5 @@ echo ""
 echo "Next steps:"
 echo "1. Start a local server: python3 -m http.server 8000"
 echo "2. Open http://localhost:8000"
-echo "3. Follow TESTING.md checklist"
+echo "3. Test the new reading page: http://localhost:8000/unit8/reading.html"
+echo "4. Follow TESTING.md checklist"

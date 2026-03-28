@@ -96,7 +96,7 @@ jobs:
         echo "🔍 Validating HTML Structure..."
         
         # Check for basic HTML structure
-        for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html; do
+        for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html unit8/reading.html; do
           if [ -f "$file" ]; then
             # Check for doctype
             if head -1 "$file" | grep -qi "<!doctype html>"; then
@@ -285,6 +285,89 @@ jobs:
           } catch (e) {
             console.log('  ❌ Interaction test failed:', e.message);
             failed++;
+          }
+          
+          // Test 4: Unit 8 Reading Page
+          try {
+            const page = await browser.newPage();
+            await page.goto('http://localhost:8000/unit8/reading.html');
+            
+            const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+            
+            // Check page loaded
+            const title = await page.title();
+            if (title.includes('Fun Things We Do')) {
+              console.log('  ✅ Unit 8 reading page loads correctly');
+              passed++;
+            } else {
+              console.log('  ❌ Unit 8 reading page title incorrect:', title);
+              failed++;
+            }
+            
+            // Test todo toggle functionality
+            const todoItem = await page.$('.todo-item');
+            if (todoItem) {
+              await todoItem.click();
+              await delay(300);
+              
+              const isCompleted = await page.evaluate(() => {
+                const item = document.querySelector('.todo-item');
+                return item && item.classList.contains('completed');
+              });
+              
+              if (isCompleted) {
+                console.log('  ✅ Todo toggle interaction works');
+                passed++;
+              } else {
+                console.log('  ❌ Todo toggle not working');
+                failed++;
+              }
+            }
+            
+            // Test question toggle functionality
+            const questionItem = await page.$('.question-item');
+            if (questionItem) {
+              await questionItem.click();
+              await delay(300);
+              
+              const isExpanded = await page.evaluate(() => {
+                const answer = document.querySelector('.answer-section');
+                return answer && answer.classList.contains('show');
+              });
+              
+              if (isExpanded) {
+                console.log('  ✅ Question toggle interaction works');
+                passed++;
+              } else {
+                console.log('  ❌ Question toggle not working');
+                failed++;
+              }
+            }
+            
+            // Test speak function exists
+            const hasSpeakFunction = await page.evaluate(() => typeof speak === 'function');
+            if (hasSpeakFunction) {
+              console.log('  ✅ speak() function available');
+              passed++;
+            } else {
+              console.log('  ❌ speak() function missing');
+              failed++;
+            }
+            
+            // Test toggleAnswer function exists
+            const hasToggleAnswer = await page.evaluate(() => typeof toggleAnswer === 'function');
+            if (hasToggleAnswer) {
+              console.log('  ✅ toggleAnswer() function available');
+              passed++;
+            } else {
+              console.log('  ❌ toggleAnswer() function missing');
+              failed++;
+            }
+            
+            await page.close();
+          } catch (e) {
+            console.log('  ❌ Unit 8 reading page test failed:', e.message);
+            failed += 5;
           }
           
           await browser.close();
