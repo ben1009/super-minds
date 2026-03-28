@@ -32,6 +32,14 @@ A baseball-themed course focusing on **using gerunds as subjects** with ball spo
    - 📝 Cloze exercise with interactive blanks
    - ✏️ Homework todo list with progress tracking
 
+3. **Fun Things We Do** (`unit8/reading.html`)
+   - 🎨 Character cards with hobbies (Amy, Ben, Cindy, David)
+   - 📖 Reading passage with clickable translations
+   - 📝 5 reading comprehension questions
+   - 🎯 Key vocabulary with pronunciation (Web Speech API)
+   - 📚 Grammar focus: like/enjoy/love + V-ing, be interested in + V-ing
+   - ✅ Interactive todo list for homework tracking
+
 ## 🌐 Access the Course
 
 **Click the link below to start learning:**
@@ -53,7 +61,8 @@ No installation required — just open it in your browser!
 │   └── homework.html       # Unit 7 Homework
 ├── unit8/
 │   ├── index.html          # Unit 8: Gerunds as Subjects (Ball Sports)
-│   └── amazing-vehicles.html  # Unit 8: Amazing Vehicles (Reading & Vocabulary)
+│   ├── amazing-vehicles.html  # Unit 8: Amazing Vehicles (Reading & Vocabulary)
+│   └── reading.html        # Unit 8: Fun Things We Do (Reading & Hobbies)
 ├── super-minds-baseball/   # Baseball-themed edition
 │   ├── index.html
 │   ├── unit7/
