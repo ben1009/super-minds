@@ -146,6 +146,29 @@ jobs:
           exit 1
         fi
         
+    - name: Validate Reading Page Navigation
+      run: |
+        echo ""
+        echo "🔍 Validating Reading Page Navigation Links..."
+        
+        ERRORS=0
+        
+        # Check that reading.html is linked from all relevant pages
+        for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html; do
+          if [ -f "$file" ]; then
+            if grep -q 'reading.html' "$file"; then
+              echo "  ✅ $file links to reading.html"
+            else
+              echo "  ❌ $file missing link to reading.html!"
+              ERRORS=$((ERRORS + 1))
+            fi
+          fi
+        done
+        
+        if [ $ERRORS -gt 0 ]; then
+          exit 1
+        fi
+        
     - name: Run Test Script
       run: |
         echo ""
@@ -368,6 +391,58 @@ jobs:
           } catch (e) {
             console.log('  ❌ Unit 8 reading page test failed:', e.message);
             failed += 5;
+          }
+          
+          // Test 5: Navigation Links to Reading Page
+          try {
+            const page = await browser.newPage();
+            await page.goto('http://localhost:8000/');
+            
+            // Check homepage has link to reading page
+            const hasHomepageLink = await page.evaluate(() => {
+              return !!document.querySelector('a[href="unit8/reading.html"]');
+            });
+            
+            if (hasHomepageLink) {
+              console.log('  ✅ Homepage links to reading.html');
+              passed++;
+            } else {
+              console.log('  ❌ Homepage missing link to reading.html');
+              failed++;
+            }
+            
+            // Check unit8/index.html has navigation link
+            await page.goto('http://localhost:8000/unit8/index.html');
+            const hasUnit8NavLink = await page.evaluate(() => {
+              return !!document.querySelector('a[href="reading.html"]');
+            });
+            
+            if (hasUnit8NavLink) {
+              console.log('  ✅ Unit 8 page has reading.html navigation link');
+              passed++;
+            } else {
+              console.log('  ❌ Unit 8 page missing reading.html navigation link');
+              failed++;
+            }
+            
+            // Check unit7/index.html has navigation link
+            await page.goto('http://localhost:8000/unit7/index.html');
+            const hasUnit7NavLink = await page.evaluate(() => {
+              return !!document.querySelector('a[href="../unit8/reading.html"]');
+            });
+            
+            if (hasUnit7NavLink) {
+              console.log('  ✅ Unit 7 page has reading.html navigation link');
+              passed++;
+            } else {
+              console.log('  ❌ Unit 7 page missing reading.html navigation link');
+              failed++;
+            }
+            
+            await page.close();
+          } catch (e) {
+            console.log('  ❌ Navigation links test failed:', e.message);
+            failed += 3;
           }
           
           await browser.close();
