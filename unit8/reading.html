@@ -559,7 +559,7 @@
 
             <div class="space-y-4">
                 <!-- Question 1 -->
-                <div class="reading-card p-5 question-item" data-answer="1" onclick="toggleAnswer(1)">
+                <button type="button" class="reading-card p-5 question-item text-left w-full" data-answer="1" data-correct-option="B" onclick="toggleAnswer(this)">
                     <div class="flex items-start gap-3">
                         <span class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">1</span>
                         <div class="flex-1">
@@ -577,10 +577,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </button>
 
                 <!-- Question 2 -->
-                <div class="reading-card p-5 question-item" data-answer="2" onclick="toggleAnswer(2)">
+                <button type="button" class="reading-card p-5 question-item text-left w-full" data-answer="2" data-correct-option="B" onclick="toggleAnswer(this)">
                     <div class="flex items-start gap-3">
                         <span class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">2</span>
                         <div class="flex-1">
@@ -598,10 +598,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </button>
 
                 <!-- Question 3 -->
-                <div class="reading-card p-5 question-item" data-answer="3" onclick="toggleAnswer(3)">
+                <button type="button" class="reading-card p-5 question-item text-left w-full" data-answer="3" data-correct-option="A" onclick="toggleAnswer(this)">
                     <div class="flex items-start gap-3">
                         <span class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">3</span>
                         <div class="flex-1">
@@ -619,10 +619,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </button>
 
                 <!-- Question 4 -->
-                <div class="reading-card p-5 question-item" data-answer="4" onclick="toggleAnswer(4)">
+                <button type="button" class="reading-card p-5 question-item text-left w-full" data-answer="4" data-correct-option="C" onclick="toggleAnswer(this)">
                     <div class="flex items-start gap-3">
                         <span class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">4</span>
                         <div class="flex-1">
@@ -640,10 +640,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </button>
 
                 <!-- Question 5 -->
-                <div class="reading-card p-5 question-item" data-answer="5" onclick="toggleAnswer(5)">
+                <button type="button" class="reading-card p-5 question-item text-left w-full" data-answer="5" data-correct-option="B" onclick="toggleAnswer(this)">
                     <div class="flex items-start gap-3">
                         <span class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">5</span>
                         <div class="flex-1">
@@ -661,7 +661,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </button>
             </div>
         </section>
 
@@ -673,7 +673,7 @@
             <p class="text-center text-gray-600 mb-4 text-sm">点击卡片听发音 · Click cards to hear pronunciation</p>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="vocab-card p-4 rounded-xl" onclick="speak('painting')">
+                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('painting', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">🎨</span>
@@ -682,9 +682,9 @@
                     <p class="text-sm text-gray-600 mb-1">画画，绘画</p>
                     <p class="text-xs text-gray-500 italic">"Amy likes painting flowers"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </div>
+                </button>
 
-                <div class="vocab-card p-4 rounded-xl" onclick="speak('flying a kite')">
+                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('flying a kite', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">🪁</span>
@@ -693,9 +693,9 @@
                     <p class="text-sm text-gray-600 mb-1">放风筝</p>
                     <p class="text-xs text-gray-500 italic">"flying a kite on windy days"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </div>
+                </button>
 
-                <div class="vocab-card p-4 rounded-xl" onclick="speak('riding a bike')">
+                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('riding a bike', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">🚴</span>
@@ -704,9 +704,9 @@
                     <p class="text-sm text-gray-600 mb-1">骑自行车</p>
                     <p class="text-xs text-gray-500 italic">"riding her bike around the park"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </div>
+                </button>
 
-                <div class="vocab-card p-4 rounded-xl" onclick="speak('making models')">
+                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('making models', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">✈️</span>
@@ -715,9 +715,9 @@
                     <p class="text-sm text-gray-600 mb-1">制作模型</p>
                     <p class="text-xs text-gray-500 italic">"making model planes"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </div>
+                </button>
 
-                <div class="vocab-card p-4 rounded-xl" onclick="speak('listening to music')">
+                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('listening to music', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">🎵</span>
@@ -726,9 +726,9 @@
                     <p class="text-sm text-gray-600 mb-1">听音乐</p>
                     <p class="text-xs text-gray-500 italic">"listening to music while reading"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </div>
+                </button>
 
-                <div class="vocab-card p-4 rounded-xl" onclick="speak('playing baseball')">
+                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('playing baseball', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">⚾</span>
@@ -737,9 +737,9 @@
                     <p class="text-sm text-gray-600 mb-1">打棒球</p>
                     <p class="text-xs text-gray-500 italic">"Playing baseball together is great"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </div>
+                </button>
 
-                <div class="vocab-card p-4 rounded-xl" onclick="speak('swimming')">
+                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('swimming', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">🏊</span>
@@ -748,9 +748,9 @@
                     <p class="text-sm text-gray-600 mb-1">游泳</p>
                     <p class="text-xs text-gray-500 italic">"Swimming in the pool"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </div>
+                </button>
 
-                <div class="vocab-card p-4 rounded-xl" onclick="speak('dancing')">
+                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('dancing', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">💃</span>
@@ -759,9 +759,9 @@
                     <p class="text-sm text-gray-600 mb-1">跳舞</p>
                     <p class="text-xs text-gray-500 italic">"Dancing at parties"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </div>
+                </button>
 
-                <div class="vocab-card p-4 rounded-xl" onclick="speak('peaceful')">
+                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('peaceful', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">😌</span>
@@ -770,7 +770,7 @@
                     <p class="text-sm text-gray-600 mb-1">平静的</p>
                     <p class="text-xs text-gray-500 italic">"makes her feel peaceful"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </div>
+                </button>
             </div>
         </section>
 
@@ -836,9 +836,9 @@
             </h2>
 
             <div class="space-y-4">
-                <div class="reading-card p-5 border-l-4 border-red-500 todo-item" onclick="toggleTodo(this)">
+                <button type="button" class="reading-card p-5 border-l-4 border-red-500 todo-item text-left w-full" onclick="toggleTodo(this)">
                     <div class="flex items-start gap-3">
-                        <div class="todo-checkbox" onclick="event.stopPropagation()"></div>
+                        <div class="todo-checkbox"></div>
                         <div class="flex-1">
                             <h3 class="text-xl font-bold text-red-700 mb-2 flex items-center gap-2">
                                 <span>1️⃣</span> 单词掌握 Vocabulary
@@ -849,9 +849,9 @@
                     </div>
                 </div>
 
-                <div class="reading-card p-5 border-l-4 border-blue-500 todo-item" onclick="toggleTodo(this)">
+                <button type="button" class="reading-card p-5 border-l-4 border-blue-500 todo-item text-left w-full" onclick="toggleTodo(this)">
                     <div class="flex items-start gap-3">
-                        <div class="todo-checkbox" onclick="event.stopPropagation()"></div>
+                        <div class="todo-checkbox"></div>
                         <div class="flex-1">
                             <h3 class="text-xl font-bold text-blue-700 mb-2 flex items-center gap-2">
                                 <span>2️⃣</span> 课文朗读 Reading
@@ -862,9 +862,9 @@
                     </div>
                 </div>
 
-                <div class="reading-card p-5 border-l-4 border-green-500 todo-item" onclick="toggleTodo(this)">
+                <button type="button" class="reading-card p-5 border-l-4 border-green-500 todo-item text-left w-full" onclick="toggleTodo(this)">
                     <div class="flex items-start gap-3">
-                        <div class="todo-checkbox" onclick="event.stopPropagation()"></div>
+                        <div class="todo-checkbox"></div>
                         <div class="flex-1">
                             <h3 class="text-xl font-bold text-green-700 mb-2 flex items-center gap-2">
                                 <span>3️⃣</span> 阅读练习 Exercises
@@ -875,9 +875,9 @@
                     </div>
                 </div>
 
-                <div class="reading-card p-5 border-l-4 border-purple-500 todo-item" onclick="toggleTodo(this)">
+                <button type="button" class="reading-card p-5 border-l-4 border-purple-500 todo-item text-left w-full" onclick="toggleTodo(this)">
                     <div class="flex items-start gap-3">
-                        <div class="todo-checkbox" onclick="event.stopPropagation()"></div>
+                        <div class="todo-checkbox"></div>
                         <div class="flex-1">
                             <h3 class="text-xl font-bold text-purple-700 mb-2 flex items-center gap-2">
                                 <span>4️⃣</span> 上传作业 Upload
@@ -886,7 +886,7 @@
                             <p class="text-sm text-gray-500 italic mt-1">_Take photos and upload your work._</p>
                         </div>
                     </div>
-                </div>
+                </button>
             </div>
 
             <div class="mt-6 p-4 bg-amber-50 rounded-xl border-2 border-amber-300">
@@ -945,32 +945,31 @@
 
         /**
          * Toggle answer display and highlight correct option
-         * @param {number} id - The question ID
+         * @param {HTMLElement} questionItem - The question button element that was clicked
          */
-        function toggleAnswer(id) {
+        function toggleAnswer(questionItem) {
+            const id = questionItem.getAttribute('data-answer');
             const answer = document.getElementById(`answer-${id}`);
-            const questionItem = document.querySelector(`[data-answer="${id}"]`);
             const options = questionItem.querySelectorAll('.option-btn');
             
-            // Map of question ID to correct option (A=1st, B=2nd, C=3rd)
-            const correctMap = {1: 'B', 2: 'B', 3: 'A', 4: 'C', 5: 'B'};
-            const correctOption = correctMap[id];
+            // Read correct option from data attribute
+            const correctOption = questionItem.getAttribute('data-correct-option');
             
             // Toggle answer display
             if (answer.classList.contains('show')) {
                 answer.classList.remove('show');
                 options.forEach(opt => opt.classList.remove('correct'));
             } else {
-                // Close other questions' answers
-                for (let i = 1; i <= 5; i++) {
-                    if (i !== id) {
-                        const otherAnswer = document.getElementById(`answer-${i}`);
-                        const otherQuestion = document.querySelector(`[data-answer="${i}"]`);
+                // Close all other questions' answers
+                document.querySelectorAll('.question-item').forEach(otherQuestion => {
+                    if (otherQuestion !== questionItem) {
+                        const otherId = otherQuestion.getAttribute('data-answer');
+                        const otherAnswer = document.getElementById(`answer-${otherId}`);
                         const otherOptions = otherQuestion.querySelectorAll('.option-btn');
                         otherAnswer.classList.remove('show');
                         otherOptions.forEach(opt => opt.classList.remove('correct'));
                     }
-                }
+                });
                 
                 answer.classList.add('show');
                 options.forEach(opt => {
@@ -984,8 +983,9 @@
         /**
          * Text to speech function for vocabulary
          * @param {string} text - The text to speak
+         * @param {HTMLElement} cardElement - The vocabulary card element that was clicked
          */
-        function speak(text) {
+        function speak(text, cardElement) {
             if (!('speechSynthesis' in window)) {
                 alert('您的浏览器不支持语音播放功能。');
                 return;
@@ -998,16 +998,13 @@
             utterance.rate = 0.8;
             utterance.pitch = 1;
             
-            // Find the card and add animation
-            const cards = document.querySelectorAll('.vocab-card');
-            cards.forEach(card => {
-                if (card.getAttribute('onclick')?.includes(text)) {
-                    card.classList.add('speaking');
-                    
-                    utterance.onend = () => card.classList.remove('speaking');
-                    setTimeout(() => card.classList.remove('speaking'), 3000);
-                }
-            });
+            // Animate the clicked card
+            if (cardElement) {
+                cardElement.classList.add('speaking');
+                
+                utterance.onend = () => cardElement.classList.remove('speaking');
+                setTimeout(() => cardElement.classList.remove('speaking'), 3000);
+            }
             
             window.speechSynthesis.speak(utterance);
         }
