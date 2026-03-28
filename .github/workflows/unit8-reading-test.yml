@@ -1,0 +1,322 @@
+name: Unit 8 Reading Page Tests
+
+on:
+  push:
+    branches: [ master, main ]
+    paths:
+      - 'unit8/reading.html'
+  pull_request:
+    branches: [ master, main ]
+    paths:
+      - 'unit8/reading.html'
+
+jobs:
+  test-reading-page:
+    name: Test Unit 8 Reading Page
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        
+    - name: Install Puppeteer
+      run: |
+        npm install puppeteer
+        
+    - name: Run Unit 8 Reading Page Tests
+      run: |
+        cat > unit8-reading-test.js << 'TESTSCRIPT'
+        const puppeteer = require('puppeteer');
+        const http = require('http');
+        const fs = require('fs');
+        const path = require('path');
+        
+        // Simple static server
+        const server = http.createServer((req, res) => {
+          let filePath = '.' + req.url;
+          if (filePath === './') filePath = './index.html';
+          
+          const ext = path.extname(filePath);
+          const contentTypes = {
+            '.html': 'text/html',
+            '.css': 'text/css',
+            '.js': 'text/javascript',
+            '.svg': 'image/svg+xml'
+          };
+          
+          fs.readFile(filePath, (error, content) => {
+            if (error) {
+              res.writeHead(404);
+              res.end('Not Found');
+            } else {
+              res.writeHead(200, { 
+                'Content-Type': contentTypes[ext] || 'text/html' 
+              });
+              res.end(content);
+            }
+          });
+        });
+        
+        async function runTests() {
+          await new Promise(resolve => server.listen(8000, resolve));
+          console.log('🚀 Test server started on port 8000');
+          
+          const browser = await puppeteer.launch({
+            headless: 'new',
+            args: ['--no-sandbox', '--disable-setuid-sandbox']
+          });
+          
+          console.log('🌐 Browser launched\n');
+          
+          let passed = 0;
+          let failed = 0;
+          
+          const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+          
+          // Test Suite: Page Load
+          console.log('📋 Test Suite: Page Load');
+          try {
+            const page = await browser.newPage();
+            await page.goto('http://localhost:8000/unit8/reading.html');
+            
+            const title = await page.title();
+            if (title.includes('Fun Things We Do')) {
+              console.log('  ✅ Page title is correct');
+              passed++;
+            } else {
+              console.log('  ❌ Page title incorrect:', title);
+              failed++;
+            }
+            
+            // Check required elements exist
+            const elements = await page.evaluate(() => ({
+              hasQuestions: document.querySelectorAll('.question-item').length === 5,
+              hasVocabCards: document.querySelectorAll('.vocab-card').length >= 9,
+              hasTodoItems: document.querySelectorAll('.todo-item').length === 4,
+              hasReadingText: !!document.querySelector('.text-block')
+            }));
+            
+            if (elements.hasQuestions) { console.log('  ✅ All 5 questions present'); passed++; }
+            else { console.log('  ❌ Questions missing or incorrect count'); failed++; }
+            
+            if (elements.hasVocabCards) { console.log('  ✅ Vocabulary cards present'); passed++; }
+            else { console.log('  ❌ Vocabulary cards missing'); failed++; }
+            
+            if (elements.hasTodoItems) { console.log('  ✅ Todo items present'); passed++; }
+            else { console.log('  ❌ Todo items missing'); failed++; }
+            
+            if (elements.hasReadingText) { console.log('  ✅ Reading text present'); passed++; }
+            else { console.log('  ❌ Reading text missing'); failed++; }
+            
+            await page.close();
+          } catch (e) {
+            console.log('  ❌ Page load test failed:', e.message);
+            failed += 5;
+          }
+          
+          // Test Suite: Todo Toggle (Bug fix verification)
+          console.log('\n📋 Test Suite: Todo Toggle (Bug fix)');
+          try {
+            const page = await browser.newPage();
+            await page.goto('http://localhost:8000/unit8/reading.html');
+            
+            // Test clicking todo item toggles completion
+            const todoItem = await page.$('.todo-item');
+            if (todoItem) {
+              // Click the todo item
+              await todoItem.click();
+              await delay(300);
+              
+              const isCompleted = await page.evaluate(() => {
+                const item = document.querySelector('.todo-item');
+                return item && item.classList.contains('completed');
+              });
+              
+              if (isCompleted) {
+                console.log('  ✅ Todo item toggles on click');
+                passed++;
+              } else {
+                console.log('  ❌ Todo item does not toggle');
+                failed++;
+              }
+              
+              // Click checkbox specifically
+              const checkbox = await page.$('.todo-checkbox');
+              if (checkbox) {
+                await checkbox.click();
+                await delay(300);
+                
+                const checkboxWorks = await page.evaluate(() => {
+                  const item = document.querySelector('.todo-item');
+                  const cb = document.querySelector('.todo-checkbox');
+                  return item && !item.classList.contains('completed') && 
+                         cb && !cb.classList.contains('checked');
+                });
+                
+                if (checkboxWorks) {
+                  console.log('  ✅ Checkbox click works (bug fixed)');
+                  passed++;
+                } else {
+                  console.log('  ❌ Checkbox click not working');
+                  failed++;
+                }
+              }
+            }
+            
+            await page.close();
+          } catch (e) {
+            console.log('  ❌ Todo toggle test failed:', e.message);
+            failed += 2;
+          }
+          
+          // Test Suite: Question Answer Toggle
+          console.log('\n📋 Test Suite: Question Answer Toggle');
+          try {
+            const page = await browser.newPage();
+            await page.goto('http://localhost:8000/unit8/reading.html');
+            
+            const question = await page.$('.question-item');
+            if (question) {
+              await question.click();
+              await delay(300);
+              
+              const isExpanded = await page.evaluate(() => {
+                const answer = document.querySelector('.answer-section');
+                return answer && answer.classList.contains('show');
+              });
+              
+              if (isExpanded) {
+                console.log('  ✅ Question answer expands on click');
+                passed++;
+              } else {
+                console.log('  ❌ Question answer does not expand');
+                failed++;
+              }
+              
+              // Check correct option is highlighted
+              const correctHighlighted = await page.evaluate(() => {
+                const correctBtn = document.querySelector('.option-btn.correct');
+                return !!correctBtn;
+              });
+              
+              if (correctHighlighted) {
+                console.log('  ✅ Correct option highlighted');
+                passed++;
+              } else {
+                console.log('  ❌ Correct option not highlighted');
+                failed++;
+              }
+            }
+            
+            await page.close();
+          } catch (e) {
+            console.log('  ❌ Question toggle test failed:', e.message);
+            failed += 2;
+          }
+          
+          // Test Suite: Functions Exist
+          console.log('\n📋 Test Suite: JavaScript Functions');
+          try {
+            const page = await browser.newPage();
+            await page.goto('http://localhost:8000/unit8/reading.html');
+            
+            const functions = await page.evaluate(() => ({
+              toggleMobileMenu: typeof toggleMobileMenu === 'function',
+              toggleTranslation: typeof toggleTranslation === 'function',
+              toggleAnswer: typeof toggleAnswer === 'function',
+              speak: typeof speak === 'function',
+              toggleTodo: typeof toggleTodo === 'function'
+            }));
+            
+            for (const [name, exists] of Object.entries(functions)) {
+              if (exists) {
+                console.log(`  ✅ ${name}() exists`);
+                passed++;
+              } else {
+                console.log(`  ❌ ${name}() missing`);
+                failed++;
+              }
+            }
+            
+            await page.close();
+          } catch (e) {
+            console.log('  ❌ Function check failed:', e.message);
+            failed += 5;
+          }
+          
+          // Test Suite: Accessibility (Button elements)
+          console.log('\n📋 Test Suite: Accessibility');
+          try {
+            const page = await browser.newPage();
+            await page.goto('http://localhost:8000/unit8/reading.html');
+            
+            const accessibility = await page.evaluate(() => ({
+              questionsAreButtons: Array.from(document.querySelectorAll('.question-item')).every(
+                el => el.tagName === 'BUTTON'
+              ),
+              vocabCardsAreButtons: Array.from(document.querySelectorAll('.vocab-card')).every(
+                el => el.tagName === 'BUTTON'
+              ),
+              todoItemsAreButtons: Array.from(document.querySelectorAll('.todo-item')).every(
+                el => el.tagName === 'BUTTON'
+              )
+            }));
+            
+            if (accessibility.questionsAreButtons) {
+              console.log('  ✅ Question items use button elements');
+              passed++;
+            } else {
+              console.log('  ❌ Question items not using buttons');
+              failed++;
+            }
+            
+            if (accessibility.vocabCardsAreButtons) {
+              console.log('  ✅ Vocab cards use button elements');
+              passed++;
+            } else {
+              console.log('  ❌ Vocab cards not using buttons');
+              failed++;
+            }
+            
+            if (accessibility.todoItemsAreButtons) {
+              console.log('  ✅ Todo items use button elements');
+              passed++;
+            } else {
+              console.log('  ❌ Todo items not using buttons');
+              failed++;
+            }
+            
+            await page.close();
+          } catch (e) {
+            console.log('  ❌ Accessibility test failed:', e.message);
+            failed += 3;
+          }
+          
+          await browser.close();
+          server.close();
+          
+          console.log('\n' + '='.repeat(40));
+          console.log(`Results: ${passed} passed, ${failed} failed`);
+          console.log('='.repeat(40) + '\n');
+          
+          if (failed > 0) {
+            process.exit(1);
+          }
+        }
+        
+        runTests();
+        TESTSCRIPT
+        
+        node unit8-reading-test.js
+        
+    - name: Summary
+      run: |
+        echo ""
+        echo "=========================================="
+        echo "  ✅ Unit 8 Reading Page Tests Passed!"
+        echo "=========================================="
