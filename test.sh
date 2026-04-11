@@ -96,10 +96,142 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
+echo "7. Checking grammar.html (Unit 8 Homework)..."
+ERRORS=0
+
+# Check grammar.html exists
+if [ -f "unit8/grammar.html" ]; then
+    echo "   ✓ unit8/grammar.html exists"
+    
+    # Check for navigation links
+    if grep -q 'index.html' "unit8/grammar.html"; then
+        echo "   ✓ grammar.html has link to index.html"
+    else
+        echo "   ✗ grammar.html missing link to index.html!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'amazing-vehicles.html' "unit8/grammar.html"; then
+        echo "   ✓ grammar.html has link to amazing-vehicles.html"
+    else
+        echo "   ✗ grammar.html missing link to amazing-vehicles.html!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'reading.html' "unit8/grammar.html"; then
+        echo "   ✓ grammar.html has link to reading.html"
+    else
+        echo "   ✗ grammar.html missing link to reading.html!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    # Check for data-original attribute on trans-toggle buttons
+    if grep -q 'data-original' "unit8/grammar.html"; then
+        echo "   ✓ grammar.html uses data-original attributes"
+    else
+        echo "   ✗ grammar.html missing data-original attributes!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    # Check for required sections
+    if grep -q 'Grammar Focus' "unit8/grammar.html"; then
+        echo "   ✓ grammar.html has Grammar Focus section"
+    else
+        echo "   ✗ grammar.html missing Grammar Focus section!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'New Dialogue' "unit8/grammar.html"; then
+        echo "   ✓ grammar.html has New Dialogue section"
+    else
+        echo "   ✗ grammar.html missing New Dialogue section!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'Key Vocabulary' "unit8/grammar.html"; then
+        echo "   ✓ grammar.html has Key Vocabulary section"
+    else
+        echo "   ✗ grammar.html missing Key Vocabulary section!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'Sentence Practice' "unit8/grammar.html"; then
+        echo "   ✓ grammar.html has Sentence Practice section"
+    else
+        echo "   ✗ grammar.html missing Sentence Practice section!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'Complete the Email' "unit8/grammar.html"; then
+        echo "   ✓ grammar.html has Complete the Email section"
+    else
+        echo "   ✗ grammar.html missing Complete the Email section!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q "Today's Todo" "unit8/grammar.html"; then
+        echo "   ✓ grammar.html has Today's Todo section"
+    else
+        echo "   ✗ grammar.html missing Today's Todo section!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    # Check for interactive functions
+    if grep -q 'function toggleTrans' "unit8/grammar.html"; then
+        echo "   ✓ grammar.html has toggleTrans function"
+    else
+        echo "   ✗ grammar.html missing toggleTrans function!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'function toggleBlank' "unit8/grammar.html"; then
+        echo "   ✓ grammar.html has toggleBlank function"
+    else
+        echo "   ✗ grammar.html missing toggleBlank function!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'function speakText' "unit8/grammar.html"; then
+        echo "   ✓ grammar.html has speakText function"
+    else
+        echo "   ✗ grammar.html missing speakText function!"
+        ERRORS=$((ERRORS + 1))
+    fi
+else
+    echo "   ✗ unit8/grammar.html not found!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "8. Checking grammar.html navigation links from other pages..."
+ERRORS=0
+
+# Check that grammar.html is linked from all relevant pages
+for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/reading.html unit8/amazing-vehicles.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'grammar.html' "$file"; then
+            echo "   ✓ $file has link to grammar.html"
+        else
+            echo "   ✗ $file missing link to grammar.html!"
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
 echo "=== Test Complete ==="
 echo ""
 echo "Next steps:"
 echo "1. Start a local server: python3 -m http.server 8000"
 echo "2. Open http://localhost:8000"
-echo "3. Test the new reading page: http://localhost:8000/unit8/reading.html"
-echo "4. Follow TESTING.md checklist"
+echo "3. Test the new grammar page: http://localhost:8000/unit8/grammar.html"
+echo "4. Test the reading page: http://localhost:8000/unit8/reading.html"
+echo "5. Follow TESTING.md checklist"
