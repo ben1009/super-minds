@@ -70,6 +70,8 @@ body {
     overflow: hidden;
     transition: all 0.3s ease;
     cursor: pointer;
+    position: relative;
+    z-index: 1;
 }
 
 .trans-card:hover {
@@ -97,14 +99,16 @@ body {
 .trans-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.3s ease;
+    transition: max-height 0.4s ease, padding 0.3s ease, opacity 0.3s ease;
     background: #fffbeb;
+    opacity: 0;
 }
 
 .trans-content.show {
     max-height: 500px;
     padding: 16px 20px;
     border-top: 2px dashed #d1d5db;
+    opacity: 1;
 }
 
 .trans-toggle {

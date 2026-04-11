@@ -89,9 +89,13 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenuBtn.addEventListener('click', toggleMobileMenu);
     }
 
-    // Trans cards (translation toggle)
+    // Trans cards (translation toggle) - handle click on card header area
     document.querySelectorAll('.trans-card').forEach(card => {
-        card.addEventListener('click', () => toggleTrans(card));
+        card.addEventListener('click', (e) => {
+            // Prevent triggering if clicking interactive elements inside
+            if (e.target.closest('button') || e.target.closest('a')) return;
+            toggleTrans(card);
+        });
     });
 
     // Dialog cards
