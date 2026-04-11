@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Super Minds 2 Unit 8 - Homework · 作业练习</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<!-- Google Analytics -->
+<script src="../ga.js"></script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="grammar.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-gradient-to-r from-green-900 to-green-800 border-b-4 border-red-700 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <div class="flex items-center space-x-4">
+                <i class="fas fa-baseball-ball text-white text-2xl"></i>
+                <span class="baseball-font text-white text-xl font-bold">Super Minds 2</span>
+            </div>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="../index.html" class="nav-link px-3 py-2 text-sm font-medium">首页 Home</a>
+                <div class="relative group">
+                    <a href="../unit7/index.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 7 <i class="fas fa-chevron-down text-xs"></i></a>
+                    <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                        <a href="../unit7/index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">📖 现在进行时 Course</a>
+                        <a href="../unit7/homework.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">✏️ 作业 Homework</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <a href="index.html" class="nav-link px-3 py-2 text-sm font-medium border-b-2 border-red-500">Unit 8 ⚾</a>
+                    <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                        <a href="index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">球类运动 Sports</a>
+                        <a href="amazing-vehicles.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">交通工具 Vehicles</a>
+                        <a href="reading.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">📚 补充阅读 Reading</a>
+                        <a href="grammar.html" class="block px-4 py-2 text-sm text-gray-700 bg-gray-100 font-medium">✏️ 语法作业 Homework</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button type="button" id="mobileMenuBtn" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="hidden md:hidden pb-4">
+            <div class="flex flex-col space-y-2">
+                <a href="../index.html" class="nav-link px-3 py-2 text-sm font-medium">首页 Home</a>
+                <div class="px-3 py-2">
+                    <div class="text-white/70 text-xs mb-1">Unit 7</div>
+                    <a href="../unit7/index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">📖 现在进行时 Course</a>
+                    <a href="../unit7/homework.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">✏️ 作业 Homework</a>
+                </div>
+                <div class="px-3 py-2">
+                    <div class="text-white/70 text-xs mb-1">Unit 8</div>
+                    <a href="index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">⚾ 球类运动 Sports</a>
+                    <a href="amazing-vehicles.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">🚌 交通工具 Vehicles</a>
+                    <a href="reading.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">📚 补充阅读 Reading</a>
+                    <a href="grammar.html" class="block px-4 py-2 text-sm text-gray-700 bg-gray-100 font-medium">✏️ 语法作业 Homework</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Hero Section -->
+    <div class="text-center mb-12">
+        <div class="leather-card p-8 rounded-lg inline-block max-w-3xl w-full">
+            <div class="text-amber-800 text-sm font-bold tracking-wider mb-2 uppercase">Super Minds 2 · Unit 8</div>
+            <h1 class="baseball-font text-4xl md:text-5xl font-black text-green-900 mb-4">Homework · 作业练习</h1>
+            <p class="chinese-font text-xl text-amber-900 mb-6">点击内容查看翻译，点击词汇听发音，点击空白处显示答案</p>
+            <div class="text-4xl mb-4">🎯📖✍️🔊✅</div>
+            <div class="quote-box inline-block">
+                "Practice makes perfect!" · 熟能生巧
+            </div>
+        </div>
+    </div>
+
+    <!-- Grammar Focus Section -->
+    <section class="mb-12">
+        <div class="text-center mb-8">
+            <div class="section-title">
+                <i class="fas fa-book-open mr-2"></i>Grammar Focus · 语法重点
+            </div>
+            <p class="text-white/80 mt-4 text-lg">五种疑问词用法 · 点击卡片查看例句</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="trans-card">
+                <div class="p-5 relative">
+                    <span class="tag mb-2">Where</span>
+                    <div class="en mt-2">Where do you like doing sports?</div>
+                    <div class="en text-amber-700 mt-1">→ I like doing sports in the park.</div>
+                    <span class="trans-toggle absolute right-5 top-1/2 -translate-y-1/2" data-original="📖 例句">📖 例句</span>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700"><strong>Where</strong> 问地点(在哪里)<br>Where do you like doing sth?</div>
+                    <ul class="example-list">
+                        <li>Where do you like doing homework? → I like doing homework at home.</li>
+                        <li>Where do you like playing football? → I like playing football at school.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="trans-card">
+                <div class="p-5 relative">
+                    <span class="tag mb-2">When</span>
+                    <div class="en mt-2">When do you like doing exercise?</div>
+                    <div class="en text-amber-700 mt-1">→ I like doing exercise on Sunday.</div>
+                    <span class="trans-toggle absolute right-5 top-1/2 -translate-y-1/2" data-original="📖 例句">📖 例句</span>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700"><strong>When</strong> 问时间<br>When do you like doing sth?</div>
+                    <ul class="example-list">
+                        <li>When do you like playing basketball?</li>
+                        <li>When do you like doing your test? → I like doing my test in the evening.</li>
+                        <li>When do you like watching films? → I like watching films on Saturday.</li>
+                        <li>When do you like driving around? → I like driving around on Saturday morning.</li>
+                        <li>When do you like flying a kite? → I like flying a kite in the...</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="trans-card">
+                <div class="p-5 relative">
+                    <span class="tag mb-2">Which</span>
+                    <div class="en mt-2">Which sport do you like doing the most?</div>
+                    <div class="en text-amber-700 mt-1">→ I like doing swimming the most.</div>
+                    <span class="trans-toggle absolute right-5 top-1/2 -translate-y-1/2" data-original="📖 例句">📖 例句</span>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700"><strong>Which</strong> 问选择(哪一个)<br>Which (one) do you like...?</div>
+                    <ul class="example-list">
+                        <li>Which do you like playing, football or basketball? → I like playing...</li>
+                        <li>Which movie do you like watching the most? → I like watching XXX the...</li>
+                        <li>Which game do you like playing the most? → I like playing XXX game the...</li>
+                        <li>Which dish do you like eating the most? → I like eating YUXIANGROUSI the...</li>
+                        <li>Which sport do you like playing the most? → I like playing basketball the...</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="trans-card">
+                <div class="p-5 relative">
+                    <span class="tag mb-2">Who</span>
+                    <div class="en mt-2">Who do you like doing sports with?</div>
+                    <div class="en text-amber-700 mt-1">→ I like doing sports with my friends.</div>
+                    <span class="trans-toggle absolute right-5 top-1/2 -translate-y-1/2" data-original="📖 例句">📖 例句</span>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700"><strong>Who</strong> 问人(和谁一起)<br>Who 作宾语时，通常说 "Who do you like doing sports with?"<br>→ I like doing sports with my friends.</div>
+                </div>
+            </div>
+            
+            <div class="trans-card">
+                <div class="p-5 relative">
+                    <span class="tag mb-2">How often</span>
+                    <div class="en mt-2">How often do you like doing yoga?</div>
+                    <div class="en text-amber-700 mt-1">→ I like doing yoga twice a week.</div>
+                    <span class="trans-toggle absolute right-5 top-1/2 -translate-y-1/2" data-original="📖 例句">📖 例句</span>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700"><strong>How often</strong> 问频率<br>→ I like doing yoga twice a week.</div>
+                </div>
+            </div>
+            
+            <div class="pattern-box">
+                <div class="tag mb-3">Pattern</div>
+                <code>
+                    Where do you like + 动词-ing?<br>
+                    When do you like + 动词-ing?<br>
+                    Which ... do you like ... the most?<br>
+                    Who do you like doing sports with?<br>
+                    How often do you like + 动词-ing?
+                </code>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dialogue Section -->
+    <section class="mb-12">
+        <div class="text-center mb-8">
+            <div class="section-title">
+                <i class="fas fa-comments mr-2"></i>New Dialogue · 新对话
+            </div>
+            <p class="text-white/80 mt-4 text-lg">场景:两个小朋友想踢足球,但校队满了,他们自己组队并比赛</p>
+        </div>
+        
+        <div class="grid gap-4">
+            <div class="dialog-card">
+                <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-200 text-amber-800 font-bold text-sm">1</span>
+                        <span class="text-xs text-amber-700 bg-amber-100 px-3 py-1 rounded-full">🌐 翻译</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-start gap-3 mb-3">
+                        <span class="speaker-a">A</span>
+                        <span class="font-bold text-gray-800 text-lg pt-1">Can I join the football team?</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="speaker-b">B</span>
+                        <span class="font-bold text-gray-800 text-lg pt-1">Sorry, the team's full.</span>
+                    </div>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700">
+                        <div class="flex flex-col gap-2">
+                            <div><span class="text-sky-700 font-bold">A:</span> 我能加入足球队吗？</div>
+                            <div><span class="text-amber-700 font-bold">B:</span> 抱歉，队伍满员了。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dialog-card">
+                <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-200 text-amber-800 font-bold text-sm">2</span>
+                        <span class="text-xs text-amber-700 bg-amber-100 px-3 py-1 rounded-full">🌐 翻译</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-start gap-3 mb-3">
+                        <span class="speaker-b">B</span>
+                        <span class="font-bold text-gray-800 text-lg pt-1">You can join the table tennis club.</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="speaker-a">A</span>
+                        <span class="font-bold text-gray-800 text-lg pt-1">No, I don't like table tennis. I like football.</span>
+                    </div>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700">
+                        <div class="flex flex-col gap-2">
+                            <div><span class="text-amber-700 font-bold">B:</span> 你可以加入乒乓球俱乐部。</div>
+                            <div><span class="text-sky-700 font-bold">A:</span> 不，我不喜欢乒乓球。我喜欢足球。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dialog-card">
+                <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-200 text-amber-800 font-bold text-sm">3</span>
+                        <span class="text-xs text-amber-700 bg-amber-100 px-3 py-1 rounded-full">🌐 翻译</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-start gap-3 mb-3">
+                        <span class="speaker-a">A</span>
+                        <span class="font-bold text-gray-800 text-lg pt-1">Let's start a football team!</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="speaker-b">B</span>
+                        <span class="font-bold text-gray-800 text-lg pt-1">OK!</span>
+                    </div>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700">
+                        <div class="flex flex-col gap-2">
+                            <div><span class="text-sky-700 font-bold">A:</span> 我们组建一支足球队吧！</div>
+                            <div><span class="text-amber-700 font-bold">B:</span> 好的！</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dialog-card">
+                <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-200 text-amber-800 font-bold text-sm">4</span>
+                        <span class="text-xs text-amber-700 bg-amber-100 px-3 py-1 rounded-full">🌐 翻译</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-start gap-3 mb-3">
+                        <span class="speaker-b">B</span>
+                        <span class="font-bold text-gray-800 text-lg pt-1">We've got our team!</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="speaker-a">A</span>
+                        <span class="font-bold text-gray-800 text-lg pt-1">Yes!</span>
+                    </div>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700">
+                        <div class="flex flex-col gap-2">
+                            <div><span class="text-amber-700 font-bold">B:</span> 我们有自己的队伍了！</div>
+                            <div><span class="text-sky-700 font-bold">A:</span> 是的！</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dialog-card">
+                <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-200 text-amber-800 font-bold text-sm">5</span>
+                        <span class="text-xs text-amber-700 bg-amber-100 px-3 py-1 rounded-full">🌐 翻译</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-start gap-3 mb-3">
+                        <span class="speaker-a">A</span>
+                        <span class="font-bold text-gray-800 text-lg pt-1">Do you want to play a game?</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="speaker-b">B</span>
+                        <span class="font-bold text-gray-800 text-lg pt-1">Ha ha. It's going to be easy.</span>
+                    </div>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700">
+                        <div class="flex flex-col gap-2">
+                            <div><span class="text-sky-700 font-bold">A:</span> 你想来一场比赛吗？</div>
+                            <div><span class="text-amber-700 font-bold">B:</span> 哈哈。这将会很容易。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dialog-card">
+                <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-200 text-amber-800 font-bold text-sm">6</span>
+                        <span class="text-xs text-amber-700 bg-amber-100 px-3 py-1 rounded-full">🌐 翻译</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-start gap-3 mb-2">
+                        <span class="speaker-a">A</span>
+                        <span class="font-bold text-gray-800 text-lg pt-1">Come on, try harder!</span>
+                    </div>
+                    <span class="scene-tag">The other team scores first</span>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700">
+                        <div class="flex flex-col gap-2">
+                            <div><span class="text-sky-700 font-bold">A:</span> 加油，再努力一点！</div>
+                            <div class="text-sm text-gray-500 italic">场景：对方先进球了</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dialog-card">
+                <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-200 text-amber-800 font-bold text-sm">7</span>
+                        <span class="text-xs text-amber-700 bg-amber-100 px-3 py-1 rounded-full">🌐 翻译</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-start gap-3 mb-3">
+                        <span class="speaker-b">B</span>
+                        <span class="font-bold text-gray-800 text-lg pt-1">Great goal!</span>
+                    </div>
+                    <div class="flex items-start gap-3 mb-2">
+                        <span class="speaker-a">A</span>
+                        <span class="font-bold text-gray-800 text-lg pt-1">Well done, Flash!</span>
+                    </div>
+                    <span class="scene-tag">A scores a goal</span>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700">
+                        <div class="flex flex-col gap-2">
+                            <div><span class="text-amber-700 font-bold">B:</span> 好球！</div>
+                            <div><span class="text-sky-700 font-bold">A:</span> 干得好，Flash！</div>
+                            <div class="text-sm text-gray-500 italic">场景：A进球了</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dialog-card">
+                <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-200 text-amber-800 font-bold text-sm">8</span>
+                        <span class="text-xs text-amber-700 bg-amber-100 px-3 py-1 rounded-full">🌐 翻译</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-start gap-3 mb-3">
+                        <span class="speaker-b">B</span>
+                        <span class="font-bold text-gray-800 text-lg pt-1">Enjoy the football team!</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="speaker-a">A</span>
+                        <span class="font-bold text-gray-800 text-lg pt-1">No, thank you.</span>
+                    </div>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700">
+                        <div class="flex flex-col gap-2">
+                            <div><span class="text-amber-700 font-bold">B:</span> 好好享受足球队吧！</div>
+                            <div><span class="text-sky-700 font-bold">A:</span> 不用了，谢谢。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vocabulary Section -->
+    <section class="mb-12">
+        <div class="text-center mb-8">
+            <div class="section-title">
+                <i class="fas fa-star mr-2"></i>Key Vocabulary · Unit 9 重点短语
+            </div>
+            <p class="text-white/80 mt-4 text-lg">9个动词短语 · 点击按钮听发音 🔊</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-5">
+            <div class="vocab-card" data-text="visit my cousins">
+                <div class="word">visit my cousins</div>
+                <div class="zh">拜访我的表兄弟姐妹</div>
+                <div class="example">When do you like visiting your cousins?</div>
+                <button type="button" class="audio-btn" data-text="visit my cousins">🔊 点击发音</button>
+            </div>
+            
+            <div class="vocab-card" data-text="go hiking">
+                <div class="word">go hiking</div>
+                <div class="zh">去远足</div>
+                <div class="example">I like going hiking on Saturday.</div>
+                <button type="button" class="audio-btn" data-text="go hiking">🔊 点击发音</button>
+            </div>
+            
+            <div class="vocab-card" data-text="keep a scrapbook">
+                <div class="word">keep a scrapbook</div>
+                <div class="zh">做剪贴簿</div>
+                <div class="example">She likes keeping a scrapbook at home.</div>
+                <button type="button" class="audio-btn" data-text="keep a scrapbook">🔊 点击发音</button>
+            </div>
+            
+            <div class="vocab-card" data-text="help in the garden">
+                <div class="word">help in the garden</div>
+                <div class="zh">在花园里帮忙</div>
+                <div class="example">I like helping in the garden.</div>
+                <button type="button" class="audio-btn" data-text="help in the garden">🔊 点击发音</button>
+            </div>
+            
+            <div class="vocab-card" data-text="build a tree house">
+                <div class="word">build a tree house</div>
+                <div class="zh">建一个树屋</div>
+                <div class="example">They like building a tree house.</div>
+                <button type="button" class="audio-btn" data-text="build a tree house">🔊 点击发音</button>
+            </div>
+            
+            <div class="vocab-card" data-text="read a comic">
+                <div class="word">read a comic</div>
+                <div class="zh">看漫画</div>
+                <div class="example">I like reading a comic in the evening.</div>
+                <button type="button" class="audio-btn" data-text="read a comic">🔊 点击发音</button>
+            </div>
+            
+            <div class="vocab-card" data-text="learn to swim">
+                <div class="word">learn to swim</div>
+                <div class="zh">学游泳</div>
+                <div class="example">He likes learning to swim at the weekend.</div>
+                <button type="button" class="audio-btn" data-text="learn to swim">🔊 点击发音</button>
+            </div>
+            
+            <div class="vocab-card" data-text="go camping">
+                <div class="word">go camping</div>
+                <div class="zh">去露营</div>
+                <div class="example">We like going camping with friends.</div>
+                <button type="button" class="audio-btn" data-text="go camping">🔊 点击发音</button>
+            </div>
+            
+            <div class="vocab-card" data-text="take riding lessons">
+                <div class="word">take riding lessons</div>
+                <div class="zh">上马术课 / 学习骑马</div>
+                <div class="example">She likes taking riding lessons on Sunday.</div>
+                <button type="button" class="audio-btn" data-text="take riding lessons">🔊 点击发音</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sentence Practice Section -->
+    <section class="mb-12">
+        <div class="text-center mb-8">
+            <div class="section-title">
+                <i class="fas fa-pen mr-2"></i>Sentence Practice · 造句练习
+            </div>
+            <p class="text-white/80 mt-4 text-lg">用 Where / When / Which + do you like doing 造句 · 点击查看示例</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="trans-card">
+                <div class="p-5 relative">
+                    <span class="tag mb-2">When</span>
+                    <div class="en mt-2">When do you like visiting your cousins?</div>
+                    <span class="trans-toggle absolute right-5 top-1/2 -translate-y-1/2" data-original="🌐 答案">🌐 答案</span>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700">I like visiting my cousins on Sunday.</div>
+                </div>
+            </div>
+            
+            <div class="trans-card">
+                <div class="p-5 relative">
+                    <span class="tag mb-2">Where</span>
+                    <div class="en mt-2">Where do you like reading a comic?</div>
+                    <span class="trans-toggle absolute right-5 top-1/2 -translate-y-1/2" data-original="🌐 答案">🌐 答案</span>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700">I like reading a comic at home.</div>
+                </div>
+            </div>
+            
+            <div class="trans-card">
+                <div class="p-5 relative">
+                    <span class="tag mb-2">Which</span>
+                    <div class="en mt-2">Which activity do you like the most?</div>
+                    <span class="trans-toggle absolute right-5 top-1/2 -translate-y-1/2" data-original="🌐 答案">🌐 答案</span>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700">I like going camping the most.</div>
+                </div>
+            </div>
+            
+            <div class="trans-card">
+                <div class="p-5 relative">
+                    <span class="tag mb-2">When</span>
+                    <div class="en mt-2">When do you like going hiking?</div>
+                    <span class="trans-toggle absolute right-5 top-1/2 -translate-y-1/2" data-original="🌐 答案">🌐 答案</span>
+                </div>
+                <div class="trans-content">
+                    <div class="text-gray-700">I like going hiking on Saturday morning.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Cloze Section -->
+    <section class="mb-12">
+        <div class="text-center mb-8">
+            <div class="section-title">
+                <i class="fas fa-envelope mr-2"></i>Complete the Email · 完形填空
+            </div>
+            <p class="text-white/80 mt-4 text-lg">点击下划线处原位显示/隐藏答案 · 来自 Harry 的法国游学邮件</p>
+        </div>
+        
+        <div class="word-bank mb-6">
+            <span>walk</span><span>leave</span><span>have</span><span>finish</span><span>get up</span>
+            <span>catch</span><span>go out</span><span>work</span><span>meet</span><span>live</span>
+        </div>
+        
+        <div class="email-card">
+            <div class="email-meta">To: Sam &nbsp;|&nbsp; From: Harry</div>
+            <div class="text-gray-800">
+                Hi Sam,<br><br>
+                I'm having a great time here in France. I'm learning lots of French. My host family are very nice.<br><br>
+                They (1) 
+                <span class="blank-wrapper">
+                    <span class="blank-underline">_____</span>
+                    <span class="blank-answer">live</span>
+                </span> 
+                in an apartment in an area called Pantin, and they both (2) 
+                <span class="blank-wrapper">
+                    <span class="blank-underline">_____</span>
+                    <span class="blank-answer">work</span>
+                </span> 
+                as journalists. They (3) 
+                <span class="blank-wrapper">
+                    <span class="blank-underline">_____</span>
+                    <span class="blank-answer">get up</span>
+                </span> 
+                very early in the morning and (4) 
+                <span class="blank-wrapper">
+                    <span class="blank-underline">_____</span>
+                    <span class="blank-answer">leave</span>
+                </span> 
+                the house before me. I (5) 
+                <span class="blank-wrapper">
+                    <span class="blank-underline">_____</span>
+                    <span class="blank-answer">have</span>
+                </span> 
+                breakfast at about 8am and then go to the language school. I usually (6) 
+                <span class="blank-wrapper">
+                    <span class="blank-underline">_____</span>
+                    <span class="blank-answer">walk</span>
+                </span> 
+                there, but if I'm late I (7) 
+                <span class="blank-wrapper">
+                    <span class="blank-underline">_____</span>
+                    <span class="blank-answer">catch</span>
+                </span> 
+                the bus. Lessons at the school (8) 
+                <span class="blank-wrapper">
+                    <span class="blank-underline">_____</span>
+                    <span class="blank-answer">finish</span>
+                </span> 
+                at 4pm and we can go home. The other students are very nice and I have made lots of new friends. We (9) 
+                <span class="blank-wrapper">
+                    <span class="blank-underline">_____</span>
+                    <span class="blank-answer">meet</span>
+                </span> 
+                after school in a cafe or (10) 
+                <span class="blank-wrapper">
+                    <span class="blank-underline">_____</span>
+                    <span class="blank-answer">go out</span>
+                </span> 
+                in the evenings to the cinema.<br><br>
+                Harry
+            </div>
+        </div>
+        <p class="text-white/70 text-sm text-center mt-4 italic">💡 提示：点击下划线处切换显示/隐藏答案</p>
+    </section>
+
+    <!-- Todo Section -->
+    <section class="mb-12">
+        <div class="text-center mb-8">
+            <div class="section-title">
+                <i class="fas fa-check-circle mr-2"></i>Today's Todo · 今日任务
+            </div>
+            <p class="text-white/80 mt-4 text-lg">点击任务标记完成（划掉）</p>
+        </div>
+        
+        <div class="grid gap-4">
+            <div class="todo-item">
+                <div class="num">1</div>
+                <div class="todo-text">
+                    <strong>背单词 Vocabulary</strong>
+                    点击词汇卡片听发音，熟读 Unit 9 的 9 个动词短语（教材page 4-5）
+                </div>
+            </div>
+            <div class="todo-item">
+                <div class="num">2</div>
+                <div class="todo-text">
+                    <strong>复习句型 Grammar</strong>
+                    练习 Where / When / Which / Who / How often 五种疑问词问法
+                </div>
+            </div>
+            <div class="todo-item">
+                <div class="num">3</div>
+                <div class="todo-text">
+                    <strong>完成造句 Sentences</strong>
+                    用 9 个动词短语各造一个句子，使用 where/which/when + do you like doing 句式
+                </div>
+            </div>
+            <div class="todo-item">
+                <div class="num">4</div>
+                <div class="todo-text">
+                    <strong>完成填空 Cloze</strong>
+                    独立完成邮件填空，点击下划线检查答案
+                </div>
+            </div>
+        </div>
+        <p class="text-white/70 text-sm text-center mt-6 italic">点击任务即可标记完成 ✓</p>
+    </section>
+
+    <!-- Footer -->
+    <div class="text-center text-white/70 py-8">
+        <p class="text-lg">📘 Super Minds 2 · Unit 8 Homework</p>
+        <p class="mt-2">Keep practicing and have fun learning English! 坚持练习，快乐学英语！</p>
+    </div>
+</div>
+
+<script src="grammar.js"></script>
+</body>
+</html>

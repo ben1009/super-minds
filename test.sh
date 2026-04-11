@@ -96,10 +96,86 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
+echo "7. Checking grammar.html (Unit 8 Homework)..."
+ERRORS=0
+
+# Helper function to check content in a file
+check_content() {
+    local file="$1"
+    local pattern="$2"
+    local description="$3"
+    if grep -q "$pattern" "$file"; then
+        echo "   ✓ $description"
+    else
+        echo "   ✗ $description!"
+        ERRORS=$((ERRORS + 1))
+    fi
+}
+
+# Check grammar.html exists
+if [ -f "unit8/grammar.html" ]; then
+    echo "   ✓ unit8/grammar.html exists"
+    
+    # Check for navigation links
+    check_content "unit8/grammar.html" 'index.html' "grammar.html has link to index.html"
+    check_content "unit8/grammar.html" 'amazing-vehicles.html' "grammar.html has link to amazing-vehicles.html"
+    check_content "unit8/grammar.html" 'reading.html' "grammar.html has link to reading.html"
+    
+    # Check for external CSS/JS files
+    check_content "unit8/grammar.html" 'grammar.css' "grammar.html links to grammar.css"
+    check_content "unit8/grammar.html" 'grammar.js' "grammar.html links to grammar.js"
+    
+    # Check for data-original attribute on trans-toggle buttons
+    check_content "unit8/grammar.html" 'data-original' "grammar.html uses data-original attributes"
+    
+    # Check for required sections
+    check_content "unit8/grammar.html" 'Grammar Focus' "grammar.html has Grammar Focus section"
+    check_content "unit8/grammar.html" 'New Dialogue' "grammar.html has New Dialogue section"
+    check_content "unit8/grammar.html" 'Key Vocabulary' "grammar.html has Key Vocabulary section"
+    check_content "unit8/grammar.html" 'Sentence Practice' "grammar.html has Sentence Practice section"
+    check_content "unit8/grammar.html" 'Complete the Email' "grammar.html has Complete the Email section"
+    check_content "unit8/grammar.html" "Today's Todo" "grammar.html has Today's Todo section"
+    
+    # Check for interactive functions (now in grammar.js)
+    check_content "unit8/grammar.js" 'function toggleTrans' "grammar.js has toggleTrans function"
+    check_content "unit8/grammar.js" 'function toggleBlank' "grammar.js has toggleBlank function"
+    check_content "unit8/grammar.js" 'function speakText' "grammar.js has speakText function"
+    check_content "unit8/grammar.js" 'addEventListener' "grammar.js uses addEventListener"
+else
+    echo "   ✗ unit8/grammar.html not found!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "8. Checking grammar.html navigation links from other pages..."
+ERRORS=0
+
+# Check that grammar.html is linked from all relevant pages
+for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/reading.html unit8/amazing-vehicles.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'grammar.html' "$file"; then
+            echo "   ✓ $file has link to grammar.html"
+        else
+            echo "   ✗ $file missing link to grammar.html!"
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
 echo "=== Test Complete ==="
 echo ""
 echo "Next steps:"
 echo "1. Start a local server: python3 -m http.server 8000"
 echo "2. Open http://localhost:8000"
-echo "3. Test the new reading page: http://localhost:8000/unit8/reading.html"
-echo "4. Follow TESTING.md checklist"
+echo "3. Test the new grammar page: http://localhost:8000/unit8/grammar.html"
+echo "4. Test the reading page: http://localhost:8000/unit8/reading.html"
+echo "5. Follow TESTING.md checklist"
