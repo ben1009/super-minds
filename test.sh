@@ -99,104 +99,48 @@ echo ""
 echo "7. Checking grammar.html (Unit 8 Homework)..."
 ERRORS=0
 
+# Helper function to check content in a file
+check_content() {
+    local file="$1"
+    local pattern="$2"
+    local description="$3"
+    if grep -q "$pattern" "$file"; then
+        echo "   ✓ $description"
+    else
+        echo "   ✗ $description!"
+        ERRORS=$((ERRORS + 1))
+    fi
+}
+
 # Check grammar.html exists
 if [ -f "unit8/grammar.html" ]; then
     echo "   ✓ unit8/grammar.html exists"
     
     # Check for navigation links
-    if grep -q 'index.html' "unit8/grammar.html"; then
-        echo "   ✓ grammar.html has link to index.html"
-    else
-        echo "   ✗ grammar.html missing link to index.html!"
-        ERRORS=$((ERRORS + 1))
-    fi
+    check_content "unit8/grammar.html" 'index.html' "grammar.html has link to index.html"
+    check_content "unit8/grammar.html" 'amazing-vehicles.html' "grammar.html has link to amazing-vehicles.html"
+    check_content "unit8/grammar.html" 'reading.html' "grammar.html has link to reading.html"
     
-    if grep -q 'amazing-vehicles.html' "unit8/grammar.html"; then
-        echo "   ✓ grammar.html has link to amazing-vehicles.html"
-    else
-        echo "   ✗ grammar.html missing link to amazing-vehicles.html!"
-        ERRORS=$((ERRORS + 1))
-    fi
-    
-    if grep -q 'reading.html' "unit8/grammar.html"; then
-        echo "   ✓ grammar.html has link to reading.html"
-    else
-        echo "   ✗ grammar.html missing link to reading.html!"
-        ERRORS=$((ERRORS + 1))
-    fi
+    # Check for external CSS/JS files
+    check_content "unit8/grammar.html" 'grammar.css' "grammar.html links to grammar.css"
+    check_content "unit8/grammar.html" 'grammar.js' "grammar.html links to grammar.js"
     
     # Check for data-original attribute on trans-toggle buttons
-    if grep -q 'data-original' "unit8/grammar.html"; then
-        echo "   ✓ grammar.html uses data-original attributes"
-    else
-        echo "   ✗ grammar.html missing data-original attributes!"
-        ERRORS=$((ERRORS + 1))
-    fi
+    check_content "unit8/grammar.html" 'data-original' "grammar.html uses data-original attributes"
     
     # Check for required sections
-    if grep -q 'Grammar Focus' "unit8/grammar.html"; then
-        echo "   ✓ grammar.html has Grammar Focus section"
-    else
-        echo "   ✗ grammar.html missing Grammar Focus section!"
-        ERRORS=$((ERRORS + 1))
-    fi
+    check_content "unit8/grammar.html" 'Grammar Focus' "grammar.html has Grammar Focus section"
+    check_content "unit8/grammar.html" 'New Dialogue' "grammar.html has New Dialogue section"
+    check_content "unit8/grammar.html" 'Key Vocabulary' "grammar.html has Key Vocabulary section"
+    check_content "unit8/grammar.html" 'Sentence Practice' "grammar.html has Sentence Practice section"
+    check_content "unit8/grammar.html" 'Complete the Email' "grammar.html has Complete the Email section"
+    check_content "unit8/grammar.html" "Today's Todo" "grammar.html has Today's Todo section"
     
-    if grep -q 'New Dialogue' "unit8/grammar.html"; then
-        echo "   ✓ grammar.html has New Dialogue section"
-    else
-        echo "   ✗ grammar.html missing New Dialogue section!"
-        ERRORS=$((ERRORS + 1))
-    fi
-    
-    if grep -q 'Key Vocabulary' "unit8/grammar.html"; then
-        echo "   ✓ grammar.html has Key Vocabulary section"
-    else
-        echo "   ✗ grammar.html missing Key Vocabulary section!"
-        ERRORS=$((ERRORS + 1))
-    fi
-    
-    if grep -q 'Sentence Practice' "unit8/grammar.html"; then
-        echo "   ✓ grammar.html has Sentence Practice section"
-    else
-        echo "   ✗ grammar.html missing Sentence Practice section!"
-        ERRORS=$((ERRORS + 1))
-    fi
-    
-    if grep -q 'Complete the Email' "unit8/grammar.html"; then
-        echo "   ✓ grammar.html has Complete the Email section"
-    else
-        echo "   ✗ grammar.html missing Complete the Email section!"
-        ERRORS=$((ERRORS + 1))
-    fi
-    
-    if grep -q "Today's Todo" "unit8/grammar.html"; then
-        echo "   ✓ grammar.html has Today's Todo section"
-    else
-        echo "   ✗ grammar.html missing Today's Todo section!"
-        ERRORS=$((ERRORS + 1))
-    fi
-    
-    # Check for interactive functions
-    if grep -q 'function toggleTrans' "unit8/grammar.html"; then
-        echo "   ✓ grammar.html has toggleTrans function"
-    else
-        echo "   ✗ grammar.html missing toggleTrans function!"
-        ERRORS=$((ERRORS + 1))
-    fi
-    
-    if grep -q 'function toggleBlank' "unit8/grammar.html"; then
-        echo "   ✓ grammar.html has toggleBlank function"
-    else
-        echo "   ✗ grammar.html missing toggleBlank function!"
-        ERRORS=$((ERRORS + 1))
-    fi
-    
-    if grep -q 'function speakText' "unit8/grammar.html"; then
-        echo "   ✓ grammar.html has speakText function"
-    else
-        echo "   ✗ grammar.html missing speakText function!"
-        ERRORS=$((ERRORS + 1))
-    fi
+    # Check for interactive functions (now in grammar.js)
+    check_content "unit8/grammar.js" 'function toggleTrans' "grammar.js has toggleTrans function"
+    check_content "unit8/grammar.js" 'function toggleBlank' "grammar.js has toggleBlank function"
+    check_content "unit8/grammar.js" 'function speakText' "grammar.js has speakText function"
+    check_content "unit8/grammar.js" 'addEventListener' "grammar.js uses addEventListener"
 else
     echo "   ✗ unit8/grammar.html not found!"
     ERRORS=$((ERRORS + 1))

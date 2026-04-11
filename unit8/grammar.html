@@ -12,394 +12,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-    :root {
-        --leather-primary: #F5F5DC;
-        --stitch-red: #DC143C;
-        --field-green: #2E5D34;
-    }
-    
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    
-    body {
-        background-color: var(--field-green);
-        background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
-            linear-gradient(135deg, #2E5D34 0%, #1B4332 100%);
-        font-family: 'Noto Sans SC', sans-serif;
-        min-height: 100vh;
-        color: #1f2937;
-    }
-    
-    .baseball-font { font-family: 'Cinzel', serif; letter-spacing: 0.05em; }
-    .chinese-font { font-family: 'Noto Serif SC', serif; }
-    
-    .nav-link {
-        color: rgba(255,255,255,0.9);
-        transition: all 0.3s ease;
-        border-bottom: 2px solid transparent;
-    }
-    
-    .nav-link:hover {
-        color: white;
-        border-bottom-color: var(--stitch-red);
-    }
-    
-    .leather-card {
-        background: linear-gradient(135deg, #F5F5DC 0%, #E8DCC4 100%);
-        border: 3px solid #8B4513;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5);
-        position: relative;
-    }
-    
-    .leather-card::before {
-        content: '';
-        position: absolute;
-        top: 8px; left: 8px; right: 8px; bottom: 8px;
-        border: 2px dashed var(--stitch-red);
-        border-radius: 8px;
-        pointer-events: none;
-    }
-    
-    .stitch-border {
-        border: 3px solid var(--stitch-red);
-        border-radius: 12px;
-        position: relative;
-        background: #FAFAFA;
-    }
-    
-    .section-title {
-        background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
-        color: white;
-        padding: 12px 24px;
-        border-radius: 8px;
-        display: inline-block;
-        border: 2px solid #F5F5DC;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    
-    .trans-card {
-        background: linear-gradient(145deg, #fffef8 0%, #f5f5dc 100%);
-        border: 2px solid #8B4513;
-        border-radius: 16px;
-        overflow: hidden;
-        transition: all 0.3s ease;
-        cursor: pointer;
-    }
-    
-    .trans-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        border-color: var(--stitch-red);
-    }
-    
-    .tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: #e0f2fe;
-        color: #0369a1;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 13px;
-        font-weight: 700;
-        width: fit-content;
-    }
-    
-    .en { font-weight: 700; color: #1f2937; font-size: 17px; line-height: 1.5; }
-    .zh-text { color: #6b7280; font-size: 15px; }
-    
-    .trans-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease, padding 0.3s ease;
-        background: #fffbeb;
-    }
-    
-    .trans-content.show {
-        max-height: 500px;
-        padding: 16px 20px;
-        border-top: 2px dashed #d1d5db;
-    }
-    
-    .trans-toggle {
-        font-size: 12px;
-        color: #92400e;
-        background: #fef3c7;
-        padding: 6px 12px;
-        border-radius: 20px;
-        font-weight: 600;
-        pointer-events: none;
-    }
-    
-    .dialog-card {
-        background: linear-gradient(145deg, #fffef8 0%, #f5f5dc 100%);
-        border: 2px solid #8B4513;
-        border-radius: 16px;
-        overflow: hidden;
-        transition: all 0.3s ease;
-        cursor: pointer;
-    }
-    
-    .dialog-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-        border-color: var(--stitch-red);
-    }
-    
-    .speaker-a, .speaker-b {
-        flex-shrink: 0;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 800;
-        font-size: 14px;
-    }
-    
-    .speaker-a {
-        background: #e0f2fe;
-        color: #0369a1;
-        border: 2px solid #7dd3fc;
-    }
-    
-    .speaker-b {
-        background: #fef3c7;
-        color: #92400e;
-        border: 2px solid #fcd34d;
-    }
-    
-    .scene-tag {
-        display: inline-block;
-        font-size: 12px;
-        color: #6b7280;
-        font-style: italic;
-        background: #f3f4f6;
-        padding: 2px 10px;
-        border-radius: 12px;
-    }
-    
-    .vocab-card {
-        background: linear-gradient(145deg, #fffef8 0%, #f5f5dc 100%);
-        border: 2px solid #8B4513;
-        border-radius: 16px;
-        padding: 20px;
-        text-align: center;
-        transition: all 0.3s ease;
-        cursor: pointer;
-    }
-    
-    .vocab-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        border-color: var(--stitch-red);
-    }
-    
-    .word { font-size: 20px; font-weight: 800; color: #1f2937; margin-bottom: 4px; }
-    .zh { color: #6b7280; font-size: 14px; }
-    .example { 
-        margin-top: 12px; 
-        padding: 10px; 
-        background: #fff; 
-        border: 2px dashed #d1d5db; 
-        border-radius: 8px; 
-        font-size: 13px; 
-        color: #4b5563; 
-    }
-    
-    .audio-btn {
-        appearance: none;
-        border: none;
-        cursor: pointer;
-        border-radius: 999px;
-        padding: 8px 16px;
-        font-size: 13px;
-        font-weight: 700;
-        background: var(--stitch-red);
-        color: #fff;
-        margin-top: 12px;
-        transition: all 0.2s;
-        box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3);
-        font-family: inherit;
-    }
-    
-    .audio-btn:hover { 
-        transform: translateY(-1px); 
-        box-shadow: 0 6px 16px rgba(220, 20, 60, 0.4); 
-    }
-    
-    .audio-btn:active { transform: translateY(0); }
-    .audio-btn.speaking { background: #991b1b; }
-    
-    .word-bank { 
-        display: flex; 
-        flex-wrap: wrap; 
-        gap: 10px; 
-        padding: 16px; 
-        background: linear-gradient(145deg, #fffef8 0%, #f5f5dc 100%);
-        border-radius: 12px; 
-        border: 2px dashed #8B4513; 
-    }
-    
-    .word-bank span { 
-        padding: 8px 14px; 
-        background: #fff; 
-        border: 2px solid #8B4513; 
-        border-radius: 20px; 
-        font-weight: 700; 
-        color: var(--stitch-red); 
-        font-size: 14px; 
-    }
-    
-    .email-card { 
-        background: linear-gradient(145deg, #fffef8 0%, #f5f5dc 100%);
-        border: 2px solid #8B4513; 
-        border-radius: 16px; 
-        padding: 24px; 
-        line-height: 2.2; 
-        font-size: 15px; 
-    }
-    
-    .email-meta { 
-        color: #6b7280; 
-        margin-bottom: 16px; 
-        padding-bottom: 16px; 
-        border-bottom: 2px solid #d1d5db; 
-        font-size: 13px; 
-    }
-    
-    .blank-wrapper { 
-        display: inline-block; 
-        position: relative; 
-        cursor: pointer; 
-        margin: 0 2px; 
-    }
-    
-    .blank-underline { 
-        display: inline-block; 
-        min-width: 70px; 
-        border-bottom: 3px solid var(--stitch-red); 
-        text-align: center; 
-        padding: 2px 8px; 
-        color: #92400e; 
-        font-weight: 700; 
-        transition: all 0.2s; 
-        user-select: none; 
-        background: #fff;
-        border-radius: 4px;
-    }
-    
-    .blank-wrapper:hover .blank-underline { 
-        background: #fef3c7; 
-        border-bottom-color: #991b1b;
-    }
-    
-    .blank-wrapper.revealed .blank-underline { 
-        border-bottom-color: transparent; 
-        color: transparent; 
-        background: transparent;
-    }
-    
-    .blank-answer { 
-        display: none; 
-        position: absolute; 
-        left: 0; 
-        top: 50%; 
-        transform: translateY(-50%); 
-        width: 100%; 
-        text-align: center; 
-        color: #166534; 
-        font-weight: 800; 
-        background: #dcfce7; 
-        padding: 2px 8px; 
-        border-radius: 6px; 
-        font-size: 14px; 
-        pointer-events: none; 
-    }
-    
-    .blank-wrapper.revealed .blank-answer { display: block; }
-    
-    .todo-item { 
-        display: flex; 
-        gap: 14px; 
-        align-items: flex-start; 
-        background: linear-gradient(145deg, #fffef8 0%, #f5f5dc 100%);
-        border: 2px solid #8B4513; 
-        border-radius: 12px; 
-        padding: 16px; 
-        cursor: pointer; 
-        transition: all 0.3s ease; 
-        user-select: none; 
-    }
-    
-    .todo-item:hover { 
-        transform: translateX(5px); 
-        box-shadow: 0 6px 16px rgba(0,0,0,0.1); 
-    }
-    
-    .todo-item.done { 
-        background: #dcfce7; 
-        border-color: #16a34a; 
-    }
-    
-    .todo-item.done .todo-text { 
-        text-decoration: line-through; 
-        color: #6b7280; 
-    }
-    
-    .todo-item.done .num { 
-        background: #16a34a; 
-        border-color: #16a34a; 
-        color: #fff; 
-    }
-    
-    .num { 
-        width: 32px; 
-        height: 32px; 
-        border-radius: 50%; 
-        background: #fef3c7; 
-        border: 2px solid #f59e0b; 
-        color: #92400e; 
-        display: inline-flex; 
-        align-items: center; 
-        justify-content: center; 
-        font-weight: 800; 
-        flex-shrink: 0; 
-        transition: all 0.2s; 
-    }
-    
-    .todo-text { flex: 1; transition: all 0.2s; }
-    .todo-text strong { display: block; margin-bottom: 4px; color: #1f2937; }
-    .todo-item.done .todo-text strong { color: #6b7280; }
-    
-    .pattern-box { 
-        background: linear-gradient(145deg, #fffef8 0%, #f5f5dc 100%);
-        border: 3px dashed #8B4513; 
-        border-radius: 12px; 
-        padding: 20px; 
-    }
-    
-    .pattern-box code { 
-        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; 
-        font-size: 14px; 
-        color: #1f2937; 
-        line-height: 2; 
-    }
-    
-    .example-list { margin-top: 10px; padding-left: 20px; font-size: 14px; color: #4b5563; }
-    .example-list li { margin-bottom: 6px; }
-    
-    .quote-box {
-        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-        border-radius: 16px;
-        padding: 14px 20px;
-        font-style: italic;
-        color: #92400e;
-        border: 2px solid #f59e0b;
-    }
-</style>
+<link rel="stylesheet" href="grammar.css">
 </head>
 <body>
 
@@ -432,7 +45,7 @@
                 </div>
             </div>
             <!-- Mobile Menu Button -->
-            <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
+            <button type="button" id="mobileMenuBtn" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
@@ -442,15 +55,15 @@
                 <a href="../index.html" class="nav-link px-3 py-2 text-sm font-medium">首页 Home</a>
                 <div class="px-3 py-2">
                     <div class="text-white/70 text-xs mb-1">Unit 7</div>
-                    <a href="../unit7/index.html" class="nav-link px-3 py-2 text-sm font-medium block">📖 现在进行时 Course</a>
-                    <a href="../unit7/homework.html" class="nav-link px-3 py-2 text-sm font-medium block">✏️ 作业 Homework</a>
+                    <a href="../unit7/index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">📖 现在进行时 Course</a>
+                    <a href="../unit7/homework.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">✏️ 作业 Homework</a>
                 </div>
                 <div class="px-3 py-2">
                     <div class="text-white/70 text-xs mb-1">Unit 8</div>
-                    <a href="index.html" class="nav-link px-3 py-2 text-sm font-medium block">⚾ 球类运动 Sports</a>
-                    <a href="amazing-vehicles.html" class="nav-link px-3 py-2 text-sm font-medium block">🚌 交通工具 Vehicles</a>
-                    <a href="reading.html" class="nav-link px-3 py-2 text-sm font-medium block">📚 补充阅读 Reading</a>
-                    <a href="grammar.html" class="nav-link px-3 py-2 text-sm font-medium block text-white border-l-4 border-red-500 pl-4">✏️ 语法作业 Homework</a>
+                    <a href="index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">⚾ 球类运动 Sports</a>
+                    <a href="amazing-vehicles.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">🚌 交通工具 Vehicles</a>
+                    <a href="reading.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">📚 补充阅读 Reading</a>
+                    <a href="grammar.html" class="block px-4 py-2 text-sm text-gray-700 bg-gray-100 font-medium">✏️ 语法作业 Homework</a>
                 </div>
             </div>
         </div>
@@ -483,7 +96,7 @@
         </div>
         
         <div class="grid md:grid-cols-2 gap-6">
-            <div class="trans-card" onclick="toggleTrans(this)">
+            <div class="trans-card">
                 <div class="p-5 relative">
                     <span class="tag mb-2">Where</span>
                     <div class="en mt-2">Where do you like doing sports?</div>
@@ -499,7 +112,7 @@
                 </div>
             </div>
             
-            <div class="trans-card" onclick="toggleTrans(this)">
+            <div class="trans-card">
                 <div class="p-5 relative">
                     <span class="tag mb-2">When</span>
                     <div class="en mt-2">When do you like doing exercise?</div>
@@ -518,7 +131,7 @@
                 </div>
             </div>
             
-            <div class="trans-card" onclick="toggleTrans(this)">
+            <div class="trans-card">
                 <div class="p-5 relative">
                     <span class="tag mb-2">Which</span>
                     <div class="en mt-2">Which sport do you like doing the most?</div>
@@ -537,7 +150,7 @@
                 </div>
             </div>
             
-            <div class="trans-card" onclick="toggleTrans(this)">
+            <div class="trans-card">
                 <div class="p-5 relative">
                     <span class="tag mb-2">Who</span>
                     <div class="en mt-2">Who do you like doing sports with?</div>
@@ -549,7 +162,7 @@
                 </div>
             </div>
             
-            <div class="trans-card" onclick="toggleTrans(this)">
+            <div class="trans-card">
                 <div class="p-5 relative">
                     <span class="tag mb-2">How often</span>
                     <div class="en mt-2">How often do you like doing yoga?</div>
@@ -584,7 +197,7 @@
         </div>
         
         <div class="grid gap-4">
-            <div class="dialog-card" onclick="toggleDialog(this)">
+            <div class="dialog-card">
                 <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
                     <div class="flex items-center justify-between">
                         <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-200 text-amber-800 font-bold text-sm">1</span>
@@ -611,7 +224,7 @@
                 </div>
             </div>
             
-            <div class="dialog-card" onclick="toggleDialog(this)">
+            <div class="dialog-card">
                 <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
                     <div class="flex items-center justify-between">
                         <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-200 text-amber-800 font-bold text-sm">2</span>
@@ -638,7 +251,7 @@
                 </div>
             </div>
             
-            <div class="dialog-card" onclick="toggleDialog(this)">
+            <div class="dialog-card">
                 <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
                     <div class="flex items-center justify-between">
                         <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-200 text-amber-800 font-bold text-sm">3</span>
@@ -665,7 +278,7 @@
                 </div>
             </div>
             
-            <div class="dialog-card" onclick="toggleDialog(this)">
+            <div class="dialog-card">
                 <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
                     <div class="flex items-center justify-between">
                         <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-200 text-amber-800 font-bold text-sm">4</span>
@@ -692,7 +305,7 @@
                 </div>
             </div>
             
-            <div class="dialog-card" onclick="toggleDialog(this)">
+            <div class="dialog-card">
                 <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
                     <div class="flex items-center justify-between">
                         <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-200 text-amber-800 font-bold text-sm">5</span>
@@ -719,7 +332,7 @@
                 </div>
             </div>
             
-            <div class="dialog-card" onclick="toggleDialog(this)">
+            <div class="dialog-card">
                 <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
                     <div class="flex items-center justify-between">
                         <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-200 text-amber-800 font-bold text-sm">6</span>
@@ -743,7 +356,7 @@
                 </div>
             </div>
             
-            <div class="dialog-card" onclick="toggleDialog(this)">
+            <div class="dialog-card">
                 <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
                     <div class="flex items-center justify-between">
                         <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-200 text-amber-800 font-bold text-sm">7</span>
@@ -772,7 +385,7 @@
                 </div>
             </div>
             
-            <div class="dialog-card" onclick="toggleDialog(this)">
+            <div class="dialog-card">
                 <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
                     <div class="flex items-center justify-between">
                         <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-200 text-amber-800 font-bold text-sm">8</span>
@@ -811,67 +424,67 @@
         </div>
         
         <div class="grid md:grid-cols-3 gap-5">
-            <div class="vocab-card" onclick="speakText(this.querySelector('.audio-btn'), 'visit my cousins')">
+            <div class="vocab-card" data-text="visit my cousins">
                 <div class="word">visit my cousins</div>
                 <div class="zh">拜访我的表兄弟姐妹</div>
                 <div class="example">When do you like visiting your cousins?</div>
-                <button class="audio-btn" onclick="event.stopPropagation(); speakText(this, 'visit my cousins')">🔊 点击发音</button>
+                <button type="button" class="audio-btn" data-text="visit my cousins">🔊 点击发音</button>
             </div>
             
-            <div class="vocab-card" onclick="speakText(this.querySelector('.audio-btn'), 'go hiking')">
+            <div class="vocab-card" data-text="go hiking">
                 <div class="word">go hiking</div>
                 <div class="zh">去远足</div>
                 <div class="example">I like going hiking on Saturday.</div>
-                <button class="audio-btn" onclick="event.stopPropagation(); speakText(this, 'go hiking')">🔊 点击发音</button>
+                <button type="button" class="audio-btn" data-text="go hiking">🔊 点击发音</button>
             </div>
             
-            <div class="vocab-card" onclick="speakText(this.querySelector('.audio-btn'), 'keep a scrapbook')">
+            <div class="vocab-card" data-text="keep a scrapbook">
                 <div class="word">keep a scrapbook</div>
                 <div class="zh">做剪贴簿</div>
                 <div class="example">She likes keeping a scrapbook at home.</div>
-                <button class="audio-btn" onclick="event.stopPropagation(); speakText(this, 'keep a scrapbook')">🔊 点击发音</button>
+                <button type="button" class="audio-btn" data-text="keep a scrapbook">🔊 点击发音</button>
             </div>
             
-            <div class="vocab-card" onclick="speakText(this.querySelector('.audio-btn'), 'help in the garden')">
+            <div class="vocab-card" data-text="help in the garden">
                 <div class="word">help in the garden</div>
                 <div class="zh">在花园里帮忙</div>
                 <div class="example">I like helping in the garden.</div>
-                <button class="audio-btn" onclick="event.stopPropagation(); speakText(this, 'help in the garden')">🔊 点击发音</button>
+                <button type="button" class="audio-btn" data-text="help in the garden">🔊 点击发音</button>
             </div>
             
-            <div class="vocab-card" onclick="speakText(this.querySelector('.audio-btn'), 'build a tree house')">
+            <div class="vocab-card" data-text="build a tree house">
                 <div class="word">build a tree house</div>
                 <div class="zh">建一个树屋</div>
                 <div class="example">They like building a tree house.</div>
-                <button class="audio-btn" onclick="event.stopPropagation(); speakText(this, 'build a tree house')">🔊 点击发音</button>
+                <button type="button" class="audio-btn" data-text="build a tree house">🔊 点击发音</button>
             </div>
             
-            <div class="vocab-card" onclick="speakText(this.querySelector('.audio-btn'), 'read a comic')">
+            <div class="vocab-card" data-text="read a comic">
                 <div class="word">read a comic</div>
                 <div class="zh">看漫画</div>
                 <div class="example">I like reading a comic in the evening.</div>
-                <button class="audio-btn" onclick="event.stopPropagation(); speakText(this, 'read a comic')">🔊 点击发音</button>
+                <button type="button" class="audio-btn" data-text="read a comic">🔊 点击发音</button>
             </div>
             
-            <div class="vocab-card" onclick="speakText(this.querySelector('.audio-btn'), 'learn to swim')">
+            <div class="vocab-card" data-text="learn to swim">
                 <div class="word">learn to swim</div>
                 <div class="zh">学游泳</div>
                 <div class="example">He likes learning to swim at the weekend.</div>
-                <button class="audio-btn" onclick="event.stopPropagation(); speakText(this, 'learn to swim')">🔊 点击发音</button>
+                <button type="button" class="audio-btn" data-text="learn to swim">🔊 点击发音</button>
             </div>
             
-            <div class="vocab-card" onclick="speakText(this.querySelector('.audio-btn'), 'go camping')">
+            <div class="vocab-card" data-text="go camping">
                 <div class="word">go camping</div>
                 <div class="zh">去露营</div>
                 <div class="example">We like going camping with friends.</div>
-                <button class="audio-btn" onclick="event.stopPropagation(); speakText(this, 'go camping')">🔊 点击发音</button>
+                <button type="button" class="audio-btn" data-text="go camping">🔊 点击发音</button>
             </div>
             
-            <div class="vocab-card" onclick="speakText(this.querySelector('.audio-btn'), 'take riding lessons')">
+            <div class="vocab-card" data-text="take riding lessons">
                 <div class="word">take riding lessons</div>
                 <div class="zh">上马术课 / 学习骑马</div>
                 <div class="example">She likes taking riding lessons on Sunday.</div>
-                <button class="audio-btn" onclick="event.stopPropagation(); speakText(this, 'take riding lessons')">🔊 点击发音</button>
+                <button type="button" class="audio-btn" data-text="take riding lessons">🔊 点击发音</button>
             </div>
         </div>
     </section>
@@ -886,7 +499,7 @@
         </div>
         
         <div class="grid md:grid-cols-2 gap-6">
-            <div class="trans-card" onclick="toggleTrans(this)">
+            <div class="trans-card">
                 <div class="p-5 relative">
                     <span class="tag mb-2">When</span>
                     <div class="en mt-2">When do you like visiting your cousins?</div>
@@ -897,7 +510,7 @@
                 </div>
             </div>
             
-            <div class="trans-card" onclick="toggleTrans(this)">
+            <div class="trans-card">
                 <div class="p-5 relative">
                     <span class="tag mb-2">Where</span>
                     <div class="en mt-2">Where do you like reading a comic?</div>
@@ -908,7 +521,7 @@
                 </div>
             </div>
             
-            <div class="trans-card" onclick="toggleTrans(this)">
+            <div class="trans-card">
                 <div class="p-5 relative">
                     <span class="tag mb-2">Which</span>
                     <div class="en mt-2">Which activity do you like the most?</div>
@@ -919,7 +532,7 @@
                 </div>
             </div>
             
-            <div class="trans-card" onclick="toggleTrans(this)">
+            <div class="trans-card">
                 <div class="p-5 relative">
                     <span class="tag mb-2">When</span>
                     <div class="en mt-2">When do you like going hiking?</div>
@@ -952,52 +565,52 @@
                 Hi Sam,<br><br>
                 I'm having a great time here in France. I'm learning lots of French. My host family are very nice.<br><br>
                 They (1) 
-                <span class="blank-wrapper" onclick="toggleBlank(this)">
+                <span class="blank-wrapper">
                     <span class="blank-underline">_____</span>
                     <span class="blank-answer">live</span>
                 </span> 
                 in an apartment in an area called Pantin, and they both (2) 
-                <span class="blank-wrapper" onclick="toggleBlank(this)">
+                <span class="blank-wrapper">
                     <span class="blank-underline">_____</span>
                     <span class="blank-answer">work</span>
                 </span> 
                 as journalists. They (3) 
-                <span class="blank-wrapper" onclick="toggleBlank(this)">
+                <span class="blank-wrapper">
                     <span class="blank-underline">_____</span>
                     <span class="blank-answer">get up</span>
                 </span> 
                 very early in the morning and (4) 
-                <span class="blank-wrapper" onclick="toggleBlank(this)">
+                <span class="blank-wrapper">
                     <span class="blank-underline">_____</span>
                     <span class="blank-answer">leave</span>
                 </span> 
                 the house before me. I (5) 
-                <span class="blank-wrapper" onclick="toggleBlank(this)">
+                <span class="blank-wrapper">
                     <span class="blank-underline">_____</span>
                     <span class="blank-answer">have</span>
                 </span> 
                 breakfast at about 8am and then go to the language school. I usually (6) 
-                <span class="blank-wrapper" onclick="toggleBlank(this)">
+                <span class="blank-wrapper">
                     <span class="blank-underline">_____</span>
                     <span class="blank-answer">walk</span>
                 </span> 
                 there, but if I'm late I (7) 
-                <span class="blank-wrapper" onclick="toggleBlank(this)">
+                <span class="blank-wrapper">
                     <span class="blank-underline">_____</span>
                     <span class="blank-answer">catch</span>
                 </span> 
                 the bus. Lessons at the school (8) 
-                <span class="blank-wrapper" onclick="toggleBlank(this)">
+                <span class="blank-wrapper">
                     <span class="blank-underline">_____</span>
                     <span class="blank-answer">finish</span>
                 </span> 
                 at 4pm and we can go home. The other students are very nice and I have made lots of new friends. We (9) 
-                <span class="blank-wrapper" onclick="toggleBlank(this)">
+                <span class="blank-wrapper">
                     <span class="blank-underline">_____</span>
                     <span class="blank-answer">meet</span>
                 </span> 
                 after school in a cafe or (10) 
-                <span class="blank-wrapper" onclick="toggleBlank(this)">
+                <span class="blank-wrapper">
                     <span class="blank-underline">_____</span>
                     <span class="blank-answer">go out</span>
                 </span> 
@@ -1018,28 +631,28 @@
         </div>
         
         <div class="grid gap-4">
-            <div class="todo-item" onclick="toggleTodo(this)">
+            <div class="todo-item">
                 <div class="num">1</div>
                 <div class="todo-text">
                     <strong>背单词 Vocabulary</strong>
                     点击词汇卡片听发音，熟读 Unit 9 的 9 个动词短语（教材page 4-5）
                 </div>
             </div>
-            <div class="todo-item" onclick="toggleTodo(this)">
+            <div class="todo-item">
                 <div class="num">2</div>
                 <div class="todo-text">
                     <strong>复习句型 Grammar</strong>
                     练习 Where / When / Which / Who / How often 五种疑问词问法
                 </div>
             </div>
-            <div class="todo-item" onclick="toggleTodo(this)">
+            <div class="todo-item">
                 <div class="num">3</div>
                 <div class="todo-text">
                     <strong>完成造句 Sentences</strong>
                     用 9 个动词短语各造一个句子，使用 where/which/when + do you like doing 句式
                 </div>
             </div>
-            <div class="todo-item" onclick="toggleTodo(this)">
+            <div class="todo-item">
                 <div class="num">4</div>
                 <div class="todo-text">
                     <strong>完成填空 Cloze</strong>
@@ -1057,87 +670,6 @@
     </div>
 </div>
 
-<script>
-function toggleMobileMenu() {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('hidden');
-}
-
-function toggleTrans(card) {
-    const content = card.querySelector('.trans-content');
-    const toggle = card.querySelector('.trans-toggle');
-    const isOpen = content.classList.contains('show');
-    
-    if (isOpen) {
-        content.classList.remove('show');
-        // Restore original text from data attribute, or use default
-        const originalText = toggle.getAttribute('data-original') || (toggle.textContent.includes('答案') ? '🌐 答案' : '🌐 翻译');
-        toggle.textContent = originalText;
-    } else {
-        content.classList.add('show');
-        toggle.textContent = '🔼 隐藏';
-    }
-}
-
-function toggleDialog(card) {
-    const content = card.querySelector('.trans-content');
-    const isOpen = content.classList.contains('show');
-    
-    if (isOpen) {
-        content.classList.remove('show');
-    } else {
-        content.classList.add('show');
-    }
-}
-
-let currentUtter = null;
-
-function speakText(btn, text) {
-    if (!('speechSynthesis' in window)) {
-        alert('您的浏览器不支持发音功能');
-        return;
-    }
-    const synth = window.speechSynthesis;
-    const isSpeaking = btn.classList.contains('speaking');
-    
-    if (currentUtter) synth.cancel();
-    
-    document.querySelectorAll('.audio-btn').forEach(b => {
-        b.classList.remove('speaking');
-        b.textContent = '🔊 点击发音';
-    });
-    
-    if (isSpeaking) {
-        currentUtter = null;
-        return;
-    }
-    
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = 'en-US';
-    utter.rate = 0.85;
-    utter.pitch = 1;
-    
-    utter.onstart = () => {
-        btn.classList.add('speaking');
-        btn.textContent = '⏹ 停止发音';
-    };
-    utter.onend = () => {
-        btn.classList.remove('speaking');
-        btn.textContent = '🔊 点击发音';
-        currentUtter = null;
-    };
-    
-    currentUtter = utter;
-    synth.speak(utter);
-}
-
-function toggleBlank(wrapper) {
-    wrapper.classList.toggle('revealed');
-}
-
-function toggleTodo(el) {
-    el.classList.toggle('done');
-}
-</script>
+<script src="grammar.js"></script>
 </body>
 </html>
