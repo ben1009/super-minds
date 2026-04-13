@@ -16,11 +16,11 @@ echo ""
 echo "2. Checking file references..."
 
 # Check HTML files reference shared CSS/JS
-grep -l "common.css" index.html unit7/*.html 2>/dev/null | while read f; do
+grep -l "common.css" index.html unit7/*.html unit8/*.html 2>/dev/null | while read f; do
     echo "   ✓ $f references common.css"
 done
 
-grep -l "common.js" index.html unit7/*.html 2>/dev/null | while read f; do
+grep -l "common.js" index.html unit7/*.html unit8/*.html 2>/dev/null | while read f; do
     echo "   ✓ $f references common.js"
 done
 
@@ -83,7 +83,7 @@ ERRORS=0
 for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html; do
     if [ -f "$file" ]; then
         if grep -q 'reading.html' "$file"; then
-            echo "   ✓ $f has link to reading.html"
+            echo "   ✓ $file has link to reading.html"
         else
             echo "   ✗ $file missing link to reading.html!"
             ERRORS=$((ERRORS + 1))
