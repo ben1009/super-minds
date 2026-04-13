@@ -1,189 +1,82 @@
-# Refactoring Todo List
+# Project Todo & History
 
-Branch: `refactor/consolidate-shared-code`
+## Completed: Refactoring Project
 
-## Overview
+**Branch:** `refactor/consolidate-shared-code` ✅ **COMPLETED**
 
-This refactoring aims to eliminate code duplication, improve maintainability, and establish a cleaner architecture for the Super Minds English learning platform.
+### Summary
+All refactoring phases completed successfully on 2024. The codebase has been consolidated with shared CSS/JS modules and automated testing infrastructure.
 
----
-
-## Phase 1: Remove duplicate ga.js from baseball folder
-
-**Problem:** The `super-minds-baseball/ga.js` is identical to the root `ga.js`, violating DRY principle.
-
-**Tasks:**
-- [x] Delete `super-minds-baseball/ga.js`
-- [x] Update reference in `super-minds-baseball/index.html` from `ga.js` to `../ga.js`
-- [x] Verify all baseball pages use the shared script
-
----
-
-## Phase 2: Extract shared CSS variables and keyframes
-
-**Problem:** Common CSS patterns are duplicated across multiple HTML files:
-- `@keyframes fadeInUp` animation
-- Body background gradients
-- Common utility classes
-
-**Tasks:**
-- [x] Create `css/common.css` with shared styles
-- [x] Extract common keyframes (fadeInUp, float, etc.)
-- [x] Extract common body background styles
-- [x] Update all HTML files to include shared CSS
+### Major Changes Delivered:
+1. ✅ Removed duplicate `ga.js` from baseball folder - all pages now reference root `ga.js`
+2. ✅ Created `css/common.css` - shared styles (variables, animations, utilities)
+3. ✅ Created `js/common.js` - shared JavaScript utilities (12+ functions)
+4. ✅ Standardized mobile navigation component across all pages
+5. ✅ Consolidated toggle/accordion functionality
+6. ✅ Unified Lucide icons initialization
+7. ✅ Added comprehensive GitHub Actions CI/CD workflows:
+   - `.github/workflows/quick-test.yml` - Quick validation
+   - `.github/workflows/ci.yml` - Full CI suite
+   - `.github/workflows/browser-tests.yml` - Playwright E2E, Lighthouse, Visual Regression
+   - `.github/workflows/unit8-reading-test.yml` - Unit 8 Reading page specific tests
+8. ✅ Updated all documentation (AGENTS.md, README.md, TESTING.md)
 
 ---
 
-## Phase 3: Create shared JavaScript utilities module
+## Active: New Features & Content
 
-**Problem:** Identical JavaScript functions are copy-pasted across pages:
-- `toggleMobileMenu()`
-- `toggleAnswer()` / toggle functions
-- Progress tracking logic
+### Unit 8 Grammar Homework Page ✅
+**Status:** Completed
+**File:** `unit8/grammar.html`
 
-**Tasks:**
-- [x] Create `js/common.js` with shared utilities
-- [x] Move `toggleMobileMenu()` to shared module
-- [x] Move common toggle functionality to shared module
-- [x] Update all HTML files to include shared JS
-
----
-
-## Phase 4: Standardize mobile navigation component
-
-**Problem:** Navigation HTML structure is duplicated in every page with minor variations.
-
-**Tasks:**
-- [x] Create consistent navigation markup pattern
-- [x] Document the navigation structure in AGENTS.md
-- [x] Ensure all pages use identical nav component
+Features:
+- 5 question words (Where, When, Which, Who, How often) grammar cards
+- New dialogue: Football team story with 8 scenes
+- 9 Unit 9 verb phrases with audio pronunciation
+- Sentence practice exercises
+- Email cloze exercise (Harry's France trip)
+- Interactive todo list
 
 ---
 
-## Phase 5: Consolidate toggle/accordion functionality
+## Active Refactoring Tasks
 
-**Problem:** Multiple implementations of similar toggle patterns:
-- Quiz answers (`toggleQuizAnswer`)
-- Story translations (`toggleTranslation`)
-- Comprehension answers (`toggleCompAnswer`)
-- Timeline details (`toggleTimeline`)
+### 1. Fix test.sh Script ✅ **COMPLETED**
+**Priority:** High
 
-**Tasks:**
-- [x] Analyze all toggle implementations
-- [x] Design unified toggle API
-- [x] Replace individual functions with unified implementation
+Issues fixed:
+- [x] Line 19, 23: Updated to check `unit8/*.html` in addition to `unit7/*.html`
+- [x] Line 86: Fixed bug - `$f` changed to `$file`
+- [x] Verified all tests pass
 
----
+### 2. Standardize Unit 8 Pages to Use Shared Resources ⚠️
+**Priority:** Low (Design Decision)
 
-## Phase 6: Unify Lucide icons initialization
+**Status:** Evaluated - Intentional Design
 
-**Problem:** Inconsistent Lucide icons initialization:
-- Some files call `lucide.createIcons()`
-- Some don't, causing missing icons
+The Unit 8 pages intentionally use a unique baseball theme with custom styles:
+- `unit8/index.html` - Baseball field green background, leather cards, stitch-red accents
+- `unit8/reading.html` - Same baseball theme
+- `unit8/grammar.html` - Uses separate `grammar.css` and `grammar.js` for baseball theme
+- `unit8/amazing-vehicles.html` - Uses shared `common.js` but has custom styles
 
-**Tasks:**
-- [x] Audit all pages for icon initialization
-- [x] Ensure `lucide.createIcons()` is called appropriately
-- [x] Consider auto-initialization in shared JS
+**Decision:** Keep separate styling for theme consistency. The shared `common.css` is designed for the main Super Minds theme (sky blue gradient), not the baseball theme.
 
----
+**Future consideration:** Could extract shared JS functions (`toggleMobileMenu`, `speak`, etc.) to reduce duplication while keeping custom CSS.
 
-## Progress Tracker
+### 3. Cleanup todo.md ✅ **COMPLETED**
+**Priority:** Low
 
-| Phase | Task | Status |
-|-------|------|--------|
-| 1 | Remove duplicate ga.js from baseball folder | ✅ done |
-| 2 | Extract shared CSS variables and keyframes | ✅ done |
-| 3 | Create shared JavaScript utilities module | ✅ done |
-| 4 | Standardize mobile navigation component | ✅ done |
-| 5 | Consolidate toggle/accordion functionality | ✅ done |
-| 6 | Unify Lucide icons initialization | ✅ done |
-| 7 | Update documentation | ✅ done |
+- [x] Removed duplicate old refactoring content
+- [x] Consolidated into clean structure
+- [x] All refactoring tasks now documented in clean format
 
 ---
 
-## Summary
+## Future Ideas
 
-All refactoring phases completed successfully!
-
-### Changes Made:
-
-1. **Updated**: `super-minds-baseball/` - All pages use `../../ga.js` to reference root ga.js
-   - index.html, unit7/index.html, unit7/homework.html, unit8/index.html
-3. **Created**: `css/common.css` - Shared styles (variables, animations, utilities)
-3. **Created**: `js/common.js` - Shared JavaScript utilities (12+ functions)
-4. **Updated**: All HTML files to use shared resources
-5. **Updated**: `AGENTS.md` with new architecture documentation
-6. **Created**: GitHub Actions CI/CD workflows for automated testing
-   - Headless browser testing with Puppeteer and Playwright
-   - E2E tests for interactions, navigation, responsive design
-   - Lighthouse CI for performance and accessibility
-   - Visual regression testing with screenshots
-7. **Created**: TESTING.md and test.sh for manual testing
-
-### Benefits:
-
-- **DRY Principle**: Eliminated code duplication across pages
-- **Maintainability**: Changes to shared code apply everywhere
-- **Consistency**: Unified navigation, icons, and interactions
-- **Performance**: Reduced total code size through reuse
-- **Quality**: Automated testing prevents regressions
-
-### Testing
-
-Three types of tests are now available:
-
-1. **Automated (GitHub Actions)**:
-   - **Quick Validation** - File structure, references, HTML basics
-   - **Full CI** - HTML/CSS/JS validation, link checking, ESLint
-   - **Headless Browser** - Puppeteer/Playwright E2E tests in headless mode
-   - **Lighthouse CI** - Performance, accessibility, best practices audits
-   - **Visual Regression** - Screenshot comparisons
-
-2. **Local Headless Testing**:
-   ```bash
-   npm install puppeteer
-   node smoke-test.js  # Headless browser tests locally
-   ```
-
-3. **Manual**:
-   - Run `./test.sh` for quick file checks
-   - Run `python3 -m http.server 8000` for browser testing
-   - Follow TESTING.md checklist
-
-### Files Created/Modified
-
-```
-✅ Created: css/common.css
-✅ Created: js/common.js
-✅ Created: .github/workflows/quick-test.yml
-✅ Created: .github/workflows/ci.yml
-✅ Created: TESTING.md
-✅ Created: test.sh
-✅ Modified: index.html, unit7/*.html (use shared resources)
-✅ Modified: AGENTS.md (updated documentation)
-✅ Modified: super-minds-baseball/*.html (all use ../../ga.js)
-✅ Deleted: super-minds-baseball/ga.js (truly removed, all pages reference root)
-```
-
----
-
-## Phase 7: Update documentation
-
-**Problem:** Documentation needs to reflect the new shared code structure after refactoring.
-
-**Tasks:**
-- [x] Update `AGENTS.md` with new project structure
-- [x] Document the shared CSS/JS modules
-- [x] Update file references in documentation
-- [x] Add usage examples for shared utilities
-- [x] Update navigation component documentation
-
----
-
-## Notes
-
-- Each phase should be committed separately for clean git history
-- Test all pages after each phase to ensure functionality is preserved
-- Keep changes minimal - focus on DRY principle, not feature changes
-- Update todo.md status as each phase is completed
+- [ ] Add more interactive quiz types
+- [ ] Implement progress tracking across all units
+- [ ] Add sound effects for interactions
+- [ ] Mobile app version (PWA)
+- [ ] Extract shared JavaScript functions from Unit 8 pages to reduce duplication

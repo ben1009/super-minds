@@ -12,6 +12,8 @@ The project includes GitHub Actions workflows for automated testing:
 |----------|------|-------------|
 | **Quick Validation** | `.github/workflows/quick-test.yml` | Fast checks on every push/PR |
 | **Full CI** | `.github/workflows/ci.yml` | Comprehensive test suite |
+| **Browser Tests** | `.github/workflows/browser-tests.yml` | Playwright E2E, Lighthouse CI, Visual Regression |
+| **Unit 8 Reading** | `.github/workflows/unit8-reading-test.yml` | Specific tests for Unit 8 Reading page functionality |
 
 ### Quick Validation Tests
 

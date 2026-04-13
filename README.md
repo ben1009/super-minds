@@ -40,6 +40,14 @@ A baseball-themed course focusing on **using gerunds as subjects** with ball spo
    - 📚 Grammar focus: like/enjoy/love + V-ing, be interested in + V-ing
    - ✅ Interactive todo list for homework tracking
 
+4. **Grammar Homework** (`unit8/grammar.html`)
+   - 📝 Grammar focus: 5 question words (Where, When, Which, Who, How often)
+   - 💬 New dialogue: Creating a football team story
+   - 🎯 9 Unit 9 verb phrases with audio pronunciation
+   - ✍️ Sentence practice with Where/When/Which patterns
+   - 📧 Email cloze exercise (Harry's study trip to France)
+   - ✅ Interactive todo list for homework tracking
+
 ## 🌐 Access the Course
 
 **Click the link below to start learning:**
@@ -62,7 +70,10 @@ No installation required — just open it in your browser!
 ├── unit8/
 │   ├── index.html          # Unit 8: Gerunds as Subjects (Ball Sports)
 │   ├── amazing-vehicles.html  # Unit 8: Amazing Vehicles (Reading & Vocabulary)
-│   └── reading.html        # Unit 8: Fun Things We Do (Reading & Hobbies)
+│   ├── reading.html        # Unit 8: Fun Things We Do (Reading & Hobbies)
+│   ├── grammar.html        # Unit 8: Grammar Homework & Exercises
+│   ├── grammar.css         # Unit 8: Grammar page styles
+│   └── grammar.js          # Unit 8: Grammar page interactions
 ├── super-minds-baseball/   # Baseball-themed edition
 │   ├── index.html
 │   ├── unit7/
