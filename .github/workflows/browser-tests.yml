@@ -268,19 +268,22 @@ jobs:
           
           test('can navigate from Baseball homepage to Unit 9', async ({ page }) => {
             await page.goto('http://localhost:8000/super-minds-baseball/');
-            await page.click('a[href="../unit9/index.html"]');
+            await page.waitForSelector('a[href="../unit9/index.html"]');
+            await page.locator('a[href="../unit9/index.html"]').first().click();
             await expect(page).toHaveURL(/unit9\/index\.html/);
           });
           
           test('can navigate from Baseball Unit 7 to Unit 9', async ({ page }) => {
             await page.goto('http://localhost:8000/super-minds-baseball/unit7/index.html');
-            await page.click('a[href="../unit9/index.html"]');
+            await page.waitForSelector('a[href="../unit9/index.html"]');
+            await page.locator('a[href="../unit9/index.html"]').first().click();
             await expect(page).toHaveURL(/unit9\/index\.html/);
           });
           
           test('can navigate from Baseball Unit 8 to Unit 9', async ({ page }) => {
             await page.goto('http://localhost:8000/super-minds-baseball/unit8/index.html');
-            await page.click('a[href="../unit9/index.html"]');
+            await page.waitForSelector('a[href="../unit9/index.html"]');
+            await page.locator('a[href="../unit9/index.html"]').first().click();
             await expect(page).toHaveURL(/unit9\/index\.html/);
           });
         });
