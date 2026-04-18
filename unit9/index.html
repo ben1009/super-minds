@@ -370,7 +370,7 @@
                 <!-- Mobile Menu Button -->
                 <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
                     <i class="fas fa-bars text-xl"></i>
-                </button>
+                </div>
             </div>
             <!-- Mobile Navigation -->
             <div id="mobileMenu" class="hidden md:hidden pb-4">
@@ -519,36 +519,36 @@
             <!-- 动词短语 -->
             <h3 class="text-xl font-bold text-green-800 mb-4 text-center">📝 动词短语 (点击听发音)</h3>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-                <button type="button" class="vocab-card p-5 rounded-xl" onclick="speak('build a tree house', this)">
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('build a tree house', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="text-3xl mb-2">🔨</div>
                     <div class="font-bold text-lg">build a tree house</div>
                     <div class="text-sm text-gray-600 mt-1">建一个树屋</div>
-                </button>
-                <button type="button" class="vocab-card p-5 rounded-xl" onclick="speak('join me', this)">
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('join me', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="text-3xl mb-2">👥</div>
                     <div class="font-bold text-lg">join me</div>
                     <div class="text-sm text-gray-600 mt-1">加入我</div>
-                </button>
-                <button type="button" class="vocab-card p-5 rounded-xl" onclick="speak('go camping', this)">
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('go camping', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="text-3xl mb-2">⛺</div>
                     <div class="font-bold text-lg">go camping</div>
                     <div class="text-sm text-gray-600 mt-1">去露营</div>
-                </button>
-                <button type="button" class="vocab-card p-5 rounded-xl" onclick="speak('go swimming', this)">
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('go swimming', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="text-3xl mb-2">🏊</div>
                     <div class="font-bold text-lg">go swimming</div>
                     <div class="text-sm text-gray-600 mt-1">去游泳</div>
-                </button>
-                <button type="button" class="vocab-card p-5 rounded-xl md:col-span-2 lg:col-span-1" onclick="speak('take riding lessons', this)">
+                </div>
+                <div class="vocab-card p-5 rounded-xl md:col-span-2 lg:col-span-1" onclick="speak('take riding lessons', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="text-3xl mb-2">🐴</div>
                     <div class="font-bold text-lg">take riding lessons</div>
                     <div class="text-sm text-gray-600 mt-1">上骑马课 / 学习骑马</div>
-                </button>
+                </div>
             </div>
 
             <div class="example-box">
@@ -813,7 +813,7 @@
             <p class="text-center text-gray-600 mb-6">点击任务标记完成（划掉）</p>
 
             <div class="space-y-4">
-                <button type="button" class="reading-card p-5 border-l-4 border-red-500 todo-item text-left w-full" onclick="toggleTodo(this)">
+                <div class="reading-card p-5 border-l-4 border-red-500 todo-item text-left w-full" onclick="toggleTodo(this)">
                     <div class="flex items-start gap-3">
                         <div class="todo-checkbox"></div>
                         <div class="flex-1">
@@ -823,9 +823,9 @@
                             <p class="text-gray-700">掌握三种句式：It's time for... / Can I... / I'm going to...</p>
                         </div>
                     </div>
-                </button>
+                </div>
 
-                <button type="button" class="reading-card p-5 border-l-4 border-blue-500 todo-item text-left w-full" onclick="toggleTodo(this)">
+                <div class="reading-card p-5 border-l-4 border-blue-500 todo-item text-left w-full" onclick="toggleTodo(this)">
                     <div class="flex items-start gap-3">
                         <div class="todo-checkbox"></div>
                         <div class="flex-1">
@@ -835,9 +835,9 @@
                             <p class="text-gray-700">掌握本册书的重要句式，内容拓展和总结参考 PDF 文件</p>
                         </div>
                     </div>
-                </button>
+                </div>
 
-                <button type="button" class="reading-card p-5 border-l-4 border-green-500 todo-item text-left w-full" onclick="toggleTodo(this)">
+                <div class="reading-card p-5 border-l-4 border-green-500 todo-item text-left w-full" onclick="toggleTodo(this)">
                     <div class="flex items-start gap-3">
                         <div class="todo-checkbox"></div>
                         <div class="flex-1">
@@ -847,9 +847,9 @@
                             <p class="text-gray-700">完成 Tom &amp; Anna 以及 Amy &amp; Ben 两组对话填空，点击空白处检查答案</p>
                         </div>
                     </div>
-                </button>
+                </div>
 
-                <button type="button" class="reading-card p-5 border-l-4 border-purple-500 todo-item text-left w-full" onclick="toggleTodo(this)">
+                <div class="reading-card p-5 border-l-4 border-purple-500 todo-item text-left w-full" onclick="toggleTodo(this)">
                     <div class="flex items-start gap-3">
                         <div class="todo-checkbox"></div>
                         <div class="flex-1">
@@ -859,7 +859,7 @@
                             <p class="text-gray-700">培养语感，课下阅读绘本巩固</p>
                         </div>
                     </div>
-                </button>
+                </div>
             </div>
 
             <p class="text-center text-amber-800 mt-6 italic text-sm">点击任务即可标记完成 ✓</p>
