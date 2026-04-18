@@ -38,6 +38,8 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 │   ├── grammar.html        # Unit 8 语法作业页面（疑问词练习与完形填空）
 │   ├── grammar.css         # Unit 8 语法页面专用样式
 │   └── grammar.js          # Unit 8 语法页面交互脚本
+├── unit9/
+│   └── index.html          # Unit 9 语法复习页面（假期计划语法总结）
 ├── super-minds-baseball/   # 棒球英语学习板块
 │   ├── index.html          # 棒球版主页
 │   ├── unit7/
@@ -63,6 +65,7 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 | `unit8/grammar.html` | Unit 8 语法作业页面，包含：5个疑问词用法、新对话、9个动词短语、造句练习、邮件完形填空、作业清单 |
 | `unit8/grammar.css` | Unit 8 语法页面专用样式（棒球主题风格） |
 | `unit8/grammar.js` | Unit 8 语法页面交互脚本（翻译切换、发音、填空交互） |
+| `unit9/index.html` | Unit 9 语法复习页面，包含：Page 108歌曲语法重点、Page 109语法总结、两组对话填空（35+空）、5个动词短语发音、作业清单 |
 | `super-minds-baseball/unit8/index.html` | 棒球版 Unit 8 课程内容 |
 | `super-minds-baseball/index.html` | 棒球主题的英语学习板块主页 |
 | `css/common.css` | 共享 CSS 样式模块（变量、动画、工具类） |
@@ -257,6 +260,35 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 - 4项作业任务，点击切换完成状态
 - 家长提示区域
 
+## Unit 9 Grammar Review (unit9/index.html) Specific Features
+
+### 1. Page 108 语法重点卡片 (Grammar Focus Cards)
+- 3个核心语法卡片：It's time for...、Can I...、be going to...
+- 每个卡片包含结构说明、例句和注意事项
+- Can I 卡片展示7个人称的完整列表表格
+- be going to 卡片展示各人称变化及常见错误提醒
+
+### 2. 动词短语发音卡片 (Verb Phrase Vocabulary)
+- 5个动词短语（build a tree house, join me, go camping, go swimming, take riding lessons）
+- 点击卡片使用 Web Speech API 发音
+- 发音动画反馈（.speaking 类 + pulse 动画）
+
+### 3. Page 109 语法总结 (Grammar Summary)
+- 4大语法点分类：一般现在时（系动词/实义动词）、can 句型、have got 句型、there be 句型
+- 12道问句类型总结表（编号、问句、语法点、疑问词/结构）
+- 各语法点配有问句结构说明和注意事项
+
+### 4. 对话填空练习 (Dialogue Fill-in-the-Blanks)
+- Tom & Anna 对话：18个填空
+- Amy & Ben 对话：17个填空
+- 涵盖7个特殊疑问词 + 助动词/be动词/情态动词
+- 点击空白处显示/隐藏答案（revealAnswer 函数）
+- 答案解析表格可展开/收起（toggleAnswerTable 函数）
+
+### 5. 今日任务 (Today's Todo)
+- 4项作业任务，点击标记完成（圆形复选框 + 划线效果）
+- 皮革质感卡片容器（.leather-card）
+
 ## Key Features Implementation
 
 ### 1. 完形填空 (Cloze Test)
@@ -369,6 +401,26 @@ Unit 8 是一个独立风格的单元（棒球主题），不同于延续 Unit 7
 7. 更新了 `README.md` - 添加课程描述
 8. 更新了 `AGENTS.md` - 更新项目结构和功能说明
 9. 添加了测试 - 导航链接验证测试
+
+### Unit 9 添加示例
+
+Unit 9 是一个语法复习页面，采用棒球主题风格（与 unit8/reading.html 一致）：
+
+1. 创建了 `unit9/index.html` - 假期计划语法复习页面
+2. 更新了 `index.html` - 添加 Unit 9 卡片和快速链接
+3. 更新了 `unit7/index.html` - 添加 Unit 9 导航下拉菜单
+4. 更新了 `unit7/homework.html` - 添加 Unit 9 导航下拉菜单
+5. 更新了 `unit8/index.html` - 添加 Unit 9 导航下拉菜单
+6. 更新了 `unit8/amazing-vehicles.html` - 添加 Unit 9 导航下拉菜单
+7. 更新了 `unit8/reading.html` - 添加 Unit 9 导航下拉菜单
+8. 更新了 `unit8/grammar.html` - 添加 Unit 9 导航下拉菜单
+9. 更新了 `README.md` - 添加 Unit 9 课程描述
+10. 更新了 `AGENTS.md` - 更新项目结构和功能说明
+11. 更新了 `TESTING.md` - 添加 Unit 9 测试清单
+12. 添加了测试工作流 `.github/workflows/unit9-test.yml`
+13. 更新了 `test.sh` - 添加 Unit 9 验证
+14. 更新了 `.github/workflows/quick-test.yml` - 添加 Unit 9 检查
+15. 更新了 `.github/workflows/ci.yml` - 添加 Unit 9 检查
 
 ### 修改现有内容的注意事项
 

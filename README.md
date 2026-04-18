@@ -48,6 +48,16 @@ A baseball-themed course focusing on **using gerunds as subjects** with ball spo
    - 📧 Email cloze exercise (Harry's study trip to France)
    - ✅ Interactive todo list for homework tracking
 
+### Unit 9 - Holiday Plans Grammar (假期计划语法)
+A grammar review page consolidating key sentence patterns from the entire book.
+
+**Content:** (`unit9/index.html`)
+   - 🎵 Page 108 song grammar: `It's time for...`, `Can I...`, `I'm going to...`
+   - 📝 Page 109 grammar summary: question words, be verbs, can, have got, there be
+   - 💬 Two dialogue fill-in-the-blank exercises (35+ blanks)
+   - 🎯 5 verb phrases with audio pronunciation (Web Speech API)
+   - ✅ Interactive todo list for homework tracking
+
 ## 🌐 Access the Course
 
 **Click the link below to start learning:**
@@ -74,6 +84,8 @@ No installation required — just open it in your browser!
 │   ├── grammar.html        # Unit 8: Grammar Homework & Exercises
 │   ├── grammar.css         # Unit 8: Grammar page styles
 │   └── grammar.js          # Unit 8: Grammar page interactions
+├── unit9/
+│   └── index.html          # Unit 9: Holiday Plans Grammar Review
 ├── super-minds-baseball/   # Baseball-themed edition
 │   ├── index.html
 │   ├── unit7/

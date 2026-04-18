@@ -14,6 +14,7 @@ The project includes GitHub Actions workflows for automated testing:
 | **Full CI** | `.github/workflows/ci.yml` | Comprehensive test suite |
 | **Browser Tests** | `.github/workflows/browser-tests.yml` | Playwright E2E, Lighthouse CI, Visual Regression |
 | **Unit 8 Reading** | `.github/workflows/unit8-reading-test.yml` | Specific tests for Unit 8 Reading page functionality |
+| **Unit 9 Grammar** | `.github/workflows/unit9-test.yml` | Specific tests for Unit 9 Grammar page functionality |
 
 ### Quick Validation Tests
 
@@ -204,6 +205,28 @@ Test all links work correctly:
 
 **From Homework:**
 - [ ] Nav: "Unit 7" → /unit7/index.html
+
+**From Unit 9:**
+- [ ] Nav: "首页 Home" → /
+- [ ] Nav: "Unit 7" → /unit7/index.html
+- [ ] Nav: "Unit 8" → /unit8/index.html
+- [ ] Blank toggle: Click blank → answer reveals
+- [ ] Answer table toggle: Click button → answer table shows
+- [ ] Todo toggle: Click task → marked completed
+
+---
+
+### ✅ Unit 9 Page (/unit9/index.html)
+
+- [ ] Page loads with correct title "Unit 9 · 假期计划语法"
+- [ ] 3 grammar cards displayed (It's time for..., Can I..., be going to...)
+- [ ] 5 vocabulary cards with pronunciation icons
+- [ ] Grammar summary table (Page 109) displays correctly
+- [ ] Two dialogue fill-in-the-blank exercises present (≥30 blanks)
+- [ ] Click blank → answer reveals, click again → hides
+- [ ] Answer table toggle buttons work
+- [ ] 4 todo items present, click to mark complete
+- [ ] Navigation links to Unit 7 and Unit 8 work
 
 ---
 
