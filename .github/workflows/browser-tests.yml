@@ -267,7 +267,7 @@ jobs:
           });
           
           test('can navigate from Baseball homepage to Unit 9', async ({ page }) => {
-            await page.goto('http://localhost:8000/super-minds-baseball/');
+            await page.goto('http://localhost:8000/super-minds-baseball/index.html');
             await page.waitForSelector('a[href="../unit9/index.html"]');
             await page.locator('a[href="../unit9/index.html"]').first().click();
             await expect(page).toHaveURL(/unit9\/index\.html/);
@@ -457,7 +457,7 @@ jobs:
             { url: 'http://localhost:8000/unit8/reading.html', name: 'unit8-reading' },
             { url: 'http://localhost:8000/unit8/grammar.html', name: 'unit8-grammar' },
             { url: 'http://localhost:8000/unit9/index.html', name: 'unit9' },
-            { url: 'http://localhost:8000/super-minds-baseball/', name: 'baseball-home' },
+            { url: 'http://localhost:8000/super-minds-baseball/index.html', name: 'baseball-home' },
           ];
           
           // Desktop screenshots
