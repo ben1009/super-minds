@@ -150,7 +150,8 @@ jobs:
             "attr-quotes": "error",
             "element-required-attributes": "error",
             "no-trailing-whitespace": "warn",
-            "no-inline-style": "off"
+            "no-inline-style": "off",
+            "prefer-native-element": "off"
           }
         }
         CONFIG
