@@ -918,9 +918,12 @@
             utterance.pitch = 1;
 
             if (cardElement) {
+                // Clear any existing speaking state
+                document.querySelectorAll('.vocab-card.speaking').forEach(el => el.classList.remove('speaking'));
+                
                 cardElement.classList.add('speaking');
                 utterance.onend = () => cardElement.classList.remove('speaking');
-                setTimeout(() => cardElement.classList.remove('speaking'), 3000);
+                utterance.onerror = () => cardElement.classList.remove('speaking');
             }
 
             window.speechSynthesis.speak(utterance);
