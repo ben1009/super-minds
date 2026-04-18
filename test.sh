@@ -85,7 +85,7 @@ echo "4. Checking favicon on all pages..."
 ERRORS=0
 
 # Combined loop for all HTML files
-for file in index.html unit7/*.html unit8/*.html super-minds-baseball/index.html super-minds-baseball/unit7/*.html super-minds-baseball/unit8/*.html; do
+for file in index.html unit7/*.html unit8/*.html unit9/*.html super-minds-baseball/index.html super-minds-baseball/unit7/*.html super-minds-baseball/unit8/*.html; do
     if [ -f "$file" ]; then
         if grep -q 'rel="icon"' "$file"; then
             echo "   ✓ $file has favicon"
