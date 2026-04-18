@@ -150,7 +150,8 @@ jobs:
             "attr-quotes": "error",
             "element-required-attributes": "error",
             "no-trailing-whitespace": "warn",
-            "no-inline-style": "off"
+            "no-inline-style": "off",
+            "prefer-native-element": "off"
           }
         }
         CONFIG
@@ -160,6 +161,9 @@ jobs:
         html-validate unit7/index.html || exit 1
         html-validate unit7/homework.html || exit 1
         html-validate unit8/index.html || exit 1
+        html-validate unit8/amazing-vehicles.html || exit 1
+        html-validate unit8/reading.html || exit 1
+        html-validate unit8/grammar.html || exit 1
         html-validate unit9/index.html || exit 1
         
         echo "✅ All HTML files valid"

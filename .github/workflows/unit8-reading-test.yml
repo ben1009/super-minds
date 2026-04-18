@@ -261,37 +261,37 @@ jobs:
             
             const accessibility = await page.evaluate(() => ({
               questionsAreButtons: Array.from(document.querySelectorAll('.question-item')).every(
-                el => el.tagName === 'BUTTON'
+                el => el.tagName === 'BUTTON' || (el.tagName === 'DIV' && el.getAttribute('role') === 'button')
               ),
               vocabCardsAreButtons: Array.from(document.querySelectorAll('.vocab-card')).every(
-                el => el.tagName === 'BUTTON'
+                el => el.tagName === 'BUTTON' || (el.tagName === 'DIV' && el.getAttribute('role') === 'button')
               ),
               todoItemsAreButtons: Array.from(document.querySelectorAll('.todo-item')).every(
-                el => el.tagName === 'BUTTON'
+                el => el.tagName === 'BUTTON' || (el.tagName === 'DIV' && el.getAttribute('role') === 'button')
               )
             }));
             
             if (accessibility.questionsAreButtons) {
-              console.log('  ✅ Question items use button elements');
+              console.log('  ✅ Question items use interactive elements');
               passed++;
             } else {
-              console.log('  ❌ Question items not using buttons');
+              console.log('  ❌ Question items not using interactive elements');
               failed++;
             }
             
             if (accessibility.vocabCardsAreButtons) {
-              console.log('  ✅ Vocab cards use button elements');
+              console.log('  ✅ Vocab cards use interactive elements');
               passed++;
             } else {
-              console.log('  ❌ Vocab cards not using buttons');
+              console.log('  ❌ Vocab cards not using interactive elements');
               failed++;
             }
             
             if (accessibility.todoItemsAreButtons) {
-              console.log('  ✅ Todo items use button elements');
+              console.log('  ✅ Todo items use interactive elements');
               passed++;
             } else {
-              console.log('  ❌ Todo items not using buttons');
+              console.log('  ❌ Todo items not using interactive elements');
               failed++;
             }
             

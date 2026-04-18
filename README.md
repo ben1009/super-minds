@@ -87,9 +87,12 @@ No installation required — just open it in your browser!
 ├── unit9/
 │   └── index.html          # Unit 9: Holiday Plans Grammar Review
 ├── super-minds-baseball/   # Baseball-themed edition
-│   ├── index.html
+│   ├── index.html          # Baseball homepage with links to all units
 │   ├── unit7/
+│   │   ├── index.html      # Baseball Unit 7: Present Continuous
+│   │   └── homework.html   # Baseball Unit 7 Homework
 │   └── unit8/
+│       └── index.html      # Baseball Unit 8: Gerunds (links to main site Unit 9)
 └── .github/workflows/      # CI/CD automation
 ```
 
@@ -99,7 +102,8 @@ No installation required — just open it in your browser!
 - 🖱️ Interactive learning experience
 - 📖 Clear and organized knowledge structure
 - ✅ Instant feedback on practice exercises
-- ⚾ Baseball-themed special edition available
+- 🌴 Unit 9 grammar review: Holiday Plans with dialogue fill-in-the-blanks
+- ⚾ Baseball-themed special edition with cross-navigation to all units
 - 🔄 Shared code architecture for maintainability
 - ✅ Automated testing with GitHub Actions
 

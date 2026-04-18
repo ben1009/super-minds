@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super Minds 2 Unit 8 - Fun Things We Do · 我们做的趣事</title>
     <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-    
+
     <!-- Google Analytics -->
     <script src="../ga.js"></script>
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -18,7 +18,7 @@
             --leather-primary: #F5F5DC;
             --stitch-red: #DC143C;
         }
-        
+
         body {
             background-color: var(--field-green);
             background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
@@ -26,14 +26,14 @@
             font-family: 'Noto Sans SC', sans-serif;
             min-height: 100vh;
         }
-        
+
         .leather-card {
             background: linear-gradient(135deg, #F5F5DC 0%, #E8DCC4 100%);
             border: 3px solid #8B4513;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5);
             position: relative;
         }
-        
+
         .leather-card::before {
             content: '';
             position: absolute;
@@ -42,31 +42,31 @@
             border-radius: 8px;
             pointer-events: none;
         }
-        
+
         .stitch-border {
             border: 3px solid var(--stitch-red);
             border-radius: 12px;
             position: relative;
             background: #FAFAFA;
         }
-        
+
         .nav-link {
             color: rgba(255,255,255,0.9);
             transition: all 0.3s ease;
             border-bottom: 2px solid transparent;
         }
-        
+
         .nav-link:hover {
             color: white;
             border-bottom-color: var(--stitch-red);
         }
-        
+
         .reading-card {
             background: rgba(255, 255, 255, 0.95);
             border: 3px solid #2E5D34;
             border-radius: 15px;
         }
-        
+
         .character-card {
             background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
             border: 3px solid;
@@ -74,7 +74,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .character-card::before {
             content: '';
             position: absolute;
@@ -84,27 +84,27 @@
             height: 100%;
             background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
         }
-        
+
         .amy { border-color: #ec4899; }
         .ben { border-color: #3b82f6; }
         .cindy { border-color: #10b981; }
         .david { border-color: #f59e0b; }
         .writer { border-color: #8b5cf6; }
-        
+
         .activity-icon {
             font-size: 3rem;
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
         }
-        
+
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
-        
+
         .float-anim {
             animation: float 3s ease-in-out infinite;
         }
-        
+
         .option-btn {
             border: 2px solid #e5e7eb;
             background: #f9fafb;
@@ -113,7 +113,7 @@
             transition: all 0.3s;
             font-weight: 500;
         }
-        
+
         .option-btn.correct {
             background: #dcfce7;
             border-color: #16a34a;
@@ -121,22 +121,22 @@
             font-weight: 700;
             box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
         }
-        
+
         .option-btn.correct::before {
             content: '✓ ';
             color: #16a34a;
             font-weight: bold;
         }
-        
+
         .text-block {
             cursor: pointer;
             transition: all 0.2s;
         }
-        
+
         .text-block:hover {
             filter: brightness(0.98);
         }
-        
+
         .translation {
             max-height: 0;
             overflow: hidden;
@@ -148,13 +148,13 @@
             border-top: 1px dashed #d1d5db;
             margin-top: 0.5rem;
         }
-        
+
         .translation.show {
             max-height: 200px;
             opacity: 1;
             padding-top: 0.75rem;
         }
-        
+
         .translate-hint {
             font-size: 0.75rem;
             color: #6b7280;
@@ -162,20 +162,20 @@
             transition: opacity 0.3s;
             margin-top: 0.25rem;
         }
-        
+
         .text-block:hover .translate-hint {
             opacity: 1;
         }
-        
+
         .question-item {
             transition: all 0.3s ease;
             cursor: pointer;
         }
-        
+
         .question-item:hover {
             background: rgba(34, 197, 94, 0.1);
         }
-        
+
         .answer-section {
             max-height: 0;
             overflow: hidden;
@@ -183,13 +183,13 @@
             opacity: 0;
             margin-top: 0;
         }
-        
+
         .answer-section.show {
             max-height: 400px;
             opacity: 1;
             margin-top: 1rem;
         }
-        
+
         .vocab-card {
             background: linear-gradient(145deg, #fffef8 0%, #f5f5dc 100%);
             border: 2px solid #8B4513;
@@ -198,28 +198,28 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .vocab-card:hover {
             transform: translateY(-3px) rotate(1deg);
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
             border-color: #DC143C;
         }
-        
+
         .vocab-card:active {
             transform: translateY(-1px) rotate(0deg);
         }
-        
+
         .vocab-card.speaking {
             background: linear-gradient(145deg, #dcfce7 0%, #bbf7d0 100%);
             border-color: #16a34a;
             animation: pulse 0.5s ease;
         }
-        
+
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.02); }
         }
-        
+
         .speaker-icon {
             position: absolute;
             top: 8px;
@@ -228,17 +228,17 @@
             opacity: 0.3;
             transition: all 0.3s;
         }
-        
+
         .vocab-card:hover .speaker-icon {
             opacity: 1;
             transform: scale(1.2);
         }
-        
+
         .vocab-card.speaking .speaker-icon {
             opacity: 1;
             color: #16a34a;
         }
-        
+
         .pronunciation-hint {
             font-size: 0.7rem;
             color: #8b4513;
@@ -246,11 +246,11 @@
             opacity: 0;
             transition: opacity 0.3s;
         }
-        
+
         .vocab-card:hover .pronunciation-hint {
             opacity: 1;
         }
-        
+
         .todo-checkbox {
             width: 1.5rem;
             height: 1.5rem;
@@ -260,13 +260,13 @@
             transition: all 0.2s;
             flex-shrink: 0;
         }
-        
+
         .todo-checkbox.checked {
             background: #16a34a;
             border-color: #16a34a;
             position: relative;
         }
-        
+
         .todo-checkbox.checked::after {
             content: '✓';
             color: white;
@@ -277,16 +277,16 @@
             font-size: 0.875rem;
             font-weight: bold;
         }
-        
+
         .todo-item {
             transition: all 0.3s;
             cursor: pointer;
         }
-        
+
         .todo-item.completed {
             opacity: 0.6;
         }
-        
+
         .todo-item.completed h3 {
             text-decoration: line-through;
         }
@@ -382,9 +382,9 @@
         <!-- Character Cards Section -->
         <section class="leather-card p-6 rounded-2xl">
             <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
-                <span>👥</span> My Classmates & Their Hobbies <span>🎯</span>
+                <span>👥</span> My Classmates &amp; Their Hobbies <span>🎯</span>
             </h2>
-            
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <!-- Amy -->
                 <div class="character-card amy p-5">
@@ -468,7 +468,7 @@
                         <span class="activity-icon">🎵📚</span>
                         <div>
                             <h3 class="text-xl font-bold text-purple-600">Me (Writer)</h3>
-                            <p class="text-sm text-gray-600">Music & Reading</p>
+                            <p class="text-sm text-gray-600">Music &amp; Reading</p>
                         </div>
                     </div>
                     <p class="text-gray-700 text-sm leading-relaxed">
@@ -489,7 +489,7 @@
                 📖 Reading Text · 课文原文
             </h2>
             <p class="text-center text-gray-500 mb-6 text-sm">点击段落查看翻译 · Click text to see translation</p>
-            
+
             <div class="prose max-w-none text-lg leading-relaxed space-y-4 text-gray-800">
                 <!-- Intro -->
                 <div class="text-block bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500" onclick="toggleTranslation(this)">
@@ -510,7 +510,7 @@
                             艾米喜欢在她的空闲时间画画。她经常画美丽的花朵。用颜色创造东西让她感到平静。
                         </div>
                     </div>
-                    
+
                     <!-- Ben -->
                     <div class="text-block bg-blue-50 p-4 rounded-lg" onclick="toggleTranslation(this)">
                         <p><strong class="text-blue-700">Ben</strong> enjoys <strong>flying a kite</strong> on windy days. He says running across the grass and watching the kite go up high is really <strong>exciting</strong>.</p>
@@ -519,7 +519,7 @@
                             本喜欢在刮风的日子放风筝。他说在草地上奔跑，看着风筝高高飞起真的很令人兴奋。
                         </div>
                     </div>
-                    
+
                     <!-- Cindy -->
                     <div class="text-block bg-green-50 p-4 rounded-lg" onclick="toggleTranslation(this)">
                         <p><strong class="text-green-700">Cindy</strong> loves <strong>riding her bike</strong> around the park. She rides almost every afternoon. Cycling helps her stay <strong>healthy and strong</strong>.</p>
@@ -528,7 +528,7 @@
                             辛迪喜欢在公园周围骑自行车。她几乎每天下午都骑车。骑自行车帮助她保持健康和强壮。
                         </div>
                     </div>
-                    
+
                     <!-- David -->
                     <div class="text-block bg-amber-50 p-4 rounded-lg" onclick="toggleTranslation(this)">
                         <p><strong class="text-amber-700">David</strong> is interested in <strong>making model planes</strong>. Building them takes time, but he feels <strong>proud</strong> when he finishes one.</p>
@@ -571,7 +571,7 @@
 
             <div class="space-y-4">
                 <!-- Question 1 -->
-                <button type="button" class="reading-card p-5 question-item text-left w-full" data-answer="1" data-correct-option="B" onclick="toggleAnswer(this)">
+                <div role="button" tabindex="0" type="button" class="reading-card p-5 question-item text-left w-full" data-answer="1" data-correct-option="B" onclick="toggleAnswer(this)">
                     <div class="flex items-start gap-3">
                         <span class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">1</span>
                         <div class="flex-1">
@@ -589,10 +589,10 @@
                             </div>
                         </div>
                     </div>
-                </button>
+                </div>
 
                 <!-- Question 2 -->
-                <button type="button" class="reading-card p-5 question-item text-left w-full" data-answer="2" data-correct-option="B" onclick="toggleAnswer(this)">
+                <div role="button" tabindex="0" type="button" class="reading-card p-5 question-item text-left w-full" data-answer="2" data-correct-option="B" onclick="toggleAnswer(this)">
                     <div class="flex items-start gap-3">
                         <span class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">2</span>
                         <div class="flex-1">
@@ -610,10 +610,10 @@
                             </div>
                         </div>
                     </div>
-                </button>
+                </div>
 
                 <!-- Question 3 -->
-                <button type="button" class="reading-card p-5 question-item text-left w-full" data-answer="3" data-correct-option="A" onclick="toggleAnswer(this)">
+                <div role="button" tabindex="0" type="button" class="reading-card p-5 question-item text-left w-full" data-answer="3" data-correct-option="A" onclick="toggleAnswer(this)">
                     <div class="flex items-start gap-3">
                         <span class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">3</span>
                         <div class="flex-1">
@@ -631,10 +631,10 @@
                             </div>
                         </div>
                     </div>
-                </button>
+                </div>
 
                 <!-- Question 4 -->
-                <button type="button" class="reading-card p-5 question-item text-left w-full" data-answer="4" data-correct-option="C" onclick="toggleAnswer(this)">
+                <div role="button" tabindex="0" type="button" class="reading-card p-5 question-item text-left w-full" data-answer="4" data-correct-option="C" onclick="toggleAnswer(this)">
                     <div class="flex items-start gap-3">
                         <span class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">4</span>
                         <div class="flex-1">
@@ -652,10 +652,10 @@
                             </div>
                         </div>
                     </div>
-                </button>
+                </div>
 
                 <!-- Question 5 -->
-                <button type="button" class="reading-card p-5 question-item text-left w-full" data-answer="5" data-correct-option="B" onclick="toggleAnswer(this)">
+                <div role="button" tabindex="0" type="button" class="reading-card p-5 question-item text-left w-full" data-answer="5" data-correct-option="B" onclick="toggleAnswer(this)">
                     <div class="flex items-start gap-3">
                         <span class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">5</span>
                         <div class="flex-1">
@@ -673,7 +673,7 @@
                             </div>
                         </div>
                     </div>
-                </button>
+                </div>
             </div>
         </section>
 
@@ -683,9 +683,9 @@
                 🎯 Key Vocabulary · 重点词汇
             </h2>
             <p class="text-center text-gray-600 mb-4 text-sm">点击卡片听发音 · Click cards to hear pronunciation</p>
-            
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('painting', this)">
+                <div role="button" tabindex="0" type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('painting', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">🎨</span>
@@ -694,9 +694,9 @@
                     <p class="text-sm text-gray-600 mb-1">画画，绘画</p>
                     <p class="text-xs text-gray-500 italic">"Amy likes painting flowers"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </button>
+                </div>
 
-                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('flying a kite', this)">
+                <div role="button" tabindex="0" type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('flying a kite', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">🪁</span>
@@ -705,9 +705,9 @@
                     <p class="text-sm text-gray-600 mb-1">放风筝</p>
                     <p class="text-xs text-gray-500 italic">"flying a kite on windy days"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </button>
+                </div>
 
-                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('riding a bike', this)">
+                <div role="button" tabindex="0" type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('riding a bike', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">🚴</span>
@@ -716,9 +716,9 @@
                     <p class="text-sm text-gray-600 mb-1">骑自行车</p>
                     <p class="text-xs text-gray-500 italic">"riding her bike around the park"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </button>
+                </div>
 
-                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('making models', this)">
+                <div role="button" tabindex="0" type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('making models', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">✈️</span>
@@ -727,9 +727,9 @@
                     <p class="text-sm text-gray-600 mb-1">制作模型</p>
                     <p class="text-xs text-gray-500 italic">"making model planes"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </button>
+                </div>
 
-                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('listening to music', this)">
+                <div role="button" tabindex="0" type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('listening to music', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">🎵</span>
@@ -738,9 +738,9 @@
                     <p class="text-sm text-gray-600 mb-1">听音乐</p>
                     <p class="text-xs text-gray-500 italic">"listening to music while reading"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </button>
+                </div>
 
-                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('playing baseball', this)">
+                <div role="button" tabindex="0" type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('playing baseball', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">⚾</span>
@@ -749,9 +749,9 @@
                     <p class="text-sm text-gray-600 mb-1">打棒球</p>
                     <p class="text-xs text-gray-500 italic">"Playing baseball together is great"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </button>
+                </div>
 
-                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('swimming', this)">
+                <div role="button" tabindex="0" type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('swimming', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">🏊</span>
@@ -760,9 +760,9 @@
                     <p class="text-sm text-gray-600 mb-1">游泳</p>
                     <p class="text-xs text-gray-500 italic">"Swimming in the pool"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </button>
+                </div>
 
-                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('dancing', this)">
+                <div role="button" tabindex="0" type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('dancing', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">💃</span>
@@ -771,9 +771,9 @@
                     <p class="text-sm text-gray-600 mb-1">跳舞</p>
                     <p class="text-xs text-gray-500 italic">"Dancing at parties"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </button>
+                </div>
 
-                <button type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('peaceful', this)">
+                <div role="button" tabindex="0" type="button" class="vocab-card p-4 rounded-xl text-left w-full" onclick="speak('peaceful', this)">
                     <span class="speaker-icon">🔊</span>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">😌</span>
@@ -782,7 +782,7 @@
                     <p class="text-sm text-gray-600 mb-1">平静的</p>
                     <p class="text-xs text-gray-500 italic">"makes her feel peaceful"</p>
                     <p class="pronunciation-hint">▸ 点击发音</p>
-                </button>
+                </div>
             </div>
         </section>
 
@@ -791,7 +791,7 @@
             <h2 class="text-3xl font-bold text-green-800 mb-6 text-center">
                 📚 Grammar Focus · 语法重点
             </h2>
-            
+
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-blue-50 p-5 rounded-xl border-2 border-blue-200">
                     <h3 class="text-xl font-bold text-blue-800 mb-3">🎯 Like / Enjoy / Love + V-ing</h3>
@@ -848,7 +848,7 @@
             </h2>
 
             <div class="space-y-4">
-                <button type="button" class="reading-card p-5 border-l-4 border-red-500 todo-item text-left w-full" onclick="toggleTodo(this)">
+                <div role="button" tabindex="0" type="button" class="reading-card p-5 border-l-4 border-red-500 todo-item text-left w-full" onclick="toggleTodo(this)">
                     <div class="flex items-start gap-3">
                         <div class="todo-checkbox"></div>
                         <div class="flex-1">
@@ -861,7 +861,7 @@
                     </div>
                 </div>
 
-                <button type="button" class="reading-card p-5 border-l-4 border-blue-500 todo-item text-left w-full" onclick="toggleTodo(this)">
+                <div role="button" tabindex="0" type="button" class="reading-card p-5 border-l-4 border-blue-500 todo-item text-left w-full" onclick="toggleTodo(this)">
                     <div class="flex items-start gap-3">
                         <div class="todo-checkbox"></div>
                         <div class="flex-1">
@@ -874,7 +874,7 @@
                     </div>
                 </div>
 
-                <button type="button" class="reading-card p-5 border-l-4 border-green-500 todo-item text-left w-full" onclick="toggleTodo(this)">
+                <div role="button" tabindex="0" type="button" class="reading-card p-5 border-l-4 border-green-500 todo-item text-left w-full" onclick="toggleTodo(this)">
                     <div class="flex items-start gap-3">
                         <div class="todo-checkbox"></div>
                         <div class="flex-1">
@@ -887,7 +887,7 @@
                     </div>
                 </div>
 
-                <button type="button" class="reading-card p-5 border-l-4 border-purple-500 todo-item text-left w-full" onclick="toggleTodo(this)">
+                <div role="button" tabindex="0" type="button" class="reading-card p-5 border-l-4 border-purple-500 todo-item text-left w-full" onclick="toggleTodo(this)">
                     <div class="flex items-start gap-3">
                         <div class="todo-checkbox"></div>
                         <div class="flex-1">
@@ -898,7 +898,7 @@
                             <p class="text-sm text-gray-500 italic mt-1">_Take photos and upload your work._</p>
                         </div>
                     </div>
-                </button>
+                </div>
             </div>
 
             <div class="mt-6 p-4 bg-amber-50 rounded-xl border-2 border-amber-300">
@@ -922,7 +922,7 @@
         // ============================================
         // Mobile Navigation
         // ============================================
-        
+
         /**
          * Toggle mobile menu visibility
          */
@@ -932,11 +932,11 @@
                 menu.classList.toggle('hidden');
             }
         }
-        
+
         // ============================================
         // Toggle Functions
         // ============================================
-        
+
         /**
          * Toggle translation visibility in text blocks
          * @param {HTMLElement} container - The container element that was clicked
@@ -944,12 +944,12 @@
         function toggleTranslation(container) {
             const trans = container.querySelector('.translation');
             const hint = container.querySelector('.translate-hint');
-            
+
             if (trans) {
                 trans.classList.toggle('show');
                 if (hint) {
-                    hint.innerHTML = trans.classList.contains('show') 
-                        ? '🌐 点击隐藏翻译' 
+                    hint.innerHTML = trans.classList.contains('show')
+                        ? '🌐 点击隐藏翻译'
                         : '🌐 点击显示翻译';
                 }
             }
@@ -963,10 +963,10 @@
             const id = questionItem.getAttribute('data-answer');
             const answer = document.getElementById(`answer-${id}`);
             const options = questionItem.querySelectorAll('.option-btn');
-            
+
             // Read correct option from data attribute
             const correctOption = questionItem.getAttribute('data-correct-option');
-            
+
             // Toggle answer display
             if (answer.classList.contains('show')) {
                 answer.classList.remove('show');
@@ -982,7 +982,7 @@
                         otherOptions.forEach(opt => opt.classList.remove('correct'));
                     }
                 });
-                
+
                 answer.classList.add('show');
                 options.forEach(opt => {
                     if (opt.getAttribute('data-option') === correctOption) {
@@ -1002,22 +1002,22 @@
                 alert('您的浏览器不支持语音播放功能。');
                 return;
             }
-            
+
             window.speechSynthesis.cancel();
-            
+
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = 'en-US';
             utterance.rate = 0.8;
             utterance.pitch = 1;
-            
+
             // Animate the clicked card
             if (cardElement) {
                 cardElement.classList.add('speaking');
-                
+
                 utterance.onend = () => cardElement.classList.remove('speaking');
                 setTimeout(() => cardElement.classList.remove('speaking'), 3000);
             }
-            
+
             window.speechSynthesis.speak(utterance);
         }
 

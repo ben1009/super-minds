@@ -100,7 +100,7 @@ jobs:
         echo "🔍 Validating HTML Structure..."
         
         # Check for basic HTML structure
-        for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html unit8/reading.html unit9/index.html; do
+        for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html unit8/reading.html unit8/grammar.html unit9/index.html; do
           if [ -f "$file" ]; then
             # Check for doctype
             if head -1 "$file" | grep -qi "<!doctype html>"; then
@@ -158,12 +158,34 @@ jobs:
         ERRORS=0
         
         # Check that reading.html is linked from all relevant pages
-        for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html unit9/index.html; do
+        for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html unit8/grammar.html unit9/index.html; do
           if [ -f "$file" ]; then
             if grep -q 'reading.html' "$file"; then
               echo "  ✅ $file links to reading.html"
             else
               echo "  ❌ $file missing link to reading.html!"
+              ERRORS=$((ERRORS + 1))
+            fi
+          fi
+        done
+        
+        if [ $ERRORS -gt 0 ]; then
+          exit 1
+        fi
+        
+    - name: Validate Baseball Section Unit 9 Navigation
+      run: |
+        echo ""
+        echo "🔍 Validating Baseball Section Unit 9 Navigation Links..."
+        
+        ERRORS=0
+        
+        for file in super-minds-baseball/index.html super-minds-baseball/unit7/index.html super-minds-baseball/unit7/homework.html super-minds-baseball/unit8/index.html; do
+          if [ -f "$file" ]; then
+            if grep -q 'unit9' "$file"; then
+              echo "  ✅ $file links to unit9"
+            else
+              echo "  ❌ $file missing link to unit9!"
               ERRORS=$((ERRORS + 1))
             fi
           fi
