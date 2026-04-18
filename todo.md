@@ -1,82 +1,45 @@
-# Project Todo & History
+# Project Todo
 
-## Completed: Refactoring Project
+## 🔴 High Priority
 
-**Branch:** `refactor/consolidate-shared-code` ✅ **COMPLETED**
+### 1. Add unit9 navigation links to all super-minds-baseball pages ✅
+- [x] `super-minds-baseball/index.html`
+- [x] `super-minds-baseball/unit7/index.html`
+- [x] `super-minds-baseball/unit7/homework.html`
+- [x] `super-minds-baseball/unit8/index.html`
 
-### Summary
-All refactoring phases completed successfully on 2024. The codebase has been consolidated with shared CSS/JS modules and automated testing infrastructure.
+## 🟡 Medium Priority (CI / Test Gaps)
 
-### Major Changes Delivered:
-1. ✅ Removed duplicate `ga.js` from baseball folder - all pages now reference root `ga.js`
-2. ✅ Created `css/common.css` - shared styles (variables, animations, utilities)
-3. ✅ Created `js/common.js` - shared JavaScript utilities (12+ functions)
-4. ✅ Standardized mobile navigation component across all pages
-5. ✅ Consolidated toggle/accordion functionality
-6. ✅ Unified Lucide icons initialization
-7. ✅ Added comprehensive GitHub Actions CI/CD workflows:
-   - `.github/workflows/quick-test.yml` - Quick validation
-   - `.github/workflows/ci.yml` - Full CI suite
-   - `.github/workflows/browser-tests.yml` - Playwright E2E, Lighthouse, Visual Regression
-   - `.github/workflows/unit8-reading-test.yml` - Unit 8 Reading page specific tests
-8. ✅ Updated all documentation (AGENTS.md, README.md, TESTING.md)
+### 2. Add `unit8/grammar.html` to quick-test.yml validation loops ✅
+- [x] Line 103: HTML structure validation loop
+- [x] Line 161: reading.html navigation check loop
 
----
+### 3. Add missing unit8 pages to ci.yml HTML validation ✅
+- [x] `unit8/amazing-vehicles.html`
+- [x] `unit8/reading.html`
+- [x] `unit8/grammar.html`
 
-## Active: New Features & Content
+### 4. Add missing page tests to browser-tests.yml ✅
+- [x] `unit8/reading.html` page load test
+- [x] `unit8/grammar.html` page load test
+- [x] `unit9/index.html` page load test
+- [x] Baseball homepage → Unit 9 navigation test
+- [x] Baseball Unit 7 → Unit 9 navigation test
+- [x] Baseball Unit 8 → Unit 9 navigation test
+- [x] Screenshot coverage for reading, grammar, unit9, baseball-home
 
-### Unit 8 Grammar Homework Page ✅
-**Status:** Completed
-**File:** `unit8/grammar.html`
+### 5. Add manual test sections to TESTING.md ✅
+- [x] `unit8/grammar.html` checklist
+- [x] `unit8/amazing-vehicles.html` checklist
 
-Features:
-- 5 question words (Where, When, Which, Who, How often) grammar cards
-- New dialogue: Football team story with 8 scenes
-- 9 Unit 9 verb phrases with audio pronunciation
-- Sentence practice exercises
-- Email cloze exercise (Harry's France trip)
-- Interactive todo list
+### 6. Fix test.sh incomplete loops ✅
+- [x] Line 88: Removed duplicate `unit8/reading.html` from favicon loop
+- [x] Line 127: Added `unit8/grammar.html` and `unit9/index.html` to reading.html back-link check
+- [x] Line 202: Added `unit9/index.html` to grammar.html back-link check
+- [x] Line 218+: Added step 10 — super-minds-baseball unit9 link check
 
----
+### 7. Update AGENTS.md documentation ✅
+- [x] Added steps 16-19 documenting super-minds-baseball Unit 9 nav updates
 
-## Active Refactoring Tasks
-
-### 1. Fix test.sh Script ✅ **COMPLETED**
-**Priority:** High
-
-Issues fixed:
-- [x] Line 19, 23: Updated to check `unit8/*.html` in addition to `unit7/*.html`
-- [x] Line 86: Fixed bug - `$f` changed to `$file`
-- [x] Verified all tests pass
-
-### 2. Standardize Unit 8 Pages to Use Shared Resources ⚠️
-**Priority:** Low (Design Decision)
-
-**Status:** Evaluated - Intentional Design
-
-The Unit 8 pages intentionally use a unique baseball theme with custom styles:
-- `unit8/index.html` - Baseball field green background, leather cards, stitch-red accents
-- `unit8/reading.html` - Same baseball theme
-- `unit8/grammar.html` - Uses separate `grammar.css` and `grammar.js` for baseball theme
-- `unit8/amazing-vehicles.html` - Uses shared `common.js` but has custom styles
-
-**Decision:** Keep separate styling for theme consistency. The shared `common.css` is designed for the main Super Minds theme (sky blue gradient), not the baseball theme.
-
-**Future consideration:** Could extract shared JS functions (`toggleMobileMenu`, `speak`, etc.) to reduce duplication while keeping custom CSS.
-
-### 3. Cleanup todo.md ✅ **COMPLETED**
-**Priority:** Low
-
-- [x] Removed duplicate old refactoring content
-- [x] Consolidated into clean structure
-- [x] All refactoring tasks now documented in clean format
-
----
-
-## Future Ideas
-
-- [ ] Add more interactive quiz types
-- [ ] Implement progress tracking across all units
-- [ ] Add sound effects for interactions
-- [ ] Mobile app version (PWA)
-- [ ] Extract shared JavaScript functions from Unit 8 pages to reduce duplication
+### 8. Add quick-test.yml step for baseball/unit9 nav ✅
+- [x] "Validate Baseball Section Unit 9 Navigation" step added

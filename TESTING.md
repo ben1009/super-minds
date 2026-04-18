@@ -214,6 +214,44 @@ Test all links work correctly:
 - [ ] Answer table toggle: Click button → answer table shows
 - [ ] Todo toggle: Click task → marked completed
 
+**From Baseball Section:**
+- [ ] Baseball homepage card → /unit9/index.html
+- [ ] Baseball Unit 7 nav → /unit9/index.html
+- [ ] Baseball Unit 8 nav → /unit9/index.html
+
+---
+
+### ✅ Unit 8 Amazing Vehicles Page (/unit8/amazing-vehicles.html)
+
+- [ ] Page loads with correct title "Amazing Vehicles"
+- [ ] 9 vocabulary cards display (amazing, because, inside, difficult, front, back, party, drive, pool)
+- [ ] Click audio button → Web Speech API pronounces word
+- [ ] Grammar Focus section shows Measure vs Measuring and There be
+- [ ] Two reading comprehension passages with 10 total questions
+- [ ] Click question → answer reveals with correct option highlighted
+- [ ] Cloze exercise: 6 blanks, click to reveal/hide answer
+- [ ] Word Bank items clickable for pronunciation
+- [ ] Homework Todo List with 4 items and progress bar works
+- [ ] Navigation dropdown links to all Unit 8 subpages
+
+---
+
+### ✅ Unit 8 Grammar Homework Page (/unit8/grammar.html)
+
+- [ ] Page loads with correct title "Unit 8 - Homework · 作业练习"
+- [ ] 5 Grammar Focus cards (Where, When, Which, Who, How often)
+- [ ] Click card → expands to show usage and examples
+- [ ] New Dialogue: 8 scenes with football team story
+- [ ] Click dialogue card → Chinese translation toggles
+- [ ] 9 Key Vocabulary verb phrases with audio buttons
+- [ ] Click audio button → Web Speech API pronounces phrase
+- [ ] Sentence Practice: 4 exercises with revealable answers
+- [ ] Email Cloze: 10 verb blanks, click to reveal/hide
+- [ ] Word Bank for email cloze visible
+- [ ] Today's Todo: 4 tasks, click to mark complete with strikethrough
+- [ ] Mobile menu button works (hamburger icon)
+- [ ] Navigation links to all Unit 8 subpages and Unit 9
+
 ---
 
 ### ✅ Unit 9 Page (/unit9/index.html)
@@ -298,6 +336,9 @@ Compare before/after behavior:
 | Quiz toggles | Works | Should work identically |
 | Progress save | Works | Should work identically |
 | Icons display | Works | Should work identically |
+| Baseball → Unit 9 nav | N/A | New: All 4 baseball pages link to Unit 9 |
+| Grammar page tests | N/A | New: browser-tests.yml covers grammar.html |
+| Reading page tests | N/A | New: browser-tests.yml covers reading.html |
 
 ---
 
@@ -324,3 +365,11 @@ Test on at least:
 - [ ] Firefox
 - [ ] Safari (if on Mac)
 - [ ] Mobile viewport (Chrome DevTools)
+
+**Specific pages to verify:**
+- [ ] `http://localhost:8000/` — Homepage cards and navigation
+- [ ] `http://localhost:8000/unit8/grammar.html` — Grammar homework, mobile menu, audio buttons
+- [ ] `http://localhost:8000/unit8/reading.html` — Reading comprehension, character cards
+- [ ] `http://localhost:8000/unit8/amazing-vehicles.html` — Vehicles vocabulary, cloze exercise
+- [ ] `http://localhost:8000/unit9/index.html` — Dialogue blanks, answer toggles, todo list
+- [ ] `http://localhost:8000/super-minds-baseball/` — Baseball theme, Unit 9 card link

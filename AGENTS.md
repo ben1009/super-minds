@@ -418,9 +418,13 @@ Unit 9 是一个语法复习页面，采用棒球主题风格（与 unit8/readin
 10. 更新了 `AGENTS.md` - 更新项目结构和功能说明
 11. 更新了 `TESTING.md` - 添加 Unit 9 测试清单
 12. 添加了测试工作流 `.github/workflows/unit9-test.yml`
-13. 更新了 `test.sh` - 添加 Unit 9 验证
-14. 更新了 `.github/workflows/quick-test.yml` - 添加 Unit 9 检查
-15. 更新了 `.github/workflows/ci.yml` - 添加 Unit 9 检查
+13. 更新了 `test.sh` - 添加 Unit 9 验证、grammar.html 检查、棒球版 unit9 导航检查
+14. 更新了 `.github/workflows/quick-test.yml` - 添加 Unit 9 检查、grammar.html 验证、棒球版 unit9 导航检查
+15. 更新了 `.github/workflows/ci.yml` - 添加 Unit 9 及 unit8 子页面 HTML 验证
+16. 更新了 `super-minds-baseball/index.html` - 添加 Unit 9 导航卡片
+17. 更新了 `super-minds-baseball/unit7/index.html` - 添加 Unit 9 导航链接
+18. 更新了 `super-minds-baseball/unit7/homework.html` - 添加 Unit 9 导航链接
+19. 更新了 `super-minds-baseball/unit8/index.html` - 添加 Unit 9 导航链接
 
 ### 修改现有内容的注意事项
 
@@ -465,15 +469,15 @@ python3 -m http.server 8000
 
 | Workflow | Trigger | Description |
 |----------|---------|-------------|
-| `quick-test.yml` | Push/PR to master | 文件结构、引用检查、HTML基础验证 |
+| `quick-test.yml` | Push/PR to master | 文件结构、引用检查、HTML基础验证、棒球版Unit 9导航链接检查 |
 | `ci.yml` | Manual/Scheduled | HTML/CSS/JS验证、链接检查、功能测试 |
-| `browser-tests.yml` | Push/PR to master | 无头浏览器E2E测试、Lighthouse、视觉回归 |
+| `browser-tests.yml` | Push/PR to master | 无头浏览器E2E测试、Lighthouse、视觉回归、跨页面导航测试 |
 | `unit8-reading-test.yml` | Push/PR to master (when unit8/reading.html changes) | Unit 8 Reading页面专项测试 |
 
 **Headless Browser Testing:**
 - 使用 Puppeteer 和 Playwright 进行浏览器自动化
 - 在 CI 环境中以 headless 模式运行
-- 测试覆盖率包括：页面加载、交互功能、响应式设计
+- 测试覆盖率包括：页面加载、交互功能、响应式设计、跨页面导航（含棒球版→Unit 9）
 
 **本地运行测试:**
 ```bash

@@ -85,7 +85,7 @@ echo "4. Checking favicon on all pages..."
 ERRORS=0
 
 # Combined loop for all HTML files
-for file in index.html unit7/*.html unit8/*.html unit8/reading.html super-minds-baseball/index.html super-minds-baseball/unit7/*.html super-minds-baseball/unit8/*.html; do
+for file in index.html unit7/*.html unit8/*.html super-minds-baseball/index.html super-minds-baseball/unit7/*.html super-minds-baseball/unit8/*.html; do
     if [ -f "$file" ]; then
         if grep -q 'rel="icon"' "$file"; then
             echo "   ✓ $file has favicon"
@@ -124,7 +124,7 @@ echo "6. Checking reading page navigation links..."
 ERRORS=0
 
 # Check that reading.html is linked from all relevant pages
-for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html; do
+for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html unit8/grammar.html unit9/index.html; do
     if [ -f "$file" ]; then
         if grep -q 'reading.html' "$file"; then
             echo "   ✓ $file has link to reading.html"
@@ -199,7 +199,7 @@ echo "8. Checking grammar.html navigation links from other pages..."
 ERRORS=0
 
 # Check that grammar.html is linked from all relevant pages
-for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/reading.html unit8/amazing-vehicles.html; do
+for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/reading.html unit8/amazing-vehicles.html unit8/grammar.html unit9/index.html; do
     if [ -f "$file" ]; then
         if grep -q 'grammar.html' "$file"; then
             echo "   ✓ $file has link to grammar.html"
@@ -220,6 +220,25 @@ ERRORS=0
 
 # Check that unit9 is linked from all relevant pages
 for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/reading.html unit8/amazing-vehicles.html unit8/grammar.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'unit9' "$file"; then
+            echo "   ✓ $file has link to unit9"
+        else
+            echo "   ✗ $file missing link to unit9!"
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "10. Checking super-minds-baseball pages link to unit9..."
+ERRORS=0
+
+for file in super-minds-baseball/index.html super-minds-baseball/unit7/index.html super-minds-baseball/unit7/homework.html super-minds-baseball/unit8/index.html; do
     if [ -f "$file" ]; then
         if grep -q 'unit9' "$file"; then
             echo "   ✓ $file has link to unit9"

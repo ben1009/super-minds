@@ -250,6 +250,39 @@ jobs:
             await page.goto('http://localhost:8000/unit8/amazing-vehicles.html');
             await expect(page).toHaveTitle(/Amazing Vehicles|交通工具/);
           });
+          
+          test('Unit 8 Reading page loads', async ({ page }) => {
+            await page.goto('http://localhost:8000/unit8/reading.html');
+            await expect(page).toHaveTitle(/Fun Things We Do|补充阅读/);
+          });
+          
+          test('Unit 8 Grammar page loads', async ({ page }) => {
+            await page.goto('http://localhost:8000/unit8/grammar.html');
+            await expect(page).toHaveTitle(/Homework|作业练习/);
+          });
+          
+          test('Unit 9 page loads', async ({ page }) => {
+            await page.goto('http://localhost:8000/unit9/index.html');
+            await expect(page).toHaveTitle(/Unit 9|假期计划语法/);
+          });
+          
+          test('can navigate from Baseball homepage to Unit 9', async ({ page }) => {
+            await page.goto('http://localhost:8000/super-minds-baseball/');
+            await page.click('a[href="../unit9/index.html"]');
+            await expect(page).toHaveURL(/unit9\/index\.html/);
+          });
+          
+          test('can navigate from Baseball Unit 7 to Unit 9', async ({ page }) => {
+            await page.goto('http://localhost:8000/super-minds-baseball/unit7/index.html');
+            await page.click('a[href="../unit9/index.html"]');
+            await expect(page).toHaveURL(/unit9\/index\.html/);
+          });
+          
+          test('can navigate from Baseball Unit 8 to Unit 9', async ({ page }) => {
+            await page.goto('http://localhost:8000/super-minds-baseball/unit8/index.html');
+            await page.click('a[href="../unit9/index.html"]');
+            await expect(page).toHaveURL(/unit9\/index\.html/);
+          });
         });
         
         // ============================================
@@ -418,6 +451,10 @@ jobs:
             { url: 'http://localhost:8000/unit7/homework.html', name: 'homework' },
             { url: 'http://localhost:8000/unit8/index.html', name: 'unit8-sports' },
             { url: 'http://localhost:8000/unit8/amazing-vehicles.html', name: 'unit8-vehicles' },
+            { url: 'http://localhost:8000/unit8/reading.html', name: 'unit8-reading' },
+            { url: 'http://localhost:8000/unit8/grammar.html', name: 'unit8-grammar' },
+            { url: 'http://localhost:8000/unit9/index.html', name: 'unit9' },
+            { url: 'http://localhost:8000/super-minds-baseball/', name: 'baseball-home' },
           ];
           
           // Desktop screenshots
