@@ -24,6 +24,31 @@ grep -l "common.js" index.html unit7/*.html unit8/*.html 2>/dev/null | while rea
     echo "   ✓ $f references common.js"
 done
 
+# Check Unit 9 index.html has required elements
+echo ""
+echo "4b. Checking Unit 9 index.html..."
+if [ -f "unit9/index.html" ]; then
+    if grep -q 'data-answer' "unit9/index.html"; then
+        echo "   ✓ unit9/index.html uses data-answer attributes for blanks"
+    else
+        echo "   ⚠️ unit9/index.html may be missing data-answer attributes"
+    fi
+    
+    if grep -q 'function revealAnswer' "unit9/index.html"; then
+        echo "   ✓ revealAnswer() function present"
+    else
+        echo "   ⚠️ revealAnswer() function may need updating"
+    fi
+    
+    if grep -q 'function toggleTodo' "unit9/index.html"; then
+        echo "   ✓ toggleTodo() function present"
+    else
+        echo "   ⚠️ toggleTodo() function may need updating"
+    fi
+else
+    echo "   ✗ unit9/index.html not found"
+fi
+
 # Check Unit 8 reading.html has required elements
 echo ""
 echo "5. Checking Unit 8 reading.html..."
@@ -66,6 +91,25 @@ for file in index.html unit7/*.html unit8/*.html unit8/reading.html super-minds-
             echo "   ✓ $file has favicon"
         else
             echo "   ✗ $file missing favicon!"
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "5b. Checking Unit 9 page navigation links..."
+ERRORS=0
+
+for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html unit8/reading.html unit8/grammar.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'unit9' "$file"; then
+            echo "   ✓ $file has link to unit9"
+        else
+            echo "   ✗ $file missing link to unit9!"
             ERRORS=$((ERRORS + 1))
         fi
     fi
@@ -171,6 +215,26 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
+echo "9. Checking unit9/index.html navigation links from other pages..."
+ERRORS=0
+
+# Check that unit9 is linked from all relevant pages
+for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/reading.html unit8/amazing-vehicles.html unit8/grammar.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'unit9' "$file"; then
+            echo "   ✓ $file has link to unit9"
+        else
+            echo "   ✗ $file missing link to unit9!"
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
 echo "=== Test Complete ==="
 echo ""
 echo "Next steps:"
@@ -178,4 +242,5 @@ echo "1. Start a local server: python3 -m http.server 8000"
 echo "2. Open http://localhost:8000"
 echo "3. Test the new grammar page: http://localhost:8000/unit8/grammar.html"
 echo "4. Test the reading page: http://localhost:8000/unit8/reading.html"
-echo "5. Follow TESTING.md checklist"
+echo "5. Test the Unit 9 page: http://localhost:8000/unit9/index.html"
+echo "6. Follow TESTING.md checklist"

@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Minds 2 Unit 9 · 假期计划语法</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    
+    <!-- Google Analytics -->
+    <script src="../ga.js"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --field-green: #2E5D34;
+            --leather-primary: #F5F5DC;
+            --stitch-red: #DC143C;
+        }
+        
+        body {
+            background-color: var(--field-green);
+            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
+                linear-gradient(135deg, #2E5D34 0%, #1B4332 100%);
+            font-family: 'Noto Sans SC', sans-serif;
+            min-height: 100vh;
+        }
+        
+        .leather-card {
+            background: linear-gradient(135deg, #F5F5DC 0%, #E8DCC4 100%);
+            border: 3px solid #8B4513;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5);
+            position: relative;
+        }
+        
+        .leather-card::before {
+            content: '';
+            position: absolute;
+            top: 8px; left: 8px; right: 8px; bottom: 8px;
+            border: 2px dashed var(--stitch-red);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+        
+        .stitch-border {
+            border: 3px solid var(--stitch-red);
+            border-radius: 12px;
+            position: relative;
+            background: #FAFAFA;
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.9);
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .nav-link:hover {
+            color: white;
+            border-bottom-color: var(--stitch-red);
+        }
+        
+        .reading-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 3px solid #2E5D34;
+            border-radius: 15px;
+        }
+        
+        .grammar-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 3px solid #4682B4;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+        
+        .grammar-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .hint-bar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .float-anim {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .data-table th {
+            background: #4682B4;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #357abd;
+            font-weight: bold;
+        }
+        
+        .data-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #eee;
+            border-right: 1px solid #eee;
+            line-height: 1.6;
+        }
+        
+        .data-table td:first-child { border-left: 1px solid #eee; }
+        .data-table tr:hover { background: #f5f5f5; }
+        
+        .dialogue-scene {
+            background: white;
+            border: 2px solid #8B4513;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .blank {
+            display: inline-block;
+            min-width: 90px;
+            border-bottom: 2px solid #e74c3c;
+            margin: 0 5px;
+            cursor: pointer;
+            text-align: center;
+            color: transparent;
+            transition: all 0.3s;
+            padding: 0 8px;
+        }
+        
+        .blank.revealed {
+            color: #e74c3c;
+            background: #ffeaea;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .blank:hover { background: #ffeaea; }
+        
+        .answer-table {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.3s ease, margin-top 0.3s ease;
+            opacity: 0;
+            margin-top: 0;
+            background: #f0f8ff;
+            border: 2px dashed #4682B4;
+            border-radius: 12px;
+            padding: 0 25px;
+        }
+        
+        .answer-table.show {
+            max-height: 2000px;
+            opacity: 1;
+            margin-top: 20px;
+            padding: 25px;
+        }
+        
+        .toggle-btn {
+            background: linear-gradient(145deg, #4682B4, #5a9fd4);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.05em;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: all 0.2s;
+        }
+        
+        .toggle-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 2px solid #f39c12;
+            border-radius: 12px;
+            padding: 20px 20px 20px 55px;
+            margin: 25px 0;
+            position: relative;
+            font-size: 1.02em;
+            line-height: 1.7;
+        }
+        
+        .tip-box::before {
+            content: '💡';
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.6em;
+        }
+        
+        .grammar-structure {
+            background: #e6f3ff;
+            border-left: 5px solid #4682B4;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.05em;
+        }
+        
+        .vocab-card {
+            background: linear-gradient(145deg, #fffef8 0%, #f5f5dc 100%);
+            border: 2px solid #8B4513;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .vocab-card:hover {
+            transform: translateY(-3px) rotate(1deg);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-color: #DC143C;
+        }
+        
+        .vocab-card.speaking {
+            background: linear-gradient(145deg, #dcfce7 0%, #bbf7d0 100%);
+            border-color: #16a34a;
+            animation: pulse 0.5s ease;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        .speaker-icon {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 1.2rem;
+            opacity: 0.3;
+            transition: all 0.3s;
+        }
+        
+        .vocab-card:hover .speaker-icon {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+        
+        .vocab-card.speaking .speaker-icon {
+            opacity: 1;
+            color: #16a34a;
+        }
+        
+        .todo-checkbox {
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 3px solid #8B4513;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        
+        .todo-checkbox.checked {
+            background: #16a34a;
+            border-color: #16a34a;
+            position: relative;
+        }
+        
+        .todo-checkbox.checked::after {
+            content: '✓';
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.875rem;
+            font-weight: bold;
+        }
+        
+        .todo-item {
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .todo-item.completed {
+            opacity: 0.6;
+        }
+        
+        .todo-item.completed h3 {
+            text-decoration: line-through;
+        }
+        
+        .note-box {
+            background: #e3f2fd;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .example-box {
+            background: #f5f5f5;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            font-size: 1.05em;
+        }
+        
+        .example-box ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        .example-box li {
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-gradient-to-r from-green-900 to-green-800 border-b-4 border-red-700 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-baseball-ball text-white text-2xl"></i>
+                    <span class="text-white text-xl font-bold">Super Minds 2</span>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="nav-link px-3 py-2 text-sm font-medium">首页 Home</a>
+                    <div class="relative group">
+                        <a href="../unit7/index.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 7 <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                            <a href="../unit7/index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">📖 现在进行时 Course</a>
+                            <a href="../unit7/homework.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">✏️ 作业 Homework</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <a href="../unit8/index.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 8 <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                            <a href="../unit8/index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">⚾ 球类运动 Sports</a>
+                            <a href="../unit8/amazing-vehicles.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">🚌 交通工具 Vehicles</a>
+                            <a href="../unit8/reading.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">📚 补充阅读 Reading</a>
+                            <a href="../unit8/grammar.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">✏️ 语法作业 Homework</a>
+                        </div>
+                    </div>
+                    <a href="index.html" class="nav-link px-3 py-2 text-sm font-medium border-b-2 border-red-500">Unit 9</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="../index.html" class="nav-link px-3 py-2 text-sm font-medium">首页 Home</a>
+                    <div class="px-3 py-2">
+                        <div class="text-white/70 text-xs mb-1">Unit 7</div>
+                        <a href="../unit7/index.html" class="nav-link px-3 py-2 text-sm font-medium block">📖 现在进行时 Course</a>
+                        <a href="../unit7/homework.html" class="nav-link px-3 py-2 text-sm font-medium block">✏️ 作业 Homework</a>
+                    </div>
+                    <div class="px-3 py-2">
+                        <div class="text-white/70 text-xs mb-1">Unit 8</div>
+                        <a href="../unit8/index.html" class="nav-link px-3 py-2 text-sm font-medium block">⚾ 球类运动 Sports</a>
+                        <a href="../unit8/amazing-vehicles.html" class="nav-link px-3 py-2 text-sm font-medium block">🚌 交通工具 Vehicles</a>
+                        <a href="../unit8/reading.html" class="nav-link px-3 py-2 text-sm font-medium block">📚 补充阅读 Reading</a>
+                        <a href="../unit8/grammar.html" class="nav-link px-3 py-2 text-sm font-medium block">✏️ 语法作业 Homework</a>
+                    </div>
+                    <div class="px-3 py-2">
+                        <div class="text-white/70 text-xs mb-1">Unit 9</div>
+                        <a href="index.html" class="nav-link px-3 py-2 text-sm font-medium block text-yellow-300">🌴 假期计划语法</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative py-12 px-4 overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="stitch-border p-8 rounded-3xl shadow-2xl inline-block bg-white/95">
+                <h1 class="text-4xl md:text-5xl font-bold text-green-800 mb-2">Super Minds 2 · Unit 9</h1>
+                <p class="text-2xl text-green-700 font-medium mb-4">Homework · 假期计划语法</p>
+                <div class="flex justify-center gap-4 text-5xl mb-4">
+                    <span class="float-anim">🌴</span>
+                    <span class="float-anim" style="animation-delay: 0.5s">⛺</span>
+                    <span class="float-anim" style="animation-delay: 1s">🏊</span>
+                    <span class="float-anim" style="animation-delay: 1.5s">🐴</span>
+                    <span class="float-anim" style="animation-delay: 2s">🏠</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 pb-16 space-y-8">
+
+        <!-- Hint Bar -->
+        <div class="max-w-3xl mx-auto">
+            <div class="hint-bar">
+                <div class="text-2xl mb-2">🎯📖✍️🔊✅</div>
+                <div class="text-sm md:text-base">点击内容查看翻译，点击词汇听发音，点击空白处显示答案</div>
+            </div>
+        </div>
+
+        <!-- Quote -->
+        <div class="text-center text-white italic text-lg">
+            "Practice makes perfect!" · 熟能生巧
+        </div>
+
+        <!-- Page 108 语法重点 -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📚</span> Grammar Focus · Page 108 语法重点 <span>🎯</span>
+            </h2>
+
+            <!-- 1. It's time for... -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">1. "It's time for..." 句式</div>
+                <div class="text-base leading-relaxed text-gray-700">
+                    <p class="mb-4"><strong>结构:</strong> It's time for + 名词<br>
+                    <strong>意思:</strong> 该做某事了 / 到做某事的时间了</p>
+
+                    <p class="mb-4"><strong>例子:</strong></p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>It's time for a holiday. <span class="text-gray-500">(该放假了)</span></li>
+                        <li>It's time for dinner. <span class="text-gray-500">(该吃晚饭了)</span></li>
+                        <li>It's time for school. <span class="text-gray-500">(该上学了)</span></li>
+                    </ul>
+                </div>
+                <div class="tip-box mt-4">
+                    <strong>注意:</strong> 不要说 "It's time for back"，正确是 "It's time to go back" (该回去了)。<br>
+                    <small>因为 for 后面接名词，to 后面接动词。</small>
+                </div>
+            </div>
+
+            <!-- 2. Can I/Can we... -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">2. "Can I / Can we..." 句式 (请求允许)</div>
+                <div class="text-base leading-relaxed text-gray-700">
+                    <p class="mb-4"><strong>结构:</strong> Can + 主语 + 动词原形</p>
+
+                    <div class="grammar-structure">各人称完整列表:</div>
+
+                    <div class="overflow-x-auto">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th class="w-[12%]">主语</th>
+                                    <th class="w-[53%]">例句</th>
+                                    <th class="w-[35%]">中文</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>I</strong></td><td>Can I build a tree house?</td><td>我可以建一个树屋吗？</td></tr>
+                                <tr><td><strong>we</strong></td><td>Can we go camping?</td><td>我们可以去露营吗？</td></tr>
+                                <tr><td><strong>you</strong></td><td>Can you join me?</td><td>你能加入我吗？</td></tr>
+                                <tr><td><strong>he</strong></td><td>Can he take riding lessons?</td><td>他可以上骑马课吗？</td></tr>
+                                <tr><td><strong>she</strong></td><td>Can she go swimming?</td><td>她可以去游泳吗？</td></tr>
+                                <tr><td><strong>it</strong></td><td>Can it fly?</td><td>它能飞吗？</td></tr>
+                                <tr><td><strong>they</strong></td><td>Can they sleep in the tree house?</td><td>他们能睡在树屋里吗？</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>歌词中的例子:</strong> Can I build a tree house...? · Can I go camping...? · Can I go swimming...? · Can I take riding lessons...?
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. be going to... -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">3. "I am going to..." 句式 (打算做某事)</div>
+                <div class="text-base leading-relaxed text-gray-700">
+                    <p class="mb-4"><strong>结构:</strong> 主语 + be going to + 动词原形 (be: am/is/are)<br>
+                    <strong>意思:</strong> 打算 / 将要去做某事</p>
+
+                    <div class="grammar-structure">各人称变化: I am going to / We/You/They are going to / He/She/It is going to</div>
+
+                    <ul class="list-disc pl-6 space-y-2 my-5">
+                        <li>I <strong>am going to</strong> sleep. (我打算睡觉)</li>
+                        <li class="text-red-700">❌ I going to sleep (X) ---- 不要忘记 be 动词！</li>
+                        <li>You <strong>are going to</strong> play. (你将要玩)</li>
+                        <li>He/She/It <strong>is going to</strong> join me. (他/她/它将要加入)</li>
+                    </ul>
+
+                    <div class="bg-purple-50 p-5 rounded-lg">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>We <strong>are going to</strong> build a tree house. (我们打算建树屋)</li>
+                            <li>They <strong>are going to</strong> go camping. (他们打算去露营)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 动词短语 -->
+            <h3 class="text-xl font-bold text-green-800 mb-4 text-center">📝 动词短语 (点击听发音)</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                <button type="button" class="vocab-card p-5 rounded-xl" onclick="speak('build a tree house', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🔨</div>
+                    <div class="font-bold text-lg">build a tree house</div>
+                    <div class="text-sm text-gray-600 mt-1">建一个树屋</div>
+                </button>
+                <button type="button" class="vocab-card p-5 rounded-xl" onclick="speak('join me', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">👥</div>
+                    <div class="font-bold text-lg">join me</div>
+                    <div class="text-sm text-gray-600 mt-1">加入我</div>
+                </button>
+                <button type="button" class="vocab-card p-5 rounded-xl" onclick="speak('go camping', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">⛺</div>
+                    <div class="font-bold text-lg">go camping</div>
+                    <div class="text-sm text-gray-600 mt-1">去露营</div>
+                </button>
+                <button type="button" class="vocab-card p-5 rounded-xl" onclick="speak('go swimming', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🏊</div>
+                    <div class="font-bold text-lg">go swimming</div>
+                    <div class="text-sm text-gray-600 mt-1">去游泳</div>
+                </button>
+                <button type="button" class="vocab-card p-5 rounded-xl md:col-span-2 lg:col-span-1" onclick="speak('take riding lessons', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🐴</div>
+                    <div class="font-bold text-lg">take riding lessons</div>
+                    <div class="text-sm text-gray-600 mt-1">上骑马课 / 学习骑马</div>
+                </button>
+            </div>
+
+            <div class="example-box">
+                <strong>造句示例:</strong>
+                <ul class="list-disc pl-6">
+                    <li>I am going to build a tree house in my grandma's apple tree.</li>
+                    <li>We are going to go camping on a sandy beach.</li>
+                    <li>She is going to take riding lessons with her friends.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Page 109 语法总结 -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📝</span> Page 109 · 语法总结 <span>📚</span>
+            </h2>
+
+            <div class="tip-box">
+                <strong>注意:</strong> 特殊疑问句的结构 = 疑问词 + 一般疑问句语序 (或 + 系动词/助动词 + 主语 + ...)
+            </div>
+
+            <h3 class="text-xl font-bold text-green-800 mb-4 pl-4 border-l-4 border-red-500">一、一般现在时</h3>
+
+            <div class="reading-card p-5 mb-5">
+                <h4 class="text-lg font-bold text-blue-700 mb-3">1. 系动词 (be): am / is / are</h4>
+                <div class="note-box mb-4">
+                    <strong>问句结构:</strong> 疑问词 + be + 主语...?
+                </div>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Q2: How old is your brother?</li>
+                    <li>Q5: What is her name? (缩写 What's)</li>
+                    <li>Q6: Where are my pencils?</li>
+                    <li>Q8: Where are my pens?</li>
+                    <li>Q11: When is her birthday?</li>
+                    <li>Q12: Whose jumper is pink?</li>
+                </ul>
+            </div>
+
+            <div class="reading-card p-5 mb-5">
+                <h4 class="text-lg font-bold text-blue-700 mb-3">2. 实义动词 (do / does 帮助构成疑问句)</h4>
+                <div class="note-box mb-4">
+                    <strong>结构:</strong> Do/Does + 主语 + 动词原形...?<br>
+                    <small>第三人称单数用 Does，动词恢复原形 (如 eat, like)。</small>
+                </div>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Q1: Does your sister eat tomatoes? (实义动词 eat)</li>
+                    <li>Q7: What does your sister like to eat? (实义动词 like)</li>
+                </ul>
+                <div class="note-box mt-4">
+                    <strong>回答:</strong> 肯定: Yes, she does. / 否定: No, she doesn't.
+                </div>
+            </div>
+
+            <h3 class="text-xl font-bold text-green-800 mb-4 pl-4 border-l-4 border-red-500">二、can 句型 (情态动词)</h3>
+            <div class="reading-card p-5 mb-5">
+                <div class="note-box mb-4">
+                    <strong>结构:</strong> Can + 主语 + 动词原形...?
+                </div>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>问句: Q3. Can you swim?</li>
+                    <li>回答: Yes, I can. / No, I can't.</li>
+                </ul>
+                <div class="note-box mt-4">
+                    其他情态动词类似: would like (Q9. Would you like an orange? 回答: Yes, please.)
+                </div>
+            </div>
+
+            <h3 class="text-xl font-bold text-green-800 mb-4 pl-4 border-l-4 border-red-500">三、have got 句型 (表示"有")</h3>
+            <div class="reading-card p-5 mb-5">
+                <div class="note-box mb-4">
+                    <strong>结构:</strong> Have/Has + 主语 + got ...?
+                </div>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>问句: Q4. Have spiders got six legs?</li>
+                </ul>
+                <div class="tip-box mt-4">
+                    <strong>注意:</strong> 答句不直接用 have got，而用 have/has。本题中答句 "No, they've got a cat." (= No, they have got a cat.) 实际完整否定回答应为: No, they haven't. 但题目幽默地用了"不，他们有猫"。<br><br>
+                    对比: have got = have (有)，但疑问和否定更常用 have got 形式。
+                </div>
+            </div>
+
+            <h3 class="text-xl font-bold text-green-800 mb-4 pl-4 border-l-4 border-red-500">四、there be 句型</h3>
+            <div class="reading-card p-5 mb-5">
+                <div class="note-box mb-4">
+                    <strong>结构:</strong> Is/Are there + 名词 + 地点/范围?
+                </div>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>问句: Q10. Is there any milk in the house?</li>
+                    <li>回答: Yes, there is. / No, there isn't.</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold text-green-800 mb-4 pl-4 border-l-4 border-red-500">五、问句类型总结表</h3>
+            <div class="overflow-x-auto rounded-xl shadow-lg">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th class="w-[8%]">编号</th>
+                            <th class="w-[35%]">问句</th>
+                            <th class="w-[25%]">语法点</th>
+                            <th class="w-[32%]">疑问词/结构</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Does your sister eat tomatoes?</td><td>一般现在时（实义动词）</td><td>Does + 主语 + 动词原形</td></tr>
+                        <tr><td>2</td><td>How old is your brother?</td><td>一般现在时（系动词）</td><td>How old + be + 主语</td></tr>
+                        <tr><td>3</td><td>Can you swim?</td><td>情态动词 can</td><td>Can + 主语 + 动词原形</td></tr>
+                        <tr><td>4</td><td>Have spiders got six legs?</td><td>have got 句型</td><td>Have + 主语 + got</td></tr>
+                        <tr><td>5</td><td>What's her name?</td><td>系动词 be</td><td>What + be + 主语</td></tr>
+                        <tr><td>6</td><td>Where are my pencils?</td><td>系动词 be</td><td>Where + be + 主语</td></tr>
+                        <tr><td>7</td><td>What does your sister like to eat?</td><td>一般现在时（实义动词）</td><td>What + does + 主语 + 动词原形</td></tr>
+                        <tr><td>8</td><td>Where are my pens?</td><td>系动词 be</td><td>Where + be + 主语</td></tr>
+                        <tr><td>9</td><td>Would you like an orange?</td><td>would like 句型</td><td>Would + 主语 + like</td></tr>
+                        <tr><td>10</td><td>Is there any milk in the house?</td><td>there be 句型</td><td>Is there + 名词</td></tr>
+                        <tr><td>11</td><td>When's her birthday?</td><td>系动词 be</td><td>When + be + 主语</td></tr>
+                        <tr><td>12</td><td>Whose jumper is pink?</td><td>系动词 be</td><td>Whose + 名词 + be + 形容词</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 巩固练习 -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✏️</span> 巩固练习 <span>📝</span>
+            </h2>
+
+            <p class="text-gray-700 mb-6 text-base">
+                用 7 个特殊疑问词 (what, where, when, why, who, whose, how) 以及部分助动词/be 动词填空，每个空对应一个语法点。
+            </p>
+
+            <h3 class="text-xl font-bold text-blue-700 mb-4">Dialogue Fill-in-the-Blanks (对话填空) - Tom &amp; Anna</h3>
+            <div class="dialogue-scene">
+                <div class="font-bold text-amber-800 mb-5 text-lg border-b-2 border-dashed border-amber-500 pb-3">场景：Tom 和 Anna 讨论假期计划</div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>Hi, Anna!</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>Hello, Tom. <span class="blank" data-answer="How" onclick="revealAnswer(this)">_____</span> (1) are you?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>I'm fine, thanks. Tomorrow is a holiday.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>Great! <span class="blank" data-answer="What" onclick="revealAnswer(this)">_____</span> (2) are you going to do?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>I'm going to my grandma's house.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span><span class="blank" data-answer="Where" onclick="revealAnswer(this)">_____</span> (3) is your grandma's house?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>It's near the beach.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>Cool! <span class="blank" data-answer="Who" onclick="revealAnswer(this)">_____</span> (4) are you going with?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>My cousin, Lily.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span><span class="blank" data-answer="How" onclick="revealAnswer(this)">_____</span> (5) old is Lily?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>She's ten.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span><span class="blank" data-answer="Why" onclick="revealAnswer(this)">_____</span> (6) don't you go swimming?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>Good idea! But first, <span class="blank" data-answer="Whose" onclick="revealAnswer(this)">_____</span> (7) jumper is that on the chair? Is it yours?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>No, it's Lily's. I think it's her birthday next week.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span><span class="blank" data-answer="When" onclick="revealAnswer(this)">_____</span> (8) is her birthday?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>In July.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span><span class="blank" data-answer="Is" onclick="revealAnswer(this)">_____</span> (9) there any drinks in the fridge?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>Yes, there <span class="blank" data-answer="is" onclick="revealAnswer(this)">_____</span> (10) some juice.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span><span class="blank" data-answer="Does" onclick="revealAnswer(this)">_____</span> (11) your sister like apples?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>No, she <span class="blank" data-answer="doesn't" onclick="revealAnswer(this)">_____</span> (12). She likes oranges.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span><span class="blank" data-answer="Can" onclick="revealAnswer(this)">_____</span> (13) you swim?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>Yes, I <span class="blank" data-answer="can" onclick="revealAnswer(this)">_____</span> (14).</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span><span class="blank" data-answer="Have" onclick="revealAnswer(this)">_____</span> (15) spiders got eight legs?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>No, they <span class="blank" data-answer="haven't got" onclick="revealAnswer(this)">_____</span> (16) eight legs? Actually they have eight legs - wait, yes!</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>Haha, you're right.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span><span class="blank" data-answer="Would" onclick="revealAnswer(this)">_____</span> (17) you like an ice cream?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>Yes, <span class="blank" data-answer="please" onclick="revealAnswer(this)">_____</span> (18). Let's go!</p>
+                </div>
+            </div>
+
+            <button type="button" class="toggle-btn" onclick="toggleAnswerTable('key1')">📋 显示/隐藏答案解析</button>
+            <div id="key1" class="answer-table">
+                <table class="data-table">
+                    <thead><tr><th>题号</th><th>答案</th><th>考查内容</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>How</td><td>特殊疑问词 (问候 How are you?)</td></tr>
+                        <tr><td>2</td><td>What</td><td>特殊疑问词 (what ... do)</td></tr>
+                        <tr><td>3</td><td>Where</td><td>特殊疑问词 (地点)</td></tr>
+                        <tr><td>4</td><td>Who</td><td>特殊疑问词 (人物)</td></tr>
+                        <tr><td>5</td><td>How</td><td>特殊疑问词 (how old 年龄)</td></tr>
+                        <tr><td>6</td><td>Why</td><td>特殊疑问词 (原因)</td></tr>
+                        <tr><td>7</td><td>Whose</td><td>特殊疑问词 (所属)</td></tr>
+                        <tr><td>8</td><td>When</td><td>特殊疑问词 (时间)</td></tr>
+                        <tr><td>9</td><td>Is</td><td>there be 句型 (Is there...)</td></tr>
+                        <tr><td>10</td><td>is</td><td>there be 肯定回答 (there is)</td></tr>
+                        <tr><td>11</td><td>Does</td><td>一般现在时 (实义动词 like, 第三人称单数)</td></tr>
+                        <tr><td>12</td><td>doesn't</td><td>一般现在时否定回答</td></tr>
+                        <tr><td>13</td><td>Can</td><td>can 句型 (能力)</td></tr>
+                        <tr><td>14</td><td>can</td><td>can 肯定回答</td></tr>
+                        <tr><td>15</td><td>Have</td><td>have got 句型 (Have spiders got...)</td></tr>
+                        <tr><td>16</td><td>haven't got</td><td>注意：这里故意设计幽默，但标准答案用 "haven't got" 或者直接 "No, they have."</td></tr>
+                        <tr><td>17</td><td>Would</td><td>would like 句型 (Would you like...)</td></tr>
+                        <tr><td>18</td><td>please</td><td>礼貌回答 (Yes, please.)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-xl font-bold text-blue-700 mb-4 mt-8">Dialogue: Planning the Holiday (对话: Amy &amp; Ben)</h3>
+            <div class="dialogue-scene">
+                <div class="font-bold text-amber-800 mb-5 text-lg border-b-2 border-dashed border-amber-500 pb-3">场景：Amy 和 Ben 计划假期</div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Hi, Ben! The holiday is coming.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Yes! <span class="blank" data-answer="What" onclick="revealAnswer(this)">_____</span> (1) are you going to do?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>I'm going to my grandma's house.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span><span class="blank" data-answer="Where" onclick="revealAnswer(this)">_____</span> (2) does your grandma live?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>She lives near a hill. She has a big apple tree.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Wow! <span class="blank" data-answer="What" onclick="revealAnswer(this)">_____</span> (3) are you going to build in that tree?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>A tree house! I'm going to sleep and play there.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Cool! <span class="blank" data-answer="Who" onclick="revealAnswer(this)">_____</span> (4) are you going to build it with?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>My cousins, Michael, James and Lynn.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span><span class="blank" data-answer="How" onclick="revealAnswer(this)">_____</span> (5) old are they?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Michael is 11, James is 10, and Lynn is 9.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span><span class="blank" data-answer="Why" onclick="revealAnswer(this)">_____</span> (6) don't you go camping, too?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Good idea! We can go camping on a sandy beach.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span><span class="blank" data-answer="Which" onclick="revealAnswer(this)">_____</span> (7) beach is it? Is it Sandy Bay?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Yes. And I'm going swimming there.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Can I join you?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Of course! <span class="blank" data-answer="Can" onclick="revealAnswer(this)">_____</span> (8) you swim?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Yes, I <span class="blank" data-answer="can" onclick="revealAnswer(this)">_____</span> (9).</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Great! <span class="blank" data-answer="Are" onclick="revealAnswer(this)">_____</span> (10) there any sharks in the sea?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>No, there <span class="blank" data-answer="aren't" onclick="revealAnswer(this)">_____</span> (11) any sharks near Sandy Bay.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Phew! Look, <span class="blank" data-answer="Whose" onclick="revealAnswer(this)">_____</span> (12) jumper is that on the chair?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>It's Lynn's. She's taking riding lessons.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Riding lessons? <span class="blank" data-answer="When" onclick="revealAnswer(this)">_____</span> (13) does she take riding lessons?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>On Saturday mornings.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>I want to take riding lessons too!</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>You can join them. <span class="blank" data-answer="Does" onclick="revealAnswer(this)">_____</span> (14) your sister like horses?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Yes, she <span class="blank" data-answer="does" onclick="revealAnswer(this)">_____</span> (15). She loves horses.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Perfect! <span class="blank" data-answer="Would" onclick="revealAnswer(this)">_____</span> (16) you like an ice cream now?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Yes, <span class="blank" data-answer="please" onclick="revealAnswer(this)">_____</span> (17). Let's go!</p>
+                </div>
+            </div>
+
+            <button type="button" class="toggle-btn" onclick="toggleAnswerTable('key2')">📋 显示/隐藏答案解析</button>
+            <div id="key2" class="answer-table">
+                <table class="data-table">
+                    <thead><tr><th>题号</th><th>答案</th><th>考查内容</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>What</td><td>特殊疑问词 (what ... do)</td></tr>
+                        <tr><td>2</td><td>Where</td><td>特殊疑问词 (地点)</td></tr>
+                        <tr><td>3</td><td>What</td><td>特殊疑问词 (what ... build)</td></tr>
+                        <tr><td>4</td><td>Who</td><td>特殊疑问词 (和谁一起)</td></tr>
+                        <tr><td>5</td><td>How</td><td>特殊疑问词 (how old 年龄)</td></tr>
+                        <tr><td>6</td><td>Why</td><td>特殊疑问词 (原因)</td></tr>
+                        <tr><td>7</td><td>Which</td><td>特殊疑问词 (哪一个) - 也可用 What，但 Which 更准</td></tr>
+                        <tr><td>8</td><td>Can</td><td>情态动词 (能力)</td></tr>
+                        <tr><td>9</td><td>can</td><td>can 肯定回答</td></tr>
+                        <tr><td>10</td><td>Are</td><td>there be 句型 (Are there... 复数)</td></tr>
+                        <tr><td>11</td><td>aren't</td><td>there be 否定回答</td></tr>
+                        <tr><td>12</td><td>Whose</td><td>特殊疑问词 (所属)</td></tr>
+                        <tr><td>13</td><td>When</td><td>特殊疑问词 (时间)</td></tr>
+                        <tr><td>14</td><td>Does</td><td>一般现在时 (实义动词 like, 三单)</td></tr>
+                        <tr><td>15</td><td>does</td><td>一般现在时肯定回答</td></tr>
+                        <tr><td>16</td><td>Would</td><td>would like 句型</td></tr>
+                        <tr><td>17</td><td>please</td><td>礼貌回答 Yes, please.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Today's Todo 作业部分 -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✅</span> Today's Todo · 今日任务 <span>📝</span>
+            </h2>
+            <p class="text-center text-gray-600 mb-6">点击任务标记完成（划掉）</p>
+
+            <div class="space-y-4">
+                <button type="button" class="reading-card p-5 border-l-4 border-red-500 todo-item text-left w-full" onclick="toggleTodo(this)">
+                    <div class="flex items-start gap-3">
+                        <div class="todo-checkbox"></div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-red-700 mb-2 flex items-center gap-2">
+                                <span>1️⃣</span> 背课文 Page 108 歌曲
+                            </h3>
+                            <p class="text-gray-700">掌握三种句式：It's time for... / Can I... / I'm going to...</p>
+                        </div>
+                    </div>
+                </button>
+
+                <button type="button" class="reading-card p-5 border-l-4 border-blue-500 todo-item text-left w-full" onclick="toggleTodo(this)">
+                    <div class="flex items-start gap-3">
+                        <div class="todo-checkbox"></div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-blue-700 mb-2 flex items-center gap-2">
+                                <span>2️⃣</span> 复习语法笔记 (Page 109)
+                            </h3>
+                            <p class="text-gray-700">掌握本册书的重要句式，内容拓展和总结参考 PDF 文件</p>
+                        </div>
+                    </div>
+                </button>
+
+                <button type="button" class="reading-card p-5 border-l-4 border-green-500 todo-item text-left w-full" onclick="toggleTodo(this)">
+                    <div class="flex items-start gap-3">
+                        <div class="todo-checkbox"></div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-green-700 mb-2 flex items-center gap-2">
+                                <span>3️⃣</span> 完成对话填空练习
+                            </h3>
+                            <p class="text-gray-700">完成 Tom &amp; Anna 以及 Amy &amp; Ben 两组对话填空，点击空白处检查答案</p>
+                        </div>
+                    </div>
+                </button>
+
+                <button type="button" class="reading-card p-5 border-l-4 border-purple-500 todo-item text-left w-full" onclick="toggleTodo(this)">
+                    <div class="flex items-start gap-3">
+                        <div class="todo-checkbox"></div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-purple-700 mb-2 flex items-center gap-2">
+                                <span>4️⃣</span> 每天朗读 15 分钟
+                            </h3>
+                            <p class="text-gray-700">培养语感，课下阅读绘本巩固</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+
+            <p class="text-center text-amber-800 mt-6 italic text-sm">点击任务即可标记完成 ✓</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-green-900 to-green-800 mt-12 py-6">
+        <div class="max-w-4xl mx-auto px-4 text-center text-white">
+            <p class="text-lg font-bold mb-2">⚾ Super Minds 2 - Unit 9 假期计划语法</p>
+            <p class="text-sm opacity-80">Keep practicing and have fun learning English! 坚持练习，快乐学英语！</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
+
+        // Reveal blank answer
+        function revealAnswer(element) {
+            if (element.classList.contains('revealed')) {
+                element.classList.remove('revealed');
+                element.textContent = '_____';
+            } else {
+                element.classList.add('revealed');
+                element.textContent = element.getAttribute('data-answer');
+            }
+        }
+
+        // Toggle answer table
+        function toggleAnswerTable(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.classList.toggle('show');
+            }
+        }
+
+        // Text to speech
+        function speak(text, cardElement) {
+            if (!('speechSynthesis' in window)) {
+                alert('您的浏览器不支持语音播放功能。');
+                return;
+            }
+
+            window.speechSynthesis.cancel();
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.8;
+            utterance.pitch = 1;
+
+            if (cardElement) {
+                cardElement.classList.add('speaking');
+                utterance.onend = () => cardElement.classList.remove('speaking');
+                setTimeout(() => cardElement.classList.remove('speaking'), 3000);
+            }
+
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Toggle todo item
+        function toggleTodo(element) {
+            const checkbox = element.querySelector('.todo-checkbox');
+            checkbox.classList.toggle('checked');
+            element.classList.toggle('completed');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+name: Unit 9 Page Tests
+
+on:
+  push:
+    branches: [ master, main ]
+    paths:
+      - 'unit9/**'
+  pull_request:
+    branches: [ master, main ]
+    paths:
+      - 'unit9/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-unit9-page:
+    name: Test Unit 9 Grammar Page
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install Puppeteer
+      run: |
+        npm install puppeteer
+
+    - name: Run Unit 9 Page Tests
+      run: |
+        cat > unit9-test.js << 'TESTSCRIPT'
+        const puppeteer = require('puppeteer');
+        const http = require('http');
+        const fs = require('fs');
+        const path = require('path');
+
+        // Simple static server
+        const server = http.createServer((req, res) => {
+          let filePath = '.' + req.url;
+          if (filePath === './') filePath = './index.html';
+
+          const ext = path.extname(filePath);
+          const contentTypes = {
+            '.html': 'text/html',
+            '.css': 'text/css',
+            '.js': 'text/javascript',
+            '.svg': 'image/svg+xml'
+          };
+
+          fs.readFile(filePath, (error, content) => {
+            if (error) {
+              res.writeHead(404);
+              res.end('Not Found');
+            } else {
+              res.writeHead(200, {
+                'Content-Type': contentTypes[ext] || 'text/html'
+              });
+              res.end(content);
+            }
+          });
+        });
+
+        async function runTests() {
+          await new Promise(resolve => server.listen(8000, resolve));
+          console.log('🚀 Test server started on port 8000');
+
+          const browser = await puppeteer.launch({
+            headless: 'new',
+            args: ['--no-sandbox', '--disable-setuid-sandbox']
+          });
+
+          console.log('🌐 Browser launched\n');
+
+          let passed = 0;
+          let failed = 0;
+
+          const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+          // Test Suite: Page Load
+          console.log('📋 Test Suite: Page Load');
+          try {
+            const page = await browser.newPage();
+            await page.goto('http://localhost:8000/unit9/index.html');
+
+            const title = await page.title();
+            if (title.includes('Unit 9')) {
+              console.log('  ✅ Page title is correct');
+              passed++;
+            } else {
+              console.log('  ❌ Page title incorrect:', title);
+              failed++;
+            }
+
+            // Check required elements exist
+            const elements = await page.evaluate(() => ({
+              hasGrammarCards: document.querySelectorAll('.grammar-card').length >= 3,
+              hasVocabCards: document.querySelectorAll('.vocab-card').length >= 5,
+              hasTodoItems: document.querySelectorAll('.todo-item').length === 4,
+              hasBlanks: document.querySelectorAll('.blank').length >= 30,
+              hasDataTable: !!document.querySelector('.data-table'),
+              hasNavigation: !!document.querySelector('nav')
+            }));
+
+            if (elements.hasGrammarCards) { console.log('  ✅ Grammar cards present (≥3)'); passed++; }
+            else { console.log('  ❌ Grammar cards missing or incorrect count'); failed++; }
+
+            if (elements.hasVocabCards) { console.log('  ✅ Vocabulary cards present (≥5)'); passed++; }
+            else { console.log('  ❌ Vocabulary cards missing'); failed++; }
+
+            if (elements.hasTodoItems) { console.log('  ✅ Todo items present (4)'); passed++; }
+            else { console.log('  ❌ Todo items missing'); failed++; }
+
+            if (elements.hasBlanks) { console.log('  ✅ Fill-in-the-blank elements present (≥30)'); passed++; }
+            else { console.log('  ❌ Fill-in-the-blank elements missing'); failed++; }
+
+            if (elements.hasDataTable) { console.log('  ✅ Data table present'); passed++; }
+            else { console.log('  ❌ Data table missing'); failed++; }
+
+            if (elements.hasNavigation) { console.log('  ✅ Navigation present'); passed++; }
+            else { console.log('  ❌ Navigation missing'); failed++; }
+
+            await page.close();
+          } catch (e) {
+            console.log('  ❌ Page load test failed:', e.message);
+            failed += 6;
+          }
+
+          // Test Suite: Todo Toggle
+          console.log('\n📋 Test Suite: Todo Toggle');
+          try {
+            const page = await browser.newPage();
+            await page.goto('http://localhost:8000/unit9/index.html');
+
+            const todoItem = await page.$('.todo-item');
+            if (todoItem) {
+              await todoItem.click();
+              await delay(300);
+
+              const isCompleted = await page.evaluate(() => {
+                const item = document.querySelector('.todo-item');
+                return item && item.classList.contains('completed');
+              });
+
+              if (isCompleted) {
+                console.log('  ✅ Todo item toggles on click');
+                passed++;
+              } else {
+                console.log('  ❌ Todo item does not toggle');
+                failed++;
+              }
+            } else {
+              console.log('  ⚠️ No todo items found to test');
+              failed++;
+            }
+
+            await page.close();
+          } catch (e) {
+            console.log('  ❌ Todo toggle test failed:', e.message);
+            failed++;
+          }
+
+          // Test Suite: Blank Toggle (Fill-in-the-blanks)
+          console.log('\n📋 Test Suite: Blank Toggle');
+          try {
+            const page = await browser.newPage();
+            await page.goto('http://localhost:8000/unit9/index.html');
+
+            const blank = await page.$('.blank');
+            if (blank) {
+              // Get the expected answer
+              const answer = await page.evaluate(() => {
+                const el = document.querySelector('.blank');
+                return el ? el.getAttribute('data-answer') : null;
+              });
+
+              await blank.click();
+              await delay(300);
+
+              const isRevealed = await page.evaluate(() => {
+                const el = document.querySelector('.blank');
+                return el && el.classList.contains('revealed');
+              });
+
+              const textContent = await page.evaluate(() => {
+                const el = document.querySelector('.blank');
+                return el ? el.textContent.trim() : '';
+              });
+
+              if (isRevealed && textContent === answer) {
+                console.log('  ✅ Blank reveals answer on click');
+                passed++;
+              } else {
+                console.log('  ❌ Blank does not reveal correctly');
+                failed++;
+              }
+            } else {
+              console.log('  ⚠️ No blanks found to test');
+              failed++;
+            }
+
+            await page.close();
+          } catch (e) {
+            console.log('  ❌ Blank toggle test failed:', e.message);
+            failed++;
+          }
+
+          // Test Suite: Navigation Links
+          console.log('\n📋 Test Suite: Navigation Links');
+          try {
+            const page = await browser.newPage();
+            await page.goto('http://localhost:8000/unit9/index.html');
+
+            const links = await page.evaluate(() => {
+              const nav = document.querySelector('nav');
+              if (!nav) return { hasUnit7: false, hasUnit8: false, hasHome: false };
+              const html = nav.innerHTML;
+              return {
+                hasUnit7: html.includes('unit7') || html.includes('Unit 7'),
+                hasUnit8: html.includes('unit8') || html.includes('Unit 8'),
+                hasHome: html.includes('index.html') || html.includes('首页')
+              };
+            });
+
+            if (links.hasHome) { console.log('  ✅ Navigation has Home link'); passed++; }
+            else { console.log('  ❌ Navigation missing Home link'); failed++; }
+
+            if (links.hasUnit7) { console.log('  ✅ Navigation has Unit 7 link'); passed++; }
+            else { console.log('  ❌ Navigation missing Unit 7 link'); failed++; }
+
+            if (links.hasUnit8) { console.log('  ✅ Navigation has Unit 8 link'); passed++; }
+            else { console.log('  ❌ Navigation missing Unit 8 link'); failed++; }
+
+            await page.close();
+          } catch (e) {
+            console.log('  ❌ Navigation test failed:', e.message);
+            failed += 3;
+          }
+
+          // Test Suite: Answer Table Toggle
+          console.log('\n📋 Test Suite: Answer Table Toggle');
+          try {
+            const page = await browser.newPage();
+            await page.goto('http://localhost:8000/unit9/index.html');
+
+            const toggleBtn = await page.$('.toggle-btn');
+            if (toggleBtn) {
+              await toggleBtn.click();
+              await delay(500);
+
+              const isVisible = await page.evaluate(() => {
+                const table = document.querySelector('.answer-table');
+                return table && table.classList.contains('show');
+              });
+
+              if (isVisible) {
+                console.log('  ✅ Answer table toggles on button click');
+                passed++;
+              } else {
+                console.log('  ❌ Answer table does not toggle');
+                failed++;
+              }
+            } else {
+              console.log('  ⚠️ No toggle button found');
+              failed++;
+            }
+
+            await page.close();
+          } catch (e) {
+            console.log('  ❌ Answer table toggle test failed:', e.message);
+            failed++;
+          }
+
+          // Close everything
+          await browser.close();
+          server.close();
+
+          console.log('\n' + '='.repeat(50));
+          console.log(`📊 Results: ${passed} passed, ${failed} failed`);
+          console.log('='.repeat(50));
+
+          if (failed > 0) {
+            process.exit(1);
+          }
+        }
+
+        runTests().catch(err => {
+          console.error('Test runner error:', err);
+          process.exit(1);
+        });
+        TESTSCRIPT
+
+        node unit9-test.js
