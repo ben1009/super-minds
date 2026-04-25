@@ -39,7 +39,8 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 │   ├── grammar.css         # Unit 8 语法页面专用样式
 │   └── grammar.js          # Unit 8 语法页面交互脚本
 ├── unit9/
-│   └── index.html          # Unit 9 语法复习页面（假期计划语法总结）
+│   ├── index.html          # Unit 9 语法复习页面（假期计划语法总结）
+│   └── fairy-tales.html    # Unit 9 童话故事阅读页面（Fairy Tales + Reading on Holiday）
 ├── super-minds-baseball/   # 棒球英语学习板块
 │   ├── index.html          # 棒球版主页
 │   ├── unit7/
@@ -66,6 +67,7 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 | `unit8/grammar.css` | Unit 8 语法页面专用样式（棒球主题风格） |
 | `unit8/grammar.js` | Unit 8 语法页面交互脚本（翻译切换、发音、填空交互） |
 | `unit9/index.html` | Unit 9 语法复习页面，包含：Page 108歌曲语法重点、Page 109语法总结、两组对话填空（35+空）、5个动词短语发音、作业清单 |
+| `unit9/fairy-tales.html` | Unit 9 童话故事阅读页面，包含：14个词汇卡片（带发音）、两篇阅读理解（Folk Tales + Reading on Holiday）、8道选择题、40道单词测验（汉译英+英译汉）、作业清单 |
 | `super-minds-baseball/unit8/index.html` | 棒球版 Unit 8 课程内容 |
 | `super-minds-baseball/index.html` | 棒球主题的英语学习板块主页 |
 | `css/common.css` | 共享 CSS 样式模块（变量、动画、工具类） |
@@ -260,6 +262,28 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 - 4项作业任务，点击切换完成状态
 - 家长提示区域
 
+## Unit 9 Fairy Tales (unit9/fairy-tales.html) Specific Features
+
+### 1. 词汇卡片 (Vocabulary Cards)
+- 两套词汇：Fairy Tales（14词）和 Reading on Holiday（10词）
+- 点击卡片使用 Web Speech API 朗读单词
+- 发音动画反馈（.speaking 类 + pulse 动画）
+
+### 2. 阅读理解 (Reading Comprehension)
+- Passage A: Folk Tales Around the World - 关于世界各地民间故事的介绍
+- Passage B: Reading on Holiday - 关于假期阅读的文章
+- 每篇4道选择题，点击选项显示正确答案和解析
+- 段落可点击显示/隐藏中文翻译
+
+### 3. 单词测验 (Word Quiz)
+- 第一套（Fairy Tales）：10道汉译英 + 10道英译汉
+- 第二套（Reading on Holiday）：10道汉译英 + 10道英译汉
+- 点击空白处显示/隐藏答案
+
+### 4. 作业待办清单 (Homework Todo List)
+- 4项作业任务，点击标记完成（圆形复选框 + 划线效果）
+- 皮革质感卡片容器（.leather-card）
+
 ## Unit 9 Grammar Review (unit9/index.html) Specific Features
 
 ### 1. Page 108 语法重点卡片 (Grammar Focus Cards)
@@ -425,6 +449,23 @@ Unit 9 是一个语法复习页面，采用棒球主题风格（与 unit8/readin
 17. 更新了 `super-minds-baseball/unit7/index.html` - 添加 Unit 9 导航链接
 18. 更新了 `super-minds-baseball/unit7/homework.html` - 添加 Unit 9 导航链接
 19. 更新了 `super-minds-baseball/unit8/index.html` - 添加 Unit 9 导航链接
+
+### Unit 9 Fairy Tales 添加示例
+
+1. 创建了 `unit9/fairy-tales.html` - 童话故事阅读页面
+2. 更新了 `unit9/index.html` - 添加 Fairy Tales 导航下拉菜单
+3. 更新了 `index.html` - 添加 Fairy Tales 课程卡片和快速链接
+4. 更新了 `unit7/index.html` - 添加 Fairy Tales 导航链接
+5. 更新了 `unit7/homework.html` - 添加 Fairy Tales 导航链接
+6. 更新了 `unit8/index.html` - 添加 Fairy Tales 导航链接
+7. 更新了 `unit8/amazing-vehicles.html` - 添加 Fairy Tales 导航链接
+8. 更新了 `unit8/reading.html` - 添加 Fairy Tales 导航链接
+9. 更新了 `unit8/grammar.html` - 添加 Fairy Tales 导航链接
+10. 更新了 `super-minds-baseball/index.html` - 添加 Fairy Tales 导航卡片
+11. 更新了 `super-minds-baseball/unit7/index.html` - 添加 Fairy Tales 导航链接
+12. 更新了 `super-minds-baseball/unit7/homework.html` - 添加 Fairy Tales 导航链接
+13. 更新了 `super-minds-baseball/unit8/index.html` - 添加 Fairy Tales 导航链接
+14. 更新了 `AGENTS.md` - 更新项目结构和功能说明
 
 ### 修改现有内容的注意事项
 

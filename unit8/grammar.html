@@ -47,6 +47,7 @@
                     <a href="../unit9/index.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 9 <i class="fas fa-chevron-down text-xs"></i></a>
                     <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
                         <a href="../unit9/index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">🌴 假期计划语法 Grammar</a>
+                    <a href="../unit9/fairy-tales.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">🏰 Fairy Tales 童话</a>
                     </div>
                 </div>
             </div>
@@ -74,6 +75,7 @@
                 <div class="px-3 py-2">
                     <div class="text-white/70 text-xs mb-1">Unit 9</div>
                     <a href="../unit9/index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">🌴 假期计划语法 Grammar</a>
+                    <a href="../unit9/fairy-tales.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">🏰 Fairy Tales 童话</a>
                 </div>
             </div>
         </div>
@@ -637,40 +639,51 @@
             <div class="section-title">
                 <i class="fas fa-check-circle mr-2"></i>Today's Todo · 今日任务
             </div>
-            <p class="text-white/80 mt-4 text-lg">点击任务标记完成（划掉）</p>
+            <p class="text-white/80 mt-4 text-lg">点击任务标记完成</p>
+        </div>
+
+        <div class="bg-white rounded-full p-1 mb-6 shadow-inner">
+            <div id="progressBar" style="width: 0%">0%</div>
         </div>
 
         <div class="grid gap-4">
-            <div class="todo-item">
-                <div class="num">1</div>
-                <div class="todo-text">
-                    <strong>背单词 Vocabulary</strong>
-                    点击词汇卡片听发音，熟读 Unit 9 的 9 个动词短语（教材page 4-5）
+            <div class="todo-item" data-todo="1">
+                <div class="todo-checkbox"></div>
+                <div class="flex-1">
+                    <div class="todo-title"><span>1️⃣</span> 背单词 Vocabulary</div>
+                    <div class="todo-desc">点击词汇卡片听发音，熟读 Unit 9 的 9 个动词短语（教材page 4-5）</div>
                 </div>
             </div>
-            <div class="todo-item">
-                <div class="num">2</div>
-                <div class="todo-text">
-                    <strong>复习句型 Grammar</strong>
-                    练习 Where / When / Which / Who / How often 五种疑问词问法
+            <div class="todo-item" data-todo="2">
+                <div class="todo-checkbox"></div>
+                <div class="flex-1">
+                    <div class="todo-title"><span>2️⃣</span> 复习句型 Grammar</div>
+                    <div class="todo-desc">练习 Where / When / Which / Who / How often 五种疑问词问法</div>
                 </div>
             </div>
-            <div class="todo-item">
-                <div class="num">3</div>
-                <div class="todo-text">
-                    <strong>完成造句 Sentences</strong>
-                    用 9 个动词短语各造一个句子，使用 where/which/when + do you like doing 句式
+            <div class="todo-item" data-todo="3">
+                <div class="todo-checkbox"></div>
+                <div class="flex-1">
+                    <div class="todo-title"><span>3️⃣</span> 完成造句 Sentences</div>
+                    <div class="todo-desc">用 9 个动词短语各造一个句子，使用 where/which/when + do you like doing 句式</div>
                 </div>
             </div>
-            <div class="todo-item">
-                <div class="num">4</div>
-                <div class="todo-text">
-                    <strong>完成填空 Cloze</strong>
-                    独立完成邮件填空，点击下划线检查答案
+            <div class="todo-item" data-todo="4">
+                <div class="todo-checkbox"></div>
+                <div class="flex-1">
+                    <div class="todo-title"><span>4️⃣</span> 完成填空 Cloze</div>
+                    <div class="todo-desc">独立完成邮件填空，点击下划线检查答案</div>
                 </div>
             </div>
         </div>
-        <p class="text-white/70 text-sm text-center mt-6 italic">点击任务即可标记完成 ✓</p>
+
+        <div class="text-center mt-4">
+            <button type="button"
+                class="bg-gradient-to-b from-gray-500 to-gray-600 text-white font-bold px-6 py-2 rounded-full shadow-lg hover:scale-105 transition"
+                onclick="resetTodos()">
+                <i class="fas fa-redo mr-2"></i>重置所有任务
+            </button>
+        </div>
     </section>
 
     <!-- Footer -->
