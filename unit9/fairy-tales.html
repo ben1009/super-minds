@@ -1050,8 +1050,10 @@
             var progress = Math.round((completed.length / todos.length) * 100);
 
             var bar = document.getElementById('progressBar');
-            bar.style.width = progress + '%';
-            bar.textContent = progress === 100 ? '🎉 100% 完成！' : progress + '%';
+            if (bar) {
+                bar.style.width = progress + '%';
+                bar.textContent = progress === 100 ? '🎉 100% 完成！' : progress + '%';
+            }
         }
 
         function toggleTodo(item) {
