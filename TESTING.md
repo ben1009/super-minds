@@ -14,7 +14,7 @@ The project includes GitHub Actions workflows for automated testing:
 | **Full CI** | `.github/workflows/ci.yml` | Comprehensive test suite |
 | **Browser Tests** | `.github/workflows/browser-tests.yml` | Playwright E2E, Lighthouse CI, Visual Regression |
 | **Unit 8 Reading** | `.github/workflows/unit8-reading-test.yml` | Specific tests for Unit 8 Reading page functionality |
-| **Unit 9 Grammar** | `.github/workflows/unit9-test.yml` | Specific tests for Unit 9 Grammar page functionality |
+| **Unit 9 Pages** | `.github/workflows/unit9-test.yml` | Specific tests for Unit 9 Grammar page functionality; `test.sh` covers Fairy Tales structure and navigation |
 
 ### Quick Validation Tests
 
@@ -218,6 +218,9 @@ Test all links work correctly:
 - [ ] Baseball homepage card → /unit9/index.html
 - [ ] Baseball Unit 7 nav → /unit9/index.html
 - [ ] Baseball Unit 8 nav → /unit9/index.html
+- [ ] Baseball homepage card → /unit9/fairy-tales.html
+- [ ] Baseball Unit 7 desktop/mobile nav → /unit9/fairy-tales.html
+- [ ] Baseball Unit 8 nav → /unit9/fairy-tales.html
 
 ---
 
@@ -265,6 +268,23 @@ Test all links work correctly:
 - [ ] Answer table toggle buttons work
 - [ ] 4 todo items present, click to mark complete
 - [ ] Navigation links to Unit 7 and Unit 8 work
+
+---
+
+### ✅ Unit 9 Fairy Tales Page (/unit9/fairy-tales.html)
+
+- [ ] Page loads with correct title "Super Minds 2 Unit 9 · Fairy Tales 童话故事"
+- [ ] Fairy Tales vocabulary section displays 14 word cards
+- [ ] Reading on Holiday vocabulary section displays 10 word cards
+- [ ] Audio buttons/cards use Web Speech API pronunciation feedback
+- [ ] Reading A: Folk Tales Around the World displays and translations toggle
+- [ ] Reading B: Reading on Holiday displays and translations toggle
+- [ ] 8 reading comprehension questions reveal feedback when clicked
+- [ ] Correct answer option text does not include a literal checkmark character
+- [ ] Word quiz has 40 answer blanks across both vocabulary sets
+- [ ] Todo list has 4 tasks and progress bar updates
+- [ ] LocalStorage key `fairyTalesTodos` persists todo progress
+- [ ] Navigation links back to Unit 9 Grammar and other units work
 
 ---
 
@@ -337,8 +357,10 @@ Compare before/after behavior:
 | Progress save | Works | Should work identically |
 | Icons display | Works | Should work identically |
 | Baseball → Unit 9 nav | N/A | New: All 4 baseball pages link to Unit 9 |
+| Baseball → Fairy Tales nav | N/A | New: Baseball homepage, Unit 7 desktop/mobile pages, and Unit 8 link to Fairy Tales |
 | Grammar page tests | N/A | New: browser-tests.yml covers grammar.html |
 | Reading page tests | N/A | New: browser-tests.yml covers reading.html |
+| Fairy Tales page tests | N/A | New: test.sh covers vocabulary, reading passages, quiz options, todo, GA, and navigation |
 
 ---
 
@@ -372,4 +394,5 @@ Test on at least:
 - [ ] `http://localhost:8000/unit8/reading.html` — Reading comprehension, character cards
 - [ ] `http://localhost:8000/unit8/amazing-vehicles.html` — Vehicles vocabulary, cloze exercise
 - [ ] `http://localhost:8000/unit9/index.html` — Dialogue blanks, answer toggles, todo list
+- [ ] `http://localhost:8000/unit9/fairy-tales.html` — Fairy Tales vocabulary, reading questions, word quiz, todo list
 - [ ] `http://localhost:8000/super-minds-baseball/` — Baseball theme, Unit 9 card link
