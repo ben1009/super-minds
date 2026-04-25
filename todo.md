@@ -43,3 +43,13 @@
 
 ### 8. Add quick-test.yml step for baseball/unit9 nav ✅
 - [x] "Validate Baseball Section Unit 9 Navigation" step added
+
+### 9. Add Unit 9 Fairy Tales documentation ✅
+- [x] README lists `unit9/fairy-tales.html` in available courses and project structure
+- [x] TESTING.md includes a manual checklist for `/unit9/fairy-tales.html`
+- [x] AGENTS.md documents Fairy Tales behavior and localStorage key details
+
+### 10. Document latest review fixes ✅
+- [x] Fairy Tales reading answer option text no longer includes literal `✓` characters
+- [x] Baseball Unit 7 desktop/mobile navigation includes Fairy Tales links
+- [x] README and TESTING.md reflect the current Unit 9 page coverage

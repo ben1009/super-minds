@@ -49,14 +49,21 @@ A baseball-themed course focusing on **using gerunds as subjects** with ball spo
    - ✅ Interactive todo list for homework tracking
 
 ### Unit 9 - Holiday Plans Grammar (假期计划语法)
-A grammar review page consolidating key sentence patterns from the entire book.
+Unit 9 now includes a grammar review track and a reading track.
 
-**Content:** (`unit9/index.html`)
+1. **Holiday Plans Grammar** (`unit9/index.html`)
    - 🎵 Page 108 song grammar: `It's time for...`, `Can I...`, `I'm going to...`
    - 📝 Page 109 grammar summary: question words, be verbs, can, have got, there be
    - 💬 Two dialogue fill-in-the-blank exercises (35+ blanks)
    - 🎯 5 verb phrases with audio pronunciation (Web Speech API)
    - ✅ Interactive todo list for homework tracking
+
+2. **Fairy Tales Reading** (`unit9/fairy-tales.html`)
+   - 🏰 Fairy Tales vocabulary set and Reading on Holiday vocabulary set
+   - 📖 Two reading passages: Folk Tales Around the World and Reading on Holiday
+   - 📝 8 reading comprehension questions with interactive answer feedback
+   - ✍️ 40 word quiz blanks across Chinese-English and English-Chinese practice
+   - ✅ Interactive todo list with progress tracking
 
 ## 🌐 Access the Course
 
@@ -70,6 +77,7 @@ No installation required — just open it in your browser!
 
 ```
 ├── index.html              # Homepage - course navigation
+├── ga.js                   # Shared Google Analytics loader
 ├── css/
 │   └── common.css          # Shared styles (variables, animations)
 ├── js/
@@ -85,7 +93,9 @@ No installation required — just open it in your browser!
 │   ├── grammar.css         # Unit 8: Grammar page styles
 │   └── grammar.js          # Unit 8: Grammar page interactions
 ├── unit9/
-│   └── index.html          # Unit 9: Holiday Plans Grammar Review
+│   ├── index.html          # Unit 9: Holiday Plans Grammar Review
+│   ├── fairy-tales.html    # Unit 9: Fairy Tales Reading
+│   └── Super minds2 -page 114.pdf  # Source PDF for Fairy Tales content
 ├── super-minds-baseball/   # Baseball-themed edition
 │   ├── index.html          # Baseball homepage with links to all units
 │   ├── unit7/
@@ -103,6 +113,7 @@ No installation required — just open it in your browser!
 - 📖 Clear and organized knowledge structure
 - ✅ Instant feedback on practice exercises
 - 🌴 Unit 9 grammar review: Holiday Plans with dialogue fill-in-the-blanks
+- 🏰 Unit 9 reading: Fairy Tales and Reading on Holiday
 - ⚾ Baseball-themed special edition with cross-navigation to all units
 - 🔄 Shared code architecture for maintainability
 - ✅ Automated testing with GitHub Actions
@@ -118,6 +129,7 @@ This project includes comprehensive automated testing:
 | Functional | Puppeteer, Playwright | Headless browser E2E tests |
 | Performance | Lighthouse CI | Performance, accessibility |
 | Visual | Puppeteer | Screenshot comparisons |
+| Unit-specific | Bash/Puppeteer | Unit 8 Reading, Unit 9 Grammar, Unit 9 Fairy Tales structure |
 
 **Run tests locally:**
 ```bash

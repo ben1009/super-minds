@@ -273,6 +273,7 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 - Passage A: Folk Tales Around the World - 关于世界各地民间故事的介绍
 - Passage B: Reading on Holiday - 关于假期阅读的文章
 - 每篇4道选择题，点击选项显示正确答案和解析
+- 正确选项文本本身不带 `✓`，正确/错误反馈由 `.correct` / `.wrong` 样式提供
 - 段落可点击显示/隐藏中文翻译
 
 ### 3. 单词测验 (Word Quiz)
@@ -283,6 +284,7 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 ### 4. 作业待办清单 (Homework Todo List)
 - 4项作业任务，点击标记完成（圆形复选框 + 划线效果）
 - 皮革质感卡片容器（.leather-card）
+- localStorage 键使用 `fairyTalesTodos`
 
 ## Unit 9 Grammar Review (unit9/index.html) Specific Features
 
@@ -466,6 +468,7 @@ Unit 9 是一个语法复习页面，采用棒球主题风格（与 unit8/readin
 12. 更新了 `super-minds-baseball/unit7/homework.html` - 添加 Fairy Tales 导航链接
 13. 更新了 `super-minds-baseball/unit8/index.html` - 添加 Fairy Tales 导航链接
 14. 更新了 `AGENTS.md` - 更新项目结构和功能说明
+15. 移除阅读理解正确选项文本中的 `✓` 字符，保留点击后的样式反馈
 
 ### 修改现有内容的注意事项
 
