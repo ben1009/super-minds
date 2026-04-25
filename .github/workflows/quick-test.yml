@@ -53,7 +53,7 @@ jobs:
         ERRORS=0
         
         # Check main pages reference shared CSS
-        for file in index.html unit7/index.html unit7/homework.html; do
+        for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html; do
           if grep -q "common.css" "$file"; then
             echo "  ✅ $file → common.css"
           else
@@ -63,7 +63,7 @@ jobs:
         done
         
         # Check main pages reference shared JS
-        for file in index.html unit7/index.html unit7/homework.html; do
+        for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html; do
           if grep -q "common.js" "$file"; then
             echo "  ✅ $file → common.js"
           else
@@ -82,9 +82,9 @@ jobs:
         echo "🔍 Checking Baseball Pages..."
         
         for file in super-minds-baseball/index.html \
-                    super-minds-baseball/unit7/index.html \
-                    super-minds-baseball/unit7/homework.html \
-                    super-minds-baseball/unit8/index.html; do
+                    super-minds-baseball/unit7/baseball-present-continuous-course.html \
+                    super-minds-baseball/unit7/baseball-present-continuous-homework.html \
+                    super-minds-baseball/unit8/baseball-gerunds-ball-sports.html; do
           if [ -f "$file" ]; then
             if grep -q '\.\./ga\.js' "$file"; then
               echo "  ✅ $file uses ../ga.js"
@@ -100,7 +100,7 @@ jobs:
         echo "🔍 Validating HTML Structure..."
         
         # Check for basic HTML structure
-        for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html unit8/reading.html unit8/grammar.html unit9/index.html; do
+        for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html; do
           if [ -f "$file" ]; then
             # Check for doctype
             if head -1 "$file" | grep -qi "<!doctype html>"; then
@@ -158,9 +158,9 @@ jobs:
         ERRORS=0
         
         # Check that reading.html is linked from all relevant pages
-        for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html unit8/grammar.html unit9/index.html; do
+        for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html; do
           if [ -f "$file" ]; then
-            if grep -q 'reading.html' "$file"; then
+            if grep -q 'fun-things-we-do-reading.html' "$file"; then
               echo "  ✅ $file links to reading.html"
             else
               echo "  ❌ $file missing link to reading.html!"
@@ -180,7 +180,7 @@ jobs:
         
         ERRORS=0
         
-        for file in super-minds-baseball/index.html super-minds-baseball/unit7/index.html super-minds-baseball/unit7/homework.html super-minds-baseball/unit8/index.html; do
+        for file in super-minds-baseball/index.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html; do
           if [ -f "$file" ]; then
             if grep -q 'unit9' "$file"; then
               echo "  ✅ $file links to unit9"
@@ -277,7 +277,7 @@ jobs:
           // Test 2: CSS/JS loaded
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit7/index.html');
+            await page.goto('http://localhost:8000/unit7/present-continuous-course.html');
             
             const results = await page.evaluate(() => ({
               hasCommonCSS: !!document.querySelector('link[href*="common.css"]'),
@@ -303,7 +303,7 @@ jobs:
           // Test 3: Interactions work
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit7/index.html');
+            await page.goto('http://localhost:8000/unit7/present-continuous-course.html');
             
             // Helper function for delay
             const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -339,7 +339,7 @@ jobs:
           // Test 4: Unit 8 Reading Page
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit8/reading.html');
+            await page.goto('http://localhost:8000/unit8/fun-things-we-do-reading.html');
             
             const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
             
@@ -426,7 +426,7 @@ jobs:
             
             // Check homepage has link to reading page
             const hasHomepageLink = await page.evaluate(() => {
-              return !!document.querySelector('a[href="unit8/reading.html"]');
+              return !!document.querySelector('a[href="unit8/fun-things-we-do-reading.html"]');
             });
             
             if (hasHomepageLink) {
@@ -437,10 +437,10 @@ jobs:
               failed++;
             }
             
-            // Check unit8/index.html has navigation link
-            await page.goto('http://localhost:8000/unit8/index.html');
+            // Check unit8/gerunds-ball-sports.html has navigation link
+            await page.goto('http://localhost:8000/unit8/gerunds-ball-sports.html');
             const hasUnit8NavLink = await page.evaluate(() => {
-              return !!document.querySelector('a[href="reading.html"]');
+              return !!document.querySelector('a[href="fun-things-we-do-reading.html"]');
             });
             
             if (hasUnit8NavLink) {
@@ -451,10 +451,10 @@ jobs:
               failed++;
             }
             
-            // Check unit7/index.html has navigation link
-            await page.goto('http://localhost:8000/unit7/index.html');
+            // Check unit7/present-continuous-course.html has navigation link
+            await page.goto('http://localhost:8000/unit7/present-continuous-course.html');
             const hasUnit7NavLink = await page.evaluate(() => {
-              return !!document.querySelector('a[href="../unit8/reading.html"]');
+              return !!document.querySelector('a[href="../unit8/fun-things-we-do-reading.html"]');
             });
             
             if (hasUnit7NavLink) {
@@ -474,7 +474,7 @@ jobs:
           // Test 6: Unit 9 Grammar Page
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit9/index.html');
+            await page.goto('http://localhost:8000/unit9/holiday-plans-grammar-review.html');
             
             const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
             

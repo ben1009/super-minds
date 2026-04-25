@@ -4,11 +4,11 @@ on:
   push:
     branches: [ master, main ]
     paths:
-      - 'unit8/reading.html'
+      - 'unit8/fun-things-we-do-reading.html'
   pull_request:
     branches: [ master, main ]
     paths:
-      - 'unit8/reading.html'
+      - 'unit8/fun-things-we-do-reading.html'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -86,7 +86,7 @@ jobs:
           console.log('📋 Test Suite: Page Load');
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit8/reading.html');
+            await page.goto('http://localhost:8000/unit8/fun-things-we-do-reading.html');
             
             const title = await page.title();
             if (title.includes('Fun Things We Do')) {
@@ -127,7 +127,7 @@ jobs:
           console.log('\n📋 Test Suite: Todo Toggle (Bug fix)');
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit8/reading.html');
+            await page.goto('http://localhost:8000/unit8/fun-things-we-do-reading.html');
             
             // Test clicking todo item toggles completion
             const todoItem = await page.$('.todo-item');
@@ -182,7 +182,7 @@ jobs:
           console.log('\n📋 Test Suite: Question Answer Toggle');
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit8/reading.html');
+            await page.goto('http://localhost:8000/unit8/fun-things-we-do-reading.html');
             
             const question = await page.$('.question-item');
             if (question) {
@@ -227,7 +227,7 @@ jobs:
           console.log('\n📋 Test Suite: JavaScript Functions');
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit8/reading.html');
+            await page.goto('http://localhost:8000/unit8/fun-things-we-do-reading.html');
             
             const functions = await page.evaluate(() => ({
               toggleMobileMenu: typeof toggleMobileMenu === 'function',
@@ -257,7 +257,7 @@ jobs:
           console.log('\n📋 Test Suite: Accessibility');
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit8/reading.html');
+            await page.goto('http://localhost:8000/unit8/fun-things-we-do-reading.html');
             
             const accessibility = await page.evaluate(() => ({
               questionsAreButtons: Array.from(document.querySelectorAll('.question-item')).every(

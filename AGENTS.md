@@ -29,25 +29,25 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 ├── js/
 │   └── common.js           # 共享 JavaScript 工具函数
 ├── unit7/
-│   ├── index.html          # Unit 7 课程页面（现在进行时精讲）
-│   └── homework.html       # Unit 7 作业页面
+│   ├── present-continuous-course.html    # Unit 7 课程页面（现在进行时精讲）
+│   └── present-continuous-homework.html  # Unit 7 作业页面
 ├── unit8/
-│   ├── index.html          # Unit 8 课程页面 - 球类运动（动名词作主语）
-│   ├── amazing-vehicles.html  # Unit 8 课程页面 - 神奇的交通工具（阅读与词汇）
-│   ├── reading.html        # Unit 8 课程页面 - Fun Things We Do（阅读与爱好）
-│   ├── grammar.html        # Unit 8 语法作业页面（疑问词练习与完形填空）
-│   ├── grammar.css         # Unit 8 语法页面专用样式
-│   └── grammar.js          # Unit 8 语法页面交互脚本
+│   ├── gerunds-ball-sports.html              # Unit 8 课程页面 - 球类运动（动名词作主语）
+│   ├── amazing-vehicles-reading.html         # Unit 8 课程页面 - 神奇的交通工具（阅读与词汇）
+│   ├── fun-things-we-do-reading.html         # Unit 8 课程页面 - Fun Things We Do（阅读与爱好）
+│   ├── question-words-grammar-homework.html  # Unit 8 语法作业页面（疑问词练习与完形填空）
+│   ├── grammar.css                           # Unit 8 语法页面专用样式
+│   └── grammar.js                            # Unit 8 语法页面交互脚本
 ├── unit9/
-│   ├── index.html          # Unit 9 语法复习页面（假期计划语法总结）
-│   └── fairy-tales.html    # Unit 9 童话故事阅读页面（Fairy Tales + Reading on Holiday）
+│   ├── holiday-plans-grammar-review.html  # Unit 9 语法复习页面（假期计划语法总结）
+│   └── fairy-tales-reading.html           # Unit 9 童话故事阅读页面（Fairy Tales + Reading on Holiday）
 ├── super-minds-baseball/   # 棒球英语学习板块
 │   ├── index.html          # 棒球版主页
 │   ├── unit7/
-│   │   ├── index.html      # 棒球版 Unit 7 课程
-│   │   └── homework.html   # 棒球版 Unit 7 作业
+│   │   ├── baseball-present-continuous-course.html    # 棒球版 Unit 7 课程
+│   │   └── baseball-present-continuous-homework.html  # 棒球版 Unit 7 作业
 │   └── unit8/
-│       └── index.html      # 棒球版 Unit 8 课程
+│       └── baseball-gerunds-ball-sports.html          # 棒球版 Unit 8 课程
 ├── LICENSE                 # Apache License 2.0
 ├── README.md               # 项目说明文档
 └── AGENTS.md               # 本文件
@@ -58,22 +58,22 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 | 文件 | 功能描述 |
 |------|---------|
 | `index.html` | 课程平台主页，展示所有可用单元卡片，导航到具体课程；页脚含有彩蛋链接到棒球板块 |
-| `unit7/index.html` | Unit 7 核心课程，包含：汉堡包结构讲解、Be动词口诀、三种句型、动词-ing规则、互动练习、故事阅读、完形填空 |
-| `unit7/homework.html` | 作业页面，包含：句型转换练习、造句练习、故事复述、对话创作、作业清单与进度追踪 |
-| `unit8/index.html` | Unit 8 核心课程 - 球类运动，包含：10个球类运动词汇、动名词作主语语法结构、歌曲填空、两篇阅读材料、汉译英练习、理解测验 |
-| `unit8/amazing-vehicles.html` | Unit 8 课程 - 神奇的交通工具，包含：9个核心词汇、Measure与There be语法、两篇阅读理解（10题）、完形填空、作业待办清单 |
-| `unit8/reading.html` | Unit 8 课程 - Fun Things We Do，包含：人物卡片、阅读课文、5道理解题、9个词汇卡片（带发音）、语法重点、作业清单 |
-| `unit8/grammar.html` | Unit 8 语法作业页面，包含：5个疑问词用法、新对话、9个动词短语、造句练习、邮件完形填空、作业清单 |
+| `unit7/present-continuous-course.html` | Unit 7 核心课程，包含：汉堡包结构讲解、Be动词口诀、三种句型、动词-ing规则、互动练习、故事阅读、完形填空 |
+| `unit7/present-continuous-homework.html` | 作业页面，包含：句型转换练习、造句练习、故事复述、对话创作、作业清单与进度追踪 |
+| `unit8/gerunds-ball-sports.html` | Unit 8 核心课程 - 球类运动，包含：10个球类运动词汇、动名词作主语语法结构、歌曲填空、两篇阅读材料、汉译英练习、理解测验 |
+| `unit8/amazing-vehicles-reading.html` | Unit 8 课程 - 神奇的交通工具，包含：9个核心词汇、Measure与There be语法、两篇阅读理解（10题）、完形填空、作业待办清单 |
+| `unit8/fun-things-we-do-reading.html` | Unit 8 课程 - Fun Things We Do，包含：人物卡片、阅读课文、5道理解题、9个词汇卡片（带发音）、语法重点、作业清单 |
+| `unit8/question-words-grammar-homework.html` | Unit 8 语法作业页面，包含：5个疑问词用法、新对话、9个动词短语、造句练习、邮件完形填空、作业清单 |
 | `unit8/grammar.css` | Unit 8 语法页面专用样式（棒球主题风格） |
 | `unit8/grammar.js` | Unit 8 语法页面交互脚本（翻译切换、发音、填空交互） |
-| `unit9/index.html` | Unit 9 语法复习页面，包含：Page 108歌曲语法重点、Page 109语法总结、两组对话填空（35+空）、5个动词短语发音、作业清单 |
-| `unit9/fairy-tales.html` | Unit 9 童话故事阅读页面，包含：14个词汇卡片（带发音）、两篇阅读理解（Folk Tales + Reading on Holiday）、8道选择题、40道单词测验（汉译英+英译汉）、作业清单 |
-| `super-minds-baseball/unit8/index.html` | 棒球版 Unit 8 课程内容 |
+| `unit9/holiday-plans-grammar-review.html` | Unit 9 语法复习页面，包含：Page 108歌曲语法重点、Page 109语法总结、两组对话填空（35+空）、5个动词短语发音、作业清单 |
+| `unit9/fairy-tales-reading.html` | Unit 9 童话故事阅读页面，包含：14个词汇卡片（带发音）、两篇阅读理解（Folk Tales + Reading on Holiday）、8道选择题、40道单词测验（汉译英+英译汉）、作业清单 |
+| `super-minds-baseball/unit8/baseball-gerunds-ball-sports.html` | 棒球版 Unit 8 课程内容 |
 | `super-minds-baseball/index.html` | 棒球主题的英语学习板块主页 |
 | `css/common.css` | 共享 CSS 样式模块（变量、动画、工具类） |
 | `js/common.js` | 共享 JavaScript 工具函数（导航、切换、进度追踪） |
-| `super-minds-baseball/unit7/index.html` | 棒球版 Unit 7 课程内容 |
-| `super-minds-baseball/unit7/homework.html` | 棒球版 Unit 7 作业内容 |
+| `super-minds-baseball/unit7/baseball-present-continuous-course.html` | 棒球版 Unit 7 课程内容 |
+| `super-minds-baseball/unit7/baseball-present-continuous-homework.html` | 棒球版 Unit 7 作业内容 |
 
 ## Code Organization
 
@@ -132,8 +132,8 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 #### 页面特定脚本
 
 页面内嵌 `<script>` 包含仅该页面需要的逻辑，如：
-- `checkCloze()` - 完形填空检查（unit7/index.html）
-- `copyDialogue()` - 对话复制（unit7/homework.html）
+- `checkCloze()` - 完形填空检查（unit7/present-continuous-course.html）
+- `copyDialogue()` - 对话复制（unit7/present-continuous-homework.html）
 - 事件监听器和初始化代码
 
 所有页面自动调用 `initCommon()` 进行初始化（图标初始化、进度恢复等）。
@@ -198,7 +198,7 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 - LocalStorage 持久化保存完成状态
 - 家长提示区域
 
-## Unit 8 Grammar Homework (grammar.html) Specific Features
+## Unit 8 Question Words Grammar Homework (unit8/question-words-grammar-homework.html) Specific Features
 
 ### 1. 语法重点卡片 (Grammar Focus Cards)
 - 5个疑问词用法卡片：Where, When, Which, Who, How often
@@ -262,7 +262,7 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 - 4项作业任务，点击切换完成状态
 - 家长提示区域
 
-## Unit 9 Fairy Tales (unit9/fairy-tales.html) Specific Features
+## Unit 9 Fairy Tales (unit9/fairy-tales-reading.html) Specific Features
 
 ### 1. 词汇卡片 (Vocabulary Cards)
 - 两套词汇：Fairy Tales（14词）和 Reading on Holiday（10词）
@@ -286,7 +286,7 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 - 皮革质感卡片容器（.leather-card）
 - localStorage 键使用 `fairyTalesTodos`
 
-## Unit 9 Grammar Review (unit9/index.html) Specific Features
+## Unit 9 Grammar Review (unit9/holiday-plans-grammar-review.html) Specific Features
 
 ### 1. Page 108 语法重点卡片 (Grammar Focus Cards)
 - 3个核心语法卡片：It's time for...、Can I...、be going to...
@@ -390,7 +390,7 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 ### 添加新单元的步骤
 
 1. 创建 `unitX/` 目录
-2. 复制 `unit7/index.html` 或 `unit7/homework.html` 作为模板
+2. 复制 `unit7/present-continuous-course.html` 或 `unit7/present-continuous-homework.html` 作为模板
 3. 修改页面标题和内容
 4. 更新根目录 `index.html` 中的单元卡片链接
 5. 测试所有交互功能
@@ -399,8 +399,8 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 
 Unit 8 是一个独立风格的单元（棒球主题），不同于延续 Unit 7 的风格：
 
-1. 创建了 `unit8/index.html` - 动名词作主语课程
-2. 复制到 `super-minds-baseball/unit8/index.html` - 棒球主题版本
+1. 创建了 `unit8/gerunds-ball-sports.html` - 动名词作主语课程
+2. 复制到 `super-minds-baseball/unit8/baseball-gerunds-ball-sports.html` - 棒球主题版本
 3. 更新了 `index.html` - 添加 Unit 8 卡片和快速链接
 4. 更新了 `super-minds-baseball/index.html` - 添加 Unit 8 导航卡片
 5. 更新了 `README.md` - 添加 Unit 8 课程描述
@@ -408,65 +408,65 @@ Unit 8 是一个独立风格的单元（棒球主题），不同于延续 Unit 7
 
 ### Unit 8 Amazing Vehicles 添加示例
 
-1. 创建了 `unit8/amazing-vehicles.html` - 交通工具主题课程
+1. 创建了 `unit8/amazing-vehicles-reading.html` - 交通工具主题课程
 2. 更新了 `index.html` - 添加新卡片到课程单元列表
-3. 更新了 `unit8/index.html` - 添加 Unit 8 下拉导航菜单
-4. 更新了 `unit7/index.html` - 添加 Unit 8 下拉导航菜单
-5. 更新了 `unit7/homework.html` - 添加 Unit 8 下拉导航菜单
+3. 更新了 `unit8/gerunds-ball-sports.html` - 添加 Unit 8 下拉导航菜单
+4. 更新了 `unit7/present-continuous-course.html` - 添加 Unit 8 下拉导航菜单
+5. 更新了 `unit7/present-continuous-homework.html` - 添加 Unit 8 下拉导航菜单
 6. 更新了 `README.md` - 添加课程描述
 7. 更新了 `AGENTS.md` - 更新项目结构
 
 ### Unit 8 Reading (Fun Things We Do) 添加示例
 
-1. 创建了 `unit8/reading.html` - 阅读主题课程
+1. 创建了 `unit8/fun-things-we-do-reading.html` - 阅读主题课程
 2. 更新了 `index.html` - 添加课程卡片和快速链接
-3. 更新了 `unit8/index.html` - 添加导航下拉菜单链接
-4. 更新了 `unit8/amazing-vehicles.html` - 添加导航下拉菜单链接
-5. 更新了 `unit7/index.html` - 添加 Unit 8 下拉导航菜单链接
-6. 更新了 `unit7/homework.html` - 添加 Unit 8 下拉导航菜单链接
+3. 更新了 `unit8/gerunds-ball-sports.html` - 添加导航下拉菜单链接
+4. 更新了 `unit8/amazing-vehicles-reading.html` - 添加导航下拉菜单链接
+5. 更新了 `unit7/present-continuous-course.html` - 添加 Unit 8 下拉导航菜单链接
+6. 更新了 `unit7/present-continuous-homework.html` - 添加 Unit 8 下拉导航菜单链接
 7. 更新了 `README.md` - 添加课程描述
 8. 更新了 `AGENTS.md` - 更新项目结构和功能说明
 9. 添加了测试 - 导航链接验证测试
 
 ### Unit 9 添加示例
 
-Unit 9 是一个语法复习页面，采用棒球主题风格（与 unit8/reading.html 一致）：
+Unit 9 是一个语法复习页面，采用棒球主题风格（与 unit8/fun-things-we-do-reading.html 一致）：
 
-1. 创建了 `unit9/index.html` - 假期计划语法复习页面
+1. 创建了 `unit9/holiday-plans-grammar-review.html` - 假期计划语法复习页面
 2. 更新了 `index.html` - 添加 Unit 9 卡片和快速链接
-3. 更新了 `unit7/index.html` - 添加 Unit 9 导航下拉菜单
-4. 更新了 `unit7/homework.html` - 添加 Unit 9 导航下拉菜单
-5. 更新了 `unit8/index.html` - 添加 Unit 9 导航下拉菜单
-6. 更新了 `unit8/amazing-vehicles.html` - 添加 Unit 9 导航下拉菜单
-7. 更新了 `unit8/reading.html` - 添加 Unit 9 导航下拉菜单
-8. 更新了 `unit8/grammar.html` - 添加 Unit 9 导航下拉菜单
+3. 更新了 `unit7/present-continuous-course.html` - 添加 Unit 9 导航下拉菜单
+4. 更新了 `unit7/present-continuous-homework.html` - 添加 Unit 9 导航下拉菜单
+5. 更新了 `unit8/gerunds-ball-sports.html` - 添加 Unit 9 导航下拉菜单
+6. 更新了 `unit8/amazing-vehicles-reading.html` - 添加 Unit 9 导航下拉菜单
+7. 更新了 `unit8/fun-things-we-do-reading.html` - 添加 Unit 9 导航下拉菜单
+8. 更新了 `unit8/question-words-grammar-homework.html` - 添加 Unit 9 导航下拉菜单
 9. 更新了 `README.md` - 添加 Unit 9 课程描述
 10. 更新了 `AGENTS.md` - 更新项目结构和功能说明
 11. 更新了 `TESTING.md` - 添加 Unit 9 测试清单
 12. 添加了测试工作流 `.github/workflows/unit9-test.yml`
-13. 更新了 `test.sh` - 添加 Unit 9 验证、grammar.html 检查、棒球版 unit9 导航检查
-14. 更新了 `.github/workflows/quick-test.yml` - 添加 Unit 9 检查、grammar.html 验证、棒球版 unit9 导航检查
+13. 更新了 `test.sh` - 添加 Unit 9 验证、question-words-grammar-homework.html 检查、棒球版 unit9 导航检查
+14. 更新了 `.github/workflows/quick-test.yml` - 添加 Unit 9 检查、question-words-grammar-homework.html 验证、棒球版 unit9 导航检查
 15. 更新了 `.github/workflows/ci.yml` - 添加 Unit 9 及 unit8 子页面 HTML 验证
 16. 更新了 `super-minds-baseball/index.html` - 添加 Unit 9 导航卡片
-17. 更新了 `super-minds-baseball/unit7/index.html` - 添加 Unit 9 导航链接
-18. 更新了 `super-minds-baseball/unit7/homework.html` - 添加 Unit 9 导航链接
-19. 更新了 `super-minds-baseball/unit8/index.html` - 添加 Unit 9 导航链接
+17. 更新了 `super-minds-baseball/unit7/baseball-present-continuous-course.html` - 添加 Unit 9 导航链接
+18. 更新了 `super-minds-baseball/unit7/baseball-present-continuous-homework.html` - 添加 Unit 9 导航链接
+19. 更新了 `super-minds-baseball/unit8/baseball-gerunds-ball-sports.html` - 添加 Unit 9 导航链接
 
 ### Unit 9 Fairy Tales 添加示例
 
-1. 创建了 `unit9/fairy-tales.html` - 童话故事阅读页面
-2. 更新了 `unit9/index.html` - 添加 Fairy Tales 导航下拉菜单
+1. 创建了 `unit9/fairy-tales-reading.html` - 童话故事阅读页面
+2. 更新了 `unit9/holiday-plans-grammar-review.html` - 添加 Fairy Tales 导航下拉菜单
 3. 更新了 `index.html` - 添加 Fairy Tales 课程卡片和快速链接
-4. 更新了 `unit7/index.html` - 添加 Fairy Tales 导航链接
-5. 更新了 `unit7/homework.html` - 添加 Fairy Tales 导航链接
-6. 更新了 `unit8/index.html` - 添加 Fairy Tales 导航链接
-7. 更新了 `unit8/amazing-vehicles.html` - 添加 Fairy Tales 导航链接
-8. 更新了 `unit8/reading.html` - 添加 Fairy Tales 导航链接
-9. 更新了 `unit8/grammar.html` - 添加 Fairy Tales 导航链接
+4. 更新了 `unit7/present-continuous-course.html` - 添加 Fairy Tales 导航链接
+5. 更新了 `unit7/present-continuous-homework.html` - 添加 Fairy Tales 导航链接
+6. 更新了 `unit8/gerunds-ball-sports.html` - 添加 Fairy Tales 导航链接
+7. 更新了 `unit8/amazing-vehicles-reading.html` - 添加 Fairy Tales 导航链接
+8. 更新了 `unit8/fun-things-we-do-reading.html` - 添加 Fairy Tales 导航链接
+9. 更新了 `unit8/question-words-grammar-homework.html` - 添加 Fairy Tales 导航链接
 10. 更新了 `super-minds-baseball/index.html` - 添加 Fairy Tales 导航卡片
-11. 更新了 `super-minds-baseball/unit7/index.html` - 添加 Fairy Tales 导航链接
-12. 更新了 `super-minds-baseball/unit7/homework.html` - 添加 Fairy Tales 导航链接
-13. 更新了 `super-minds-baseball/unit8/index.html` - 添加 Fairy Tales 导航链接
+11. 更新了 `super-minds-baseball/unit7/baseball-present-continuous-course.html` - 添加 Fairy Tales 导航链接
+12. 更新了 `super-minds-baseball/unit7/baseball-present-continuous-homework.html` - 添加 Fairy Tales 导航链接
+13. 更新了 `super-minds-baseball/unit8/baseball-gerunds-ball-sports.html` - 添加 Fairy Tales 导航链接
 14. 更新了 `AGENTS.md` - 更新项目结构和功能说明
 15. 移除阅读理解正确选项文本中的 `✓` 字符，保留点击后的样式反馈
 
@@ -516,7 +516,7 @@ python3 -m http.server 8000
 | `quick-test.yml` | Push/PR to master | 文件结构、引用检查、HTML基础验证、棒球版Unit 9导航链接检查 |
 | `ci.yml` | Manual/Scheduled | HTML/CSS/JS验证、链接检查、功能测试 |
 | `browser-tests.yml` | Push/PR to master | 无头浏览器E2E测试、Lighthouse、视觉回归、跨页面导航测试 |
-| `unit8-reading-test.yml` | Push/PR to master (when unit8/reading.html changes) | Unit 8 Reading页面专项测试 |
+| `unit8-reading-test.yml` | Push/PR to master (when unit8/fun-things-we-do-reading.html changes) | Unit 8 Reading页面专项测试 |
 
 **Headless Browser Testing:**
 - 使用 Puppeteer 和 Playwright 进行浏览器自动化
@@ -555,7 +555,7 @@ python3 -m http.server 8000
 
 ### 添加新的互动练习题
 
-在 `unit7/index.html` 的 `.quiz-container` 中添加：
+在 `unit7/present-continuous-course.html` 的 `.quiz-container` 中添加：
 
 ```html
 <div class="quiz-item" onclick="toggleQuizAnswer(this)">
@@ -575,7 +575,7 @@ python3 -m http.server 8000
 
 ### 修改 Google Analytics ID
 
-在 `unit7/index.html` 的 `<head>` 中修改：
+在 `unit7/present-continuous-course.html` 的 `<head>` 中修改：
 
 ```javascript
 const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
@@ -583,4 +583,4 @@ const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
 
 ### 更新作业日期
 
-在 `unit7/homework.html` 中搜索并替换日期字符串。
+在 `unit7/present-continuous-homework.html` 中搜索并替换日期字符串。
