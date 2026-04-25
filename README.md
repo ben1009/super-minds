@@ -18,21 +18,21 @@ A baseball-themed course focusing on **using gerunds as subjects** with ball spo
 
 **Two learning tracks available:**
 
-1. **Ball Sports** (`unit8/index.html`)
+1. **Ball Sports** (`unit8/gerunds-ball-sports.html`)
    - 🏀 10 ball sports vocabulary words (soccer, basketball, tennis, volleyball, golf, bowling, baseball, badminton, rugby, ping-pong)
    - 📝 Grammar structure: Playing + sport + is + adjective
    - 🎵 Song activities with fill-in-the-blank exercises
    - 📖 Reading comprehension with interactive translations
    - ✏️ Chinese-to-English translation practice
 
-2. **Amazing Vehicles** (`unit8/amazing-vehicles.html`)
+2. **Amazing Vehicles** (`unit8/amazing-vehicles-reading.html`)
    - 🚌 9 vehicle-related vocabulary words (amazing, because, inside, difficult, front, back, party, drive, pool)
    - 📏 Grammar: Measure vs Measuring, There be with length units (1cm=10mm, 1m=100cm)
    - 📖 Two reading passages with comprehension questions
    - 📝 Cloze exercise with interactive blanks
    - ✏️ Homework todo list with progress tracking
 
-3. **Fun Things We Do** (`unit8/reading.html`)
+3. **Fun Things We Do** (`unit8/fun-things-we-do-reading.html`)
    - 🎨 Character cards with hobbies (Amy, Ben, Cindy, David)
    - 📖 Reading passage with clickable translations
    - 📝 5 reading comprehension questions
@@ -40,7 +40,7 @@ A baseball-themed course focusing on **using gerunds as subjects** with ball spo
    - 📚 Grammar focus: like/enjoy/love + V-ing, be interested in + V-ing
    - ✅ Interactive todo list for homework tracking
 
-4. **Grammar Homework** (`unit8/grammar.html`)
+4. **Grammar Homework** (`unit8/question-words-grammar-homework.html`)
    - 📝 Grammar focus: 5 question words (Where, When, Which, Who, How often)
    - 💬 New dialogue: Creating a football team story
    - 🎯 9 Unit 9 verb phrases with audio pronunciation
@@ -51,14 +51,14 @@ A baseball-themed course focusing on **using gerunds as subjects** with ball spo
 ### Unit 9 - Holiday Plans Grammar (假期计划语法)
 Unit 9 now includes a grammar review track and a reading track.
 
-1. **Holiday Plans Grammar** (`unit9/index.html`)
+1. **Holiday Plans Grammar** (`unit9/holiday-plans-grammar-review.html`)
    - 🎵 Page 108 song grammar: `It's time for...`, `Can I...`, `I'm going to...`
    - 📝 Page 109 grammar summary: question words, be verbs, can, have got, there be
    - 💬 Two dialogue fill-in-the-blank exercises (35+ blanks)
    - 🎯 5 verb phrases with audio pronunciation (Web Speech API)
    - ✅ Interactive todo list for homework tracking
 
-2. **Fairy Tales Reading** (`unit9/fairy-tales.html`)
+2. **Fairy Tales Reading** (`unit9/fairy-tales-reading.html`)
    - 🏰 Fairy Tales vocabulary set and Reading on Holiday vocabulary set
    - 📖 Two reading passages: Folk Tales Around the World and Reading on Holiday
    - 📝 8 reading comprehension questions with interactive answer feedback
@@ -83,26 +83,25 @@ No installation required — just open it in your browser!
 ├── js/
 │   └── common.js           # Shared utilities (navigation, toggles, progress)
 ├── unit7/
-│   ├── index.html          # Unit 7: Present Continuous Tense
-│   └── homework.html       # Unit 7 Homework
+│   ├── present-continuous-course.html    # Unit 7: Present Continuous Tense
+│   └── present-continuous-homework.html  # Unit 7 Homework
 ├── unit8/
-│   ├── index.html          # Unit 8: Gerunds as Subjects (Ball Sports)
-│   ├── amazing-vehicles.html  # Unit 8: Amazing Vehicles (Reading & Vocabulary)
-│   ├── reading.html        # Unit 8: Fun Things We Do (Reading & Hobbies)
-│   ├── grammar.html        # Unit 8: Grammar Homework & Exercises
-│   ├── grammar.css         # Unit 8: Grammar page styles
-│   └── grammar.js          # Unit 8: Grammar page interactions
+│   ├── gerunds-ball-sports.html              # Unit 8: Gerunds as Subjects (Ball Sports)
+│   ├── amazing-vehicles-reading.html         # Unit 8: Amazing Vehicles (Reading & Vocabulary)
+│   ├── fun-things-we-do-reading.html         # Unit 8: Fun Things We Do (Reading & Hobbies)
+│   ├── question-words-grammar-homework.html  # Unit 8: Question Words Grammar Homework
+│   ├── grammar.css                           # Unit 8: Grammar page styles
+│   └── grammar.js                            # Unit 8: Grammar page interactions
 ├── unit9/
-│   ├── index.html          # Unit 9: Holiday Plans Grammar Review
-│   ├── fairy-tales.html    # Unit 9: Fairy Tales Reading
-│   └── Super minds2 -page 114.pdf  # Source PDF for Fairy Tales content
+│   ├── holiday-plans-grammar-review.html  # Unit 9: Holiday Plans Grammar Review
+│   └── fairy-tales-reading.html           # Unit 9: Fairy Tales Reading
 ├── super-minds-baseball/   # Baseball-themed edition
 │   ├── index.html          # Baseball homepage with links to all units
 │   ├── unit7/
-│   │   ├── index.html      # Baseball Unit 7: Present Continuous
-│   │   └── homework.html   # Baseball Unit 7 Homework
+│   │   ├── baseball-present-continuous-course.html    # Baseball Unit 7: Present Continuous
+│   │   └── baseball-present-continuous-homework.html  # Baseball Unit 7 Homework
 │   └── unit8/
-│       └── index.html      # Baseball Unit 8: Gerunds (links to main site Unit 9)
+│       └── baseball-gerunds-ball-sports.html          # Baseball Unit 8: Gerunds
 └── .github/workflows/      # CI/CD automation
 ```
 

@@ -111,9 +111,9 @@ grep -l 'rel="icon"' index.html unit7/*.html unit8/*.html super-minds-baseball/*
 
 **Files to check:**
 - `/super-minds-baseball/index.html`
-- `/super-minds-baseball/unit7/index.html`
-- `/super-minds-baseball/unit7/homework.html`
-- `/super-minds-baseball/unit8/index.html`
+- `/super-minds-baseball/unit7/baseball-present-continuous-course.html`
+- `/super-minds-baseball/unit7/baseball-present-continuous-homework.html`
+- `/super-minds-baseball/unit8/baseball-gerunds-ball-sports.html`
 
 ---
 
@@ -121,8 +121,8 @@ grep -l 'rel="icon"' index.html unit7/*.html unit8/*.html super-minds-baseball/*
 
 **Visual Check - Main Site:**
 - [ ] http://localhost:8000/ - Homepage loads with correct gradient background
-- [ ] http://localhost:8000/unit7/index.html - Unit 7 page has correct styling
-- [ ] http://localhost:8000/unit7/homework.html - Homework page has correct styling
+- [ ] http://localhost:8000/unit7/present-continuous-course.html - Unit 7 page has correct styling
+- [ ] http://localhost:8000/unit7/present-continuous-homework.html - Homework page has correct styling
 - [ ] Animations work: `.animate-fade-in` elements fade in on load
 - [ ] Cards have hover effects: `.card-hover` elements lift on hover
 
@@ -148,7 +148,7 @@ document.querySelector('link[href*="common.css"]')
 - [ ] Click again - menu closes
 - [ ] Resize to desktop - mobile menu is hidden
 
-**Unit 7 Page (/unit7/index.html):**
+**Unit 7 Page (/unit7/present-continuous-course.html):**
 - [ ] Quiz items: Click any quiz question → answer expands
 - [ ] Click again → answer collapses
 - [ ] Chevron icon rotates when expanded
@@ -157,7 +157,7 @@ document.querySelector('link[href*="common.css"]')
 - [ ] Cloze test: Click blanks → dropdown appears
 - [ ] Check Answers button works
 
-**Homework Page (/unit7/homework.html):**
+**Homework Page (/unit7/present-continuous-homework.html):**
 - [ ] Tab switching: Click "否定句", "疑问句" tabs
 - [ ] Flashcards: Click to flip
 - [ ] Timeline: Click nodes to expand/collapse
@@ -194,37 +194,37 @@ document.querySelectorAll('[data-lucide]')
 Test all links work correctly:
 
 **From Homepage (index.html):**
-- [ ] Unit 7 card → /unit7/index.html
-- [ ] Unit 8 card → /unit8/index.html
-- [ ] Homework card → /unit7/homework.html
+- [ ] Unit 7 card → /unit7/present-continuous-course.html
+- [ ] Unit 8 card → /unit8/gerunds-ball-sports.html
+- [ ] Homework card → /unit7/present-continuous-homework.html
 
 **From Unit 7:**
 - [ ] Nav: "首页 Home" → /
-- [ ] Nav: "Unit 8" → /unit8/index.html
-- [ ] Nav: "作业 Homework" → /unit7/homework.html
+- [ ] Nav: "Unit 8" → /unit8/gerunds-ball-sports.html
+- [ ] Nav: "作业 Homework" → /unit7/present-continuous-homework.html
 
 **From Homework:**
-- [ ] Nav: "Unit 7" → /unit7/index.html
+- [ ] Nav: "Unit 7" → /unit7/present-continuous-course.html
 
 **From Unit 9:**
 - [ ] Nav: "首页 Home" → /
-- [ ] Nav: "Unit 7" → /unit7/index.html
-- [ ] Nav: "Unit 8" → /unit8/index.html
+- [ ] Nav: "Unit 7" → /unit7/present-continuous-course.html
+- [ ] Nav: "Unit 8" → /unit8/gerunds-ball-sports.html
 - [ ] Blank toggle: Click blank → answer reveals
 - [ ] Answer table toggle: Click button → answer table shows
 - [ ] Todo toggle: Click task → marked completed
 
 **From Baseball Section:**
-- [ ] Baseball homepage card → /unit9/index.html
-- [ ] Baseball Unit 7 nav → /unit9/index.html
-- [ ] Baseball Unit 8 nav → /unit9/index.html
-- [ ] Baseball homepage card → /unit9/fairy-tales.html
-- [ ] Baseball Unit 7 desktop/mobile nav → /unit9/fairy-tales.html
-- [ ] Baseball Unit 8 nav → /unit9/fairy-tales.html
+- [ ] Baseball homepage card → /unit9/holiday-plans-grammar-review.html
+- [ ] Baseball Unit 7 nav → /unit9/holiday-plans-grammar-review.html
+- [ ] Baseball Unit 8 nav → /unit9/holiday-plans-grammar-review.html
+- [ ] Baseball homepage card → /unit9/fairy-tales-reading.html
+- [ ] Baseball Unit 7 desktop/mobile nav → /unit9/fairy-tales-reading.html
+- [ ] Baseball Unit 8 nav → /unit9/fairy-tales-reading.html
 
 ---
 
-### ✅ Unit 8 Amazing Vehicles Page (/unit8/amazing-vehicles.html)
+### ✅ Unit 8 Amazing Vehicles Page (/unit8/amazing-vehicles-reading.html)
 
 - [ ] Page loads with correct title "Amazing Vehicles"
 - [ ] 9 vocabulary cards display (amazing, because, inside, difficult, front, back, party, drive, pool)
@@ -239,7 +239,7 @@ Test all links work correctly:
 
 ---
 
-### ✅ Unit 8 Grammar Homework Page (/unit8/grammar.html)
+### ✅ Unit 8 Grammar Homework Page (/unit8/question-words-grammar-homework.html)
 
 - [ ] Page loads with correct title "Unit 8 - Homework · 作业练习"
 - [ ] 5 Grammar Focus cards (Where, When, Which, Who, How often)
@@ -257,7 +257,7 @@ Test all links work correctly:
 
 ---
 
-### ✅ Unit 9 Page (/unit9/index.html)
+### ✅ Unit 9 Page (/unit9/holiday-plans-grammar-review.html)
 
 - [ ] Page loads with correct title "Unit 9 · 假期计划语法"
 - [ ] 3 grammar cards displayed (It's time for..., Can I..., be going to...)
@@ -271,7 +271,7 @@ Test all links work correctly:
 
 ---
 
-### ✅ Unit 9 Fairy Tales Page (/unit9/fairy-tales.html)
+### ✅ Unit 9 Fairy Tales Page (/unit9/fairy-tales-reading.html)
 
 - [ ] Page loads with correct title "Super Minds 2 Unit 9 · Fairy Tales 童话故事"
 - [ ] Fairy Tales vocabulary section displays 14 word cards
@@ -358,8 +358,8 @@ Compare before/after behavior:
 | Icons display | Works | Should work identically |
 | Baseball → Unit 9 nav | N/A | New: All 4 baseball pages link to Unit 9 |
 | Baseball → Fairy Tales nav | N/A | New: Baseball homepage, Unit 7 desktop/mobile pages, and Unit 8 link to Fairy Tales |
-| Grammar page tests | N/A | New: browser-tests.yml covers grammar.html |
-| Reading page tests | N/A | New: browser-tests.yml covers reading.html |
+| Grammar page tests | N/A | New: browser-tests.yml covers question-words-grammar-homework.html |
+| Reading page tests | N/A | New: browser-tests.yml covers fun-things-we-do-reading.html |
 | Fairy Tales page tests | N/A | New: test.sh covers vocabulary, reading passages, quiz options, todo, GA, and navigation |
 
 ---
@@ -390,9 +390,9 @@ Test on at least:
 
 **Specific pages to verify:**
 - [ ] `http://localhost:8000/` — Homepage cards and navigation
-- [ ] `http://localhost:8000/unit8/grammar.html` — Grammar homework, mobile menu, audio buttons
-- [ ] `http://localhost:8000/unit8/reading.html` — Reading comprehension, character cards
-- [ ] `http://localhost:8000/unit8/amazing-vehicles.html` — Vehicles vocabulary, cloze exercise
-- [ ] `http://localhost:8000/unit9/index.html` — Dialogue blanks, answer toggles, todo list
-- [ ] `http://localhost:8000/unit9/fairy-tales.html` — Fairy Tales vocabulary, reading questions, word quiz, todo list
+- [ ] `http://localhost:8000/unit8/question-words-grammar-homework.html` — Grammar homework, mobile menu, audio buttons
+- [ ] `http://localhost:8000/unit8/fun-things-we-do-reading.html` — Reading comprehension, character cards
+- [ ] `http://localhost:8000/unit8/amazing-vehicles-reading.html` — Vehicles vocabulary, cloze exercise
+- [ ] `http://localhost:8000/unit9/holiday-plans-grammar-review.html` — Dialogue blanks, answer toggles, todo list
+- [ ] `http://localhost:8000/unit9/fairy-tales-reading.html` — Fairy Tales vocabulary, reading questions, word quiz, todo list
 - [ ] `http://localhost:8000/super-minds-baseball/` — Baseball theme, Unit 9 card link

@@ -86,7 +86,7 @@ jobs:
           console.log('📋 Test Suite: Page Load');
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit9/index.html');
+            await page.goto('http://localhost:8000/unit9/holiday-plans-grammar-review.html');
 
             const title = await page.title();
             if (title.includes('Unit 9')) {
@@ -135,7 +135,7 @@ jobs:
           console.log('\n📋 Test Suite: Todo Toggle');
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit9/index.html');
+            await page.goto('http://localhost:8000/unit9/holiday-plans-grammar-review.html');
 
             const todoItem = await page.$('.todo-item');
             if (todoItem) {
@@ -169,7 +169,7 @@ jobs:
           console.log('\n📋 Test Suite: Blank Toggle');
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit9/index.html');
+            await page.goto('http://localhost:8000/unit9/holiday-plans-grammar-review.html');
 
             const blank = await page.$('.blank');
             if (blank) {
@@ -214,7 +214,7 @@ jobs:
           console.log('\n📋 Test Suite: Navigation Links');
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit9/index.html');
+            await page.goto('http://localhost:8000/unit9/holiday-plans-grammar-review.html');
 
             const links = await page.evaluate(() => {
               const nav = document.querySelector('nav');
@@ -246,7 +246,7 @@ jobs:
           console.log('\n📋 Test Suite: Answer Table Toggle');
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit9/index.html');
+            await page.goto('http://localhost:8000/unit9/holiday-plans-grammar-review.html');
 
             const toggleBtn = await page.$('.toggle-btn');
             if (toggleBtn) {
