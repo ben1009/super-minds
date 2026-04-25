@@ -173,12 +173,12 @@ fi
 
 # Check Unit 8 reading.html has required elements
 echo ""
-echo "5. Checking Unit 8 reading.html..."
+echo "5. Checking Unit 8 fun-things-we-do-reading.html..."
 if [ -f "unit8/fun-things-we-do-reading.html" ]; then
     if grep -q 'data-correct-option' "unit8/fun-things-we-do-reading.html"; then
-        echo "   ✓ reading.html uses data-correct-option attributes"
+        echo "   ✓ fun-things-we-do-reading.html uses data-correct-option attributes"
     else
-        echo "   ⚠️ reading.html may be missing data-correct-option attributes"
+        echo "   ⚠️ fun-things-we-do-reading.html may be missing data-correct-option attributes"
     fi
     
     if grep -q 'function speak(text, cardElement)' "unit8/fun-things-we-do-reading.html"; then
@@ -295,7 +295,7 @@ ERRORS=0
 for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html; do
     if [ -f "$file" ]; then
         if grep -q 'fun-things-we-do-reading.html' "$file"; then
-            echo "   ✓ $file has link to reading.html"
+            echo "   ✓ $file has link to fun-things-we-do-reading.html"
         else
             echo "   ✗ $file missing link to reading.html!"
             ERRORS=$((ERRORS + 1))
@@ -329,9 +329,9 @@ if [ -f "unit8/question-words-grammar-homework.html" ]; then
     echo "   ✓ unit8/question-words-grammar-homework.html exists"
     
     # Check for navigation links
-    check_content "unit8/question-words-grammar-homework.html" 'index.html' "grammar.html has link to index.html"
-    check_content "unit8/question-words-grammar-homework.html" 'amazing-vehicles-reading.html' "grammar.html has link to amazing-vehicles.html"
-    check_content "unit8/question-words-grammar-homework.html" 'fun-things-we-do-reading.html' "grammar.html has link to reading.html"
+    check_content "unit8/question-words-grammar-homework.html" 'index.html' "question-words-grammar-homework.html has link to index.html"
+    check_content "unit8/question-words-grammar-homework.html" 'amazing-vehicles-reading.html' "question-words-grammar-homework.html has link to amazing-vehicles-reading.html"
+    check_content "unit8/question-words-grammar-homework.html" 'fun-things-we-do-reading.html' "question-words-grammar-homework.html has link to fun-things-we-do-reading.html"
     
     # Check for external CSS/JS files
     check_content "unit8/question-words-grammar-homework.html" 'grammar.css' "grammar.html links to grammar.css"
@@ -370,7 +370,7 @@ ERRORS=0
 for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/fun-things-we-do-reading.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html; do
     if [ -f "$file" ]; then
         if grep -q 'question-words-grammar-homework.html' "$file"; then
-            echo "   ✓ $file has link to grammar.html"
+            echo "   ✓ $file has link to question-words-grammar-homework.html"
         else
             echo "   ✗ $file missing link to grammar.html!"
             ERRORS=$((ERRORS + 1))
@@ -576,14 +576,14 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
-echo "16. Checking reading.html todo matches fairy-tales.html pattern..."
+echo "16. Checking fun-things-we-do-reading.html todo matches fairy-tales.html pattern..."
 ERRORS=0
 
 # Check reading.html todo items use bg-white rounded-xl pattern
 if grep -q 'todo-item bg-white rounded-xl' unit8/fun-things-we-do-reading.html; then
-    echo "   ✓ reading.html todo items use fairy-tales pattern"
+    echo "   ✓ fun-things-we-do-reading.html todo items use fairy-tales pattern"
 else
-    echo "   ✗ reading.html todo items missing bg-white rounded-xl pattern!"
+    echo "   ✗ fun-things-we-do-reading.html todo items missing bg-white rounded-xl pattern!"
     ERRORS=$((ERRORS + 1))
 fi
 

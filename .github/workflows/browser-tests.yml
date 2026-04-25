@@ -212,7 +212,7 @@ jobs:
           test('can navigate from home to Unit 7', async ({ page }) => {
             await page.goto('http://localhost:8000/');
             await page.click('a[href="unit7/present-continuous-course.html"]');
-            await expect(page).toHaveURL(/unit7\/index\.html/);
+            await expect(page).toHaveURL(/unit7\/present-continuous-course\.html/);
           });
           
           test('can navigate from Unit 7 to Homework', async ({ page }) => {
@@ -221,7 +221,7 @@ jobs:
             await page.locator('a:has-text("Unit 7"), .group:has-text("Unit 7")').first().hover();
             await page.waitForTimeout(100); // Wait for dropdown to appear
             await page.click('a[href="present-continuous-homework.html"]');
-            await expect(page).toHaveURL(/homework\.html/);
+            await expect(page).toHaveURL(/present-continuous-homework\.html/);
           });
           
           test('navigation links work in mobile menu', async ({ page }) => {
@@ -243,7 +243,7 @@ jobs:
             await page.locator('a:has-text("Unit 8"), .group:has-text("Unit 8")').first().hover();
             await page.waitForTimeout(100); // Wait for dropdown to appear
             await page.click('a[href="amazing-vehicles-reading.html"]');
-            await expect(page).toHaveURL(/amazing-vehicles\.html/);
+            await expect(page).toHaveURL(/amazing-vehicles-reading\.html/);
           });
           
           test('Amazing Vehicles page loads', async ({ page }) => {
@@ -270,21 +270,21 @@ jobs:
             await page.goto('http://localhost:8000/super-minds-baseball/index.html');
             await page.waitForSelector('a[href="../unit9/holiday-plans-grammar-review.html"]');
             await page.locator('a[href="../unit9/holiday-plans-grammar-review.html"]').first().click();
-            await expect(page).toHaveURL(/unit9\/index\.html/);
+            await expect(page).toHaveURL(/unit9\/holiday-plans-grammar-review\.html/);
           });
           
           test('can navigate from Baseball Unit 7 to Unit 9', async ({ page }) => {
             await page.goto('http://localhost:8000/super-minds-baseball/unit7/baseball-present-continuous-course.html');
             await page.waitForSelector('a[href="../../unit9/holiday-plans-grammar-review.html"]');
             await page.locator('a[href="../../unit9/holiday-plans-grammar-review.html"]').first().click();
-            await expect(page).toHaveURL(/unit9\/index\.html/);
+            await expect(page).toHaveURL(/unit9\/holiday-plans-grammar-review\.html/);
           });
           
           test('can navigate from Baseball Unit 8 to Unit 9', async ({ page }) => {
             await page.goto('http://localhost:8000/super-minds-baseball/unit8/baseball-gerunds-ball-sports.html');
             await page.waitForSelector('a[href="../../unit9/holiday-plans-grammar-review.html"]');
             await page.locator('a[href="../../unit9/holiday-plans-grammar-review.html"]').first().click();
-            await expect(page).toHaveURL(/unit9\/index\.html/);
+            await expect(page).toHaveURL(/unit9\/holiday-plans-grammar-review\.html/);
           });
         });
         

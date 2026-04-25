@@ -946,9 +946,11 @@
         // Todo list functionality
         var todoStates = {};
 
-        // Load from localStorage
+        // Load from localStorage (stable key; fall back to old keys for backward compat)
         try {
-            var saved = localStorage.getItem('unit9/holiday-plans-grammar-review.html');
+            var saved = localStorage.getItem('unit9HolidayPlansTodos');
+            if (!saved) saved = localStorage.getItem('unit9/holiday-plans-grammar-review.html');
+            if (!saved) saved = localStorage.getItem('unit9/index.html');
             if (saved) todoStates = JSON.parse(saved);
         } catch (e) { }
 
@@ -974,7 +976,7 @@
             }
 
             try {
-                localStorage.setItem('unit9/holiday-plans-grammar-review.html', JSON.stringify(todoStates));
+                localStorage.setItem('unit9HolidayPlansTodos', JSON.stringify(todoStates));
             } catch (e) { }
 
             updateProgress();
@@ -987,7 +989,7 @@
                 });
                 todoStates = {};
                 try {
-                    localStorage.setItem('unit9/holiday-plans-grammar-review.html', '{}');
+                    localStorage.setItem('unit9HolidayPlansTodos', '{}');
                 } catch (e) { }
                 updateProgress();
             }
