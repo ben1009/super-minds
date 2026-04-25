@@ -49,6 +49,128 @@ else
     echo "   ✗ unit9/index.html not found"
 fi
 
+# Check Unit 9 fairy-tales.html
+echo ""
+echo "4c. Checking Unit 9 fairy-tales.html..."
+if [ -f "unit9/fairy-tales.html" ]; then
+    echo "   ✓ unit9/fairy-tales.html exists"
+    
+    if grep -q 'fairy tale' "unit9/fairy-tales.html"; then
+        echo "   ✓ fairy-tales.html has Fairy Tales vocabulary"
+    else
+        echo "   ✗ fairy-tales.html missing Fairy Tales vocabulary!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'on holiday' "unit9/fairy-tales.html"; then
+        echo "   ✓ fairy-tales.html has Reading on Holiday vocabulary"
+    else
+        echo "   ✗ fairy-tales.html missing Reading on Holiday vocabulary!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'Folk Tales Around the World' "unit9/fairy-tales.html"; then
+        echo "   ✓ fairy-tales.html has Reading Passage A"
+    else
+        echo "   ✗ fairy-tales.html missing Reading Passage A!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'Reading on Holiday' "unit9/fairy-tales.html"; then
+        echo "   ✓ fairy-tales.html has Reading Passage B"
+    else
+        echo "   ✗ fairy-tales.html missing Reading Passage B!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'function showQuizAnswer' "unit9/fairy-tales.html"; then
+        echo "   ✓ fairy-tales.html has showQuizAnswer() function"
+    else
+        echo "   ✗ fairy-tales.html missing showQuizAnswer() function!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'function revealAnswer' "unit9/fairy-tales.html"; then
+        echo "   ✓ fairy-tales.html has revealAnswer() function"
+    else
+        echo "   ✗ fairy-tales.html missing revealAnswer() function!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'function toggleTranslation' "unit9/fairy-tales.html"; then
+        echo "   ✓ fairy-tales.html has toggleTranslation() function"
+    else
+        echo "   ✗ fairy-tales.html missing toggleTranslation() function!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'function speak(text, cardElement)' "unit9/fairy-tales.html"; then
+        echo "   ✓ fairy-tales.html has speak() function with cardElement"
+    else
+        echo "   ✗ fairy-tales.html missing speak() function!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'function toggleTodo' "unit9/fairy-tales.html"; then
+        echo "   ✓ fairy-tales.html has toggleTodo() function"
+    else
+        echo "   ✗ fairy-tales.html missing toggleTodo() function!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'data-answer' "unit9/fairy-tales.html"; then
+        echo "   ✓ fairy-tales.html uses data-answer attributes"
+    else
+        echo "   ✗ fairy-tales.html missing data-answer attributes!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'word-quiz-blank' "unit9/fairy-tales.html"; then
+        echo "   ✓ fairy-tales.html has word quiz blanks"
+    else
+        echo "   ✗ fairy-tales.html missing word quiz blanks!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'quiz-option' "unit9/fairy-tales.html"; then
+        echo "   ✓ fairy-tales.html has quiz options"
+    else
+        echo "   ✗ fairy-tales.html missing quiz options!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'reading-card' "unit9/fairy-tales.html"; then
+        echo "   ✓ fairy-tales.html uses reading-card class"
+    else
+        echo "   ✗ fairy-tales.html missing reading-card class!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q 'leather-card' "unit9/fairy-tales.html"; then
+        echo "   ✓ fairy-tales.html uses leather-card class"
+    else
+        echo "   ✗ fairy-tales.html missing leather-card class!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q "Today's Todo" "unit9/fairy-tales.html"; then
+        echo "   ✓ fairy-tales.html has Today's Todo section"
+    else
+        echo "   ✗ fairy-tales.html missing Today's Todo section!"
+        ERRORS=$((ERRORS + 1))
+    fi
+    
+    if grep -q '../ga.js' "unit9/fairy-tales.html"; then
+        echo "   ✓ fairy-tales.html uses ../ga.js"
+    else
+        echo "   ✗ fairy-tales.html not using ../ga.js!"
+        ERRORS=$((ERRORS + 1))
+    fi
+else
+    echo "   ✗ unit9/fairy-tales.html not found!"
+    ERRORS=$((ERRORS + 1))
+fi
+
 # Check Unit 8 reading.html has required elements
 echo ""
 echo "5. Checking Unit 8 reading.html..."
@@ -111,6 +233,52 @@ for file in index.html unit7/index.html unit7/homework.html unit8/index.html uni
         else
             echo "   ✗ $file missing link to unit9!"
             ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "5c. Checking fairy-tales.html navigation links from all pages..."
+ERRORS=0
+
+for file in index.html unit9/index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html unit8/reading.html unit8/grammar.html; do
+    if [ -f "$file" ]; then
+        count=$(grep -c 'fairy-tales' "$file")
+        if [ "$count" -eq 0 ]; then
+            echo "   ✗ $file missing link to fairy-tales.html!"
+            ERRORS=$((ERRORS + 1))
+        elif [ "$count" -gt 2 ]; then
+            echo "   ✗ $file has $count fairy-tales links (expected max 2)!"
+            ERRORS=$((ERRORS + 1))
+        else
+            echo "   ✓ $file has link to fairy-tales.html ($count refs)"
+        fi
+    fi
+done
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "5d. Checking super-minds-baseball pages link to fairy-tales..."
+ERRORS=0
+
+for file in super-minds-baseball/index.html super-minds-baseball/unit7/index.html super-minds-baseball/unit7/homework.html super-minds-baseball/unit8/index.html; do
+    if [ -f "$file" ]; then
+        count=$(grep -c 'fairy-tales' "$file")
+        if [ "$count" -eq 0 ]; then
+            echo "   ✗ $file missing link to fairy-tales.html!"
+            ERRORS=$((ERRORS + 1))
+        elif [ "$count" -gt 2 ]; then
+            echo "   ✗ $file has $count fairy-tales links (expected max 2)!"
+            ERRORS=$((ERRORS + 1))
+        else
+            echo "   ✓ $file has link to fairy-tales.html ($count refs)"
         fi
     fi
 done
@@ -254,6 +422,229 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
+echo "11. Checking index.html has fairy-tales card and quick link..."
+ERRORS=0
+
+if grep -q 'unit9/fairy-tales.html' "index.html"; then
+    echo "   ✓ index.html links to fairy-tales.html"
+else
+    echo "   ✗ index.html missing link to fairy-tales.html!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q '童话故事' "index.html"; then
+    echo "   ✓ index.html has 童话故事 card text"
+else
+    echo "   ✗ index.html missing 童话故事 card text!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'Fairy Tales' "index.html"; then
+    echo "   ✓ index.html has Fairy Tales card text"
+else
+    echo "   ✗ index.html missing Fairy Tales card text!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "12. Checking unit9/index.html has fairy-tales in nav dropdown..."
+ERRORS=0
+
+if grep -q 'fairy-tales.html' "unit9/index.html"; then
+    echo "   ✓ unit9/index.html has fairy-tales nav link"
+else
+    echo "   ✗ unit9/index.html missing fairy-tales nav link!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "13. Checking TODO section consistency across all pages..."
+ERRORS=0
+
+for file in unit8/grammar.html unit8/reading.html unit9/index.html unit9/fairy-tales.html unit8/amazing-vehicles.html; do
+    if [ -f "$file" ]; then
+        # Check data-todo attributes
+        if grep -q 'data-todo' "$file"; then
+            echo "   ✓ $file has data-todo attributes"
+        else
+            echo "   ✗ $file missing data-todo attributes!"
+            ERRORS=$((ERRORS + 1))
+        fi
+        
+        # Check localStorage persistence (grammar.html uses grammar.js)
+        if [ "$file" = "unit8/grammar.html" ]; then
+            if grep -q 'localStorage' unit8/grammar.js; then
+                echo "   ✓ $file uses localStorage (in grammar.js)"
+            else
+                echo "   ✗ $file missing localStorage!"
+                ERRORS=$((ERRORS + 1))
+            fi
+        elif grep -q 'localStorage' "$file"; then
+            echo "   ✓ $file uses localStorage"
+        else
+            echo "   ✗ $file missing localStorage!"
+            ERRORS=$((ERRORS + 1))
+        fi
+        
+        # Check progressBar
+        if grep -q 'progressBar' "$file"; then
+            echo "   ✓ $file has progressBar"
+        else
+            echo "   ✗ $file missing progressBar!"
+            ERRORS=$((ERRORS + 1))
+        fi
+        
+        # Check resetTodos function
+        if grep -q 'resetTodos' "$file"; then
+            echo "   ✓ $file has resetTodos"
+        else
+            echo "   ✗ $file missing resetTodos!"
+            ERRORS=$((ERRORS + 1))
+        fi
+        
+        # Check NO old .checked pattern
+        if grep -q '\.checked' "$file"; then
+            echo "   ✗ $file still uses old .checked pattern!"
+            ERRORS=$((ERRORS + 1))
+        else
+            echo "   ✓ $file clean (no .checked)"
+        fi
+    fi
+done
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "14. Checking width consistency (no max-w-4xl in content sections)..."
+ERRORS=0
+
+# Check unit8/index.html content sections are full width
+if grep -q 'leather-card.*max-w-4xl.*mx-auto' unit8/index.html; then
+    echo "   ✗ unit8/index.html still has max-w-4xl content sections!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ unit8/index.html content sections are full width"
+fi
+
+# Check unit8/amazing-vehicles.html content sections are full width
+if grep -q 'leather-card.*max-w-4xl.*mx-auto' unit8/amazing-vehicles.html; then
+    echo "   ✗ unit8/amazing-vehicles.html still has max-w-4xl content sections!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ unit8/amazing-vehicles.html content sections are full width"
+fi
+
+# Check super-minds-baseball/unit8/index.html content sections are full width
+if grep -q 'leather-card.*max-w-4xl.*mx-auto' super-minds-baseball/unit8/index.html; then
+    echo "   ✗ super-minds-baseball/unit8/index.html still has max-w-4xl content sections!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ super-minds-baseball/unit8/index.html content sections are full width"
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "15. Checking index.html card badge consistency..."
+ERRORS=0
+
+# Count badges using unit-badge vs inline gradients
+unit_badge_count=$(grep -c 'class="unit-badge' index.html)
+gradient_count=$(grep -c 'bg-gradient-to-r' index.html)
+
+if [ "$gradient_count" -eq 0 ]; then
+    echo "   ✓ All index.html cards use unit-badge ($unit_badge_count badges)"
+else
+    echo "   ✗ index.html has $gradient_count cards with inline gradients instead of unit-badge!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "16. Checking reading.html todo matches fairy-tales.html pattern..."
+ERRORS=0
+
+# Check reading.html todo items use bg-white rounded-xl pattern
+if grep -q 'todo-item bg-white rounded-xl' unit8/reading.html; then
+    echo "   ✓ reading.html todo items use fairy-tales pattern"
+else
+    echo "   ✗ reading.html todo items missing bg-white rounded-xl pattern!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Check reading.html todo items do NOT use reading-card class
+if grep -q 'reading-card.*todo-item' unit8/reading.html; then
+    echo "   ✗ reading.html todo items still use reading-card class!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ reading.html todo items clean (no reading-card)"
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "17. Checking amazing-vehicles.html vocabulary has leather-card wrapper..."
+ERRORS=0
+
+# Check Task 1 vocabulary has leather-card wrapper
+if grep -A10 'id="vocab"' unit8/amazing-vehicles.html | grep -q 'leather-card'; then
+    echo "   ✓ Task 1 vocabulary has leather-card wrapper"
+else
+    echo "   ✗ Task 1 vocabulary missing leather-card wrapper!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Check Extra vocabulary has leather-card wrapper
+if grep -A10 'id="extra-vocab"' unit8/amazing-vehicles.html | grep -q 'leather-card'; then
+    echo "   ✓ Extra vocabulary has leather-card wrapper"
+else
+    echo "   ✗ Extra vocabulary missing leather-card wrapper!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "18. Checking main container width consistency across all pages..."
+ERRORS=0
+
+# All content pages should use max-w-6xl as main container
+for file in index.html unit7/index.html unit7/homework.html unit8/index.html unit8/amazing-vehicles.html unit8/grammar.html unit8/reading.html unit9/index.html unit9/fairy-tales.html super-minds-baseball/index.html super-minds-baseball/unit7/index.html super-minds-baseball/unit7/homework.html super-minds-baseball/unit8/index.html; do
+    if [ -f "$file" ]; then
+        # Check that the main content container uses max-w-6xl
+        if grep -q 'max-w-6xl.*mx-auto' "$file"; then
+            echo "   ✓ $file uses max-w-6xl main container"
+        else
+            echo "   ✗ $file missing max-w-6xl main container!"
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
 echo "=== Test Complete ==="
 echo ""
 echo "Next steps:"
@@ -262,4 +653,5 @@ echo "2. Open http://localhost:8000"
 echo "3. Test the new grammar page: http://localhost:8000/unit8/grammar.html"
 echo "4. Test the reading page: http://localhost:8000/unit8/reading.html"
 echo "5. Test the Unit 9 page: http://localhost:8000/unit9/index.html"
-echo "6. Follow TESTING.md checklist"
+echo "6. Test the Fairy Tales page: http://localhost:8000/unit9/fairy-tales.html"
+echo "7. Follow TESTING.md checklist"

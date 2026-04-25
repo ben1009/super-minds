@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Minds 2 Unit 9 · Fairy Tales 童话故事</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Google Analytics -->
+    <script src="../ga.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --field-green: #2E5D34;
+            --leather-primary: #F5F5DC;
+            --stitch-red: #DC143C;
+        }
+
+        body {
+            background-color: var(--field-green);
+            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
+                linear-gradient(135deg, #2E5D34 0%, #1B4332 100%);
+            font-family: 'Noto Sans SC', sans-serif;
+            min-height: 100vh;
+        }
+
+        .leather-card {
+            background: linear-gradient(135deg, #F5F5DC 0%, #E8DCC4 100%);
+            border: 3px solid #8B4513;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5);
+            position: relative;
+        }
+
+        .leather-card::before {
+            content: '';
+            position: absolute;
+            top: 8px; left: 8px; right: 8px; bottom: 8px;
+            border: 2px dashed var(--stitch-red);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        .stitch-border {
+            border: 3px solid var(--stitch-red);
+            border-radius: 12px;
+            position: relative;
+            background: #FAFAFA;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.9);
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: white;
+            border-bottom-color: var(--stitch-red);
+        }
+
+        .reading-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 3px solid #2E5D34;
+            border-radius: 15px;
+        }
+
+        .grammar-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 3px solid #4682B4;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .grammar-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .hint-bar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .float-anim {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .data-table th {
+            background: #4682B4;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #357abd;
+            font-weight: bold;
+        }
+
+        .data-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #eee;
+            border-right: 1px solid #eee;
+            line-height: 1.6;
+        }
+
+        .data-table td:first-child { border-left: 1px solid #eee; }
+        .data-table tr:hover { background: #f5f5f5; }
+
+        .dialogue-scene {
+            background: white;
+            border: 2px solid #8B4513;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 2px solid #f39c12;
+            border-radius: 12px;
+            padding: 20px 20px 20px 55px;
+            margin: 25px 0;
+            position: relative;
+            font-size: 1.02em;
+            line-height: 1.7;
+        }
+
+        .tip-box::before {
+            content: '💡';
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.6em;
+        }
+
+        .vocab-card {
+            background: linear-gradient(145deg, #fffef8 0%, #f5f5dc 100%);
+            border: 2px solid #8B4513;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .vocab-card:hover {
+            transform: translateY(-3px) rotate(1deg);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-color: #DC143C;
+        }
+
+        .vocab-card.speaking {
+            background: linear-gradient(145deg, #dcfce7 0%, #bbf7d0 100%);
+            border-color: #16a34a;
+            animation: pulse 0.5s ease;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .speaker-icon {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 1.2rem;
+            opacity: 0.3;
+            transition: all 0.3s;
+        }
+
+        .vocab-card:hover .speaker-icon {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .vocab-card.speaking .speaker-icon {
+            opacity: 1;
+            color: #16a34a;
+        }
+
+        .todo-item {
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .todo-item:hover {
+            transform: translateX(5px);
+        }
+
+        .todo-item.completed {
+            opacity: 0.7;
+            border-left-color: #4CAF50;
+            background: #F1F8E9;
+        }
+
+        .todo-item.completed .todo-title {
+            text-decoration: line-through;
+            color: #666;
+        }
+
+        .todo-checkbox {
+            width: 28px;
+            height: 28px;
+            border: 3px solid #FF5722;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: white;
+            transition: all 0.3s;
+        }
+
+        .todo-item.completed .todo-checkbox {
+            background: #4CAF50;
+            border-color: #4CAF50;
+        }
+
+        .todo-checkbox::after {
+            content: '✓';
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .todo-item.completed .todo-checkbox::after {
+            opacity: 1;
+        }
+
+        .note-box {
+            background: #e3f2fd;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #2196f3;
+        }
+
+        .translation {
+            display: none;
+            color: #666;
+            font-style: italic;
+            margin-top: 8px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 3px solid #4682B4;
+        }
+
+        .translation.show {
+            display: block;
+        }
+
+        .passage-paragraph {
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .passage-paragraph:hover {
+            background: #f0f8ff;
+        }
+
+        .quiz-option {
+            padding: 12px 16px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 8px;
+        }
+
+        .quiz-option:hover {
+            border-color: #4682B4;
+            background: #f0f8ff;
+        }
+
+        .quiz-option.correct {
+            border-color: #16a34a;
+            background: #dcfce7;
+        }
+
+        .quiz-option.wrong {
+            border-color: #dc2626;
+            background: #fee2e2;
+        }
+
+        .quiz-answer-box {
+            display: none;
+            margin-top: 10px;
+            padding: 15px;
+            background: #f0f8ff;
+            border-radius: 10px;
+            border-left: 4px solid #4682B4;
+        }
+
+        .quiz-answer-box.show {
+            display: block;
+        }
+
+        .toggle-btn {
+            background: linear-gradient(145deg, #4682B4, #5a9fd4);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.05em;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: all 0.2s;
+        }
+
+        .toggle-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .word-quiz-blank {
+            display: inline-block;
+            min-width: 120px;
+            border-bottom: 2px solid #e74c3c;
+            margin: 0 4px;
+            cursor: pointer;
+            text-align: center;
+            color: transparent;
+            transition: all 0.3s;
+            padding: 0 8px;
+        }
+
+        .word-quiz-blank.revealed {
+            color: #e74c3c;
+            background: #ffeaea;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .word-quiz-blank:hover { background: #ffeaea; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-gradient-to-r from-green-900 to-green-800 border-b-4 border-red-700 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-baseball-ball text-white text-2xl"></i>
+                    <span class="text-white text-xl font-bold">Super Minds 2</span>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="nav-link px-3 py-2 text-sm font-medium">首页 Home</a>
+                    <div class="relative group">
+                        <a href="../unit7/index.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 7 <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                            <a href="../unit7/index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">📖 现在进行时 Course</a>
+                            <a href="../unit7/homework.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">✏️ 作业 Homework</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <a href="../unit8/index.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 8 <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                            <a href="../unit8/index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">⚾ 球类运动 Sports</a>
+                            <a href="../unit8/amazing-vehicles.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">🚌 交通工具 Vehicles</a>
+                            <a href="../unit8/reading.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">📚 补充阅读 Reading</a>
+                            <a href="../unit8/grammar.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">✏️ 语法作业 Homework</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <a href="index.html" class="nav-link px-3 py-2 text-sm font-medium border-b-2 border-red-500">Unit 9 <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                            <a href="index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">🌴 假期计划语法</a>
+                            <a href="fairy-tales.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">🏰 Fairy Tales 童话</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="../index.html" class="nav-link px-3 py-2 text-sm font-medium">首页 Home</a>
+                    <div class="px-3 py-2">
+                        <div class="text-white/70 text-xs mb-1">Unit 7</div>
+                        <a href="../unit7/index.html" class="nav-link px-3 py-2 text-sm font-medium block">📖 现在进行时 Course</a>
+                        <a href="../unit7/homework.html" class="nav-link px-3 py-2 text-sm font-medium block">✏️ 作业 Homework</a>
+                    </div>
+                    <div class="px-3 py-2">
+                        <div class="text-white/70 text-xs mb-1">Unit 8</div>
+                        <a href="../unit8/index.html" class="nav-link px-3 py-2 text-sm font-medium block">⚾ 球类运动 Sports</a>
+                        <a href="../unit8/amazing-vehicles.html" class="nav-link px-3 py-2 text-sm font-medium block">🚌 交通工具 Vehicles</a>
+                        <a href="../unit8/reading.html" class="nav-link px-3 py-2 text-sm font-medium block">📚 补充阅读 Reading</a>
+                        <a href="../unit8/grammar.html" class="nav-link px-3 py-2 text-sm font-medium block">✏️ 语法作业 Homework</a>
+                    </div>
+                    <div class="px-3 py-2">
+                        <div class="text-white/70 text-xs mb-1">Unit 9</div>
+                        <a href="index.html" class="nav-link px-3 py-2 text-sm font-medium block">🌴 假期计划语法</a>
+                        <a href="fairy-tales.html" class="nav-link px-3 py-2 text-sm font-medium block text-yellow-300">🏰 Fairy Tales 童话</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative py-12 px-4 overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="stitch-border p-8 rounded-3xl shadow-2xl inline-block bg-white/95">
+                <h1 class="text-4xl md:text-5xl font-bold text-green-800 mb-2">Super Minds 2 · Unit 9</h1>
+                <p class="text-2xl text-green-700 font-medium mb-4">Fairy Tales · 童话故事</p>
+                <div class="flex justify-center gap-4 text-5xl mb-4">
+                    <span class="float-anim">🏰</span>
+                    <span class="float-anim" style="animation-delay: 0.5s">🐉</span>
+                    <span class="float-anim" style="animation-delay: 1s">🧙‍♀️</span>
+                    <span class="float-anim" style="animation-delay: 1.5s">📖</span>
+                    <span class="float-anim" style="animation-delay: 2s">✨</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 pb-16 space-y-8">
+
+        <!-- Hint Bar -->
+        <div class="max-w-3xl mx-auto">
+            <div class="hint-bar">
+                <div class="text-2xl mb-2">🎯📖✍️🔊✅</div>
+                <div class="text-sm md:text-base">点击段落查看翻译，点击词汇听发音，点击选项查看答案</div>
+            </div>
+        </div>
+
+        <!-- Quote -->
+        <div class="text-center text-white italic text-lg">
+            "Every story is a journey into a magical world!" · 每个故事都是通往魔法世界的旅程
+        </div>
+
+        <!-- Vocabulary Section A -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📚</span> Vocabulary · 生词表 (Fairy Tales) <span>📝</span>
+            </h2>
+            <p class="text-center text-gray-600 mb-6">点击卡片听发音 🔊</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('fairy tale', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🏰</div>
+                    <div class="font-bold text-lg">fairy tale</div>
+                    <div class="text-sm text-gray-600 mt-1">童话故事</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('character', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🎭</div>
+                    <div class="font-bold text-lg">character</div>
+                    <div class="text-sm text-gray-600 mt-1">角色</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('dragon', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🐉</div>
+                    <div class="font-bold text-lg">dragon</div>
+                    <div class="text-sm text-gray-600 mt-1">龙</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('witch', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🧙‍♀️</div>
+                    <div class="font-bold text-lg">witch</div>
+                    <div class="text-sm text-gray-600 mt-1">女巫</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('writer', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">✍️</div>
+                    <div class="font-bold text-lg">writer</div>
+                    <div class="text-sm text-gray-600 mt-1">作家</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('Brothers Grimm', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">👬</div>
+                    <div class="font-bold text-lg">Brothers Grimm</div>
+                    <div class="text-sm text-gray-600 mt-1">格林兄弟</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('Germany', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🇩🇪</div>
+                    <div class="font-bold text-lg">Germany</div>
+                    <div class="text-sm text-gray-600 mt-1">德国</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('film studio', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🎬</div>
+                    <div class="font-bold text-lg">film studio</div>
+                    <div class="text-sm text-gray-600 mt-1">电影制片厂</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('Walt Disney', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🏰</div>
+                    <div class="font-bold text-lg">Walt Disney</div>
+                    <div class="text-sm text-gray-600 mt-1">华特·迪士尼</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('film', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🎞️</div>
+                    <div class="font-bold text-lg">film</div>
+                    <div class="text-sm text-gray-600 mt-1">电影</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('Snow White', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🍎</div>
+                    <div class="font-bold text-lg">Snow White</div>
+                    <div class="text-sm text-gray-600 mt-1">白雪公主</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('Sleeping Beauty', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">👸</div>
+                    <div class="font-bold text-lg">Sleeping Beauty</div>
+                    <div class="text-sm text-gray-600 mt-1">睡美人</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('Cinderella', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">👠</div>
+                    <div class="font-bold text-lg">Cinderella</div>
+                    <div class="text-sm text-gray-600 mt-1">灰姑娘</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl md:col-span-2 lg:col-span-1" onclick="speak('Hansel and Gretel', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🏠</div>
+                    <div class="font-bold text-lg">Hansel and Gretel</div>
+                    <div class="text-sm text-gray-600 mt-1">韩塞尔与格蕾特</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reading Passage A -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📖</span> Reading A · Folk Tales Around the World <span>🌍</span>
+            </h2>
+
+            <div class="reading-card p-6 space-y-4">
+                <div class="passage-paragraph" onclick="toggleTranslation(this)">
+                    <p class="text-lg leading-relaxed">Folk tales are old stories from different countries. They often have heroes, magic, and talking animals.</p>
+                    <p class="translation">民间故事是来自不同国家的古老故事。它们通常有英雄、魔法和会说话的动物。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)">
+                    <p class="text-lg leading-relaxed">Many folk tales teach a lesson or explain how something began.</p>
+                    <p class="translation">许多民间故事传授道理，或者解释某事是如何开始的。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)">
+                    <p class="text-lg leading-relaxed">A famous writer of fairy tales is Hans Christian Andersen from Denmark. He wrote <em>The Ugly Duckling</em>, <em>The Little Match Girl</em>, and <em>The Emperor's New Clothes</em>.</p>
+                    <p class="translation">一位著名的童话作家是来自丹麦的汉斯·克里斯蒂安·安徒生。他写了《丑小鸭》《卖火柴的小女孩》和《皇帝的新装》。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)">
+                    <p class="text-lg leading-relaxed">These stories are loved by children and adults around the world.</p>
+                    <p class="translation">这些故事深受全世界儿童和成人的喜爱。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)">
+                    <p class="text-lg leading-relaxed">In China, people tell the story of Chang'e and the Moon. In Arabia, there is <em>One Thousand and One Nights</em> with stories like Aladdin (which also became a Disney film).</p>
+                    <p class="translation">在中国，人们讲述嫦娥奔月的故事。在阿拉伯，有《一千零一夜》，里面有像阿拉丁这样的故事（后来也被改编成了迪士尼电影）。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)">
+                    <p class="text-lg leading-relaxed">Folk tales help us understand different cultures. They also make us dream and feel hopeful.</p>
+                    <p class="translation">民间故事帮助我们了解不同的文化。它们也让我们拥有梦想并感到充满希望。</p>
+                </div>
+            </div>
+
+            <!-- Comprehension Questions A -->
+            <div class="mt-8">
+                <h3 class="text-xl font-bold text-blue-700 mb-4">📝 Reading Comprehension · 阅读理解</h3>
+
+                <div class="reading-card p-5 mb-4">
+                    <p class="font-bold text-lg mb-3">1. What are folk tales?</p>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">A. News reports about different countries</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, true)">B. Old stories with heroes, magic, or talking animals ✓</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">C. Science textbooks for children</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">D. Cooking recipes from around the world</div>
+                    <div class="quiz-answer-box">
+                        <strong>答案: B</strong><br>
+                        根据文章第一句："Folk tales are old stories from different countries. They often have heroes, magic, and talking animals."
+                    </div>
+                </div>
+
+                <div class="reading-card p-5 mb-4">
+                    <p class="font-bold text-lg mb-3">2. Which story was written by Hans Christian Andersen?</p>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">A. Aladdin</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">B. Chang'e and the Moon</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, true)">C. The Ugly Duckling ✓</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">D. One Thousand and One Nights</div>
+                    <div class="quiz-answer-box">
+                        <strong>答案: C</strong><br>
+                        文中提到："He wrote The Ugly Duckling, The Little Match Girl, and The Emperor's New Clothes."
+                    </div>
+                </div>
+
+                <div class="reading-card p-5 mb-4">
+                    <p class="font-bold text-lg mb-3">3. Why do people like folk tales according to the passage?</p>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">A. Because they are very long and difficult</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, true)">B. Because they help us understand different cultures and make us dream ✓</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">C. Because they are only for adults</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">D. Because they all come from Disney films</div>
+                    <div class="quiz-answer-box">
+                        <strong>答案: B</strong><br>
+                        文章最后一句："Folk tales help us understand different cultures. They also make us dream and feel hopeful."
+                    </div>
+                </div>
+
+                <div class="reading-card p-5 mb-4">
+                    <p class="font-bold text-lg mb-3">4. Where does the story of Chang'e and the Moon come from?</p>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">A. Denmark</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">B. Arabia</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, true)">C. China ✓</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">D. Germany</div>
+                    <div class="quiz-answer-box">
+                        <strong>答案: C</strong><br>
+                        文中明确说："In China, people tell the story of Chang'e and the Moon."
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vocabulary Section B -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📚</span> Vocabulary · 生词表 (Reading on Holiday) <span>📝</span>
+            </h2>
+            <p class="text-center text-gray-600 mb-6">点击卡片听发音 🔊</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('on holiday', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🏖️</div>
+                    <div class="font-bold text-lg">on holiday</div>
+                    <div class="text-sm text-gray-600 mt-1">在度假时</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('novel', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">📕</div>
+                    <div class="font-bold text-lg">novel</div>
+                    <div class="text-sm text-gray-600 mt-1">小说</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('magazine', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">📰</div>
+                    <div class="font-bold text-lg">magazine</div>
+                    <div class="text-sm text-gray-600 mt-1">杂志</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('comic', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">💬</div>
+                    <div class="font-bold text-lg">comic</div>
+                    <div class="text-sm text-gray-600 mt-1">漫画</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('detective story', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🕵️</div>
+                    <div class="font-bold text-lg">detective story</div>
+                    <div class="text-sm text-gray-600 mt-1">侦探故事</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('science fiction', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🚀</div>
+                    <div class="font-bold text-lg">science fiction</div>
+                    <div class="text-sm text-gray-600 mt-1">科幻小说</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('relax', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">😌</div>
+                    <div class="font-bold text-lg">relax</div>
+                    <div class="text-sm text-gray-600 mt-1">放松</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('beach', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🏖️</div>
+                    <div class="font-bold text-lg">beach</div>
+                    <div class="text-sm text-gray-600 mt-1">海滩</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('escape', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🏃</div>
+                    <div class="font-bold text-lg">escape</div>
+                    <div class="text-sm text-gray-600 mt-1">逃离（现实）</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl md:col-span-2 lg:col-span-1" onclick="speak('adventure', this)">
+                    <span class="speaker-icon">🔊</span>
+                    <div class="text-3xl mb-2">🗺️</div>
+                    <div class="font-bold text-lg">adventure</div>
+                    <div class="text-sm text-gray-600 mt-1">冒险</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reading Passage B -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📖</span> Reading B · Reading on Holiday <span>🏖️</span>
+            </h2>
+
+            <div class="reading-card p-6 space-y-4">
+                <div class="passage-paragraph" onclick="toggleTranslation(this)">
+                    <p class="text-lg leading-relaxed">Many people like to read on holiday. They choose different kinds of books and magazines.</p>
+                    <p class="translation">许多人喜欢在度假时阅读。他们选择不同种类的书籍和杂志。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)">
+                    <p class="text-lg leading-relaxed">Some people read story books or novels. Others read comics or magazines.</p>
+                    <p class="translation">有些人读故事书或小说。其他人读漫画或杂志。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)">
+                    <p class="text-lg leading-relaxed">On holiday, you have more free time. You can sit on a beach or in a park and read.</p>
+                    <p class="translation">在假期，你有更多的空闲时间。你可以坐在海滩上或公园里阅读。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)">
+                    <p class="text-lg leading-relaxed">Popular holiday reads are detective stories, love stories, and science fiction. These stories help you relax and escape from daily life.</p>
+                    <p class="translation">受欢迎的假期读物有侦探故事、爱情故事和科幻小说。这些故事帮助你放松，逃离日常生活。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)">
+                    <p class="text-lg leading-relaxed">Children often read fairy tales or adventure books. Adults may read crime novels or travel guides.</p>
+                    <p class="translation">孩子们经常读童话故事或冒险书籍。成年人可能读犯罪小说或旅游指南。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)">
+                    <p class="text-lg leading-relaxed">No matter what you read, reading on holiday makes the trip more enjoyable.</p>
+                    <p class="translation">无论你读什么，在假期阅读都会让旅行更加愉快。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)">
+                    <p class="text-lg leading-relaxed">So next time you pack your suitcase, don't forget to bring a book!</p>
+                    <p class="translation">所以下次你收拾行李箱时，别忘了带一本书！</p>
+                </div>
+            </div>
+
+            <!-- Comprehension Questions B -->
+            <div class="mt-8">
+                <h3 class="text-xl font-bold text-blue-700 mb-4">📝 Reading Comprehension · 阅读理解</h3>
+
+                <div class="reading-card p-5 mb-4">
+                    <p class="font-bold text-lg mb-3">1. What do people often do on holiday according to the passage?</p>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">A. Go to work</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, true)">B. Read books or magazines ✓</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">C. Write detective stories</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">D. Watch films only</div>
+                    <div class="quiz-answer-box">
+                        <strong>答案: B</strong><br>
+                        文章第一句："Many people like to read on holiday. They choose different kinds of books and magazines."
+                    </div>
+                </div>
+
+                <div class="reading-card p-5 mb-4">
+                    <p class="font-bold text-lg mb-3">2. Why is reading on holiday enjoyable?</p>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">A. Because books are cheap</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, true)">B. Because you can escape daily life and relax ✓</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">C. Because you have to study</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">D. Because comics are difficult</div>
+                    <div class="quiz-answer-box">
+                        <strong>答案: B</strong><br>
+                        文中提到："These stories help you relax and escape from daily life."
+                    </div>
+                </div>
+
+                <div class="reading-card p-5 mb-4">
+                    <p class="font-bold text-lg mb-3">3. What do children like to read on holiday?</p>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">A. Crime novels</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">B. Travel guides</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, true)">C. Fairy tales or adventure books ✓</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">D. Science reports</div>
+                    <div class="quiz-answer-box">
+                        <strong>答案: C</strong><br>
+                        文中明确说："Children often read fairy tales or adventure books."
+                    </div>
+                </div>
+
+                <div class="reading-card p-5 mb-4">
+                    <p class="font-bold text-lg mb-3">4. What does the writer suggest at the end?</p>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">A. Buy many magazines at the beach</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">B. Leave your books at home</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, true)">C. Bring a book when you pack your suitcase ✓</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)">D. Only read detective stories</div>
+                    <div class="quiz-answer-box">
+                        <strong>答案: C</strong><br>
+                        文章最后一句："So next time you pack your suitcase, don't forget to bring a book!"
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Word Quiz Section -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✍️</span> Word Quiz · 单词测验 <span>📝</span>
+            </h2>
+
+            <div class="tip-box">
+                <strong>练习说明:</strong> 点击空白处查看答案。先自己思考，再点击查看！
+            </div>
+
+            <!-- Quiz Set 1: C-E -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">第一套 · 汉译英 (Fairy Tales)</div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <p>1. 童话 <span class="word-quiz-blank" data-answer="fairy tale" onclick="revealAnswer(this)">__________</span></p>
+                    <p>2. 角色 <span class="word-quiz-blank" data-answer="character" onclick="revealAnswer(this)">__________</span></p>
+                    <p>3. 龙 <span class="word-quiz-blank" data-answer="dragon" onclick="revealAnswer(this)">__________</span></p>
+                    <p>4. 女巫 <span class="word-quiz-blank" data-answer="witch" onclick="revealAnswer(this)">__________</span></p>
+                    <p>5. 作家 <span class="word-quiz-blank" data-answer="writer" onclick="revealAnswer(this)">__________</span></p>
+                    <p>6. 德国 <span class="word-quiz-blank" data-answer="Germany" onclick="revealAnswer(this)">__________</span></p>
+                    <p>7. 电影 <span class="word-quiz-blank" data-answer="film" onclick="revealAnswer(this)">__________</span></p>
+                    <p>8. 工作室 / 制片厂 <span class="word-quiz-blank" data-answer="studio" onclick="revealAnswer(this)">__________</span></p>
+                    <p>9. 迪士尼 <span class="word-quiz-blank" data-answer="Disney" onclick="revealAnswer(this)">__________</span></p>
+                    <p>10. 灰姑娘 <span class="word-quiz-blank" data-answer="Cinderella" onclick="revealAnswer(this)">__________</span></p>
+                </div>
+            </div>
+
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-green-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">第一套 · 英译汉 (Fairy Tales)</div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <p>1. fairy tale <span class="word-quiz-blank" data-answer="童话" onclick="revealAnswer(this)">__________</span></p>
+                    <p>2. character <span class="word-quiz-blank" data-answer="角色" onclick="revealAnswer(this)">__________</span></p>
+                    <p>3. dragon <span class="word-quiz-blank" data-answer="龙" onclick="revealAnswer(this)">__________</span></p>
+                    <p>4. witch <span class="word-quiz-blank" data-answer="女巫" onclick="revealAnswer(this)">__________</span></p>
+                    <p>5. writer <span class="word-quiz-blank" data-answer="作家" onclick="revealAnswer(this)">__________</span></p>
+                    <p>6. Germany <span class="word-quiz-blank" data-answer="德国" onclick="revealAnswer(this)">__________</span></p>
+                    <p>7. film <span class="word-quiz-blank" data-answer="电影" onclick="revealAnswer(this)">__________</span></p>
+                    <p>8. studio <span class="word-quiz-blank" data-answer="工作室 / 制片厂" onclick="revealAnswer(this)">__________</span></p>
+                    <p>9. Disney <span class="word-quiz-blank" data-answer="迪士尼" onclick="revealAnswer(this)">__________</span></p>
+                    <p>10. Cinderella <span class="word-quiz-blank" data-answer="灰姑娘" onclick="revealAnswer(this)">__________</span></p>
+                </div>
+            </div>
+
+            <!-- Quiz Set 2: C-E -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-purple-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">第二套 · 汉译英 (Reading on Holiday)</div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <p>1. 在度假时 <span class="word-quiz-blank" data-answer="on holiday" onclick="revealAnswer(this)">__________</span></p>
+                    <p>2. 小说 <span class="word-quiz-blank" data-answer="novel" onclick="revealAnswer(this)">__________</span></p>
+                    <p>3. 杂志 <span class="word-quiz-blank" data-answer="magazine" onclick="revealAnswer(this)">__________</span></p>
+                    <p>4. 漫画 <span class="word-quiz-blank" data-answer="comic" onclick="revealAnswer(this)">__________</span></p>
+                    <p>5. 侦探故事 <span class="word-quiz-blank" data-answer="detective story" onclick="revealAnswer(this)">__________</span></p>
+                    <p>6. 科幻小说 <span class="word-quiz-blank" data-answer="science fiction" onclick="revealAnswer(this)">__________</span></p>
+                    <p>7. 放松 <span class="word-quiz-blank" data-answer="relax" onclick="revealAnswer(this)">__________</span></p>
+                    <p>8. 海滩 <span class="word-quiz-blank" data-answer="beach" onclick="revealAnswer(this)">__________</span></p>
+                    <p>9. 逃离 <span class="word-quiz-blank" data-answer="escape" onclick="revealAnswer(this)">__________</span></p>
+                    <p>10. 冒险 <span class="word-quiz-blank" data-answer="adventure" onclick="revealAnswer(this)">__________</span></p>
+                </div>
+            </div>
+
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-amber-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">第二套 · 英译汉 (Reading on Holiday)</div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <p>1. on holiday <span class="word-quiz-blank" data-answer="在度假时" onclick="revealAnswer(this)">__________</span></p>
+                    <p>2. novel <span class="word-quiz-blank" data-answer="小说" onclick="revealAnswer(this)">__________</span></p>
+                    <p>3. magazine <span class="word-quiz-blank" data-answer="杂志" onclick="revealAnswer(this)">__________</span></p>
+                    <p>4. comic <span class="word-quiz-blank" data-answer="漫画" onclick="revealAnswer(this)">__________</span></p>
+                    <p>5. detective story <span class="word-quiz-blank" data-answer="侦探故事" onclick="revealAnswer(this)">__________</span></p>
+                    <p>6. science fiction <span class="word-quiz-blank" data-answer="科幻小说" onclick="revealAnswer(this)">__________</span></p>
+                    <p>7. relax <span class="word-quiz-blank" data-answer="放松" onclick="revealAnswer(this)">__________</span></p>
+                    <p>8. beach <span class="word-quiz-blank" data-answer="海滩" onclick="revealAnswer(this)">__________</span></p>
+                    <p>9. escape <span class="word-quiz-blank" data-answer="逃离" onclick="revealAnswer(this)">__________</span></p>
+                    <p>10. adventure <span class="word-quiz-blank" data-answer="冒险" onclick="revealAnswer(this)">__________</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Today's Todo -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✅</span> Today's Todo · 今日任务 <span>📝</span>
+            </h2>
+
+            <div class="bg-white rounded-full p-1 mb-6 shadow-inner">
+                <div id="progressBar"
+                    class="h-8 bg-gradient-to-r from-green-500 to-green-400 rounded-full flex items-center justify-center text-white font-bold transition-all duration-500"
+                    style="width: 0%">0%</div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-red-500"
+                    data-todo="1" onclick="toggleTodo(this)">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>1️⃣</span> 学习两套生词表</div>
+                        <div class="text-gray-600">掌握 Fairy Tales 和 Reading on Holiday 两套单词，会读会写</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-blue-500"
+                    data-todo="2" onclick="toggleTodo(this)">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>2️⃣</span> 朗读两篇阅读文章</div>
+                        <div class="text-gray-600">熟读 Folk Tales Around the World 和 Reading on Holiday，理解大意</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-green-500"
+                    data-todo="3" onclick="toggleTodo(this)">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>3️⃣</span> 完成阅读理解题</div>
+                        <div class="text-gray-600">完成两篇阅读的选择题，理解每道题的答案依据</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-purple-500"
+                    data-todo="4" onclick="toggleTodo(this)">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>4️⃣</span> 完成单词测验</div>
+                        <div class="text-gray-600">完成汉译英和英译汉练习，点击空白处检查答案</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="button"
+                    class="bg-gradient-to-b from-gray-500 to-gray-600 text-white font-bold px-6 py-2 rounded-full shadow-lg hover:scale-105 transition"
+                    onclick="resetTodos()">
+                    <i class="fas fa-redo mr-2"></i>重置所有任务
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-green-900 to-green-800 mt-12 py-6">
+        <div class="max-w-4xl mx-auto px-4 text-center text-white">
+            <p class="text-lg font-bold mb-2">⚾ Super Minds 2 - Unit 9 Fairy Tales 童话故事</p>
+            <p class="text-sm opacity-80">Keep practicing and have fun learning English! 坚持练习，快乐学英语！</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
+
+        // Toggle translation
+        function toggleTranslation(element) {
+            const trans = element.querySelector('.translation');
+            if (trans) {
+                trans.classList.toggle('show');
+            }
+        }
+
+        // Show / hide quiz answer
+        function showQuizAnswer(element, isCorrect) {
+            const card = element.closest('.reading-card');
+            const revealed = card.classList.contains('revealed');
+
+            if (revealed) {
+                // Hide answer
+                card.classList.remove('revealed');
+                card.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('correct', 'wrong');
+                });
+                const box = card.querySelector('.quiz-answer-box');
+                if (box) box.classList.remove('show');
+            } else {
+                // Show answer — highlight correct option(s)
+                card.classList.add('revealed');
+                card.querySelectorAll('.quiz-option').forEach(opt => {
+                    const onclick = opt.getAttribute('onclick') || '';
+                    if (onclick.includes(', true)')) {
+                        opt.classList.add('correct');
+                    }
+                });
+
+                // If user clicked a wrong answer, mark it red
+                if (!isCorrect) {
+                    element.classList.remove('correct');
+                    element.classList.add('wrong');
+                }
+
+                const box = card.querySelector('.quiz-answer-box');
+                if (box) box.classList.add('show');
+            }
+        }
+
+        // Reveal blank answer
+        function revealAnswer(element) {
+            if (element.classList.contains('revealed')) {
+                element.classList.remove('revealed');
+                element.textContent = '__________';
+            } else {
+                element.classList.add('revealed');
+                element.textContent = element.getAttribute('data-answer');
+            }
+        }
+
+        // Text to speech
+        function speak(text, cardElement) {
+            if (!('speechSynthesis' in window)) {
+                alert('您的浏览器不支持语音播放功能。');
+                return;
+            }
+
+            window.speechSynthesis.cancel();
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.8;
+            utterance.pitch = 1;
+
+            if (cardElement) {
+                document.querySelectorAll('.vocab-card.speaking').forEach(el => el.classList.remove('speaking'));
+                cardElement.classList.add('speaking');
+                utterance.onend = () => cardElement.classList.remove('speaking');
+                utterance.onerror = () => cardElement.classList.remove('speaking');
+            }
+
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Todo list functionality
+        var todoStates = {};
+
+        // Load from localStorage
+        try {
+            var saved = localStorage.getItem('fairy-tales.html');
+            if (saved) todoStates = JSON.parse(saved);
+        } catch (e) { }
+
+        function updateProgress() {
+            var todos = document.querySelectorAll('.todo-item');
+            var completed = document.querySelectorAll('.todo-item.completed');
+            var progress = Math.round((completed.length / todos.length) * 100);
+
+            var bar = document.getElementById('progressBar');
+            bar.style.width = progress + '%';
+            bar.textContent = progress === 100 ? '🎉 100% 完成！' : progress + '%';
+        }
+
+        function toggleTodo(item) {
+            var id = item.getAttribute('data-todo');
+
+            if (item.classList.contains('completed')) {
+                item.classList.remove('completed');
+                todoStates[id] = false;
+            } else {
+                item.classList.add('completed');
+                todoStates[id] = true;
+            }
+
+            try {
+                localStorage.setItem('fairy-tales.html', JSON.stringify(todoStates));
+            } catch (e) { }
+
+            updateProgress();
+        }
+
+        function resetTodos() {
+            if (confirm('确定要重置所有作业任务吗？')) {
+                document.querySelectorAll('.todo-item').forEach(function (item) {
+                    item.classList.remove('completed');
+                });
+                todoStates = {};
+                try {
+                    localStorage.setItem('fairy-tales.html', '{}');
+                } catch (e) { }
+                updateProgress();
+            }
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function () {
+            // Restore todo states
+            Object.keys(todoStates).forEach(function (id) {
+                if (todoStates[id]) {
+                    var item = document.querySelector('[data-todo="' + id + '"]');
+                    if (item) item.classList.add('completed');
+                }
+            });
+            updateProgress();
+        });
+    </script>
+</body>
+</html>

@@ -251,44 +251,55 @@
             opacity: 1;
         }
 
-        .todo-checkbox {
-            width: 1.5rem;
-            height: 1.5rem;
-            border: 3px solid #8B4513;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.2s;
-            flex-shrink: 0;
-        }
-
-        .todo-checkbox.checked {
-            background: #16a34a;
-            border-color: #16a34a;
-            position: relative;
-        }
-
-        .todo-checkbox.checked::after {
-            content: '✓';
-            color: white;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 0.875rem;
-            font-weight: bold;
-        }
-
         .todo-item {
             transition: all 0.3s;
             cursor: pointer;
         }
 
-        .todo-item.completed {
-            opacity: 0.6;
+        .todo-item:hover {
+            transform: translateX(5px);
         }
 
-        .todo-item.completed h3 {
+        .todo-item.completed {
+            opacity: 0.7;
+            border-left-color: #4CAF50;
+            background: #F1F8E9;
+        }
+
+        .todo-item.completed .todo-title {
             text-decoration: line-through;
+            color: #666;
+        }
+
+        .todo-checkbox {
+            width: 28px;
+            height: 28px;
+            border: 3px solid #FF5722;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: white;
+            transition: all 0.3s;
+        }
+
+        .todo-item.completed .todo-checkbox {
+            background: #4CAF50;
+            border-color: #4CAF50;
+        }
+
+        .todo-checkbox::after {
+            content: '✓';
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .todo-item.completed .todo-checkbox::after {
+            opacity: 1;
         }
     </style>
 </head>
@@ -325,6 +336,7 @@
                         <a href="../unit9/index.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 9 <i class="fas fa-chevron-down text-xs"></i></a>
                         <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
                             <a href="../unit9/index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">🌴 假期计划语法 Grammar</a>
+                            <a href="../unit9/fairy-tales.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">🏰 Fairy Tales 童话</a>
                         </div>
                     </div>
                 </div>
@@ -352,6 +364,7 @@
                     <div class="px-3 py-2">
                         <div class="text-white/70 text-xs mb-1">Unit 9</div>
                         <a href="../unit9/index.html" class="nav-link px-3 py-2 text-sm font-medium block">🌴 假期计划语法 Grammar</a>
+                        <a href="../unit9/fairy-tales.html" class="nav-link px-3 py-2 text-sm font-medium block">🏰 Fairy Tales 童话</a>
                     </div>
                 </div>
             </div>
@@ -847,58 +860,54 @@
                 <span>✅</span> Today's Todo <span>📝</span>
             </h2>
 
+            <div class="mb-6">
+                <div class="w-full bg-gray-200 rounded-full h-8 overflow-hidden shadow-inner">
+                    <div id="progressBar" class="h-full bg-gradient-to-r from-green-500 to-green-300 rounded-full flex items-center justify-center text-white font-bold transition-all duration-500" style="width: 0%">0%</div>
+                </div>
+            </div>
+
             <div class="space-y-4">
-                <div role="button" tabindex="0" type="button" class="reading-card p-5 border-l-4 border-red-500 todo-item text-left w-full" onclick="toggleTodo(this)">
-                    <div class="flex items-start gap-3">
-                        <div class="todo-checkbox"></div>
-                        <div class="flex-1">
-                            <h3 class="text-xl font-bold text-red-700 mb-2 flex items-center gap-2">
-                                <span>1️⃣</span> 单词掌握 Vocabulary
-                            </h3>
-                            <p class="text-gray-700">掌握本课重点词汇（点击词汇卡片听发音），熟读例句，最好能记忆。</p>
-                            <p class="text-sm text-gray-500 italic mt-1">_Master the key vocabulary (click cards to hear pronunciation)._</p>
-                        </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-red-500"
+                    data-todo="1" onclick="toggleTodo(this)">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>1️⃣</span> 单词掌握 Vocabulary</div>
+                        <div class="text-gray-600">掌握本课重点词汇（点击词汇卡片听发音），熟读例句，最好能记忆。</div>
                     </div>
                 </div>
 
-                <div role="button" tabindex="0" type="button" class="reading-card p-5 border-l-4 border-blue-500 todo-item text-left w-full" onclick="toggleTodo(this)">
-                    <div class="flex items-start gap-3">
-                        <div class="todo-checkbox"></div>
-                        <div class="flex-1">
-                            <h3 class="text-xl font-bold text-blue-700 mb-2 flex items-center gap-2">
-                                <span>2️⃣</span> 课文朗读 Reading
-                            </h3>
-                            <p class="text-gray-700">大声朗读，熟读课文"Fun Things We Do"，注意语音语调。点击段落可查看翻译。</p>
-                            <p class="text-sm text-gray-500 italic mt-1">_Read aloud the text "Fun Things We Do" with proper pronunciation. Click paragraphs to see translations._</p>
-                        </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-blue-500"
+                    data-todo="2" onclick="toggleTodo(this)">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>2️⃣</span> 课文朗读 Reading</div>
+                        <div class="text-gray-600">大声朗读，熟读课文"Fun Things We Do"，注意语音语调。点击段落可查看翻译。</div>
                     </div>
                 </div>
 
-                <div role="button" tabindex="0" type="button" class="reading-card p-5 border-l-4 border-green-500 todo-item text-left w-full" onclick="toggleTodo(this)">
-                    <div class="flex items-start gap-3">
-                        <div class="todo-checkbox"></div>
-                        <div class="flex-1">
-                            <h3 class="text-xl font-bold text-green-700 mb-2 flex items-center gap-2">
-                                <span>3️⃣</span> 阅读练习 Exercises
-                            </h3>
-                            <p class="text-gray-700">完成5道阅读理解选择题，点击题目查看答案（正确选项会自动高亮）。</p>
-                            <p class="text-sm text-gray-500 italic mt-1">_Complete the 5 reading comprehension questions. Click questions to see answers (correct option will be highlighted)._</p>
-                        </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-green-500"
+                    data-todo="3" onclick="toggleTodo(this)">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>3️⃣</span> 阅读练习 Exercises</div>
+                        <div class="text-gray-600">完成5道阅读理解选择题，点击题目查看答案（正确选项会自动高亮）。</div>
                     </div>
                 </div>
 
-                <div role="button" tabindex="0" type="button" class="reading-card p-5 border-l-4 border-purple-500 todo-item text-left w-full" onclick="toggleTodo(this)">
-                    <div class="flex items-start gap-3">
-                        <div class="todo-checkbox"></div>
-                        <div class="flex-1">
-                            <h3 class="text-xl font-bold text-purple-700 mb-2 flex items-center gap-2">
-                                <span>4️⃣</span> 上传作业 Upload
-                            </h3>
-                            <p class="text-gray-700">做完后拍照上传给老师。</p>
-                            <p class="text-sm text-gray-500 italic mt-1">_Take photos and upload your work._</p>
-                        </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-purple-500"
+                    data-todo="4" onclick="toggleTodo(this)">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>4️⃣</span> 上传作业 Upload</div>
+                        <div class="text-gray-600">做完后拍照上传给老师。</div>
                     </div>
                 </div>
+            </div>
+
+            <div class="mt-4 text-center">
+                <button type="button" onclick="resetTodos()" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-lg text-sm transition-colors">
+                    🔄 重置任务 Reset Tasks
+                </button>
             </div>
 
             <div class="mt-6 p-4 bg-amber-50 rounded-xl border-2 border-amber-300">
@@ -1021,15 +1030,71 @@
             window.speechSynthesis.speak(utterance);
         }
 
-        /**
-         * Toggle todo item completion
-         * @param {HTMLElement} element - The todo item element
-         */
-        function toggleTodo(element) {
-            const checkbox = element.querySelector('.todo-checkbox');
-            checkbox.classList.toggle('checked');
-            element.classList.toggle('completed');
+        // Todo list functionality
+        var todoStates = {};
+
+        try {
+            var saved = localStorage.getItem('readingTodos');
+            if (saved) todoStates = JSON.parse(saved);
+        } catch (e) { }
+
+        function updateProgress() {
+            var todos = document.querySelectorAll('.todo-item');
+            var completed = document.querySelectorAll('.todo-item.completed');
+            var progress = Math.round((completed.length / todos.length) * 100);
+
+            var bar = document.getElementById('progressBar');
+            if (bar) {
+                bar.style.width = progress + '%';
+                bar.textContent = progress === 100 ? '\uD83C\uDF89 100% 完成！' : progress + '%';
+            }
         }
+
+        function toggleTodo(item) {
+            var id = item.getAttribute('data-todo');
+
+            if (item.classList.contains('completed')) {
+                item.classList.remove('completed');
+                todoStates[id] = false;
+            } else {
+                item.classList.add('completed');
+                todoStates[id] = true;
+            }
+
+            try {
+                localStorage.setItem('readingTodos', JSON.stringify(todoStates));
+            } catch (e) { }
+
+            updateProgress();
+        }
+
+        function resetTodos() {
+            if (confirm('确定要重置所有作业任务吗？')) {
+                document.querySelectorAll('.todo-item').forEach(function (item) {
+                    item.classList.remove('completed');
+                });
+                todoStates = {};
+                try {
+                    localStorage.setItem('readingTodos', '{}');
+                } catch (e) { }
+                updateProgress();
+            }
+        }
+
+        // Restore from localStorage on page load
+        try {
+            var saved = localStorage.getItem('readingTodos');
+            if (saved) {
+                var states = JSON.parse(saved);
+                for (var id in states) {
+                    if (states[id]) {
+                        var item = document.querySelector('[data-todo="' + id + '"]');
+                        if (item) item.classList.add('completed');
+                    }
+                }
+            }
+        } catch (e) { }
+        updateProgress();
     </script>
 </body>
 </html>

@@ -77,8 +77,55 @@ function toggleBlank(wrapper) {
     wrapper.classList.toggle('revealed');
 }
 
-function toggleTodo(el) {
-    el.classList.toggle('done');
+// Todo list functionality
+var todoStates = {};
+
+try {
+    var saved = localStorage.getItem('grammarTodos');
+    if (saved) todoStates = JSON.parse(saved);
+} catch (e) { }
+
+function updateProgress() {
+    var todos = document.querySelectorAll('.todo-item');
+    var completed = document.querySelectorAll('.todo-item.completed');
+    var progress = Math.round((completed.length / todos.length) * 100);
+
+    var bar = document.getElementById('progressBar');
+    if (bar) {
+        bar.style.width = progress + '%';
+        bar.textContent = progress === 100 ? '🎉 100% 完成！' : progress + '%';
+    }
+}
+
+function toggleTodo(item) {
+    var id = item.getAttribute('data-todo');
+
+    if (item.classList.contains('completed')) {
+        item.classList.remove('completed');
+        todoStates[id] = false;
+    } else {
+        item.classList.add('completed');
+        todoStates[id] = true;
+    }
+
+    try {
+        localStorage.setItem('grammarTodos', JSON.stringify(todoStates));
+    } catch (e) { }
+
+    updateProgress();
+}
+
+function resetTodos() {
+    if (confirm('确定要重置所有作业任务吗？')) {
+        document.querySelectorAll('.todo-item').forEach(function (item) {
+            item.classList.remove('completed');
+        });
+        todoStates = {};
+        try {
+            localStorage.setItem('grammarTodos', '{}');
+        } catch (e) { }
+        updateProgress();
+    }
 }
 
 // Event Listeners - Modern approach instead of onclick attributes
@@ -132,4 +179,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.todo-item').forEach(item => {
         item.addEventListener('click', () => toggleTodo(item));
     });
+
+    // Restore todo states
+    Object.keys(todoStates).forEach(function (id) {
+        if (todoStates[id]) {
+            var item = document.querySelector('[data-todo="' + id + '"]');
+            if (item) item.classList.add('completed');
+        }
+    });
+    updateProgress();
 });
