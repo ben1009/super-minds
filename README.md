@@ -94,7 +94,8 @@ No installation required — just open it in your browser!
 │   └── grammar.js                            # Unit 8: Grammar page interactions
 ├── unit9/
 │   ├── holiday-plans-grammar-review.html  # Unit 9: Holiday Plans Grammar Review
-│   └── fairy-tales-reading.html           # Unit 9: Fairy Tales Reading
+│   ├── fairy-tales-reading.html           # Unit 9: Fairy Tales Reading
+│   └── Super minds2 -page 114.pdf         # Source PDF for Fairy Tales content
 ├── super-minds-baseball/   # Baseball-themed edition
 │   ├── index.html          # Baseball homepage with links to all units
 │   ├── unit7/
