@@ -1040,7 +1040,7 @@
 
         // Load from localStorage
         try {
-            var saved = localStorage.getItem('fairy-tales.html');
+            var saved = localStorage.getItem('fairyTalesTodos');
             if (saved) todoStates = JSON.parse(saved);
         } catch (e) { }
 
@@ -1068,7 +1068,7 @@
             }
 
             try {
-                localStorage.setItem('fairy-tales.html', JSON.stringify(todoStates));
+                localStorage.setItem('fairyTalesTodos', JSON.stringify(todoStates));
             } catch (e) { }
 
             updateProgress();
@@ -1081,7 +1081,7 @@
                 });
                 todoStates = {};
                 try {
-                    localStorage.setItem('fairy-tales.html', '{}');
+                    localStorage.setItem('fairyTalesTodos', '{}');
                 } catch (e) { }
                 updateProgress();
             }

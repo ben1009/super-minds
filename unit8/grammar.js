@@ -78,19 +78,19 @@ function toggleBlank(wrapper) {
 }
 
 // Todo list functionality
-var todoStates = {};
+let todoStates = {};
 
 try {
-    var saved = localStorage.getItem('grammarTodos');
+    const saved = localStorage.getItem('grammarTodos');
     if (saved) todoStates = JSON.parse(saved);
 } catch (e) { }
 
 function updateProgress() {
-    var todos = document.querySelectorAll('.todo-item');
-    var completed = document.querySelectorAll('.todo-item.completed');
-    var progress = Math.round((completed.length / todos.length) * 100);
+    const todos = document.querySelectorAll('.todo-item');
+    const completed = document.querySelectorAll('.todo-item.completed');
+    const progress = todos.length > 0 ? Math.round((completed.length / todos.length) * 100) : 0;
 
-    var bar = document.getElementById('progressBar');
+    const bar = document.getElementById('progressBar');
     if (bar) {
         bar.style.width = progress + '%';
         bar.textContent = progress === 100 ? '🎉 100% 完成！' : progress + '%';
@@ -98,7 +98,7 @@ function updateProgress() {
 }
 
 function toggleTodo(item) {
-    var id = item.getAttribute('data-todo');
+    const id = item.getAttribute('data-todo');
 
     if (item.classList.contains('completed')) {
         item.classList.remove('completed');
@@ -117,7 +117,7 @@ function toggleTodo(item) {
 
 function resetTodos() {
     if (confirm('确定要重置所有作业任务吗？')) {
-        document.querySelectorAll('.todo-item').forEach(function (item) {
+        document.querySelectorAll('.todo-item').forEach(item => {
             item.classList.remove('completed');
         });
         todoStates = {};
@@ -181,9 +181,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Restore todo states
-    Object.keys(todoStates).forEach(function (id) {
+    Object.keys(todoStates).forEach(id => {
         if (todoStates[id]) {
-            var item = document.querySelector('[data-todo="' + id + '"]');
+            const item = document.querySelector('[data-todo="' + id + '"]');
             if (item) item.classList.add('completed');
         }
     });
