@@ -1,0 +1,779 @@
+/**
+ * Super Minds - Baseball Theme Shared Styles
+ * Used by: unit8/*, unit9/*, super-minds-baseball/* pages
+ * Extracted from inline <style> blocks to eliminate ~800 lines of duplication
+ */
+
+/* ============================================
+   CSS Custom Properties
+   ============================================ */
+:root {
+    --leather-primary: #F5F5DC;
+    --stitch-red: #DC143C;
+    --field-green: #2E5D34;
+}
+
+/* ============================================
+   Base Reset & Body
+   ============================================ */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--field-green);
+    background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
+        linear-gradient(135deg, #2E5D34 0%, #1B4332 100%);
+    font-family: 'Noto Sans SC', sans-serif;
+    min-height: 100vh;
+    color: #1f2937;
+}
+
+/* ============================================
+   Typography Utilities
+   ============================================ */
+.baseball-font { font-family: 'Cinzel', serif; letter-spacing: 0.05em; }
+.chinese-font { font-family: 'Noto Serif SC', serif; }
+
+/* ============================================
+   Keyframe Animations
+   ============================================ */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.float-anim {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* ============================================
+   Card System
+   ============================================ */
+.leather-card {
+    background: linear-gradient(135deg, #F5F5DC 0%, #E8DCC4 100%);
+    border: 3px solid #8B4513;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5);
+    position: relative;
+}
+
+.leather-card::before {
+    content: '';
+    position: absolute;
+    top: 8px; left: 8px; right: 8px; bottom: 8px;
+    border: 2px dashed var(--stitch-red);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.stitch-border {
+    border: 3px solid var(--stitch-red);
+    border-radius: 12px;
+    position: relative;
+    background: #FAFAFA;
+}
+
+.reading-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 3px solid #2E5D34;
+    border-radius: 15px;
+}
+
+.grammar-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 3px solid #4682B4;
+    border-radius: 15px;
+    transition: all 0.3s;
+}
+
+.grammar-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+.nav-link {
+    color: rgba(255,255,255,0.9);
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+    color: white;
+    border-bottom-color: var(--stitch-red);
+}
+
+/* ============================================
+   Section Title
+   ============================================ */
+.section-title {
+    background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    display: inline-block;
+    border: 2px solid #F5F5DC;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* ============================================
+   Vocabulary & Word Cards
+   ============================================ */
+.word-card {
+    background: white;
+    border-left: 4px solid var(--stitch-red);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.word-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.vocab-card {
+    background: linear-gradient(145deg, #fffef8 0%, #f5f5dc 100%);
+    border: 2px solid #8B4513;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.vocab-card:hover {
+    transform: translateY(-3px) rotate(1deg);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-color: #DC143C;
+}
+
+.vocab-card:active {
+    transform: translateY(-1px) rotate(0deg);
+}
+
+.vocab-card.speaking {
+    background: linear-gradient(145deg, #dcfce7 0%, #bbf7d0 100%);
+    border-color: #16a34a;
+    animation: pulse 0.5s ease;
+}
+
+.speaker-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 1.2rem;
+    opacity: 0.3;
+    transition: all 0.3s;
+}
+
+.vocab-card:hover .speaker-icon {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.vocab-card.speaking .speaker-icon {
+    opacity: 1;
+    color: #16a34a;
+}
+
+/* ============================================
+   Fill-in-the-Blank
+   ============================================ */
+.fill-blank {
+    display: inline-block;
+    min-width: 80px;
+    padding: 4px 12px;
+    border-bottom: 3px solid var(--stitch-red);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+    color: #333;
+    background: white;
+    border-radius: 4px;
+    margin: 0 4px;
+    user-select: none;
+}
+
+.fill-blank.revealed {
+    background: #FEF3C7;
+    border: 2px solid #F59E0B;
+    color: #92400e;
+    transform: scale(1.05);
+}
+
+/* ============================================
+   Grammar & Interactive Components
+   ============================================ */
+.grammar-box {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: white;
+    border-radius: 12px;
+    border: 3px solid #fbbf24;
+}
+
+.grammar-highlight {
+    background: linear-gradient(120deg, #fef3c7 0%, #fef3c7 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 40%;
+    background-position: 0 88%;
+    padding: 0 4px;
+    font-weight: bold;
+    color: #92400e;
+}
+
+.interactive-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #FEF3C7;
+    border-left: 4px solid #F59E0B;
+}
+
+.interactive-answer.show {
+    max-height: 500px;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 0 8px 8px 0;
+}
+
+/* ============================================
+   Reading & Translation
+   ============================================ */
+.reading-paragraph {
+    cursor: pointer;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
+    padding-left: 12px;
+}
+
+.reading-paragraph:hover {
+    border-left-color: var(--stitch-red);
+    background: rgba(220,20,60,0.05);
+}
+
+.passage-paragraph {
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.passage-paragraph:hover {
+    background: #f0f8ff;
+}
+
+.translation {
+    display: none;
+    color: #666;
+    font-style: italic;
+    margin-top: 8px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 3px solid #4682B4;
+}
+
+.translation.show {
+    display: block;
+}
+
+/* ============================================
+   Todo / Checklist System
+   ============================================ */
+.todo-item {
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.todo-item:hover {
+    transform: translateX(5px);
+}
+
+.todo-item.completed {
+    opacity: 0.7;
+    border-left-color: #4CAF50;
+    background: #F1F8E9;
+}
+
+.todo-item.completed .todo-title {
+    text-decoration: line-through;
+    color: #666;
+}
+
+.todo-checkbox {
+    width: 28px;
+    height: 28px;
+    border: 3px solid #FF5722;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: white;
+    transition: all 0.3s;
+}
+
+.todo-item.completed .todo-checkbox {
+    background: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.todo-checkbox::after {
+    content: '✓';
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.todo-item.completed .todo-checkbox::after {
+    opacity: 1;
+}
+
+/* ============================================
+   Data Table
+   ============================================ */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.data-table th {
+    background: #4682B4;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #357abd;
+    font-weight: bold;
+}
+
+.data-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    line-height: 1.6;
+}
+
+.data-table td:first-child { border-left: 1px solid #eee; }
+.data-table tr:hover { background: #f5f5f5; }
+
+/* ============================================
+   Dialogue & Scene Components
+   ============================================ */
+.dialogue-scene {
+    background: white;
+    border: 2px solid #8B4513;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.hint-bar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* ============================================
+   Toggle & Tip Components
+   ============================================ */
+.toggle-btn {
+    background: linear-gradient(145deg, #4682B4, #5a9fd4);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.05em;
+    margin: 15px 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    transition: all 0.2s;
+}
+
+.toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.tip-box {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    border: 2px solid #f39c12;
+    border-radius: 12px;
+    padding: 20px 20px 20px 55px;
+    margin: 25px 0;
+    position: relative;
+    font-size: 1.02em;
+    line-height: 1.7;
+}
+
+.tip-box::before {
+    content: '💡';
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.6em;
+}
+
+.note-box {
+    background: #e3f2fd;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    border-left: 4px solid #2196f3;
+}
+
+/* ============================================
+   Quiz Components
+   ============================================ */
+.quiz-option {
+    padding: 12px 16px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 8px;
+}
+
+.quiz-option:hover {
+    border-color: #4682B4;
+    background: #f0f8ff;
+}
+
+.quiz-option.correct {
+    border-color: #16a34a;
+    background: #dcfce7;
+}
+
+.quiz-option.wrong {
+    border-color: #dc2626;
+    background: #fee2e2;
+}
+
+.quiz-answer-box {
+    display: none;
+    margin-top: 10px;
+    padding: 15px;
+    background: #f0f8ff;
+    border-radius: 10px;
+    border-left: 4px solid #4682B4;
+}
+
+.quiz-answer-box.show {
+    display: block;
+}
+
+/* ============================================
+   Word Quiz Blank
+   ============================================ */
+.word-quiz-blank {
+    display: inline-block;
+    min-width: 120px;
+    border-bottom: 2px solid #e74c3c;
+    margin: 0 4px;
+    cursor: pointer;
+    text-align: center;
+    color: transparent;
+    transition: all 0.3s;
+    padding: 0 8px;
+}
+
+.word-quiz-blank.revealed {
+    color: #e74c3c;
+    background: #ffeaea;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.word-quiz-blank:hover { background: #ffeaea; }
+
+/* ============================================
+   Answer Table & Blank (Dialogue Fill-in)
+   ============================================ */
+.answer-table {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    opacity: 0;
+    margin-top: 0;
+    background: #f0f8ff;
+    border: 2px dashed #4682B4;
+    border-radius: 12px;
+    padding: 0 25px;
+}
+
+.answer-table.show {
+    max-height: 2000px;
+    opacity: 1;
+    margin-top: 20px;
+    padding: 25px;
+}
+
+.blank {
+    display: inline-block;
+    min-width: 90px;
+    border-bottom: 2px solid #e74c3c;
+    margin: 0 5px;
+    cursor: pointer;
+    text-align: center;
+    color: transparent;
+    transition: all 0.3s;
+    padding: 0 8px;
+}
+
+.blank.revealed {
+    color: #e74c3c;
+    background: #ffeaea;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.blank:hover { background: #ffeaea; }
+
+/* ============================================
+   Sports-Specific (Baseball Diamond)
+   ============================================ */
+.ball-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    margin-right: 12px;
+    font-size: 24px;
+    border: 2px solid #ddd;
+}
+
+.baseball-diamond {
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.1);
+    transform: rotate(45deg);
+    margin: 20px auto;
+    border: 4px solid rgba(255,255,255,0.3);
+    position: relative;
+}
+
+.base {
+    width: 20px;
+    height: 20px;
+    background: white;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.base.home { bottom: -10px; right: -10px; background: var(--stitch-red); }
+.base.first { top: -10px; right: -10px; }
+.base.second { top: -10px; left: -10px; }
+.base.third { bottom: -10px; left: -10px; }
+
+/* ============================================
+   Character Cards (Fun Things We Do)
+   ============================================ */
+.character-card {
+    background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+    border: 3px solid;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.character-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+}
+
+.amy { border-color: #ec4899; }
+.ben { border-color: #3b82f6; }
+.cindy { border-color: #10b981; }
+.david { border-color: #f59e0b; }
+.writer { border-color: #8b5cf6; }
+
+.activity-icon {
+    font-size: 3rem;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+}
+
+/* ============================================
+   Example Box (Grammar Review)
+   ============================================ */
+.example-box {
+    background: #f5f5f5;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 30px;
+    font-size: 1.05em;
+}
+
+.example-box ul {
+    margin: 15px 0;
+    padding-left: 30px;
+}
+
+.example-box li {
+    margin: 10px 0;
+    line-height: 1.8;
+}
+
+/* ============================================
+   Grammar Structure
+   ============================================ */
+.grammar-structure {
+    background: #e6f3ff;
+    border-left: 5px solid #4682B4;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 0 10px 10px 0;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 1.05em;
+}
+
+/* ============================================
+   Option Button (Reading Quiz)
+   ============================================ */
+.option-btn {
+    border: 2px solid #e5e7eb;
+    background: #f9fafb;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.option-btn.correct {
+    background: #dcfce7;
+    border-color: #16a34a;
+    color: #166534;
+    font-weight: 700;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+}
+
+.option-btn.correct::before {
+    content: '✓ ';
+    color: #16a34a;
+    font-weight: bold;
+}
+
+/* ============================================
+   Text Block & Translation (Fun Things We Do)
+   ============================================ */
+.text-block {
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.text-block:hover {
+    filter: brightness(0.98);
+}
+
+.translate-hint {
+    font-size: 0.75rem;
+    color: #6b7280;
+    opacity: 0;
+    transition: opacity 0.3s;
+    margin-top: 0.25rem;
+}
+
+.text-block:hover .translate-hint {
+    opacity: 1;
+}
+
+/* ============================================
+   Question Item & Answer Section
+   ============================================ */
+.question-item {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.question-item:hover {
+    background: rgba(34, 197, 94, 0.1);
+}
+
+.answer-section {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    opacity: 0;
+    margin-top: 0;
+}
+
+.answer-section.show {
+    max-height: 400px;
+    opacity: 1;
+    margin-top: 1rem;
+}
+
+/* ============================================
+   Pronunciation Hint
+   ============================================ */
+.pronunciation-hint {
+    font-size: 0.7rem;
+    color: #8b4513;
+    margin-top: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.vocab-card:hover .pronunciation-hint {
+    opacity: 1;
+}
+
+/* ============================================
+   Navigation Cards (Amazing Vehicles)
+   ============================================ */
+.nav-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    cursor: pointer;
+    border: 4px solid transparent;
+    transition: all 0.3s;
+}
+
+.nav-card:nth-child(1) { border-color: #FF6B6B; }
+.nav-card:nth-child(2) { border-color: #4ECDC4; }
+.nav-card:nth-child(3) { border-color: #45B7D1; }
+.nav-card:nth-child(4) { border-color: #96CEB4; }
+
+.nav-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+/* ============================================
+   Option Correct (Amazing Vehicles)
+   ============================================ */
+.option.correct {
+    background: #C8E6C9;
+    border-color: #2E7D32;
+    color: #2E7D32;
+    font-weight: 700;
+}
