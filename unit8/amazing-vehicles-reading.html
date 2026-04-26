@@ -1363,9 +1363,9 @@
 
         // Toggle answer for reading comprehension
         function toggleAnswer(qid) {
-            var questionEl = document.querySelector('[onclick="toggleAnswer(\'' + qid + '\')"]');
+            var optionsDivId = qid.replace('q-', 'opts-');
+            var questionEl = document.querySelector('[data-options-id="' + optionsDivId + '"]');
             var answerDiv = document.getElementById('ans-' + qid);
-            var optionsDivId = questionEl ? questionEl.getAttribute('data-options-id') : qid.replace('q-', 'opts-');
             var optionsDiv = document.getElementById(optionsDivId);
 
             if (answerDiv.classList.contains('show')) {

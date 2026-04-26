@@ -293,7 +293,11 @@ function initCommon() {
     // Restore progress only on homework pages (check for progress bar element)
     // Using #progress-bar as it's specific to homework pages and won't conflict
     // with other pages that might have checkboxes for different purposes
-    if (document.getElementById('progress-bar') || document.getElementById('progressBar')) {
+    // Only restore progress on homework pages that have both a progress bar
+    // and .check-item checkboxes (Unit 8/9 todo pages use their own progress system)
+    const hasProgressBar = document.getElementById('progress-bar') || document.getElementById('progressBar');
+    const hasCheckboxes = document.querySelectorAll(HOMEWORK_CHECKBOX_SELECTOR).length > 0;
+    if (hasProgressBar && hasCheckboxes) {
         restoreProgress();
     }
 }
