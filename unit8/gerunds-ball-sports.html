@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Unit 8 棒球主题英语学习 — 球类运动词汇与动名词作主语语法">
     <title>Super Minds 2 Unit 8 - 棒球主题英语学习</title>
     <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 
@@ -259,7 +260,7 @@
         </div>
     </nav>
 
-    <div class="max-w-6xl mx-auto px-4 py-8">
+    <main class="max-w-6xl mx-auto px-4 py-8">
 
         <!-- Header -->
         <div class="text-center mb-12">
@@ -479,14 +480,14 @@
 
                     <div class="text-center space-y-4" style="line-height: 2; font-size: 1.1rem;">
                         <div>
-                            <span class="fill-blank" onclick="toggleBlank('blank1', 'Playing')">_____</span> tennis is great fun.<br>
+                            <span class="fill-blank" onclick="toggleBlank(event, 'blank1', 'Playing')">_____</span> tennis is great fun.<br>
                             It's fun for everyone.<br>
                             So come on, everyone,<br>
                             Come and join the fun!
                         </div>
 
                         <div style="margin-top: 20px;">
-                            <span class="fill-blank" onclick="toggleBlank('blank2', 'Flying')">_____</span> kites is easy,<br>
+                            <span class="fill-blank" onclick="toggleBlank(event, 'blank2', 'Flying')">_____</span> kites is easy,<br>
                             Easy for you and me.<br>
                             So come and fly with me,<br>
                             Oh, come on, it's so easy!<br>
@@ -494,14 +495,14 @@
                         </div>
 
                         <div style="margin-top: 20px;">
-                            <span class="fill-blank" onclick="toggleBlank('blank3', 'Singing')">_____</span> songs is great fun.<br>
+                            <span class="fill-blank" onclick="toggleBlank(event, 'blank3', 'Singing')">_____</span> songs is great fun.<br>
                             It's fun for everyone.<br>
                             So come on, everyone,<br>
                             Come and join the fun!
                         </div>
 
                         <div style="margin-top: 20px;">
-                            <span class="fill-blank" onclick="toggleBlank('blank4', 'Painting')">_____</span> pictures is easy.<br>
+                            <span class="fill-blank" onclick="toggleBlank(event, 'blank4', 'Painting')">_____</span> pictures is easy.<br>
                             Easy for you and me.<br>
                             So come and paint with me,<br>
                             Oh, come on, it's so easy!<br>
@@ -881,7 +882,7 @@
                 </div>
             </div>
         </footer>
-    </div>
+    </main>
 
     <script>
         // Mobile menu toggle
@@ -898,8 +899,7 @@
         var songBlankStates = {};
 
         // 歌曲填空切换函数（使用 element 参数直接操作DOM，避免ID查找）
-        function toggleBlank(elementId, answer) {
-            // 获取点击的元素（通过event.target隐式传递）
+        function toggleBlank(event, elementId, answer) {
             var element = event.target;
 
             // 检查当前状态（如果不存在则默认为false）

@@ -53,3 +53,87 @@
 - [x] Fairy Tales reading answer option text no longer includes literal `✓` characters
 - [x] Baseball Unit 7 desktop/mobile navigation includes Fairy Tales links
 - [x] README and TESTING.md reflect the current Unit 9 page coverage
+
+---
+
+## 🔴 Refactor — High Severity
+
+### 11. Extract shared navigation HTML into a JS template or build step
+- [ ] `unit7/present-continuous-course.html:172–236`
+- [ ] `unit7/present-continuous-homework.html:252–316`
+- [ ] `unit8/gerunds-ball-sports.html:196–260`
+- [ ] `unit8/amazing-vehicles-reading.html:262–339`
+- [ ] `unit8/fun-things-we-do-reading.html:308–372`
+- [ ] `unit8/question-words-grammar-homework.html:19–83`
+- [ ] `unit9/holiday-plans-grammar-review.html:352–416`
+- [ ] `unit9/fairy-tales-reading.html:366–400+`
+- **Impact:** ~550 lines of duplicated HTML; only differences are path prefixes and active-class
+
+### 12. Extract baseball theme CSS into `css/common.css` or a new `css/baseball-theme.css`
+- [ ] `unit8/gerunds-ball-sports.html:15–192`
+- [ ] `unit8/amazing-vehicles-reading.html:18–257`
+- [ ] `unit8/fun-things-we-do-reading.html:15–304`
+- [ ] `unit9/holiday-plans-grammar-review.html:15–348`
+- [ ] `unit9/fairy-tales-reading.html:15–362`
+- [ ] `super-minds-baseball/unit8/baseball-gerunds-ball-sports.html`
+- **Impact:** ~800 lines of duplicated CSS (`:root` vars, `.leather-card`, `.stitch-border`, `.nav-link`, `.todo-item`, `.todo-checkbox`, `@keyframes float`, etc.)
+- **Note:** `unit8/grammar.css` already exists but is only loaded by `question-words-grammar-homework.html`
+
+### 13. Deduplicate inline JS functions — use `js/common.js` consistently
+- [ ] `toggleMobileMenu()` — redefined in 8 files (e.g. `unit8/gerunds-ball-sports.html:888`, `unit9/fairy-tales-reading.html:954`, `unit8/grammar.js:5`)
+- [ ] `toggleTranslation()` — redefined in `unit8/fun-things-we-do-reading.html:953` and `unit9/fairy-tales-reading.html:962`
+- [ ] `toggleAnswer()` — unify incompatible variants across baseball and unit8/9 pages
+- [ ] `speak()` — identical in 6 files; move to `js/common.js`
+- [ ] `updateProgress()` / `toggleTodo()` / `resetTodos()` — unify with parameterized `localStorage` key
+- [ ] `copyDialogue()` — replace with `common.js::copyToClipboard()`
+- **Impact:** ~200 lines of duplicated JS
+
+### 14. Resolve baseball version near-duplication
+- [ ] `super-minds-baseball/unit8/baseball-gerunds-ball-sports.html` vs `unit8/gerunds-ball-sports.html` (~95% identical)
+- [ ] `super-minds-baseball/unit7/baseball-present-continuous-course.html` vs `unit7/present-continuous-course.html`
+- [ ] `super-minds-baseball/unit7/baseball-present-continuous-homework.html` vs `unit7/present-continuous-homework.html`
+- **Idea:** Introduce a theme-toggle or CSS-only theming instead of full page copies
+
+---
+
+## 🟡 Refactor — Medium Severity
+
+### 15. Replace inline `onclick` with `addEventListener`
+- **457 total inline `onclick` handlers** across 14 HTML files
+- Prioritize non-interactive elements (`<div>`, `<span>`) that lack `role="button"` / `tabindex`
+- **Notable:**
+  - `unit7/present-continuous-homework.html:460` — flashcard flip
+  - `unit8/gerunds-ball-sports.html:293` — vocabulary speak
+  - `unit8/amazing-vehicles-reading.html:357` — nav-card scroll
+  - `unit9/fairy-tales-reading.html:986` — parses `onclick` string to detect correct answer (extremely brittle)
+
+### 16. Eliminate magic numbers and brittle selectors
+- [ ] `unit8/amazing-vehicles-reading.html:1379–1381` — hardcoded correct-answer indices; replace with `data-correct-index`
+- [ ] `unit8/gerunds-ball-sports.html:903` — implicit global `event.target`; pass `event` parameter explicitly
+- [ ] `js/common.js:296` — `restoreProgress()` looks for `progress-bar` (kebab-case) but some pages use `progressBar` (camelCase); normalize IDs
+- [ ] `unit8/amazing-vehicles-reading.html:1366` — `qid.replace('q-', 'opts-')` naming convention coupling
+
+### 17. Accessibility improvements
+- [ ] Add `<main>` landmark to 7 files missing it (`unit8/*`, `super-minds-baseball/*`)
+- [ ] Fix heading hierarchy skips (`h1` → `h3` in `super-minds-baseball/index.html`; `h2` → `h4` in `unit8/amazing-vehicles-reading.html`)
+- [ ] Add `<meta name="description">` to all 14 HTML files
+- [ ] Add skip-navigation link
+- [ ] Add `role="button"`, `tabindex="0"`, and `keydown` handlers to clickable `<div>`/`<span>` elements
+
+---
+
+## 🟢 Refactor — Low Severity
+
+### 18. Clean up `js/common.js`
+- [ ] Remove or guard `console.warn` (line 194) and `console.error` (line 217)
+- [ ] `toggleAnswer()` API inconsistency: common.js toggles `.revealed`, baseball variants toggle `.hidden`
+- [ ] `HOMEWORK_CHECKBOX_SELECTOR` (line 14) is tightly coupled to a specific markup pattern
+
+### 19. Clean up `css/common.css`
+- [ ] Add `@media (prefers-reduced-motion: reduce)` guards for `fadeInUp` and `float` animations
+- [ ] Replace hardcoded hex/rgba shadows and borders with CSS variables
+- [ ] Add `:focus-visible` styles for interactive elements
+
+### 20. Minor HTML fixes
+- [ ] `unit7/present-continuous-homework.html:1033–1056` — add explicit `for`/`id` linkage on checkbox labels
+- [ ] `unit8/question-words-grammar-homework.html` — mobile menu uses slightly different class names (`block px-4 py-2` vs `nav-link px-3 py-2 text-sm font-medium block`); align with other pages
