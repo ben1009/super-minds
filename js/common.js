@@ -369,6 +369,58 @@ const NAV_LINKS = {
                 { key: 'unit9-fairytales', href: 'fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
         }
+    },
+    B_baseball_unit8: {
+        home: { href: '../index.html', label: '首页 Home' },
+        unit7: {
+            label: 'Unit 7',
+            triggerHref: '../unit7/baseball-present-continuous-course.html',
+            pages: [
+                { key: 'baseball-unit7-course', href: '../unit7/baseball-present-continuous-course.html', label: '⚾ 现在进行时 Course' },
+                { key: 'baseball-unit7-homework', href: '../unit7/baseball-present-continuous-homework.html', label: '✏️ 作业 Homework' }
+            ]
+        },
+        unit8: {
+            label: 'Unit 8',
+            triggerHref: 'baseball-gerunds-ball-sports.html',
+            pages: [
+                { key: 'baseball-unit8-sports', href: 'baseball-gerunds-ball-sports.html', label: '⚾ 球类运动 Sports' }
+            ]
+        },
+        unit9: {
+            label: 'Unit 9',
+            triggerHref: '../../unit9/holiday-plans-grammar-review.html',
+            pages: [
+                { key: 'baseball-unit9-grammar', href: '../../unit9/holiday-plans-grammar-review.html', label: '🌴 假期计划语法 Grammar' },
+                { key: 'baseball-unit9-fairytales', href: '../../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
+            ]
+        }
+    },
+    C: {
+        'baseball-unit7-course': {
+            home: { href: '../index.html', label: '⚾ Super Minds' },
+            links: [
+                { href: '../index.html', label: '🏠 首页' },
+                { href: 'baseball-present-continuous-homework.html', label: '📚 课后作业' },
+                { href: '../unit8/baseball-gerunds-ball-sports.html', label: '🏏 Unit 8' },
+                { href: '../../unit9/holiday-plans-grammar-review.html', label: '🌴 Unit 9' },
+                { href: '../../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales' }
+            ],
+            activeLabel: '⚾ Unit 7',
+            separators: [0, 1, 2]
+        },
+        'baseball-unit7-homework': {
+            home: { href: '../index.html', label: '⚾ Super Minds' },
+            links: [
+                { href: '../index.html', label: '🏠 首页' },
+                { href: 'baseball-present-continuous-course.html', label: '⚾ Unit 7' },
+                { href: '../unit8/baseball-gerunds-ball-sports.html', label: '🏏 Unit 8' },
+                { href: '../../unit9/holiday-plans-grammar-review.html', label: '🌴 Unit 9' },
+                { href: '../../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales' }
+            ],
+            activeLabel: '📚 课后作业',
+            separators: [0, 1, 2]
+        }
     }
 };
 
@@ -396,9 +448,7 @@ function renderNav(config) {
         case 'C':
             html = buildNavPatternC(config.active);
             break;
-        case 'D':
-            html = buildNavPatternD(config.active);
-            break;
+
     }
     
     container.outerHTML = html;
@@ -406,9 +456,9 @@ function renderNav(config) {
 
 function buildNavPatternA(active) {
     const links = NAV_LINKS.A;
-    const isUnit7 = active.startsWith('unit7');
-    const isUnit8 = active.startsWith('unit8');
-    const isUnit9 = active.startsWith('unit9');
+    const isUnit7 = active.startsWith('unit7') || active.startsWith('baseball-unit7');
+    const isUnit8 = active.startsWith('unit8') || active.startsWith('baseball-unit8');
+    const isUnit9 = active.startsWith('unit9') || active.startsWith('baseball-unit9');
     
     const homeClass = (!isUnit7 && !isUnit8 && !isUnit9)
         ? 'px-3 py-2 text-sm font-medium text-white bg-white/20 rounded-lg border-b-2 border-yellow-400'
@@ -432,7 +482,7 @@ function buildNavPatternA(active) {
             : 'block px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all';
     }
     
-    return `<nav class="sticky top-0 z-50 bg-gradient-to-r from-blue-600 to-blue-800 border-b-4 border-yellow-400 shadow-lg mb-8 -mt-4 -mx-4 px-4 md:-mx-8 md:px-8">
+    return `<nav id="site-nav" class="sticky top-0 z-50 bg-gradient-to-r from-blue-600 to-blue-800 border-b-4 border-yellow-400 shadow-lg mb-8 -mt-4 -mx-4 px-4 md:-mx-8 md:px-8">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-14">
                 <div class="flex items-center space-x-3">
@@ -522,7 +572,7 @@ function buildNavPatternB(active, brandIcon) {
             : 'nav-link px-3 py-2 text-sm font-medium block';
     }
     
-    return `<nav class="sticky top-0 z-50 bg-gradient-to-r from-green-900 to-green-800 border-b-4 border-red-700 shadow-lg">
+    return `<nav id="site-nav" class="sticky top-0 z-50 bg-gradient-to-r from-green-900 to-green-800 border-b-4 border-red-700 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center space-x-4">
@@ -575,149 +625,40 @@ function buildNavPatternB(active, brandIcon) {
     </nav>`;
 }
 
-function buildNavPatternD(active) {
-    if (active === 'baseball-unit8-sports') {
-        return `<nav class="sticky top-0 z-50 bg-gradient-to-r from-green-900 to-green-800 border-b-4 border-red-700 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center space-x-4">
-                    <i class="fas fa-baseball-ball text-white text-2xl"></i>
-                    <span class="baseball-font text-white text-xl font-bold">Super Minds 2</span>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="../index.html" class="nav-link px-3 py-2 text-sm font-medium">首页 Home</a>
-                    <a href="../unit7/baseball-present-continuous-course.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 7</a>
-                    <span class="nav-link px-3 py-2 text-sm font-medium border-b-2 border-red-500">Unit 8</span>
-                    <a href="../unit7/baseball-present-continuous-homework.html" class="nav-link px-3 py-2 text-sm font-medium">作业 Homework</a>
-                    <a href="../../unit9/holiday-plans-grammar-review.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 9</a>
-                    <a href="../../unit9/fairy-tales-reading.html" class="nav-link px-3 py-2 text-sm font-medium">🏰 Fairy Tales</a>
-                </div>
-                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
-            <div id="mobileMenu" class="hidden md:hidden pb-4">
-                <div class="flex flex-col space-y-2">
-                    <a href="../index.html" class="nav-link px-3 py-2 text-sm font-medium">首页 Home</a>
-                    <a href="../unit7/baseball-present-continuous-course.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 7</a>
-                    <span class="nav-link px-3 py-2 text-sm font-medium border-l-4 border-red-500 pl-4">Unit 8</span>
-                    <a href="../unit7/baseball-present-continuous-homework.html" class="nav-link px-3 py-2 text-sm font-medium">作业 Homework</a>
-                    <a href="../../unit9/holiday-plans-grammar-review.html" class="nav-link px-3 py-2 text-sm font-medium">Unit 9</a>
-                    <a href="../../unit9/fairy-tales-reading.html" class="nav-link px-3 py-2 text-sm font-medium">🏰 Fairy Tales</a>
-                </div>
-            </div>
-        </div>
-    </nav>`;
-    }
-    return '';
-}
-
 function buildNavPatternC(active) {
-    if (active === 'baseball-unit7-course') {
-        return `<nav class="bg-red-800 text-white py-4 sticky top-0 z-50 shadow-lg">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center">
-                <a href="../index.html" class="text-xl font-bold baseball-font">⚾ Super Minds</a>
-                <div class="hidden md:flex gap-4 text-sm items-center">
-                    <a href="../index.html" class="hover:text-yellow-400 transition-colors">🏠 首页</a>
-                    <span>|</span>
-                    <a href="baseball-present-continuous-homework.html" class="hover:text-yellow-400 transition-colors">📚 课后作业</a>
-                    <span>|</span>
-                    <a href="../unit8/baseball-gerunds-ball-sports.html" class="hover:text-yellow-400 transition-colors">🏏 Unit 8</a>
-                    <span>|</span>
-                    <a href="../../unit9/holiday-plans-grammar-review.html" class="hover:text-yellow-400 transition-colors">🌴 Unit 9</a>
-                    <a href="../../unit9/fairy-tales-reading.html" class="hover:text-yellow-400 transition-colors">🏰 Fairy Tales</a>
-                    <span>|</span>
-                    <span class="text-yellow-400">⚾ Unit 7</span>
-                </div>
-                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 hover:bg-white/10 rounded">
-                    ☰
-                </button>
-            </div>
-            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-2 border-t border-red-700 pt-2">
-                <div class="flex flex-col space-y-2 text-sm">
-                    <a href="../index.html" class="hover:text-yellow-400 transition-colors py-1">🏠 首页</a>
-                    <a href="baseball-present-continuous-homework.html" class="hover:text-yellow-400 transition-colors py-1">📚 课后作业</a>
-                    <a href="../unit8/baseball-gerunds-ball-sports.html" class="hover:text-yellow-400 transition-colors py-1">🏏 Unit 8</a>
-                    <a href="../../unit9/holiday-plans-grammar-review.html" class="hover:text-yellow-400 transition-colors py-1">🌴 Unit 9</a>
-                    <a href="../../unit9/fairy-tales-reading.html" class="hover:text-yellow-400 transition-colors py-1">🏰 Fairy Tales</a>
-                    <span class="text-yellow-400 py-1 border-l-4 border-yellow-400 pl-2">⚾ Unit 7</span>
-                </div>
-            </div>
-        </div>
-    </nav>`;
-    }
+    const config = NAV_LINKS.C[active];
+    if (!config) return '';
     
-    if (active === 'baseball-unit7-homework') {
-        return `<nav class="bg-red-800 text-white py-4 sticky top-0 z-50 shadow-lg">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center">
-                <a href="../index.html" class="text-xl font-bold baseball-font">⚾ Super Minds</a>
-                <div class="hidden md:flex gap-4 text-sm items-center">
-                    <a href="../index.html" class="hover:text-yellow-400 transition-colors">🏠 首页</a>
-                    <span>|</span>
-                    <a href="baseball-present-continuous-course.html" class="hover:text-yellow-400 transition-colors">⚾ Unit 7</a>
-                    <span>|</span>
-                    <a href="../unit8/baseball-gerunds-ball-sports.html" class="hover:text-yellow-400 transition-colors">🏏 Unit 8</a>
-                    <span>|</span>
-                    <a href="../../unit9/holiday-plans-grammar-review.html" class="hover:text-yellow-400 transition-colors">🌴 Unit 9</a>
-                    <a href="../../unit9/fairy-tales-reading.html" class="hover:text-yellow-400 transition-colors">🏰 Fairy Tales</a>
-                    <span>|</span>
-                    <span class="text-yellow-400">📚 课后作业</span>
-                </div>
-                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 hover:bg-white/10 rounded">
-                    ☰
-                </button>
-            </div>
-            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-2 border-t border-red-700 pt-2">
-                <div class="flex flex-col space-y-2 text-sm">
-                    <a href="../index.html" class="hover:text-yellow-400 transition-colors py-1">🏠 首页</a>
-                    <a href="baseball-present-continuous-course.html" class="hover:text-yellow-400 transition-colors py-1">⚾ Unit 7</a>
-                    <a href="../unit8/baseball-gerunds-ball-sports.html" class="hover:text-yellow-400 transition-colors py-1">🏏 Unit 8</a>
-                    <a href="../../unit9/holiday-plans-grammar-review.html" class="hover:text-yellow-400 transition-colors py-1">🌴 Unit 9</a>
-                    <a href="../../unit9/fairy-tales-reading.html" class="hover:text-yellow-400 transition-colors py-1">🏰 Fairy Tales</a>
-                    <span class="text-yellow-400 py-1 border-l-4 border-yellow-400 pl-2">📚 课后作业</span>
-                </div>
-            </div>
-        </div>
-    </nav>`;
-    }
+    const desktopLinks = config.links.map(function(link, index) {
+        var sep = config.separators.indexOf(index) !== -1 ? '\n                    <span>|</span>' : '';
+        return '<a href="' + link.href + '" class="hover:text-yellow-400 transition-colors">' + link.label + '</a>' + sep;
+    }).join('\n                    ');
     
-    if (active === 'baseball-unit8-sports') {
-        return `<nav class="bg-red-800 text-white py-4 sticky top-0 z-50 shadow-lg">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center">
-                <a href="../index.html" class="text-xl font-bold baseball-font">⚾ Super Minds</a>
-                <div class="hidden md:flex gap-4 text-sm items-center">
-                    <a href="../index.html" class="hover:text-yellow-400 transition-colors">🏠 首页</a>
-                    <span>|</span>
-                    <a href="../unit7/baseball-present-continuous-course.html" class="hover:text-yellow-400 transition-colors">⚾ Unit 7</a>
-                    <a href="../unit7/baseball-present-continuous-homework.html" class="hover:text-yellow-400 transition-colors">📚 课后作业</a>
-                    <span>|</span>
-                    <span class="text-yellow-400">🏏 Unit 8</span>
-                    <span>|</span>
-                    <a href="../../unit9/holiday-plans-grammar-review.html" class="hover:text-yellow-400 transition-colors">🌴 Unit 9</a>
-                    <a href="../../unit9/fairy-tales-reading.html" class="hover:text-yellow-400 transition-colors">🏰 Fairy Tales</a>
-                </div>
-                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 hover:bg-white/10 rounded">
-                    ☰
-                </button>
-            </div>
-            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-2 border-t border-red-700 pt-2">
-                <div class="flex flex-col space-y-2 text-sm">
-                    <a href="../index.html" class="hover:text-yellow-400 transition-colors py-1">🏠 首页</a>
-                    <a href="../unit7/baseball-present-continuous-course.html" class="hover:text-yellow-400 transition-colors py-1">⚾ Unit 7</a>
-                    <a href="../unit7/baseball-present-continuous-homework.html" class="hover:text-yellow-400 transition-colors py-1">📚 课后作业</a>
-                    <span class="text-yellow-400 py-1 border-l-4 border-yellow-400 pl-2">🏏 Unit 8</span>
-                    <a href="../../unit9/holiday-plans-grammar-review.html" class="hover:text-yellow-400 transition-colors py-1">🌴 Unit 9</a>
-                    <a href="../../unit9/fairy-tales-reading.html" class="hover:text-yellow-400 transition-colors py-1">🏰 Fairy Tales</a>
-                </div>
-            </div>
-        </div>
-    </nav>`;
-    }
+    const mobileLinks = config.links.map(function(link) {
+        return '<a href="' + link.href + '" class="hover:text-yellow-400 transition-colors py-1">' + link.label + '</a>';
+    }).join('\n                    ');
     
-    return '';
+    return '<nav id="site-nav" class="bg-red-800 text-white py-4 sticky top-0 z-50 shadow-lg">\n' +
+        '        <div class="max-w-6xl mx-auto px-4">\n' +
+        '            <div class="flex justify-between items-center">\n' +
+        '                <a href="' + config.home.href + '" class="text-xl font-bold baseball-font">' + config.home.label + '</a>\n' +
+        '                <div class="hidden md:flex gap-4 text-sm items-center">\n' +
+        '                    ' + desktopLinks + '\n' +
+        '                    <span>|</span>\n' +
+        '                    <span class="text-yellow-400">' + config.activeLabel + '</span>\n' +
+        '                </div>\n' +
+        '                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 hover:bg-white/10 rounded">\n' +
+        '                    ☰\n' +
+        '                </button>\n' +
+        '            </div>\n' +
+        '            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-2 border-t border-red-700 pt-2">\n' +
+        '                <div class="flex flex-col space-y-2 text-sm">\n' +
+        '                    ' + mobileLinks + '\n' +
+        '                    <span class="text-yellow-400 py-1 border-l-4 border-yellow-400 pl-2">' + config.activeLabel + '</span>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '        </div>\n' +
+        '    </nav>';
 }
 
 // ============================================
