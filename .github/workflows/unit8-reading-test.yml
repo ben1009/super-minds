@@ -234,7 +234,7 @@ jobs:
               toggleTranslation: typeof toggleTranslation === 'function',
               toggleAnswer: typeof toggleAnswer === 'function',
               speak: typeof speak === 'function',
-              toggleTodo: typeof toggleTodo === 'function'
+              toggleTodoItem: typeof toggleTodoItem === 'function'
             }));
             
             for (const [name, exists] of Object.entries(functions)) {

@@ -619,10 +619,6 @@
 
     <script>
         // Mobile menu toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
-        }
 
         function toggleAnswer(id) {
             const element = document.getElementById(id);
@@ -638,19 +634,8 @@
         }
 
         function copyDialogue() {
-            const dialogue = `A: Hi! What are you doing now?
-B: I am practicing my swing. What about you?
-A: I am waiting for my turn to bat.
-B: Look! The pitcher is throwing fast balls!
-A: Great! But there are lots of fans watching us.
-B: Don't worry. We are playing a big game. It is exciting!
-A: Look! The batter is hitting a home run!
-B: Yes! And now it is my turn to run to the base!`;
-            navigator.clipboard.writeText(dialogue).then(() => {
-                const msg = document.getElementById('copyMsg');
-                msg.classList.remove('hidden');
-                setTimeout(() => msg.classList.add('hidden'), 2000);
-            });
+            const dialogue = `A: Hi! What are you doing now?\nB: I am practicing my swing. What about you?\nA: I am waiting for my turn to bat.\nB: Look! The pitcher is throwing fast balls!\nA: Great! But there are lots of fans watching us.\nB: Don't worry. We are playing a big game. It is exciting!\nA: Look! The batter is hitting a home run!\nB: Yes! And now it is my turn to run to the base!`;
+            copyToClipboard(dialogue, 'copyMsg');
         }
     </script>
     <script src="../../js/common.js"></script>

@@ -662,6 +662,105 @@ function buildNavPatternC(active) {
 }
 
 // ============================================
+// Speech / Audio Utilities
+// ============================================
+
+/**
+ * Speak text using Web Speech API with optional card animation
+ * @param {string} text - The text to speak
+ * @param {HTMLElement} cardElement - Optional card element to animate
+ */
+if (typeof speak !== 'function') {
+    window.speak = function(text, cardElement) {
+        if (!window.speechSynthesis) return;
+        window.speechSynthesis.cancel();
+
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'en-US';
+        utter.rate = 0.9;
+
+        if (cardElement) {
+            // Clear speaking state from all other cards
+            document.querySelectorAll('.vocab-card.speaking, .word-card.speaking').forEach(function(c) {
+                if (c !== cardElement) c.classList.remove('speaking');
+            });
+            cardElement.classList.add('speaking');
+            utter.onend = function() {
+                cardElement.classList.remove('speaking');
+            };
+        }
+
+        window.speechSynthesis.speak(utter);
+    };
+}
+
+// ============================================
+// Todo / Progress Utilities
+// ============================================
+
+/**
+ * Update progress bar based on completed todo items
+ * @param {string} storageKey - localStorage key for this todo list
+ */
+if (typeof updateTodoProgress !== 'function') {
+    window.updateTodoProgress = function(storageKey) {
+        const items = document.querySelectorAll('.todo-item');
+        const completed = document.querySelectorAll('.todo-item.completed');
+        const bar = document.getElementById('progressBar');
+        if (bar && items.length > 0) {
+            const pct = Math.round((completed.length / items.length) * 100);
+            bar.style.width = pct + '%';
+            bar.textContent = pct + '%';
+        }
+        if (storageKey) {
+            const states = {};
+            items.forEach(function(item) {
+                const id = item.getAttribute('data-todo');
+                if (id) states[id] = item.classList.contains('completed');
+            });
+            try {
+                localStorage.setItem(storageKey, JSON.stringify(states));
+            } catch (e) {
+                // Silently ignore storage errors
+            }
+        }
+    };
+}
+
+/**
+ * Toggle a todo item's completed state
+ * @param {HTMLElement} item - The todo item element
+ * @param {string} storageKey - localStorage key for this todo list
+ */
+if (typeof toggleTodoItem !== 'function') {
+    window.toggleTodoItem = function(item, storageKey) {
+        item.classList.toggle('completed');
+        updateTodoProgress(storageKey);
+    };
+}
+
+/**
+ * Reset all todo items to incomplete
+ * @param {string} storageKey - localStorage key for this todo list
+ */
+if (typeof resetTodoItems !== 'function') {
+    window.resetTodoItems = function(storageKey) {
+        if (!confirm('确定要重置所有任务吗？Are you sure you want to reset all tasks?')) return;
+        document.querySelectorAll('.todo-item').forEach(function(item) {
+            item.classList.remove('completed');
+        });
+        updateTodoProgress(storageKey);
+        if (storageKey) {
+            try {
+                localStorage.setItem(storageKey, JSON.stringify({}));
+            } catch (e) {
+                // Silently ignore storage errors
+            }
+        }
+    };
+}
+
+// ============================================
 // Auto-initialization
 // ============================================
 

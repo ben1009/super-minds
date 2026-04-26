@@ -13,184 +13,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --leather-primary: #F5F5DC;
-            --stitch-red: #DC143C;
-            --field-green: #2E5D34;
-        }
-        
-        body {
-            background-color: var(--field-green);
-            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
-                linear-gradient(135deg, #2E5D34 0%, #1B4332 100%);
-            font-family: 'Noto Sans SC', sans-serif;
-            min-height: 100vh;
-        }
-        
-        .baseball-font { font-family: 'Cinzel', serif; letter-spacing: 0.05em; }
-        .chinese-font { font-family: 'Noto Serif SC', serif; }
-        
-        .leather-card {
-            background: linear-gradient(135deg, #F5F5DC 0%, #E8DCC4 100%);
-            border: 3px solid #8B4513;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5);
-            position: relative;
-        }
-        
-        .leather-card::before {
-            content: '';
-            position: absolute;
-            top: 8px; left: 8px; right: 8px; bottom: 8px;
-            border: 2px dashed var(--stitch-red);
-            border-radius: 8px;
-            pointer-events: none;
-        }
-        
-        .stitch-border {
-            border: 3px solid var(--stitch-red);
-            border-radius: 12px;
-            position: relative;
-            background: #FAFAFA;
-        }
-        
-        .nav-link {
-            color: rgba(255,255,255,0.9);
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
-        }
-        
-        .nav-link:hover {
-            color: white;
-            border-bottom-color: var(--stitch-red);
-        }
-        
-        .ball-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            margin-right: 12px;
-            font-size: 24px;
-            border: 2px solid #ddd;
-        }
-        
-        .word-card {
-            background: white;
-            border-left: 4px solid var(--stitch-red);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .word-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-        }
-        
-        /* 歌曲填空样式 */
-        .fill-blank {
-            display: inline-block;
-            min-width: 100px;
-            padding: 4px 12px;
-            border-bottom: 3px solid var(--stitch-red);
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: bold;
-            color: #333;
-            background: white;
-            border-radius: 4px;
-            margin: 0 4px;
-            user-select: none;
-        }
-        
-        .fill-blank.revealed {
-            background: #FEF3C7;
-            border: 2px solid #F59E0B;
-            color: #92400e;
-            transform: scale(1.05);
-        }
-        
-        .grammar-box {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: white;
-            border-radius: 12px;
-            border: 3px solid #fbbf24;
-        }
-        
-        .interactive-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            background: #FEF3C7;
-            border-left: 4px solid #F59E0B;
-        }
-        
-        .interactive-answer.show {
-            max-height: 500px;
-            margin-top: 10px;
-            padding: 12px;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .section-title {
-            background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            display: inline-block;
-            border: 2px solid #F5F5DC;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        
-        .reading-paragraph {
-            cursor: pointer;
-            transition: all 0.3s;
-            border-left: 3px solid transparent;
-            padding-left: 12px;
-        }
-        
-        .reading-paragraph:hover {
-            border-left-color: var(--stitch-red);
-            background: rgba(220,20,60,0.05);
-        }
-        
-        .baseball-diamond {
-            width: 200px;
-            height: 200px;
-            background: rgba(255,255,255,0.1);
-            transform: rotate(45deg);
-            margin: 20px auto;
-            border: 4px solid rgba(255,255,255,0.3);
-            position: relative;
-        }
-        
-        .base { 
-            width: 20px; 
-            height: 20px; 
-            background: white; 
-            position: absolute; 
-            border-radius: 50%; 
-        }
-        .base.home { bottom: -10px; right: -10px; background: var(--stitch-red); }
-        .base.first { top: -10px; right: -10px; }
-        .base.second { top: -10px; left: -10px; }
-        .base.third { bottom: -10px; left: -10px; }
-        
-        .grammar-highlight {
-            background: linear-gradient(120deg, #fef3c7 0%, #fef3c7 100%);
-            background-repeat: no-repeat;
-            background-size: 100% 40%;
-            background-position: 0 88%;
-            padding: 0 4px;
-            font-weight: bold;
-            color: #92400e;
-        }
-    </style>
+    <link rel="stylesheet" href="../../css/baseball-theme.css">
 </head>
 <body>
 
@@ -228,7 +51,7 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('soccer')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('soccer', this)">
                     <div class="ball-icon">⚽</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">soccer</div>
@@ -237,7 +60,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('basketball')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('basketball', this)">
                     <div class="ball-icon">🏀</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">basketball</div>
@@ -246,7 +69,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('tennis')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('tennis', this)">
                     <div class="ball-icon">🎾</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">tennis</div>
@@ -255,7 +78,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('volleyball')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('volleyball', this)">
                     <div class="ball-icon">🏐</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">volleyball</div>
@@ -264,7 +87,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('golf')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('golf', this)">
                     <div class="ball-icon">⛳</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">golf</div>
@@ -273,7 +96,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('bowling')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('bowling', this)">
                     <div class="ball-icon">🎳</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">bowling</div>
@@ -282,7 +105,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center border-2 border-red-500 bg-red-50" onclick="speak('baseball')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center border-2 border-red-500 bg-red-50" onclick="speak('baseball', this)">
                     <div class="ball-icon">⚾</div>
                     <div>
                         <div class="font-bold text-lg text-red-800">baseball</div>
@@ -291,7 +114,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('badminton')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('badminton', this)">
                     <div class="ball-icon">🏸</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">badminton</div>
@@ -300,7 +123,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('rugby')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('rugby', this)">
                     <div class="ball-icon">🏉</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">rugby</div>
@@ -309,7 +132,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('ping pong')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('ping pong', this)">
                     <div class="ball-icon">🏓</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">ping-pong</div>
@@ -823,14 +646,6 @@
 
     <script>
         // Mobile menu toggle
-        function toggleMobileMenu() {
-            var menu = document.getElementById('mobileMenu');
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-            } else {
-                menu.classList.add('hidden');
-            }
-        }
 
         // 歌曲填空全局状态对象（确保不会与其他代码冲突）
         var songBlankStates = {};
@@ -857,14 +672,6 @@
         }
         
         // 文本朗读
-        function speak(text) {
-            if ('speechSynthesis' in window) {
-                var utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'en-US';
-                utterance.rate = 0.8;
-                speechSynthesis.speak(utterance);
-            }
-        }
         
         // 切换翻译显示
         function toggleTrans(id) {

@@ -2,10 +2,6 @@
 
 let currentUtter = null;
 
-function toggleMobileMenu() {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('hidden');
-}
 
 function toggleTrans(card) {
     const content = card.querySelector('.trans-content');
@@ -85,48 +81,8 @@ try {
     if (saved) todoStates = JSON.parse(saved);
 } catch (e) { }
 
-function updateProgress() {
-    const todos = document.querySelectorAll('.todo-item');
-    const completed = document.querySelectorAll('.todo-item.completed');
-    const progress = todos.length > 0 ? Math.round((completed.length / todos.length) * 100) : 0;
 
-    const bar = document.getElementById('progressBar');
-    if (bar) {
-        bar.style.width = progress + '%';
-        bar.textContent = progress === 100 ? '🎉 100% 完成！' : progress + '%';
-    }
-}
 
-function toggleTodo(item) {
-    const id = item.getAttribute('data-todo');
-
-    if (item.classList.contains('completed')) {
-        item.classList.remove('completed');
-        todoStates[id] = false;
-    } else {
-        item.classList.add('completed');
-        todoStates[id] = true;
-    }
-
-    try {
-        localStorage.setItem('grammarTodos', JSON.stringify(todoStates));
-    } catch (e) { }
-
-    updateProgress();
-}
-
-function resetTodos() {
-    if (confirm('确定要重置所有作业任务吗？')) {
-        document.querySelectorAll('.todo-item').forEach(item => {
-            item.classList.remove('completed');
-        });
-        todoStates = {};
-        try {
-            localStorage.setItem('grammarTodos', '{}');
-        } catch (e) { }
-        updateProgress();
-    }
-}
 
 // Event Listeners - Modern approach instead of onclick attributes
 document.addEventListener('DOMContentLoaded', () => {
@@ -177,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Todo items
     document.querySelectorAll('.todo-item').forEach(item => {
-        item.addEventListener('click', () => toggleTodo(item));
+        item.addEventListener('click', () => toggleTodoItem(item, 'grammarTodos'));
     });
 
     // Restore todo states
@@ -187,5 +143,5 @@ document.addEventListener('DOMContentLoaded', () => {
             if (item) item.classList.add('completed');
         }
     });
-    updateProgress();
+    updateTodoProgress('grammarTodos');
 });

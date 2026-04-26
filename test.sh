@@ -80,10 +80,10 @@ if [ -f "unit9/holiday-plans-grammar-review.html" ]; then
         echo "   ⚠️ revealAnswer() function may need updating"
     fi
     
-    if grep -q 'function toggleTodo' "unit9/holiday-plans-grammar-review.html"; then
-        echo "   ✓ toggleTodo() function present"
+    if grep -q 'toggleTodoItem' "js/common.js"; then
+        echo "   ✓ toggleTodoItem() available in common.js"
     else
-        echo "   ⚠️ toggleTodo() function may need updating"
+        echo "   ⚠️ toggleTodoItem() may need updating"
     fi
 else
     echo "   ✗ unit9/holiday-plans-grammar-review.html not found"
@@ -144,17 +144,17 @@ if [ -f "unit9/fairy-tales-reading.html" ]; then
         ERRORS=$((ERRORS + 1))
     fi
     
-    if grep -q 'function speak(text, cardElement)' "unit9/fairy-tales-reading.html"; then
-        echo "   ✓ fairy-tales.html has speak() function with cardElement"
+    if grep -q 'window.speak' "js/common.js"; then
+        echo "   ✓ speak() function available in common.js with cardElement"
     else
-        echo "   ✗ fairy-tales.html missing speak() function!"
+        echo "   ✗ speak() function missing from common.js!"
         ERRORS=$((ERRORS + 1))
     fi
     
-    if grep -q 'function toggleTodo' "unit9/fairy-tales-reading.html"; then
-        echo "   ✓ fairy-tales.html has toggleTodo() function"
+    if grep -q 'toggleTodoItem' "js/common.js"; then
+        echo "   ✓ toggleTodoItem() available in common.js"
     else
-        echo "   ✗ fairy-tales.html missing toggleTodo() function!"
+        echo "   ✗ toggleTodoItem() missing from common.js!"
         ERRORS=$((ERRORS + 1))
     fi
     
@@ -221,8 +221,8 @@ if [ -f "unit8/fun-things-we-do-reading.html" ]; then
         echo "   ⚠️ fun-things-we-do-reading.html may be missing data-correct-option attributes"
     fi
     
-    if grep -q 'function speak(text, cardElement)' "unit8/fun-things-we-do-reading.html"; then
-        echo "   ✓ speak() function has cardElement parameter"
+    if grep -q 'window.speak' "js/common.js"; then
+        echo "   ✓ speak() function available in common.js with cardElement"
     else
         echo "   ⚠️ speak() function may need updating"
     fi
@@ -631,11 +631,11 @@ for file in unit8/question-words-grammar-homework.html unit8/fun-things-we-do-re
             ERRORS=$((ERRORS + 1))
         fi
         
-        # Check resetTodos function
-        if grep -q 'resetTodos' "$file"; then
-            echo "   ✓ $file has resetTodos"
+        # Check resetTodoItems function (renamed from resetTodos)
+        if grep -q 'resetTodoItems' "js/common.js" || grep -q 'resetTodoItems' "$file"; then
+            echo "   ✓ $file has resetTodoItems"
         else
-            echo "   ✗ $file missing resetTodos!"
+            echo "   ✗ $file missing resetTodoItems!"
             ERRORS=$((ERRORS + 1))
         fi
         
