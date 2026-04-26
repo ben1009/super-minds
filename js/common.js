@@ -71,12 +71,14 @@ function toggleQuizAnswer(container, answerSelector = '.quiz-answer', iconSelect
  * Toggle translation visibility in story sections
  * @param {HTMLElement} container - The container element that was clicked
  */
-function toggleTranslation(container) {
-    const trans = container.querySelector('.translation');
-    const icon = container.querySelector('.chevron-icon');
-    
-    if (trans) {
-        toggleVisibility(trans, 'show', icon);
+if (typeof toggleTranslation !== 'function') {
+    function toggleTranslation(container) {
+        const trans = container.querySelector('.translation');
+        const icon = container.querySelector('.chevron-icon');
+        
+        if (trans) {
+            toggleVisibility(trans, 'show', icon);
+        }
     }
 }
 
@@ -114,14 +116,16 @@ function toggleTimeline(node) {
  * Toggle answer mask reveal
  * @param {HTMLElement} element - The answer mask element
  */
-function toggleAnswer(element) {
-    element.classList.toggle('revealed');
-    
-    // Add click feedback animation
-    element.style.transform = 'scale(0.98)';
-    setTimeout(() => {
-        element.style.transform = '';
-    }, 100);
+if (typeof toggleAnswer !== 'function') {
+    function toggleAnswer(element) {
+        element.classList.toggle('revealed');
+        
+        // Add click feedback animation
+        element.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            element.style.transform = '';
+        }, 100);
+    }
 }
 
 // ============================================
@@ -133,26 +137,28 @@ function toggleAnswer(element) {
  * @param {string} storageKey - Key for localStorage (default: 'homeworkProgress')
  * @param {string} checkboxSelector - Selector for checkboxes (default: HOMEWORK_CHECKBOX_SELECTOR)
  */
-function updateProgress(storageKey = 'homeworkProgress', checkboxSelector = HOMEWORK_CHECKBOX_SELECTOR) {
-    const checkboxes = document.querySelectorAll(checkboxSelector);
-    const checked = document.querySelectorAll(checkboxSelector + ':checked');
-    const progress = (checked.length / checkboxes.length) * 100;
-    
-    const progressBar = document.getElementById('progress-bar');
-    const progressText = document.getElementById('progress-text');
-    
-    if (progressBar) {
-        progressBar.style.width = progress + '%';
+if (typeof updateProgress !== 'function') {
+    function updateProgress(storageKey = 'homeworkProgress', checkboxSelector = HOMEWORK_CHECKBOX_SELECTOR) {
+        const checkboxes = document.querySelectorAll(checkboxSelector);
+        const checked = document.querySelectorAll(checkboxSelector + ':checked');
+        const progress = (checked.length / checkboxes.length) * 100;
+        
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        
+        if (progressBar) {
+            progressBar.style.width = progress + '%';
+        }
+        if (progressText) {
+            progressText.textContent = checked.length + '/' + checkboxes.length + ' 完成';
+        }
+        
+        const progressData = {
+            checked: Array.from(checkboxes).map(cb => cb.checked),
+            date: new Date().toLocaleDateString()
+        };
+        localStorage.setItem(storageKey, JSON.stringify(progressData));
     }
-    if (progressText) {
-        progressText.textContent = checked.length + '/' + checkboxes.length + ' 完成';
-    }
-    
-    const progressData = {
-        checked: Array.from(checkboxes).map(cb => cb.checked),
-        date: new Date().toLocaleDateString()
-    };
-    localStorage.setItem(storageKey, JSON.stringify(progressData));
 }
 
 /**
