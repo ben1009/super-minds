@@ -370,7 +370,7 @@ const NAV_LINKS = {
             ]
         }
     },
-    B_baseball_unit8: {
+    'B_baseball-unit8': {
         home: { href: '../index.html', label: '首页 Home' },
         unit7: {
             label: 'Unit 7',
