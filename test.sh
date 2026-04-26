@@ -24,6 +24,46 @@ grep -l "common.js" index.html unit7/*.html unit8/*.html 2>/dev/null | while rea
     echo "   ✓ $f references common.js"
 done
 
+# Check navigation extraction
+echo ""
+echo "2b. Checking navigation extraction..."
+ERRORS=0
+
+if grep -q 'function renderNav' js/common.js; then
+    echo "   ✓ js/common.js has renderNav() function"
+else
+    echo "   ✗ js/common.js missing renderNav() function!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+for file in unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html unit9/fairy-tales-reading.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'window.NAV_CONFIG' "$file"; then
+            echo "   ✓ $f has NAV_CONFIG"
+        else
+            echo "   ✗ $f missing NAV_CONFIG!"
+            ERRORS=$((ERRORS + 1))
+        fi
+        
+        if grep -q 'id="site-nav"' "$file"; then
+            echo "   ✓ $f has site-nav container"
+        else
+            echo "   ✗ $f missing site-nav container!"
+            ERRORS=$((ERRORS + 1))
+        fi
+        
+        # Verify old inline nav is removed
+        if grep -q '<nav class="sticky top-0' "$file" || grep -q '<nav class="bg-red-800' "$file"; then
+            echo "   ✗ $f still has old inline nav!"
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
 # Check Unit 9 index.html has required elements
 echo ""
 echo "4b. Checking Unit 9 index.html..."
@@ -226,9 +266,12 @@ echo ""
 echo "5b. Checking Unit 9 page navigation links..."
 ERRORS=0
 
+# For pages with NAV_CONFIG, links are in common.js
 for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html; do
     if [ -f "$file" ]; then
-        if grep -q 'unit9' "$file"; then
+        if grep -q 'window.NAV_CONFIG' "$file"; then
+            echo "   ✓ $file uses centralized nav (common.js)"
+        elif grep -q 'unit9' "$file"; then
             echo "   ✓ $file has link to unit9"
         else
             echo "   ✗ $file missing link to unit9!"
@@ -236,6 +279,14 @@ for file in index.html unit7/present-continuous-course.html unit7/present-contin
         fi
     fi
 done
+
+# Verify common.js has unit9 links
+if grep -q 'unit9' js/common.js; then
+    echo "   ✓ js/common.js contains unit9 navigation links"
+else
+    echo "   ✗ js/common.js missing unit9 navigation links!"
+    ERRORS=$((ERRORS + 1))
+fi
 
 if [ $ERRORS -gt 0 ]; then
     exit 1
@@ -247,18 +298,30 @@ ERRORS=0
 
 for file in index.html unit9/holiday-plans-grammar-review.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html; do
     if [ -f "$file" ]; then
-        count=$(grep -c 'fairy-tales' "$file")
-        if [ "$count" -eq 0 ]; then
-            echo "   ✗ $file missing link to fairy-tales.html!"
-            ERRORS=$((ERRORS + 1))
-        elif [ "$count" -gt 2 ]; then
-            echo "   ✗ $file has $count fairy-tales links (expected max 2)!"
-            ERRORS=$((ERRORS + 1))
+        if grep -q 'window.NAV_CONFIG' "$file"; then
+            echo "   ✓ $file uses centralized nav (common.js)"
         else
-            echo "   ✓ $file has link to fairy-tales.html ($count refs)"
+            count=$(grep -c 'fairy-tales' "$file")
+            if [ "$count" -eq 0 ]; then
+                echo "   ✗ $file missing link to fairy-tales.html!"
+                ERRORS=$((ERRORS + 1))
+            elif [ "$count" -gt 2 ]; then
+                echo "   ✗ $file has $count fairy-tales links (expected max 2)!"
+                ERRORS=$((ERRORS + 1))
+            else
+                echo "   ✓ $file has link to fairy-tales.html ($count refs)"
+            fi
         fi
     fi
 done
+
+# Verify common.js has fairy-tales links
+if grep -q 'fairy-tales' js/common.js; then
+    echo "   ✓ js/common.js contains fairy-tales navigation links"
+else
+    echo "   ✗ js/common.js missing fairy-tales navigation links!"
+    ERRORS=$((ERRORS + 1))
+fi
 
 if [ $ERRORS -gt 0 ]; then
     exit 1
@@ -270,18 +333,30 @@ ERRORS=0
 
 for file in super-minds-baseball/index.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html; do
     if [ -f "$file" ]; then
-        count=$(grep -c 'fairy-tales' "$file")
-        if [ "$count" -eq 0 ]; then
-            echo "   ✗ $file missing link to fairy-tales.html!"
-            ERRORS=$((ERRORS + 1))
-        elif [ "$count" -gt 2 ]; then
-            echo "   ✗ $file has $count fairy-tales links (expected max 2)!"
-            ERRORS=$((ERRORS + 1))
+        if grep -q 'window.NAV_CONFIG' "$file"; then
+            echo "   ✓ $file uses centralized nav (common.js)"
         else
-            echo "   ✓ $file has link to fairy-tales.html ($count refs)"
+            count=$(grep -c 'fairy-tales' "$file")
+            if [ "$count" -eq 0 ]; then
+                echo "   ✗ $file missing link to fairy-tales.html!"
+                ERRORS=$((ERRORS + 1))
+            elif [ "$count" -gt 2 ]; then
+                echo "   ✗ $file has $count fairy-tales links (expected max 2)!"
+                ERRORS=$((ERRORS + 1))
+            else
+                echo "   ✓ $file has link to fairy-tales.html ($count refs)"
+            fi
         fi
     fi
 done
+
+# Verify common.js has fairy-tales links for baseball pages
+if grep -q 'fairy-tales' js/common.js; then
+    echo "   ✓ js/common.js contains fairy-tales navigation links"
+else
+    echo "   ✗ js/common.js missing fairy-tales navigation links!"
+    ERRORS=$((ERRORS + 1))
+fi
 
 if [ $ERRORS -gt 0 ]; then
     exit 1
@@ -294,7 +369,9 @@ ERRORS=0
 # Check that reading.html is linked from all relevant pages
 for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html; do
     if [ -f "$file" ]; then
-        if grep -q 'fun-things-we-do-reading.html' "$file"; then
+        if grep -q 'window.NAV_CONFIG' "$file"; then
+            echo "   ✓ $file uses centralized nav (common.js)"
+        elif grep -q 'fun-things-we-do-reading.html' "$file"; then
             echo "   ✓ $file has link to fun-things-we-do-reading.html"
         else
             echo "   ✗ $file missing link to reading.html!"
@@ -302,6 +379,14 @@ for file in index.html unit7/present-continuous-course.html unit7/present-contin
         fi
     fi
 done
+
+# Verify common.js has reading page links
+if grep -q 'fun-things-we-do-reading.html' js/common.js; then
+    echo "   ✓ js/common.js contains fun-things-we-do-reading.html navigation links"
+else
+    echo "   ✗ js/common.js missing fun-things-we-do-reading.html navigation links!"
+    ERRORS=$((ERRORS + 1))
+fi
 
 if [ $ERRORS -gt 0 ]; then
     exit 1
@@ -328,10 +413,14 @@ check_content() {
 if [ -f "unit8/question-words-grammar-homework.html" ]; then
     echo "   ✓ unit8/question-words-grammar-homework.html exists"
     
-    # Check for navigation links
-    check_content "unit8/question-words-grammar-homework.html" 'index.html' "question-words-grammar-homework.html has link to index.html"
-    check_content "unit8/question-words-grammar-homework.html" 'amazing-vehicles-reading.html' "question-words-grammar-homework.html has link to amazing-vehicles-reading.html"
-    check_content "unit8/question-words-grammar-homework.html" 'fun-things-we-do-reading.html' "question-words-grammar-homework.html has link to fun-things-we-do-reading.html"
+    # Check for navigation links (inline or centralized)
+    if grep -q 'window.NAV_CONFIG' "unit8/question-words-grammar-homework.html"; then
+        echo "   ✓ question-words-grammar-homework.html uses centralized nav"
+    else
+        check_content "unit8/question-words-grammar-homework.html" 'index.html' "question-words-grammar-homework.html has link to index.html"
+        check_content "unit8/question-words-grammar-homework.html" 'amazing-vehicles-reading.html' "question-words-grammar-homework.html has link to amazing-vehicles-reading.html"
+        check_content "unit8/question-words-grammar-homework.html" 'fun-things-we-do-reading.html' "question-words-grammar-homework.html has link to fun-things-we-do-reading.html"
+    fi
     
     # Check for external CSS/JS files
     check_content "unit8/question-words-grammar-homework.html" 'grammar.css' "grammar.html links to grammar.css"
@@ -369,7 +458,9 @@ ERRORS=0
 # Check that grammar.html is linked from all relevant pages
 for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/fun-things-we-do-reading.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html; do
     if [ -f "$file" ]; then
-        if grep -q 'question-words-grammar-homework.html' "$file"; then
+        if grep -q 'window.NAV_CONFIG' "$file"; then
+            echo "   ✓ $file uses centralized nav (common.js)"
+        elif grep -q 'question-words-grammar-homework.html' "$file"; then
             echo "   ✓ $file has link to question-words-grammar-homework.html"
         else
             echo "   ✗ $file missing link to grammar.html!"
@@ -377,6 +468,14 @@ for file in index.html unit7/present-continuous-course.html unit7/present-contin
         fi
     fi
 done
+
+# Verify common.js has grammar page links
+if grep -q 'question-words-grammar-homework.html' js/common.js; then
+    echo "   ✓ js/common.js contains question-words-grammar-homework.html navigation links"
+else
+    echo "   ✗ js/common.js missing question-words-grammar-homework.html navigation links!"
+    ERRORS=$((ERRORS + 1))
+fi
 
 if [ $ERRORS -gt 0 ]; then
     exit 1
@@ -389,7 +488,9 @@ ERRORS=0
 # Check that unit9 is linked from all relevant pages
 for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/fun-things-we-do-reading.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html; do
     if [ -f "$file" ]; then
-        if grep -q 'unit9' "$file"; then
+        if grep -q 'window.NAV_CONFIG' "$file"; then
+            echo "   ✓ $file uses centralized nav (common.js)"
+        elif grep -q 'unit9' "$file"; then
             echo "   ✓ $file has link to unit9"
         else
             echo "   ✗ $file missing link to unit9!"
@@ -397,6 +498,14 @@ for file in index.html unit7/present-continuous-course.html unit7/present-contin
         fi
     fi
 done
+
+# Verify common.js has unit9 links
+if grep -q 'unit9' js/common.js; then
+    echo "   ✓ js/common.js contains unit9 navigation links"
+else
+    echo "   ✗ js/common.js missing unit9 navigation links!"
+    ERRORS=$((ERRORS + 1))
+fi
 
 if [ $ERRORS -gt 0 ]; then
     exit 1
@@ -408,7 +517,9 @@ ERRORS=0
 
 for file in super-minds-baseball/index.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html; do
     if [ -f "$file" ]; then
-        if grep -q 'unit9' "$file"; then
+        if grep -q 'window.NAV_CONFIG' "$file"; then
+            echo "   ✓ $file uses centralized nav (common.js)"
+        elif grep -q 'unit9' "$file"; then
             echo "   ✓ $file has link to unit9"
         else
             echo "   ✗ $file missing link to unit9!"
@@ -416,6 +527,14 @@ for file in super-minds-baseball/index.html super-minds-baseball/unit7/baseball-
         fi
     fi
 done
+
+# Verify common.js has unit9 links for baseball pages
+if grep -q 'unit9' js/common.js; then
+    echo "   ✓ js/common.js contains unit9 navigation links"
+else
+    echo "   ✗ js/common.js missing unit9 navigation links!"
+    ERRORS=$((ERRORS + 1))
+fi
 
 if [ $ERRORS -gt 0 ]; then
     exit 1
@@ -454,10 +573,20 @@ echo ""
 echo "12. Checking unit9/holiday-plans-grammar-review.html has fairy-tales in nav dropdown..."
 ERRORS=0
 
-if grep -q 'fairy-tales-reading.html' "unit9/holiday-plans-grammar-review.html"; then
+if grep -q 'window.NAV_CONFIG' "unit9/holiday-plans-grammar-review.html"; then
+    echo "   ✓ unit9/holiday-plans-grammar-review.html uses centralized nav"
+elif grep -q 'fairy-tales-reading.html' "unit9/holiday-plans-grammar-review.html"; then
     echo "   ✓ unit9/holiday-plans-grammar-review.html has fairy-tales nav link"
 else
     echo "   ✗ unit9/holiday-plans-grammar-review.html missing fairy-tales nav link!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Verify common.js has fairy-tales links
+if grep -q 'fairy-tales' js/common.js; then
+    echo "   ✓ js/common.js contains fairy-tales navigation links"
+else
+    echo "   ✗ js/common.js missing fairy-tales navigation links!"
     ERRORS=$((ERRORS + 1))
 fi
 
