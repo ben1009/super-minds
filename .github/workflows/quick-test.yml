@@ -160,7 +160,9 @@ jobs:
         # Check that reading.html is linked from all relevant pages
         for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html; do
           if [ -f "$file" ]; then
-            if grep -q 'fun-things-we-do-reading.html' "$file"; then
+            if grep -q 'window.NAV_CONFIG' "$file"; then
+              echo "  ✅ $file uses centralized nav"
+            elif grep -q 'fun-things-we-do-reading.html' "$file"; then
               echo "  ✅ $file links to reading.html"
             else
               echo "  ❌ $file missing link to reading.html!"
@@ -168,6 +170,14 @@ jobs:
             fi
           fi
         done
+        
+        # Verify common.js has reading page links
+        if grep -q 'fun-things-we-do-reading.html' js/common.js; then
+          echo "  ✅ js/common.js contains reading.html navigation links"
+        else
+          echo "  ❌ js/common.js missing reading.html navigation links!"
+          ERRORS=$((ERRORS + 1))
+        fi
         
         if [ $ERRORS -gt 0 ]; then
           exit 1
@@ -182,7 +192,9 @@ jobs:
         
         for file in super-minds-baseball/index.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html; do
           if [ -f "$file" ]; then
-            if grep -q 'unit9' "$file"; then
+            if grep -q 'window.NAV_CONFIG' "$file"; then
+              echo "  ✅ $file uses centralized nav"
+            elif grep -q 'unit9' "$file"; then
               echo "  ✅ $file links to unit9"
             else
               echo "  ❌ $file missing link to unit9!"
@@ -190,6 +202,14 @@ jobs:
             fi
           fi
         done
+        
+        # Verify common.js has unit9 links
+        if grep -q 'unit9' js/common.js; then
+          echo "  ✅ js/common.js contains unit9 navigation links"
+        else
+          echo "  ❌ js/common.js missing unit9 navigation links!"
+          ERRORS=$((ERRORS + 1))
+        fi
         
         if [ $ERRORS -gt 0 ]; then
           exit 1

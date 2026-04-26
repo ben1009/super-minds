@@ -26,42 +26,8 @@
     </style>
 </head>
 <body class="min-h-screen">
-    <!-- Navigation -->
-    <nav class="bg-red-800 text-white py-4 sticky top-0 z-50 shadow-lg">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center">
-                <a href="../index.html" class="text-xl font-bold baseball-font">⚾ Super Minds</a>
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex gap-4 text-sm items-center">
-                    <a href="../index.html" class="hover:text-yellow-400 transition-colors">🏠 首页</a>
-                    <span>|</span>
-                    <a href="baseball-present-continuous-homework.html" class="hover:text-yellow-400 transition-colors">📚 课后作业</a>
-                    <span>|</span>
-                    <a href="../unit8/baseball-gerunds-ball-sports.html" class="hover:text-yellow-400 transition-colors">🏏 Unit 8</a>
-                    <span>|</span>
-                    <a href="../../unit9/holiday-plans-grammar-review.html" class="hover:text-yellow-400 transition-colors">🌴 Unit 9</a>
-                    <a href="../../unit9/fairy-tales-reading.html" class="hover:text-yellow-400 transition-colors">🏰 Fairy Tales</a>
-                    <span>|</span>
-                    <span class="text-yellow-400">⚾ Unit 7</span>
-                </div>
-                <!-- Mobile Menu Button -->
-                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 hover:bg-white/10 rounded">
-                    ☰
-                </button>
-            </div>
-            <!-- Mobile Navigation -->
-            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-2 border-t border-red-700 pt-2">
-                <div class="flex flex-col space-y-2 text-sm">
-                    <a href="../index.html" class="hover:text-yellow-400 transition-colors py-1">🏠 首页</a>
-                    <a href="baseball-present-continuous-homework.html" class="hover:text-yellow-400 transition-colors py-1">📚 课后作业</a>
-                    <a href="../unit8/baseball-gerunds-ball-sports.html" class="hover:text-yellow-400 transition-colors py-1">🏏 Unit 8</a>
-                    <a href="../../unit9/holiday-plans-grammar-review.html" class="hover:text-yellow-400 transition-colors py-1">🌴 Unit 9</a>
-                    <a href="../../unit9/fairy-tales-reading.html" class="hover:text-yellow-400 transition-colors py-1">🏰 Fairy Tales</a>
-                    <span class="text-yellow-400 py-1 border-l-4 border-yellow-400 pl-2">⚾ Unit 7</span>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <script>window.NAV_CONFIG = {pattern:'C', active:'baseball-unit7-course'};</script>
+    <nav id="site-nav"></nav>
 
     <main id="main-content" class="max-w-6xl mx-auto px-4 py-8">
         <header class="text-center mb-12 relative">
@@ -536,5 +502,6 @@
             }
         }
     </script>
+    <script src="../../js/common.js"></script>
 </body>
 </html>

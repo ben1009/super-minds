@@ -58,18 +58,19 @@
 
 ## 🔴 Refactor — High Severity
 
-### 11. Extract shared navigation HTML into a JS template or build step
-- [ ] `unit7/present-continuous-course.html:172–236`
-- [ ] `unit7/present-continuous-homework.html:252–316`
-- [ ] `unit8/gerunds-ball-sports.html:196–260`
-- [ ] `unit8/amazing-vehicles-reading.html:262–339`
-- [ ] `unit8/fun-things-we-do-reading.html:308–372`
-- [ ] `unit8/question-words-grammar-homework.html:19–83`
-- [ ] `unit9/holiday-plans-grammar-review.html:352–416`
-- [ ] `unit9/fairy-tales-reading.html:366–400+`
-- **Impact:** ~550 lines of duplicated HTML; only differences are path prefixes and active-class
+### 11. Extract shared navigation HTML into a JS template ✅
+- [x] Added `renderNav()` + 4 pattern builders (`A`, `B`, `C`, `D`) to `js/common.js`
+- [x] `initCommon()` auto-renders nav when `window.NAV_CONFIG` is present
+- [x] Replaced inline `<nav>` in 11 files with `<script>window.NAV_CONFIG = {...}</script><nav id="site-nav"></nav>`
+- [x] Fixed inconsistencies: `baseball-font` on unit9 brand, mobile active style, `fa-bus` brand icon
+- **Patterns:**
+  - **A** (2 files): Unit 7 blue theme, Lucide icons, dropdowns
+  - **B** (6 files): Unit 8/9 green theme, FontAwesome icons, dropdowns
+  - **C** (2 files): Baseball sub-pages red theme, flat `|` links
+  - **D** (1 file): Baseball unit8 green theme, flat links (discovered during refactor)
+- **Impact:** Eliminated ~550 lines of duplicated HTML
 
-### 12. Extract baseball theme CSS into `css/common.css` or a new `css/baseball-theme.css`
+### 12. Extract baseball theme CSS into `css/baseball-theme.css`
 - [ ] `unit8/gerunds-ball-sports.html:15–192`
 - [ ] `unit8/amazing-vehicles-reading.html:18–257`
 - [ ] `unit8/fun-things-we-do-reading.html:15–304`
