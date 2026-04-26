@@ -1021,20 +1021,8 @@
         // toggleMobileMenu, switchTab, toggleTimeline, toggleAnswer, toggleComplete, updateProgress, restoreProgress
 
         function copyDialogue() {
-            const dialogue = `A: Hi! What are you doing now?
-B: I am waiting for a bus. What about you?
-A: I am playing with my toy cars.
-B: Look! The bus is moving!
-A: Great! But there are lots of sheep on the road.
-B: Don't worry. We are having a bus trip. It is exciting!
-A: Look! There is a helicopter in the sky.
-B: Yes! And now it is my turn to take photos.`;
-
-            navigator.clipboard.writeText(dialogue).then(() => {
-                const feedback = document.getElementById('copy-feedback');
-                feedback.classList.remove('hidden');
-                setTimeout(() => feedback.classList.add('hidden'), 2000);
-            });
+            const dialogue = `A: Hi! What are you doing now?\nB: I am waiting for a bus. What about you?\nA: I am playing with my toy cars.\nB: Look! The bus is moving!\nA: Great! But there are lots of sheep on the road.\nB: Don't worry. We are having a bus trip. It is exciting!\nA: Look! There is a helicopter in the sky.\nB: Yes! And now it is my turn to take photos.`;
+            copyToClipboard(dialogue, 'copy-feedback');
         }
     </script>
     <script src="../js/common.js"></script>

@@ -51,7 +51,7 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('soccer')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('soccer', this)">
                     <div class="ball-icon">⚽</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">soccer</div>
@@ -60,7 +60,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('basketball')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('basketball', this)">
                     <div class="ball-icon">🏀</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">basketball</div>
@@ -69,7 +69,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('tennis')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('tennis', this)">
                     <div class="ball-icon">🎾</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">tennis</div>
@@ -78,7 +78,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('volleyball')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('volleyball', this)">
                     <div class="ball-icon">🏐</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">volleyball</div>
@@ -87,7 +87,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('golf')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('golf', this)">
                     <div class="ball-icon">⛳</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">golf</div>
@@ -96,7 +96,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('bowling')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('bowling', this)">
                     <div class="ball-icon">🎳</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">bowling</div>
@@ -105,7 +105,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center border-2 border-red-500 bg-red-50" onclick="speak('baseball')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center border-2 border-red-500 bg-red-50" onclick="speak('baseball', this)">
                     <div class="ball-icon">⚾</div>
                     <div>
                         <div class="font-bold text-lg text-red-800">baseball</div>
@@ -114,7 +114,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('badminton')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('badminton', this)">
                     <div class="ball-icon">🏸</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">badminton</div>
@@ -123,7 +123,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('rugby')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('rugby', this)">
                     <div class="ball-icon">🏉</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">rugby</div>
@@ -132,7 +132,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
                 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('ping pong')">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('ping pong', this)">
                     <div class="ball-icon">🏓</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">ping-pong</div>
@@ -646,14 +646,6 @@
 
     <script>
         // Mobile menu toggle
-        function toggleMobileMenu() {
-            var menu = document.getElementById('mobileMenu');
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-            } else {
-                menu.classList.add('hidden');
-            }
-        }
 
         // 歌曲填空全局状态对象（确保不会与其他代码冲突）
         var songBlankStates = {};
@@ -680,14 +672,6 @@
         }
         
         // 文本朗读
-        function speak(text) {
-            if ('speechSynthesis' in window) {
-                var utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'en-US';
-                utterance.rate = 0.8;
-                speechSynthesis.speak(utterance);
-            }
-        }
         
         // 切换翻译显示
         function toggleTrans(id) {

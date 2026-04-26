@@ -442,7 +442,7 @@
 
             <div class="space-y-4">
                 <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-red-500"
-                    data-todo="1" onclick="toggleTodo(this)">
+                    data-todo="1" onclick="toggleTodoItem(this, 'unit9HolidayPlansTodos')">
                     <div class="todo-checkbox"></div>
                     <div class="flex-1">
                         <div class="font-bold text-gray-800 text-lg todo-title"><span>1️⃣</span> 背课文 Page 108 歌曲</div>
@@ -450,7 +450,7 @@
                     </div>
                 </div>
                 <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-blue-500"
-                    data-todo="2" onclick="toggleTodo(this)">
+                    data-todo="2" onclick="toggleTodoItem(this, 'unit9HolidayPlansTodos')">
                     <div class="todo-checkbox"></div>
                     <div class="flex-1">
                         <div class="font-bold text-gray-800 text-lg todo-title"><span>2️⃣</span> 复习语法笔记 (Page 109)</div>
@@ -458,7 +458,7 @@
                     </div>
                 </div>
                 <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-green-500"
-                    data-todo="3" onclick="toggleTodo(this)">
+                    data-todo="3" onclick="toggleTodoItem(this, 'unit9HolidayPlansTodos')">
                     <div class="todo-checkbox"></div>
                     <div class="flex-1">
                         <div class="font-bold text-gray-800 text-lg todo-title"><span>3️⃣</span> 完成对话填空练习</div>
@@ -466,7 +466,7 @@
                     </div>
                 </div>
                 <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-purple-500"
-                    data-todo="4" onclick="toggleTodo(this)">
+                    data-todo="4" onclick="toggleTodoItem(this, 'unit9HolidayPlansTodos')">
                     <div class="todo-checkbox"></div>
                     <div class="flex-1">
                         <div class="font-bold text-gray-800 text-lg todo-title"><span>4️⃣</span> 每天朗读 15 分钟</div>
@@ -478,7 +478,7 @@
             <div class="text-center mt-4">
                 <button type="button"
                     class="bg-gradient-to-b from-gray-500 to-gray-600 text-white font-bold px-6 py-2 rounded-full shadow-lg hover:scale-105 transition"
-                    onclick="resetTodos()">
+                    onclick="resetTodoItems('unit9HolidayPlansTodos')">
                     <i class="fas fa-redo mr-2"></i>重置所有任务
                 </button>
             </div>
@@ -496,12 +496,6 @@
 
     <script>
         // Mobile Navigation
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            if (menu) {
-                menu.classList.toggle('hidden');
-            }
-        }
 
         // Reveal blank answer
         function revealAnswer(element) {
@@ -523,30 +517,6 @@
         }
 
         // Text to speech
-        function speak(text, cardElement) {
-            if (!('speechSynthesis' in window)) {
-                alert('您的浏览器不支持语音播放功能。');
-                return;
-            }
-
-            window.speechSynthesis.cancel();
-
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'en-US';
-            utterance.rate = 0.8;
-            utterance.pitch = 1;
-
-            if (cardElement) {
-                // Clear any existing speaking state
-                document.querySelectorAll('.vocab-card.speaking').forEach(el => el.classList.remove('speaking'));
-
-                cardElement.classList.add('speaking');
-                utterance.onend = () => cardElement.classList.remove('speaking');
-                utterance.onerror = () => cardElement.classList.remove('speaking');
-            }
-
-            window.speechSynthesis.speak(utterance);
-        }
 
         // Todo list functionality
         var todoStates = {};
@@ -559,46 +529,8 @@
             if (saved) todoStates = JSON.parse(saved);
         } catch (e) { }
 
-        function updateProgress() {
-            var todos = document.querySelectorAll('.todo-item');
-            var completed = document.querySelectorAll('.todo-item.completed');
-            var progress = Math.round((completed.length / todos.length) * 100);
 
-            var bar = document.getElementById('progressBar');
-            bar.style.width = progress + '%';
-            bar.textContent = progress === 100 ? '🎉 100% 完成！' : progress + '%';
-        }
 
-        function toggleTodo(item) {
-            var id = item.getAttribute('data-todo');
-
-            if (item.classList.contains('completed')) {
-                item.classList.remove('completed');
-                todoStates[id] = false;
-            } else {
-                item.classList.add('completed');
-                todoStates[id] = true;
-            }
-
-            try {
-                localStorage.setItem('unit9HolidayPlansTodos', JSON.stringify(todoStates));
-            } catch (e) { }
-
-            updateProgress();
-        }
-
-        function resetTodos() {
-            if (confirm('确定要重置所有作业任务吗？')) {
-                document.querySelectorAll('.todo-item').forEach(function (item) {
-                    item.classList.remove('completed');
-                });
-                todoStates = {};
-                try {
-                    localStorage.setItem('unit9HolidayPlansTodos', '{}');
-                } catch (e) { }
-                updateProgress();
-            }
-        }
 
         // Initialize on load
         document.addEventListener('DOMContentLoaded', function () {
@@ -609,7 +541,7 @@
                     if (item) item.classList.add('completed');
                 }
             });
-            updateProgress();
+            updateTodoProgress('unit9HolidayPlansTodos');
         });
     </script>
     <script src="../js/common.js"></script>

@@ -536,7 +536,7 @@
 
             <div class="space-y-4">
                 <div role="button" tabindex="0" class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-red-500"
-                    data-todo="1" onclick="toggleTodo(this)">
+                    data-todo="1" onclick="toggleTodoItem(this, 'readingTodos')">
                     <div class="todo-checkbox"></div>
                     <div class="flex-1">
                         <div class="font-bold text-gray-800 text-lg todo-title"><span>1️⃣</span> 单词掌握 Vocabulary</div>
@@ -545,7 +545,7 @@
                 </div>
 
                 <div role="button" tabindex="0" class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-blue-500"
-                    data-todo="2" onclick="toggleTodo(this)">
+                    data-todo="2" onclick="toggleTodoItem(this, 'readingTodos')">
                     <div class="todo-checkbox"></div>
                     <div class="flex-1">
                         <div class="font-bold text-gray-800 text-lg todo-title"><span>2️⃣</span> 课文朗读 Reading</div>
@@ -554,7 +554,7 @@
                 </div>
 
                 <div role="button" tabindex="0" class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-green-500"
-                    data-todo="3" onclick="toggleTodo(this)">
+                    data-todo="3" onclick="toggleTodoItem(this, 'readingTodos')">
                     <div class="todo-checkbox"></div>
                     <div class="flex-1">
                         <div class="font-bold text-gray-800 text-lg todo-title"><span>3️⃣</span> 阅读练习 Exercises</div>
@@ -563,7 +563,7 @@
                 </div>
 
                 <div role="button" tabindex="0" class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-purple-500"
-                    data-todo="4" onclick="toggleTodo(this)">
+                    data-todo="4" onclick="toggleTodoItem(this, 'readingTodos')">
                     <div class="todo-checkbox"></div>
                     <div class="flex-1">
                         <div class="font-bold text-gray-800 text-lg todo-title"><span>4️⃣</span> 上传作业 Upload</div>
@@ -573,7 +573,7 @@
             </div>
 
             <div class="mt-4 text-center">
-                <button type="button" onclick="resetTodos()" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-lg text-sm transition-colors">
+                <button type="button" onclick="resetTodoItems('readingTodos')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-lg text-sm transition-colors">
                     🔄 重置任务 Reset Tasks
                 </button>
             </div>
@@ -603,12 +603,6 @@
         /**
          * Toggle mobile menu visibility
          */
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            if (menu) {
-                menu.classList.toggle('hidden');
-            }
-        }
 
         // ============================================
         // Toggle Functions
@@ -674,29 +668,6 @@
          * @param {string} text - The text to speak
          * @param {HTMLElement} cardElement - The vocabulary card element that was clicked
          */
-        function speak(text, cardElement) {
-            if (!('speechSynthesis' in window)) {
-                alert('您的浏览器不支持语音播放功能。');
-                return;
-            }
-
-            window.speechSynthesis.cancel();
-
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'en-US';
-            utterance.rate = 0.8;
-            utterance.pitch = 1;
-
-            // Animate the clicked card
-            if (cardElement) {
-                cardElement.classList.add('speaking');
-
-                utterance.onend = () => cardElement.classList.remove('speaking');
-                setTimeout(() => cardElement.classList.remove('speaking'), 3000);
-            }
-
-            window.speechSynthesis.speak(utterance);
-        }
 
         // Todo list functionality
         var todoStates = {};
@@ -706,48 +677,8 @@
             if (saved) todoStates = JSON.parse(saved);
         } catch (e) { }
 
-        function updateProgress() {
-            var todos = document.querySelectorAll('.todo-item');
-            var completed = document.querySelectorAll('.todo-item.completed');
-            var progress = Math.round((completed.length / todos.length) * 100);
 
-            var bar = document.getElementById('progressBar');
-            if (bar) {
-                bar.style.width = progress + '%';
-                bar.textContent = progress === 100 ? '\uD83C\uDF89 100% 完成！' : progress + '%';
-            }
-        }
 
-        function toggleTodo(item) {
-            var id = item.getAttribute('data-todo');
-
-            if (item.classList.contains('completed')) {
-                item.classList.remove('completed');
-                todoStates[id] = false;
-            } else {
-                item.classList.add('completed');
-                todoStates[id] = true;
-            }
-
-            try {
-                localStorage.setItem('readingTodos', JSON.stringify(todoStates));
-            } catch (e) { }
-
-            updateProgress();
-        }
-
-        function resetTodos() {
-            if (confirm('确定要重置所有作业任务吗？')) {
-                document.querySelectorAll('.todo-item').forEach(function (item) {
-                    item.classList.remove('completed');
-                });
-                todoStates = {};
-                try {
-                    localStorage.setItem('readingTodos', '{}');
-                } catch (e) { }
-                updateProgress();
-            }
-        }
 
         // Restore from localStorage on page load
         try {
@@ -762,7 +693,7 @@
                 }
             }
         } catch (e) { }
-        updateProgress();
+        updateTodoProgress('readingTodos');
     </script>
     <script src="../js/common.js"></script>
 </body>

@@ -73,7 +73,7 @@
             <div class="leather-card p-8 rounded-lg">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- 1. amazing -->
-                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('amazing')">
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('amazing', this)">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
                             <i class="fas fa-star text-yellow-500 mr-2"></i>amazing
@@ -88,7 +88,7 @@
                 </div>
 
                 <!-- 2. because -->
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('because')">
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('because', this)">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
                             <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>because
@@ -103,7 +103,7 @@
                 </div>
 
                 <!-- 3. inside -->
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('inside')">
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('inside', this)">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
                             <i class="fas fa-box text-blue-500 mr-2"></i>inside
@@ -119,7 +119,7 @@
                 </div>
 
                 <!-- 4. TVs and beds -->
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('TVs and beds')">
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('TVs and beds', this)">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
                             <i class="fas fa-tv text-blue-500 mr-2"></i>TVs and beds
@@ -134,7 +134,7 @@
                 </div>
 
                 <!-- 5. a lot of sofas -->
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('a lot of sofas')">
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('a lot of sofas', this)">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
                             <i class="fas fa-couch text-purple-500 mr-2"></i>a lot of sofas
@@ -150,7 +150,7 @@
                 </div>
 
                 <!-- 6. go on the roads -->
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('go on the roads')">
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('go on the roads', this)">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
                             <i class="fas fa-road text-gray-500 mr-2"></i>go on the roads
@@ -165,7 +165,7 @@
                 </div>
 
                 <!-- 7. very often -->
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('very often')">
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('very often', this)">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
                             <i class="fas fa-redo text-orange-500 mr-2"></i>very often
@@ -179,7 +179,7 @@
                 </div>
 
                 <!-- 8. difficult to drive -->
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('difficult to drive')">
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('difficult to drive', this)">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
                             <i class="fas fa-mountain text-red-500 mr-2"></i>difficult to drive
@@ -194,7 +194,7 @@
                 </div>
 
                 <!-- 9. at the front -->
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('at the front')">
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('at the front', this)">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
                             <i class="fas fa-arrow-right text-green-500 mr-2"></i>at the front
@@ -209,7 +209,7 @@
                 </div>
 
                 <!-- 10. at the back -->
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('at the back')">
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('at the back', this)">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
                             <i class="fas fa-arrow-left text-green-500 mr-2"></i>at the back
@@ -224,7 +224,7 @@
                 </div>
 
                 <!-- 11. use -->
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('use')">
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('use', this)">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
                             <i class="fas fa-hand-pointer text-indigo-500 mr-2"></i>use
@@ -240,7 +240,7 @@
                 </div>
 
                 <!-- 12. for special parties -->
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('for special parties')">
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('for special parties', this)">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
                             <i class="fas fa-gift text-pink-500 mr-2"></i>for special parties
@@ -255,7 +255,7 @@
                 </div>
 
                 <!-- 13. go for a drive -->
-                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('go for a drive')">
+                <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('go for a drive', this)">
                     <div class="flex justify-between items-center mb-2">
                         <div class="font-bold text-lg text-gray-800">
                             <i class="fas fa-car text-blue-500 mr-2"></i>go for a drive
@@ -667,22 +667,22 @@
                         <div class="flex flex-wrap justify-center gap-3">
                             <span
                                 class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition"
-                                onclick="speak('has')">has</span>
+                                onclick="speak('has', this)">has</span>
                             <span
                                 class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition"
-                                onclick="speak('watch')">watch</span>
+                                onclick="speak('watch', this)">watch</span>
                             <span
                                 class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition"
-                                onclick="speak('find')">find</span>
+                                onclick="speak('find', this)">find</span>
                             <span
                                 class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition"
-                                onclick="speak('take')">take</span>
+                                onclick="speak('take', this)">take</span>
                             <span
                                 class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition"
-                                onclick="speak('dances')">dances</span>
+                                onclick="speak('dances', this)">dances</span>
                             <span
                                 class="bg-gradient-to-b from-yellow-300 to-orange-400 text-amber-900 font-bold px-4 py-2 rounded-full shadow-md cursor-pointer hover:scale-105 transition"
-                                onclick="speak('have')">have</span>
+                                onclick="speak('have', this)">have</span>
                         </div>
                     </div>
                 </div>
@@ -700,7 +700,7 @@
             <div class="leather-card p-8 rounded-lg">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- 1. look down -->
-                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('look down')">
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('look down', this)">
                         <div class="flex justify-between items-center mb-2">
                             <div class="font-bold text-lg text-gray-800">
                                 <i class="fas fa-eye text-teal-500 mr-2"></i>look down
@@ -716,7 +716,7 @@
                     </div>
 
                     <!-- 2. puddle -->
-                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('puddle')">
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('puddle', this)">
                         <div class="flex justify-between items-center mb-2">
                             <div class="font-bold text-lg text-gray-800">
                                 <i class="fas fa-water text-cyan-500 mr-2"></i>puddle
@@ -732,7 +732,7 @@
                     </div>
 
                     <!-- 3. in front of -->
-                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('in front of')">
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('in front of', this)">
                         <div class="flex justify-between items-center mb-2">
                             <div class="font-bold text-lg text-gray-800">
                                 <i class="fas fa-arrow-circle-right text-green-500 mr-2"></i>in front of
@@ -747,7 +747,7 @@
                     </div>
 
                     <!-- 4. rain stops -->
-                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('rain stops')">
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('rain stops', this)">
                         <div class="flex justify-between items-center mb-2">
                             <div class="font-bold text-lg text-gray-800">
                                 <i class="fas fa-cloud-sun text-blue-400 mr-2"></i>rain stops
@@ -762,7 +762,7 @@
                     </div>
 
                     <!-- 5. close -->
-                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('close')">
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('close', this)">
                         <div class="flex justify-between items-center mb-2">
                             <div class="font-bold text-lg text-gray-800">
                                 <i class="fas fa-door-closed text-gray-600 mr-2"></i>close
@@ -778,7 +778,7 @@
                     </div>
 
                     <!-- 6. umbrella -->
-                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('umbrella')">
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('umbrella', this)">
                         <div class="flex justify-between items-center mb-2">
                             <div class="font-bold text-lg text-gray-800">
                                 <i class="fas fa-umbrella text-purple-500 mr-2"></i>umbrella
@@ -793,7 +793,7 @@
                     </div>
 
                     <!-- 7. wait for -->
-                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('wait for')">
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('wait for', this)">
                         <div class="flex justify-between items-center mb-2">
                             <div class="font-bold text-lg text-gray-800">
                                 <i class="fas fa-clock text-orange-500 mr-2"></i>wait for
@@ -808,7 +808,7 @@
                     </div>
 
                     <!-- 8. bus number -->
-                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('bus number')">
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('bus number', this)">
                         <div class="flex justify-between items-center mb-2">
                             <div class="font-bold text-lg text-gray-800">
                                 <i class="fas fa-hashtag text-red-500 mr-2"></i>bus number
@@ -823,7 +823,7 @@
                     </div>
 
                     <!-- 9. open -->
-                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('open')">
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('open', this)">
                         <div class="flex justify-between items-center mb-2">
                             <div class="font-bold text-lg text-gray-800">
                                 <i class="fas fa-door-open text-green-600 mr-2"></i>open
@@ -839,7 +839,7 @@
                     </div>
 
                     <!-- 10. start to rain -->
-                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('start to rain')">
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('start to rain', this)">
                         <div class="flex justify-between items-center mb-2">
                             <div class="font-bold text-lg text-gray-800">
                                 <i class="fas fa-cloud-rain text-blue-600 mr-2"></i>start to rain
@@ -854,7 +854,7 @@
                     </div>
 
                     <!-- 11. jump out of the way -->
-                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('jump out of the way')">
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('jump out of the way', this)">
                         <div class="flex justify-between items-center mb-2">
                             <div class="font-bold text-lg text-gray-800">
                                 <i class="fas fa-running text-red-500 mr-2"></i>jump out of the way
@@ -869,7 +869,7 @@
                     </div>
 
                     <!-- 12. too late -->
-                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('too late')">
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('too late', this)">
                         <div class="flex justify-between items-center mb-2">
                             <div class="font-bold text-lg text-gray-800">
                                 <i class="fas fa-hourglass-end text-gray-500 mr-2"></i>too late
@@ -885,7 +885,7 @@
                     </div>
 
                     <!-- 13. splash -->
-                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('splash')">
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('splash', this)">
                         <div class="flex justify-between items-center mb-2">
                             <div class="font-bold text-lg text-gray-800">
                                 <i class="fas fa-tint text-blue-400 mr-2"></i>splash
@@ -901,7 +901,7 @@
                     </div>
 
                     <!-- 14. here comes -->
-                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('here comes')">
+                    <div class="word-card p-4 rounded-lg shadow-md" onclick="speak('here comes', this)">
                         <div class="flex justify-between items-center mb-2">
                             <div class="font-bold text-lg text-gray-800">
                                 <i class="fas fa-bus-alt text-yellow-600 mr-2"></i>here comes
@@ -941,7 +941,7 @@
 
                     <div class="space-y-4">
                         <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-orange-500"
-                            data-todo="1" onclick="toggleTodo(this)">
+                            data-todo="1" onclick="toggleTodoItem(this, 'amazingVehiclesTodos')">
                             <div class="todo-checkbox"></div>
                             <div class="flex-1">
                                 <div class="font-bold text-gray-800 text-lg todo-title">1. 单词掌握 Vocabulary</div>
@@ -953,7 +953,7 @@
                         </div>
 
                         <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-orange-500"
-                            data-todo="2" onclick="toggleTodo(this)">
+                            data-todo="2" onclick="toggleTodoItem(this, 'amazingVehiclesTodos')">
                             <div class="todo-checkbox"></div>
                             <div class="flex-1">
                                 <div class="font-bold text-gray-800 text-lg todo-title">2. 课文朗读 Reading</div>
@@ -965,7 +965,7 @@
                         </div>
 
                         <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-orange-500"
-                            data-todo="3" onclick="toggleTodo(this)">
+                            data-todo="3" onclick="toggleTodoItem(this, 'amazingVehiclesTodos')">
                             <div class="todo-checkbox"></div>
                             <div class="flex-1">
                                 <div class="font-bold text-gray-800 text-lg todo-title">3. 阅读练习 Exercises</div>
@@ -978,7 +978,7 @@
                         </div>
 
                         <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-orange-500"
-                            data-todo="4" onclick="toggleTodo(this)">
+                            data-todo="4" onclick="toggleTodoItem(this, 'amazingVehiclesTodos')">
                             <div class="todo-checkbox"></div>
                             <div class="flex-1">
                                 <div class="font-bold text-gray-800 text-lg todo-title">4. 上传作业 Upload</div>
@@ -993,7 +993,7 @@
                     <div class="text-center mt-4">
                         <button type="button"
                             class="bg-gradient-to-b from-gray-500 to-gray-600 text-white font-bold px-6 py-2 rounded-full shadow-lg hover:scale-105 transition"
-                            onclick="resetTodos()">
+                            onclick="resetTodoItems('amazingVehiclesTodos')">
                             <i class="fas fa-redo mr-2"></i>重置所有任务
                         </button>
                     </div>
@@ -1036,15 +1036,6 @@
         }
 
         // Text to speech
-        function speak(text) {
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-                var utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'en-US';
-                utterance.rate = 0.8;
-                window.speechSynthesis.speak(utterance);
-            }
-        }
 
         // Toggle answer for reading comprehension
         function toggleAnswer(qid) {
@@ -1102,46 +1093,8 @@
             if (saved) todoStates = JSON.parse(saved);
         } catch (e) { }
 
-        function updateProgress() {
-            var todos = document.querySelectorAll('.todo-item');
-            var completed = document.querySelectorAll('.todo-item.completed');
-            var progress = Math.round((completed.length / todos.length) * 100);
 
-            var bar = document.getElementById('progressBar');
-            bar.style.width = progress + '%';
-            bar.textContent = progress === 100 ? '🎉 100% 完成！' : progress + '%';
-        }
 
-        function toggleTodo(item) {
-            var id = item.getAttribute('data-todo');
-
-            if (item.classList.contains('completed')) {
-                item.classList.remove('completed');
-                todoStates[id] = false;
-            } else {
-                item.classList.add('completed');
-                todoStates[id] = true;
-            }
-
-            try {
-                localStorage.setItem('amazingVehiclesTodos', JSON.stringify(todoStates));
-            } catch (e) { }
-
-            updateProgress();
-        }
-
-        function resetTodos() {
-            if (confirm('确定要重置所有作业任务吗？')) {
-                document.querySelectorAll('.todo-item').forEach(function (item) {
-                    item.classList.remove('completed');
-                });
-                todoStates = {};
-                try {
-                    localStorage.setItem('amazingVehiclesTodos', '{}');
-                } catch (e) { }
-                updateProgress();
-            }
-        }
 
         // Initialize on load
         document.addEventListener('DOMContentLoaded', function () {
@@ -1152,7 +1105,7 @@
                     if (item) item.classList.add('completed');
                 }
             });
-            updateProgress();
+            updateTodoProgress('amazingVehiclesTodos');
         });
     </script>
 </body>
