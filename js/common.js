@@ -131,11 +131,11 @@ function toggleAnswer(element) {
 /**
  * Update homework progress bar and save to localStorage
  * @param {string} storageKey - Key for localStorage (default: 'homeworkProgress')
+ * @param {string} checkboxSelector - Selector for checkboxes (default: HOMEWORK_CHECKBOX_SELECTOR)
  */
-function updateProgress(storageKey = 'homeworkProgress') {
-    // Use specific selector to only target homework checklist checkboxes
-    const checkboxes = document.querySelectorAll(HOMEWORK_CHECKBOX_SELECTOR);
-    const checked = document.querySelectorAll(HOMEWORK_CHECKBOX_SELECTOR + ':checked');
+function updateProgress(storageKey = 'homeworkProgress', checkboxSelector = HOMEWORK_CHECKBOX_SELECTOR) {
+    const checkboxes = document.querySelectorAll(checkboxSelector);
+    const checked = document.querySelectorAll(checkboxSelector + ':checked');
     const progress = (checked.length / checkboxes.length) * 100;
     
     const progressBar = document.getElementById('progress-bar');
@@ -170,14 +170,14 @@ function toggleComplete(checkbox) {
 /**
  * Restore progress from localStorage
  * @param {string} storageKey - Key for localStorage (default: 'homeworkProgress')
+ * @param {string} checkboxSelector - Selector for checkboxes (default: HOMEWORK_CHECKBOX_SELECTOR)
  */
-function restoreProgress(storageKey = 'homeworkProgress') {
+function restoreProgress(storageKey = 'homeworkProgress', checkboxSelector = HOMEWORK_CHECKBOX_SELECTOR) {
     const saved = localStorage.getItem(storageKey);
     if (saved) {
         try {
             const data = JSON.parse(saved);
-            // Use specific selector to only target homework checklist checkboxes
-            const checkboxes = document.querySelectorAll(HOMEWORK_CHECKBOX_SELECTOR);
+            const checkboxes = document.querySelectorAll(checkboxSelector);
             
             checkboxes.forEach((cb, index) => {
                 if (data.checked && data.checked[index]) {
@@ -191,7 +191,7 @@ function restoreProgress(storageKey = 'homeworkProgress') {
             
             updateProgress(storageKey);
         } catch (e) {
-            console.warn('Failed to restore progress:', e);
+            // Silently ignore corrupt progress data
         }
     }
 }
@@ -213,8 +213,8 @@ function copyToClipboard(text, feedbackId = 'copy-feedback') {
                 feedback.classList.remove('hidden');
                 setTimeout(() => feedback.classList.add('hidden'), 2000);
             }
-        }).catch(err => {
-            console.error('Failed to copy:', err);
+        }).catch(() => {
+            // Ignore clipboard errors
         });
     }
 }
@@ -293,7 +293,7 @@ function initCommon() {
     // Restore progress only on homework pages (check for progress bar element)
     // Using #progress-bar as it's specific to homework pages and won't conflict
     // with other pages that might have checkboxes for different purposes
-    if (document.getElementById('progress-bar')) {
+    if (document.getElementById('progress-bar') || document.getElementById('progressBar')) {
         restoreProgress();
     }
 }

@@ -16,6 +16,11 @@
     /* Background Gradients */
     --bg-gradient-sky: linear-gradient(180deg, #87CEEB 0%, #98FB98 40%, #228B22 100%);
     
+    /* Shadows & Borders */
+    --shadow-card: 0 20px 40px rgba(0,0,0,0.2);
+    --shadow-sm: 0 8px 0 rgba(0,0,0,0.1);
+    --border-radius-lg: 25px;
+    
     /* Typography */
     --font-chinese: 'Noto Serif SC', 'Noto Sans SC', serif;
     --font-english: 'Nunito', sans-serif;
@@ -95,18 +100,18 @@
 /* Ink gradient (common header style) */
 .ink-gradient {
     background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 50%, #FF6B6B 100%);
-    border-bottom: 6px solid #FFD93D;
-    box-shadow: 0 8px 0 rgba(0,0,0,0.1);
+    border-bottom: 6px solid var(--color-accent);
+    box-shadow: var(--shadow-sm);
 }
 
 /* Glass card effect */
 .glass-card {
     background: linear-gradient(145deg, #ffffff 0%, #f0f8ff 100%);
-    border: 5px solid #FF6B6B;
-    border-radius: 25px;
+    border: 5px solid var(--color-primary);
+    border-radius: var(--border-radius-lg);
     box-shadow: 
-        0 10px 0 #FFD93D,
-        0 20px 40px rgba(0,0,0,0.2);
+        0 10px 0 var(--color-accent),
+        var(--shadow-card);
 }
 
 /* Card hover effect */
@@ -116,14 +121,36 @@
 
 .card-hover:hover {
     transform: translateY(-8px) rotate(2deg);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2), 0 0 0 6px #FFD93D;
+    box-shadow: var(--shadow-card), 0 0 0 6px var(--color-accent);
 }
 
 /* Unit badge */
 .unit-badge {
     background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
-    border: 4px solid #FFD93D;
-    box-shadow: 0 6px 0 rgba(0,0,0,0.2), 0 8px 15px rgba(0,0,0,0.2);
+    border: 4px solid var(--color-accent);
+    box-shadow: 0 6px 0 rgba(0,0,0,0.2), var(--shadow-card);
     border-radius: 20px;
     transform: rotate(-3deg);
+}
+
+/* ============================================
+   Accessibility
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .float-anim {
+        animation: none;
+    }
+    
+    .card-hover,
+    .card-hover:hover {
+        transition: none;
+        transform: none;
+    }
+}
+
+:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
 }
