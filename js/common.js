@@ -72,14 +72,14 @@ function toggleQuizAnswer(container, answerSelector = '.quiz-answer', iconSelect
  * @param {HTMLElement} container - The container element that was clicked
  */
 if (typeof toggleTranslation !== 'function') {
-    function toggleTranslation(container) {
+    window.toggleTranslation = function(container) {
         const trans = container.querySelector('.translation');
         const icon = container.querySelector('.chevron-icon');
         
         if (trans) {
             toggleVisibility(trans, 'show', icon);
         }
-    }
+    };
 }
 
 /**
@@ -117,7 +117,7 @@ function toggleTimeline(node) {
  * @param {HTMLElement} element - The answer mask element
  */
 if (typeof toggleAnswer !== 'function') {
-    function toggleAnswer(element) {
+    window.toggleAnswer = function(element) {
         element.classList.toggle('revealed');
         
         // Add click feedback animation
@@ -125,7 +125,7 @@ if (typeof toggleAnswer !== 'function') {
         setTimeout(() => {
             element.style.transform = '';
         }, 100);
-    }
+    };
 }
 
 // ============================================
@@ -138,7 +138,9 @@ if (typeof toggleAnswer !== 'function') {
  * @param {string} checkboxSelector - Selector for checkboxes (default: HOMEWORK_CHECKBOX_SELECTOR)
  */
 if (typeof updateProgress !== 'function') {
-    function updateProgress(storageKey = 'homeworkProgress', checkboxSelector = HOMEWORK_CHECKBOX_SELECTOR) {
+    window.updateProgress = function(storageKey, checkboxSelector) {
+        storageKey = storageKey || 'homeworkProgress';
+        checkboxSelector = checkboxSelector || HOMEWORK_CHECKBOX_SELECTOR;
         const checkboxes = document.querySelectorAll(checkboxSelector);
         const checked = document.querySelectorAll(checkboxSelector + ':checked');
         const progress = (checked.length / checkboxes.length) * 100;
@@ -158,7 +160,7 @@ if (typeof updateProgress !== 'function') {
             date: new Date().toLocaleDateString()
         };
         localStorage.setItem(storageKey, JSON.stringify(progressData));
-    }
+    };
 }
 
 /**
