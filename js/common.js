@@ -854,17 +854,11 @@ function deinlineOnclick() {
         var replaced = false;
         
         function hasFn(name) { return typeof window[name] === 'function'; }
-    var skipped = [];
-    document.querySelectorAll('[onclick]').forEach(function(el) {
-        var code = el.getAttribute('onclick').trim();
-        var replaced = false;
-        
-        function hasFn(name) { return typeof window[name] === 'function'; }
         
         // Pattern 1: functionName(this)
         var m = code.match(/^(\w+)\(this\)$/);
         if (m && hasFn(m[1])) {
-            var fn = window[m[1]];
+            const fn = window[m[1]];
             el.addEventListener('click', function() { fn(el); });
             replaced = true;
         }
@@ -873,8 +867,8 @@ function deinlineOnclick() {
         if (!replaced) {
             m = code.match(/^(\w+)\('([^']*)',\s*this\)$/);
             if (m && hasFn(m[1])) {
-                var fn = window[m[1]];
-                var arg = m[2];
+                const fn = window[m[1]];
+                const arg = m[2];
                 el.addEventListener('click', function() { fn(arg, el); });
                 replaced = true;
             }
@@ -884,8 +878,8 @@ function deinlineOnclick() {
         if (!replaced) {
             m = code.match(/^(\w+)\(this,\s*'([^']*)'\)$/);
             if (m && hasFn(m[1])) {
-                var fn = window[m[1]];
-                var arg = m[2];
+                const fn = window[m[1]];
+                const arg = m[2];
                 el.addEventListener('click', function() { fn(el, arg); });
                 replaced = true;
             }
@@ -895,8 +889,8 @@ function deinlineOnclick() {
         if (!replaced) {
             m = code.match(/^(\w+)\(this,\s*(true|false)\)$/);
             if (m && hasFn(m[1])) {
-                var fn = window[m[1]];
-                var arg = m[2] === 'true';
+                const fn = window[m[1]];
+                const arg = m[2] === 'true';
                 el.addEventListener('click', function() { fn(el, arg); });
                 replaced = true;
             }
@@ -906,8 +900,8 @@ function deinlineOnclick() {
         if (!replaced) {
             m = code.match(/^(\w+)\('([^']*)'\)$/);
             if (m && hasFn(m[1])) {
-                var fn = window[m[1]];
-                var arg = m[2];
+                const fn = window[m[1]];
+                const arg = m[2];
                 el.addEventListener('click', function() { fn(arg); });
                 replaced = true;
             }
@@ -917,7 +911,7 @@ function deinlineOnclick() {
         if (!replaced) {
             m = code.match(/^this\.classList\.toggle\('([^']*)'\)$/);
             if (m) {
-                var cls = m[1];
+                const cls = m[1];
                 el.addEventListener('click', function() { el.classList.toggle(cls); });
                 replaced = true;
             }
@@ -931,10 +925,10 @@ function deinlineOnclick() {
                 var eventCall = m[2].trim();
                 var innerM = inner.match(/^(\w+)\(this\)$/);
                 if (innerM && hasFn(innerM[1])) {
-                    var fn = window[innerM[1]];
+                    const fn = window[innerM[1]];
                     var eventM = eventCall.match(/^event\.(\w+)\(([^)]*)\)$/);
                     if (eventM) {
-                        var method = eventM[1];
+                        const method = eventM[1];
                         el.addEventListener('click', function(e) {
                             fn(el);
                             e[method]();
@@ -949,9 +943,9 @@ function deinlineOnclick() {
         if (!replaced) {
             m = code.match(/^(\w+)\(event,\s*'([^']*)',\s*'([^']*)'\)$/);
             if (m && hasFn(m[1])) {
-                var fn = window[m[1]];
-                var arg1 = m[2];
-                var arg2 = m[3];
+                const fn = window[m[1]];
+                const arg1 = m[2];
+                const arg2 = m[3];
                 el.addEventListener('click', function(e) { fn(e, arg1, arg2); });
                 replaced = true;
             }
@@ -961,7 +955,7 @@ function deinlineOnclick() {
         if (!replaced) {
             m = code.match(/^(\w+)\(\)$/);
             if (m && hasFn(m[1])) {
-                var fn = window[m[1]];
+                const fn = window[m[1]];
                 el.addEventListener('click', function() { fn(); });
                 replaced = true;
             }
@@ -971,7 +965,7 @@ function deinlineOnclick() {
         if (!replaced) {
             m = code.match(/^event\.(\w+)\(\)$/);
             if (m) {
-                var method = m[1];
+                const method = m[1];
                 el.addEventListener('click', function(e) { e[method](); });
                 replaced = true;
             }
