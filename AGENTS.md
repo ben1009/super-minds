@@ -28,6 +28,8 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 │   └── common.css          # 共享 CSS 样式（变量、动画、工具类）
 ├── js/
 │   └── common.js           # 共享 JavaScript 工具函数
+├── scripts/
+│   └── generate-baseball.py  # 生成棒球版 Unit 8 课程页面的构建脚本
 ├── unit7/
 │   ├── present-continuous-course.html    # Unit 7 课程页面（现在进行时精讲）
 │   └── present-continuous-homework.html  # Unit 7 作业页面
@@ -66,6 +68,7 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 | `unit8/question-words-grammar-homework.html` | Unit 8 语法作业页面，包含：5个疑问词用法、新对话、9个动词短语、造句练习、邮件完形填空、作业清单 |
 | `unit8/grammar.css` | Unit 8 语法页面专用样式（棒球主题风格） |
 | `unit8/grammar.js` | Unit 8 语法页面交互脚本（翻译切换、发音、填空交互） |
+| `scripts/generate-baseball.py` | 构建脚本：读取 `unit8/gerunds-ball-sports.html` 生成棒球版 (`super-minds-baseball/unit8/baseball-gerunds-ball-sports.html`) |
 | `unit9/holiday-plans-grammar-review.html` | Unit 9 语法复习页面，包含：Page 108歌曲语法重点、Page 109语法总结、两组对话填空（35+空）、5个动词短语发音、作业清单 |
 | `unit9/fairy-tales-reading.html` | Unit 9 童话故事阅读页面，包含：14个词汇卡片（带发音）、两篇阅读理解（Folk Tales + Reading on Holiday）、8道选择题、40道单词测验（汉译英+英译汉）、作业清单 |
 | `super-minds-baseball/unit8/baseball-gerunds-ball-sports.html` | 棒球版 Unit 8 课程内容 |
@@ -400,8 +403,10 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 Unit 8 是一个独立风格的单元（棒球主题），不同于延续 Unit 7 的风格：
 
 1. 创建了 `unit8/gerunds-ball-sports.html` - 动名词作主语课程
-2. 复制到 `super-minds-baseball/unit8/baseball-gerunds-ball-sports.html` - 棒球主题版本
+2. 运行 `python3 scripts/generate-baseball.py` 生成 `super-minds-baseball/unit8/baseball-gerunds-ball-sports.html`
 3. 更新了 `index.html` - 添加 Unit 8 卡片和快速链接
+
+> **Note**: `super-minds-baseball/unit8/baseball-gerunds-ball-sports.html` 由构建脚本自动生成，与源文件仅存在路径 (`../` → `../../`)、`NAV_CONFIG.active` 标识符和 meta 描述的差异。不要直接编辑该文件；修改源文件后重新运行脚本即可。Unit 7 的棒球版页面 (`baseball-present-continuous-course.html` / `baseball-present-continuous-homework.html`) 内容是主题化重写（巴士旅行 → 棒球比赛）， genuinely 不同，保留独立文件。
 4. 更新了 `super-minds-baseball/index.html` - 添加 Unit 8 导航卡片
 5. 更新了 `README.md` - 添加 Unit 8 课程描述
 6. 更新了 `AGENTS.md` - 更新项目结构和功能说明
