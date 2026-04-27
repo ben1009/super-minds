@@ -677,7 +677,7 @@ if (typeof speak !== 'function') {
 
         const utter = new SpeechSynthesisUtterance(text);
         utter.lang = 'en-US';
-        utter.rate = 0.9;
+        utter.rate = 0.8;
 
         if (cardElement) {
             // Clear speaking state from all other cards
@@ -685,7 +685,7 @@ if (typeof speak !== 'function') {
                 if (c !== cardElement) c.classList.remove('speaking');
             });
             cardElement.classList.add('speaking');
-            utter.onend = function() {
+            utter.onend = utter.onerror = function() {
                 cardElement.classList.remove('speaking');
             };
         }
@@ -710,7 +710,7 @@ if (typeof updateTodoProgress !== 'function') {
         if (bar && items.length > 0) {
             const pct = Math.round((completed.length / items.length) * 100);
             bar.style.width = pct + '%';
-            bar.textContent = pct + '%';
+            bar.textContent = pct === 100 ? '🎉 100% 完成！' : pct + '%';
         }
         if (storageKey) {
             const states = {};
