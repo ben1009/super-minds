@@ -774,6 +774,175 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
+echo "19. Checking refactor deduplication completeness..."
+ERRORS=0
+
+# common.js: new shared functions
+if grep -q 'window.toggleReveal' js/common.js; then
+    echo "   ✓ toggleReveal() extracted to common.js"
+else
+    echo "   ✗ toggleReveal() missing from common.js!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'window.revealAnswer' js/common.js; then
+    echo "   ✓ revealAnswer() extracted to common.js"
+else
+    echo "   ✗ revealAnswer() missing from common.js!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# common.js: no typeof guard on canonical functions
+if grep -q 'typeof toggleAnswer' js/common.js; then
+    echo "   ✗ toggleAnswer() still has typeof guard in common.js!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ toggleAnswer() has no typeof guard"
+fi
+
+if grep -q 'typeof revealAnswer' js/common.js; then
+    echo "   ✗ revealAnswer() still has typeof guard in common.js!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ revealAnswer() has no typeof guard"
+fi
+
+# common.js: speak() uses generic .speaking selector
+if grep -q "'\.speaking'" js/common.js; then
+    echo "   ✓ speak() uses generic '.speaking' selector"
+else
+    echo "   ✗ speak() missing generic '.speaking' selector!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# common.js: toggleTranslation uses toggleVisibility
+if grep -q 'toggleVisibility(trans' js/common.js; then
+    echo "   ✓ toggleTranslation() reuses toggleVisibility utility"
+else
+    echo "   ✗ toggleTranslation() not reusing toggleVisibility!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# common.js: toggleTranslation uses textContent not innerHTML
+if grep -A3 'if (hint)' js/common.js | grep -q 'textContent'; then
+    echo "   ✓ toggleTranslation() uses textContent for hints"
+else
+    echo "   ✗ toggleTranslation() not using textContent for hints!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# CSS: .translation-animated class exists
+if grep -q '\.translation\.translation-animated' css/baseball-theme.css; then
+    echo "   ✓ .translation-animated class exists in baseball-theme.css"
+else
+    echo "   ✗ .translation-animated class missing from baseball-theme.css!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# HTML: no inline toggleTranslation remaining
+for file in unit8/fun-things-we-do-reading.html unit9/fairy-tales-reading.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'function toggleTranslation' "$file"; then
+            echo "   ✗ $file still has inline toggleTranslation!"
+            ERRORS=$((ERRORS + 1))
+        else
+            echo "   ✓ $file has no inline toggleTranslation"
+        fi
+    fi
+done
+
+# HTML: no inline revealAnswer remaining
+for file in unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'function revealAnswer' "$file"; then
+            echo "   ✗ $file still has inline revealAnswer!"
+            ERRORS=$((ERRORS + 1))
+        else
+            echo "   ✓ $file has no inline revealAnswer"
+        fi
+    fi
+done
+
+# HTML: renamed toggleAnswer variants
+if grep -q 'toggleQuestionAnswer' unit8/fun-things-we-do-reading.html; then
+    echo "   ✓ fun-things-we-do-reading.html uses toggleQuestionAnswer()"
+else
+    echo "   ✗ fun-things-we-do-reading.html missing toggleQuestionAnswer()!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'toggleReadingAnswer' unit8/amazing-vehicles-reading.html; then
+    echo "   ✓ amazing-vehicles-reading.html uses toggleReadingAnswer()"
+else
+    echo "   ✗ amazing-vehicles-reading.html missing toggleReadingAnswer()!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Baseball unit7: no inline toggleReveal (now in common.js)
+for file in super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'function toggleReveal' "$file"; then
+            echo "   ✗ $file still has inline toggleReveal!"
+            ERRORS=$((ERRORS + 1))
+        else
+            echo "   ✓ $file has no inline toggleReveal"
+        fi
+    fi
+done
+
+# data-placeholder on fairy-tales word quiz blanks
+if grep -q 'data-placeholder=' unit9/fairy-tales-reading.html; then
+    echo "   ✓ fairy-tales-reading.html uses data-placeholder attributes"
+else
+    echo "   ✗ fairy-tales-reading.html missing data-placeholder attributes!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# data-copy-text on unit7 homework copy buttons
+for file in unit7/present-continuous-homework.html super-minds-baseball/unit7/baseball-present-continuous-homework.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'data-copy-text' "$file"; then
+            echo "   ✓ $file uses data-copy-text for clipboard"
+        else
+            echo "   ✗ $file missing data-copy-text!"
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+
+# fun-things-we-do-reading.html uses DOMContentLoaded for init
+if grep -q 'DOMContentLoaded' unit8/fun-things-we-do-reading.html; then
+    echo "   ✓ fun-things-we-do-reading.html defers init with DOMContentLoaded"
+else
+    echo "   ✗ fun-things-we-do-reading.html missing DOMContentLoaded guard!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# fun-things-we-do-reading.html has no inline <style> block
+if grep -q '<style>' unit8/fun-things-we-do-reading.html; then
+    echo "   ✗ fun-things-we-do-reading.html still has inline <style> block!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ fun-things-we-do-reading.html has no inline <style> block"
+fi
+
+# copyDialogue no longer defined inline
+for file in unit7/present-continuous-homework.html super-minds-baseball/unit7/baseball-present-continuous-homework.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'function copyDialogue' "$file"; then
+            echo "   ✗ $file still has inline copyDialogue!"
+            ERRORS=$((ERRORS + 1))
+        else
+            echo "   ✓ $file has no inline copyDialogue"
+        fi
+    fi
+done
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
 echo "=== Test Complete ==="
 echo ""
 echo "Next steps:"
