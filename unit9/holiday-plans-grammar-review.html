@@ -497,17 +497,6 @@
     <script>
         // Mobile Navigation
 
-        // Reveal blank answer
-        function revealAnswer(element) {
-            if (element.classList.contains('revealed')) {
-                element.classList.remove('revealed');
-                element.textContent = '_____';
-            } else {
-                element.classList.add('revealed');
-                element.textContent = element.getAttribute('data-answer');
-            }
-        }
-
         // Toggle answer table
         function toggleAnswerTable(id) {
             const el = document.getElementById(id);

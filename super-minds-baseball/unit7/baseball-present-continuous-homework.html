@@ -437,9 +437,9 @@
                     <div class="bg-gray-50 rounded-lg p-4 space-y-3">
                         <div class="flex flex-col gap-2">
                             <p class="font-bold">肯定句：He is <span class="text-red-600 font-bold">pitching</span> the ball.</p>
-                            <button onclick="toggleAnswer('ans1-neg')" class="text-left text-blue-700 hover:text-blue-900 font-medium">→ 否定句（点击显示）</button>
+                            <button onclick="toggleReveal('ans1-neg')" class="text-left text-blue-700 hover:text-blue-900 font-medium">→ 否定句（点击显示）</button>
                             <p id="ans1-neg" class="hidden pl-4 text-gray-700">He is not pitching the ball.</p>
-                            <button onclick="toggleAnswer('ans1-q')" class="text-left text-blue-700 hover:text-blue-900 font-medium">→ 疑问句（点击显示）</button>
+                            <button onclick="toggleReveal('ans1-q')" class="text-left text-blue-700 hover:text-blue-900 font-medium">→ 疑问句（点击显示）</button>
                             <p id="ans1-q" class="hidden pl-4 text-gray-700">Is he pitching the ball?</p>
                         </div>
                     </div>
@@ -448,25 +448,25 @@
                 <div class="ink-border bg-white rounded-xl p-6">
                     <h3 class="text-xl font-bold mb-4 text-gray-800">2. 造句练习 · 使用棒球术语（点击灰色区域显示/隐藏）</h3>
                     <div class="space-y-3">
-                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer hover:bg-gray-200 transition-colors" onclick="toggleAnswer('ans2-1')">
+                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer hover:bg-gray-200 transition-colors" onclick="toggleReveal('ans2-1')">
                             <p class="font-medium">⚾ pitcher / throw / ball</p>
                             <p id="ans2-1" class="hidden mt-2 text-green-800 font-bold bg-white p-2 rounded">
                                 What is the pitcher doing? He is throwing the ball.
                             </p>
                         </div>
-                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer hover:bg-gray-200 transition-colors" onclick="toggleAnswer('ans2-2')">
+                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer hover:bg-gray-200 transition-colors" onclick="toggleReveal('ans2-2')">
                             <p class="font-medium">🏏 batter / swing / bat</p>
                             <p id="ans2-2" class="hidden mt-2 text-green-800 font-bold bg-white p-2 rounded">
                                 What is the batter doing? He is swinging the bat.
                             </p>
                         </div>
-                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer hover:bg-gray-200 transition-colors" onclick="toggleAnswer('ans2-3')">
+                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer hover:bg-gray-200 transition-colors" onclick="toggleReveal('ans2-3')">
                             <p class="font-medium">🏃 players / run / bases</p>
                             <p id="ans2-3" class="hidden mt-2 text-green-800 font-bold bg-white p-2 rounded">
                                 What are the players doing? They are running to the bases.
                             </p>
                         </div>
-                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer hover:bg-gray-200 transition-colors" onclick="toggleAnswer('ans2-4')">
+                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer hover:bg-gray-200 transition-colors" onclick="toggleReveal('ans2-4')">
                             <p class="font-medium">🧤 catcher / catch / ball</p>
                             <p id="ans2-4" class="hidden mt-2 text-green-800 font-bold bg-white p-2 rounded">
                                 What is the catcher doing? He is catching the ball.
@@ -478,25 +478,25 @@
                 <div class="ink-border bg-white rounded-xl p-6">
                     <h3 class="text-xl font-bold mb-4 text-gray-800">3. 比赛复述练习 · 根据记忆补全关键句子</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer" onclick="toggleAnswer('ans3-1')">
+                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer" onclick="toggleReveal('ans3-1')">
                             <p class="text-sm text-gray-600">投手投球：</p>
                             <p id="ans3-1" class="hidden text-green-800 font-bold mt-1">
                                 The pitcher is throwing the ball.
                             </p>
                         </div>
-                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer" onclick="toggleAnswer('ans3-2')">
+                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer" onclick="toggleReveal('ans3-2')">
                             <p class="text-sm text-gray-600">击球手挥棒：</p>
                             <p id="ans3-2" class="hidden text-green-800 font-bold mt-1">
                                 The batter is swinging the bat.
                             </p>
                         </div>
-                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer" onclick="toggleAnswer('ans3-3')">
+                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer" onclick="toggleReveal('ans3-3')">
                             <p class="text-sm text-gray-600">我们有机会：</p>
                             <p id="ans3-3" class="hidden text-green-800 font-bold mt-1">
                                 We have got a chance to win!
                             </p>
                         </div>
-                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer" onclick="toggleAnswer('ans3-4')">
+                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer" onclick="toggleReveal('ans3-4')">
                             <p class="text-sm text-gray-600">轮到我了：</p>
                             <p id="ans3-4" class="hidden text-green-800 font-bold mt-1">
                                 Now it is my turn to bat.
@@ -508,7 +508,7 @@
                 <div class="ink-border bg-white rounded-xl p-6 bg-gradient-to-br from-white to-green-50">
                     <h3 class="text-xl font-bold mb-4 text-gray-800">4. 棒球对话创作工坊（6-8句）· 比赛现场</h3>
                     <p class="text-sm text-gray-600 mb-3">点击灰色区域显示对话，再次点击隐藏</p>
-                    <div class="bg-gray-100 rounded-lg p-4 cursor-pointer hover:bg-gray-200 transition-all" onclick="toggleAnswer('dialogue')">
+                    <div class="bg-gray-100 rounded-lg p-4 cursor-pointer hover:bg-gray-200 transition-all" onclick="toggleReveal('dialogue')">
                         <p class="text-center text-gray-500 text-sm mb-2">点击显示完整对话</p>
                         <div id="dialogue" class="hidden space-y-3 bg-white p-4 rounded-lg shadow-inner">
                             <div class="flex gap-3">
@@ -545,7 +545,7 @@
                             </div>
                         </div>
                     </div>
-                    <button onclick="copyDialogue()" class="mt-3 bg-red-800 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors text-sm font-bold w-full md:w-auto">
+                    <button data-copy-text="A: Hi! What are you doing now?&#10;B: I am practicing my swing. What about you?&#10;A: I am waiting for my turn to bat.&#10;B: Look! The pitcher is throwing fast balls!&#10;A: Great! But there are lots of fans watching us.&#10;B: Don't worry. We are playing a big game. It is exciting!&#10;A: Look! The batter is hitting a home run!&#10;B: Yes! And now it is my turn to run to the base!" onclick="copyToClipboard(this.getAttribute('data-copy-text'), 'copyMsg')" class="mt-3 bg-red-800 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors text-sm font-bold w-full md:w-auto">
                         📋 复制对话到剪贴板
                     </button>
                     <p id="copyMsg" class="text-green-600 text-sm mt-2 hidden">✓ 已复制到剪贴板</p>
@@ -620,7 +620,7 @@
     <script>
         // Mobile menu toggle
 
-        function toggleAnswer(id) {
+        function toggleReveal(id) {
             const element = document.getElementById(id);
             if (element.classList.contains('hidden')) {
                 element.classList.remove('hidden');
@@ -633,10 +633,7 @@
             element.classList.toggle('bg-gray-50');
         }
 
-        function copyDialogue() {
-            const dialogue = `A: Hi! What are you doing now?\nB: I am practicing my swing. What about you?\nA: I am waiting for my turn to bat.\nB: Look! The pitcher is throwing fast balls!\nA: Great! But there are lots of fans watching us.\nB: Don't worry. We are playing a big game. It is exciting!\nA: Look! The batter is hitting a home run!\nB: Yes! And now it is my turn to run to the base!`;
-            copyToClipboard(dialogue, 'copyMsg');
-        }
+
     </script>
     <script src="../../js/common.js"></script>
 </body>

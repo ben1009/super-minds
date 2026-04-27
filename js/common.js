@@ -75,9 +75,16 @@ if (typeof toggleTranslation !== 'function') {
     window.toggleTranslation = function(container) {
         const trans = container.querySelector('.translation');
         const icon = container.querySelector('.chevron-icon');
+        const hint = container.querySelector('.translate-hint');
         
         if (trans) {
-            toggleVisibility(trans, 'show', icon);
+            const isShown = trans.classList.toggle('show');
+            if (icon) {
+                icon.style.transform = isShown ? 'rotate(180deg)' : 'rotate(0deg)';
+            }
+            if (hint) {
+                hint.innerHTML = isShown ? '🌐 点击隐藏翻译' : '🌐 点击显示翻译';
+            }
         }
     };
 }
@@ -116,17 +123,15 @@ function toggleTimeline(node) {
  * Toggle answer mask reveal
  * @param {HTMLElement} element - The answer mask element
  */
-if (typeof toggleAnswer !== 'function') {
-    window.toggleAnswer = function(element) {
-        element.classList.toggle('revealed');
-        
-        // Add click feedback animation
-        element.style.transform = 'scale(0.98)';
-        setTimeout(() => {
-            element.style.transform = '';
-        }, 100);
-    };
-}
+window.toggleAnswer = function(element) {
+    element.classList.toggle('revealed');
+    
+    // Add click feedback animation
+    element.style.transform = 'scale(0.98)';
+    setTimeout(() => {
+        element.style.transform = '';
+    }, 100);
+};
 
 // ============================================
 // Progress Tracking
@@ -659,6 +664,27 @@ function buildNavPatternC(active) {
         '            </div>\n' +
         '        </div>\n' +
         '    </nav>';
+}
+
+// ============================================
+// Reveal Answer Utilities
+// ============================================
+
+/**
+ * Toggle reveal answer on a blank/fill element
+ * Swaps between placeholder text and data-answer attribute
+ * @param {HTMLElement} element - The element to toggle
+ */
+if (typeof revealAnswer !== 'function') {
+    window.revealAnswer = function(element) {
+        if (element.classList.contains('revealed')) {
+            element.classList.remove('revealed');
+            element.textContent = element.getAttribute('data-placeholder') || '_____';
+        } else {
+            element.classList.add('revealed');
+            element.textContent = element.getAttribute('data-answer');
+        }
+    };
 }
 
 // ============================================
