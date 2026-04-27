@@ -957,6 +957,26 @@ function deinlineOnclick() {
             }
         }
         
+        // Pattern 9: functionName() — no arguments
+        if (!replaced) {
+            m = code.match(/^(\w+)\(\)$/);
+            if (m && hasFn(m[1])) {
+                var fn = window[m[1]];
+                el.addEventListener('click', function() { fn(); });
+                replaced = true;
+            }
+        }
+        
+        // Pattern 10: event.methodName()
+        if (!replaced) {
+            m = code.match(/^event\.(\w+)\(\)$/);
+            if (m) {
+                var method = m[1];
+                el.addEventListener('click', function(e) { e[method](); });
+                replaced = true;
+            }
+        }
+        
         if (replaced) {
             el.removeAttribute('onclick');
         } else {
@@ -984,6 +1004,13 @@ function initCommon() {
     
     // Convert inline onclick handlers to addEventListener
     deinlineOnclick();
+    
+    // Bind copy-to-clipboard buttons via data attribute
+    document.querySelectorAll('[data-copy-text]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            copyToClipboard(btn.getAttribute('data-copy-text'), 'copy-feedback');
+        });
+    });
     
     // Restore progress only on homework pages (check for progress bar element)
     // Using #progressBar as it's specific to homework pages and won't conflict
