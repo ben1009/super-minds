@@ -652,7 +652,7 @@
 
         // 歌曲填空切换函数（使用 element 参数直接操作DOM，避免ID查找）
         function toggleBlank(event, elementId, answer) {
-            var element = event.target;
+            var element = event.currentTarget;
 
             // 检查当前状态（如果不存在则默认为false）
             var isRevealed = songBlankStates[elementId] || false;

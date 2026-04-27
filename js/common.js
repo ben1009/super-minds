@@ -885,6 +885,17 @@ function deinlineOnclick() {
             }
         },
         {
+            regex: /^(\w+)\('([^']*)',\s*'([^']*)'\)$/,
+            bind: function(el, m) {
+                const fn = window[m[1]];
+                const arg1 = m[2];
+                const arg2 = m[3];
+                if (typeof fn !== 'function') return false;
+                el.addEventListener('click', function() { fn.call(el, arg1, arg2); });
+                return true;
+            }
+        },
+        {
             regex: /^this\.classList\.toggle\('([^']*)'\)$/,
             bind: function(el, m) {
                 const cls = m[1];
@@ -988,7 +999,8 @@ function initCommon() {
     // Bind copy-to-clipboard buttons via data attribute
     document.querySelectorAll('[data-copy-text]').forEach(function(btn) {
         btn.addEventListener('click', function() {
-            copyToClipboard(btn.getAttribute('data-copy-text'), 'copy-feedback');
+            const feedbackId = btn.getAttribute('data-copy-feedback') || 'copy-feedback';
+            copyToClipboard(btn.getAttribute('data-copy-text'), feedbackId);
         });
     });
     
