@@ -150,7 +150,7 @@ if (typeof updateProgress !== 'function') {
         const checked = document.querySelectorAll(checkboxSelector + ':checked');
         const progress = (checked.length / checkboxes.length) * 100;
         
-        const progressBar = document.getElementById('progress-bar');
+        const progressBar = document.getElementById('progressBar');
         const progressText = document.getElementById('progress-text');
         
         if (progressBar) {
@@ -442,6 +442,15 @@ function renderNav(config) {
     const container = document.getElementById('site-nav');
     if (!container) return;
     
+    // Insert skip-navigation link before nav for keyboard users
+    if (container.parentNode) {
+        const skipNav = document.createElement('a');
+        skipNav.href = '#main-content';
+        skipNav.className = 'skip-nav';
+        skipNav.textContent = '跳转到主内容 Skip to main content';
+        container.parentNode.insertBefore(skipNav, container);
+    }
+    
     let html = '';
     switch (config.pattern) {
         case 'A':
@@ -457,6 +466,12 @@ function renderNav(config) {
     }
     
     container.outerHTML = html;
+    
+    // Bind mobile menu toggle via addEventListener instead of inline onclick
+    const mobileBtn = document.querySelector('#site-nav button[data-action="toggle-mobile-menu"]');
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', toggleMobileMenu);
+    }
 }
 
 function buildNavPatternA(active) {
@@ -515,7 +530,7 @@ function buildNavPatternA(active) {
                         </div>
                     </div>
                 </div>
-                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
+                <button type="button" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
@@ -605,7 +620,7 @@ function buildNavPatternB(active, brandIcon) {
                         </div>
                     </div>
                 </div>
-                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
+                <button type="button" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
@@ -652,7 +667,7 @@ function buildNavPatternC(active) {
         '                    <span>|</span>\n' +
         '                    <span class="text-yellow-400">' + config.activeLabel + '</span>\n' +
         '                </div>\n' +
-        '                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 hover:bg-white/10 rounded">\n' +
+        '                <button type="button" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 hover:bg-white/10 rounded">\n' +
         '                    ☰\n' +
         '                </button>\n' +
         '            </div>\n' +
@@ -813,6 +828,149 @@ function initIcons() {
 }
 
 /**
+ * Convert inline onclick handlers to addEventListener and make clickable
+ * non-interactive elements keyboard-accessible. Combined into one pass
+ * over the DOM for efficiency.
+ */
+function deinlineOnclick() {
+    var interactiveTags = ['A', 'BUTTON', 'INPUT', 'SELECT', 'TEXTAREA', 'LABEL'];
+    var patterns = [
+        {
+            regex: /^(\w+)\(this\)$/,
+            bind: function(el, m) {
+                const fn = window[m[1]];
+                if (typeof fn !== 'function') return false;
+                el.addEventListener('click', function() { fn(el); });
+                return true;
+            }
+        },
+        {
+            regex: /^(\w+)\('([^']*)',\s*this\)$/,
+            bind: function(el, m) {
+                const fn = window[m[1]];
+                const arg = m[2];
+                if (typeof fn !== 'function') return false;
+                el.addEventListener('click', function() { fn(arg, el); });
+                return true;
+            }
+        },
+        {
+            regex: /^(\w+)\(this,\s*'([^']*)'\)$/,
+            bind: function(el, m) {
+                const fn = window[m[1]];
+                const arg = m[2];
+                if (typeof fn !== 'function') return false;
+                el.addEventListener('click', function() { fn(el, arg); });
+                return true;
+            }
+        },
+        {
+            regex: /^(\w+)\(this,\s*(true|false)\)$/,
+            bind: function(el, m) {
+                const fn = window[m[1]];
+                const arg = m[2] === 'true';
+                if (typeof fn !== 'function') return false;
+                el.addEventListener('click', function() { fn(el, arg); });
+                return true;
+            }
+        },
+        {
+            regex: /^(\w+)\('([^']*)'\)$/,
+            bind: function(el, m) {
+                const fn = window[m[1]];
+                const arg = m[2];
+                if (typeof fn !== 'function') return false;
+                el.addEventListener('click', function() { fn(arg); });
+                return true;
+            }
+        },
+        {
+            regex: /^this\.classList\.toggle\('([^']*)'\)$/,
+            bind: function(el, m) {
+                const cls = m[1];
+                el.addEventListener('click', function() { el.classList.toggle(cls); });
+                return true;
+            }
+        },
+        {
+            regex: /^(\w+)\(this\);\s*event\.(\w+)\(\)$/,
+            bind: function(el, m) {
+                const fn = window[m[1]];
+                const method = m[2];
+                if (typeof fn !== 'function') return false;
+                el.addEventListener('click', function(e) {
+                    fn(el);
+                    e[method]();
+                });
+                return true;
+            }
+        },
+        {
+            regex: /^(\w+)\(event,\s*'([^']*)',\s*'([^']*)'\)$/,
+            bind: function(el, m) {
+                const fn = window[m[1]];
+                const arg1 = m[2];
+                const arg2 = m[3];
+                if (typeof fn !== 'function') return false;
+                el.addEventListener('click', function(e) { fn(e, arg1, arg2); });
+                return true;
+            }
+        },
+        {
+            regex: /^(\w+)\(\)$/,
+            bind: function(el, m) {
+                const fn = window[m[1]];
+                if (typeof fn !== 'function') return false;
+                el.addEventListener('click', function() { fn(); });
+                return true;
+            }
+        },
+        {
+            regex: /^event\.(\w+)\(\)$/,
+            bind: function(el, m) {
+                const method = m[1];
+                el.addEventListener('click', function(e) { e[method](); });
+                return true;
+            }
+        }
+    ];
+    var skipped = [];
+    document.querySelectorAll('[onclick]').forEach(function(el) {
+        // Accessibility: add role/tabindex to non-interactive elements
+        if (interactiveTags.indexOf(el.tagName) === -1 && !el.hasAttribute('role')) {
+            el.setAttribute('role', 'button');
+            el.setAttribute('tabindex', '0');
+
+            el.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    el.click();
+                }
+            });
+        }
+
+        var code = el.getAttribute('onclick').trim();
+        var replaced = false;
+
+        for (var i = 0; i < patterns.length; i++) {
+            var m = code.match(patterns[i].regex);
+            if (m && patterns[i].bind(el, m)) {
+                replaced = true;
+                break;
+            }
+        }
+        
+        if (replaced) {
+            el.removeAttribute('onclick');
+        } else {
+            skipped.push(code.substring(0, 60));
+        }
+    });
+    
+    // Silently ignore skipped handlers — they remain as inline onclick
+}
+
+/**
  * Initialize common functionality on page load
  */
 function initCommon() {
@@ -824,12 +982,22 @@ function initCommon() {
     // Initialize icons (after nav injection so nav icons are also initialized)
     initIcons();
     
+    // Convert inline onclick to addEventListener + add keyboard accessibility
+    deinlineOnclick();
+    
+    // Bind copy-to-clipboard buttons via data attribute
+    document.querySelectorAll('[data-copy-text]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            copyToClipboard(btn.getAttribute('data-copy-text'), 'copy-feedback');
+        });
+    });
+    
     // Restore progress only on homework pages (check for progress bar element)
-    // Using #progress-bar as it's specific to homework pages and won't conflict
+    // Using #progressBar as it's specific to homework pages and won't conflict
     // with other pages that might have checkboxes for different purposes
     // Only restore progress on homework pages that have both a progress bar
     // and .check-item checkboxes (Unit 8/9 todo pages use their own progress system)
-    const hasProgressBar = document.getElementById('progress-bar') || document.getElementById('progressBar');
+    const hasProgressBar = document.getElementById('progressBar');
     const hasCheckboxes = document.querySelectorAll(HOMEWORK_CHECKBOX_SELECTOR).length > 0;
     if (hasProgressBar && hasCheckboxes) {
         restoreProgress();

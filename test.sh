@@ -939,7 +939,7 @@ for file in unit7/present-continuous-homework.html super-minds-baseball/unit7/ba
 done
 
 # PR #30: accessibility - semantic <main> tag
-if grep -q '<main class="max-w-6xl' unit8/gerunds-ball-sports.html; then
+if grep -q '<main.*class="max-w-6xl' unit8/gerunds-ball-sports.html; then
     echo "   ✓ unit8/gerunds-ball-sports.html uses semantic <main> tag"
 else
     echo "   ✗ unit8/gerunds-ball-sports.html missing semantic <main> tag!"
@@ -1058,6 +1058,69 @@ for func in $COMMON_FUNCS; do
 done
 if [ $MISSING_FUNC -eq 0 ]; then
     echo "   ✓ All shared functions defined in common.js"
+fi
+
+# Accessibility: deinlineOnclick() exists and is called by initCommon()
+if grep -q 'function deinlineOnclick' js/common.js; then
+    echo "   ✓ deinlineOnclick() function defined in common.js"
+else
+    echo "   ✗ deinlineOnclick() missing from common.js!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'deinlineOnclick()' js/common.js; then
+    echo "   ✓ initCommon() calls deinlineOnclick()"
+else
+    echo "   ✗ initCommon() does not call deinlineOnclick()!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Accessibility: deinlineOnclick includes keyboard accessibility
+if grep -q "interactiveTags.indexOf(el.tagName) === -1" js/common.js; then
+    echo "   ✓ deinlineOnclick() includes keyboard accessibility"
+else
+    echo "   ✗ deinlineOnclick() missing keyboard accessibility!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Accessibility: skip-nav styles exist
+if grep -q '\.skip-nav' css/common.css; then
+    echo "   ✓ skip-nav styles exist in common.css"
+else
+    echo "   ✗ skip-nav styles missing from common.css!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Accessibility: all pages have main-content landmark
+MAIN_CONTENT_FILES="index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html super-minds-baseball/index.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html"
+MAIN_CONTENT_ERRORS=0
+for file in $MAIN_CONTENT_FILES; do
+    if [ -f "$file" ]; then
+        if ! grep -q 'id="main-content"' "$file"; then
+            echo "   ✗ $file missing id=main-content!"
+            MAIN_CONTENT_ERRORS=$((MAIN_CONTENT_ERRORS + 1))
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+if [ $MAIN_CONTENT_ERRORS -eq 0 ]; then
+    echo "   ✓ All pages have id=main-content landmark"
+fi
+
+# Accessibility: data-copy-text auto-binding in initCommon
+if grep -q 'data-copy-text' js/common.js; then
+    echo "   ✓ initCommon() auto-binds data-copy-text buttons"
+else
+    echo "   ✗ initCommon() missing data-copy-text binding!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Navigation: toggleMobileMenu uses data-action instead of inline onclick
+if grep -q 'data-action="toggle-mobile-menu"' js/common.js; then
+    echo "   ✓ Mobile menu button uses data-action (no inline onclick)"
+else
+    echo "   ✗ Mobile menu button still uses inline onclick!"
+    ERRORS=$((ERRORS + 1))
 fi
 
 if [ $ERRORS -gt 0 ]; then
