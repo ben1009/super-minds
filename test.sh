@@ -938,6 +938,128 @@ for file in unit7/present-continuous-homework.html super-minds-baseball/unit7/ba
     fi
 done
 
+# PR #30: accessibility - semantic <main> tag
+if grep -q '<main class="max-w-6xl' unit8/gerunds-ball-sports.html; then
+    echo "   ✓ unit8/gerunds-ball-sports.html uses semantic <main> tag"
+else
+    echo "   ✗ unit8/gerunds-ball-sports.html missing semantic <main> tag!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #30: toggleBlank passes event parameter
+if grep -q "toggleBlank(event," unit8/gerunds-ball-sports.html; then
+    echo "   ✓ gerunds-ball-sports.html toggleBlank passes event parameter"
+else
+    echo "   ✗ gerunds-ball-sports.html toggleBlank missing event parameter!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #30: no console.error/console.warn in common.js (brittle selector cleanup)
+if grep -q 'console\.error\|console\.warn' js/common.js; then
+    echo "   ✗ common.js still has console.error/console.warn!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ common.js has no console.error/console.warn"
+fi
+
+# PR #30: initCommon uses document.readyState check
+if grep -q "document.readyState === 'loading'" js/common.js; then
+    echo "   ✓ initCommon() checks document.readyState"
+else
+    echo "   ✗ initCommon() missing document.readyState check!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #32: baseball-theme.css referenced by migrated pages
+BASEBALL_PAGES="unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html"
+for file in $BASEBALL_PAGES; do
+    if [ -f "$file" ]; then
+        if grep -q 'baseball-theme.css' "$file"; then
+            echo "   ✓ $file references baseball-theme.css"
+        else
+            echo "   ✗ $file missing baseball-theme.css reference!"
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+
+# PR #32: CSS custom properties exist
+if grep -q -- '--leather-primary' css/baseball-theme.css && grep -q -- '--stitch-red' css/baseball-theme.css && grep -q -- '--field-green' css/baseball-theme.css; then
+    echo "   ✓ CSS custom properties exist in baseball-theme.css"
+else
+    echo "   ✗ CSS custom properties missing from baseball-theme.css!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #32: keyframe animations exist
+if grep -q '@keyframes float' css/baseball-theme.css && grep -q '@keyframes pulse' css/baseball-theme.css; then
+    echo "   ✓ Keyframe animations (float, pulse) exist in baseball-theme.css"
+else
+    echo "   ✗ Keyframe animations missing from baseball-theme.css!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #33: speak() utter.rate = 0.8
+if grep -q "utter.rate = 0.8" js/common.js; then
+    echo "   ✓ speak() uses utter.rate = 0.8"
+else
+    echo "   ✗ speak() missing utter.rate = 0.8!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #33: speak() handles onerror alongside onend
+if grep -q "utter.onend = utter.onerror" js/common.js; then
+    echo "   ✓ speak() handles onend and onerror together"
+else
+    echo "   ✗ speak() missing onerror handler!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #31: no inline <nav> HTML remaining (all use renderNav via NAV_CONFIG)
+INLINE_NAV_FILES="unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html super-minds-baseball/index.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html"
+INLINE_NAV_ERRORS=0
+for file in $INLINE_NAV_FILES; do
+    if [ -f "$file" ]; then
+        # Check if file uses centralized nav (NAV_CONFIG) vs inline nav links
+        if grep -q 'NAV_CONFIG' "$file"; then
+            : # uses centralized nav, good
+        elif grep -q '<nav' "$file"; then
+            echo "   ✗ $file still has inline <nav> HTML!"
+            INLINE_NAV_ERRORS=$((INLINE_NAV_ERRORS + 1))
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+if [ $INLINE_NAV_ERRORS -eq 0 ]; then
+    echo "   ✓ All pages use centralized nav (no inline <nav> found)"
+fi
+
+# PR #29: renamed course pages exist
+RENAME_FILES="unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html unit9/fairy-tales-reading.html"
+for file in $RENAME_FILES; do
+    if [ -f "$file" ]; then
+        :
+    else
+        echo "   ✗ $file missing (PR #29 rename)!"
+        ERRORS=$((ERRORS + 1))
+    fi
+done
+echo "   ✓ All renamed course pages exist"
+
+# Verify common.js defines all shared functions (both function xxx() and window.xxx = function)
+COMMON_FUNCS="toggleVisibility toggleTranslation toggleAnswer revealAnswer toggleReveal speak updateProgress restoreProgress toggleComplete copyToClipboard switchTab toggleQuizAnswer toggleCompAnswer toggleTimeline renderNav initCommon updateTodoProgress toggleTodoItem resetTodoItems"
+MISSING_FUNC=0
+for func in $COMMON_FUNCS; do
+    if ! grep -qE "function $func\(|window\.$func *= *function" js/common.js; then
+        echo "   ✗ $func() not defined in common.js!"
+        MISSING_FUNC=$((MISSING_FUNC + 1))
+        ERRORS=$((ERRORS + 1))
+    fi
+done
+if [ $MISSING_FUNC -eq 0 ]; then
+    echo "   ✓ All shared functions defined in common.js"
+fi
+
 if [ $ERRORS -gt 0 ]; then
     exit 1
 fi
