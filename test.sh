@@ -946,11 +946,11 @@ else
     ERRORS=$((ERRORS + 1))
 fi
 
-# PR #30: toggleBlank passes event parameter
-if grep -q "toggleBlank(event," unit8/gerunds-ball-sports.html; then
-    echo "   ✓ gerunds-ball-sports.html toggleBlank passes event parameter"
+# PR #37: toggleBlank uses unified signature (no event param, uses this)
+if grep -q "toggleBlank('blank" unit8/gerunds-ball-sports.html && ! grep -q "toggleBlank(event," unit8/gerunds-ball-sports.html; then
+    echo "   ✓ gerunds-ball-sports.html toggleBlank uses unified signature"
 else
-    echo "   ✗ gerunds-ball-sports.html toggleBlank missing event parameter!"
+    echo "   ✗ gerunds-ball-sports.html toggleBlank not unified!"
     ERRORS=$((ERRORS + 1))
 fi
 

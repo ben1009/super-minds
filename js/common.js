@@ -840,7 +840,7 @@ function deinlineOnclick() {
             bind: function(el, m) {
                 const fn = window[m[1]];
                 if (typeof fn !== 'function') return false;
-                el.addEventListener('click', function() { fn(el); });
+                el.addEventListener('click', function() { fn.call(el, el); });
                 return true;
             }
         },
@@ -850,7 +850,7 @@ function deinlineOnclick() {
                 const fn = window[m[1]];
                 const arg = m[2];
                 if (typeof fn !== 'function') return false;
-                el.addEventListener('click', function() { fn(arg, el); });
+                el.addEventListener('click', function() { fn.call(el, arg, el); });
                 return true;
             }
         },
@@ -860,7 +860,7 @@ function deinlineOnclick() {
                 const fn = window[m[1]];
                 const arg = m[2];
                 if (typeof fn !== 'function') return false;
-                el.addEventListener('click', function() { fn(el, arg); });
+                el.addEventListener('click', function() { fn.call(el, el, arg); });
                 return true;
             }
         },
@@ -870,7 +870,7 @@ function deinlineOnclick() {
                 const fn = window[m[1]];
                 const arg = m[2] === 'true';
                 if (typeof fn !== 'function') return false;
-                el.addEventListener('click', function() { fn(el, arg); });
+                el.addEventListener('click', function() { fn.call(el, el, arg); });
                 return true;
             }
         },
@@ -880,12 +880,12 @@ function deinlineOnclick() {
                 const fn = window[m[1]];
                 const arg = m[2];
                 if (typeof fn !== 'function') return false;
-                el.addEventListener('click', function() { fn(arg); });
+                el.addEventListener('click', function() { fn.call(el, arg); });
                 return true;
             }
         },
         {
-            regex: /^(\w+)\('([^']*)',\s*'([^']*)'\)$/,
+            regex: /^(\w+)\s*\(\s*'([^']*)'\s*,\s*'([^']*)'\s*\)$/,
             bind: function(el, m) {
                 const fn = window[m[1]];
                 const arg1 = m[2];
@@ -910,7 +910,7 @@ function deinlineOnclick() {
                 const method = m[2];
                 if (typeof fn !== 'function') return false;
                 el.addEventListener('click', function(e) {
-                    fn(el);
+                    fn.call(el, el);
                     e[method]();
                 });
                 return true;
@@ -923,7 +923,7 @@ function deinlineOnclick() {
                 const arg1 = m[2];
                 const arg2 = m[3];
                 if (typeof fn !== 'function') return false;
-                el.addEventListener('click', function(e) { fn(e, arg1, arg2); });
+                el.addEventListener('click', function(e) { fn.call(el, e, arg1, arg2); });
                 return true;
             }
         },
@@ -932,7 +932,7 @@ function deinlineOnclick() {
             bind: function(el, m) {
                 const fn = window[m[1]];
                 if (typeof fn !== 'function') return false;
-                el.addEventListener('click', function() { fn(); });
+                el.addEventListener('click', function() { fn.call(el); });
                 return true;
             }
         },
