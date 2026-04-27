@@ -720,7 +720,7 @@ if (typeof speak !== 'function') {
 
         if (cardElement) {
             // Clear speaking state from all other cards
-            document.querySelectorAll('.vocab-card.speaking, .word-card.speaking').forEach(function(c) {
+            document.querySelectorAll('.speaking').forEach(function(c) {
                 if (c !== cardElement) c.classList.remove('speaking');
             });
             cardElement.classList.add('speaking');

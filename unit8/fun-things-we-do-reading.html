@@ -645,19 +645,21 @@
 
 
         // Restore from localStorage on page load
-        try {
-            var saved = localStorage.getItem('readingTodos');
-            if (saved) {
-                var states = JSON.parse(saved);
-                for (var id in states) {
-                    if (states[id]) {
-                        var item = document.querySelector('[data-todo="' + id + '"]');
-                        if (item) item.classList.add('completed');
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                var saved = localStorage.getItem('readingTodos');
+                if (saved) {
+                    var states = JSON.parse(saved);
+                    for (var id in states) {
+                        if (states[id]) {
+                            var item = document.querySelector('[data-todo="' + id + '"]');
+                            if (item) item.classList.add('completed');
+                        }
                     }
                 }
-            }
-        } catch (e) { }
-        updateTodoProgress('readingTodos');
+            } catch (e) { }
+            updateTodoProgress('readingTodos');
+        });
     </script>
     <script src="../js/common.js"></script>
 </body>

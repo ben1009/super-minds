@@ -632,7 +632,7 @@ for file in unit8/question-words-grammar-homework.html unit8/fun-things-we-do-re
         fi
         
         # Check resetTodoItems function (renamed from resetTodos)
-        if grep -q 'resetTodoItems' "js/common.js" || grep -q 'resetTodoItems' "$file"; then
+        if grep -q 'resetTodoItems' "$file"; then
             echo "   ✓ $file has resetTodoItems"
         else
             echo "   ✗ $file missing resetTodoItems!"
