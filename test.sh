@@ -1075,18 +1075,11 @@ else
     ERRORS=$((ERRORS + 1))
 fi
 
-# Accessibility: enhanceClickableAccessibility() exists and is called
-if grep -q 'function enhanceClickableAccessibility' js/common.js; then
-    echo "   ✓ enhanceClickableAccessibility() function defined"
+# Accessibility: deinlineOnclick includes keyboard accessibility
+if grep -q "interactiveTags.indexOf(el.tagName) === -1" js/common.js; then
+    echo "   ✓ deinlineOnclick() includes keyboard accessibility"
 else
-    echo "   ✗ enhanceClickableAccessibility() missing from common.js!"
-    ERRORS=$((ERRORS + 1))
-fi
-
-if grep -q 'enhanceClickableAccessibility()' js/common.js; then
-    echo "   ✓ initCommon() calls enhanceClickableAccessibility()"
-else
-    echo "   ✗ initCommon() does not call enhanceClickableAccessibility()!"
+    echo "   ✗ deinlineOnclick() missing keyboard accessibility!"
     ERRORS=$((ERRORS + 1))
 fi
 

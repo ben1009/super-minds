@@ -828,32 +828,32 @@ function initIcons() {
 }
 
 /**
- * Make clickable non-interactive elements (div/span with onclick) keyboard-accessible.
- * Adds role="button", tabindex="0", and Enter/Space key handlers.
- */
-function enhanceClickableAccessibility() {
-    var interactiveTags = ['A', 'BUTTON', 'INPUT', 'SELECT', 'TEXTAREA', 'LABEL'];
-    document.querySelectorAll('[onclick]').forEach(function(el) {
-        if (interactiveTags.indexOf(el.tagName) !== -1) return;
-        if (el.hasAttribute('role')) return;
-        
-        el.setAttribute('role', 'button');
-        el.setAttribute('tabindex', '0');
-        
-        el.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                el.click();
-            }
-        });
-    });
-}
-
-/**
- * Convert inline onclick handlers to addEventListener for cleaner HTML
- * and better CSP compatibility. Handles common patterns automatically.
+ * Convert inline onclick handlers to addEventListener and make clickable
+ * non-interactive elements keyboard-accessible. Combined into one pass
+ * over the DOM for efficiency.
  */
 function deinlineOnclick() {
+    var interactiveTags = ['A', 'BUTTON', 'INPUT', 'SELECT', 'TEXTAREA', 'LABEL'];
+    var skipped = [];
+    document.querySelectorAll('[onclick]').forEach(function(el) {
+        // Accessibility: add role/tabindex to non-interactive elements
+        if (interactiveTags.indexOf(el.tagName) === -1 && !el.hasAttribute('role')) {
+            el.setAttribute('role', 'button');
+            el.setAttribute('tabindex', '0');
+            
+            el.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    el.click();
+                }
+            });
+        }
+        
+        // Convert inline onclick to addEventListener
+        var code = el.getAttribute('onclick').trim();
+        var replaced = false;
+        
+        function hasFn(name) { return typeof window[name] === 'function'; }
     var skipped = [];
     document.querySelectorAll('[onclick]').forEach(function(el) {
         var code = el.getAttribute('onclick').trim();
@@ -999,10 +999,7 @@ function initCommon() {
     // Initialize icons (after nav injection so nav icons are also initialized)
     initIcons();
     
-    // Accessibility: make clickable non-interactive elements keyboard-accessible
-    enhanceClickableAccessibility();
-    
-    // Convert inline onclick handlers to addEventListener
+    // Convert inline onclick to addEventListener + add keyboard accessibility
     deinlineOnclick();
     
     // Bind copy-to-clipboard buttons via data attribute
