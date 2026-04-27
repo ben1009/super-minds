@@ -1171,6 +1171,20 @@ else
     ERRORS=$((ERRORS + 1))
 fi
 
+# Build script unit tests
+if [ -f "scripts/test_generate_baseball.py" ]; then
+    if python3 scripts/test_generate_baseball.py >/dev/null 2>&1; then
+        echo "   ✓ Build script unit tests pass"
+    else
+        echo "   ✗ Build script unit tests FAILED!"
+        python3 scripts/test_generate_baseball.py
+        ERRORS=$((ERRORS + 1))
+    fi
+else
+    echo "   ✗ Build script unit tests not found!"
+    ERRORS=$((ERRORS + 1))
+fi
+
 # Build script sync check: baseball gerunds must match generated output
 if [ -f "scripts/generate-baseball.py" ]; then
     TEMP_DIR=$(mktemp -d)

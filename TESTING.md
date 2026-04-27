@@ -16,6 +16,24 @@ The project includes GitHub Actions workflows for automated testing:
 | **Unit 8 Reading** | `.github/workflows/unit8-reading-test.yml` | Specific tests for Unit 8 Reading page functionality |
 | **Unit 9 Pages** | `.github/workflows/unit9-test.yml` | Specific tests for Unit 9 Grammar page functionality; `test.sh` covers Fairy Tales structure and navigation |
 
+### Build Script Tests
+
+The `scripts/generate-baseball.py` build script has dedicated unit tests in `scripts/test_generate_baseball.py`:
+
+```bash
+# Run build script unit tests
+python3 scripts/test_generate_baseball.py
+```
+
+**Test coverage:**
+- Path upgrades (`../` → `../../`) for favicon, ga.js, CSS, JS
+- `NAV_CONFIG.active` identifier transformation
+- Meta description text transformation
+- Chinese quotation mark (U+201D) normalization to ASCII quotes
+- Blank-line whitespace cleanup
+- Trailing newline enforcement
+- Idempotency (running transform twice yields same result)
+
 ### Quick Validation Tests
 
 Runs on every push to master/main and on pull requests:
