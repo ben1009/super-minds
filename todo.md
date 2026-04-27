@@ -70,24 +70,29 @@
   - **D** (1 file): Baseball unit8 green theme, flat links (discovered during refactor)
 - **Impact:** Eliminated ~550 lines of duplicated HTML
 
-### 12. Extract baseball theme CSS into `css/baseball-theme.css`
-- [ ] `unit8/gerunds-ball-sports.html:15–192`
-- [ ] `unit8/amazing-vehicles-reading.html:18–257`
-- [ ] `unit8/fun-things-we-do-reading.html:15–304`
-- [ ] `unit9/holiday-plans-grammar-review.html:15–348`
-- [ ] `unit9/fairy-tales-reading.html:15–362`
-- [ ] `super-minds-baseball/unit8/baseball-gerunds-ball-sports.html`
-- **Impact:** ~800 lines of duplicated CSS (`:root` vars, `.leather-card`, `.stitch-border`, `.nav-link`, `.todo-item`, `.todo-checkbox`, `@keyframes float`, etc.)
+### 12. Extract baseball theme CSS into `css/baseball-theme.css` ✅
+- [x] `unit8/gerunds-ball-sports.html:15–192`
+- [x] `unit8/amazing-vehicles-reading.html:18–257`
+- [x] `unit8/fun-things-we-do-reading.html:15–304` (remaining `.translation` animation extracted as `.translation-animated`)
+- [x] `unit9/holiday-plans-grammar-review.html:15–348`
+- [x] `unit9/fairy-tales-reading.html:15–362`
+- [x] `super-minds-baseball/unit8/baseball-gerunds-ball-sports.html`
+- **Impact:** ~800 lines of duplicated CSS extracted
 - **Note:** `unit8/grammar.css` already exists but is only loaded by `question-words-grammar-homework.html`
 
-### 13. Deduplicate inline JS functions — use `js/common.js` consistently
-- [ ] `toggleMobileMenu()` — redefined in 8 files (e.g. `unit8/gerunds-ball-sports.html:888`, `unit9/fairy-tales-reading.html:954`, `unit8/grammar.js:5`)
-- [ ] `toggleTranslation()` — redefined in `unit8/fun-things-we-do-reading.html:953` and `unit9/fairy-tales-reading.html:962`
-- [ ] `toggleAnswer()` — unify incompatible variants across baseball and unit8/9 pages
-- [ ] `speak()` — identical in 6 files; move to `js/common.js`
-- [ ] `updateProgress()` / `toggleTodo()` / `resetTodos()` — unify with parameterized `localStorage` key
-- [ ] `copyDialogue()` — replace with `common.js::copyToClipboard()`
-- **Impact:** ~200 lines of duplicated JS
+### 13. Deduplicate inline JS functions — use `js/common.js` consistently ✅
+- [x] `toggleMobileMenu()` — already in `common.js`, no inline redefinitions found
+- [x] `toggleTranslation()` — removed from `unit8/fun-things-we-do-reading.html` and `unit9/fairy-tales-reading.html`; enhanced `common.js` version with `.translate-hint` support
+- [x] `toggleAnswer()` — renamed page-specific variants to avoid shadowing:
+  - `unit8/fun-things-we-do-reading.html` → `toggleQuestionAnswer()`
+  - `unit8/amazing-vehicles-reading.html` → `toggleReadingAnswer()`
+  - `super-minds-baseball/unit7/*.html` → `toggleReveal()`
+  - Removed `typeof` guard from `common.js` canonical version
+- [x] `speak()` — already in `common.js`, no inline redefinitions found
+- [x] `updateProgress()` / `toggleTodo()` / `resetTodos()` — already in `common.js`, no inline redefinitions found
+- [x] `copyDialogue()` — replaced with `data-copy-text` + inline `copyToClipboard()` in both Unit 7 homework pages
+- [x] `revealAnswer()` — extracted to `common.js` with `data-placeholder` support; removed from `unit9/*.html`
+- **Impact:** ~200 lines of duplicated JS eliminated
 
 ### 14. Resolve baseball version near-duplication
 - [ ] `super-minds-baseball/unit8/baseball-gerunds-ball-sports.html` vs `unit8/gerunds-ball-sports.html` (~95% identical)

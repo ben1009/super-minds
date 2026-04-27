@@ -14,25 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/baseball-theme.css">
-    <style>
-        .translation {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, opacity 0.3s ease, padding-top 0.3s ease;
-            opacity: 0;
-            padding-top: 0;
-            color: #4b5563;
-            font-size: 0.95rem;
-            border-top: 1px dashed #d1d5db;
-            margin-top: 0.5rem;
-        }
 
-        .translation.show {
-            max-height: 200px;
-            opacity: 1;
-            padding-top: 0.75rem;
-        }
-    </style>
 </head>
 <body class="text-gray-800">
 
@@ -176,7 +158,7 @@
                 <div class="text-block bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500" onclick="toggleTranslation(this)">
                     <p class="font-semibold text-blue-900">My classmates and I enjoy doing different activities. Each of us has a favourite thing to do.</p>
                     <div class="translate-hint">🌐 点击显示翻译</div>
-                    <div class="translation">
+                    <div class="translation translation-animated">
                         我和我的同学们喜欢做不同的活动。我们每个人都有自己喜欢做的事情。
                     </div>
                 </div>
@@ -187,7 +169,7 @@
                     <div class="text-block bg-pink-50 p-4 rounded-lg" onclick="toggleTranslation(this)">
                         <p><strong class="text-pink-700">Amy</strong> likes <strong>painting</strong> in her free time. She often paints beautiful flowers. Creating something with colours makes her feel <strong>peaceful</strong>.</p>
                         <div class="translate-hint">🌐 点击显示翻译</div>
-                        <div class="translation">
+                        <div class="translation translation-animated">
                             艾米喜欢在她的空闲时间画画。她经常画美丽的花朵。用颜色创造东西让她感到平静。
                         </div>
                     </div>
@@ -196,7 +178,7 @@
                     <div class="text-block bg-blue-50 p-4 rounded-lg" onclick="toggleTranslation(this)">
                         <p><strong class="text-blue-700">Ben</strong> enjoys <strong>flying a kite</strong> on windy days. He says running across the grass and watching the kite go up high is really <strong>exciting</strong>.</p>
                         <div class="translate-hint">🌐 点击显示翻译</div>
-                        <div class="translation">
+                        <div class="translation translation-animated">
                             本喜欢在刮风的日子放风筝。他说在草地上奔跑，看着风筝高高飞起真的很令人兴奋。
                         </div>
                     </div>
@@ -205,7 +187,7 @@
                     <div class="text-block bg-green-50 p-4 rounded-lg" onclick="toggleTranslation(this)">
                         <p><strong class="text-green-700">Cindy</strong> loves <strong>riding her bike</strong> around the park. She rides almost every afternoon. Cycling helps her stay <strong>healthy and strong</strong>.</p>
                         <div class="translate-hint">🌐 点击显示翻译</div>
-                        <div class="translation">
+                        <div class="translation translation-animated">
                             辛迪喜欢在公园周围骑自行车。她几乎每天下午都骑车。骑自行车帮助她保持健康和强壮。
                         </div>
                     </div>
@@ -214,7 +196,7 @@
                     <div class="text-block bg-amber-50 p-4 rounded-lg" onclick="toggleTranslation(this)">
                         <p><strong class="text-amber-700">David</strong> is interested in <strong>making model planes</strong>. Building them takes time, but he feels <strong>proud</strong> when he finishes one.</p>
                         <div class="translate-hint">🌐 点击显示翻译</div>
-                        <div class="translation">
+                        <div class="translation translation-animated">
                             大卫对制作飞机模型感兴趣。制作它们需要时间，但当他完成一个时，他感到自豪。
                         </div>
                     </div>
@@ -224,7 +206,7 @@
                 <div class="text-block bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500" onclick="toggleTranslation(this)">
                     <p><strong class="text-purple-700">What about me?</strong> I like <strong>listening to music</strong> while <strong>reading stories</strong>. Doing two things together is <strong>fun</strong> for me.</p>
                     <div class="translate-hint">🌐 点击显示翻译</div>
-                    <div class="translation">
+                    <div class="translation translation-animated">
                         那我呢？我喜欢一边听音乐一边读故事。同时做两件事对我来说很有趣。
                     </div>
                 </div>
@@ -235,7 +217,7 @@
                     <p>Sometimes we all meet on the weekend. <strong>Playing baseball</strong> together is great. Nobody thinks it's boring. <strong>Swimming</strong> in the pool is also popular in summer. <strong>Dancing</strong> at parties always makes us happy.</p>
                     <p class="mt-3 text-xl font-bold text-center text-green-700 italic">"Spending time with friends is the best part of the day!"</p>
                     <div class="translate-hint">🌐 点击显示翻译</div>
-                    <div class="translation">
+                    <div class="translation translation-animated">
                         有时我们周末都会见面。一起打棒球很棒。没人觉得无聊。夏天在游泳池游泳也很受欢迎。在派对上跳舞总是让我们开心。<br><br>
                         "和朋友一起度过时光是一天中最美好的部分！"
                     </div>
@@ -252,7 +234,7 @@
 
             <div class="space-y-4">
                 <!-- Question 1 -->
-                <div role="button" tabindex="0" type="button" class="reading-card p-5 question-item text-left w-full" data-answer="1" data-correct-option="B" onclick="toggleAnswer(this)">
+                <div role="button" tabindex="0" type="button" class="reading-card p-5 question-item text-left w-full" data-answer="1" data-correct-option="B" onclick="toggleQuestionAnswer(this)">
                     <div class="flex items-start gap-3">
                         <span class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">1</span>
                         <div class="flex-1">
@@ -273,7 +255,7 @@
                 </div>
 
                 <!-- Question 2 -->
-                <div role="button" tabindex="0" type="button" class="reading-card p-5 question-item text-left w-full" data-answer="2" data-correct-option="B" onclick="toggleAnswer(this)">
+                <div role="button" tabindex="0" type="button" class="reading-card p-5 question-item text-left w-full" data-answer="2" data-correct-option="B" onclick="toggleQuestionAnswer(this)">
                     <div class="flex items-start gap-3">
                         <span class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">2</span>
                         <div class="flex-1">
@@ -294,7 +276,7 @@
                 </div>
 
                 <!-- Question 3 -->
-                <div role="button" tabindex="0" type="button" class="reading-card p-5 question-item text-left w-full" data-answer="3" data-correct-option="A" onclick="toggleAnswer(this)">
+                <div role="button" tabindex="0" type="button" class="reading-card p-5 question-item text-left w-full" data-answer="3" data-correct-option="A" onclick="toggleQuestionAnswer(this)">
                     <div class="flex items-start gap-3">
                         <span class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">3</span>
                         <div class="flex-1">
@@ -315,7 +297,7 @@
                 </div>
 
                 <!-- Question 4 -->
-                <div role="button" tabindex="0" type="button" class="reading-card p-5 question-item text-left w-full" data-answer="4" data-correct-option="C" onclick="toggleAnswer(this)">
+                <div role="button" tabindex="0" type="button" class="reading-card p-5 question-item text-left w-full" data-answer="4" data-correct-option="C" onclick="toggleQuestionAnswer(this)">
                     <div class="flex items-start gap-3">
                         <span class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">4</span>
                         <div class="flex-1">
@@ -336,7 +318,7 @@
                 </div>
 
                 <!-- Question 5 -->
-                <div role="button" tabindex="0" type="button" class="reading-card p-5 question-item text-left w-full" data-answer="5" data-correct-option="B" onclick="toggleAnswer(this)">
+                <div role="button" tabindex="0" type="button" class="reading-card p-5 question-item text-left w-full" data-answer="5" data-correct-option="B" onclick="toggleQuestionAnswer(this)">
                     <div class="flex items-start gap-3">
                         <span class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">5</span>
                         <div class="flex-1">
@@ -609,28 +591,10 @@
         // ============================================
 
         /**
-         * Toggle translation visibility in text blocks
-         * @param {HTMLElement} container - The container element that was clicked
-         */
-        function toggleTranslation(container) {
-            const trans = container.querySelector('.translation');
-            const hint = container.querySelector('.translate-hint');
-
-            if (trans) {
-                trans.classList.toggle('show');
-                if (hint) {
-                    hint.innerHTML = trans.classList.contains('show')
-                        ? '🌐 点击隐藏翻译'
-                        : '🌐 点击显示翻译';
-                }
-            }
-        }
-
-        /**
          * Toggle answer display and highlight correct option
          * @param {HTMLElement} questionItem - The question button element that was clicked
          */
-        function toggleAnswer(questionItem) {
+        function toggleQuestionAnswer(questionItem) {
             const id = questionItem.getAttribute('data-answer');
             const answer = document.getElementById(`answer-${id}`);
             const options = questionItem.querySelectorAll('.option-btn');

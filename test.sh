@@ -74,8 +74,8 @@ if [ -f "unit9/holiday-plans-grammar-review.html" ]; then
         echo "   ⚠️ unit9/holiday-plans-grammar-review.html may be missing data-answer attributes"
     fi
     
-    if grep -q 'function revealAnswer' "unit9/holiday-plans-grammar-review.html"; then
-        echo "   ✓ revealAnswer() function present"
+    if grep -q 'window.revealAnswer' "js/common.js"; then
+        echo "   ✓ revealAnswer() function present in common.js"
     else
         echo "   ⚠️ revealAnswer() function may need updating"
     fi
@@ -130,15 +130,15 @@ if [ -f "unit9/fairy-tales-reading.html" ]; then
         ERRORS=$((ERRORS + 1))
     fi
     
-    if grep -q 'function revealAnswer' "unit9/fairy-tales-reading.html"; then
-        echo "   ✓ fairy-tales.html has revealAnswer() function"
+    if grep -q 'window.revealAnswer' "js/common.js"; then
+        echo "   ✓ fairy-tales.html can use revealAnswer() from common.js"
     else
         echo "   ✗ fairy-tales.html missing revealAnswer() function!"
         ERRORS=$((ERRORS + 1))
     fi
     
-    if grep -q 'function toggleTranslation' "unit9/fairy-tales-reading.html"; then
-        echo "   ✓ fairy-tales.html has toggleTranslation() function"
+    if grep -q 'window.toggleTranslation' "js/common.js"; then
+        echo "   ✓ fairy-tales.html can use toggleTranslation() from common.js"
     else
         echo "   ✗ fairy-tales.html missing toggleTranslation() function!"
         ERRORS=$((ERRORS + 1))
