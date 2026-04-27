@@ -25,7 +25,7 @@ python3 scripts/generate-baseball.py
 | JS path | `../js/common.js` | `../../js/common.js` |
 | NAV config | `active:'unit8-sports'` | `active:'baseball-unit8-sports'` |
 | Meta description | `Unit 8 棒球主题英语学习...` | `棒球版 Unit 8 球类运动...` |
-| Chinese quotes | U+201D (`"`) | ASCII `"` |
+| Chinese quotes | `”` (U+201D) | ASCII `"` |
 | Blank lines | Lines with only spaces/tabs | Empty lines |
 
 ### When to Run

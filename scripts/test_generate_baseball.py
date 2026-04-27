@@ -78,12 +78,12 @@ class TestTransformChineseQuotes(unittest.TestCase):
     """Test Chinese right double quotation mark (U+201D) normalization."""
 
     def test_single_chinese_quote(self):
-        source = '他说："你好！"'
+        source = '他说：”你好！”'
         expected = '他说："你好！"\n'
         self.assertEqual(transform(source), expected)
 
     def test_multiple_chinese_quotes(self):
-        source = '"第一"和"第二"'
+        source = '”第一”和”第二”'
         expected = '"第一"和"第二"\n'
         self.assertEqual(transform(source), expected)
 
