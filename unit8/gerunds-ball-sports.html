@@ -650,7 +650,7 @@
         // 歌曲填空全局状态对象（确保不会与其他代码冲突）
         var songBlankStates = {};
 
-        // 歌曲填空切换函数（使用 element 参数直接操作DOM，避免ID查找）
+        // Song blank toggle function (operates on DOM directly via this, no ID lookup needed)
         function toggleBlank(elementId, answer) {
             var element = this;
 
