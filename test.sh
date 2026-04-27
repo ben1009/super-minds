@@ -632,7 +632,7 @@ for file in unit8/question-words-grammar-homework.html unit8/fun-things-we-do-re
         fi
         
         # Check resetTodoItems function (renamed from resetTodos)
-        if grep -q 'resetTodoItems' "js/common.js" || grep -q 'resetTodoItems' "$file"; then
+        if grep -q 'resetTodoItems' "$file"; then
             echo "   ✓ $file has resetTodoItems"
         else
             echo "   ✗ $file missing resetTodoItems!"
@@ -768,6 +768,297 @@ for file in index.html unit7/present-continuous-course.html unit7/present-contin
         fi
     fi
 done
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "19. Checking refactor deduplication completeness..."
+ERRORS=0
+
+# common.js: new shared functions
+if grep -q 'window.toggleReveal' js/common.js; then
+    echo "   ✓ toggleReveal() extracted to common.js"
+else
+    echo "   ✗ toggleReveal() missing from common.js!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'window.revealAnswer' js/common.js; then
+    echo "   ✓ revealAnswer() extracted to common.js"
+else
+    echo "   ✗ revealAnswer() missing from common.js!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# common.js: no typeof guard on canonical functions
+if grep -q 'typeof toggleAnswer' js/common.js; then
+    echo "   ✗ toggleAnswer() still has typeof guard in common.js!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ toggleAnswer() has no typeof guard"
+fi
+
+if grep -q 'typeof revealAnswer' js/common.js; then
+    echo "   ✗ revealAnswer() still has typeof guard in common.js!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ revealAnswer() has no typeof guard"
+fi
+
+# common.js: speak() uses generic .speaking selector
+if grep -q "'\.speaking'" js/common.js; then
+    echo "   ✓ speak() uses generic '.speaking' selector"
+else
+    echo "   ✗ speak() missing generic '.speaking' selector!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# common.js: toggleTranslation uses toggleVisibility
+if grep -q 'toggleVisibility(trans' js/common.js; then
+    echo "   ✓ toggleTranslation() reuses toggleVisibility utility"
+else
+    echo "   ✗ toggleTranslation() not reusing toggleVisibility!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# common.js: toggleTranslation uses textContent not innerHTML
+if grep -A3 'if (hint)' js/common.js | grep -q 'textContent'; then
+    echo "   ✓ toggleTranslation() uses textContent for hints"
+else
+    echo "   ✗ toggleTranslation() not using textContent for hints!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# CSS: .translation-animated class exists
+if grep -q '\.translation\.translation-animated' css/baseball-theme.css; then
+    echo "   ✓ .translation-animated class exists in baseball-theme.css"
+else
+    echo "   ✗ .translation-animated class missing from baseball-theme.css!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# HTML: no inline toggleTranslation remaining
+for file in unit8/fun-things-we-do-reading.html unit9/fairy-tales-reading.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'function toggleTranslation' "$file"; then
+            echo "   ✗ $file still has inline toggleTranslation!"
+            ERRORS=$((ERRORS + 1))
+        else
+            echo "   ✓ $file has no inline toggleTranslation"
+        fi
+    fi
+done
+
+# HTML: no inline revealAnswer remaining
+for file in unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'function revealAnswer' "$file"; then
+            echo "   ✗ $file still has inline revealAnswer!"
+            ERRORS=$((ERRORS + 1))
+        else
+            echo "   ✓ $file has no inline revealAnswer"
+        fi
+    fi
+done
+
+# HTML: renamed toggleAnswer variants
+if grep -q 'toggleQuestionAnswer' unit8/fun-things-we-do-reading.html; then
+    echo "   ✓ fun-things-we-do-reading.html uses toggleQuestionAnswer()"
+else
+    echo "   ✗ fun-things-we-do-reading.html missing toggleQuestionAnswer()!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'toggleReadingAnswer' unit8/amazing-vehicles-reading.html; then
+    echo "   ✓ amazing-vehicles-reading.html uses toggleReadingAnswer()"
+else
+    echo "   ✗ amazing-vehicles-reading.html missing toggleReadingAnswer()!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Baseball unit7: no inline toggleReveal (now in common.js)
+for file in super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'function toggleReveal' "$file"; then
+            echo "   ✗ $file still has inline toggleReveal!"
+            ERRORS=$((ERRORS + 1))
+        else
+            echo "   ✓ $file has no inline toggleReveal"
+        fi
+    fi
+done
+
+# data-placeholder on fairy-tales word quiz blanks
+if grep -q 'data-placeholder=' unit9/fairy-tales-reading.html; then
+    echo "   ✓ fairy-tales-reading.html uses data-placeholder attributes"
+else
+    echo "   ✗ fairy-tales-reading.html missing data-placeholder attributes!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# data-copy-text on unit7 homework copy buttons
+for file in unit7/present-continuous-homework.html super-minds-baseball/unit7/baseball-present-continuous-homework.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'data-copy-text' "$file"; then
+            echo "   ✓ $file uses data-copy-text for clipboard"
+        else
+            echo "   ✗ $file missing data-copy-text!"
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+
+# fun-things-we-do-reading.html uses DOMContentLoaded for init
+if grep -q 'DOMContentLoaded' unit8/fun-things-we-do-reading.html; then
+    echo "   ✓ fun-things-we-do-reading.html defers init with DOMContentLoaded"
+else
+    echo "   ✗ fun-things-we-do-reading.html missing DOMContentLoaded guard!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# fun-things-we-do-reading.html has no inline <style> block
+if grep -q '<style>' unit8/fun-things-we-do-reading.html; then
+    echo "   ✗ fun-things-we-do-reading.html still has inline <style> block!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ fun-things-we-do-reading.html has no inline <style> block"
+fi
+
+# copyDialogue no longer defined inline
+for file in unit7/present-continuous-homework.html super-minds-baseball/unit7/baseball-present-continuous-homework.html; do
+    if [ -f "$file" ]; then
+        if grep -q 'function copyDialogue' "$file"; then
+            echo "   ✗ $file still has inline copyDialogue!"
+            ERRORS=$((ERRORS + 1))
+        else
+            echo "   ✓ $file has no inline copyDialogue"
+        fi
+    fi
+done
+
+# PR #30: accessibility - semantic <main> tag
+if grep -q '<main class="max-w-6xl' unit8/gerunds-ball-sports.html; then
+    echo "   ✓ unit8/gerunds-ball-sports.html uses semantic <main> tag"
+else
+    echo "   ✗ unit8/gerunds-ball-sports.html missing semantic <main> tag!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #30: toggleBlank passes event parameter
+if grep -q "toggleBlank(event," unit8/gerunds-ball-sports.html; then
+    echo "   ✓ gerunds-ball-sports.html toggleBlank passes event parameter"
+else
+    echo "   ✗ gerunds-ball-sports.html toggleBlank missing event parameter!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #30: no console.error/console.warn in common.js (brittle selector cleanup)
+if grep -q 'console\.error\|console\.warn' js/common.js; then
+    echo "   ✗ common.js still has console.error/console.warn!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ common.js has no console.error/console.warn"
+fi
+
+# PR #30: initCommon uses document.readyState check
+if grep -q "document.readyState === 'loading'" js/common.js; then
+    echo "   ✓ initCommon() checks document.readyState"
+else
+    echo "   ✗ initCommon() missing document.readyState check!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #32: baseball-theme.css referenced by migrated pages
+BASEBALL_PAGES="unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html"
+for file in $BASEBALL_PAGES; do
+    if [ -f "$file" ]; then
+        if grep -q 'baseball-theme.css' "$file"; then
+            echo "   ✓ $file references baseball-theme.css"
+        else
+            echo "   ✗ $file missing baseball-theme.css reference!"
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+
+# PR #32: CSS custom properties exist
+if grep -q -- '--leather-primary' css/baseball-theme.css && grep -q -- '--stitch-red' css/baseball-theme.css && grep -q -- '--field-green' css/baseball-theme.css; then
+    echo "   ✓ CSS custom properties exist in baseball-theme.css"
+else
+    echo "   ✗ CSS custom properties missing from baseball-theme.css!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #32: keyframe animations exist
+if grep -q '@keyframes float' css/baseball-theme.css && grep -q '@keyframes pulse' css/baseball-theme.css; then
+    echo "   ✓ Keyframe animations (float, pulse) exist in baseball-theme.css"
+else
+    echo "   ✗ Keyframe animations missing from baseball-theme.css!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #33: speak() utter.rate = 0.8
+if grep -q "utter.rate = 0.8" js/common.js; then
+    echo "   ✓ speak() uses utter.rate = 0.8"
+else
+    echo "   ✗ speak() missing utter.rate = 0.8!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #33: speak() handles onerror alongside onend
+if grep -q "utter.onend = utter.onerror" js/common.js; then
+    echo "   ✓ speak() handles onend and onerror together"
+else
+    echo "   ✗ speak() missing onerror handler!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #31: no inline <nav> HTML remaining (all use renderNav via NAV_CONFIG)
+INLINE_NAV_FILES="unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html super-minds-baseball/index.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html"
+INLINE_NAV_ERRORS=0
+for file in $INLINE_NAV_FILES; do
+    if [ -f "$file" ]; then
+        # Check if file uses centralized nav (NAV_CONFIG) vs inline nav links
+        if grep -q 'NAV_CONFIG' "$file"; then
+            : # uses centralized nav, good
+        elif grep -q '<nav' "$file"; then
+            echo "   ✗ $file still has inline <nav> HTML!"
+            INLINE_NAV_ERRORS=$((INLINE_NAV_ERRORS + 1))
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+if [ $INLINE_NAV_ERRORS -eq 0 ]; then
+    echo "   ✓ All pages use centralized nav (no inline <nav> found)"
+fi
+
+# PR #29: renamed course pages exist
+RENAME_FILES="unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html unit9/fairy-tales-reading.html"
+for file in $RENAME_FILES; do
+    if [ -f "$file" ]; then
+        :
+    else
+        echo "   ✗ $file missing (PR #29 rename)!"
+        ERRORS=$((ERRORS + 1))
+    fi
+done
+echo "   ✓ All renamed course pages exist"
+
+# Verify common.js defines all shared functions (both function xxx() and window.xxx = function)
+COMMON_FUNCS="toggleVisibility toggleTranslation toggleAnswer revealAnswer toggleReveal speak updateProgress restoreProgress toggleComplete copyToClipboard switchTab toggleQuizAnswer toggleCompAnswer toggleTimeline renderNav initCommon updateTodoProgress toggleTodoItem resetTodoItems"
+MISSING_FUNC=0
+for func in $COMMON_FUNCS; do
+    if ! grep -qE "function $func\(|window\.$func *= *function" js/common.js; then
+        echo "   ✗ $func() not defined in common.js!"
+        MISSING_FUNC=$((MISSING_FUNC + 1))
+        ERRORS=$((ERRORS + 1))
+    fi
+done
+if [ $MISSING_FUNC -eq 0 ]; then
+    echo "   ✓ All shared functions defined in common.js"
+fi
 
 if [ $ERRORS -gt 0 ]; then
     exit 1
