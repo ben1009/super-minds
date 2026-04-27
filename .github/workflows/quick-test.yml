@@ -356,6 +356,47 @@ jobs:
             failed++;
           }
           
+          // Test 3b: Unit 8 Gerunds fill-blank toggle (deinlineOnclick + toggleBlank)
+          try {
+            const page = await browser.newPage();
+            await page.goto('http://localhost:8000/unit8/gerunds-ball-sports.html');
+            
+            const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+            
+            // Click a fill-blank element
+            const blank = await page.$('.fill-blank');
+            if (blank) {
+              const beforeText = await page.evaluate(() => {
+                const el = document.querySelector('.fill-blank');
+                return el ? el.textContent : '';
+              });
+              
+              await blank.click();
+              await delay(300);
+              
+              const afterText = await page.evaluate(() => {
+                const el = document.querySelector('.fill-blank');
+                return el ? el.textContent : '';
+              });
+              
+              // Should reveal answer (text changes from _____ to actual word)
+              if (beforeText !== afterText && afterText !== '_____') {
+                console.log('  ✅ Unit 8 fill-blank toggle works');
+                passed++;
+              } else {
+                console.log('  ❌ Unit 8 fill-blank toggle not working');
+                failed++;
+              }
+            } else {
+              console.log('  ⚠️ No fill-blank elements found to test');
+            }
+            
+            await page.close();
+          } catch (e) {
+            console.log('  ❌ Unit 8 fill-blank test failed:', e.message);
+            failed++;
+          }
+          
           // Test 4: Unit 8 Reading Page
           try {
             const page = await browser.newPage();
