@@ -1083,6 +1083,54 @@ else
     ERRORS=$((ERRORS + 1))
 fi
 
+# PR #37: deinlineOnclick() has whitespace-tolerant two-arg pattern
+if grep -q "s\*\\\\(\\\\s\*" js/common.js; then
+    echo "   ✓ deinlineOnclick() has whitespace-tolerant two-arg pattern"
+else
+    echo "   ✗ deinlineOnclick() missing whitespace-tolerant two-arg pattern!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #37: deinlineOnclick() uses fn.call(el, ...) consistently across patterns
+CALL_PATTERNS=$(grep -c 'fn.call(el' js/common.js || echo 0)
+if [ "$CALL_PATTERNS" -ge 8 ]; then
+    echo "   ✓ deinlineOnclick() uses fn.call(el, ...) consistently ($CALL_PATTERNS patterns)"
+else
+    echo "   ✗ deinlineOnclick() fn.call consistency missing! (found $CALL_PATTERNS, expected >= 8)"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #37: initCommon() supports data-copy-feedback attribute
+if grep -q "data-copy-feedback" js/common.js; then
+    echo "   ✓ initCommon() supports data-copy-feedback attribute"
+else
+    echo "   ✗ initCommon() missing data-copy-feedback support!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #37: baseball toggleBlank does not use implicit global event.target
+if ! grep -q "event.target" super-minds-baseball/unit8/baseball-gerunds-ball-sports.html; then
+    echo "   ✓ baseball toggleBlank does not use implicit event.target"
+else
+    echo "   ✗ baseball toggleBlank still uses implicit event.target!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# PR #37: both toggleBlank implementations use this for element access
+THIS_TOGGLEBLANK=0
+if grep -q "var element = this;" unit8/gerunds-ball-sports.html; then
+    THIS_TOGGLEBLANK=$((THIS_TOGGLEBLANK + 1))
+fi
+if grep -q "var element = this;" super-minds-baseball/unit8/baseball-gerunds-ball-sports.html; then
+    THIS_TOGGLEBLANK=$((THIS_TOGGLEBLANK + 1))
+fi
+if [ "$THIS_TOGGLEBLANK" -eq 2 ]; then
+    echo "   ✓ both toggleBlank implementations use this for element access"
+else
+    echo "   ✗ toggleBlank this consistency broken! (found $THIS_TOGGLEBLANK/2)"
+    ERRORS=$((ERRORS + 1))
+fi
+
 # Accessibility: skip-nav styles exist
 if grep -q '\.skip-nav' css/common.css; then
     echo "   ✓ skip-nav styles exist in common.css"

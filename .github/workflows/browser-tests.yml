@@ -261,6 +261,29 @@ jobs:
             await expect(page).toHaveTitle(/Homework|作业练习/);
           });
           
+          test('Unit 8 fill-blank toggle works', async ({ page }) => {
+            await page.goto('http://localhost:8000/unit8/gerunds-ball-sports.html');
+            
+            // Find first fill-blank element
+            const blank = page.locator('.fill-blank').first();
+            await expect(blank).toBeVisible();
+            
+            // Get initial text
+            const beforeText = await blank.textContent();
+            
+            // Click to reveal answer
+            await blank.click();
+            await page.waitForTimeout(300);
+            
+            // Get text after click
+            const afterText = await blank.textContent();
+            
+            // Should have changed from placeholder to answer
+            expect(beforeText).toBe('_____');
+            expect(afterText).not.toBe('_____');
+            expect(afterText).toBeTruthy();
+          });
+          
           test('Unit 9 page loads', async ({ page }) => {
             await page.goto('http://localhost:8000/unit9/holiday-plans-grammar-review.html');
             await expect(page).toHaveTitle(/Unit 9|假期计划语法/);
