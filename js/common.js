@@ -78,12 +78,12 @@ if (typeof toggleTranslation !== 'function') {
         const hint = container.querySelector('.translate-hint');
         
         if (trans) {
-            const isShown = trans.classList.toggle('show');
-            if (icon) {
-                icon.style.transform = isShown ? 'rotate(180deg)' : 'rotate(0deg)';
-            }
+            toggleVisibility(trans, 'show', icon);
             if (hint) {
-                hint.innerHTML = isShown ? '🌐 点击隐藏翻译' : '🌐 点击显示翻译';
+                const isShown = trans.classList.contains('show');
+                hint.textContent = isShown
+                    ? (hint.dataset.hide || '🌐 点击隐藏翻译')
+                    : (hint.dataset.show || '🌐 点击显示翻译');
             }
         }
     };
@@ -675,17 +675,30 @@ function buildNavPatternC(active) {
  * Swaps between placeholder text and data-answer attribute
  * @param {HTMLElement} element - The element to toggle
  */
-if (typeof revealAnswer !== 'function') {
-    window.revealAnswer = function(element) {
-        if (element.classList.contains('revealed')) {
-            element.classList.remove('revealed');
-            element.textContent = element.getAttribute('data-placeholder') || '_____';
-        } else {
-            element.classList.add('revealed');
-            element.textContent = element.getAttribute('data-answer');
-        }
-    };
-}
+window.revealAnswer = function(element) {
+    if (element.classList.contains('revealed')) {
+        element.classList.remove('revealed');
+        element.textContent = element.getAttribute('data-placeholder') || '_____';
+    } else {
+        element.classList.add('revealed');
+        element.textContent = element.getAttribute('data-answer');
+    }
+};
+
+/**
+ * Toggle visibility of an element by ID, with optional cloze text support
+ * @param {string} id - The ID of the element to toggle
+ */
+window.toggleReveal = function(id) {
+    const element = document.getElementById(id);
+    if (!element) return;
+    
+    element.classList.toggle('hidden');
+    const clozeText = document.getElementById(id + '-text');
+    if (clozeText) {
+        clozeText.classList.toggle('hidden');
+    }
+};
 
 // ============================================
 // Speech / Audio Utilities

@@ -480,23 +480,7 @@
     <script>
         // Mobile menu toggle
 
-        function toggleReveal(id) {
-            const element = document.getElementById(id);
-            if (element.classList.contains('hidden')) {
-                element.classList.remove('hidden');
-                // Update cloze text if applicable
-                const clozeText = document.getElementById(id + '-text');
-                if (clozeText) {
-                    clozeText.classList.add('hidden');
-                }
-            } else {
-                element.classList.add('hidden');
-                const clozeText = document.getElementById(id + '-text');
-                if (clozeText) {
-                    clozeText.classList.remove('hidden');
-                }
-            }
-        }
+
     </script>
     <script src="../../js/common.js"></script>
 </body>
