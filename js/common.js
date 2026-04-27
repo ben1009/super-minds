@@ -466,6 +466,12 @@ function renderNav(config) {
     }
     
     container.outerHTML = html;
+    
+    // Bind mobile menu toggle via addEventListener instead of inline onclick
+    const mobileBtn = document.querySelector('#site-nav button[data-action="toggle-mobile-menu"]');
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', toggleMobileMenu);
+    }
 }
 
 function buildNavPatternA(active) {
@@ -524,7 +530,7 @@ function buildNavPatternA(active) {
                         </div>
                     </div>
                 </div>
-                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
+                <button type="button" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
@@ -614,7 +620,7 @@ function buildNavPatternB(active, brandIcon) {
                         </div>
                     </div>
                 </div>
-                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
+                <button type="button" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
@@ -661,7 +667,7 @@ function buildNavPatternC(active) {
         '                    <span>|</span>\n' +
         '                    <span class="text-yellow-400">' + config.activeLabel + '</span>\n' +
         '                </div>\n' +
-        '                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 hover:bg-white/10 rounded">\n' +
+        '                <button type="button" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 hover:bg-white/10 rounded">\n' +
         '                    ☰\n' +
         '                </button>\n' +
         '            </div>\n' +
