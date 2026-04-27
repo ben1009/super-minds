@@ -150,7 +150,7 @@ if (typeof updateProgress !== 'function') {
         const checked = document.querySelectorAll(checkboxSelector + ':checked');
         const progress = (checked.length / checkboxes.length) * 100;
         
-        const progressBar = document.getElementById('progress-bar');
+        const progressBar = document.getElementById('progressBar');
         const progressText = document.getElementById('progress-text');
         
         if (progressBar) {
@@ -441,6 +441,15 @@ function getUnitFromActive(active) {
 function renderNav(config) {
     const container = document.getElementById('site-nav');
     if (!container) return;
+    
+    // Insert skip-navigation link before nav for keyboard users
+    if (container.parentNode) {
+        const skipNav = document.createElement('a');
+        skipNav.href = '#main-content';
+        skipNav.className = 'skip-nav';
+        skipNav.textContent = '跳转到主内容 Skip to main content';
+        container.parentNode.insertBefore(skipNav, container);
+    }
     
     let html = '';
     switch (config.pattern) {
@@ -813,6 +822,28 @@ function initIcons() {
 }
 
 /**
+ * Make clickable non-interactive elements (div/span with onclick) keyboard-accessible.
+ * Adds role="button", tabindex="0", and Enter/Space key handlers.
+ */
+function enhanceClickableAccessibility() {
+    var interactiveTags = ['A', 'BUTTON', 'INPUT', 'SELECT', 'TEXTAREA', 'LABEL'];
+    document.querySelectorAll('[onclick]').forEach(function(el) {
+        if (interactiveTags.indexOf(el.tagName) !== -1) return;
+        if (el.hasAttribute('role')) return;
+        
+        el.setAttribute('role', 'button');
+        el.setAttribute('tabindex', '0');
+        
+        el.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                el.click();
+            }
+        });
+    });
+}
+
+/**
  * Initialize common functionality on page load
  */
 function initCommon() {
@@ -824,12 +855,15 @@ function initCommon() {
     // Initialize icons (after nav injection so nav icons are also initialized)
     initIcons();
     
+    // Accessibility: make clickable non-interactive elements keyboard-accessible
+    enhanceClickableAccessibility();
+    
     // Restore progress only on homework pages (check for progress bar element)
-    // Using #progress-bar as it's specific to homework pages and won't conflict
+    // Using #progressBar as it's specific to homework pages and won't conflict
     // with other pages that might have checkboxes for different purposes
     // Only restore progress on homework pages that have both a progress bar
     // and .check-item checkboxes (Unit 8/9 todo pages use their own progress system)
-    const hasProgressBar = document.getElementById('progress-bar') || document.getElementById('progressBar');
+    const hasProgressBar = document.getElementById('progressBar');
     const hasCheckboxes = document.querySelectorAll(HOMEWORK_CHECKBOX_SELECTOR).length > 0;
     if (hasProgressBar && hasCheckboxes) {
         restoreProgress();

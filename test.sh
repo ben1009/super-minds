@@ -939,7 +939,7 @@ for file in unit7/present-continuous-homework.html super-minds-baseball/unit7/ba
 done
 
 # PR #30: accessibility - semantic <main> tag
-if grep -q '<main class="max-w-6xl' unit8/gerunds-ball-sports.html; then
+if grep -q '<main.*class="max-w-6xl' unit8/gerunds-ball-sports.html; then
     echo "   ✓ unit8/gerunds-ball-sports.html uses semantic <main> tag"
 else
     echo "   ✗ unit8/gerunds-ball-sports.html missing semantic <main> tag!"
