@@ -850,6 +850,124 @@ function enhanceClickableAccessibility() {
 }
 
 /**
+ * Convert inline onclick handlers to addEventListener for cleaner HTML
+ * and better CSP compatibility. Handles common patterns automatically.
+ */
+function deinlineOnclick() {
+    var skipped = [];
+    document.querySelectorAll('[onclick]').forEach(function(el) {
+        var code = el.getAttribute('onclick').trim();
+        var replaced = false;
+        
+        function hasFn(name) { return typeof window[name] === 'function'; }
+        
+        // Pattern 1: functionName(this)
+        var m = code.match(/^(\w+)\(this\)$/);
+        if (m && hasFn(m[1])) {
+            var fn = window[m[1]];
+            el.addEventListener('click', function() { fn(el); });
+            replaced = true;
+        }
+        
+        // Pattern 2: functionName('string', this)
+        if (!replaced) {
+            m = code.match(/^(\w+)\('([^']*)',\s*this\)$/);
+            if (m && hasFn(m[1])) {
+                var fn = window[m[1]];
+                var arg = m[2];
+                el.addEventListener('click', function() { fn(arg, el); });
+                replaced = true;
+            }
+        }
+        
+        // Pattern 3: functionName(this, 'string')
+        if (!replaced) {
+            m = code.match(/^(\w+)\(this,\s*'([^']*)'\)$/);
+            if (m && hasFn(m[1])) {
+                var fn = window[m[1]];
+                var arg = m[2];
+                el.addEventListener('click', function() { fn(el, arg); });
+                replaced = true;
+            }
+        }
+        
+        // Pattern 4: functionName(this, boolean)
+        if (!replaced) {
+            m = code.match(/^(\w+)\(this,\s*(true|false)\)$/);
+            if (m && hasFn(m[1])) {
+                var fn = window[m[1]];
+                var arg = m[2] === 'true';
+                el.addEventListener('click', function() { fn(el, arg); });
+                replaced = true;
+            }
+        }
+        
+        // Pattern 5: functionName('string')
+        if (!replaced) {
+            m = code.match(/^(\w+)\('([^']*)'\)$/);
+            if (m && hasFn(m[1])) {
+                var fn = window[m[1]];
+                var arg = m[2];
+                el.addEventListener('click', function() { fn(arg); });
+                replaced = true;
+            }
+        }
+        
+        // Pattern 6: this.classList.toggle('class')
+        if (!replaced) {
+            m = code.match(/^this\.classList\.toggle\('([^']*)'\)$/);
+            if (m) {
+                var cls = m[1];
+                el.addEventListener('click', function() { el.classList.toggle(cls); });
+                replaced = true;
+            }
+        }
+        
+        // Pattern 7: compound statements with event.*
+        if (!replaced) {
+            m = code.match(/^(.+);\s*(event\.\w+\([^)]*\))$/);
+            if (m) {
+                var inner = m[1].trim();
+                var eventCall = m[2].trim();
+                var innerM = inner.match(/^(\w+)\(this\)$/);
+                if (innerM && hasFn(innerM[1])) {
+                    var fn = window[innerM[1]];
+                    var eventM = eventCall.match(/^event\.(\w+)\(([^)]*)\)$/);
+                    if (eventM) {
+                        var method = eventM[1];
+                        el.addEventListener('click', function(e) {
+                            fn(el);
+                            e[method]();
+                        });
+                        replaced = true;
+                    }
+                }
+            }
+        }
+        
+        // Pattern 8: functionName(event, 'string', 'string')
+        if (!replaced) {
+            m = code.match(/^(\w+)\(event,\s*'([^']*)',\s*'([^']*)'\)$/);
+            if (m && hasFn(m[1])) {
+                var fn = window[m[1]];
+                var arg1 = m[2];
+                var arg2 = m[3];
+                el.addEventListener('click', function(e) { fn(e, arg1, arg2); });
+                replaced = true;
+            }
+        }
+        
+        if (replaced) {
+            el.removeAttribute('onclick');
+        } else {
+            skipped.push(code.substring(0, 60));
+        }
+    });
+    
+    // Silently ignore skipped handlers — they remain as inline onclick
+}
+
+/**
  * Initialize common functionality on page load
  */
 function initCommon() {
@@ -863,6 +981,9 @@ function initCommon() {
     
     // Accessibility: make clickable non-interactive elements keyboard-accessible
     enhanceClickableAccessibility();
+    
+    // Convert inline onclick handlers to addEventListener
+    deinlineOnclick();
     
     // Restore progress only on homework pages (check for progress bar element)
     // Using #progressBar as it's specific to homework pages and won't conflict
