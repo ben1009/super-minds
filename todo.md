@@ -113,11 +113,11 @@
   - `unit8/amazing-vehicles-reading.html:357` — nav-card scroll
   - `unit9/fairy-tales-reading.html:986` — parses `onclick` string to detect correct answer (extremely brittle)
 
-### 16. Eliminate magic numbers and brittle selectors
-- [ ] `unit8/amazing-vehicles-reading.html:1379–1381` — hardcoded correct-answer indices; replace with `data-correct-index`
-- [ ] `unit8/gerunds-ball-sports.html:903` — implicit global `event.target`; pass `event` parameter explicitly
-- [ ] `js/common.js:296` — `restoreProgress()` looks for `progress-bar` (kebab-case) but some pages use `progressBar` (camelCase); normalize IDs
-- [ ] `unit8/amazing-vehicles-reading.html:1366` — `qid.replace('q-', 'opts-')` naming convention coupling
+### 16. Eliminate magic numbers and brittle selectors ✅
+- [x] `unit8/amazing-vehicles-reading.html` — hardcoded correct-answer indices; replaced with `data-correct-index` attribute and `toggleReadingAnswer()` already reads it dynamically
+- [x] `unit8/gerunds-ball-sports.html` — implicit global `event.target`; `toggleBlank()` already uses `this` for element access
+- [x] `js/common.js` — `restoreProgress()` already uses `progressBar` (camelCase) consistently; no kebab-case `progress-bar` IDs found in HTML
+- [x] `unit8/amazing-vehicles-reading.html` — `qid.replace('q-', 'opts-')` naming coupling already eliminated; `toggleReadingAnswer()` uses `data-options-id` attribute directly
 
 ### 17. Accessibility improvements ✅
 - [x] Add `<main>` landmark to 7 files missing it (`unit8/*`, `super-minds-baseball/*`) — already present in all files
@@ -140,6 +140,6 @@
 - [ ] Replace hardcoded hex/rgba shadows and borders with CSS variables
 - [ ] Add `:focus-visible` styles for interactive elements
 
-### 20. Minor HTML fixes
-- [ ] `unit7/present-continuous-homework.html:1033–1056` — add explicit `for`/`id` linkage on checkbox labels
-- [ ] `unit8/question-words-grammar-homework.html` — mobile menu uses slightly different class names (`block px-4 py-2` vs `nav-link px-3 py-2 text-sm font-medium block`); align with other pages
+### 20. Minor HTML fixes ✅
+- [x] `unit7/present-continuous-homework.html` — added explicit `for="hw-check-N"` / `id="hw-check-N"` linkage on all 4 checkbox labels
+- [x] `unit8/question-words-grammar-homework.html` — already uses centralized nav (`renderNav()` in `common.js`); mobile menu class names are now generated consistently
