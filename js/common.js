@@ -947,17 +947,23 @@ function deinlineOnclick() {
     ];
     var skipped = [];
     document.querySelectorAll('[onclick]').forEach(function(el) {
-        // Accessibility: add role/tabindex to non-interactive elements
-        if (interactiveTags.indexOf(el.tagName) === -1 && !el.hasAttribute('role')) {
-            el.setAttribute('role', 'button');
-            el.setAttribute('tabindex', '0');
-
-            el.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    el.click();
-                }
-            });
+        // Accessibility: add role/tabindex/keyboard support to non-interactive elements
+        if (interactiveTags.indexOf(el.tagName) === -1) {
+            if (!el.hasAttribute('role')) {
+                el.setAttribute('role', 'button');
+            }
+            if (!el.hasAttribute('tabindex')) {
+                el.setAttribute('tabindex', '0');
+            }
+            if (!el.dataset.keyboardBound) {
+                el.dataset.keyboardBound = 'true';
+                el.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        el.click();
+                    }
+                });
+            }
         }
 
         var code = el.getAttribute('onclick').trim();

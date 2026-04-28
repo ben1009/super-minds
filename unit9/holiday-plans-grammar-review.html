@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../css/baseball-theme.css">
 </head>
 <body class="text-gray-800">
+    <a href="#main-content" class="absolute -left-[9999px] z-[9999] focus:static focus:left-2 focus:top-2 focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg">跳转到主内容 Skip to main content</a>
 
     <script>window.NAV_CONFIG = {pattern:'B', active:'unit9-grammar'};</script>
     <nav id="site-nav"></nav>
@@ -142,31 +143,31 @@
             <!-- 动词短语 -->
             <h3 class="text-xl font-bold text-green-800 mb-4 text-center">📝 动词短语 (点击听发音)</h3>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-                <div class="vocab-card p-5 rounded-xl" onclick="speak('build a tree house', this)">
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('build a tree house', this)" role="button" tabindex="0">
                     <span class="speaker-icon">🔊</span>
                     <div class="text-3xl mb-2">🔨</div>
                     <div class="font-bold text-lg">build a tree house</div>
                     <div class="text-sm text-gray-600 mt-1">建一个树屋</div>
                 </div>
-                <div class="vocab-card p-5 rounded-xl" onclick="speak('join me', this)">
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('join me', this)" role="button" tabindex="0">
                     <span class="speaker-icon">🔊</span>
                     <div class="text-3xl mb-2">👥</div>
                     <div class="font-bold text-lg">join me</div>
                     <div class="text-sm text-gray-600 mt-1">加入我</div>
                 </div>
-                <div class="vocab-card p-5 rounded-xl" onclick="speak('go camping', this)">
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('go camping', this)" role="button" tabindex="0">
                     <span class="speaker-icon">🔊</span>
                     <div class="text-3xl mb-2">⛺</div>
                     <div class="font-bold text-lg">go camping</div>
                     <div class="text-sm text-gray-600 mt-1">去露营</div>
                 </div>
-                <div class="vocab-card p-5 rounded-xl" onclick="speak('go swimming', this)">
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('go swimming', this)" role="button" tabindex="0">
                     <span class="speaker-icon">🔊</span>
                     <div class="text-3xl mb-2">🏊</div>
                     <div class="font-bold text-lg">go swimming</div>
                     <div class="text-sm text-gray-600 mt-1">去游泳</div>
                 </div>
-                <div class="vocab-card p-5 rounded-xl md:col-span-2 lg:col-span-1" onclick="speak('take riding lessons', this)">
+                <div class="vocab-card p-5 rounded-xl md:col-span-2 lg:col-span-1" onclick="speak('take riding lessons', this)" role="button" tabindex="0">
                     <span class="speaker-icon">🔊</span>
                     <div class="text-3xl mb-2">🐴</div>
                     <div class="font-bold text-lg">take riding lessons</div>
@@ -309,32 +310,32 @@
                 <div class="font-bold text-amber-800 mb-5 text-lg border-b-2 border-dashed border-amber-500 pb-3">场景：Tom 和 Anna 讨论假期计划</div>
                 <div class="space-y-3 text-base leading-relaxed">
                     <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>Hi, Anna!</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>Hello, Tom. <span class="blank" data-answer="How" onclick="revealAnswer(this)">_____</span> (1) are you?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>Hello, Tom. <span class="blank" data-answer="How" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (1) are you?</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>I'm fine, thanks. Tomorrow is a holiday.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>Great! <span class="blank" data-answer="What" onclick="revealAnswer(this)">_____</span> (2) are you going to do?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>Great! <span class="blank" data-answer="What" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (2) are you going to do?</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>I'm going to my grandma's house.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span><span class="blank" data-answer="Where" onclick="revealAnswer(this)">_____</span> (3) is your grandma's house?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span><span class="blank" data-answer="Where" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (3) is your grandma's house?</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>It's near the beach.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>Cool! <span class="blank" data-answer="Who" onclick="revealAnswer(this)">_____</span> (4) are you going with?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>Cool! <span class="blank" data-answer="Who" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (4) are you going with?</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>My cousin, Lily.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span><span class="blank" data-answer="How" onclick="revealAnswer(this)">_____</span> (5) old is Lily?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span><span class="blank" data-answer="How" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (5) old is Lily?</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>She's ten.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span><span class="blank" data-answer="Why" onclick="revealAnswer(this)">_____</span> (6) don't you go swimming?</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>Good idea! But first, <span class="blank" data-answer="Whose" onclick="revealAnswer(this)">_____</span> (7) jumper is that on the chair? Is it yours?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span><span class="blank" data-answer="Why" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (6) don't you go swimming?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>Good idea! But first, <span class="blank" data-answer="Whose" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (7) jumper is that on the chair? Is it yours?</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>No, it's Lily's. I think it's her birthday next week.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span><span class="blank" data-answer="When" onclick="revealAnswer(this)">_____</span> (8) is her birthday?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span><span class="blank" data-answer="When" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (8) is her birthday?</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>In July.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span><span class="blank" data-answer="Is" onclick="revealAnswer(this)">_____</span> (9) there any drinks in the fridge?</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>Yes, there <span class="blank" data-answer="is" onclick="revealAnswer(this)">_____</span> (10) some juice.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span><span class="blank" data-answer="Does" onclick="revealAnswer(this)">_____</span> (11) your sister like apples?</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>No, she <span class="blank" data-answer="doesn't" onclick="revealAnswer(this)">_____</span> (12). She likes oranges.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span><span class="blank" data-answer="Can" onclick="revealAnswer(this)">_____</span> (13) you swim?</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>Yes, I <span class="blank" data-answer="can" onclick="revealAnswer(this)">_____</span> (14).</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span><span class="blank" data-answer="Have" onclick="revealAnswer(this)">_____</span> (15) spiders got eight legs?</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>No, they <span class="blank" data-answer="haven't got" onclick="revealAnswer(this)">_____</span> (16) eight legs? Actually they have eight legs - wait, yes!</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span><span class="blank" data-answer="Is" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (9) there any drinks in the fridge?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>Yes, there <span class="blank" data-answer="is" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (10) some juice.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span><span class="blank" data-answer="Does" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (11) your sister like apples?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>No, she <span class="blank" data-answer="doesn't" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (12). She likes oranges.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span><span class="blank" data-answer="Can" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (13) you swim?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>Yes, I <span class="blank" data-answer="can" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (14).</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span><span class="blank" data-answer="Have" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (15) spiders got eight legs?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span>No, they <span class="blank" data-answer="haven't got" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (16) eight legs? Actually they have eight legs - wait, yes!</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>Haha, you're right.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span><span class="blank" data-answer="Would" onclick="revealAnswer(this)">_____</span> (17) you like an ice cream?</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>Yes, <span class="blank" data-answer="please" onclick="revealAnswer(this)">_____</span> (18). Let's go!</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Anna:</span><span class="blank" data-answer="Would" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (17) you like an ice cream?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Tom:</span>Yes, <span class="blank" data-answer="please" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (18). Let's go!</p>
                 </div>
             </div>
 
@@ -370,34 +371,34 @@
                 <div class="font-bold text-amber-800 mb-5 text-lg border-b-2 border-dashed border-amber-500 pb-3">场景：Amy 和 Ben 计划假期</div>
                 <div class="space-y-3 text-base leading-relaxed">
                     <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Hi, Ben! The holiday is coming.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Yes! <span class="blank" data-answer="What" onclick="revealAnswer(this)">_____</span> (1) are you going to do?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Yes! <span class="blank" data-answer="What" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (1) are you going to do?</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>I'm going to my grandma's house.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span><span class="blank" data-answer="Where" onclick="revealAnswer(this)">_____</span> (2) does your grandma live?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span><span class="blank" data-answer="Where" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (2) does your grandma live?</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>She lives near a hill. She has a big apple tree.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Wow! <span class="blank" data-answer="What" onclick="revealAnswer(this)">_____</span> (3) are you going to build in that tree?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Wow! <span class="blank" data-answer="What" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (3) are you going to build in that tree?</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>A tree house! I'm going to sleep and play there.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Cool! <span class="blank" data-answer="Who" onclick="revealAnswer(this)">_____</span> (4) are you going to build it with?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Cool! <span class="blank" data-answer="Who" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (4) are you going to build it with?</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>My cousins, Michael, James and Lynn.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span><span class="blank" data-answer="How" onclick="revealAnswer(this)">_____</span> (5) old are they?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span><span class="blank" data-answer="How" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (5) old are they?</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Michael is 11, James is 10, and Lynn is 9.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span><span class="blank" data-answer="Why" onclick="revealAnswer(this)">_____</span> (6) don't you go camping, too?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span><span class="blank" data-answer="Why" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (6) don't you go camping, too?</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Good idea! We can go camping on a sandy beach.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span><span class="blank" data-answer="Which" onclick="revealAnswer(this)">_____</span> (7) beach is it? Is it Sandy Bay?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span><span class="blank" data-answer="Which" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (7) beach is it? Is it Sandy Bay?</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Yes. And I'm going swimming there.</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Can I join you?</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Of course! <span class="blank" data-answer="Can" onclick="revealAnswer(this)">_____</span> (8) you swim?</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Yes, I <span class="blank" data-answer="can" onclick="revealAnswer(this)">_____</span> (9).</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Great! <span class="blank" data-answer="Are" onclick="revealAnswer(this)">_____</span> (10) there any sharks in the sea?</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>No, there <span class="blank" data-answer="aren't" onclick="revealAnswer(this)">_____</span> (11) any sharks near Sandy Bay.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Phew! Look, <span class="blank" data-answer="Whose" onclick="revealAnswer(this)">_____</span> (12) jumper is that on the chair?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Of course! <span class="blank" data-answer="Can" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (8) you swim?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Yes, I <span class="blank" data-answer="can" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (9).</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Great! <span class="blank" data-answer="Are" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (10) there any sharks in the sea?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>No, there <span class="blank" data-answer="aren't" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (11) any sharks near Sandy Bay.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Phew! Look, <span class="blank" data-answer="Whose" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (12) jumper is that on the chair?</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>It's Lynn's. She's taking riding lessons.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Riding lessons? <span class="blank" data-answer="When" onclick="revealAnswer(this)">_____</span> (13) does she take riding lessons?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Riding lessons? <span class="blank" data-answer="When" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (13) does she take riding lessons?</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>On Saturday mornings.</p>
                     <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>I want to take riding lessons too!</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>You can join them. <span class="blank" data-answer="Does" onclick="revealAnswer(this)">_____</span> (14) your sister like horses?</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Yes, she <span class="blank" data-answer="does" onclick="revealAnswer(this)">_____</span> (15). She loves horses.</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Perfect! <span class="blank" data-answer="Would" onclick="revealAnswer(this)">_____</span> (16) you like an ice cream now?</p>
-                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Yes, <span class="blank" data-answer="please" onclick="revealAnswer(this)">_____</span> (17). Let's go!</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>You can join them. <span class="blank" data-answer="Does" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (14) your sister like horses?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Yes, she <span class="blank" data-answer="does" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (15). She loves horses.</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Ben:</span>Perfect! <span class="blank" data-answer="Would" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (16) you like an ice cream now?</p>
+                    <p><span class="font-bold text-amber-800 inline-block w-20">Amy:</span>Yes, <span class="blank" data-answer="please" onclick="revealAnswer(this)" role="button" tabindex="0">_____</span> (17). Let's go!</p>
                 </div>
             </div>
 
@@ -442,7 +443,7 @@
 
             <div class="space-y-4">
                 <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-red-500"
-                    data-todo="1" onclick="toggleTodoItem(this, 'unit9HolidayPlansTodos')">
+                    data-todo="1" onclick="toggleTodoItem(this, 'unit9HolidayPlansTodos')" role="button" tabindex="0">
                     <div class="todo-checkbox"></div>
                     <div class="flex-1">
                         <div class="font-bold text-gray-800 text-lg todo-title"><span>1️⃣</span> 背课文 Page 108 歌曲</div>
@@ -450,7 +451,7 @@
                     </div>
                 </div>
                 <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-blue-500"
-                    data-todo="2" onclick="toggleTodoItem(this, 'unit9HolidayPlansTodos')">
+                    data-todo="2" onclick="toggleTodoItem(this, 'unit9HolidayPlansTodos')" role="button" tabindex="0">
                     <div class="todo-checkbox"></div>
                     <div class="flex-1">
                         <div class="font-bold text-gray-800 text-lg todo-title"><span>2️⃣</span> 复习语法笔记 (Page 109)</div>
@@ -458,7 +459,7 @@
                     </div>
                 </div>
                 <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-green-500"
-                    data-todo="3" onclick="toggleTodoItem(this, 'unit9HolidayPlansTodos')">
+                    data-todo="3" onclick="toggleTodoItem(this, 'unit9HolidayPlansTodos')" role="button" tabindex="0">
                     <div class="todo-checkbox"></div>
                     <div class="flex-1">
                         <div class="font-bold text-gray-800 text-lg todo-title"><span>3️⃣</span> 完成对话填空练习</div>
@@ -466,7 +467,7 @@
                     </div>
                 </div>
                 <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-purple-500"
-                    data-todo="4" onclick="toggleTodoItem(this, 'unit9HolidayPlansTodos')">
+                    data-todo="4" onclick="toggleTodoItem(this, 'unit9HolidayPlansTodos')" role="button" tabindex="0">
                     <div class="todo-checkbox"></div>
                     <div class="flex-1">
                         <div class="font-bold text-gray-800 text-lg todo-title"><span>4️⃣</span> 每天朗读 15 分钟</div>

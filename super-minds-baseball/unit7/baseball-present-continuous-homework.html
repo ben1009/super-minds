@@ -45,6 +45,7 @@
     </style>
 </head>
 <body class="min-h-screen">
+    <a href="#main-content" class="absolute -left-[9999px] z-[9999] focus:static focus:left-2 focus:top-2 focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg">跳转到主内容 Skip to main content</a>
     <script>window.NAV_CONFIG = {pattern:'C', active:'baseball-unit7-homework'};</script>
     <nav id="site-nav"></nav>
 
@@ -155,7 +156,7 @@
             <p class="text-gray-600 mb-4">点击卡片查看现在进行时例句</p>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="card-flip h-40 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                <div class="card-flip h-40 cursor-pointer" onclick="this.classList.toggle('flipped')" role="button" tabindex="0">
                     <div class="card-inner">
                         <div class="card-front bg-white ink-border flex flex-col items-center justify-center p-4">
                             <span class="text-5xl mb-2">⚾</span>
@@ -171,7 +172,7 @@
                     </div>
                 </div>
 
-                <div class="card-flip h-40 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                <div class="card-flip h-40 cursor-pointer" onclick="this.classList.toggle('flipped')" role="button" tabindex="0">
                     <div class="card-inner">
                         <div class="card-front bg-white ink-border flex flex-col items-center justify-center p-4">
                             <span class="text-5xl mb-2">🏏</span>
@@ -187,7 +188,7 @@
                     </div>
                 </div>
 
-                <div class="card-flip h-40 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                <div class="card-flip h-40 cursor-pointer" onclick="this.classList.toggle('flipped')" role="button" tabindex="0">
                     <div class="card-inner">
                         <div class="card-front bg-white ink-border flex flex-col items-center justify-center p-4">
                             <span class="text-5xl mb-2">🧤</span>
@@ -203,7 +204,7 @@
                     </div>
                 </div>
 
-                <div class="card-flip h-40 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                <div class="card-flip h-40 cursor-pointer" onclick="this.classList.toggle('flipped')" role="button" tabindex="0">
                     <div class="card-inner">
                         <div class="card-front bg-white ink-border flex flex-col items-center justify-center p-4">
                             <span class="text-5xl mb-2">🏃</span>
@@ -219,7 +220,7 @@
                     </div>
                 </div>
 
-                <div class="card-flip h-40 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                <div class="card-flip h-40 cursor-pointer" onclick="this.classList.toggle('flipped')" role="button" tabindex="0">
                     <div class="card-inner">
                         <div class="card-front bg-white ink-border flex flex-col items-center justify-center p-4">
                             <span class="text-5xl mb-2">🎯</span>
@@ -235,7 +236,7 @@
                     </div>
                 </div>
 
-                <div class="card-flip h-40 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                <div class="card-flip h-40 cursor-pointer" onclick="this.classList.toggle('flipped')" role="button" tabindex="0">
                     <div class="card-inner">
                         <div class="card-front bg-white ink-border flex flex-col items-center justify-center p-4">
                             <span class="text-5xl mb-2">🎪</span>
@@ -251,7 +252,7 @@
                     </div>
                 </div>
 
-                <div class="card-flip h-40 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                <div class="card-flip h-40 cursor-pointer" onclick="this.classList.toggle('flipped')" role="button" tabindex="0">
                     <div class="card-inner">
                         <div class="card-front bg-white ink-border flex flex-col items-center justify-center p-4">
                             <span class="text-5xl mb-2">👀</span>
@@ -267,7 +268,7 @@
                     </div>
                 </div>
 
-                <div class="card-flip h-40 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                <div class="card-flip h-40 cursor-pointer" onclick="this.classList.toggle('flipped')" role="button" tabindex="0">
                     <div class="card-inner">
                         <div class="card-front bg-white ink-border flex flex-col items-center justify-center p-4">
                             <span class="text-5xl mb-2">🏆</span>
@@ -332,7 +333,7 @@
                         <h3 class="text-xl font-bold text-purple-900">场上的状况 · There be 句型观察</h3>
                     </div>
                     <p class="text-sm text-gray-600 mb-3">描述球场上的景象（点击展开查看全部例句）</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 cursor-pointer" onclick="toggleThis(this)">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 cursor-pointer" onclick="toggleThis(this)" role="button" tabindex="0">
                         <div class="bg-white rounded-lg p-3 shadow">
                             <p class="text-2xl mb-1">⚾</p>
                             <p class="font-bold text-gray-800">There are lots of balls in the field.</p>
@@ -448,25 +449,25 @@
                 <div class="ink-border bg-white rounded-xl p-6">
                     <h3 class="text-xl font-bold mb-4 text-gray-800">2. 造句练习 · 使用棒球术语（点击灰色区域显示/隐藏）</h3>
                     <div class="space-y-3">
-                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer hover:bg-gray-200 transition-colors" onclick="toggleReveal('ans2-1')">
+                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer hover:bg-gray-200 transition-colors" onclick="toggleReveal('ans2-1')" role="button" tabindex="0">
                             <p class="font-medium">⚾ pitcher / throw / ball</p>
                             <p id="ans2-1" class="hidden mt-2 text-green-800 font-bold bg-white p-2 rounded">
                                 What is the pitcher doing? He is throwing the ball.
                             </p>
                         </div>
-                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer hover:bg-gray-200 transition-colors" onclick="toggleReveal('ans2-2')">
+                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer hover:bg-gray-200 transition-colors" onclick="toggleReveal('ans2-2')" role="button" tabindex="0">
                             <p class="font-medium">🏏 batter / swing / bat</p>
                             <p id="ans2-2" class="hidden mt-2 text-green-800 font-bold bg-white p-2 rounded">
                                 What is the batter doing? He is swinging the bat.
                             </p>
                         </div>
-                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer hover:bg-gray-200 transition-colors" onclick="toggleReveal('ans2-3')">
+                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer hover:bg-gray-200 transition-colors" onclick="toggleReveal('ans2-3')" role="button" tabindex="0">
                             <p class="font-medium">🏃 players / run / bases</p>
                             <p id="ans2-3" class="hidden mt-2 text-green-800 font-bold bg-white p-2 rounded">
                                 What are the players doing? They are running to the bases.
                             </p>
                         </div>
-                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer hover:bg-gray-200 transition-colors" onclick="toggleReveal('ans2-4')">
+                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer hover:bg-gray-200 transition-colors" onclick="toggleReveal('ans2-4')" role="button" tabindex="0">
                             <p class="font-medium">🧤 catcher / catch / ball</p>
                             <p id="ans2-4" class="hidden mt-2 text-green-800 font-bold bg-white p-2 rounded">
                                 What is the catcher doing? He is catching the ball.
@@ -478,25 +479,25 @@
                 <div class="ink-border bg-white rounded-xl p-6">
                     <h3 class="text-xl font-bold mb-4 text-gray-800">3. 比赛复述练习 · 根据记忆补全关键句子</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer" onclick="toggleReveal('ans3-1')">
+                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer" onclick="toggleReveal('ans3-1')" role="button" tabindex="0">
                             <p class="text-sm text-gray-600">投手投球：</p>
                             <p id="ans3-1" class="hidden text-green-800 font-bold mt-1">
                                 The pitcher is throwing the ball.
                             </p>
                         </div>
-                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer" onclick="toggleReveal('ans3-2')">
+                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer" onclick="toggleReveal('ans3-2')" role="button" tabindex="0">
                             <p class="text-sm text-gray-600">击球手挥棒：</p>
                             <p id="ans3-2" class="hidden text-green-800 font-bold mt-1">
                                 The batter is swinging the bat.
                             </p>
                         </div>
-                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer" onclick="toggleReveal('ans3-3')">
+                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer" onclick="toggleReveal('ans3-3')" role="button" tabindex="0">
                             <p class="text-sm text-gray-600">我们有机会：</p>
                             <p id="ans3-3" class="hidden text-green-800 font-bold mt-1">
                                 We have got a chance to win!
                             </p>
                         </div>
-                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer" onclick="toggleReveal('ans3-4')">
+                        <div class="bg-gray-100 rounded-lg p-3 cursor-pointer" onclick="toggleReveal('ans3-4')" role="button" tabindex="0">
                             <p class="text-sm text-gray-600">轮到我了：</p>
                             <p id="ans3-4" class="hidden text-green-800 font-bold mt-1">
                                 Now it is my turn to bat.
@@ -508,7 +509,7 @@
                 <div class="ink-border bg-white rounded-xl p-6 bg-gradient-to-br from-white to-green-50">
                     <h3 class="text-xl font-bold mb-4 text-gray-800">4. 棒球对话创作工坊（6-8句）· 比赛现场</h3>
                     <p class="text-sm text-gray-600 mb-3">点击灰色区域显示对话，再次点击隐藏</p>
-                    <div class="bg-gray-100 rounded-lg p-4 cursor-pointer hover:bg-gray-200 transition-all" onclick="toggleReveal('dialogue')">
+                    <div class="bg-gray-100 rounded-lg p-4 cursor-pointer hover:bg-gray-200 transition-all" onclick="toggleReveal('dialogue')" role="button" tabindex="0">
                         <p class="text-center text-gray-500 text-sm mb-2">点击显示完整对话</p>
                         <div id="dialogue" class="hidden space-y-3 bg-white p-4 rounded-lg shadow-inner">
                             <div class="flex gap-3">

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../../css/baseball-theme.css">
 </head>
 <body>
+    <a href="#main-content" class="absolute -left-[9999px] z-[9999] focus:static focus:left-2 focus:top-2 focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg">跳转到主内容 Skip to main content</a>
 
     <script>window.NAV_CONFIG = {pattern:'B', active:'baseball-unit8-sports'};</script>
     <nav id="site-nav"></nav>
@@ -51,7 +52,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('soccer', this)">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('soccer', this)" role="button" tabindex="0">
                     <div class="ball-icon">⚽</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">soccer</div>
@@ -60,7 +61,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('basketball', this)">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('basketball', this)" role="button" tabindex="0">
                     <div class="ball-icon">🏀</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">basketball</div>
@@ -69,7 +70,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('tennis', this)">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('tennis', this)" role="button" tabindex="0">
                     <div class="ball-icon">🎾</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">tennis</div>
@@ -78,7 +79,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('volleyball', this)">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('volleyball', this)" role="button" tabindex="0">
                     <div class="ball-icon">🏐</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">volleyball</div>
@@ -87,7 +88,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('golf', this)">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('golf', this)" role="button" tabindex="0">
                     <div class="ball-icon">⛳</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">golf</div>
@@ -96,7 +97,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('bowling', this)">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('bowling', this)" role="button" tabindex="0">
                     <div class="ball-icon">🎳</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">bowling</div>
@@ -105,7 +106,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center border-2 border-red-500 bg-red-50" onclick="speak('baseball', this)">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center border-2 border-red-500 bg-red-50" onclick="speak('baseball', this)" role="button" tabindex="0">
                     <div class="ball-icon">⚾</div>
                     <div>
                         <div class="font-bold text-lg text-red-800">baseball</div>
@@ -114,7 +115,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('badminton', this)">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('badminton', this)" role="button" tabindex="0">
                     <div class="ball-icon">🏸</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">badminton</div>
@@ -123,7 +124,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('rugby', this)">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('rugby', this)" role="button" tabindex="0">
                     <div class="ball-icon">🏉</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">rugby</div>
@@ -132,7 +133,7 @@
                     <i class="fas fa-volume-up ml-auto text-red-600"></i>
                 </div>
 
-                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('ping pong', this)">
+                <div class="word-card p-4 rounded-lg shadow-md flex items-center" onclick="speak('ping pong', this)" role="button" tabindex="0">
                     <div class="ball-icon">🏓</div>
                     <div>
                         <div class="font-bold text-lg text-gray-800">ping-pong</div>
@@ -240,14 +241,14 @@
 
                     <div class="text-center space-y-4" style="line-height: 2; font-size: 1.1rem;">
                         <div>
-                            <span class="fill-blank" onclick="toggleBlank('blank1', 'Playing')">_____</span> tennis is great fun.<br>
+                            <span class="fill-blank" onclick="toggleBlank('blank1', 'Playing')" role="button" tabindex="0">_____</span> tennis is great fun.<br>
                             It's fun for everyone.<br>
                             So come on, everyone,<br>
                             Come and join the fun!
                         </div>
 
                         <div style="margin-top: 20px;">
-                            <span class="fill-blank" onclick="toggleBlank('blank2', 'Flying')">_____</span> kites is easy,<br>
+                            <span class="fill-blank" onclick="toggleBlank('blank2', 'Flying')" role="button" tabindex="0">_____</span> kites is easy,<br>
                             Easy for you and me.<br>
                             So come and fly with me,<br>
                             Oh, come on, it's so easy!<br>
@@ -255,14 +256,14 @@
                         </div>
 
                         <div style="margin-top: 20px;">
-                            <span class="fill-blank" onclick="toggleBlank('blank3', 'Singing')">_____</span> songs is great fun.<br>
+                            <span class="fill-blank" onclick="toggleBlank('blank3', 'Singing')" role="button" tabindex="0">_____</span> songs is great fun.<br>
                             It's fun for everyone.<br>
                             So come on, everyone,<br>
                             Come and join the fun!
                         </div>
 
                         <div style="margin-top: 20px;">
-                            <span class="fill-blank" onclick="toggleBlank('blank4', 'Painting')">_____</span> pictures is easy.<br>
+                            <span class="fill-blank" onclick="toggleBlank('blank4', 'Painting')" role="button" tabindex="0">_____</span> pictures is easy.<br>
                             Easy for you and me.<br>
                             So come and paint with me,<br>
                             Oh, come on, it's so easy!<br>
@@ -296,84 +297,84 @@
                 <h3 class="text-2xl font-bold text-amber-900 mb-6 text-center">Sports Club Is Fun!</h3>
 
                 <div class="space-y-4">
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans1')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans1')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">I like sports. <span class="grammar-highlight">Playing sports</span> is great! I go to a sports club with my friends.</p>
                         <div id="trans1" class="interactive-answer">
                             <p class="text-gray-700">我喜欢运动。做运动很棒！我和朋友们去体育俱乐部。</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans2')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans2')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">Tom is in the club. <span class="grammar-highlight">Playing soccer</span> is fun for him. He kicks the ball. He runs fast.</p>
                         <div id="trans2" class="interactive-answer">
                             <p class="text-gray-700">汤姆在俱乐部里。踢足球对他来说很有趣。他踢球，跑得很快。</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans3')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans3')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">Lucy likes basketball. She is tall. <span class="grammar-highlight">Playing basketball</span> is cool. She can shoot well.</p>
                         <div id="trans3" class="interactive-answer">
                             <p class="text-gray-700">露西喜欢篮球。她很高。打篮球很酷。她投篮投得很好。</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans4')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans4')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">Sam and Jim play tennis. <span class="grammar-highlight">Playing tennis</span> is easy for them. Hit the ball! Bounce the ball!</p>
                         <div id="trans4" class="interactive-answer">
                             <p class="text-gray-700">萨姆和吉姆打网球。打网球对他们来说很容易。击球！让球弹跳！</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans5')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans5')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">Look at Mary. <span class="grammar-highlight">Playing volleyball</span> is interesting. She hits the ball with her hands. Smash!</p>
                         <div id="trans5" class="interactive-answer">
                             <p class="text-gray-700">看玛丽。打排球很有趣。她用手击球。扣球！</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans6')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans6')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">Peter is on the grass. <span class="grammar-highlight">Playing golf</span> is relaxing. He hits the ball slowly. It goes far.</p>
                         <div id="trans6" class="interactive-answer">
                             <p class="text-gray-700">彼得在草地上。打高尔夫很放松。他慢慢地击球。球飞得很远。</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans7')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans7')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">My friends like bowling. <span class="grammar-highlight">Bowling</span> is great fun! Roll the ball. Boom! The pins fall down.</p>
                         <div id="trans7" class="interactive-answer">
                             <p class="text-gray-700">我的朋友们喜欢保龄球。打保龄球很有趣！滚动球。砰！球瓶倒下了。</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans8')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans8')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">Some boys play baseball. <span class="grammar-highlight">Playing baseball</span> is good. Catch the ball with a glove. Throw it fast.</p>
                         <div id="trans8" class="interactive-answer">
                             <p class="text-gray-700">一些男孩在打棒球。打棒球很好。用手套接球。快速传球。</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans9')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans9')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">Lily and Mike play badminton. <span class="grammar-highlight">Playing badminton</span> is exciting. The shuttlecock flies up and down.</p>
                         <div id="trans9" class="interactive-answer">
                             <p class="text-gray-700">莉莉和迈克打羽毛球。打羽毛球很刺激。羽毛球上下飞舞。</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans10')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans10')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">Rugby boys are strong. <span class="grammar-highlight">Playing rugby</span> is hard. Run! Pass the ball! Don't drop it!</p>
                         <div id="trans10" class="interactive-answer">
                             <p class="text-gray-700">橄榄球男孩们很强壮。打橄榄球很难。跑！传球！别掉了！</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans11')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans11')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">I like ping-pong. <span class="grammar-highlight">Playing ping-pong</span> is my favorite. Ping! Pang! The ball goes fast.</p>
                         <div id="trans11" class="interactive-answer">
                             <p class="text-gray-700">我喜欢乒乓球。打乒乓球是我的最爱。乒！乓！球很快。</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg bg-yellow-50" onclick="toggleTrans('trans12')">
+                    <div class="reading-paragraph p-4 rounded-lg bg-yellow-50" onclick="toggleTrans('trans12')" role="button" tabindex="0">
                         <p class="text-xl font-bold text-amber-900"><span class="grammar-highlight">Playing sports</span> is happy. <span class="grammar-highlight">Being with friends</span> is nice. Come and join us!</p>
                         <div id="trans12" class="interactive-answer">
                             <p class="text-gray-700 font-bold">做运动很快乐。和朋友们在一起很好。来加入我们吧！</p>
@@ -395,84 +396,84 @@
                 <h3 class="text-2xl font-bold text-amber-900 mb-6 text-center">Finding the Fun in Sports</h3>
 
                 <div class="space-y-4">
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans13')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans13')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">Do you like sports? <span class="grammar-highlight">Playing ball games</span> is a great way to have fun and make friends. Let me tell you about some of my friends and their favorite sports.</p>
                         <div id="trans13" class="interactive-answer">
                             <p class="text-gray-700">你喜欢运动吗？玩球类游戏是玩得开心和交朋友的好方法。让我告诉你关于我的一些朋友和他们最喜欢的运动。</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans14')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans14')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">This is Tom. <span class="grammar-highlight">Playing soccer</span> is easy for him. He loves running and kicking the ball. He says, "Kicking a soccer ball is exciting!"</p>
                         <div id="trans14" class="interactive-answer">
                             <p class="text-gray-700">这是汤姆。踢足球对他来说很容易。他喜欢奔跑和踢球。他说："踢足球很令人兴奋！"</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans15')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans15')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">Look at Lucy. She is very tall. <span class="grammar-highlight">Playing basketball</span> is her favorite. "Shooting a basketball is difficult," she says, "but it is also very cool!"</p>
                         <div id="trans15" class="interactive-answer">
                             <p class="text-gray-700">看露西。她很高。打篮球是她的最爱。“投篮很难，"她说，"但也很酷！"</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans16')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans16')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">Here come Sam and Jim. They are holding a small yellow ball. <span class="grammar-highlight">Playing tennis</span> is their hobby. They think hitting a tennis ball is fun.</p>
                         <div id="trans16" class="interactive-answer">
                             <p class="text-gray-700">萨姆和吉姆来了。他们拿着一个黄色的小球。打网球是他们的爱好。他们觉得打网球很有趣。</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans17')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans17')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">In the gym, we can see Mary. <span class="grammar-highlight">Playing volleyball</span> is what she does after school. She practices with her friends. For her, spiking a volleyball is not easy, but it is interesting.</p>
                         <div id="trans17" class="interactive-answer">
                             <p class="text-gray-700">在体育馆里，我们可以看到玛丽。打排球是她放学后做的事。她和朋友们一起练习。对她来说，扣球不容易，但很有趣。</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans18')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans18')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">What about Peter? He is on the grass. <span class="grammar-highlight">Playing golf</span> is a quiet sport. He says, "Hitting a golf ball is relaxing. I like it."</p>
                         <div id="trans18" class="interactive-answer">
                             <p class="text-gray-700">彼得呢？他在草地上。打高尔夫是一项安静的运动。他说："打高尔夫很放松。我喜欢。"</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans19')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans19')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">Over there, some students are in the bowling alley. <span class="grammar-highlight">Bowling</span> is a social sport. They think rolling the ball to hit the pins is great fun.</p>
                         <div id="trans19" class="interactive-answer">
                             <p class="text-gray-700">在那边，一些学生在保龄球馆。打保龄球是一项社交运动。他们觉得滚动球击倒球瓶很有趣。</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans20')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans20')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">Some other students are on the baseball field. <span class="grammar-highlight">Playing baseball</span> needs a lot of skill. Catching a baseball with a big glove is amazing.</p>
                         <div id="trans20" class="interactive-answer">
                             <p class="text-gray-700">其他一些学生在棒球场上。打棒球需要很多技巧。用大手套接住棒球很令人惊叹。</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans21')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans21')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">On the badminton court, Lily and Mike are playing. <span class="grammar-highlight">Playing badminton</span> is fast and quick. They think hitting the shuttlecock is a good workout.</p>
                         <div id="trans21" class="interactive-answer">
                             <p class="text-gray-700">在羽毛球场上，莉莉和迈克正在打球。打羽毛球又快又迅速。他们觉得击打羽毛球是很好的锻炼。</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans22')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans22')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">Don't forget about rugby. <span class="grammar-highlight">Playing rugby</span> looks very tough. Those boys say, "Running with the rugby ball is powerful!"</p>
                         <div id="trans22" class="interactive-answer">
                             <p class="text-gray-700">别忘了橄榄球。打橄榄球看起来很艰难。那些男孩说："带着橄榄球跑动很有力量！"</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans23')">
+                    <div class="reading-paragraph p-4 rounded-lg" onclick="toggleTrans('trans23')" role="button" tabindex="0">
                         <p class="text-lg text-gray-800">Finally, let's watch the ping-pong table. <span class="grammar-highlight">Playing ping-pong</span> is very popular in our school. Hitting the small white ball is really fast and requires quick hands.</p>
                         <div id="trans23" class="interactive-answer">
                             <p class="text-gray-700">最后，让我们看乒乓球桌。打乒乓球在我们学校很受欢迎。击打小白球真的很快，需要快速的手部反应。</p>
                         </div>
                     </div>
 
-                    <div class="reading-paragraph p-4 rounded-lg bg-green-50" onclick="toggleTrans('trans24')">
+                    <div class="reading-paragraph p-4 rounded-lg bg-green-50" onclick="toggleTrans('trans24')" role="button" tabindex="0">
                         <p class="text-xl font-bold text-green-900">So, you see, <span class="grammar-highlight">playing different ball games</span> is always a good time. Which one do you want to try? Remember, <span class="grammar-highlight">trying a new sport</span> is never a waste of time!</p>
                         <div id="trans24" class="interactive-answer">
                             <p class="text-gray-700 font-bold">所以，你看，玩不同的球类游戏总是很好的时光。你想尝试哪一种？记住，尝试新运动永远不会浪费时间！</p>
@@ -495,7 +496,7 @@
                 <p class="text-center text-gray-600 mb-6">点击句子查看答案 · Click to reveal answers</p>
 
                 <div class="space-y-4">
-                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans1')">
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans1')" role="button" tabindex="0">
                         <div class="flex justify-between items-center">
                             <span class="text-lg text-gray-800">1. 踢足球很有趣。</span>
                             <i class="fas fa-chevron-down text-gray-400"></i>
@@ -505,7 +506,7 @@
                         </div>
                     </div>
 
-                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans2')">
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans2')" role="button" tabindex="0">
                         <div class="flex justify-between items-center">
                             <span class="text-lg text-gray-800">2. 打篮球很难，但是很酷。</span>
                             <i class="fas fa-chevron-down text-gray-400"></i>
@@ -515,7 +516,7 @@
                         </div>
                     </div>
 
-                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans3')">
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans3')" role="button" tabindex="0">
                         <div class="flex justify-between items-center">
                             <span class="text-lg text-gray-800">3. 打网球很棒。</span>
                             <i class="fas fa-chevron-down text-gray-400"></i>
@@ -525,7 +526,7 @@
                         </div>
                     </div>
 
-                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans4')">
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans4')" role="button" tabindex="0">
                         <div class="flex justify-between items-center">
                             <span class="text-lg text-gray-800">4. 打排球令人快乐。</span>
                             <i class="fas fa-chevron-down text-gray-400"></i>
@@ -535,7 +536,7 @@
                         </div>
                     </div>
 
-                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans5')">
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans5')" role="button" tabindex="0">
                         <div class="flex justify-between items-center">
                             <span class="text-lg text-gray-800">5. 打高尔夫球让人放松。</span>
                             <i class="fas fa-chevron-down text-gray-400"></i>
@@ -545,7 +546,7 @@
                         </div>
                     </div>
 
-                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans6')">
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans6')" role="button" tabindex="0">
                         <div class="flex justify-between items-center">
                             <span class="text-lg text-gray-800">6. 打保龄球是很有趣的。</span>
                             <i class="fas fa-chevron-down text-gray-400"></i>
@@ -555,7 +556,7 @@
                         </div>
                     </div>
 
-                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans7')">
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans7')" role="button" tabindex="0">
                         <div class="flex justify-between items-center">
                             <span class="text-lg text-gray-800">7. 接住一个棒球很令人惊叹。</span>
                             <i class="fas fa-chevron-down text-gray-400"></i>
@@ -565,7 +566,7 @@
                         </div>
                     </div>
 
-                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans8')">
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans8')" role="button" tabindex="0">
                         <div class="flex justify-between items-center">
                             <span class="text-lg text-gray-800">8. 打羽毛球是一项很好的锻炼。</span>
                             <i class="fas fa-chevron-down text-gray-400"></i>
@@ -575,7 +576,7 @@
                         </div>
                     </div>
 
-                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans9')">
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('ans9')" role="button" tabindex="0">
                         <div class="flex justify-between items-center">
                             <span class="text-lg text-gray-800">9. 带着橄榄球跑动很有力量感。</span>
                             <i class="fas fa-chevron-down text-gray-400"></i>
@@ -598,28 +599,28 @@
 
             <div class="leather-card p-8 rounded-lg">
                 <div class="space-y-4">
-                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('check1')">
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('check1')" role="button" tabindex="0">
                         <div class="font-bold text-gray-800 mb-2">Q1: What sport does Tom like?</div>
                         <div id="check1" class="interactive-answer">
                             <p>A: He likes playing soccer.</p>
                         </div>
                     </div>
 
-                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('check2')">
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('check2')" role="button" tabindex="0">
                         <div class="font-bold text-gray-800 mb-2">Q2: Why is playing basketball cool for Lucy?</div>
                         <div id="check2" class="interactive-answer">
                             <p>A: Because she is tall and she can shoot well.</p>
                         </div>
                     </div>
 
-                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('check3')">
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('check3')" role="button" tabindex="0">
                         <div class="font-bold text-gray-800 mb-2">Q3: Which sport is described as "relaxing"?</div>
                         <div id="check3" class="interactive-answer">
                             <p>A: Playing golf.</p>
                         </div>
                     </div>
 
-                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('check4')">
+                    <div class="stitch-border p-4 bg-white cursor-pointer" onclick="toggleAns('check4')" role="button" tabindex="0">
                         <div class="font-bold text-gray-800 mb-2">Q4: What do you need to catch a baseball?</div>
                         <div id="check4" class="interactive-answer">
                             <p>A: A big glove.</p>
