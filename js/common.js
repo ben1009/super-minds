@@ -441,16 +441,7 @@ function getUnitFromActive(active) {
 function renderNav(config) {
     const container = document.getElementById('site-nav');
     if (!container) return;
-    
-    // Insert skip-navigation link before nav for keyboard users
-    if (container.parentNode) {
-        const skipNav = document.createElement('a');
-        skipNav.href = '#main-content';
-        skipNav.className = 'skip-nav';
-        skipNav.textContent = '跳转到主内容 Skip to main content';
-        container.parentNode.insertBefore(skipNav, container);
-    }
-    
+
     let html = '';
     switch (config.pattern) {
         case 'A':

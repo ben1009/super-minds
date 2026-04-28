@@ -1131,14 +1131,6 @@ else
     ERRORS=$((ERRORS + 1))
 fi
 
-# Accessibility: skip-nav styles exist
-if grep -q '\.skip-nav' css/common.css; then
-    echo "   ✓ skip-nav styles exist in common.css"
-else
-    echo "   ✗ skip-nav styles missing from common.css!"
-    ERRORS=$((ERRORS + 1))
-fi
-
 # Accessibility: all pages have main-content landmark
 MAIN_CONTENT_FILES="index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html super-minds-baseball/index.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html"
 MAIN_CONTENT_ERRORS=0
