@@ -112,6 +112,7 @@
   - `unit8/gerunds-ball-sports.html:293` — vocabulary speak
   - `unit8/amazing-vehicles-reading.html:357` — nav-card scroll
   - `unit9/fairy-tales-reading.html:986` — parses `onclick` string to detect correct answer (extremely brittle)
+- [x] `unit7/present-continuous-homework.html` flashcards and timeline nodes now bind via `addEventListener`
 
 ### 16. Eliminate magic numbers and brittle selectors ✅
 - [x] `unit8/amazing-vehicles-reading.html` — hardcoded correct-answer indices; replaced with `data-correct-index` attribute and `toggleReadingAnswer()` already reads it dynamically

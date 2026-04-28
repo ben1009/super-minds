@@ -1252,6 +1252,35 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
+echo "21. Checking unit7 homework event binding cleanup..."
+ERRORS=0
+
+if grep -Fq "onclick=\"this.classList.toggle('flipped')\"" unit7/present-continuous-homework.html; then
+    echo "   ✗ unit7/present-continuous-homework.html still has inline flashcard onclick!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ unit7/present-continuous-homework.html flashcards use addEventListener"
+fi
+
+if grep -q 'onclick="toggleTimeline(this)"' unit7/present-continuous-homework.html; then
+    echo "   ✗ unit7/present-continuous-homework.html still has inline timeline onclick!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ unit7/present-continuous-homework.html timeline nodes use addEventListener"
+fi
+
+if grep -q "document.addEventListener('DOMContentLoaded'" unit7/present-continuous-homework.html; then
+    echo "   ✓ unit7/present-continuous-homework.html binds events on DOMContentLoaded"
+else
+    echo "   ✗ unit7/present-continuous-homework.html missing DOMContentLoaded bindings!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
 echo "=== Test Complete ==="
 echo ""
 echo "Next steps:"
