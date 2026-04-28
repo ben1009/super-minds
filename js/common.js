@@ -124,7 +124,17 @@ function toggleTimeline(node) {
  * @param {HTMLElement} element - The answer mask element
  */
 window.toggleAnswer = function(element) {
-    element.classList.toggle('revealed');
+    if (!element) {
+        return;
+    }
+
+    // Support both answer-mask styles:
+    // - Unit 7 masks use `revealed`
+    // - Baseball / legacy answer panels use `show`
+    const usesHiddenClass = element.classList.contains('hidden');
+    const usesShowClass = usesHiddenClass || element.classList.contains('show') || element.classList.contains('interactive-answer') || element.classList.contains('quiz-answer-box') || element.classList.contains('answer-section') || element.classList.contains('answer-table') || element.classList.contains('word-quiz-blank') || element.classList.contains('blank');
+
+    element.classList.toggle(usesShowClass ? 'show' : 'revealed');
     
     // Add click feedback animation
     element.style.transform = 'scale(0.98)';

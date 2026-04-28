@@ -1252,28 +1252,66 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
-echo "21. Checking unit7 homework event binding cleanup..."
+echo "21. Checking unit7 homework shared interaction hooks..."
 ERRORS=0
 
 if grep -Fq "onclick=\"this.classList.toggle('flipped')\"" unit7/present-continuous-homework.html; then
-    echo "   ✗ unit7/present-continuous-homework.html still has inline flashcard onclick!"
-    ERRORS=$((ERRORS + 1))
+    echo "   ✓ unit7/present-continuous-homework.html flashcards use shared onclick hooks"
 else
-    echo "   ✓ unit7/present-continuous-homework.html flashcards use addEventListener"
+    echo "   ✗ unit7/present-continuous-homework.html flashcard onclick hooks missing!"
+    ERRORS=$((ERRORS + 1))
 fi
 
 if grep -q 'onclick="toggleTimeline(this)"' unit7/present-continuous-homework.html; then
-    echo "   ✗ unit7/present-continuous-homework.html still has inline timeline onclick!"
-    ERRORS=$((ERRORS + 1))
+    echo "   ✓ unit7/present-continuous-homework.html timeline nodes use shared onclick hooks"
 else
-    echo "   ✓ unit7/present-continuous-homework.html timeline nodes use addEventListener"
+    echo "   ✗ unit7/present-continuous-homework.html timeline onclick hooks missing!"
+    ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q "document.addEventListener('DOMContentLoaded'" unit7/present-continuous-homework.html; then
-    echo "   ✓ unit7/present-continuous-homework.html binds events on DOMContentLoaded"
-else
-    echo "   ✗ unit7/present-continuous-homework.html missing DOMContentLoaded bindings!"
+if grep -q "document.querySelectorAll('.flashcard').forEach" unit7/present-continuous-homework.html || \
+   grep -q "document.querySelectorAll('.timeline-node').forEach" unit7/present-continuous-homework.html; then
+    echo "   ✗ unit7/present-continuous-homework.html still has page-local event bindings!"
     ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ unit7/present-continuous-homework.html has no page-local flashcard/timeline bindings"
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "22. Checking Unit 7 baseball shared stylesheet extraction..."
+ERRORS=0
+
+if [ -f "css/baseball-unit7.css" ]; then
+    echo "   ✓ css/baseball-unit7.css exists"
+else
+    echo "   ✗ css/baseball-unit7.css missing!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'css/baseball-unit7.css' super-minds-baseball/unit7/baseball-present-continuous-course.html && \
+   grep -q 'css/baseball-unit7.css' super-minds-baseball/unit7/baseball-present-continuous-homework.html; then
+    echo "   ✓ Unit 7 baseball pages reference the shared stylesheet"
+else
+    echo "   ✗ Unit 7 baseball pages missing shared stylesheet reference!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q '.card-flip' css/baseball-unit7.css && grep -q '.card-inner' css/baseball-unit7.css; then
+    echo "   ✓ css/baseball-unit7.css includes shared card flip styles"
+else
+    echo "   ✗ css/baseball-unit7.css missing shared card flip styles!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q '<style type="text/tailwindcss">' super-minds-baseball/unit7/baseball-present-continuous-homework.html; then
+    echo "   ✗ Unit 7 baseball homework still has inline style block!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ Unit 7 baseball homework uses shared stylesheet only"
 fi
 
 if [ $ERRORS -gt 0 ]; then
