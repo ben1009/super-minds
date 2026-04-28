@@ -1223,6 +1223,64 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
+echo "20. Checking common.css accessibility and token usage..."
+ERRORS=0
+
+if grep -q '@media (prefers-reduced-motion: reduce)' css/common.css; then
+    echo "   ✓ common.css includes reduced-motion guard"
+else
+    echo "   ✗ common.css missing reduced-motion guard!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q ':focus-visible' css/common.css; then
+    echo "   ✓ common.css includes focus-visible styles"
+else
+    echo "   ✗ common.css missing focus-visible styles!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q -- '--shadow-ink' css/common.css && grep -q -- '--focus-ring' css/common.css; then
+    echo "   ✓ common.css uses shared shadow and focus tokens"
+else
+    echo "   ✗ common.css missing shared shadow or focus tokens!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "21. Checking unit7 homework event binding cleanup..."
+ERRORS=0
+
+if grep -Fq "onclick=\"this.classList.toggle('flipped')\"" unit7/present-continuous-homework.html; then
+    echo "   ✗ unit7/present-continuous-homework.html still has inline flashcard onclick!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ unit7/present-continuous-homework.html flashcards use addEventListener"
+fi
+
+if grep -q 'onclick="toggleTimeline(this)"' unit7/present-continuous-homework.html; then
+    echo "   ✗ unit7/present-continuous-homework.html still has inline timeline onclick!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ unit7/present-continuous-homework.html timeline nodes use addEventListener"
+fi
+
+if grep -q "document.addEventListener('DOMContentLoaded'" unit7/present-continuous-homework.html; then
+    echo "   ✓ unit7/present-continuous-homework.html binds events on DOMContentLoaded"
+else
+    echo "   ✗ unit7/present-continuous-homework.html missing DOMContentLoaded bindings!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
 echo "=== Test Complete ==="
 echo ""
 echo "Next steps:"
