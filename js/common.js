@@ -9,9 +9,9 @@
 
 /**
  * Selector for homework progress checkboxes
- * Using specific class to avoid conflicts with other checkboxes on the page
+ * Prefer explicit data hooks, but keep the legacy Unit 7 markup as a fallback.
  */
-const HOMEWORK_CHECKBOX_SELECTOR = '.check-item input[type="checkbox"]';
+const HOMEWORK_CHECKBOX_SELECTOR = '[data-progress-checkbox="homework"], .check-item input[type="checkbox"]';
 
 // ============================================
 // Mobile Navigation
@@ -147,8 +147,8 @@ if (typeof updateProgress !== 'function') {
         storageKey = storageKey || 'homeworkProgress';
         checkboxSelector = checkboxSelector || HOMEWORK_CHECKBOX_SELECTOR;
         const checkboxes = document.querySelectorAll(checkboxSelector);
-        const checked = document.querySelectorAll(checkboxSelector + ':checked');
-        const progress = (checked.length / checkboxes.length) * 100;
+        const checked = Array.from(checkboxes).filter(cb => cb.checked);
+        const progress = checkboxes.length ? (checked.length / checkboxes.length) * 100 : 0;
         
         const progressBar = document.getElementById('progressBar');
         const progressText = document.getElementById('progress-text');
@@ -441,16 +441,7 @@ function getUnitFromActive(active) {
 function renderNav(config) {
     const container = document.getElementById('site-nav');
     if (!container) return;
-    
-    // Insert skip-navigation link before nav for keyboard users
-    if (container.parentNode) {
-        const skipNav = document.createElement('a');
-        skipNav.href = '#main-content';
-        skipNav.className = 'skip-nav';
-        skipNav.textContent = '跳转到主内容 Skip to main content';
-        container.parentNode.insertBefore(skipNav, container);
-    }
-    
+
     let html = '';
     switch (config.pattern) {
         case 'A':

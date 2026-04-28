@@ -123,7 +123,6 @@
 - [x] Add `<main>` landmark to 7 files missing it (`unit8/*`, `super-minds-baseball/*`) — already present in all files
 - [x] Fix heading hierarchy skips (`h1` → `h3` in `super-minds-baseball/index.html`; `h2` → `h4` in `unit8/amazing-vehicles-reading.html`) — already fixed
 - [x] Add `<meta name="description">` to all 14 HTML files — already present in all files
-- [x] Add skip-navigation link — added to 11 files; `index.html` and `unit7/present-continuous-course.html` already had it
 - [x] Add `role="button"`, `tabindex="0"`, and `keydown` handlers to clickable `<div>`/`<span>` elements — 414+ elements updated across 10 HTML files; `js/common.js` `deinlineOnclick()` updated to bind keyboard handlers even when `role` is pre-set
 
 ---
@@ -133,7 +132,7 @@
 ### 18. Clean up `js/common.js`
 - [ ] Remove or guard `console.warn` (line 194) and `console.error` (line 217)
 - [ ] `toggleAnswer()` API inconsistency: common.js toggles `.revealed`, baseball variants toggle `.hidden`
-- [ ] `HOMEWORK_CHECKBOX_SELECTOR` (line 14) is tightly coupled to a specific markup pattern
+- [x] `HOMEWORK_CHECKBOX_SELECTOR` now prefers `data-progress-checkbox="homework"` and keeps the legacy `.check-item` fallback
 
 ### 19. Clean up `css/common.css`
 - [ ] Add `@media (prefers-reduced-motion: reduce)` guards for `fadeInUp` and `float` animations

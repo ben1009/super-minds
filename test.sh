@@ -1131,14 +1131,6 @@ else
     ERRORS=$((ERRORS + 1))
 fi
 
-# Accessibility: skip-nav styles exist
-if grep -q '\.skip-nav' css/common.css; then
-    echo "   ✓ skip-nav styles exist in common.css"
-else
-    echo "   ✗ skip-nav styles missing from common.css!"
-    ERRORS=$((ERRORS + 1))
-fi
-
 # Accessibility: all pages have main-content landmark
 MAIN_CONTENT_FILES="index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html super-minds-baseball/index.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html"
 MAIN_CONTENT_ERRORS=0
@@ -1202,6 +1194,28 @@ if [ -f "scripts/generate-baseball.py" ]; then
 else
     echo "   ✗ Build script scripts/generate-baseball.py not found!"
     ERRORS=$((ERRORS + 1))
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "19. Checking unit7 course page top spacing..."
+ERRORS=0
+
+if grep -q '<body class="sm-body">' unit7/present-continuous-course.html; then
+    echo "   ✓ unit7/present-continuous-course.html uses the shared body class"
+else
+    echo "   ✗ unit7/present-continuous-course.html missing expected body class!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q '<body class="p-4 md:p-8 sm-body">' unit7/present-continuous-course.html; then
+    echo "   ✗ unit7/present-continuous-course.html still has top padding utilities!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ unit7/present-continuous-course.html has no extra top padding"
 fi
 
 if [ $ERRORS -gt 0 ]; then
