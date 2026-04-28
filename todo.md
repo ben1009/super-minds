@@ -130,14 +130,14 @@
 ## 🟢 Refactor — Low Severity
 
 ### 18. Clean up `js/common.js`
-- [ ] Remove or guard `console.warn` (line 194) and `console.error` (line 217)
+- [x] Remove or guard `console.warn` (line 194) and `console.error` (line 217)
 - [ ] `toggleAnswer()` API inconsistency: common.js toggles `.revealed`, baseball variants toggle `.hidden`
 - [x] `HOMEWORK_CHECKBOX_SELECTOR` now prefers `data-progress-checkbox="homework"` and keeps the legacy `.check-item` fallback
 
 ### 19. Clean up `css/common.css`
-- [ ] Add `@media (prefers-reduced-motion: reduce)` guards for `fadeInUp` and `float` animations
-- [ ] Replace hardcoded hex/rgba shadows and borders with CSS variables
-- [ ] Add `:focus-visible` styles for interactive elements
+- [x] Add `@media (prefers-reduced-motion: reduce)` guards for `fadeInUp` and `float` animations
+- [x] Replace hardcoded hex/rgba shadows and borders with CSS variables
+- [x] Add `:focus-visible` styles for interactive elements
 
 ### 20. Minor HTML fixes ✅
 - [x] `unit7/present-continuous-homework.html` — added explicit `for="hw-check-N"` / `id="hw-check-N"` linkage on all 4 checkbox labels

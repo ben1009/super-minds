@@ -1223,6 +1223,35 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
+echo "20. Checking common.css accessibility and token usage..."
+ERRORS=0
+
+if grep -q '@media (prefers-reduced-motion: reduce)' css/common.css; then
+    echo "   ✓ common.css includes reduced-motion guard"
+else
+    echo "   ✗ common.css missing reduced-motion guard!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q ':focus-visible' css/common.css; then
+    echo "   ✓ common.css includes focus-visible styles"
+else
+    echo "   ✗ common.css missing focus-visible styles!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q -- '--shadow-ink' css/common.css && grep -q -- '--focus-ring' css/common.css; then
+    echo "   ✓ common.css uses shared shadow and focus tokens"
+else
+    echo "   ✗ common.css missing shared shadow or focus tokens!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
 echo "=== Test Complete ==="
 echo ""
 echo "Next steps:"
