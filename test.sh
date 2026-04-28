@@ -1201,6 +1201,28 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
+echo "19. Checking unit7 course page top spacing..."
+ERRORS=0
+
+if grep -q '<body class="sm-body">' unit7/present-continuous-course.html; then
+    echo "   ✓ unit7/present-continuous-course.html uses the shared body class"
+else
+    echo "   ✗ unit7/present-continuous-course.html missing expected body class!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q '<body class="p-4 md:p-8 sm-body">' unit7/present-continuous-course.html; then
+    echo "   ✗ unit7/present-continuous-course.html still has top padding utilities!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ unit7/present-continuous-course.html has no extra top padding"
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
 echo "=== Test Complete ==="
 echo ""
 echo "Next steps:"
