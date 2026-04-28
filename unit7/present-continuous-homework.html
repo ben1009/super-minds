@@ -394,7 +394,7 @@
             <p class="text-gray-600 mb-6 italic">点击卡片查看现在进行时例句</p>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="flashcard" role="button" tabindex="0">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')" role="button" tabindex="0">
                     <div class="flashcard-inner">
                         <div class="flashcard-front bg-gradient-to-br from-blue-50 to-white">
                             <div class="text-4xl mb-2">🚌</div>
@@ -410,7 +410,7 @@
                     </div>
                 </div>
 
-                <div class="flashcard" role="button" tabindex="0">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')" role="button" tabindex="0">
                     <div class="flashcard-inner">
                         <div class="flashcard-front bg-gradient-to-br from-green-50 to-white">
                             <div class="text-4xl mb-2">🚗</div>
@@ -427,7 +427,7 @@
                     </div>
                 </div>
 
-                <div class="flashcard" role="button" tabindex="0">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')" role="button" tabindex="0">
                     <div class="flashcard-inner">
                         <div class="flashcard-front bg-gradient-to-br from-indigo-50 to-white">
                             <div class="text-4xl mb-2">⛵</div>
@@ -443,7 +443,7 @@
                     </div>
                 </div>
 
-                <div class="flashcard" role="button" tabindex="0">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')" role="button" tabindex="0">
                     <div class="flashcard-inner">
                         <div class="flashcard-front bg-gradient-to-br from-purple-50 to-white">
                             <div class="text-4xl mb-2">🛹</div>
@@ -470,7 +470,7 @@
 
             <div class="timeline-container">
 
-                <div class="timeline-node" role="button" tabindex="0">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge">1</span>
@@ -485,7 +485,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-node" role="button" tabindex="0">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge">2</span>
@@ -502,7 +502,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-node" role="button" tabindex="0">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge">3</span>
@@ -518,7 +518,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-node" role="button" tabindex="0">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge red">4</span>
@@ -541,7 +541,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-node" role="button" tabindex="0">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge">5</span>
@@ -558,7 +558,7 @@
                 </div>
 
                 <!-- There be 句型观察 - 修复版 -->
-                <div class="timeline-node" role="button" tabindex="0">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge green">6</span>
@@ -636,7 +636,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-node" role="button" tabindex="0">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge red">7</span>
@@ -684,7 +684,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-node" role="button" tabindex="0">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge green">8</span>
@@ -700,7 +700,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-node" role="button" tabindex="0">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge">9</span>
@@ -723,7 +723,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-node" role="button" tabindex="0">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge">10</span>
@@ -1018,32 +1018,6 @@
     <script>
         // Using shared functions from common.js:
         // toggleMobileMenu, switchTab, toggleTimeline, toggleAnswer, toggleComplete, updateProgress, restoreProgress
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.flashcard').forEach(function(card) {
-                card.addEventListener('click', function() {
-                    card.classList.toggle('flipped');
-                });
-                card.addEventListener('keydown', function(event) {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault();
-                        card.classList.toggle('flipped');
-                    }
-                });
-            });
-
-            document.querySelectorAll('.timeline-node').forEach(function(node) {
-                node.addEventListener('click', function() {
-                    toggleTimeline(node);
-                });
-                node.addEventListener('keydown', function(event) {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault();
-                        toggleTimeline(node);
-                    }
-                });
-            });
-        });
-
     </script>
     <script src="../js/common.js"></script>
 </body>
