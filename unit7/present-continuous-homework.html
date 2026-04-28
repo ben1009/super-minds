@@ -249,6 +249,7 @@
     </style>
 </head>
 <body class="text-gray-800 min-h-screen sm-body">
+    <a href="#main-content" class="absolute -left-[9999px] z-[9999] focus:left-2 focus:top-2 focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg">跳转到主内容 Skip to main content</a>
 
     <script>window.NAV_CONFIG = {pattern:'A', active:'unit7-homework'};</script>
     <nav id="site-nav"></nav>
@@ -352,8 +353,8 @@
                                 <span class="font-mono text-base">Are you eating breakfast?</span>
                             </div>
                             <div class="flex flex-wrap gap-3 text-sm ml-8">
-                                <span class="answer-mask inline-block" onclick="toggleAnswer(this)">Yes, I am.</span>
-                                <span class="answer-mask inline-block" onclick="toggleAnswer(this)">No, I am not.</span>
+                                <span class="answer-mask inline-block" onclick="toggleAnswer(this)" role="button" tabindex="0">Yes, I am.</span>
+                                <span class="answer-mask inline-block" onclick="toggleAnswer(this)" role="button" tabindex="0">No, I am not.</span>
                             </div>
                         </div>
 
@@ -363,8 +364,8 @@
                                 <span class="font-mono text-base">Is he kicking the ball?</span>
                             </div>
                             <div class="flex flex-wrap gap-3 text-sm ml-8">
-                                <span class="answer-mask inline-block" onclick="toggleAnswer(this)">Yes, he is.</span>
-                                <span class="answer-mask inline-block" onclick="toggleAnswer(this)">No, he isn't.</span>
+                                <span class="answer-mask inline-block" onclick="toggleAnswer(this)" role="button" tabindex="0">Yes, he is.</span>
+                                <span class="answer-mask inline-block" onclick="toggleAnswer(this)" role="button" tabindex="0">No, he isn't.</span>
                             </div>
                         </div>
 
@@ -378,8 +379,8 @@
                                 </span>
                             </div>
                             <div class="flex flex-wrap gap-3 text-sm ml-8">
-                                <span class="answer-mask inline-flex items-center justify-center min-h-[40px]" onclick="toggleAnswer(this)">Yes, I am. 是的，我正在放风筝 🪁</span>
-                                <span class="answer-mask inline-flex items-center justify-center min-h-[40px]" onclick="toggleAnswer(this)">No, I am not. 不是，我没在放风筝</span>
+                                <span class="answer-mask inline-flex items-center justify-center min-h-[40px]" onclick="toggleAnswer(this)" role="button" tabindex="0">Yes, I am. 是的，我正在放风筝 🪁</span>
+                                <span class="answer-mask inline-flex items-center justify-center min-h-[40px]" onclick="toggleAnswer(this)" role="button" tabindex="0">No, I am not. 不是，我没在放风筝</span>
                             </div>
                         </div>
                     </div>
@@ -395,7 +396,7 @@
             <p class="text-gray-600 mb-6 italic">点击卡片查看现在进行时例句</p>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')" role="button" tabindex="0">
                     <div class="flashcard-inner">
                         <div class="flashcard-front bg-gradient-to-br from-blue-50 to-white">
                             <div class="text-4xl mb-2">🚌</div>
@@ -411,7 +412,7 @@
                     </div>
                 </div>
 
-                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')" role="button" tabindex="0">
                     <div class="flashcard-inner">
                         <div class="flashcard-front bg-gradient-to-br from-green-50 to-white">
                             <div class="text-4xl mb-2">🚗</div>
@@ -428,7 +429,7 @@
                     </div>
                 </div>
 
-                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')" role="button" tabindex="0">
                     <div class="flashcard-inner">
                         <div class="flashcard-front bg-gradient-to-br from-indigo-50 to-white">
                             <div class="text-4xl mb-2">⛵</div>
@@ -444,7 +445,7 @@
                     </div>
                 </div>
 
-                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')" role="button" tabindex="0">
                     <div class="flashcard-inner">
                         <div class="flashcard-front bg-gradient-to-br from-purple-50 to-white">
                             <div class="text-4xl mb-2">🛹</div>
@@ -471,7 +472,7 @@
 
             <div class="timeline-container">
 
-                <div class="timeline-node" onclick="toggleTimeline(this)">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge">1</span>
@@ -486,7 +487,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-node" onclick="toggleTimeline(this)">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge">2</span>
@@ -503,7 +504,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-node" onclick="toggleTimeline(this)">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge">3</span>
@@ -519,7 +520,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-node" onclick="toggleTimeline(this)">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge red">4</span>
@@ -542,7 +543,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-node" onclick="toggleTimeline(this)">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge">5</span>
@@ -559,7 +560,7 @@
                 </div>
 
                 <!-- There be 句型观察 - 修复版 -->
-                <div class="timeline-node" onclick="toggleTimeline(this)">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge green">6</span>
@@ -637,7 +638,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-node" onclick="toggleTimeline(this)">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge red">7</span>
@@ -685,7 +686,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-node" onclick="toggleTimeline(this)">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge green">8</span>
@@ -701,7 +702,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-node" onclick="toggleTimeline(this)">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge">9</span>
@@ -724,7 +725,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-node" onclick="toggleTimeline(this)">
+                <div class="timeline-node" onclick="toggleTimeline(this)" role="button" tabindex="0">
                     <div class="timeline-content">
                         <div class="flex items-center mb-2">
                             <span class="badge">10</span>
@@ -773,11 +774,11 @@
                         </div>
                         <div class="flex flex-wrap items-center gap-2">
                             <span class="text-gray-600">→ 否定句：</span>
-                            <span class="answer-mask" onclick="toggleAnswer(this)">She is not playing basketball.</span>
+                            <span class="answer-mask" onclick="toggleAnswer(this)" role="button" tabindex="0">She is not playing basketball.</span>
                         </div>
                         <div class="flex flex-wrap items-center gap-2">
                             <span class="text-gray-600">→ 疑问句：</span>
-                            <span class="answer-mask" onclick="toggleAnswer(this)">Is she playing basketball?</span>
+                            <span class="answer-mask" onclick="toggleAnswer(this)" role="button" tabindex="0">Is she playing basketball?</span>
                         </div>
                     </div>
                 </div>
@@ -793,7 +794,7 @@
                                 <span class="text-2xl">🚌</span>
                                 <span class="font-medium">Tiantian / wait / bus</span>
                             </div>
-                            <div class="answer-mask inline-block" onclick="toggleAnswer(this)">
+                            <div class="answer-mask inline-block" onclick="toggleAnswer(this)" role="button" tabindex="0">
                                 What is Tiantian doing? He is waiting for a bus.
                             </div>
                         </div>
@@ -803,7 +804,7 @@
                                 <span class="text-2xl">⛵</span>
                                 <span class="font-medium">Peter and Simon / sail / boat</span>
                             </div>
-                            <div class="answer-mask inline-block" onclick="toggleAnswer(this)">
+                            <div class="answer-mask inline-block" onclick="toggleAnswer(this)" role="button" tabindex="0">
                                 What are Peter and Simon doing? They are sailing a boat.
                             </div>
                         </div>
@@ -813,7 +814,7 @@
                                 <span class="text-2xl">🛹</span>
                                 <span class="font-medium">Claire / look for / skateboard</span>
                             </div>
-                            <div class="answer-mask inline-block" onclick="toggleAnswer(this)">
+                            <div class="answer-mask inline-block" onclick="toggleAnswer(this)" role="button" tabindex="0">
                                 What is Claire doing? She is looking for a skateboard.
                             </div>
                         </div>
@@ -828,19 +829,19 @@
                     <div class="space-y-3">
                         <div class="flex flex-wrap items-center gap-2">
                             <span class="text-gray-700 font-medium w-24 flex-shrink-0">轮胎坏了：</span>
-                            <span class="answer-mask flex-1" onclick="toggleAnswer(this)">We have got a problem with the tyre.</span>
+                            <span class="answer-mask flex-1" onclick="toggleAnswer(this)" role="button" tabindex="0">We have got a problem with the tyre.</span>
                         </div>
                         <div class="flex flex-wrap items-center gap-2">
                             <span class="text-gray-700 font-medium w-24 flex-shrink-0">大巴开动：</span>
-                            <span class="answer-mask flex-1" onclick="toggleAnswer(this)">The bus is moving.</span>
+                            <span class="answer-mask flex-1" onclick="toggleAnswer(this)" role="button" tabindex="0">The bus is moving.</span>
                         </div>
                         <div class="flex flex-wrap items-center gap-2">
                             <span class="text-gray-700 font-medium w-24 flex-shrink-0">到达海滩：</span>
-                            <span class="answer-mask flex-1" onclick="toggleAnswer(this)">Here we are! This is a day at the beach.</span>
+                            <span class="answer-mask flex-1" onclick="toggleAnswer(this)" role="button" tabindex="0">Here we are! This is a day at the beach.</span>
                         </div>
                         <div class="flex flex-wrap items-center gap-2">
                             <span class="text-gray-700 font-medium w-24 flex-shrink-0">轮流帮忙：</span>
-                            <span class="answer-mask flex-1" onclick="toggleAnswer(this)">Now it is my turn to help you.</span>
+                            <span class="answer-mask flex-1" onclick="toggleAnswer(this)" role="button" tabindex="0">Now it is my turn to help you.</span>
                         </div>
                     </div>
                 </div>
@@ -875,7 +876,7 @@
                                 <div class="leading-relaxed flex flex-wrap items-center gap-1">
                                     <span>I</span>
                                     <span class="text-red-600 font-bold">am</span>
-                                    <span class="answer-mask text-sm py-1 px-3" onclick="toggleAnswer(this); event.stopPropagation()">waiting for a bus</span>
+                                    <span class="answer-mask text-sm py-1 px-3" onclick="toggleAnswer(this); event.stopPropagation()" role="button" tabindex="0">waiting for a bus</span>
                                     <span>. What about you?</span>
                                 </div>
                             </div>
@@ -887,7 +888,7 @@
                                 <div class="leading-relaxed flex flex-wrap items-center gap-1">
                                     <span>I</span>
                                     <span class="text-red-600 font-bold">am</span>
-                                    <span class="answer-mask text-sm py-1 px-3" onclick="toggleAnswer(this); event.stopPropagation()">playing with my toy cars</span>
+                                    <span class="answer-mask text-sm py-1 px-3" onclick="toggleAnswer(this); event.stopPropagation()" role="button" tabindex="0">playing with my toy cars</span>
                                     <span>.</span>
                                 </div>
                             </div>
@@ -899,7 +900,7 @@
                                 <div class="leading-relaxed flex flex-wrap items-center gap-1">
                                     <span>Look! The bus</span>
                                     <span class="text-red-600 font-bold">is</span>
-                                    <span class="answer-mask text-sm py-1 px-3" onclick="toggleAnswer(this); event.stopPropagation()">moving</span>
+                                    <span class="answer-mask text-sm py-1 px-3" onclick="toggleAnswer(this); event.stopPropagation()" role="button" tabindex="0">moving</span>
                                     <span>!</span>
                                 </div>
                             </div>
@@ -924,7 +925,7 @@
                                     <span class="text-red-600 font-bold">are having</span>
                                     <span>a bus trip. It</span>
                                     <span class="text-red-600 font-bold">is</span>
-                                    <span class="answer-mask text-sm py-1 px-3" onclick="toggleAnswer(this); event.stopPropagation()">exciting</span>
+                                    <span class="answer-mask text-sm py-1 px-3" onclick="toggleAnswer(this); event.stopPropagation()" role="button" tabindex="0">exciting</span>
                                     <span>!</span>
                                 </div>
                             </div>
@@ -948,7 +949,7 @@
                                     <span>Yes! And now it</span>
                                     <span class="text-red-600 font-bold">is</span>
                                     <span>my turn to</span>
-                                    <span class="answer-mask text-sm py-1 px-3" onclick="toggleAnswer(this); event.stopPropagation()">take photos</span>
+                                    <span class="answer-mask text-sm py-1 px-3" onclick="toggleAnswer(this); event.stopPropagation()" role="button" tabindex="0">take photos</span>
                                     <span>.</span>
                                 </div>
                             </div>
