@@ -1307,6 +1307,20 @@ else
     ERRORS=$((ERRORS + 1))
 fi
 
+if grep -q '^@layer base' css/baseball-unit7.css; then
+    echo "   ✗ css/baseball-unit7.css still has @layer wrapper!"
+    ERRORS=$((ERRORS + 1))
+else
+    echo "   ✓ css/baseball-unit7.css no longer uses @layer wrapper"
+fi
+
+if grep -q '@media (prefers-reduced-motion: reduce)' css/baseball-unit7.css; then
+    echo "   ✓ css/baseball-unit7.css includes reduced-motion guard"
+else
+    echo "   ✗ css/baseball-unit7.css missing reduced-motion guard!"
+    ERRORS=$((ERRORS + 1))
+fi
+
 if grep -q '<style type="text/tailwindcss">' super-minds-baseball/unit7/baseball-present-continuous-homework.html; then
     echo "   ✗ Unit 7 baseball homework still has inline style block!"
     ERRORS=$((ERRORS + 1))

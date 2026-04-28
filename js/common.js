@@ -131,8 +131,8 @@ window.toggleAnswer = function(element) {
     // Support both answer-mask styles:
     // - Unit 7 masks use `revealed`
     // - Baseball / legacy answer panels use `show`
-    const usesHiddenClass = element.classList.contains('hidden');
-    const usesShowClass = usesHiddenClass || element.classList.contains('show') || element.classList.contains('interactive-answer') || element.classList.contains('quiz-answer-box') || element.classList.contains('answer-section') || element.classList.contains('answer-table') || element.classList.contains('word-quiz-blank') || element.classList.contains('blank');
+    const showClasses = ['hidden', 'show', 'interactive-answer', 'quiz-answer-box', 'answer-section', 'answer-table', 'word-quiz-blank', 'blank'];
+    const usesShowClass = showClasses.some(cls => element.classList.contains(cls));
 
     element.classList.toggle(usesShowClass ? 'show' : 'revealed');
     
