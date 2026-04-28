@@ -9,9 +9,9 @@
 
 /**
  * Selector for homework progress checkboxes
- * Using specific class to avoid conflicts with other checkboxes on the page
+ * Prefer explicit data hooks, but keep the legacy Unit 7 markup as a fallback.
  */
-const HOMEWORK_CHECKBOX_SELECTOR = '.check-item input[type="checkbox"]';
+const HOMEWORK_CHECKBOX_SELECTOR = '[data-progress-checkbox="homework"], .check-item input[type="checkbox"]';
 
 // ============================================
 // Mobile Navigation
@@ -148,7 +148,7 @@ if (typeof updateProgress !== 'function') {
         checkboxSelector = checkboxSelector || HOMEWORK_CHECKBOX_SELECTOR;
         const checkboxes = document.querySelectorAll(checkboxSelector);
         const checked = document.querySelectorAll(checkboxSelector + ':checked');
-        const progress = (checked.length / checkboxes.length) * 100;
+        const progress = checkboxes.length ? (checked.length / checkboxes.length) * 100 : 0;
         
         const progressBar = document.getElementById('progressBar');
         const progressText = document.getElementById('progress-text');

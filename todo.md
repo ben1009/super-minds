@@ -133,7 +133,7 @@
 ### 18. Clean up `js/common.js`
 - [ ] Remove or guard `console.warn` (line 194) and `console.error` (line 217)
 - [ ] `toggleAnswer()` API inconsistency: common.js toggles `.revealed`, baseball variants toggle `.hidden`
-- [ ] `HOMEWORK_CHECKBOX_SELECTOR` (line 14) is tightly coupled to a specific markup pattern
+- [x] `HOMEWORK_CHECKBOX_SELECTOR` now prefers `data-progress-checkbox="homework"` and keeps the legacy `.check-item` fallback
 
 ### 19. Clean up `css/common.css`
 - [ ] Add `@media (prefers-reduced-motion: reduce)` guards for `fadeInUp` and `float` animations
