@@ -39,22 +39,22 @@ fi
 for file in unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html unit9/fairy-tales-reading.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html; do
     if [ -f "$file" ]; then
         if grep -q 'window.NAV_CONFIG' "$file"; then
-            echo "   ✓ $f has NAV_CONFIG"
+            echo "   ✓ $file has NAV_CONFIG"
         else
-            echo "   ✗ $f missing NAV_CONFIG!"
+            echo "   ✗ $file missing NAV_CONFIG!"
             ERRORS=$((ERRORS + 1))
         fi
         
         if grep -q 'id="site-nav"' "$file"; then
-            echo "   ✓ $f has site-nav container"
+            echo "   ✓ $file has site-nav container"
         else
-            echo "   ✗ $f missing site-nav container!"
+            echo "   ✗ $file missing site-nav container!"
             ERRORS=$((ERRORS + 1))
         fi
         
         # Verify old inline nav is removed
         if grep -q '<nav class="sticky top-0' "$file" || grep -q '<nav class="bg-red-800' "$file"; then
-            echo "   ✗ $f still has old inline nav!"
+            echo "   ✗ $file still has old inline nav!"
             ERRORS=$((ERRORS + 1))
         fi
     fi
