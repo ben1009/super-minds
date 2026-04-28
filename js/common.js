@@ -147,7 +147,7 @@ if (typeof updateProgress !== 'function') {
         storageKey = storageKey || 'homeworkProgress';
         checkboxSelector = checkboxSelector || HOMEWORK_CHECKBOX_SELECTOR;
         const checkboxes = document.querySelectorAll(checkboxSelector);
-        const checked = document.querySelectorAll(checkboxSelector + ':checked');
+        const checked = Array.from(checkboxes).filter(cb => cb.checked);
         const progress = checkboxes.length ? (checked.length / checkboxes.length) * 100 : 0;
         
         const progressBar = document.getElementById('progressBar');
