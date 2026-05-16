@@ -247,7 +247,7 @@ echo "4. Checking favicon on all pages..."
 ERRORS=0
 
 # Combined loop for all HTML files
-for file in index.html unit7/*.html unit8/*.html unit9/*.html super-minds-baseball/index.html super-minds-baseball/unit7/*.html super-minds-baseball/unit8/*.html; do
+for file in index.html unit7/*.html unit8/*.html unit9/*.html review/*.html super-minds-baseball/index.html super-minds-baseball/unit7/*.html super-minds-baseball/unit8/*.html; do
     if [ -f "$file" ]; then
         if grep -q 'rel="icon"' "$file"; then
             echo "   ✓ $file has favicon"
@@ -267,7 +267,7 @@ echo "5b. Checking Unit 9 page navigation links..."
 ERRORS=0
 
 # For pages with NAV_CONFIG, links are in common.js
-for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html; do
+for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html review/review-units-1-3.html; do
     if [ -f "$file" ]; then
         if grep -q 'window.NAV_CONFIG' "$file"; then
             echo "   ✓ $file uses centralized nav (common.js)"
@@ -367,7 +367,7 @@ echo "6. Checking reading page navigation links..."
 ERRORS=0
 
 # Check that reading.html is linked from all relevant pages
-for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html; do
+for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html review/review-units-1-3.html; do
     if [ -f "$file" ]; then
         if grep -q 'window.NAV_CONFIG' "$file"; then
             echo "   ✓ $file uses centralized nav (common.js)"
@@ -456,7 +456,7 @@ echo "8. Checking grammar.html navigation links from other pages..."
 ERRORS=0
 
 # Check that grammar.html is linked from all relevant pages
-for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/fun-things-we-do-reading.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html; do
+for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/fun-things-we-do-reading.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html review/review-units-1-3.html; do
     if [ -f "$file" ]; then
         if grep -q 'window.NAV_CONFIG' "$file"; then
             echo "   ✓ $file uses centralized nav (common.js)"
@@ -486,7 +486,7 @@ echo "9. Checking unit9/holiday-plans-grammar-review.html navigation links from 
 ERRORS=0
 
 # Check that unit9 is linked from all relevant pages
-for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/fun-things-we-do-reading.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html; do
+for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/fun-things-we-do-reading.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html review/review-units-1-3.html; do
     if [ -f "$file" ]; then
         if grep -q 'window.NAV_CONFIG' "$file"; then
             echo "   ✓ $file uses centralized nav (common.js)"
@@ -598,7 +598,7 @@ echo ""
 echo "13. Checking TODO section consistency across all pages..."
 ERRORS=0
 
-for file in unit8/question-words-grammar-homework.html unit8/fun-things-we-do-reading.html unit9/holiday-plans-grammar-review.html unit9/fairy-tales-reading.html unit8/amazing-vehicles-reading.html; do
+for file in unit8/question-words-grammar-homework.html unit8/fun-things-we-do-reading.html unit9/holiday-plans-grammar-review.html unit9/fairy-tales-reading.html unit8/amazing-vehicles-reading.html review/review-units-1-3.html; do
     if [ -f "$file" ]; then
         # Check data-todo attributes
         if grep -q 'data-todo' "$file"; then
@@ -757,7 +757,7 @@ echo "18. Checking main container width consistency across all pages..."
 ERRORS=0
 
 # All content pages should use max-w-6xl as main container
-for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html unit8/fun-things-we-do-reading.html unit9/holiday-plans-grammar-review.html unit9/fairy-tales-reading.html super-minds-baseball/index.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html; do
+for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html unit8/fun-things-we-do-reading.html unit9/holiday-plans-grammar-review.html unit9/fairy-tales-reading.html review/review-units-1-3.html super-minds-baseball/index.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html; do
     if [ -f "$file" ]; then
         # Check that the main content container uses max-w-6xl
         if grep -q 'max-w-6xl.*mx-auto' "$file"; then
@@ -1016,7 +1016,7 @@ else
 fi
 
 # PR #31: no inline <nav> HTML remaining (all use renderNav via NAV_CONFIG)
-INLINE_NAV_FILES="unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html super-minds-baseball/index.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html"
+INLINE_NAV_FILES="unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html review/review-units-1-3.html super-minds-baseball/index.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html"
 INLINE_NAV_ERRORS=0
 for file in $INLINE_NAV_FILES; do
     if [ -f "$file" ]; then
@@ -1035,7 +1035,7 @@ if [ $INLINE_NAV_ERRORS -eq 0 ]; then
 fi
 
 # PR #29: renamed course pages exist
-RENAME_FILES="unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html unit9/fairy-tales-reading.html"
+RENAME_FILES="unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html unit9/fairy-tales-reading.html review/review-units-1-3.html"
 for file in $RENAME_FILES; do
     if [ -f "$file" ]; then
         :
@@ -1132,7 +1132,7 @@ else
 fi
 
 # Accessibility: all pages have main-content landmark
-MAIN_CONTENT_FILES="index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html super-minds-baseball/index.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html"
+MAIN_CONTENT_FILES="index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html review/review-units-1-3.html super-minds-baseball/index.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html"
 MAIN_CONTENT_ERRORS=0
 for file in $MAIN_CONTENT_FILES; do
     if [ -f "$file" ]; then
@@ -1326,6 +1326,219 @@ if grep -q '<style type="text/tailwindcss">' super-minds-baseball/unit7/baseball
     ERRORS=$((ERRORS + 1))
 else
     echo "   ✓ Unit 7 baseball homework uses shared stylesheet only"
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "23. Checking review/review-units-1-3.html..."
+ERRORS=0
+
+if [ -f "review/review-units-1-3.html" ]; then
+    echo "   ✓ review/review-units-1-3.html exists"
+else
+    echo "   ✗ review/review-units-1-3.html missing!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Navigation
+if grep -q 'window.NAV_CONFIG' "review/review-units-1-3.html"; then
+    echo "   ✓ review page uses centralized nav (NAV_CONFIG)"
+else
+    echo "   ✗ review page missing NAV_CONFIG!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'id="site-nav"' "review/review-units-1-3.html"; then
+    echo "   ✓ review page has site-nav container"
+else
+    echo "   ✗ review page missing site-nav container!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Shared resources
+if grep -q '../css/baseball-theme.css' "review/review-units-1-3.html"; then
+    echo "   ✓ review page references baseball-theme.css"
+else
+    echo "   ✗ review page missing baseball-theme.css reference!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q '../js/common.js' "review/review-units-1-3.html"; then
+    echo "   ✓ review page references common.js"
+else
+    echo "   ✗ review page missing common.js reference!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q '../ga.js' "review/review-units-1-3.html"; then
+    echo "   ✓ review page uses ../ga.js"
+else
+    echo "   ✗ review page not using ../ga.js!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Content sections
+check_content "review/review-units-1-3.html" 'Present Simple' "review page has Present Simple grammar"
+check_content "review/review-units-1-3.html" 'Can (Ability' "review page has Can grammar"
+check_content "review/review-units-1-3.html" 'Have got / Has got' "review page has Have got grammar"
+check_content "review/review-units-1-3.html" 'reptile' "review page has reptile vocabulary"
+check_content "review/review-units-1-3.html" 'Exercise A' "review page has Exercise A"
+check_content "review/review-units-1-3.html" 'Exercise B' "review page has Exercise B"
+check_content "review/review-units-1-3.html" 'Exercise C' "review page has Exercise C"
+check_content "review/review-units-1-3.html" 'The Strange Pet Shop' "review page has KET Reading A"
+check_content "review/review-units-1-3.html" 'The Reptile House' "review page has KET Reading B"
+check_content "review/review-units-1-3.html" 'PET Level' "review page has PET Reading"
+check_content "review/review-units-1-3.html" "Today's Todo" "review page has Today's Todo"
+
+# Interactive features
+if grep -q 'function showQuizAnswer' "review/review-units-1-3.html"; then
+    echo "   ✓ review page has showQuizAnswer() function"
+else
+    echo "   ✗ review page missing showQuizAnswer() function!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'quiz-option' "review/review-units-1-3.html"; then
+    echo "   ✓ review page has quiz-option elements"
+else
+    echo "   ✗ review page missing quiz-option elements!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'data-placeholder' "review/review-units-1-3.html"; then
+    echo "   ✓ review page uses data-placeholder attributes"
+else
+    echo "   ✗ review page missing data-placeholder attributes!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'data-todo' "review/review-units-1-3.html"; then
+    echo "   ✓ review page has data-todo attributes"
+else
+    echo "   ✗ review page missing data-todo attributes!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'progressBar' "review/review-units-1-3.html"; then
+    echo "   ✓ review page has progressBar"
+else
+    echo "   ✗ review page missing progressBar!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'resetTodoItems' "review/review-units-1-3.html"; then
+    echo "   ✓ review page has resetTodoItems"
+else
+    echo "   ✗ review page missing resetTodoItems!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'localStorage' "review/review-units-1-3.html"; then
+    echo "   ✓ review page uses localStorage"
+else
+    echo "   ✗ review page missing localStorage!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'leather-card' "review/review-units-1-3.html"; then
+    echo "   ✓ review page uses leather-card class"
+else
+    echo "   ✗ review page missing leather-card class!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'reading-card' "review/review-units-1-3.html"; then
+    echo "   ✓ review page uses reading-card class"
+else
+    echo "   ✗ review page missing reading-card class!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Layout
+if grep -q 'max-w-6xl.*mx-auto' "review/review-units-1-3.html"; then
+    echo "   ✓ review page uses max-w-6xl main container"
+else
+    echo "   ✗ review page missing max-w-6xl main container!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if grep -q 'id="main-content"' "review/review-units-1-3.html"; then
+    echo "   ✓ review page has id=main-content landmark"
+else
+    echo "   ✗ review page missing id=main-content landmark!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+if [ $ERRORS -gt 0 ]; then
+    exit 1
+fi
+
+echo ""
+echo "24. Checking review page bidirectional navigation..."
+ERRORS=0
+
+# Review page linked from index.html
+if grep -q 'review/review-units-1-3.html' "index.html"; then
+    echo "   ✓ index.html links to review page"
+else
+    echo "   ✗ index.html missing link to review page!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# common.js has B_review config
+if grep -q 'B_review:' "js/common.js"; then
+    echo "   ✓ js/common.js has B_review navigation config"
+else
+    echo "   ✗ js/common.js missing B_review config!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# common.js handles 'review' prefix in getUnitFromActive
+if grep -q "active.startsWith('review')" "js/common.js"; then
+    echo "   ✓ js/common.js handles review prefix in getUnitFromActive"
+else
+    echo "   ✗ js/common.js missing review prefix support!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Review link exists in all B-pattern configs
+B_CONFIGS="B_unit8 B_unit9 B_review B_baseball-unit8"
+for cfg in $B_CONFIGS; do
+    if grep -q "${cfg}:" "js/common.js"; then
+        if grep -A30 "${cfg}:" "js/common.js" | grep -q 'review:'; then
+            echo "   ✓ js/common.js $cfg has review link"
+        else
+            echo "   ✗ js/common.js $cfg missing review link!"
+            ERRORS=$((ERRORS + 1))
+        fi
+    fi
+done
+
+# Pattern A also has review link
+if grep -A40 'A: {' "js/common.js" | grep -q 'review:'; then
+    echo "   ✓ js/common.js NAV_LINKS.A has review link"
+else
+    echo "   ✗ js/common.js NAV_LINKS.A missing review link!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Pattern C also has review link
+if grep -A15 "'baseball-unit7-course':" "js/common.js" | grep -q 'review'; then
+    echo "   ✓ js/common.js Pattern C has review link"
+else
+    echo "   ✗ js/common.js Pattern C missing review link!"
+    ERRORS=$((ERRORS + 1))
+fi
+
+# Review page nav renders review link hidden when on review page
+if grep -q '!isReview' "js/common.js"; then
+    echo "   ✓ buildNavPatternB hides review link on review page"
+else
+    echo "   ✗ buildNavPatternB missing isReview guard!"
+    ERRORS=$((ERRORS + 1))
 fi
 
 if [ $ERRORS -gt 0 ]; then

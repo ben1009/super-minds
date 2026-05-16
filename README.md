@@ -65,6 +65,16 @@ Unit 9 now includes a grammar review track and a reading track.
    - ✍️ 40 word quiz blanks across Chinese-English and English-Chinese practice
    - ✅ Interactive todo list with progress tracking
 
+### Review - Units 1-3 (复习)
+
+**Review Page** (`review/review-units-1-3.html`)
+   - 📝 Grammar notes: Present Simple (3rd person singular), Can, Have got / Has got
+   - 🎯 8 core vocabulary cards with audio pronunciation
+   - ✏️ Exercises: multiple choice, sentence rewriting, fill-in-the-blanks
+   - 📖 KET reading: The Strange Pet Shop + The Reptile House
+   - 🚀 PET extension: advanced reading with academic vocabulary (optional)
+   - ✅ Interactive todo list for homework tracking
+
 ## 🌐 Access the Course
 
 **Click the link below to start learning:**
@@ -96,6 +106,8 @@ No installation required — just open it in your browser!
 │   ├── holiday-plans-grammar-review.html  # Unit 9: Holiday Plans Grammar Review
 │   ├── fairy-tales-reading.html           # Unit 9: Fairy Tales Reading
 │   └── Super minds2 -page 114.pdf         # Source PDF for Fairy Tales content
+├── review/
+│   └── review-units-1-3.html              # Review: Units 1-3 Grammar & Reading
 ├── super-minds-baseball/   # Baseball-themed edition
 │   ├── index.html          # Baseball homepage with links to all units
 │   ├── unit7/
@@ -114,6 +126,7 @@ No installation required — just open it in your browser!
 - ✅ Instant feedback on practice exercises
 - 🌴 Unit 9 grammar review: Holiday Plans with dialogue fill-in-the-blanks
 - 🏰 Unit 9 reading: Fairy Tales and Reading on Holiday
+- 📝 Units 1-3 review: Grammar notes, exercises, and KET/PET reading practice
 - ⚾ Baseball-themed special edition with cross-navigation to all units
 - 🔄 Shared code architecture for maintainability
 - ✅ Automated testing with GitHub Actions
