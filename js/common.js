@@ -68,6 +68,47 @@ function toggleQuizAnswer(container, answerSelector = '.quiz-answer', iconSelect
 }
 
 /**
+ * Show / hide quiz answer with correct/wrong highlighting
+ * Relies on data-correct attribute set by deinlineOnclick()
+ * @param {HTMLElement} element - The clicked quiz option
+ * @param {boolean} isCorrect - Whether the clicked option is correct
+ */
+if (typeof showQuizAnswer !== 'function') {
+    window.showQuizAnswer = function(element, isCorrect) {
+        const card = element.closest('.reading-card');
+        if (!card) return;
+        const revealed = card.classList.contains('revealed');
+
+        if (revealed) {
+            // Hide answer
+            card.classList.remove('revealed');
+            card.querySelectorAll('.quiz-option').forEach(function(opt) {
+                opt.classList.remove('correct', 'wrong');
+            });
+            const box = card.querySelector('.quiz-answer-box');
+            if (box) box.classList.remove('show');
+        } else {
+            // Show answer — highlight correct option(s)
+            card.classList.add('revealed');
+            card.querySelectorAll('.quiz-option').forEach(function(opt) {
+                if (opt.dataset.correct === 'true') {
+                    opt.classList.add('correct');
+                }
+            });
+
+            // If user clicked a wrong answer, mark it red
+            if (!isCorrect) {
+                element.classList.remove('correct');
+                element.classList.add('wrong');
+            }
+
+            const box = card.querySelector('.quiz-answer-box');
+            if (box) box.classList.add('show');
+        }
+    };
+}
+
+/**
  * Toggle translation visibility in story sections
  * @param {HTMLElement} container - The container element that was clicked
  */
@@ -325,7 +366,8 @@ const NAV_LINKS = {
                 { key: 'unit9-grammar', href: '../unit9/holiday-plans-grammar-review.html', label: '🌴 假期计划语法 Grammar' },
                 { key: 'unit9-fairytales', href: '../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
-        }
+        },
+        review: { href: '../review/review-units-1-3.html', label: '📝 复习 Review' }
     },
     B_unit8: {
         home: { href: '../index.html', label: '首页 Home' },
@@ -354,7 +396,8 @@ const NAV_LINKS = {
                 { key: 'unit9-grammar', href: '../unit9/holiday-plans-grammar-review.html', label: '🌴 假期计划语法 Grammar' },
                 { key: 'unit9-fairytales', href: '../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
-        }
+        },
+        review: { href: '../review/review-units-1-3.html', label: '📝 复习 Review' }
     },
     B_unit9: {
         home: { href: '../index.html', label: '首页 Home' },
@@ -383,7 +426,38 @@ const NAV_LINKS = {
                 { key: 'unit9-grammar', href: 'holiday-plans-grammar-review.html', label: '🌴 假期计划语法 Grammar' },
                 { key: 'unit9-fairytales', href: 'fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
-        }
+        },
+        review: { href: '../review/review-units-1-3.html', label: '📝 复习 Review' }
+    },
+    B_review: {
+        home: { href: '../index.html', label: '首页 Home' },
+        unit7: {
+            label: 'Unit 7',
+            triggerHref: '../unit7/present-continuous-course.html',
+            pages: [
+                { key: 'unit7-course', href: '../unit7/present-continuous-course.html', label: '📖 现在进行时 Course' },
+                { key: 'unit7-homework', href: '../unit7/present-continuous-homework.html', label: '✏️ 作业 Homework' }
+            ]
+        },
+        unit8: {
+            label: 'Unit 8',
+            triggerHref: '../unit8/gerunds-ball-sports.html',
+            pages: [
+                { key: 'unit8-sports', href: '../unit8/gerunds-ball-sports.html', label: '⚾ 球类运动 Sports' },
+                { key: 'unit8-vehicles', href: '../unit8/amazing-vehicles-reading.html', label: '🚌 交通工具 Vehicles' },
+                { key: 'unit8-reading', href: '../unit8/fun-things-we-do-reading.html', label: '📚 补充阅读 Reading' },
+                { key: 'unit8-homework', href: '../unit8/question-words-grammar-homework.html', label: '✏️ 语法作业 Homework' }
+            ]
+        },
+        unit9: {
+            label: 'Unit 9',
+            triggerHref: '../unit9/holiday-plans-grammar-review.html',
+            pages: [
+                { key: 'unit9-grammar', href: '../unit9/holiday-plans-grammar-review.html', label: '🌴 假期计划语法 Grammar' },
+                { key: 'unit9-fairytales', href: '../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
+            ]
+        },
+        review: { href: 'review-units-1-3.html', label: '📝 复习 Review' }
     },
     'B_baseball-unit8': {
         home: { href: '../index.html', label: '首页 Home' },
@@ -409,7 +483,8 @@ const NAV_LINKS = {
                 { key: 'baseball-unit9-grammar', href: '../../unit9/holiday-plans-grammar-review.html', label: '🌴 假期计划语法 Grammar' },
                 { key: 'baseball-unit9-fairytales', href: '../../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
-        }
+        },
+        review: { href: '../../review/review-units-1-3.html', label: '📝 复习 Review' }
     },
     C: {
         'baseball-unit7-course': {
@@ -419,10 +494,11 @@ const NAV_LINKS = {
                 { href: 'baseball-present-continuous-homework.html', label: '📚 课后作业' },
                 { href: '../unit8/baseball-gerunds-ball-sports.html', label: '🏏 Unit 8' },
                 { href: '../../unit9/holiday-plans-grammar-review.html', label: '🌴 Unit 9' },
-                { href: '../../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales' }
+                { href: '../../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales' },
+                { href: '../../review/review-units-1-3.html', label: '📝 复习' }
             ],
             activeLabel: '⚾ Unit 7',
-            separators: [0, 1, 2]
+            separators: [0, 1, 2, 3, 4]
         },
         'baseball-unit7-homework': {
             home: { href: '../index.html', label: '⚾ Super Minds' },
@@ -431,10 +507,11 @@ const NAV_LINKS = {
                 { href: 'baseball-present-continuous-course.html', label: '⚾ Unit 7' },
                 { href: '../unit8/baseball-gerunds-ball-sports.html', label: '🏏 Unit 8' },
                 { href: '../../unit9/holiday-plans-grammar-review.html', label: '🌴 Unit 9' },
-                { href: '../../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales' }
+                { href: '../../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales' },
+                { href: '../../review/review-units-1-3.html', label: '📝 复习' }
             ],
             activeLabel: '📚 课后作业',
-            separators: [0, 1, 2]
+            separators: [0, 1, 2, 3, 4]
         }
     }
 };
@@ -445,6 +522,7 @@ function getUnitFromActive(active) {
     if (active.startsWith('unit7')) return 'unit7';
     if (active.startsWith('unit8')) return 'unit8';
     if (active.startsWith('unit9')) return 'unit9';
+    if (active.startsWith('review')) return 'review';
     return '';
 }
 
@@ -530,6 +608,7 @@ function buildNavPatternA(active) {
                             ${links.unit9.pages.map(p => `<a href="${p.href}" class="${dropdownItemClass(p.key)}">${p.label}</a>`).join('\n                            ')}
                         </div>
                     </div>
+                    <a href="${links.review.href}" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">${links.review.label}</a>
                 </div>
                 <button type="button" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
                     <i data-lucide="menu" class="w-6 h-6"></i>
@@ -550,6 +629,7 @@ function buildNavPatternA(active) {
                         <div class="text-white/70 text-xs mb-1">Unit 9</div>
                         ${links.unit9.pages.map(p => `<a href="${p.href}" class="${mobileItemClass(p.key)}">${p.label}</a>`).join('\n                        ')}
                     </div>
+                    <a href="${links.review.href}" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">${links.review.label}</a>
                 </div>
             </div>
         </div>
@@ -565,8 +645,12 @@ function buildNavPatternB(active, brandIcon) {
     const isUnit7 = active.startsWith('unit7');
     const isUnit8 = active.startsWith('unit8');
     const isUnit9 = active.startsWith('unit9');
+    const isReview = active.startsWith('review');
     
     const homeClass = 'nav-link px-3 py-2 text-sm font-medium';
+    const reviewClass = isReview
+        ? 'nav-link px-3 py-2 text-sm font-medium border-b-2 border-red-500'
+        : 'nav-link px-3 py-2 text-sm font-medium';
     
     function unitTriggerClass(isActive) {
         return isActive
@@ -620,6 +704,7 @@ function buildNavPatternB(active, brandIcon) {
                             ${links.unit9.pages.map(p => `<a href="${p.href}" class="${dropdownItemClass(p.key)}">${p.label}</a>`).join('\n                            ')}
                         </div>
                     </div>
+                    ${!isReview ? `<a href="${links.review.href}" class="${reviewClass}">${links.review.label}</a>` : ''}
                 </div>
                 <button type="button" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
                     <i class="fas fa-bars text-xl"></i>
@@ -640,6 +725,7 @@ function buildNavPatternB(active, brandIcon) {
                         <div class="text-white/70 text-xs mb-1">Unit 9</div>
                         ${links.unit9.pages.map(p => `<a href="${p.href}" class="${mobileItemClass(p.key)}">${p.label}</a>`).join('\n                        ')}
                     </div>
+                    ${!isReview ? `<a href="${links.review.href}" class="${mobileItemClass('review')}">${links.review.label}</a>` : ''}
                 </div>
             </div>
         </div>
@@ -871,6 +957,7 @@ function deinlineOnclick() {
                 const fn = window[m[1]];
                 const arg = m[2] === 'true';
                 if (typeof fn !== 'function') return false;
+                el.dataset.correct = arg ? 'true' : 'false';
                 el.addEventListener('click', function() { fn.call(el, el, arg); });
                 return true;
             }

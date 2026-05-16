@@ -43,6 +43,8 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 ├── unit9/
 │   ├── holiday-plans-grammar-review.html  # Unit 9 语法复习页面（假期计划语法总结）
 │   └── fairy-tales-reading.html           # Unit 9 童话故事阅读页面（Fairy Tales + Reading on Holiday）
+├── review/
+│   └── review-units-1-3.html              # Units 1-3 复习页面（语法笔记、练习题、KET/PET阅读）
 ├── super-minds-baseball/   # 棒球英语学习板块
 │   ├── index.html          # 棒球版主页
 │   ├── unit7/
@@ -71,6 +73,7 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 | `scripts/generate-baseball.py` | 构建脚本：读取 `unit8/gerunds-ball-sports.html` 生成棒球版 (`super-minds-baseball/unit8/baseball-gerunds-ball-sports.html`) |
 | `unit9/holiday-plans-grammar-review.html` | Unit 9 语法复习页面，包含：Page 108歌曲语法重点、Page 109语法总结、两组对话填空（35+空）、5个动词短语发音、作业清单 |
 | `unit9/fairy-tales-reading.html` | Unit 9 童话故事阅读页面，包含：14个词汇卡片（带发音）、两篇阅读理解（Folk Tales + Reading on Holiday）、8道选择题、40道单词测验（汉译英+英译汉）、作业清单 |
+| `review/review-units-1-3.html` | Units 1-3 复习页面，包含：一般现在时/Can/Have got语法笔记、8个核心词汇、选择题/句型转换/综合填空练习、Have got专项练习、KET两篇阅读（选择+判断）、PET拓展阅读（选择+段落匹配）、作业清单 |
 | `super-minds-baseball/unit8/baseball-gerunds-ball-sports.html` | 棒球版 Unit 8 课程内容 |
 | `super-minds-baseball/index.html` | 棒球主题的英语学习板块主页 |
 | `css/common.css` | 共享 CSS 样式模块（变量、动画、工具类） |
@@ -317,6 +320,42 @@ Super Minds 是一个面向儿童的互动式英语语法学习网站，涵盖**
 ### 5. 今日任务 (Today's Todo)
 - 4项作业任务，点击标记完成（圆形复选框 + 划线效果）
 - 皮革质感卡片容器（.leather-card）
+
+## Units 1-3 Review (review/review-units-1-3.html) Specific Features
+
+### 1. 核心语法笔记 (Grammar Focus)
+- 3大语法点：一般现在时（三单规则）、Can（能力/可能性）、Have got / Has got（拥有）
+- 每个语法点配有完整句型结构表格（陈述句、疑问句、回答）
+- Have got 口诀提示：三单用 has，其余用 have
+
+### 2. 核心词汇卡片 (Vocabulary Cards)
+- 8个核心词汇：reptile, features, feathers, scales, blood, lay eggs, insects, be a part of
+- 点击卡片使用 Web Speech API 发音
+- 每个词汇配例句展示实际用法
+
+### 3. 专项练习 (Exercises)
+- Exercise A：5道选择题（动词三单、Can、Have got）
+- Exercise B：句型转换（否定句、一般疑问句及回答）
+- Exercise C：5道综合填空（can / has got / have got）
+- Have got 专项：填空、改否定句、改一般疑问句及回答
+- 点击空白处显示/隐藏答案（共用 common.js 的 revealAnswer 函数）
+
+### 4. KET 阅读练习 (KET Reading)
+- Reading A：The Strange Pet Shop（5道选择题，宠物主题）
+- Reading B：The Reptile House（5道 True/False 题）
+- 点击段落显示/隐藏中文翻译
+- 点击选项即时反馈正确/错误答案（.correct / .wrong 样式）
+
+### 5. PET 拓展阅读 (PET Reading — 选做)
+- The Reptile House (PET Level)：学术词汇（ectothermic, endothermic, predators, prey）
+- Task 1：5道选择题（词义猜测、细节理解、推理判断）
+- Task 2：段落匹配题（4个段落配5个标题，含1个干扰项）
+- 点击空白处显示段落匹配答案
+
+### 6. 今日任务 (Today's Todo)
+- 5项作业任务，点击标记完成（圆形复选框 + 划线效果）
+- localStorage 键使用 `reviewUnits1to3Todos`
+- 进度条实时显示完成百分比
 
 ## Key Features Implementation
 
