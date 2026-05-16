@@ -123,10 +123,10 @@ if [ -f "unit9/fairy-tales-reading.html" ]; then
         ERRORS=$((ERRORS + 1))
     fi
     
-    if grep -q 'function showQuizAnswer' "unit9/fairy-tales-reading.html"; then
-        echo "   ✓ fairy-tales.html has showQuizAnswer() function"
+    if grep -q 'window.showQuizAnswer' "js/common.js"; then
+        echo "   ✓ showQuizAnswer() centralized in common.js"
     else
-        echo "   ✗ fairy-tales.html missing showQuizAnswer() function!"
+        echo "   ✗ showQuizAnswer() missing from common.js!"
         ERRORS=$((ERRORS + 1))
     fi
     
@@ -1394,10 +1394,10 @@ check_content "review/review-units-1-3.html" 'PET Level' "review page has PET Re
 check_content "review/review-units-1-3.html" "Today's Todo" "review page has Today's Todo"
 
 # Interactive features
-if grep -q 'function showQuizAnswer' "review/review-units-1-3.html"; then
-    echo "   ✓ review page has showQuizAnswer() function"
+if grep -q 'window.showQuizAnswer' "js/common.js"; then
+    echo "   ✓ review page can use showQuizAnswer() from common.js"
 else
-    echo "   ✗ review page missing showQuizAnswer() function!"
+    echo "   ✗ review page missing showQuizAnswer() in common.js!"
     ERRORS=$((ERRORS + 1))
 fi
 

@@ -68,6 +68,47 @@ function toggleQuizAnswer(container, answerSelector = '.quiz-answer', iconSelect
 }
 
 /**
+ * Show / hide quiz answer with correct/wrong highlighting
+ * Relies on data-correct attribute set by deinlineOnclick()
+ * @param {HTMLElement} element - The clicked quiz option
+ * @param {boolean} isCorrect - Whether the clicked option is correct
+ */
+if (typeof showQuizAnswer !== 'function') {
+    window.showQuizAnswer = function(element, isCorrect) {
+        const card = element.closest('.reading-card');
+        if (!card) return;
+        const revealed = card.classList.contains('revealed');
+
+        if (revealed) {
+            // Hide answer
+            card.classList.remove('revealed');
+            card.querySelectorAll('.quiz-option').forEach(function(opt) {
+                opt.classList.remove('correct', 'wrong');
+            });
+            const box = card.querySelector('.quiz-answer-box');
+            if (box) box.classList.remove('show');
+        } else {
+            // Show answer — highlight correct option(s)
+            card.classList.add('revealed');
+            card.querySelectorAll('.quiz-option').forEach(function(opt) {
+                if (opt.dataset.correct === 'true') {
+                    opt.classList.add('correct');
+                }
+            });
+
+            // If user clicked a wrong answer, mark it red
+            if (!isCorrect) {
+                element.classList.remove('correct');
+                element.classList.add('wrong');
+            }
+
+            const box = card.querySelector('.quiz-answer-box');
+            if (box) box.classList.add('show');
+        }
+    };
+}
+
+/**
  * Toggle translation visibility in story sections
  * @param {HTMLElement} container - The container element that was clicked
  */
@@ -916,6 +957,7 @@ function deinlineOnclick() {
                 const fn = window[m[1]];
                 const arg = m[2] === 'true';
                 if (typeof fn !== 'function') return false;
+                el.dataset.correct = arg ? 'true' : 'false';
                 el.addEventListener('click', function() { fn.call(el, el, arg); });
                 return true;
             }

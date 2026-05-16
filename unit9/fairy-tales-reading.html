@@ -542,40 +542,6 @@
     <script>
         // Mobile Navigation
 
-        // Show / hide quiz answer
-        function showQuizAnswer(element, isCorrect) {
-            const card = element.closest('.reading-card');
-            const revealed = card.classList.contains('revealed');
-
-            if (revealed) {
-                // Hide answer
-                card.classList.remove('revealed');
-                card.querySelectorAll('.quiz-option').forEach(opt => {
-                    opt.classList.remove('correct', 'wrong');
-                });
-                const box = card.querySelector('.quiz-answer-box');
-                if (box) box.classList.remove('show');
-            } else {
-                // Show answer — highlight correct option(s)
-                card.classList.add('revealed');
-                card.querySelectorAll('.quiz-option').forEach(opt => {
-                    const onclick = opt.getAttribute('onclick') || '';
-                    if (onclick.includes(', true)')) {
-                        opt.classList.add('correct');
-                    }
-                });
-
-                // If user clicked a wrong answer, mark it red
-                if (!isCorrect) {
-                    element.classList.remove('correct');
-                    element.classList.add('wrong');
-                }
-
-                const box = card.querySelector('.quiz-answer-box');
-                if (box) box.classList.add('show');
-            }
-        }
-
         // Text to speech
 
         // Todo list functionality

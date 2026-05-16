@@ -15,12 +15,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/baseball-theme.css">
     <style>
-        .section-divider {
-            height: 4px;
-            background: linear-gradient(90deg, transparent, #DC143C, transparent);
-            margin: 2rem 0;
-            border-radius: 2px;
-        }
         .reading-passage {
             background: rgba(255,255,255,0.95);
             border: 3px solid #2E5D34;
@@ -40,15 +34,6 @@
         }
         .match-table td {
             background: white;
-        }
-        .match-input {
-            width: 60px;
-            text-align: center;
-            border: 2px solid #ccc;
-            border-radius: 6px;
-            padding: 6px;
-            font-weight: bold;
-            font-size: 1.1em;
         }
     </style>
 </head>
@@ -157,7 +142,7 @@
                                 <tr>
                                     <td><strong>否定句</strong></td>
                                     <td>主语 + can't (cannot) + 动词原形</td>
-                                    <td>Babies <strong>can't</strong> drink milk. <span class="text-gray-500 text-sm">(注：原文例句指某些动物宝宝)</span></td>
+                                    <td>Reptiles <strong>can't</strong> drink milk. <span class="text-gray-500 text-sm">(注：爬行动物不喝奶)</span></td>
                                 </tr>
                                 <tr>
                                     <td><strong>一般疑问句</strong></td>
@@ -727,124 +712,20 @@
 
     <script>
         // Toggle answer table
-        function toggleAnswerTable(id) {
-            const el = document.getElementById(id);
-            if (el) {
-                el.classList.toggle('show');
-            }
-        }
-
-        // Text to speech
-        function speak(text, element) {
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'en-GB';
-                utterance.rate = 0.85;
-                if (element) {
-                    element.classList.add('speaking');
-                    utterance.onend = function() {
-                        element.classList.remove('speaking');
-                    };
-                }
-                window.speechSynthesis.speak(utterance);
-            }
-        }
-
-        // Toggle translation
-        function toggleTranslation(el) {
-            const trans = el.querySelector('.translation');
-            if (trans) {
-                trans.classList.toggle('show');
-            }
-        }
-
-        // Show / hide quiz answer
-        function showQuizAnswer(element, isCorrect) {
-            const card = element.closest('.reading-card');
-            const revealed = card.classList.contains('revealed');
-
-            if (revealed) {
-                // Hide answer
-                card.classList.remove('revealed');
-                card.querySelectorAll('.quiz-option').forEach(function(opt) {
-                    opt.classList.remove('correct', 'wrong');
-                });
-                const box = card.querySelector('.quiz-answer-box');
-                if (box) box.classList.remove('show');
-            } else {
-                // Show answer — highlight correct option(s)
-                card.classList.add('revealed');
-                card.querySelectorAll('.quiz-option').forEach(function(opt) {
-                    const onclick = opt.getAttribute('onclick') || '';
-                    if (onclick.includes(', true)')) {
-                        opt.classList.add('correct');
-                    }
-                });
-
-                // If user clicked a wrong answer, mark it red
-                if (!isCorrect) {
-                    element.classList.remove('correct');
-                    element.classList.add('wrong');
-                }
-
-                const box = card.querySelector('.quiz-answer-box');
-                if (box) box.classList.add('show');
-            }
-        }
-
-        // Todo list functionality
-        var todoStates = {};
-
-        function toggleTodoItem(el, key) {
-            el.classList.toggle('completed');
-            var id = el.getAttribute('data-todo');
-            todoStates[id] = el.classList.contains('completed');
-            try {
-                localStorage.setItem(key, JSON.stringify(todoStates));
-            } catch (e) {}
-            updateTodoProgress(key);
-        }
-
-        function updateTodoProgress(key) {
-            var items = document.querySelectorAll('[data-todo]');
-            var completed = 0;
-            items.forEach(function(item) {
-                if (item.classList.contains('completed')) completed++;
-            });
-            var percent = items.length > 0 ? Math.round((completed / items.length) * 100) : 0;
-            var bar = document.getElementById('progressBar');
-            if (bar) {
-                bar.style.width = percent + '%';
-                bar.textContent = percent + '%';
-            }
-        }
-
-        function resetTodoItems(key) {
-            todoStates = {};
-            try {
-                localStorage.setItem(key, JSON.stringify(todoStates));
-            } catch (e) {}
-            document.querySelectorAll('.todo-item').forEach(function(item) {
-                item.classList.remove('completed');
-            });
-            updateTodoProgress(key);
-        }
-
-        // Load from localStorage
-        try {
-            var saved = localStorage.getItem('reviewUnits1to3Todos');
-            if (saved) todoStates = JSON.parse(saved);
-        } catch (e) { todoStates = {}; }
-
-        // Initialize on load
+        // Initialize todo states on load
         document.addEventListener('DOMContentLoaded', function() {
-            Object.keys(todoStates).forEach(function(id) {
-                if (todoStates[id]) {
-                    var item = document.querySelector('[data-todo="' + id + '"]');
-                    if (item) item.classList.add('completed');
+            try {
+                var saved = localStorage.getItem('reviewUnits1to3Todos');
+                if (saved) {
+                    var states = JSON.parse(saved);
+                    Object.keys(states).forEach(function(id) {
+                        if (states[id]) {
+                            var item = document.querySelector('[data-todo="' + id + '"]');
+                            if (item) item.classList.add('completed');
+                        }
+                    });
                 }
-            });
+            } catch (e) {}
             updateTodoProgress('reviewUnits1to3Todos');
         });
     </script>
