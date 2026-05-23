@@ -887,6 +887,14 @@ if (typeof speak !== 'function') {
     };
 }
 
+// Data-driven pronunciation: click any [data-speak] element to hear it
+document.addEventListener('click', function(e) {
+    var el = e.target.closest('[data-speak]');
+    if (!el) return;
+    var text = el.getAttribute('data-speak');
+    if (text) window.speak(text, el);
+});
+
 // ============================================
 // Todo / Progress Utilities
 // ============================================
