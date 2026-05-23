@@ -220,7 +220,8 @@
                     <div class="mb-4">
                         <div class="inline-block bg-red-600 text-white px-4 py-1 rounded-full font-bold mb-2">② 否定句</div>
                         <div class="grammar-formula">
-                            <strong>There isn't</strong> + any + 可数名词单数 / 不可数名词<br>
+                            <strong>There isn't</strong> + a/an + 可数名词单数<br>
+                            <strong>There isn't</strong> + any + 不可数名词<br>
                             <strong>There aren't</strong> + any + 可数名词复数
                         </div>
                         <div class="sentence-example">
@@ -236,7 +237,8 @@
                     <div class="mb-4">
                         <div class="inline-block bg-blue-600 text-white px-4 py-1 rounded-full font-bold mb-2">③ 一般疑问句</div>
                         <div class="grammar-formula">
-                            <strong>Is there</strong> + any + 可数名词单数 / 不可数名词？<br>
+                            <strong>Is there</strong> + a/an + 可数名词单数？<br>
+                            <strong>Is there</strong> + any + 不可数名词？<br>
                             <strong>Are there</strong> + any + 可数名词复数？
                         </div>
                         <div class="sentence-example">
@@ -608,12 +610,12 @@
             <div class="grammar-card p-6 mb-6">
                 <div class="inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">一、用 There is / There are / There isn't / There aren't 填空</div>
                 <div class="bg-white rounded-xl p-5 shadow-md space-y-3 text-base">
-                    <p>1. <span class="exercise-blank" data-answer="There is" onclick="this.classList.toggle('revealed')">__________</span> some milk in the fridge.</p>
-                    <p>2. <span class="exercise-blank" data-answer="There aren't" onclick="this.classList.toggle('revealed')">__________</span> any tomatoes on the table. (否定)</p>
-                    <p>3. <span class="exercise-blank" data-answer="There is" onclick="this.classList.toggle('revealed')">__________</span> an apple in the basket.</p>
-                    <p>4. <span class="exercise-blank" data-answer="Is there" onclick="this.classList.toggle('revealed')">__________</span> any bread in the kitchen? (疑问)</p>
-                    <p>5. <span class="exercise-blank" data-answer="There aren't" onclick="this.classList.toggle('revealed')">__________</span> any eggs in the box. (否定)</p>
-                    <p>6. <span class="exercise-blank" data-answer="There are" onclick="this.classList.toggle('revealed')">__________</span> some grapes on the plate.</p>
+                    <p>1. <span class="exercise-blank" data-answer="There is" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> some milk in the fridge.</p>
+                    <p>2. <span class="exercise-blank" data-answer="There aren't" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> any tomatoes on the table. (否定)</p>
+                    <p>3. <span class="exercise-blank" data-answer="There is" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> an apple in the basket.</p>
+                    <p>4. <span class="exercise-blank" data-answer="Is there" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> any bread in the kitchen? (疑问)</p>
+                    <p>5. <span class="exercise-blank" data-answer="There aren't" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> any eggs in the box. (否定)</p>
+                    <p>6. <span class="exercise-blank" data-answer="There are" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> some grapes on the plate.</p>
                 </div>
             </div>
 
@@ -622,9 +624,9 @@
                 <div class="inline-block bg-purple-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">二、将下列句子改为否定句</div>
                 <div class="bg-white rounded-xl p-5 shadow-md space-y-3 text-base">
                     <p>1. There are some books in the library.</p>
-                    <p>→ <span class="exercise-blank" data-answer="There aren't any books in the library." onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                    <p>→ <span class="exercise-blank" data-answer="There aren't any books in the library." data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                     <p>2. There is some fruit in the fridge.</p>
-                    <p>→ <span class="exercise-blank" data-answer="There isn't any fruit in the fridge." onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                    <p>→ <span class="exercise-blank" data-answer="There isn't any fruit in the fridge." data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                 </div>
             </div>
 
@@ -634,15 +636,15 @@
                 <div class="bg-white rounded-xl p-5 shadow-md space-y-4 text-base">
                     <div>
                         <p>1. There are some pears on the table.</p>
-                        <p>问：<span class="exercise-blank" data-answer="Are there any pears on the table?" onclick="this.classList.toggle('revealed')">_________________________________</span></p>
-                        <p>肯：<span class="exercise-blank" data-answer="Yes, there are." onclick="this.classList.toggle('revealed')">_________________________________</span></p>
-                        <p>否：<span class="exercise-blank" data-answer="No, there aren't any." onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                        <p>问：<span class="exercise-blank" data-answer="Are there any pears on the table?" data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
+                        <p>肯：<span class="exercise-blank" data-answer="Yes, there are." data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
+                        <p>否：<span class="exercise-blank" data-answer="No, there aren't any." data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                     </div>
                     <div>
                         <p>2. There is some water in the bottle.</p>
-                        <p>问：<span class="exercise-blank" data-answer="Is there any water in the bottle?" onclick="this.classList.toggle('revealed')">_________________________________</span></p>
-                        <p>肯：<span class="exercise-blank" data-answer="Yes, there is." onclick="this.classList.toggle('revealed')">_________________________________</span></p>
-                        <p>否：<span class="exercise-blank" data-answer="No, there isn't any." onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                        <p>问：<span class="exercise-blank" data-answer="Is there any water in the bottle?" data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
+                        <p>肯：<span class="exercise-blank" data-answer="Yes, there is." data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
+                        <p>否：<span class="exercise-blank" data-answer="No, there isn't any." data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                     </div>
                 </div>
             </div>
@@ -651,9 +653,9 @@
             <div class="grammar-card p-6 mb-6">
                 <div class="inline-block bg-amber-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">四、根据答语写出问句</div>
                 <div class="bg-white rounded-xl p-5 shadow-md space-y-3 text-base">
-                    <p>1. A: <span class="exercise-blank" data-answer="Is there any bread in the basket?" onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                    <p>1. A: <span class="exercise-blank" data-answer="Is there any bread in the basket?" data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                     <p>B: Yes, there is. Some bread is in the basket.</p>
-                    <p>2. A: <span class="exercise-blank" data-answer="Are there any grapes on the table?" onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                    <p>2. A: <span class="exercise-blank" data-answer="Are there any grapes on the table?" data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                     <p>B: No, there aren't any grapes on the table.</p>
                 </div>
             </div>
@@ -663,11 +665,11 @@
                 <div class="inline-block bg-red-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">五、改错（每句一处错误）</div>
                 <div class="bg-white rounded-xl p-5 shadow-md space-y-3 text-base">
                     <p>1. There is some apples on the desk.</p>
-                    <p>→ <span class="exercise-blank" data-answer="There are some apples on the desk." onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                    <p>→ <span class="exercise-blank" data-answer="There are some apples on the desk." data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                     <p>2. Are there any milk in the cup?</p>
-                    <p>→ <span class="exercise-blank" data-answer="Is there any milk in the cup?" onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                    <p>→ <span class="exercise-blank" data-answer="Is there any milk in the cup?" data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                     <p>3. There aren't some oranges in the bag.</p>
-                    <p>→ <span class="exercise-blank" data-answer="There aren't any oranges in the bag." onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                    <p>→ <span class="exercise-blank" data-answer="There aren't any oranges in the bag." data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                 </div>
             </div>
         </section>

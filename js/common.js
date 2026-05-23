@@ -367,7 +367,8 @@ const NAV_LINKS = {
                 { key: 'unit9-fairytales', href: '../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
         },
-        review: { href: '../review/review-units-1-3.html', label: '📝 复习 Review' }
+        review: { href: '../review/review-units-1-3.html', label: '📝 复习 Review' },
+        reviewUnit4: { href: '../review/review-unit-4.html', label: '📝 Unit 4 复习' }
     },
     B_unit8: {
         home: { href: '../index.html', label: '首页 Home' },
@@ -397,7 +398,8 @@ const NAV_LINKS = {
                 { key: 'unit9-fairytales', href: '../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
         },
-        review: { href: '../review/review-units-1-3.html', label: '📝 复习 Review' }
+        review: { href: '../review/review-units-1-3.html', label: '📝 复习 Review' },
+        reviewUnit4: { href: '../review/review-unit-4.html', label: '📝 Unit 4 复习' }
     },
     B_unit9: {
         home: { href: '../index.html', label: '首页 Home' },
@@ -427,7 +429,8 @@ const NAV_LINKS = {
                 { key: 'unit9-fairytales', href: 'fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
         },
-        review: { href: '../review/review-units-1-3.html', label: '📝 复习 Review' }
+        review: { href: '../review/review-units-1-3.html', label: '📝 复习 Review' },
+        reviewUnit4: { href: '../review/review-unit-4.html', label: '📝 Unit 4 复习' }
     },
     B_review: {
         home: { href: '../index.html', label: '首页 Home' },
@@ -457,7 +460,8 @@ const NAV_LINKS = {
                 { key: 'unit9-fairytales', href: '../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
         },
-        review: { href: 'review-units-1-3.html', label: '📝 复习 Review' }
+        review: { href: 'review-units-1-3.html', label: '📝 复习 Review' },
+        reviewUnit4: { href: 'review-unit-4.html', label: '📝 Unit 4 复习' }
     },
     'B_baseball-unit8': {
         home: { href: '../index.html', label: '首页 Home' },
@@ -705,6 +709,7 @@ function buildNavPatternB(active, brandIcon) {
                         </div>
                     </div>
                     ${!isReview ? `<a href="${links.review.href}" class="${reviewClass}">${links.review.label}</a>` : ''}
+                    ${links.reviewUnit4 ? `<a href="${links.reviewUnit4.href}" class="${active === 'review-unit-4' ? 'nav-link px-3 py-2 text-sm font-medium border-b-2 border-red-500' : 'nav-link px-3 py-2 text-sm font-medium'}">${links.reviewUnit4.label}</a>` : ''}
                 </div>
                 <button type="button" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
                     <i class="fas fa-bars text-xl"></i>
@@ -726,6 +731,7 @@ function buildNavPatternB(active, brandIcon) {
                         ${links.unit9.pages.map(p => `<a href="${p.href}" class="${mobileItemClass(p.key)}">${p.label}</a>`).join('\n                        ')}
                     </div>
                     ${!isReview ? `<a href="${links.review.href}" class="${mobileItemClass('review')}">${links.review.label}</a>` : ''}
+                    ${links.reviewUnit4 ? `<a href="${links.reviewUnit4.href}" class="${mobileItemClass('review-unit-4')}">${links.reviewUnit4.label}</a>` : ''}
                 </div>
             </div>
         </div>
