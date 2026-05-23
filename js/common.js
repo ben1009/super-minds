@@ -367,8 +367,14 @@ const NAV_LINKS = {
                 { key: 'unit9-fairytales', href: '../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
         },
-        review: { href: '../review/review-units-1-3.html', label: '📝 复习 Review' },
-        reviewUnit4: { href: '../review/review-unit-4.html', label: '📝 Unit 4 复习' }
+        review: {
+            label: '复习 Review',
+            triggerHref: '../review/review-units-1-3.html',
+            pages: [
+                { key: 'review-units-1-3', href: '../review/review-units-1-3.html', label: '📝 Units 1-3 复习' },
+                { key: 'review-unit-4', href: '../review/review-unit-4.html', label: '🍎 Unit 4 复习' }
+            ]
+        }
     },
     B_unit8: {
         home: { href: '../index.html', label: '首页 Home' },
@@ -398,8 +404,14 @@ const NAV_LINKS = {
                 { key: 'unit9-fairytales', href: '../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
         },
-        review: { href: '../review/review-units-1-3.html', label: '📝 复习 Review' },
-        reviewUnit4: { href: '../review/review-unit-4.html', label: '📝 Unit 4 复习' }
+        review: {
+            label: '复习 Review',
+            triggerHref: '../review/review-units-1-3.html',
+            pages: [
+                { key: 'review-units-1-3', href: '../review/review-units-1-3.html', label: '📝 Units 1-3 复习' },
+                { key: 'review-unit-4', href: '../review/review-unit-4.html', label: '🍎 Unit 4 复习' }
+            ]
+        }
     },
     B_unit9: {
         home: { href: '../index.html', label: '首页 Home' },
@@ -429,8 +441,14 @@ const NAV_LINKS = {
                 { key: 'unit9-fairytales', href: 'fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
         },
-        review: { href: '../review/review-units-1-3.html', label: '📝 复习 Review' },
-        reviewUnit4: { href: '../review/review-unit-4.html', label: '📝 Unit 4 复习' }
+        review: {
+            label: '复习 Review',
+            triggerHref: '../review/review-units-1-3.html',
+            pages: [
+                { key: 'review-units-1-3', href: '../review/review-units-1-3.html', label: '📝 Units 1-3 复习' },
+                { key: 'review-unit-4', href: '../review/review-unit-4.html', label: '🍎 Unit 4 复习' }
+            ]
+        }
     },
     B_review: {
         home: { href: '../index.html', label: '首页 Home' },
@@ -460,8 +478,14 @@ const NAV_LINKS = {
                 { key: 'unit9-fairytales', href: '../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
         },
-        review: { href: 'review-units-1-3.html', label: '📝 复习 Review' },
-        reviewUnit4: { href: 'review-unit-4.html', label: '📝 Unit 4 复习' }
+        review: {
+            label: '复习 Review',
+            triggerHref: 'review-units-1-3.html',
+            pages: [
+                { key: 'review-units-1-3', href: 'review-units-1-3.html', label: '📝 Units 1-3 复习' },
+                { key: 'review-unit-4', href: 'review-unit-4.html', label: '🍎 Unit 4 复习' }
+            ]
+        }
     },
     'B_baseball-unit8': {
         home: { href: '../index.html', label: '首页 Home' },
@@ -488,7 +512,14 @@ const NAV_LINKS = {
                 { key: 'baseball-unit9-fairytales', href: '../../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
         },
-        review: { href: '../../review/review-units-1-3.html', label: '📝 复习 Review' }
+        review: {
+            label: '复习 Review',
+            triggerHref: '../../review/review-units-1-3.html',
+            pages: [
+                { key: 'review-units-1-3', href: '../../review/review-units-1-3.html', label: '📝 Units 1-3 复习' },
+                { key: 'review-unit-4', href: '../../review/review-unit-4.html', label: '🍎 Unit 4 复习' }
+            ]
+        }
     },
     C: {
         'baseball-unit7-course': {
@@ -562,8 +593,9 @@ function buildNavPatternA(active) {
     const isUnit7 = active.startsWith('unit7') || active.startsWith('baseball-unit7');
     const isUnit8 = active.startsWith('unit8') || active.startsWith('baseball-unit8');
     const isUnit9 = active.startsWith('unit9') || active.startsWith('baseball-unit9');
-    
-    const homeClass = (!isUnit7 && !isUnit8 && !isUnit9)
+    const isReview = active.startsWith('review');
+
+    const homeClass = (!isUnit7 && !isUnit8 && !isUnit9 && !isReview)
         ? 'px-3 py-2 text-sm font-medium text-white bg-white/20 rounded-lg border-b-2 border-yellow-400'
         : 'px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all';
     
@@ -612,7 +644,12 @@ function buildNavPatternA(active) {
                             ${links.unit9.pages.map(p => `<a href="${p.href}" class="${dropdownItemClass(p.key)}">${p.label}</a>`).join('\n                            ')}
                         </div>
                     </div>
-                    <a href="${links.review.href}" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">${links.review.label}</a>
+                    <div class="relative group">
+                        <a href="${links.review.triggerHref}" class="${unitTriggerClass(isReview)}">复习 Review <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
+                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                            ${links.review.pages.map(p => `<a href="${p.href}" class="${dropdownItemClass(p.key)}">${p.label}</a>`).join('\n                            ')}
+                        </div>
+                    </div>
                 </div>
                 <button type="button" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
                     <i data-lucide="menu" class="w-6 h-6"></i>
@@ -633,7 +670,10 @@ function buildNavPatternA(active) {
                         <div class="text-white/70 text-xs mb-1">Unit 9</div>
                         ${links.unit9.pages.map(p => `<a href="${p.href}" class="${mobileItemClass(p.key)}">${p.label}</a>`).join('\n                        ')}
                     </div>
-                    <a href="${links.review.href}" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">${links.review.label}</a>
+                    <div class="px-3 py-2">
+                        <div class="text-white/70 text-xs mb-1">复习 Review</div>
+                        ${links.review.pages.map(p => `<a href="${p.href}" class="${mobileItemClass(p.key)}">${p.label}</a>`).join('\n                        ')}
+                    </div>
                 </div>
             </div>
         </div>
@@ -708,8 +748,12 @@ function buildNavPatternB(active, brandIcon) {
                             ${links.unit9.pages.map(p => `<a href="${p.href}" class="${dropdownItemClass(p.key)}">${p.label}</a>`).join('\n                            ')}
                         </div>
                     </div>
-                    ${!isReview ? `<a href="${links.review.href}" class="${reviewClass}">${links.review.label}</a>` : ''}
-                    ${links.reviewUnit4 ? `<a href="${links.reviewUnit4.href}" class="${active === 'review-unit-4' ? 'nav-link px-3 py-2 text-sm font-medium border-b-2 border-red-500' : 'nav-link px-3 py-2 text-sm font-medium'}">${links.reviewUnit4.label}</a>` : ''}
+                    <div class="relative group">
+                        <a href="${links.review.triggerHref}" class="${unitTriggerClass(isReview)}">复习 Review <i class="fas fa-chevron-down text-xs"></i></a>
+                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                            ${links.review.pages.map(p => `<a href="${p.href}" class="${dropdownItemClass(p.key)}">${p.label}</a>`).join('\n                            ')}
+                        </div>
+                    </div>
                 </div>
                 <button type="button" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
                     <i class="fas fa-bars text-xl"></i>
@@ -730,8 +774,10 @@ function buildNavPatternB(active, brandIcon) {
                         <div class="text-white/70 text-xs mb-1">Unit 9</div>
                         ${links.unit9.pages.map(p => `<a href="${p.href}" class="${mobileItemClass(p.key)}">${p.label}</a>`).join('\n                        ')}
                     </div>
-                    ${!isReview ? `<a href="${links.review.href}" class="${mobileItemClass('review')}">${links.review.label}</a>` : ''}
-                    ${links.reviewUnit4 ? `<a href="${links.reviewUnit4.href}" class="${mobileItemClass('review-unit-4')}">${links.reviewUnit4.label}</a>` : ''}
+                    <div class="px-3 py-2">
+                        <div class="text-white/70 text-xs mb-1">复习 Review</div>
+                        ${links.review.pages.map(p => `<a href="${p.href}" class="${mobileItemClass(p.key)}">${p.label}</a>`).join('\n                        ')}
+                    </div>
                 </div>
             </div>
         </div>
