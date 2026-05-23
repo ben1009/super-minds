@@ -48,6 +48,44 @@
         .vocab-table tr:nth-child(odd) td {
             background: white;
         }
+        .vocab-table td.speakable {
+            cursor: pointer;
+            color: #2E5D34;
+            font-weight: 600;
+            position: relative;
+        }
+        .vocab-table td.speakable:hover {
+            background: #e8f5e9;
+        }
+        .vocab-table td.speakable::after {
+            content: '🔊';
+            font-size: 0.8em;
+            margin-left: 4px;
+            opacity: 0.5;
+        }
+        .vocab-table td.speakable.speaking {
+            background: #c8e6c9;
+        }
+        .reading-passage .translation {
+            display: none;
+            color: #666;
+            font-style: italic;
+            margin-top: 4px;
+            padding: 8px 12px;
+            background: #f0f8ff;
+            border-left: 3px solid #4682B4;
+            border-radius: 0 8px 8px 0;
+        }
+        .reading-passage .translation.show {
+            display: block;
+        }
+        .reading-passage > div {
+            cursor: pointer;
+        }
+        .reading-passage > div:hover {
+            background: rgba(70, 130, 180, 0.05);
+            border-radius: 8px;
+        }
         .exercise-blank {
             border-bottom: 2px dashed #2E5D34;
             min-width: 80px;
@@ -141,7 +179,8 @@
                         <div class="sentence-example">
                             She <strong>would like</strong> a cup of tea.
                         </div>
-                        <p class="text-sm text-gray-600 mt-2">💡 <strong>a/an</strong> 用在可数名词单数前；<strong>some</strong> 用在不可数名词或可数名词复数前。</p>
+                        <p class="text-sm text-gray-600 mt-2">💡 <strong>a/an</strong> 用在可数名词单数前；<strong>some</strong> 用在不可数名词或可数名词复数前。<br>
+                        💡 <strong>元音字母：a, e, i, o, u</strong> — 元音开头的单词用 <strong>an</strong>（an apple, an egg, an orange），辅音开头的用 <strong>a</strong>（a banana, a tomato）。</p>
                     </div>
 
                     <!-- 否定句 -->
@@ -187,6 +226,19 @@
                         </div>
                         <p class="text-sm text-gray-600 mt-2">💡 回答时一定用<strong>肯定句</strong>。</p>
                     </div>
+
+                    <!-- 综合例句 -->
+                    <div class="mb-4">
+                        <div class="inline-block bg-gray-600 text-white px-4 py-1 rounded-full font-bold mb-2">⑤ 综合例句（a/an/some）</div>
+                        <div class="sentence-example">1. She would like <strong>some</strong> bananas.</div>
+                        <div class="sentence-example">2. We would like <strong>some</strong> milk for breakfast.</div>
+                        <div class="sentence-example">3. Would you like <strong>some</strong> chicken for dinner?</div>
+                        <div class="sentence-example">4. He would like <strong>an</strong> orange for lunch.</div>
+                        <div class="sentence-example">5. Shannon and her brother would like <strong>some</strong> apples.</div>
+                        <div class="sentence-example">6. Peter and his friends would like <strong>some</strong> orange juice.</div>
+                        <div class="sentence-example">7. Tiantian and his baby brother would like <strong>a</strong> tomato.</div>
+                        <div class="sentence-example">8. My parents and I would like <strong>some</strong> money.</div>
+                    </div>
                 </div>
             </div>
 
@@ -220,8 +272,12 @@
                     <div class="mb-4">
                         <div class="inline-block bg-red-600 text-white px-4 py-1 rounded-full font-bold mb-2">② 否定句</div>
                         <div class="grammar-formula">
-                            <strong>There isn't</strong> + any + 可数名词单数 / 不可数名词<br>
+                            <strong>There isn't</strong> + a/an + 可数名词单数<br>
+                            <strong>There isn't</strong> + any + 不可数名词<br>
                             <strong>There aren't</strong> + any + 可数名词复数
+                        </div>
+                        <div class="sentence-example">
+                            <strong>There isn't a</strong> tomato in the basket.
                         </div>
                         <div class="sentence-example">
                             <strong>There isn't any</strong> fruit in the fridge.
@@ -236,7 +292,8 @@
                     <div class="mb-4">
                         <div class="inline-block bg-blue-600 text-white px-4 py-1 rounded-full font-bold mb-2">③ 一般疑问句</div>
                         <div class="grammar-formula">
-                            <strong>Is there</strong> + any + 可数名词单数 / 不可数名词？<br>
+                            <strong>Is there</strong> + a/an + 可数名词单数？<br>
+                            <strong>Is there</strong> + any + 不可数名词？<br>
                             <strong>Are there</strong> + any + 可数名词复数？
                         </div>
                         <div class="sentence-example">
@@ -272,19 +329,19 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>某物存在</strong></td>
-                                <td>some</td>
-                                <td>any</td>
+                                <td><strong>可数名词单数</strong></td>
+                                <td>There is + <strong>a/an</strong></td>
+                                <td>Is there + <strong>a/an</strong>? / There isn't + <strong>a/an</strong></td>
                             </tr>
                             <tr>
-                                <td><strong>单数 / 不可数</strong></td>
-                                <td>There is + a/an / some</td>
-                                <td>Is there? / There isn't any</td>
+                                <td><strong>不可数名词</strong></td>
+                                <td>There is + <strong>some</strong></td>
+                                <td>Is there + <strong>any</strong>? / There isn't + <strong>any</strong></td>
                             </tr>
                             <tr>
-                                <td><strong>复数</strong></td>
-                                <td>There are + some</td>
-                                <td>Are there? / There aren't any</td>
+                                <td><strong>可数名词复数</strong></td>
+                                <td>There are + <strong>some</strong></td>
+                                <td>Are there + <strong>any</strong>? / There aren't + <strong>any</strong></td>
                             </tr>
                         </tbody>
                     </table>
@@ -307,66 +364,66 @@
                         <tr>
                             <th>词性</th>
                             <th>类别</th>
-                            <th>单词</th>
+                            <th>单词 🔊</th>
                             <th>复数形式</th>
                             <th>中文意思</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>名词</td><td>地点</td><td>market</td><td>markets</td><td>市场</td></tr>
-                        <tr><td>名词</td><td>地点</td><td>shop / store</td><td>shops / stores</td><td>商店</td></tr>
-                        <tr><td>名词</td><td>地点</td><td>supermarket</td><td>supermarkets</td><td>超市</td></tr>
-                        <tr><td>名词</td><td>人物</td><td>man</td><td>men</td><td>男人</td></tr>
-                        <tr><td>名词</td><td>人物</td><td>woman</td><td>women</td><td>女人</td></tr>
-                        <tr><td>名词</td><td>人物</td><td>customer</td><td>customers</td><td>顾客</td></tr>
-                        <tr><td>名词</td><td>人物</td><td>shop assistant</td><td>shop assistants</td><td>店员</td></tr>
-                        <tr><td>名词</td><td>水果</td><td>apple</td><td>apples</td><td>苹果</td></tr>
-                        <tr><td>名词</td><td>水果</td><td>banana</td><td>bananas</td><td>香蕉</td></tr>
-                        <tr><td>名词</td><td>水果</td><td>orange</td><td>oranges</td><td>橙子</td></tr>
-                        <tr><td>名词</td><td>水果</td><td>grape</td><td>grapes</td><td>葡萄</td></tr>
-                        <tr><td>名词</td><td>水果</td><td>lemon</td><td>lemons</td><td>柠檬</td></tr>
-                        <tr><td>名词</td><td>水果</td><td>mango</td><td>mangoes</td><td>芒果</td></tr>
-                        <tr><td>名词</td><td>水果</td><td>watermelon</td><td>watermelons</td><td>西瓜</td></tr>
-                        <tr><td>名词</td><td>蔬菜</td><td>tomato</td><td>tomatoes</td><td>西红柿</td></tr>
-                        <tr><td>名词</td><td>蔬菜</td><td>potato</td><td>potatoes</td><td>土豆</td></tr>
-                        <tr><td>名词</td><td>蔬菜</td><td>carrot</td><td>carrots</td><td>胡萝卜</td></tr>
-                        <tr><td>名词</td><td>蔬菜</td><td>vegetable</td><td>vegetables</td><td>蔬菜</td></tr>
-                        <tr><td>名词</td><td>食物</td><td>bread</td><td>—</td><td>面包</td></tr>
-                        <tr><td>名词</td><td>食物</td><td>egg</td><td>eggs</td><td>鸡蛋</td></tr>
-                        <tr><td>名词</td><td>食物</td><td>fish</td><td>fish</td><td>鱼</td></tr>
-                        <tr><td>名词</td><td>食物</td><td>chicken</td><td>—</td><td>鸡肉</td></tr>
-                        <tr><td>名词</td><td>食物</td><td>cheese</td><td>—</td><td>奶酪</td></tr>
-                        <tr><td>名词</td><td>食物</td><td>milk</td><td>—</td><td>牛奶</td></tr>
-                        <tr><td>名词</td><td>食物</td><td>juice</td><td>—</td><td>果汁</td></tr>
-                        <tr><td>名词</td><td>食物</td><td>water</td><td>—</td><td>水</td></tr>
-                        <tr><td>名词</td><td>食物</td><td>coffee</td><td>—</td><td>咖啡</td></tr>
-                        <tr><td>名词</td><td>食物</td><td>tea</td><td>—</td><td>茶</td></tr>
-                        <tr><td>名词</td><td>食物</td><td>noodles</td><td>—</td><td>面条</td></tr>
-                        <tr><td>名词</td><td>食物</td><td>rice</td><td>—</td><td>米饭</td></tr>
-                        <tr><td>名词</td><td>量词</td><td>a cup of</td><td>cups of</td><td>一杯…</td></tr>
-                        <tr><td>名词</td><td>量词</td><td>a piece of</td><td>pieces of</td><td>一片…</td></tr>
-                        <tr><td>名词</td><td>量词</td><td>a bottle of</td><td>bottles of</td><td>一瓶…</td></tr>
-                        <tr><td>名词</td><td>量词</td><td>a bag of</td><td>bags of</td><td>一袋…</td></tr>
-                        <tr><td>形容词</td><td>描述</td><td>fresh</td><td>—</td><td>新鲜的</td></tr>
-                        <tr><td>形容词</td><td>描述</td><td>delicious</td><td>—</td><td>美味的</td></tr>
-                        <tr><td>形容词</td><td>描述</td><td>sweet</td><td>—</td><td>甜的</td></tr>
-                        <tr><td>形容词</td><td>描述</td><td>sour</td><td>—</td><td>酸的</td></tr>
-                        <tr><td>形容词</td><td>描述</td><td>cheap</td><td>—</td><td>便宜的</td></tr>
-                        <tr><td>形容词</td><td>描述</td><td>expensive</td><td>—</td><td>贵的</td></tr>
-                        <tr><td>形容词</td><td>描述</td><td>heavy</td><td>—</td><td>重的</td></tr>
-                        <tr><td>形容词</td><td>描述</td><td>busy</td><td>—</td><td>忙碌的 / 热闹的</td></tr>
-                        <tr><td>形容词</td><td>感受</td><td>hungry</td><td>—</td><td>饿的</td></tr>
-                        <tr><td>形容词</td><td>感受</td><td>thirsty</td><td>—</td><td>渴的</td></tr>
-                        <tr><td>形容词</td><td>感受</td><td>tired</td><td>—</td><td>累的</td></tr>
-                        <tr><td>动词</td><td>动作</td><td>buy</td><td>buys</td><td>买</td></tr>
-                        <tr><td>动词</td><td>动作</td><td>sell</td><td>sells</td><td>卖</td></tr>
-                        <tr><td>动词</td><td>动作</td><td>carry</td><td>carries</td><td>拿 / 提</td></tr>
-                        <tr><td>动词</td><td>动作</td><td>smile</td><td>smiles</td><td>微笑</td></tr>
-                        <tr><td>动词</td><td>动作</td><td>suggest</td><td>suggests</td><td>建议</td></tr>
-                        <tr><td>动词</td><td>动作</td><td>explain</td><td>explains</td><td>解释</td></tr>
-                        <tr><td>名词</td><td>物品</td><td>basket</td><td>baskets</td><td>篮子</td></tr>
-                        <tr><td>名词</td><td>物品</td><td>bag</td><td>bags</td><td>袋子</td></tr>
-                        <tr><td>名词</td><td>物品</td><td>screen</td><td>screens</td><td>屏幕</td></tr>
+                        <tr><td>名词</td><td>地点</td><td class="speakable" data-speak="market">market</td><td class="speakable" data-speak="markets">markets</td><td>市场</td></tr>
+                        <tr><td>名词</td><td>地点</td><td class="speakable" data-speak="shop">shop / store</td><td class="speakable" data-speak="shops">shops / stores</td><td>商店</td></tr>
+                        <tr><td>名词</td><td>地点</td><td class="speakable" data-speak="supermarket">supermarket</td><td class="speakable" data-speak="supermarkets">supermarkets</td><td>超市</td></tr>
+                        <tr><td>名词</td><td>人物</td><td class="speakable" data-speak="man">man</td><td class="speakable" data-speak="men">men</td><td>男人</td></tr>
+                        <tr><td>名词</td><td>人物</td><td class="speakable" data-speak="woman">woman</td><td class="speakable" data-speak="women">women</td><td>女人</td></tr>
+                        <tr><td>名词</td><td>人物</td><td class="speakable" data-speak="customer">customer</td><td class="speakable" data-speak="customers">customers</td><td>顾客</td></tr>
+                        <tr><td>名词</td><td>人物</td><td class="speakable" data-speak="shop assistant">shop assistant</td><td class="speakable" data-speak="shop assistants">shop assistants</td><td>店员</td></tr>
+                        <tr><td>名词</td><td>水果</td><td class="speakable" data-speak="apple">apple</td><td class="speakable" data-speak="apples">apples</td><td>苹果</td></tr>
+                        <tr><td>名词</td><td>水果</td><td class="speakable" data-speak="banana">banana</td><td class="speakable" data-speak="bananas">bananas</td><td>香蕉</td></tr>
+                        <tr><td>名词</td><td>水果</td><td class="speakable" data-speak="orange">orange</td><td class="speakable" data-speak="oranges">oranges</td><td>橙子</td></tr>
+                        <tr><td>名词</td><td>水果</td><td class="speakable" data-speak="grape">grape</td><td class="speakable" data-speak="grapes">grapes</td><td>葡萄</td></tr>
+                        <tr><td>名词</td><td>水果</td><td class="speakable" data-speak="lemon">lemon</td><td class="speakable" data-speak="lemons">lemons</td><td>柠檬</td></tr>
+                        <tr><td>名词</td><td>水果</td><td class="speakable" data-speak="mango">mango</td><td class="speakable" data-speak="mangoes">mangoes</td><td>芒果</td></tr>
+                        <tr><td>名词</td><td>水果</td><td class="speakable" data-speak="watermelon">watermelon</td><td class="speakable" data-speak="watermelons">watermelons</td><td>西瓜</td></tr>
+                        <tr><td>名词</td><td>蔬菜</td><td class="speakable" data-speak="tomato">tomato</td><td class="speakable" data-speak="tomatoes">tomatoes</td><td>西红柿</td></tr>
+                        <tr><td>名词</td><td>蔬菜</td><td class="speakable" data-speak="potato">potato</td><td class="speakable" data-speak="potatoes">potatoes</td><td>土豆</td></tr>
+                        <tr><td>名词</td><td>蔬菜</td><td class="speakable" data-speak="carrot">carrot</td><td class="speakable" data-speak="carrots">carrots</td><td>胡萝卜</td></tr>
+                        <tr><td>名词</td><td>蔬菜</td><td class="speakable" data-speak="vegetable">vegetable</td><td class="speakable" data-speak="vegetables">vegetables</td><td>蔬菜</td></tr>
+                        <tr><td>名词</td><td>食物</td><td class="speakable" data-speak="bread">bread</td><td>—</td><td>面包</td></tr>
+                        <tr><td>名词</td><td>食物</td><td class="speakable" data-speak="egg">egg</td><td class="speakable" data-speak="eggs">eggs</td><td>鸡蛋</td></tr>
+                        <tr><td>名词</td><td>食物</td><td class="speakable" data-speak="fish">fish</td><td class="speakable" data-speak="fish">fish</td><td>鱼</td></tr>
+                        <tr><td>名词</td><td>食物</td><td class="speakable" data-speak="chicken">chicken</td><td>—</td><td>鸡肉</td></tr>
+                        <tr><td>名词</td><td>食物</td><td class="speakable" data-speak="cheese">cheese</td><td>—</td><td>奶酪</td></tr>
+                        <tr><td>名词</td><td>食物</td><td class="speakable" data-speak="milk">milk</td><td>—</td><td>牛奶</td></tr>
+                        <tr><td>名词</td><td>食物</td><td class="speakable" data-speak="juice">juice</td><td>—</td><td>果汁</td></tr>
+                        <tr><td>名词</td><td>食物</td><td class="speakable" data-speak="water">water</td><td>—</td><td>水</td></tr>
+                        <tr><td>名词</td><td>食物</td><td class="speakable" data-speak="coffee">coffee</td><td>—</td><td>咖啡</td></tr>
+                        <tr><td>名词</td><td>食物</td><td class="speakable" data-speak="tea">tea</td><td>—</td><td>茶</td></tr>
+                        <tr><td>名词</td><td>食物</td><td class="speakable" data-speak="noodles">noodles</td><td>—</td><td>面条</td></tr>
+                        <tr><td>名词</td><td>食物</td><td class="speakable" data-speak="rice">rice</td><td>—</td><td>米饭</td></tr>
+                        <tr><td>名词</td><td>量词</td><td class="speakable" data-speak="a cup of">a cup of</td><td class="speakable" data-speak="cups of">cups of</td><td>一杯…</td></tr>
+                        <tr><td>名词</td><td>量词</td><td class="speakable" data-speak="a piece of">a piece of</td><td class="speakable" data-speak="pieces of">pieces of</td><td>一片…</td></tr>
+                        <tr><td>名词</td><td>量词</td><td class="speakable" data-speak="a bottle of">a bottle of</td><td class="speakable" data-speak="bottles of">bottles of</td><td>一瓶…</td></tr>
+                        <tr><td>名词</td><td>量词</td><td class="speakable" data-speak="a bag of">a bag of</td><td class="speakable" data-speak="bags of">bags of</td><td>一袋…</td></tr>
+                        <tr><td>形容词</td><td>描述</td><td class="speakable" data-speak="fresh">fresh</td><td>—</td><td>新鲜的</td></tr>
+                        <tr><td>形容词</td><td>描述</td><td class="speakable" data-speak="delicious">delicious</td><td>—</td><td>美味的</td></tr>
+                        <tr><td>形容词</td><td>描述</td><td class="speakable" data-speak="sweet">sweet</td><td>—</td><td>甜的</td></tr>
+                        <tr><td>形容词</td><td>描述</td><td class="speakable" data-speak="sour">sour</td><td>—</td><td>酸的</td></tr>
+                        <tr><td>形容词</td><td>描述</td><td class="speakable" data-speak="cheap">cheap</td><td>—</td><td>便宜的</td></tr>
+                        <tr><td>形容词</td><td>描述</td><td class="speakable" data-speak="expensive">expensive</td><td>—</td><td>贵的</td></tr>
+                        <tr><td>形容词</td><td>描述</td><td class="speakable" data-speak="heavy">heavy</td><td>—</td><td>重的</td></tr>
+                        <tr><td>形容词</td><td>描述</td><td class="speakable" data-speak="busy">busy</td><td>—</td><td>忙碌的 / 热闹的</td></tr>
+                        <tr><td>形容词</td><td>感受</td><td class="speakable" data-speak="hungry">hungry</td><td>—</td><td>饿的</td></tr>
+                        <tr><td>形容词</td><td>感受</td><td class="speakable" data-speak="thirsty">thirsty</td><td>—</td><td>渴的</td></tr>
+                        <tr><td>形容词</td><td>感受</td><td class="speakable" data-speak="tired">tired</td><td>—</td><td>累的</td></tr>
+                        <tr><td>动词</td><td>动作</td><td class="speakable" data-speak="buy">buy</td><td class="speakable" data-speak="buys">buys</td><td>买</td></tr>
+                        <tr><td>动词</td><td>动作</td><td class="speakable" data-speak="sell">sell</td><td class="speakable" data-speak="sells">sells</td><td>卖</td></tr>
+                        <tr><td>动词</td><td>动作</td><td class="speakable" data-speak="carry">carry</td><td class="speakable" data-speak="carries">carries</td><td>拿 / 提</td></tr>
+                        <tr><td>动词</td><td>动作</td><td class="speakable" data-speak="smile">smile</td><td class="speakable" data-speak="smiles">smiles</td><td>微笑</td></tr>
+                        <tr><td>动词</td><td>动作</td><td class="speakable" data-speak="suggest">suggest</td><td class="speakable" data-speak="suggests">suggests</td><td>建议</td></tr>
+                        <tr><td>动词</td><td>动作</td><td class="speakable" data-speak="explain">explain</td><td class="speakable" data-speak="explains">explains</td><td>解释</td></tr>
+                        <tr><td>名词</td><td>物品</td><td class="speakable" data-speak="basket">basket</td><td class="speakable" data-speak="baskets">baskets</td><td>篮子</td></tr>
+                        <tr><td>名词</td><td>物品</td><td class="speakable" data-speak="bag">bag</td><td class="speakable" data-speak="bags">bags</td><td>袋子</td></tr>
+                        <tr><td>名词</td><td>物品</td><td class="speakable" data-speak="screen">screen</td><td class="speakable" data-speak="screens">screens</td><td>屏幕</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -381,13 +438,98 @@
             <!-- Reading Text 1 -->
             <div class="mb-10">
                 <h3 class="text-2xl font-bold text-blue-800 mb-4 flex items-center gap-2">
-                    <span>🛒</span> Reading 1: A Busy Morning at the Market
+                    <span>🧺</span> Reading 1: At the Market
                 </h3>
 
                 <div class="reading-passage mb-6">
-                    <p class="mb-3">It is Sunday morning. Tom and his sister Amy go to the market with their mother. The market is very busy and noisy. There are many kinds of food. There are some fresh grapes, yellow lemons, sweet mangoes and big watermelons. There are also some brown potatoes, red tomatoes and a lot of brown eggs.</p>
-                    <p class="mb-3">Tom is very hungry. He would like some bread with a fried egg. He also wants some fish because it looks delicious. Amy is not hungry, but she is very thirsty. She would like some cold juice. There are many lemons and mangoes, so she would like some lemon and mango juice.</p>
-                    <p>Is there any bread at the market? Yes, there is. But there aren't any apples. Tom would like an apple, but he can't have any. He says, "I would like some sweet watermelons, please." Their mother is happy because everything is cheap today. She buys a lot of fruit and vegetables. They go home with heavy bags and big smiles.</p>
+                    <div onclick="toggleTranslation(this)">
+                        <p class="mb-3">Tom and Amy go to the market with their mother. The market is big and busy. There are many kinds of food. Tom is hungry. He would like some bread and an egg. Amy is thirsty. She would like some lemon juice.</p>
+                        <div class="translation">Tom 和 Amy 跟妈妈一起去市场。市场又大又热闹。有很多种食物。Tom 饿了。他想要一些面包和一个鸡蛋。Amy 渴了。她想要一些柠檬汁。</div>
+                    </div>
+                    <div onclick="toggleTranslation(this)">
+                        <p class="mb-3">There are some fresh apples and sweet oranges. There are also some big watermelons. Their mother buys some bread, eggs and fruit. Everything is cheap today.</p>
+                        <div class="translation">有一些新鲜的苹果和甜橙。还有一些大西瓜。妈妈买了一些面包、鸡蛋和水果。今天所有东西都很便宜。</div>
+                    </div>
+                    <div onclick="toggleTranslation(this)">
+                        <p>Tom eats some bread with an egg. He says, "This is delicious!" Amy drinks her lemon juice. She says, "It is sour but I like it!" They are very happy.</p>
+                        <div class="translation">Tom 吃了一些面包配鸡蛋。他说："真好吃！"Amy 喝了她的柠檬汁。她说："酸酸的但我喜欢！"他们非常开心。</div>
+                    </div>
+                </div>
+
+                <h4 class="text-lg font-bold text-blue-700 mb-4">Task 1: Multiple Choice (选择题)</h4>
+                <div class="space-y-4">
+                    <div class="reading-card p-5 mb-4">
+                        <p class="font-bold text-lg mb-3">1. What would Tom like to eat?</p>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. Some rice and chicken</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">B. Some bread and an egg</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. Some noodles</div>
+                        <div class="quiz-answer-box">
+                            <strong>Answer: B</strong><br>
+                            (Tom is hungry. He would like some bread and an egg.)
+                        </div>
+                    </div>
+                    <div class="reading-card p-5 mb-4">
+                        <p class="font-bold text-lg mb-3">2. Why does Amy want lemon juice?</p>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. Because she is hungry</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">B. Because she is thirsty</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. Because it is cheap</div>
+                        <div class="quiz-answer-box">
+                            <strong>Answer: B</strong><br>
+                            (Amy is thirsty. She would like some lemon juice.)
+                        </div>
+                    </div>
+                    <div class="reading-card p-5 mb-4">
+                        <p class="font-bold text-lg mb-3">3. What does Tom eat?</p>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">A. Bread with an egg</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. Rice and fish</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. An apple</div>
+                        <div class="quiz-answer-box">
+                            <strong>Answer: A</strong><br>
+                            (Tom eats some bread with an egg.)
+                        </div>
+                    </div>
+                    <div class="reading-card p-5 mb-4">
+                        <p class="font-bold text-lg mb-3">4. Where do Tom and Amy go?</p>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. To a restaurant</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">B. To the market</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. To a library</div>
+                        <div class="quiz-answer-box">
+                            <strong>Answer: B</strong><br>
+                            (Tom and Amy go to the market with their mother.)
+                        </div>
+                    </div>
+                    <div class="reading-card p-5 mb-4">
+                        <p class="font-bold text-lg mb-3">5. How do Tom and Amy feel?</p>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. Sad</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. Angry</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">C. Happy</div>
+                        <div class="quiz-answer-box">
+                            <strong>Answer: C</strong><br>
+                            (They are very happy.)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reading Text 2 -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-bold text-blue-800 mb-4 flex items-center gap-2">
+                    <span>🛒</span> Reading 2: A Busy Morning at the Market
+                </h3>
+
+                <div class="reading-passage mb-6">
+                    <div onclick="toggleTranslation(this)">
+                        <p class="mb-3">It is Sunday morning. Tom and his sister Amy go to the market with their mother. The market is very busy and noisy. There are many kinds of food. There are some fresh grapes, yellow lemons, sweet mangoes and big watermelons. There are also some brown potatoes, red tomatoes and a lot of brown eggs.</p>
+                        <div class="translation">星期天早上，Tom 和姐姐 Amy 跟妈妈一起去市场。市场非常热闹，有很多噪音。有很多种食物。有一些新鲜的葡萄、黄色的柠檬、甜芒果和大西瓜。还有一些棕色的土豆、红西红柿和很多鸡蛋。</div>
+                    </div>
+                    <div onclick="toggleTranslation(this)">
+                        <p class="mb-3">Tom is very hungry. He would like some bread with a fried egg. He also wants some fish because it looks delicious. Amy is not hungry, but she is very thirsty. She would like some cold juice. There are many lemons and mangoes, so she would like some lemon and mango juice.</p>
+                        <div class="translation">Tom 非常饿。他想要一些面包配煎蛋。他还想要一些鱼，因为看起来很好吃。Amy 不饿，但她非常渴。她想要一些冷饮。有很多柠檬和芒果，所以她想要柠檬芒果汁。</div>
+                    </div>
+                    <div onclick="toggleTranslation(this)">
+                        <p>Is there any bread at the market? Yes, there is. But there aren't any apples. Tom would like an apple, but he can't have any. He says, "I would like some sweet watermelons, please." Their mother is happy because everything is cheap today. She buys a lot of fruit and vegetables. They go home with heavy bags and big smiles.</p>
+                        <div class="translation">市场有面包吗？有。但是没有苹果。Tom 想要一个苹果，但他买不到。他说："我想要一些甜西瓜。"妈妈很高兴，因为今天所有东西都很便宜。她买了很多水果和蔬菜。他们提着重重的袋子，带着灿烂的笑容回家了。</div>
+                    </div>
                 </div>
 
                 <h4 class="text-lg font-bold text-blue-700 mb-4">Task 1: Multiple Choice (选择题)</h4>
@@ -487,15 +629,30 @@
             <!-- Reading Text 2 -->
             <div class="mb-10">
                 <h3 class="text-2xl font-bold text-blue-800 mb-4 flex items-center gap-2">
-                    <span>🤖</span> Reading 2: AI at the Market
+                    <span>🤖</span> Reading 3: AI at the Market
                 </h3>
 
                 <div class="reading-passage mb-6">
-                    <p class="mb-3">It is Sunday morning. Tom and his sister Amy go to a new market near their home. This market is different. It uses artificial intelligence (AI) to help people shop.</p>
-                    <p class="mb-3">When Tom picks up a watermelon, a smart screen on the shelf shows a message: "This watermelon is very sweet and fresh today." Amy touches a lemon, and the screen says, "This lemon is sour. You can make delicious lemon juice with it."</p>
-                    <p class="mb-3">Tom is hungry. He would like some bread and an egg. He also sees some red tomatoes. The AI suggests, "These tomatoes are perfect for a sandwich." Tom smiles and puts three tomatoes in his basket.</p>
-                    <p class="mb-3">Amy is thirsty. She would like some cold juice. The AI looks at the fruit in her basket and says, "You have lemons and mangoes. Would you like to make some fresh juice?" Amy thinks it is a great idea.</p>
-                    <p>Is there any bread? Yes, there is. But there aren't any apples today. The AI explains, "Apples will arrive tomorrow morning." Tom and Amy carry their bags home. They are not tired because the AI helps them find things quickly. Tom says, "I love this smart market. Shopping is so easy!"</p>
+                    <div onclick="toggleTranslation(this)">
+                        <p class="mb-3">It is Sunday morning. Tom and his sister Amy go to a new market near their home. This market is different. It uses artificial intelligence (AI) to help people shop.</p>
+                        <div class="translation">星期天早上，Tom 和姐姐 Amy 去了家附近的一个新市场。这个市场不一样。它使用人工智能（AI）来帮助人们购物。</div>
+                    </div>
+                    <div onclick="toggleTranslation(this)">
+                        <p class="mb-3">When Tom picks up a watermelon, a smart screen on the shelf shows a message: "This watermelon is very sweet and fresh today." Amy touches a lemon, and the screen says, "This lemon is sour. You can make delicious lemon juice with it."</p>
+                        <div class="translation">当 Tom 拿起一个西瓜时，货架上的智能屏幕显示了一条消息："这个西瓜今天非常甜、非常新鲜。"Amy 摸了一个柠檬，屏幕说："这个柠檬是酸的。你可以用它做美味的柠檬汁。"</div>
+                    </div>
+                    <div onclick="toggleTranslation(this)">
+                        <p class="mb-3">Tom is hungry. He would like some bread and an egg. He also sees some red tomatoes. The AI suggests, "These tomatoes are perfect for a sandwich." Tom smiles and puts three tomatoes in his basket.</p>
+                        <div class="translation">Tom 饿了。他想要一些面包和一个鸡蛋。他还看到了一些红西红柿。AI 建议说："这些西红柿做三明治刚刚好。"Tom 微笑着把三个西红柿放进了篮子。</div>
+                    </div>
+                    <div onclick="toggleTranslation(this)">
+                        <p class="mb-3">Amy is thirsty. She would like some cold juice. The AI looks at the fruit in her basket and says, "You have lemons and mangoes. Would you like to make some fresh juice?" Amy thinks it is a great idea.</p>
+                        <div class="translation">Amy 渴了。她想要一些冷饮。AI 看了看她篮子里的水果说："你有柠檬和芒果。你想做一些新鲜果汁吗？"Amy 觉得这是个好主意。</div>
+                    </div>
+                    <div onclick="toggleTranslation(this)">
+                        <p>Is there any bread? Yes, there is. But there aren't any apples today. The AI explains, "Apples will arrive tomorrow morning." Tom and Amy carry their bags home. They are not tired because the AI helps them find things quickly. Tom says, "I love this smart market. Shopping is so easy!"</p>
+                        <div class="translation">有面包吗？有。但是今天没有苹果。AI 解释说："苹果明天早上会到。"Tom 和 Amy 提着袋子回家了。他们不累，因为 AI 帮他们快速找到了东西。Tom 说："我喜欢这个智能市场。购物太简单了！"</div>
+                    </div>
                 </div>
 
                 <h4 class="text-lg font-bold text-blue-700 mb-4">Task 1: Multiple Choice (选择题)</h4>
@@ -608,12 +765,12 @@
             <div class="grammar-card p-6 mb-6">
                 <div class="inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">一、用 There is / There are / There isn't / There aren't 填空</div>
                 <div class="bg-white rounded-xl p-5 shadow-md space-y-3 text-base">
-                    <p>1. <span class="exercise-blank" data-answer="There is" onclick="this.classList.toggle('revealed')">__________</span> some milk in the fridge.</p>
-                    <p>2. <span class="exercise-blank" data-answer="There aren't" onclick="this.classList.toggle('revealed')">__________</span> any tomatoes on the table. (否定)</p>
-                    <p>3. <span class="exercise-blank" data-answer="There is" onclick="this.classList.toggle('revealed')">__________</span> an apple in the basket.</p>
-                    <p>4. <span class="exercise-blank" data-answer="Is there" onclick="this.classList.toggle('revealed')">__________</span> any bread in the kitchen? (疑问)</p>
-                    <p>5. <span class="exercise-blank" data-answer="There aren't" onclick="this.classList.toggle('revealed')">__________</span> any eggs in the box. (否定)</p>
-                    <p>6. <span class="exercise-blank" data-answer="There are" onclick="this.classList.toggle('revealed')">__________</span> some grapes on the plate.</p>
+                    <p>1. <span class="exercise-blank" data-answer="There is" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> some milk in the fridge.</p>
+                    <p>2. <span class="exercise-blank" data-answer="There aren't" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> any tomatoes on the table. (否定)</p>
+                    <p>3. <span class="exercise-blank" data-answer="There is" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> an apple in the basket.</p>
+                    <p>4. <span class="exercise-blank" data-answer="Is there" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> any bread in the kitchen? (疑问)</p>
+                    <p>5. <span class="exercise-blank" data-answer="There aren't" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> any eggs in the box. (否定)</p>
+                    <p>6. <span class="exercise-blank" data-answer="There are" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> some grapes on the plate.</p>
                 </div>
             </div>
 
@@ -622,9 +779,9 @@
                 <div class="inline-block bg-purple-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">二、将下列句子改为否定句</div>
                 <div class="bg-white rounded-xl p-5 shadow-md space-y-3 text-base">
                     <p>1. There are some books in the library.</p>
-                    <p>→ <span class="exercise-blank" data-answer="There aren't any books in the library." onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                    <p>→ <span class="exercise-blank" data-answer="There aren't any books in the library." data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                     <p>2. There is some fruit in the fridge.</p>
-                    <p>→ <span class="exercise-blank" data-answer="There isn't any fruit in the fridge." onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                    <p>→ <span class="exercise-blank" data-answer="There isn't any fruit in the fridge." data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                 </div>
             </div>
 
@@ -634,15 +791,15 @@
                 <div class="bg-white rounded-xl p-5 shadow-md space-y-4 text-base">
                     <div>
                         <p>1. There are some pears on the table.</p>
-                        <p>问：<span class="exercise-blank" data-answer="Are there any pears on the table?" onclick="this.classList.toggle('revealed')">_________________________________</span></p>
-                        <p>肯：<span class="exercise-blank" data-answer="Yes, there are." onclick="this.classList.toggle('revealed')">_________________________________</span></p>
-                        <p>否：<span class="exercise-blank" data-answer="No, there aren't any." onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                        <p>问：<span class="exercise-blank" data-answer="Are there any pears on the table?" data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
+                        <p>肯：<span class="exercise-blank" data-answer="Yes, there are." data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
+                        <p>否：<span class="exercise-blank" data-answer="No, there aren't any." data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                     </div>
                     <div>
                         <p>2. There is some water in the bottle.</p>
-                        <p>问：<span class="exercise-blank" data-answer="Is there any water in the bottle?" onclick="this.classList.toggle('revealed')">_________________________________</span></p>
-                        <p>肯：<span class="exercise-blank" data-answer="Yes, there is." onclick="this.classList.toggle('revealed')">_________________________________</span></p>
-                        <p>否：<span class="exercise-blank" data-answer="No, there isn't any." onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                        <p>问：<span class="exercise-blank" data-answer="Is there any water in the bottle?" data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
+                        <p>肯：<span class="exercise-blank" data-answer="Yes, there is." data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
+                        <p>否：<span class="exercise-blank" data-answer="No, there isn't any." data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                     </div>
                 </div>
             </div>
@@ -651,9 +808,9 @@
             <div class="grammar-card p-6 mb-6">
                 <div class="inline-block bg-amber-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">四、根据答语写出问句</div>
                 <div class="bg-white rounded-xl p-5 shadow-md space-y-3 text-base">
-                    <p>1. A: <span class="exercise-blank" data-answer="Is there any bread in the basket?" onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                    <p>1. A: <span class="exercise-blank" data-answer="Is there any bread in the basket?" data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                     <p>B: Yes, there is. Some bread is in the basket.</p>
-                    <p>2. A: <span class="exercise-blank" data-answer="Are there any grapes on the table?" onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                    <p>2. A: <span class="exercise-blank" data-answer="Are there any grapes on the table?" data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                     <p>B: No, there aren't any grapes on the table.</p>
                 </div>
             </div>
@@ -663,11 +820,11 @@
                 <div class="inline-block bg-red-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">五、改错（每句一处错误）</div>
                 <div class="bg-white rounded-xl p-5 shadow-md space-y-3 text-base">
                     <p>1. There is some apples on the desk.</p>
-                    <p>→ <span class="exercise-blank" data-answer="There are some apples on the desk." onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                    <p>→ <span class="exercise-blank" data-answer="There are some apples on the desk." data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                     <p>2. Are there any milk in the cup?</p>
-                    <p>→ <span class="exercise-blank" data-answer="Is there any milk in the cup?" onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                    <p>→ <span class="exercise-blank" data-answer="Is there any milk in the cup?" data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                     <p>3. There aren't some oranges in the bag.</p>
-                    <p>→ <span class="exercise-blank" data-answer="There aren't any oranges in the bag." onclick="this.classList.toggle('revealed')">_________________________________</span></p>
+                    <p>→ <span class="exercise-blank" data-answer="There aren't any oranges in the bag." data-placeholder="_________________________________" onclick="revealAnswer(this)">_________________________________</span></p>
                 </div>
             </div>
         </section>
@@ -714,7 +871,7 @@
                     <div class="todo-checkbox"></div>
                     <div class="flex-1">
                         <div class="font-bold text-gray-800 text-lg todo-title"><span>4️⃣</span> 阅读练习</div>
-                        <div class="text-gray-600">完成两篇阅读理解和词汇配对练习</div>
+                        <div class="text-gray-600">完成三篇阅读理解和词汇配对练习</div>
                     </div>
                 </div>
                 <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-amber-500"
