@@ -166,6 +166,7 @@ jobs:
         html-validate unit8/question-words-grammar-homework.html || exit 1
         html-validate unit9/holiday-plans-grammar-review.html || exit 1
         html-validate review/review-units-1-3.html || exit 1
+        html-validate review/review-unit-4.html || exit 1
         
         echo "✅ All HTML files valid"
 
