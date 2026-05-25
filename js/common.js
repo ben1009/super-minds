@@ -530,10 +530,11 @@ const NAV_LINKS = {
                 { href: '../unit8/baseball-gerunds-ball-sports.html', label: '🏏 Unit 8' },
                 { href: '../../unit9/holiday-plans-grammar-review.html', label: '🌴 Unit 9' },
                 { href: '../../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales' },
-                { href: '../../review/review-units-1-3.html', label: '📝 复习' }
+                { href: '../../review/review-units-1-3.html', label: '📝 复习 1-3' },
+                { href: '../../review/review-unit-4.html', label: '🍎 复习 4' }
             ],
             activeLabel: '⚾ Unit 7',
-            separators: [0, 1, 2, 3, 4]
+            separators: [0, 1, 2, 3, 4, 5]
         },
         'baseball-unit7-homework': {
             home: { href: '../index.html', label: '⚾ Super Minds' },
@@ -543,10 +544,11 @@ const NAV_LINKS = {
                 { href: '../unit8/baseball-gerunds-ball-sports.html', label: '🏏 Unit 8' },
                 { href: '../../unit9/holiday-plans-grammar-review.html', label: '🌴 Unit 9' },
                 { href: '../../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales' },
-                { href: '../../review/review-units-1-3.html', label: '📝 复习' }
+                { href: '../../review/review-units-1-3.html', label: '📝 复习 1-3' },
+                { href: '../../review/review-unit-4.html', label: '🍎 复习 4' }
             ],
             activeLabel: '📚 课后作业',
-            separators: [0, 1, 2, 3, 4]
+            separators: [0, 1, 2, 3, 4, 5]
         }
     }
 };
@@ -692,10 +694,7 @@ function buildNavPatternB(active, brandIcon) {
     const isReview = active.startsWith('review');
     
     const homeClass = 'nav-link px-3 py-2 text-sm font-medium';
-    const reviewClass = isReview
-        ? 'nav-link px-3 py-2 text-sm font-medium border-b-2 border-red-500'
-        : 'nav-link px-3 py-2 text-sm font-medium';
-    
+
     function unitTriggerClass(isActive) {
         return isActive
             ? 'nav-link px-3 py-2 text-sm font-medium border-b-2 border-red-500'
