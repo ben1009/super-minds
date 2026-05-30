@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Super Minds 2 Unit 5 复习笔记 — 卧室物品、介词、this/that/these/those 语法总结与练习">
+    <title>Super Minds 2 · Unit 5 复习</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Google Analytics -->
+    <script src="../ga.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/baseball-theme.css">
+    <style>
+        .reading-passage {
+            background: rgba(255,255,255,0.95);
+            border: 3px solid #2E5D34;
+            border-radius: 15px;
+            padding: 25px;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+        .match-table td, .match-table th {
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+        }
+        .match-table th {
+            background: #4682B4;
+            color: white;
+        }
+        .match-table td {
+            background: white;
+        }
+        .vocab-table th {
+            background: #2E5D34;
+            color: white;
+        }
+        .vocab-table td, .vocab-table th {
+            padding: 10px 14px;
+            border: 1px solid #ddd;
+        }
+        .vocab-table tr:nth-child(even) td {
+            background: #f8faf8;
+        }
+        .vocab-table tr:nth-child(odd) td {
+            background: white;
+        }
+        .vocab-table td.speakable {
+            cursor: pointer;
+            color: #2E5D34;
+            font-weight: 600;
+            position: relative;
+        }
+        .vocab-table td.speakable:hover {
+            background: #e8f5e9;
+        }
+        .vocab-table td.speakable::after {
+            content: '🔊';
+            font-size: 0.8em;
+            margin-left: 4px;
+            opacity: 0.5;
+        }
+        .vocab-table td.speakable.speaking {
+            background: #c8e6c9;
+        }
+        .reading-passage .translation {
+            display: none;
+            color: #666;
+            font-style: italic;
+            margin-top: 4px;
+            padding: 8px 12px;
+            background: #f0f8ff;
+            border-left: 3px solid #4682B4;
+            border-radius: 0 8px 8px 0;
+        }
+        .reading-passage .translation.show {
+            display: block;
+        }
+        .reading-passage > div {
+            cursor: pointer;
+        }
+        .reading-passage > div:hover {
+            background: rgba(70, 130, 180, 0.05);
+            border-radius: 8px;
+        }
+        .exercise-blank {
+            border-bottom: 2px dashed #2E5D34;
+            min-width: 80px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            padding: 0 4px;
+            color: transparent;
+            transition: color 0.3s;
+        }
+        .exercise-blank.revealed {
+            color: #DC143C;
+            font-weight: bold;
+        }
+        .sentence-example {
+            background: #f0f8ff;
+            border-left: 4px solid #4682B4;
+            padding: 12px 16px;
+            margin: 8px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .grammar-formula {
+            background: #fff8dc;
+            border: 2px solid #daa520;
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin: 8px 0;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <script>window.NAV_CONFIG = {pattern:'B', active:'review-unit-5'};</script>
+    <nav id="site-nav"></nav>
+
+    <!-- Hero Section -->
+    <header class="relative py-12 px-4 overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="stitch-border p-8 rounded-3xl shadow-2xl inline-block bg-white/95">
+                <h1 class="text-4xl md:text-5xl font-bold text-green-800 mb-2">Super Minds 2 · Unit 5</h1>
+                <p class="text-2xl text-green-700 font-medium mb-4">In the Bedroom · 在卧室里</p>
+                <div class="flex justify-center gap-4 text-5xl mb-4">
+                    <span class="float-anim">🛏️</span>
+                    <span class="float-anim" style="animation-delay: 0.5s">🪟</span>
+                    <span class="float-anim" style="animation-delay: 1s">🪞</span>
+                    <span class="float-anim" style="animation-delay: 1.5s">🛋️</span>
+                    <span class="float-anim" style="animation-delay: 2s">⏰</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="max-w-6xl mx-auto px-4 pb-16 space-y-8">
+
+        <!-- Hint Bar -->
+        <div class="max-w-3xl mx-auto">
+            <div class="hint-bar">
+                <div class="text-2xl mb-2">🎯📖✍️🔊✅</div>
+                <div class="text-sm md:text-base">点击词汇听发音，点击空白处显示答案，点击选项查看阅读题答案</div>
+            </div>
+        </div>
+
+        <!-- Quote -->
+        <div class="text-center text-white italic text-lg">
+            "Practice makes perfect!" · 熟能生巧
+        </div>
+
+        <!-- Part 1: Grammar Notes -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📚</span> Part 1 · 核心语法笔记 <span>🎯</span>
+            </h2>
+
+            <!-- 1. Prepositions -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-orange-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">1. 介词 Prepositions — on, in, beside, at, under, between</div>
+                <div class="text-base leading-relaxed text-gray-700">
+                    <!-- on -->
+                    <div class="mb-4">
+                        <div class="inline-block bg-green-600 text-white px-4 py-1 rounded-full font-bold mb-2">① on — 面和面的接触</div>
+                        <div class="sentence-example">
+                            There is a book <strong>on</strong> the table.
+                        </div>
+                        <div class="sentence-example">
+                            There is a glass of water <strong>on</strong> the table.
+                        </div>
+                    </div>
+
+                    <!-- in -->
+                    <div class="mb-4">
+                        <div class="inline-block bg-blue-600 text-white px-4 py-1 rounded-full font-bold mb-2">② in — 在……里面</div>
+                        <div class="sentence-example">
+                            There is a cat <strong>in</strong> the room.
+                        </div>
+                        <div class="sentence-example">
+                            There are two cats <strong>in</strong> the room.
+                        </div>
+                        <div class="sentence-example">
+                            There are some gifts <strong>in</strong> my schoolbag.
+                        </div>
+                    </div>
+
+                    <!-- beside -->
+                    <div class="mb-4">
+                        <div class="inline-block bg-purple-600 text-white px-4 py-1 rounded-full font-bold mb-2">③ beside — 在……旁边</div>
+                        <div class="sentence-example">
+                            Peter is <strong>beside</strong> Simon.
+                        </div>
+                        <div class="sentence-example">
+                            The table is <strong>beside</strong> the window.
+                        </div>
+                        <div class="sentence-example">
+                            There is a clock <strong>beside</strong> the window.
+                        </div>
+                        <div class="sentence-example">
+                            There is a chair <strong>beside</strong> the desk.
+                        </div>
+                    </div>
+
+                    <!-- at -->
+                    <div class="mb-4">
+                        <div class="inline-block bg-amber-600 text-white px-4 py-1 rounded-full font-bold mb-2">④ at — 在某处（固定搭配）</div>
+                        <div class="sentence-example">
+                            <strong>at</strong> bus stop — 在公交车站
+                        </div>
+                        <div class="sentence-example">
+                            <strong>at</strong> train station — 在火车站
+                        </div>
+                        <div class="sentence-example">
+                            <strong>at</strong> school — 在学校
+                        </div>
+                    </div>
+
+                    <!-- under -->
+                    <div class="mb-4">
+                        <div class="inline-block bg-red-600 text-white px-4 py-1 rounded-full font-bold mb-2">⑤ under — 在……下面</div>
+                        <div class="sentence-example">
+                            There is a cat <strong>under</strong> the table.
+                        </div>
+                    </div>
+
+                    <!-- between -->
+                    <div class="mb-4">
+                        <div class="inline-block bg-teal-600 text-white px-4 py-1 rounded-full font-bold mb-2">⑥ between — 在……之间</div>
+                        <div class="sentence-example">
+                            Shannon is <strong>between</strong> Tiantian and Xander.
+                        </div>
+                        <div class="sentence-example">
+                            There is a hospital <strong>between</strong> school and home.
+                        </div>
+                        <div class="sentence-example">
+                            There is Lily <strong>between</strong> Jack and Leo.
+                        </div>
+                    </div>
+
+                    <!-- Summary table -->
+                    <div class="overflow-x-auto mt-4">
+                        <table class="match-table w-full">
+                            <thead>
+                                <tr>
+                                    <th>介词</th>
+                                    <th>意思</th>
+                                    <th>例句</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>on</strong></td><td>在……上面（面接触）</td><td>There is a book <strong>on</strong> the table.</td></tr>
+                                <tr><td><strong>in</strong></td><td>在……里面</td><td>There is a cat <strong>in</strong> the room.</td></tr>
+                                <tr><td><strong>beside</strong></td><td>在……旁边</td><td>There is a clock <strong>beside</strong> the window.</td></tr>
+                                <tr><td><strong>at</strong></td><td>在某处</td><td><strong>at</strong> school / <strong>at</strong> bus stop</td></tr>
+                                <tr><td><strong>under</strong></td><td>在……下面</td><td>There is a cat <strong>under</strong> the table.</td></tr>
+                                <tr><td><strong>between</strong></td><td>在……之间</td><td>Shannon is <strong>between</strong> Tiantian and Xander.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. There is / There are with prepositions -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-teal-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">2. There is / There are + 介词短语</div>
+                <div class="text-base leading-relaxed text-gray-700">
+                    <p class="mb-4"><strong>用法:</strong> 用 There is / There are 描述某处有某物，加上介词短语说明位置。</p>
+
+                    <div class="mb-4">
+                        <div class="inline-block bg-green-600 text-white px-4 py-1 rounded-full font-bold mb-2">There is + 单数/不可数名词</div>
+                        <div class="sentence-example">
+                            <strong>There is</strong> a cat <strong>under</strong> the table.
+                        </div>
+                        <div class="sentence-example">
+                            <strong>There is</strong> a glass of water <strong>on</strong> the table.
+                        </div>
+                        <div class="sentence-example">
+                            <strong>There is</strong> a hospital <strong>between</strong> school and home.
+                        </div>
+                        <div class="sentence-example">
+                            <strong>There is</strong> a bag <strong>on</strong> the sofa.
+                        </div>
+                        <div class="sentence-example">
+                            <strong>There is</strong> a clock <strong>beside</strong> the window.
+                        </div>
+                        <div class="sentence-example">
+                            <strong>There is</strong> Lily <strong>between</strong> Jack and Leo.
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="inline-block bg-blue-600 text-white px-4 py-1 rounded-full font-bold mb-2">There are + 复数名词</div>
+                        <div class="sentence-example">
+                            <strong>There are</strong> some children <strong>on</strong> the playground.
+                        </div>
+                        <div class="sentence-example">
+                            <strong>There are</strong> some gifts <strong>in</strong> my schoolbag.
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-gray-600 mt-2">💡 <strong>There is</strong> 后跟单数名词或不可数名词；<strong>There are</strong> 后跟可数名词复数。<br>
+                    💡 即使名词前有修饰语（如 Lily between Jack and Leo），也要根据名词的单复数选择 is/are。</p>
+                </div>
+            </div>
+
+            <!-- 3. this, that, these, those -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-indigo-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">3. 指示代词 this, that, these, those</div>
+                <div class="text-base leading-relaxed text-gray-700">
+                    <p class="mb-4"><strong>用法:</strong> 用来指代特定的人或物。</p>
+
+                    <!-- Summary table -->
+                    <div class="overflow-x-auto mb-4">
+                        <table class="match-table w-full">
+                            <thead>
+                                <tr>
+                                    <th>词</th>
+                                    <th>意思</th>
+                                    <th>远近</th>
+                                    <th>单复数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>this</strong></td><td>这个</td><td>近处（就在身边）</td><td>单数或不可数</td></tr>
+                                <tr><td><strong>that</strong></td><td>那个</td><td>远处（离得远）</td><td>单数或不可数</td></tr>
+                                <tr><td><strong>these</strong></td><td>这些</td><td>近处</td><td>复数名词</td></tr>
+                                <tr><td><strong>those</strong></td><td>那些</td><td>远处</td><td>复数名词</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="grammar-formula mb-4">
+                        <strong>口诀:</strong> this/these 在近处，that/those 在远处<br>
+                        this/that 是单个，these/those 是多个<br><br>
+                        <strong>核心规则:</strong><br>
+                        • this / that → 单数 或 不可数名词<br>
+                        • these / those → 可数名词复数
+                    </div>
+
+                    <!-- this / that examples -->
+                    <div class="mb-4">
+                        <div class="inline-block bg-green-600 text-white px-4 py-1 rounded-full font-bold mb-2">this / that — 单数或不可数</div>
+                        <div class="sentence-example">
+                            <strong>This</strong> car is mine. (单数可数名词)
+                        </div>
+                        <div class="sentence-example">
+                            <strong>That</strong> car is my dad's. (单数可数名词)
+                        </div>
+                        <div class="sentence-example">
+                            <strong>This</strong> water is clean. (不可数名词)
+                        </div>
+                        <div class="sentence-example">
+                            <strong>That</strong> bread on the table looks old. (不可数名词)
+                        </div>
+                        <div class="sentence-example">
+                            <strong>That</strong> food in the fridge is cold. (不可数名词)
+                        </div>
+                    </div>
+
+                    <!-- these / those examples -->
+                    <div class="mb-4">
+                        <div class="inline-block bg-blue-600 text-white px-4 py-1 rounded-full font-bold mb-2">these / those — 复数名词</div>
+                        <div class="sentence-example">
+                            <strong>These</strong> people are all my friends.
+                        </div>
+                        <div class="sentence-example">
+                            <strong>Those</strong> children are all my classmates.
+                        </div>
+                    </div>
+
+                    <!-- additional example from PDF -->
+                    <div class="mb-4">
+                        <div class="inline-block bg-amber-600 text-white px-4 py-1 rounded-full font-bold mb-2">更多例句</div>
+                        <div class="sentence-example">
+                            <strong>This</strong> bacteria is dangerous. (bacteria 作为"某种细菌"时视为单数/不可数概念)
+                        </div>
+                        <div class="sentence-example">
+                            <strong>That</strong> food in the fridge is cold. (food 通常作不可数名词)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Special Questions -->
+            <div class="grammar-card p-6">
+                <div class="inline-block bg-rose-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">4. 一般现在时的特殊疑问句 — 问什么答什么</div>
+                <div class="text-base leading-relaxed text-gray-700">
+                    <p class="mb-4"><strong>疑问词:</strong> What (什么), Where (在哪里), When (什么时候), Which (哪个), Who (谁), Whose (谁的), How (怎样), Why (为什么)</p>
+
+                    <div class="mb-4">
+                        <div class="inline-block bg-green-600 text-white px-4 py-1 rounded-full font-bold mb-2">非三单 (I / you / we / they)</div>
+                        <div class="grammar-formula">
+                            <strong>What</strong> do you do on Sunday?<br>
+                            → I play basketball on Sunday.
+                        </div>
+                        <div class="grammar-formula">
+                            <strong>Where</strong> do you play basketball on Sunday?<br>
+                            → I play basketball at school.
+                        </div>
+                        <div class="grammar-formula">
+                            <strong>Where</strong> do they play basketball on Sunday?<br>
+                            → They play basketball at school on Sunday.
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="inline-block bg-blue-600 text-white px-4 py-1 rounded-full font-bold mb-2">三单 (he / she / it)</div>
+                        <div class="grammar-formula">
+                            <strong>What</strong> does he do on Sunday?<br>
+                            → He plays basketball on Sunday.
+                        </div>
+                        <div class="grammar-formula">
+                            <strong>Where</strong> does Shannon play basketball on Sunday?<br>
+                            → Shannon plays basketball at school on Sunday.
+                        </div>
+                        <div class="grammar-formula">
+                            <strong>Where</strong> does he go swimming on Sunday?<br>
+                            → He goes swimming in our town on Sunday.
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto mt-4">
+                        <table class="match-table w-full">
+                            <thead>
+                                <tr>
+                                    <th>疑问词</th>
+                                    <th>意思</th>
+                                    <th>例句</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>What</strong></td><td>什么</td><td>What do you do on Sunday?</td></tr>
+                                <tr><td><strong>Where</strong></td><td>在哪里</td><td>Where do you play basketball?</td></tr>
+                                <tr><td><strong>When</strong></td><td>什么时候</td><td>When do the children go to bed?</td></tr>
+                                <tr><td><strong>Which</strong></td><td>哪个</td><td>Which book do you like?</td></tr>
+                                <tr><td><strong>Who</strong></td><td>谁</td><td>Who is your teacher?</td></tr>
+                                <tr><td><strong>Whose</strong></td><td>谁的</td><td>Whose bag is this?</td></tr>
+                                <tr><td><strong>How</strong></td><td>怎样</td><td>How do you go to school?</td></tr>
+                                <tr><td><strong>Why</strong></td><td>为什么</td><td>Why do you like Science?</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 2: Bedroom Vocabulary -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>🛏️</span> Part 2 · 卧室物品词汇表 <span>🏠</span>
+            </h2>
+
+            <div class="overflow-x-auto">
+                <table class="vocab-table w-full">
+                    <thead>
+                        <tr>
+                            <th>单词 🔊</th>
+                            <th>复数形式</th>
+                            <th>中文意思</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="speakable" data-speak="window">window</td><td class="speakable" data-speak="windows">windows</td><td>窗户</td></tr>
+                        <tr><td class="speakable" data-speak="chair">chair</td><td class="speakable" data-speak="chairs">chairs</td><td>椅子</td></tr>
+                        <tr><td class="speakable" data-speak="bed">bed</td><td class="speakable" data-speak="beds">beds</td><td>床</td></tr>
+                        <tr><td class="speakable" data-speak="mirror">mirror</td><td class="speakable" data-speak="mirrors">mirrors</td><td>镜子</td></tr>
+                        <tr><td class="speakable" data-speak="sofa">sofa</td><td class="speakable" data-speak="sofas">sofas</td><td>沙发</td></tr>
+                        <tr><td class="speakable" data-speak="table">table</td><td class="speakable" data-speak="tables">tables</td><td>桌子</td></tr>
+                        <tr><td class="speakable" data-speak="lamp">lamp</td><td class="speakable" data-speak="lamps">lamps</td><td>台灯</td></tr>
+                        <tr><td class="speakable" data-speak="clock">clock</td><td class="speakable" data-speak="clocks">clocks</td><td>时钟</td></tr>
+                        <tr><td class="speakable" data-speak="wardrobe">wardrobe</td><td class="speakable" data-speak="wardrobes">wardrobes</td><td>衣柜</td></tr>
+                        <tr><td class="speakable" data-speak="armchair">armchair</td><td class="speakable" data-speak="armchairs">armchairs</td><td>扶手椅</td></tr>
+                        <tr><td class="speakable" data-speak="mat">mat</td><td class="speakable" data-speak="mats">mats</td><td>地垫</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Part 3: Reading -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📖</span> Part 3 · 阅读练习 <span>🔍</span>
+            </h2>
+
+            <!-- Reading Text 1 -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-bold text-blue-800 mb-4 flex items-center gap-2">
+                    <span>🍳</span> Reading 1: Keeping Food Safe in the Kitchen
+                </h3>
+
+                <div class="reading-passage mb-6">
+                    <div onclick="toggleTranslation(this)">
+                        <p class="mb-3">Hello, children! Let me tell you about keeping food safe. This is my kitchen. It is clean and nice. Look at this tomato on the table. It is fresh. But that bread on the far shelf is old. Don't eat it!</p>
+                        <div class="translation">孩子们，你们好！让我来告诉你们如何保持食品安全。这是我的厨房。它干净又漂亮。看桌子上的这个西红柿。它是新鲜的。但是远处架子上的那块面包是旧的。不要吃它！</div>
+                    </div>
+                    <div onclick="toggleTranslation(this)">
+                        <p class="mb-3">These are my clean hands. I always wash these hands before I cook. Those are dirty knives over there, near the bin. Do not use those knives to cut food.</p>
+                        <div class="translation">这是我干净的双手。我做饭前总是洗这些手。那边是脏刀子，在垃圾桶旁边。不要用那些刀子切食物。</div>
+                    </div>
+                    <div onclick="toggleTranslation(this)">
+                        <p class="mb-3">This is raw meat. It has bacteria. That cooked chicken on the other plate is safe to eat. Keep this raw meat away from that cooked food.</p>
+                        <div class="translation">这是生肉。它有细菌。另一个盘子上的那只熟鸡是安全的。把这块生肉远离那些熟食。</div>
+                    </div>
+                    <div onclick="toggleTranslation(this)">
+                        <p class="mb-3">These vegetables are clean because I washed them. Those vegetables near the bin are dirty. Always wash these fruits and those vegetables before you eat them.</p>
+                        <div class="translation">这些蔬菜是干净的，因为我洗过了。垃圾桶附近的那些蔬菜是脏的。吃之前一定要洗这些水果和那些蔬菜。</div>
+                    </div>
+                    <div onclick="toggleTranslation(this)">
+                        <p>Remember: This rule is very important — clean hands, clean food, and a clean kitchen keep you healthy!</p>
+                        <div class="translation">记住：这条规则非常重要——干净的手、干净的食物和干净的厨房让你保持健康！</div>
+                    </div>
+                </div>
+
+                <h4 class="text-lg font-bold text-blue-700 mb-4">Task 1: Multiple Choice (选择题)</h4>
+                <div class="space-y-4">
+                    <div class="reading-card p-5 mb-4">
+                        <p class="font-bold text-lg mb-3">1. ______ is my kitchen.</p>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. That</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">B. This</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. Those</div>
+                        <div class="quiz-answer-box">
+                            <strong>Answer: B</strong><br>
+                            (This is my kitchen. — 近处，用 this)
+                        </div>
+                    </div>
+                    <div class="reading-card p-5 mb-4">
+                        <p class="font-bold text-lg mb-3">2. ______ bread on the far shelf is old.</p>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. This</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. These</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">C. That</div>
+                        <div class="quiz-answer-box">
+                            <strong>Answer: C</strong><br>
+                            (That bread on the far shelf is old. — 远处，用 that)
+                        </div>
+                    </div>
+                    <div class="reading-card p-5 mb-4">
+                        <p class="font-bold text-lg mb-3">3. ______ are my clean hands.</p>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. This</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">B. These</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. That</div>
+                        <div class="quiz-answer-box">
+                            <strong>Answer: B</strong><br>
+                            (These are my clean hands. — 近处复数，用 these)
+                        </div>
+                    </div>
+                    <div class="reading-card p-5 mb-4">
+                        <p class="font-bold text-lg mb-3">4. Do not use ______ dirty knives near the bin.</p>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. this</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. these</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">C. those</div>
+                        <div class="quiz-answer-box">
+                            <strong>Answer: C</strong><br>
+                            (Those are dirty knives over there. — 远处复数，用 those)
+                        </div>
+                    </div>
+                    <div class="reading-card p-5 mb-4">
+                        <p class="font-bold text-lg mb-3">5. ______ cooked chicken on the other plate is safe to eat.</p>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">A. That</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. These</div>
+                        <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. This</div>
+                        <div class="quiz-answer-box">
+                            <strong>Answer: A</strong><br>
+                            (That cooked chicken on the other plate is safe to eat. — 远处单数，用 that)
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="text-lg font-bold text-blue-700 mb-4 mt-8">Task 2: Fill in the Blanks (填空题)</h4>
+                <div class="tip-box mb-4">用 this, that, these, those 填空</div>
+                <div class="bg-white rounded-xl p-5 shadow-md space-y-3">
+                    <p>1. Look at <span class="blank" data-answer="this" data-placeholder="________" onclick="revealAnswer(this)" role="button" tabindex="0">________</span> picture here on the wall.</p>
+                    <p>2. <span class="blank" data-answer="These" data-placeholder="________" onclick="revealAnswer(this)" role="button" tabindex="0">________</span> books in my hand are new.</p>
+                    <p>3. <span class="blank" data-answer="That" data-placeholder="________" onclick="revealAnswer(this)" role="button" tabindex="0">________</span> car over there is my teacher's.</p>
+                    <p>4. <span class="blank" data-answer="Those" data-placeholder="________" onclick="revealAnswer(this)" role="button" tabindex="0">________</span> shoes under the chair are dirty.</p>
+                    <p>5. <span class="blank" data-answer="This" data-placeholder="________" onclick="revealAnswer(this)" role="button" tabindex="0">________</span> is my favourite apple right here.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Part 4: Grammar Exercises -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✍️</span> Part 4 · 语法专项练习 <span>📝</span>
+            </h2>
+
+            <!-- Exercise 1: Prepositions -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">一、用介词 on, in, beside, under, between, at 填空</div>
+                <div class="bg-white rounded-xl p-5 shadow-md space-y-3 text-base">
+                    <p>1. There is a book <span class="exercise-blank" data-answer="on" data-placeholder="________" onclick="revealAnswer(this)">________</span> the table.</p>
+                    <p>2. There is a cat <span class="exercise-blank" data-answer="in" data-placeholder="________" onclick="revealAnswer(this)">________</span> the room.</p>
+                    <p>3. There is a clock <span class="exercise-blank" data-answer="beside" data-placeholder="________" onclick="revealAnswer(this)">________</span> the window.</p>
+                    <p>4. There is a cat <span class="exercise-blank" data-answer="under" data-placeholder="________" onclick="revealAnswer(this)">________</span> the table.</p>
+                    <p>5. Shannon is <span class="exercise-blank" data-answer="between" data-placeholder="________" onclick="revealAnswer(this)">________</span> Tiantian and Xander.</p>
+                    <p>6. I am <span class="exercise-blank" data-answer="at" data-placeholder="________" onclick="revealAnswer(this)">________</span> school.</p>
+                </div>
+            </div>
+
+            <!-- Exercise 2: There is / There are -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-purple-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">二、用 There is / There are 填空</div>
+                <div class="bg-white rounded-xl p-5 shadow-md space-y-3 text-base">
+                    <p>1. <span class="exercise-blank" data-answer="There is" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> a cat under the table.</p>
+                    <p>2. <span class="exercise-blank" data-answer="There are" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> some children on the playground.</p>
+                    <p>3. <span class="exercise-blank" data-answer="There is" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> a glass of water on the table.</p>
+                    <p>4. <span class="exercise-blank" data-answer="There is" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> a hospital between school and home.</p>
+                    <p>5. <span class="exercise-blank" data-answer="There is" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> a bag on the sofa.</p>
+                    <p>6. <span class="exercise-blank" data-answer="There are" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> some gifts in my schoolbag.</p>
+                    <p>7. <span class="exercise-blank" data-answer="There is" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> a clock beside the window.</p>
+                    <p>8. <span class="exercise-blank" data-answer="There is" data-placeholder="__________" onclick="revealAnswer(this)">__________</span> Lily between Jack and Leo.</p>
+                </div>
+            </div>
+
+            <!-- Exercise 3: Special Questions -->
+            <div class="grammar-card p-6">
+                <div class="inline-block bg-amber-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">四、用 what, where, when 填空</div>
+                <div class="bg-white rounded-xl p-5 shadow-md space-y-3 text-base">
+                    <p>1. <span class="exercise-blank" data-answer="What" data-placeholder="________" onclick="revealAnswer(this)">________</span> do you usually eat for breakfast? (你早餐通常吃什么？)</p>
+                    <p>2. <span class="exercise-blank" data-answer="Where" data-placeholder="________" onclick="revealAnswer(this)">________</span> does your mother work? (你妈妈在哪里工作？)</p>
+                    <p>3. <span class="exercise-blank" data-answer="When" data-placeholder="________" onclick="revealAnswer(this)">________</span> do the children go to bed every night? (孩子们每晚什么时候睡觉？)</p>
+                    <p>4. <span class="exercise-blank" data-answer="What" data-placeholder="________" onclick="revealAnswer(this)">________</span> kind of books does your brother like? (你哥哥喜欢什么样的书？)</p>
+                    <p>5. <span class="exercise-blank" data-answer="Where" data-placeholder="________" onclick="revealAnswer(this)">________</span> do you keep the milk in the fridge? (你把牛奶放在冰箱里的哪个位置？)</p>
+                    <p>6. <span class="exercise-blank" data-answer="When" data-placeholder="________" onclick="revealAnswer(this)">________</span> does your father get up in the morning? (你爸爸早上什么时候起床？)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 5: Writing Homework -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✏️</span> Part 5 · 写作作业 <span>📝</span>
+            </h2>
+
+            <div class="grammar-card p-6">
+                <div class="inline-block bg-teal-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">写句子练习</div>
+                <div class="text-base leading-relaxed text-gray-700">
+                    <p class="mb-4">用 <strong>where</strong> 和 <strong>what</strong> 各写两个问句，并写出答句。</p>
+
+                    <div class="bg-white rounded-xl p-5 shadow-md space-y-4">
+                        <div>
+                            <p class="font-bold text-blue-700 mb-2">1. Where 问句（问地点）</p>
+                            <p>问句：<span class="exercise-blank" data-answer="Where do you play basketball?" data-placeholder="__________________________________" onclick="revealAnswer(this)">__________________________________</span></p>
+                            <p>答句：<span class="exercise-blank" data-answer="I play basketball at school." data-placeholder="__________________________________" onclick="revealAnswer(this)">__________________________________</span></p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-blue-700 mb-2">2. Where 问句（问地点，三单）</p>
+                            <p>问句：<span class="exercise-blank" data-answer="Where does he go swimming?" data-placeholder="__________________________________" onclick="revealAnswer(this)">__________________________________</span></p>
+                            <p>答句：<span class="exercise-blank" data-answer="He goes swimming in our town." data-placeholder="__________________________________" onclick="revealAnswer(this)">__________________________________</span></p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-green-700 mb-2">3. What 问句（问做什么）</p>
+                            <p>问句：<span class="exercise-blank" data-answer="What do you do on Sunday?" data-placeholder="__________________________________" onclick="revealAnswer(this)">__________________________________</span></p>
+                            <p>答句：<span class="exercise-blank" data-answer="I play basketball on Sunday." data-placeholder="__________________________________" onclick="revealAnswer(this)">__________________________________</span></p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-green-700 mb-2">4. What 问句（问做什么，三单）</p>
+                            <p>问句：<span class="exercise-blank" data-answer="What does he do on Sunday?" data-placeholder="__________________________________" onclick="revealAnswer(this)">__________________________________</span></p>
+                            <p>答句：<span class="exercise-blank" data-answer="He plays basketball on Sunday." data-placeholder="__________________________________" onclick="revealAnswer(this)">__________________________________</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Today's Todo -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✅</span> Today's Todo · 今日任务 <span>📝</span>
+            </h2>
+
+            <div class="bg-white rounded-full p-1 mb-6 shadow-inner">
+                <div id="progressBar"
+                    class="h-8 bg-gradient-to-r from-green-500 to-green-400 rounded-full flex items-center justify-center text-white font-bold transition-all duration-500"
+                    style="width: 0%">0%</div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-red-500"
+                    data-todo="1" onclick="toggleTodoItem(this, 'reviewUnit5Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>1️⃣</span> 复习核心语法笔记</div>
+                        <div class="text-gray-600">掌握介词 on/in/beside/at/under/between、this/that/these/those 和特殊疑问句</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-blue-500"
+                    data-todo="2" onclick="toggleTodoItem(this, 'reviewUnit5Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>2️⃣</span> 背诵核心词汇</div>
+                        <div class="text-gray-600">bed, chair, sofa, table, wardrobe, mirror, lamp, clock, mat, armchair, window</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-green-500"
+                    data-todo="3" onclick="toggleTodoItem(this, 'reviewUnit5Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>3️⃣</span> 完成专项练习题</div>
+                        <div class="text-gray-600">完成介词填空、There is/are 填空、this/that/these/those 填空和特殊疑问句练习</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-purple-500"
+                    data-todo="4" onclick="toggleTodoItem(this, 'reviewUnit5Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>4️⃣</span> 阅读练习</div>
+                        <div class="text-gray-600">完成一篇阅读理解和词汇配对练习</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-amber-500"
+                    data-todo="5" onclick="toggleTodoItem(this, 'reviewUnit5Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>5️⃣</span> 每天朗读 15 分钟</div>
+                        <div class="text-gray-600">培养语感，课下阅读绘本巩固</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="button"
+                    class="bg-gradient-to-b from-gray-500 to-gray-600 text-white font-bold px-6 py-2 rounded-full shadow-lg hover:scale-105 transition"
+                    onclick="resetTodoItems('reviewUnit5Todos')">
+                    <i class="fas fa-redo mr-2"></i>重置所有任务
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-green-900 to-green-800 mt-12 py-6">
+        <div class="max-w-4xl mx-auto px-4 text-center text-white">
+            <p class="text-lg font-bold mb-2">🛏️ Super Minds 2 - Unit 5 复习</p>
+            <p class="text-sm opacity-80">Keep practicing and have fun learning English! 坚持练习，快乐学英语！</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize todo states on load
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                var saved = localStorage.getItem('reviewUnit5Todos');
+                if (saved) {
+                    var states = JSON.parse(saved);
+                    Object.keys(states).forEach(function(id) {
+                        if (states[id]) {
+                            var item = document.querySelector('[data-todo="' + id + '"]');
+                            if (item) item.classList.add('completed');
+                        }
+                    });
+                }
+            } catch (e) {}
+            updateTodoProgress('reviewUnit5Todos');
+        });
+    </script>
+    <script src="../js/common.js"></script>
+</body>
+</html>
