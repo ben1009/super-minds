@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Super Minds 2 Unit 5 第二讲 — 一般现在时特殊疑问句（be动词/实义动词）、recycling 阅读、练习题">
+    <title>Super Minds 2 · Unit 5 第二讲</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Google Analytics -->
+    <script src="../ga.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/baseball-theme.css">
+    <style>
+        .reading-passage {
+            background: rgba(255,255,255,0.95);
+            border: 3px solid #2E5D34;
+            border-radius: 15px;
+            padding: 25px;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+        .reading-passage .translation {
+            display: none;
+            color: #666;
+            font-style: italic;
+            margin-top: 4px;
+            padding: 8px 12px;
+            background: #f0f8ff;
+            border-left: 3px solid #4682B4;
+            border-radius: 0 8px 8px 0;
+        }
+        .reading-passage .translation.show {
+            display: block;
+        }
+        .reading-passage > div {
+            cursor: pointer;
+        }
+        .reading-passage > div:hover {
+            background: rgba(70, 130, 180, 0.05);
+            border-radius: 8px;
+        }
+        .match-table td, .match-table th {
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+        }
+        .match-table th {
+            background: #4682B4;
+            color: white;
+        }
+        .match-table td {
+            background: white;
+        }
+        .exercise-blank {
+            border-bottom: 2px dashed #2E5D34;
+            min-width: 80px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            padding: 0 4px;
+            color: transparent;
+            transition: color 0.3s;
+        }
+        .exercise-blank.revealed {
+            color: #DC143C;
+            font-weight: bold;
+        }
+        .sentence-example {
+            background: #f0f8ff;
+            border-left: 4px solid #4682B4;
+            padding: 12px 16px;
+            margin: 8px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .grammar-formula {
+            background: #fff8dc;
+            border: 2px solid #daa520;
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin: 8px 0;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        /* Page-specific: memory rhyme box for Unit 5 Lecture 2 */
+        .rhyme-box {
+            background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+            border: 3px solid #4caf50;
+            border-radius: 15px;
+            padding: 24px;
+            font-size: 1.1em;
+            line-height: 2;
+            text-align: center;
+        }
+        .speakable {
+            cursor: pointer;
+            color: #2E5D34;
+            font-weight: 600;
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+        .speakable:hover {
+            background: #e8f5e9;
+        }
+        .speakable::after {
+            content: '🔊';
+            font-size: 0.75em;
+            margin-left: 2px;
+            opacity: 0.5;
+        }
+        .speakable.speaking {
+            background: #c8e6c9;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <script>window.NAV_CONFIG = {pattern:'B', active:'review-unit-5-lecture2'};</script>
+    <nav id="site-nav"></nav>
+
+    <!-- Hero Section -->
+    <header class="relative py-12 px-4 overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="stitch-border p-8 rounded-3xl shadow-2xl inline-block bg-white/95">
+                <h1 class="text-4xl md:text-5xl font-bold text-green-800 mb-2">Super Minds 2 · Unit 5 第二讲</h1>
+                <p class="text-2xl text-green-700 font-medium mb-4">一般现在时特殊疑问句 · Recycling</p>
+                <div class="flex justify-center gap-4 text-5xl mb-4">
+                    <span class="float-anim">❓</span>
+                    <span class="float-anim" style="animation-delay: 0.5s">♻️</span>
+                    <span class="float-anim" style="animation-delay: 1s">📝</span>
+                    <span class="float-anim" style="animation-delay: 1.5s">🌍</span>
+                    <span class="float-anim" style="animation-delay: 2s">✅</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="max-w-6xl mx-auto px-4 pb-16 space-y-8">
+
+        <!-- Hint Bar -->
+        <div class="max-w-3xl mx-auto">
+            <div class="hint-bar">
+                <div class="text-2xl mb-2">📚📖✍️✅</div>
+                <div class="text-sm md:text-base">点击空白处显示答案，跟着语法规则练习特殊疑问句</div>
+            </div>
+        </div>
+
+        <!-- Quote -->
+        <div class="text-center text-white italic text-lg">
+            "Practice makes perfect!" · 熟能生巧
+        </div>
+
+        <!-- ==================== Part 0: 一般现在时特殊疑问句总览 ==================== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>❓</span> 一般现在时的特殊疑问句 · 问什么答什么 <span>🎯</span>
+            </h2>
+
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-rose-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">疑问词一览</div>
+                <div class="text-base leading-relaxed text-gray-700">
+                    <p class="text-lg"><strong>What</strong> (什么) · <strong>Where</strong> (在哪里) · <strong>When</strong> (什么时候) · <strong>Which</strong> (哪一个)<br>
+                    <strong>Who</strong> (谁) · <strong>Whose</strong> (谁的) · <strong>How</strong> (怎么样) · <strong>Why</strong> (为什么)</p>
+                </div>
+            </div>
+
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-green-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">非三单 (I / you / we / they)</div>
+                <div class="grammar-formula mb-2">
+                    <strong>What</strong> do you do on Sunday?<br>
+                    → I play basketball on Sunday.
+                </div>
+                <div class="grammar-formula mb-2">
+                    <strong>Where</strong> do you play basketball on Sunday?<br>
+                    → I play basketball at school on Sunday.
+                </div>
+                <div class="grammar-formula">
+                    <strong>Where</strong> do they play basketball on Sunday?<br>
+                    → They play basketball at school on Sunday.
+                </div>
+            </div>
+
+            <div class="grammar-card p-6">
+                <div class="inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">三单 (he / she / it)</div>
+                <div class="grammar-formula mb-2">
+                    <strong>What</strong> does he do on Sunday?<br>
+                    → He plays basketball on Sunday.
+                </div>
+                <div class="grammar-formula mb-2">
+                    <strong>Where</strong> does Shannon play basketball on Sunday?<br>
+                    → Shannon plays basketball at school on Sunday.
+                </div>
+                <div class="grammar-formula">
+                    <strong>Where</strong> does he go swimming on Sunday?<br>
+                    → He goes swimming in our town on Sunday.
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== Part 1: 特殊疑问句 with be 动词 ==================== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📚</span> Part 1 · 特殊疑问句：有 be 动词 (am/is/are) <span>🎯</span>
+            </h2>
+
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-rose-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">规则：疑问词 + am/is/are + 主语 + (其他)？</div>
+                <div class="text-base leading-relaxed text-gray-700">
+                    <p class="mb-4">直接把疑问词放在最前面，后面跟上 be 动词和主语。</p>
+                    <p class="mb-2"><strong>疑问词：</strong>What (什么), Where (在哪里), When (什么时候), Which (哪一个), Who (谁), Whose (谁的), How (怎么样), Why (为什么)</p>
+                </div>
+            </div>
+
+            <!-- When -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-green-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">When (什么时候)</div>
+                <div class="sentence-example mb-2">
+                    <strong>When</strong> is your birthday? — It's in <span class="exercise-blank" data-answer="June" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+                <div class="text-sm text-gray-600 mt-3 mb-2">📅 一年12个月：
+                    <span class="speakable" data-speak="January">January</span><span class="text-gray-400 text-xs">一月</span>,
+                    <span class="speakable" data-speak="February">February</span><span class="text-gray-400 text-xs">二月</span>,
+                    <span class="speakable" data-speak="March">March</span><span class="text-gray-400 text-xs">三月</span>,
+                    <span class="speakable" data-speak="April">April</span><span class="text-gray-400 text-xs">四月</span>,
+                    <span class="speakable" data-speak="May">May</span><span class="text-gray-400 text-xs">五月</span>,
+                    <span class="speakable" data-speak="June">June</span><span class="text-gray-400 text-xs">六月</span>,
+                    <span class="speakable" data-speak="July">July</span><span class="text-gray-400 text-xs">七月</span>,
+                    <span class="speakable" data-speak="August">August</span><span class="text-gray-400 text-xs">八月</span>,
+                    <span class="speakable" data-speak="September">September</span><span class="text-gray-400 text-xs">九月</span>,
+                    <span class="speakable" data-speak="October">October</span><span class="text-gray-400 text-xs">十月</span>,
+                    <span class="speakable" data-speak="November">November</span><span class="text-gray-400 text-xs">十一月</span>,
+                    <span class="speakable" data-speak="December">December</span><span class="text-gray-400 text-xs">十二月</span>
+                </div>
+                <div class="text-sm text-gray-600">📅 周一到周日：
+                    <span class="speakable" data-speak="Monday">Monday</span><span class="text-gray-400 text-xs">周一</span>,
+                    <span class="speakable" data-speak="Tuesday">Tuesday</span><span class="text-gray-400 text-xs">周二</span>,
+                    <span class="speakable" data-speak="Wednesday">Wednesday</span><span class="text-gray-400 text-xs">周三</span>,
+                    <span class="speakable" data-speak="Thursday">Thursday</span><span class="text-gray-400 text-xs">周四</span>,
+                    <span class="speakable" data-speak="Friday">Friday</span><span class="text-gray-400 text-xs">周五</span>,
+                    <span class="speakable" data-speak="Saturday">Saturday</span><span class="text-gray-400 text-xs">周六</span>,
+                    <span class="speakable" data-speak="Sunday">Sunday</span><span class="text-gray-400 text-xs">周日</span>
+                </div>
+            </div>
+
+            <!-- Which -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">Which (哪一个)</div>
+                <div class="sentence-example mb-2">
+                    <strong>Which</strong> is your pen? — The blue one is mine. (Mine = my pen)
+                </div>
+                <div class="sentence-example">
+                    <strong>Which</strong> one is yours? — The red one is <span class="exercise-blank" data-answer="mine" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+            </div>
+
+            <!-- Who -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-purple-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">Who (谁) — 对"人"提问</div>
+                <div class="sentence-example mb-2">
+                    <strong>Who</strong> is that girl? — She is my sister.
+                </div>
+                <div class="sentence-example">
+                    <strong>Who</strong> is your brother? — He is <span class="exercise-blank" data-answer="Tom" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+            </div>
+
+            <!-- Whose -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-amber-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">Whose (谁的)</div>
+                <div class="sentence-example mb-2">
+                    <strong>Whose</strong> book is this? — It's Tom's. / It's mine. / It is my mom's.
+                </div>
+                <div class="sentence-example mb-2">
+                    <strong>Whose</strong> house is this? — It's mine. / It's Shannon's.
+                </div>
+                <div class="sentence-example mb-2">
+                    <strong>Whose</strong> school is this? — It's <span class="exercise-blank" data-answer="mine" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+                <div class="sentence-example mb-2">
+                    <strong>Whose</strong> ruler is this? — It's <span class="exercise-blank" data-answer="Xander's" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+                <div class="sentence-example mb-2">
+                    <strong>Whose</strong> desk is that? — It's <span class="exercise-blank" data-answer="Shannon's" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+                <div class="sentence-example">
+                    <strong>Whose</strong> hat is that? — It's my mom's. / It is my <span class="exercise-blank" data-answer="dad's" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+            </div>
+
+            <!-- How -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-teal-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">How (怎么样) — How old 问年龄</div>
+                <div class="sentence-example">
+                    <strong>How old</strong> are you? — I'm nine years <span class="exercise-blank" data-answer="old" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+            </div>
+
+            <!-- Why -->
+            <div class="grammar-card p-6">
+                <div class="inline-block bg-red-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">Why (为什么) — 用 because 回答</div>
+                <div class="sentence-example">
+                    <strong>Why</strong> is he late? — Because he is <span class="exercise-blank" data-answer="sick" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== Part 2: 特殊疑问句 with 实义动词 ==================== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📚</span> Part 2 · 特殊疑问句：有实义动词 (do/does) <span>🎯</span>
+            </h2>
+
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-rose-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">规则：疑问词 + do/does + 主语 + 动词原形 + (其他)？</div>
+                <div class="text-base leading-relaxed text-gray-700">
+                    <p class="mb-2">需要请"助动词 do/does"来帮忙，变问句时要把 do/does 放在主语前面，后面的实义动词<strong>必须打回原形</strong>。</p>
+                    <p class="text-sm text-gray-600">⚠️ 不能说 "When do you gets up" — gets 必须变回 get</p>
+                </div>
+            </div>
+
+            <!-- When -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-green-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">When (什么时候做某事)</div>
+                <div class="sentence-example mb-2">
+                    <strong>When</strong> do you get up? — I get up at 7.
+                </div>
+                <div class="sentence-example mb-2">
+                    <strong>When</strong> does Tiantian get up? — He gets up at <span class="exercise-blank" data-answer="7" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+                <div class="sentence-example mb-2">
+                    <strong>When</strong> do your parents get up? — They get up at <span class="exercise-blank" data-answer="8" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+                <div class="sentence-example mb-2">
+                    <strong>When</strong> do you go to school? — I go to school at <span class="exercise-blank" data-answer="8" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+                <div class="sentence-example mb-2">
+                    <strong>When</strong> does Mary go to bed? — She goes to bed at <span class="exercise-blank" data-answer="9" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+                <div class="sentence-example mb-2">
+                    <strong>When</strong> does your class start every day? — My class starts at <span class="exercise-blank" data-answer="8:30" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+                <div class="sentence-example mb-2">
+                    <strong>When</strong> does your holiday start in summer? — My holiday starts in <span class="exercise-blank" data-answer="July" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+                <div class="sentence-example">
+                    <strong>When</strong> does your winter holiday end? — My winter holiday ends in <span class="exercise-blank" data-answer="February" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+            </div>
+
+            <!-- Which -->
+            <div class="grammar-card p-6">
+                <div class="inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">Which</div>
+                <div class="sentence-example mb-2">
+                    <strong>Which one</strong> does she like? — She likes the red one.
+                </div>
+                <div class="sentence-example">
+                    <strong>Which</strong> do they want? — They want the yellow <span class="exercise-blank" data-answer="one" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== Part 3: Let's Recycle! ==================== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>♻️</span> Part 3 · Let's Recycle! <span>🌍</span>
+            </h2>
+
+            <!-- Reading Passage -->
+            <div class="reading-passage mb-6">
+                <div onclick="toggleTranslation(this)">
+                    <p class="mb-3">We throw away things every day. Food bags, old newspapers, broken toys, and empty bottles — all of this is <strong>rubbish</strong>. Where does most of this rubbish go? It goes into big holes in the ground called <strong>landfills</strong>. Landfills are bad for the Earth. They take up land and can make the air, water, and soil <strong>dirty</strong>.</p>
+                    <div class="translation">我们每天都扔掉很多东西。食品袋、旧报纸、坏掉的玩具和空瓶子——这些都是垃圾。这些垃圾都去了哪里？它们被埋进地上的大洞里，叫做垃圾填埋场。垃圾填埋场对我们的地球有害。它们占用土地，还会让空气、水和土壤变脏。</div>
+                </div>
+                <div onclick="toggleTranslation(this)">
+                    <p class="mb-3">So, what can we do? We can <strong>recycle</strong>! Recycling means turning old things into new things. It is good for the <strong>Earth</strong>.</p>
+                    <div class="translation">那么，我们能做什么呢？我们可以回收利用！回收利用就是把旧东西变成新东西。这对地球有好处。</div>
+                </div>
+            </div>
+
+            <!-- What can we recycle? -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-green-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">What can we recycle? 我们能回收什么？</div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="sentence-example">📄 <strong>Paper</strong> — like newspapers and school notebooks</div>
+                    <div class="sentence-example">🧴 <strong>Plastic</strong> — like water bottles and yogurt cups</div>
+                    <div class="sentence-example">🫙 <strong>Glass</strong> — like jam jars and soda bottles</div>
+                    <div class="sentence-example">🥫 <strong>Metal</strong> — like soda cans</div>
+                </div>
+            </div>
+
+            <!-- How do we recycle? -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">How do we recycle? 我们怎么回收？</div>
+                <div class="reading-passage text-base leading-relaxed text-gray-700">
+                    <div onclick="toggleTranslation(this)">
+                        <p class="mb-3"><strong>First</strong>, we don't throw recyclable things into the rubbish bin. We put them into a <strong>recycling bin</strong> at home or at school.</p>
+                        <div class="translation">首先，我们不要把可回收的东西扔进垃圾桶。我们在家里或学校把它们放进回收箱。</div>
+                    </div>
+                    <div onclick="toggleTranslation(this)">
+                        <p class="mb-3"><strong>Then</strong>, a special truck takes them to a <strong>recycling centre</strong>.</p>
+                        <div class="translation">然后，一辆专门的卡车把它们运到回收中心。</div>
+                    </div>
+                    <div onclick="toggleTranslation(this)">
+                        <p class="mb-3"><strong>At the centre</strong>, workers clean the things and change them into new materials.</p>
+                        <div class="translation">在回收中心，工人们清洗这些东西，把它们变成新的材料。</div>
+                    </div>
+                    <div onclick="toggleTranslation(this)">
+                        <p><strong>Finally</strong>, factories use these materials to make new <strong>products</strong>.</p>
+                        <div class="translation">最后，工厂用这些材料制造新的产品。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why is recycling important? -->
+            <div class="grammar-card p-6">
+                <div class="inline-block bg-amber-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">Why is recycling important? 为什么回收很重要？</div>
+                <div class="space-y-2">
+                    <div class="sentence-example">✅ It <strong>saves energy</strong>.</div>
+                    <div class="sentence-example">✅ It <strong>reduces</strong> the rubbish in landfills.</div>
+                    <div class="sentence-example">✅ It <strong>protects</strong> animals and <strong>plants</strong>.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== Part 4: 阅读回答问题（作业） ==================== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📝</span> Part 4 · 作业：阅读回答问题 <span>✏️</span>
+            </h2>
+
+            <div class="tip-box mb-4">用完整的句子回答。点击空白处查看参考答案（答案仅供参考，可自由发挥）。</div>
+
+            <div class="bg-white rounded-xl p-5 shadow-md space-y-4 text-base">
+                <div>
+                    <p class="font-bold mb-1">1. When do you usually recycle at home?</p>
+                    <p>答：<span class="exercise-blank" data-answer="We usually recycle every week." data-placeholder="__________________________________" onclick="revealAnswer(this)">__________________________________</span></p>
+                </div>
+                <div>
+                    <p class="font-bold mb-1">2. Which bin do you put old newspapers in?</p>
+                    <p>答：<span class="exercise-blank" data-answer="I put old newspapers in the paper recycling bin." data-placeholder="__________________________________" onclick="revealAnswer(this)">__________________________________</span></p>
+                </div>
+                <div>
+                    <p class="font-bold mb-1">3. Who takes out the recycling in your family?</p>
+                    <p>答：<span class="exercise-blank" data-answer="My dad takes out the recycling in my family." data-placeholder="__________________________________" onclick="revealAnswer(this)">__________________________________</span></p>
+                </div>
+                <div>
+                    <p class="font-bold mb-1">4. Whose job is it to sort rubbish at school?</p>
+                    <p>答：<span class="exercise-blank" data-answer="It is the cleaner's job to sort rubbish at school." data-placeholder="__________________________________" onclick="revealAnswer(this)">__________________________________</span></p>
+                </div>
+                <div>
+                    <p class="font-bold mb-1">5. How do you clean a plastic bottle before recycling it?</p>
+                    <p>答：<span class="exercise-blank" data-answer="I wash it with water before recycling it." data-placeholder="__________________________________" onclick="revealAnswer(this)">__________________________________</span></p>
+                </div>
+                <div>
+                    <p class="font-bold mb-1">6. Why is recycling better than throwing things away?</p>
+                    <p>答：<span class="exercise-blank" data-answer="Because recycling saves energy and protects the Earth." data-placeholder="__________________________________" onclick="revealAnswer(this)">__________________________________</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== Part 5: 练习题（16题） ==================== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✍️</span> Part 5 · 特殊疑问句练习题（共 16 题） <span>📝</span>
+            </h2>
+
+            <div class="tip-box mb-4">用恰当的疑问词填空（每空一个词，注意首字母大写）。点击空白处查看答案。</div>
+
+            <div class="bg-white rounded-xl p-5 shadow-md space-y-4 text-base">
+                <p>1. <span class="exercise-blank" data-answer="When" data-placeholder="________" onclick="revealAnswer(this)">________</span> is your birthday? — It's on 5th June.</p>
+                <p>2. <span class="exercise-blank" data-answer="Whose" data-placeholder="________" onclick="revealAnswer(this)">________</span> bag is this? — It's Tom's.</p>
+                <p>3. <span class="exercise-blank" data-answer="How" data-placeholder="________" onclick="revealAnswer(this)">________</span> do you go to school? — By bike.</p>
+                <p>4. <span class="exercise-blank" data-answer="Who" data-placeholder="________" onclick="revealAnswer(this)">________</span> is your English teacher? — Mr. Li.</p>
+                <p>5. <span class="exercise-blank" data-answer="Why" data-placeholder="________" onclick="revealAnswer(this)">________</span> do you like pandas? — Because they are cute.</p>
+                <p>6. <span class="exercise-blank" data-answer="Where" data-placeholder="________" onclick="revealAnswer(this)">________</span> does your father work? — He works in a hospital.</p>
+                <p>7. <span class="exercise-blank" data-answer="Which" data-placeholder="________" onclick="revealAnswer(this)">________</span> colour do you prefer, red or blue? — Blue.</p>
+                <p>8. <span class="exercise-blank" data-answer="When" data-placeholder="________" onclick="revealAnswer(this)">________</span> do you usually get up? — At 7 o'clock.</p>
+                <p>9. <span class="exercise-blank" data-answer="Who" data-placeholder="________" onclick="revealAnswer(this)">________</span> is your best friend? — Mary.</p>
+                <p>10. <span class="exercise-blank" data-answer="How" data-placeholder="________" onclick="revealAnswer(this)">________</span> do you spell "recycle"? — R-E-C-Y-C-L-E.</p>
+                <p>11. <span class="exercise-blank" data-answer="Whose" data-placeholder="________" onclick="revealAnswer(this)">________</span> book is on the desk, Lisa's or Lucy's? — It's Lisa's.</p>
+                <p>12. <span class="exercise-blank" data-answer="Why" data-placeholder="________" onclick="revealAnswer(this)">________</span> are you happy today? — Because it's my birthday.</p>
+                <p>13. <span class="exercise-blank" data-answer="Where" data-placeholder="________" onclick="revealAnswer(this)">________</span> do you live? — I live in Beijing.</p>
+                <p>14. <span class="exercise-blank" data-answer="What" data-placeholder="________" onclick="revealAnswer(this)">________</span> do you usually eat for breakfast? — Bread and milk.</p>
+                <p>15. <span class="exercise-blank" data-answer="What" data-placeholder="________" onclick="revealAnswer(this)">________</span> is the weather like today? — It's <span class="exercise-blank" data-answer="sunny" data-placeholder="________" onclick="revealAnswer(this)">________</span>.</p>
+                <p>16. <span class="exercise-blank" data-answer="When" data-placeholder="________" onclick="revealAnswer(this)">________</span> do you have lunch? — At 12 <span class="exercise-blank" data-answer="o'clock" data-placeholder="________" onclick="revealAnswer(this)">________</span>.</p>
+            </div>
+        </section>
+
+        <!-- ==================== Part 6: 对比总结表 ==================== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📊</span> Part 6 · 对比总结表 <span>📋</span>
+            </h2>
+
+            <div class="overflow-x-auto">
+                <table class="match-table w-full">
+                    <thead>
+                        <tr>
+                            <th>疑问词</th>
+                            <th>be 动词例句 (am/is/are)</th>
+                            <th>实义动词例句 (do/does)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>When</strong></td><td>When is the party?</td><td>When do you get up?</td></tr>
+                        <tr><td><strong>Which</strong></td><td>Which is your seat?</td><td>Which does he want?</td></tr>
+                        <tr><td><strong>Who</strong></td><td>Who is your teacher?</td><td>Who plays well? ⚠️ Who做主语时不用do/does，动词直接加s</td></tr>
+                        <tr><td><strong>Whose</strong></td><td>Whose bag is this?</td><td>Whose sister likes cats? ⚠️ Whose+名词做主语时不用do/does，动词直接加s</td></tr>
+                        <tr><td><strong>How</strong></td><td>How is your dad?</td><td>How do you spell it?</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ==================== Part 7: 记忆小口诀 ==================== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>🧠</span> Part 7 · 记忆小口诀 <span>💡</span>
+            </h2>
+
+            <div class="rhyme-box">
+                <p class="text-xl font-bold text-green-800 mb-4">🎵 给孩子们的"记忆小口诀" 🎵</p>
+                <p class="text-lg">有 be 动词，<strong>be 哥</strong>往前站；</p>
+                <p class="text-lg">有情态动词，<strong>情态大哥</strong>往前站；</p>
+                <p class="text-lg">啥都没有，找 <strong>Do/Does</strong> 来帮忙；</p>
+                <p class="text-lg">Does 一出场，动词三单要<strong>脱光</strong>（变原形）；</p>
+                <p class="text-lg"><strong>疑问词</strong>戴头上，结尾<strong>问号</strong>不能忘。</p>
+            </div>
+        </section>
+
+        <!-- ==================== Part 8: 补充——Who/Whose/How + 实义动词 ==================== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📖</span> Part 8 · 补充：Who / Whose / How + 实义动词（以下未讲） <span>🔍</span>
+            </h2>
+
+            <!-- Who -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-purple-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">Who (谁做某事) — Who 在句子中做主语时，不用加 do/does</div>
+                <div class="text-sm text-gray-600 mb-3">⚠️ Who 在这个句子中做主语，动词直接加 s（三单）</div>
+                <div class="sentence-example mb-2">
+                    <strong>Who</strong> plays football every day? — <span class="exercise-blank" data-answer="Mike plays football every day." data-placeholder="__________________________________" onclick="revealAnswer(this)">__________________________________</span>.
+                </div>
+            </div>
+
+            <!-- Whose -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-amber-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">Whose (谁的，做...)</div>
+                <div class="sentence-example">
+                    <strong>Whose</strong> mother works in the hospital? — <span class="exercise-blank" data-answer="Lily's mother works in the hospital." data-placeholder="__________________________________" onclick="revealAnswer(this)">__________________________________</span>.
+                </div>
+            </div>
+
+            <!-- How -->
+            <div class="grammar-card p-6">
+                <div class="inline-block bg-teal-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">How (怎么...)</div>
+                <div class="sentence-example">
+                    <strong>How</strong> do you go to school? — By <span class="exercise-blank" data-answer="bus" data-placeholder="________" onclick="revealAnswer(this)">________</span>.
+                </div>
+            </div>
+        </section>
+
+        <!-- Today's Todo -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✅</span> Today's Todo · 今日任务 <span>📝</span>
+            </h2>
+
+            <div class="bg-white rounded-full p-1 mb-6 shadow-inner">
+                <div id="progressBar"
+                    class="h-8 bg-gradient-to-r from-green-500 to-green-400 rounded-full flex items-center justify-center text-white font-bold transition-all duration-500"
+                    style="width: 0%">0%</div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-red-500"
+                    data-todo="1" onclick="toggleTodoItem(this, 'unit5Lecture2Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>1️⃣</span> 学习 be 动词特殊疑问句</div>
+                        <div class="text-gray-600">掌握 When / Which / Who / Whose / How / Why + am/is/are 的用法</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-blue-500"
+                    data-todo="2" onclick="toggleTodoItem(this, 'unit5Lecture2Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>2️⃣</span> 学习实义动词特殊疑问句</div>
+                        <div class="text-gray-600">掌握 When / Which + do/does + 动词原形 的用法</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-green-500"
+                    data-todo="3" onclick="toggleTodoItem(this, 'unit5Lecture2Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>3️⃣</span> 阅读 Let's Recycle 文章</div>
+                        <div class="text-gray-600">理解回收利用的重要性，完成阅读回答问题作业</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-purple-500"
+                    data-todo="4" onclick="toggleTodoItem(this, 'unit5Lecture2Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>4️⃣</span> 完成 16 道练习题</div>
+                        <div class="text-gray-600">用恰当的疑问词填空，注意首字母大写</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-amber-500"
+                    data-todo="5" onclick="toggleTodoItem(this, 'unit5Lecture2Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>5️⃣</span> 背诵记忆小口诀</div>
+                        <div class="text-gray-600">记住 be 动词 / 情态动词 / do/does 的规则</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="button"
+                    class="bg-gradient-to-b from-gray-500 to-gray-600 text-white font-bold px-6 py-2 rounded-full shadow-lg hover:scale-105 transition"
+                    onclick="resetTodoItems('unit5Lecture2Todos')">
+                    <i class="fas fa-redo mr-2"></i>重置所有任务
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-green-900 to-green-800 mt-12 py-6">
+        <div class="max-w-4xl mx-auto px-4 text-center text-white">
+            <p class="text-lg font-bold mb-2">♻️ Super Minds 2 - Unit 5 第二讲</p>
+            <p class="text-sm opacity-80">Keep practicing and have fun learning English! 坚持练习，快乐学英语！</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize todo states on load
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                var saved = localStorage.getItem('unit5Lecture2Todos');
+                if (saved) {
+                    var states = JSON.parse(saved);
+                    Object.keys(states).forEach(function(id) {
+                        if (states[id]) {
+                            var item = document.querySelector('[data-todo="' + id + '"]');
+                            if (item) item.classList.add('completed');
+                        }
+                    });
+                }
+            } catch (e) {}
+            updateTodoProgress('unit5Lecture2Todos');
+        });
+    </script>
+    <script src="../js/common.js"></script>
+</body>
+</html>
