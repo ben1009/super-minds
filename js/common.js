@@ -373,7 +373,8 @@ const NAV_LINKS = {
             pages: [
                 { key: 'review-units-1-3', href: '../review/review-units-1-3.html', label: '📝 Units 1-3 复习' },
                 { key: 'review-unit-4', href: '../review/review-unit-4.html', label: '🍎 Unit 4 复习' },
-                { key: 'review-unit-5', href: '../review/review-unit-5.html', label: '🛏️ Unit 5 复习' }
+                { key: 'review-unit-5', href: '../review/review-unit-5.html', label: '🛏️ Unit 5 复习' },
+                { key: 'review-unit-5-lecture2', href: '../review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' }
             ]
         }
     },
@@ -411,7 +412,8 @@ const NAV_LINKS = {
             pages: [
                 { key: 'review-units-1-3', href: '../review/review-units-1-3.html', label: '📝 Units 1-3 复习' },
                 { key: 'review-unit-4', href: '../review/review-unit-4.html', label: '🍎 Unit 4 复习' },
-                { key: 'review-unit-5', href: '../review/review-unit-5.html', label: '🛏️ Unit 5 复习' }
+                { key: 'review-unit-5', href: '../review/review-unit-5.html', label: '🛏️ Unit 5 复习' },
+                { key: 'review-unit-5-lecture2', href: '../review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' }
             ]
         }
     },
@@ -449,7 +451,8 @@ const NAV_LINKS = {
             pages: [
                 { key: 'review-units-1-3', href: '../review/review-units-1-3.html', label: '📝 Units 1-3 复习' },
                 { key: 'review-unit-4', href: '../review/review-unit-4.html', label: '🍎 Unit 4 复习' },
-                { key: 'review-unit-5', href: '../review/review-unit-5.html', label: '🛏️ Unit 5 复习' }
+                { key: 'review-unit-5', href: '../review/review-unit-5.html', label: '🛏️ Unit 5 复习' },
+                { key: 'review-unit-5-lecture2', href: '../review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' }
             ]
         }
     },
@@ -487,7 +490,8 @@ const NAV_LINKS = {
             pages: [
                 { key: 'review-units-1-3', href: 'review-units-1-3.html', label: '📝 Units 1-3 复习' },
                 { key: 'review-unit-4', href: 'review-unit-4.html', label: '🍎 Unit 4 复习' },
-                { key: 'review-unit-5', href: 'review-unit-5.html', label: '🛏️ Unit 5 复习' }
+                { key: 'review-unit-5', href: 'review-unit-5.html', label: '🛏️ Unit 5 复习' },
+                { key: 'review-unit-5-lecture2', href: 'review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' }
             ]
         }
     },
@@ -522,7 +526,8 @@ const NAV_LINKS = {
             pages: [
                 { key: 'review-units-1-3', href: '../../review/review-units-1-3.html', label: '📝 Units 1-3 复习' },
                 { key: 'review-unit-4', href: '../../review/review-unit-4.html', label: '🍎 Unit 4 复习' },
-                { key: 'review-unit-5', href: '../../review/review-unit-5.html', label: '🛏️ Unit 5 复习' }
+                { key: 'review-unit-5', href: '../../review/review-unit-5.html', label: '🛏️ Unit 5 复习' },
+                { key: 'review-unit-5-lecture2', href: '../../review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' }
             ]
         }
     },
@@ -537,7 +542,8 @@ const NAV_LINKS = {
                 { href: '../../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales' },
                 { href: '../../review/review-units-1-3.html', label: '📝 复习 1-3' },
                 { href: '../../review/review-unit-4.html', label: '🍎 复习 4' },
-                { href: '../../review/review-unit-5.html', label: '🛏️ 复习 5' }
+                { href: '../../review/review-unit-5.html', label: '🛏️ 复习 5' },
+                { href: '../../review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' }
             ],
             activeLabel: '⚾ Unit 7',
             separators: [0, 1, 2, 3, 4, 5]
@@ -552,7 +558,8 @@ const NAV_LINKS = {
                 { href: '../../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales' },
                 { href: '../../review/review-units-1-3.html', label: '📝 复习 1-3' },
                 { href: '../../review/review-unit-4.html', label: '🍎 复习 4' },
-                { href: '../../review/review-unit-5.html', label: '🛏️ 复习 5' }
+                { href: '../../review/review-unit-5.html', label: '🛏️ 复习 5' },
+                { href: '../../review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' }
             ],
             activeLabel: '📚 课后作业',
             separators: [0, 1, 2, 3, 4, 5]
