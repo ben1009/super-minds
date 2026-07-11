@@ -5,8 +5,8 @@ Generate the baseball-themed variant of Unit 8 gerunds page.
 Usage:
     python3 scripts/generate-baseball.py
 
-This script reads unit8/gerunds-ball-sports.html and produces
-super-minds-baseball/unit8/baseball-gerunds-ball-sports.html with
+This script reads sm2/unit8/gerunds-ball-sports.html and produces
+sm2/baseball/unit8/baseball-gerunds-ball-sports.html with
 only the necessary path and branding transformations applied.
 
 The two pages are ~95% identical; this script is the single source
@@ -17,8 +17,8 @@ import re
 import sys
 from pathlib import Path
 
-SOURCE = Path("unit8/gerunds-ball-sports.html")
-OUTPUT = Path("super-minds-baseball/unit8/baseball-gerunds-ball-sports.html")
+SOURCE = Path("sm2/unit8/gerunds-ball-sports.html")
+OUTPUT = Path("sm2/baseball/unit8/baseball-gerunds-ball-sports.html")
 
 
 def transform(content: str) -> str:
@@ -31,11 +31,11 @@ def transform(content: str) -> str:
         '棒球版 Unit 8 球类运动 — 动名词作主语语法学习'
     )
 
-    # 3. Path upgrades: ../ → ../../ for assets referenced from super-minds-baseball/unit8/
-    content = content.replace('href="../favicon.svg"', 'href="../../favicon.svg"')
-    content = content.replace('src="../ga.js"', 'src="../../ga.js"')
-    content = content.replace('href="../css/baseball-theme.css"', 'href="../../css/baseball-theme.css"')
-    content = content.replace('src="../js/common.js"', 'src="../../js/common.js"')
+    # 3. Path upgrades: ../../ → ../../../ for assets (source is sm2/unit8/ depth 2, output is sm2/baseball/unit8/ depth 3)
+    content = content.replace('href="../../favicon.svg"', 'href="../../../favicon.svg"')
+    content = content.replace('src="../../ga.js"', 'src="../../../ga.js"')
+    content = content.replace('href="../../css/baseball-theme.css"', 'href="../../../css/baseball-theme.css"')
+    content = content.replace('src="../../js/common.js"', 'src="../../../js/common.js"')
 
     # 4. Update NAV_CONFIG active identifier
     content = content.replace(

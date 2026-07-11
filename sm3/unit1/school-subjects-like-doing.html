@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Super Minds 3 Unit 1 — 学科词汇与 like/love/hate/dislike + doing 语法练习">
+    <title>Super Minds 3 Unit 1 · School Subjects & Like Doing</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+    <!-- Google Analytics -->
+    <script src="../../ga.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/baseball-theme.css">
+</head>
+<body class="text-gray-800">
+    <!-- Site Navigation -->
+    <script>window.NAV_CONFIG = {pattern:'B', active:'sm3-unit1', brandIcon: 'fa-graduation-cap'};</script>
+    <nav id="site-nav"></nav>
+
+    <!-- Hero Section -->
+    <header class="relative py-12 px-4 overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="stitch-border p-8 rounded-3xl shadow-2xl inline-block bg-white/95">
+                <h1 class="text-4xl md:text-5xl font-bold text-indigo-800 mb-2">Super Minds 3 · Unit 1</h1>
+                <p class="text-2xl text-indigo-700 font-medium mb-4">School Subjects · 学科 &amp; Like + Doing</p>
+                <div class="flex justify-center gap-4 text-5xl mb-4">
+                    <span class="float-anim" aria-hidden="true">📚</span>
+                    <span class="float-anim" style="animation-delay: 0.5s" aria-hidden="true">🎨</span>
+                    <span class="float-anim" style="animation-delay: 1s" aria-hidden="true">🎵</span>
+                    <span class="float-anim" style="animation-delay: 1.5s" aria-hidden="true">🏃</span>
+                    <span class="float-anim" style="animation-delay: 2s" aria-hidden="true">🌍</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="max-w-6xl mx-auto px-4 pb-16 space-y-8">
+
+        <!-- Hint Bar -->
+        <div class="max-w-3xl mx-auto">
+            <div class="hint-bar">
+                <div class="text-2xl mb-2">🎯📖✍️🔊✅</div>
+                <div class="text-sm md:text-base">点击词汇卡片听发音，点击选项查看答案，点击空白处显示正确答案</div>
+            </div>
+        </div>
+
+        <!-- Quote -->
+        <div class="text-center text-white italic text-lg">
+            "School is great — it's for everyone!" · 学校很棒 —— 它是属于每个人的！
+        </div>
+
+        <!-- ====== Part 1: School Subjects ====== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📚</span> Part 1 · School Subjects 学科名词 <span>🏫</span>
+            </h2>
+            <p class="text-center text-gray-600 mb-6">点击卡片听发音 🔊</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('English', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">🇬🇧</div>
+                    <div class="font-bold text-lg">English</div>
+                    <div class="text-sm text-gray-600 mt-1">英语</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('geography', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">🌍</div>
+                    <div class="font-bold text-lg">geography</div>
+                    <div class="text-sm text-gray-600 mt-1">地理</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('music', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">🎵</div>
+                    <div class="font-bold text-lg">music</div>
+                    <div class="text-sm text-gray-600 mt-1">音乐</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('history', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">📜</div>
+                    <div class="font-bold text-lg">history</div>
+                    <div class="text-sm text-gray-600 mt-1">历史</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('dance', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">💃</div>
+                    <div class="font-bold text-lg">dance</div>
+                    <div class="text-sm text-gray-600 mt-1">舞蹈（课）</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('art', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">🎨</div>
+                    <div class="font-bold text-lg">art</div>
+                    <div class="text-sm text-gray-600 mt-1">美术</div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl md:col-span-2 lg:col-span-1" onclick="speak('PE', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">🏃</div>
+                    <div class="font-bold text-lg">PE</div>
+                    <div class="text-sm text-gray-600 mt-1">体育 <span class="text-xs text-gray-400">(physical education)</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== Part 2: like/love/hate/dislike + doing ====== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>❤️</span> Part 2 · like / love / hate / dislike + doing <span>📝</span>
+            </h2>
+
+            <p class="text-center text-gray-600 mb-6">
+                <strong>Like, love, hate, dislike + doing</strong> 表示<em>习惯性动作</em>，后面永远接 <strong>动词-ing</strong> 形式！
+            </p>
+
+            <!-- Pattern 1: like + doing (I/We/They/You) -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">句型一 · like + doing（主语: I / We / They / You）</div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>I like reading English stories.</p>
+                        <p class="translation">我喜欢读英语故事。</p>
+                    </div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>We like learning geography.</p>
+                        <p class="translation">我们喜欢学地理。</p>
+                    </div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>They like singing in music class.</p>
+                        <p class="translation">他们喜欢在音乐课上唱歌。</p>
+                    </div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>You like studying history.</p>
+                        <p class="translation">你喜欢学历史。</p>
+                    </div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>We like practicing dance.</p>
+                        <p class="translation">我们喜欢练舞蹈。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pattern 2: likes + doing (He/She) -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-green-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">句型二 · likes + doing（主语: He / She / 单个人名）</div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>She likes reading English books.</p>
+                        <p class="translation">她喜欢读英语书。</p>
+                    </div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>He likes studying geography.</p>
+                        <p class="translation">他喜欢学地理。</p>
+                    </div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>Mary likes listening to music.</p>
+                        <p class="translation">玛丽喜欢听音乐。</p>
+                    </div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>Tom likes learning about history.</p>
+                        <p class="translation">汤姆喜欢学历史。</p>
+                    </div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>She likes running in PE.</p>
+                        <p class="translation">她喜欢在体育课上跑步。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pattern 3: don't like + doing -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-red-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">句型三 · don't like + doing（主语: I / We / They / You）</div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>I don't like memorizing English words.</p>
+                        <p class="translation">我不喜欢背英语单词。<span class="text-xs text-gray-400"> memorize: 背，记</span></p>
+                    </div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>We don't like copying geography notes.</p>
+                        <p class="translation">我们不喜欢抄地理笔记。<span class="text-xs text-gray-400"> copy: 模仿，抄写 | notes: 笔记</span></p>
+                    </div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>They don't like practicing the piano.</p>
+                        <p class="translation">他们不喜欢练钢琴。<span class="text-xs text-gray-400"> practice: 练习，训练</span></p>
+                    </div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>I don't like running long distances in PE.</p>
+                        <p class="translation">我不喜欢在体育课上长跑。<span class="text-xs text-gray-400"> long distances: 长跑</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pattern 4: doesn't like + doing -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-purple-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">句型四 · doesn't like + doing（主语: He / She / 单个人名）</div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>She doesn't like speaking English in class.</p>
+                        <p class="translation">她不喜欢在课堂上说英语。<span class="text-xs text-gray-400"> speak: 说，讲</span></p>
+                    </div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>Tom doesn't like singing in front of others.</p>
+                        <p class="translation">汤姆不喜欢在别人面前唱歌。<span class="text-xs text-gray-400"> in front of: 在...前面 | others: 其他人</span></p>
+                    </div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>Mary doesn't like remembering history dates.</p>
+                        <p class="translation">玛丽不喜欢记历史日期。<span class="text-xs text-gray-400"> remember: 记住 | dates: 日期</span></p>
+                    </div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>My brother doesn't like doing push-ups.</p>
+                        <p class="translation">我弟弟不喜欢做俯卧撑。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Table -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-blue-700 mb-4">📋 规律总结</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full max-w-3xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+                        <thead>
+                            <tr class="bg-indigo-600 text-white">
+                                <th class="px-6 py-3 text-left">主语</th>
+                                <th class="px-6 py-3 text-left">用哪个</th>
+                                <th class="px-6 py-3 text-left">后面</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-3 font-bold">I / You / We / They</td>
+                                <td class="px-6 py-3 text-blue-700 font-medium">like / don't like</td>
+                                <td class="px-6 py-3 text-gray-600" rowspan="2"><strong>+ doing</strong></td>
+                            </tr>
+                            <tr class="bg-indigo-50">
+                                <td class="px-6 py-3 font-bold">He / She / 单个人名</td>
+                                <td class="px-6 py-3 text-purple-700 font-medium">likes / doesn't like</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tip-box mt-4">
+                    <strong>⚠️ 注意:</strong><br>
+                    ① <strong>likes</strong> 只用于肯定句（三单肯定）<br>
+                    ② <strong>doesn't like</strong> 只用于否定句（三单否定）<br>
+                    ③ 后面永远接 <strong>doing</strong>，没有例外！
+                </div>
+            </div>
+
+            <!-- Common Mistakes -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-red-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">⚠️ 易错点提醒</div>
+                <div class="overflow-x-auto">
+                    <table class="w-full max-w-xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+                        <thead>
+                            <tr class="bg-red-500 text-white">
+                                <th class="px-6 py-3 text-left">❌ 易错点</th>
+                                <th class="px-6 py-3 text-left">✅ 正确做法</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr><td class="px-6 py-3 text-red-600 font-medium">I likes</td><td class="px-6 py-3 text-green-700 font-bold">I like（I 永远不用 likes）</td></tr>
+                            <tr class="bg-red-50"><td class="px-6 py-3 text-red-600 font-medium">She don't like</td><td class="px-6 py-3 text-green-700 font-bold">She doesn't like</td></tr>
+                            <tr><td class="px-6 py-3 text-red-600 font-medium">danceing</td><td class="px-6 py-3 text-green-700 font-bold">dancing（去 e 加 ing）</td></tr>
+                            <tr class="bg-red-50"><td class="px-6 py-3 text-red-600 font-medium">runing</td><td class="px-6 py-3 text-green-700 font-bold">running（双写 n 加 ing）</td></tr>
+                            <tr><td class="px-6 py-3 text-red-600 font-medium">studing</td><td class="px-6 py-3 text-green-700 font-bold">studying（y 直接加 ing，不变 y）</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== Multiple Choice: Section 1 ====== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📝</span> 选择题 · Multiple Choice (1–10) <span>✅</span>
+            </h2>
+            <p class="text-center text-gray-600 mb-6">like / likes / don't like / doesn't like + doing — 点击选项查看答案</p>
+
+            <!-- Q1 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">1. My sister _______ (watch) TV after school.</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. like watch</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">B. likes watching</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. don't like watching</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. doesn't like watch</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: B</strong><br>
+                    My sister = 三单，肯定用 likes，watch → watching
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">2. We _______ (play) football in PE class.</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">A. like playing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. likes playing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. don't like play</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. doesn't like playing</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: A</strong><br>
+                    We = 非三单，肯定用 like，play → playing
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">3. Tom _______ (draw) in art class.</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. like drawing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. likes draws</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">C. likes drawing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. don't like drawing</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: C</strong><br>
+                    Tom = 三单，肯定用 likes，draw → drawing
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">4. I _______ (read) English books.</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">A. like reading</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. likes reading</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. don't like read</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. doesn't like reading</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: A</strong><br>
+                    I = 非三单，肯定用 like，read → reading
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">5. They _______ (sing) in music class.</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">A. like singing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. likes singing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. don't like sing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. doesn't like singing</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: A</strong><br>
+                    They = 非三单，肯定用 like，sing → singing
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">6. Mary _______ (dance) to fast music.</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. like dancing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">B. likes dancing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. don't like dancing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. doesn't like dance</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: B</strong><br>
+                    Mary = 三单，肯定用 likes，dance → 去 e 加 ing (dancing)
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">7. You _______ (study) geography, right?</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">A. like studying</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. likes studying</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. don't like study</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. doesn't like studying</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: A</strong><br>
+                    You = 非三单，肯定用 like，study → studying
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">8. My brother _______ (run) in PE. He says it's too tiring.</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. like running</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. likes running</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. don't like running</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">D. doesn't like running</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: D</strong><br>
+                    My brother = 三单，"too tiring" 暗示否定 → doesn't like，run → 双写 n 加 ing (running)
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">9. We _______ (paint) with watercolors. We think it's fun.</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">A. like painting</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. likes painting</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. don't like paint</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. doesn't like painting</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: A</strong><br>
+                    We = 非三单，"it's fun" 暗示肯定 → like，paint → painting
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">10. His parents _______ (listen) to music at home.</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">A. like listening</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. likes listening</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. don't like listen</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. doesn't like listening</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: A</strong><br>
+                    His parents = 复数（非三单），肯定用 like，listen → listening
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== Auxiliary Verb MCQs ====== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>🔍</span> 助动词专项选择题 · Do / Does (1–10) <span>✅</span>
+            </h2>
+            <p class="text-center text-gray-600 mb-6">考察助动词 do/does 的选择 + like 后面动词的形式 — 点击选项查看答案</p>
+
+            <!-- AQ1 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">1. ______ your brother like ______ (play) basketball in PE?</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. Do / playing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">B. Does / playing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. Don't / play</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. Doesn't / play</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: B</strong><br>
+                    your brother = 三单 → Does，like 后面用 playing
+                </div>
+            </div>
+
+            <!-- AQ2 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">2. We ______ like ______ (dance) at school.</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. does / dancing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. doesn't / dance</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">C. don't / dancing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. do / dance</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: C</strong><br>
+                    We = 非三单，否定用 don't，like 后面用 dancing
+                </div>
+            </div>
+
+            <!-- AQ3 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">3. ______ Mary like ______ (sing) in music class?</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. Do / singing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. Does / sing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. Do / sing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">D. Does / singing</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: D</strong><br>
+                    Mary = 三单 → Does，like 后面用 singing
+                </div>
+            </div>
+
+            <!-- AQ4 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">4. I ______ like ______ (read) history books.</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">A. don't / reading</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. doesn't / reading</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. don't / read</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. doesn't / read</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: A</strong><br>
+                    I = 非三单，否定用 don't，like 后面用 reading
+                </div>
+            </div>
+
+            <!-- AQ5 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">5. ______ they like ______ (draw) cartoons in art class?</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. Does / drawing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">B. Do / drawing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. Do / draw</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. Does / draw</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: B</strong><br>
+                    they = 非三单 → Do，like 后面用 drawing
+                </div>
+            </div>
+
+            <!-- AQ6 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">6. My sister ______ like ______ (study) geography. She thinks it's boring.</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. don't / studying</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">B. doesn't / studying</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. don't / study</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. doesn't / study</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: B</strong><br>
+                    My sister = 三单，"boring" 暗示否定 → doesn't，like 后面用 studying
+                </div>
+            </div>
+
+            <!-- AQ7 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">7. ______ you like ______ (listen) to music after school?</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. Does / listening</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">B. Do / listening</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. Does / listen</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. Do / listen</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: B</strong><br>
+                    you = 非三单 → Do，like 后面用 listening
+                </div>
+            </div>
+
+            <!-- AQ8 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">8. His parents ______ like ______ (run) in PE class.</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. doesn't / running</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">B. don't / running</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. doesn't / run</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. don't / run</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: B</strong><br>
+                    His parents = 复数（非三单），否定用 don't，like 后面用 running
+                </div>
+            </div>
+
+            <!-- AQ9 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">9. ______ Tom and his friend like ______ (paint) with watercolors?</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. Does / painting</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">B. Do / painting</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. Does / paint</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. Do / paint</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: B</strong><br>
+                    Tom and his friend = 复数（两人）→ Do，like 后面用 painting
+                </div>
+            </div>
+
+            <!-- AQ10 -->
+            <div class="reading-card p-5 mb-4">
+                <p class="font-bold text-lg mb-3">10. My classmates ______ like ______ (do) homework every day.</p>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. doesn't / doing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">B. don't / doing</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. doesn't / do</div>
+                <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. don't / do</div>
+                <div class="quiz-answer-box">
+                    <strong>答案: B</strong><br>
+                    My classmates = 复数（非三单），否定用 don't，like 后面用 doing
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== Cloze Passage ====== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📖</span> 完形填空 · Cloze: "School Is Great" <span>🏫</span>
+            </h2>
+
+            <div class="reading-card p-6 mb-6">
+                <h3 class="text-xl font-bold text-indigo-700 mb-4">🎵 School Is Great</h3>
+                <p class="text-gray-600 mb-4">点击选项查看答案 — 每行诗后紧跟选择题</p>
+
+                <div class="space-y-6 text-lg leading-relaxed">
+                    <!-- 1 -->
+                    <div class="bg-indigo-50 p-4 rounded-xl">
+                        <p class="font-bold mb-3">I love <strong>(1)</strong> football in P.E.,</p>
+                        <div class="reading-card p-3">
+                            <p class="font-bold text-sm mb-2">1. A. play &nbsp; B. plays &nbsp; C. playing &nbsp; D. to play</p>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. play</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. plays</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">C. playing</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. to play</div>
+                            <div class="quiz-answer-box"><strong>答案: C</strong> — love + doing</div>
+                        </div>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="bg-indigo-50 p-4 rounded-xl">
+                        <p class="font-bold mb-3">And <strong>(2)</strong> fun with my friends.</p>
+                        <div class="reading-card p-3">
+                            <p class="font-bold text-sm mb-2">2. A. have &nbsp; B. has &nbsp; C. to have &nbsp; D. having</p>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. have</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. has</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. to have</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">D. having</div>
+                            <div class="quiz-answer-box"><strong>答案: D</strong> — and 连接并列结构 (love playing... and having...)</div>
+                        </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="bg-indigo-50 p-4 rounded-xl">
+                        <p class="font-bold mb-3">I like <strong>(3)</strong> computers in I.T.,</p>
+                        <div class="reading-card p-3">
+                            <p class="font-bold text-sm mb-2">3. A. use &nbsp; B. uses &nbsp; C. using &nbsp; D. to use</p>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. use</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. uses</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">C. using</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. to use</div>
+                            <div class="quiz-answer-box"><strong>答案: C</strong> — like + doing</div>
+                        </div>
+                    </div>
+
+                    <!-- 4 -->
+                    <div class="bg-indigo-50 p-4 rounded-xl">
+                        <p class="font-bold mb-3">I'm sad when the lesson <strong>(4)</strong>.</p>
+                        <div class="reading-card p-3">
+                            <p class="font-bold text-sm mb-2">4. A. end &nbsp; B. ends &nbsp; C. ending &nbsp; D. to end</p>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. end</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">B. ends</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. ending</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. to end</div>
+                            <div class="quiz-answer-box"><strong>答案: B</strong> — the lesson 是三单，一般现在时加 -s</div>
+                        </div>
+                    </div>
+
+                    <!-- 5 -->
+                    <div class="bg-indigo-50 p-4 rounded-xl">
+                        <p class="font-bold mb-3">Let me <strong>(5)</strong> you a secret,</p>
+                        <div class="reading-card p-3">
+                            <p class="font-bold text-sm mb-2">5. A. tell &nbsp; B. tells &nbsp; C. telling &nbsp; D. to tell</p>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">A. tell</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. tells</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. telling</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. to tell</div>
+                            <div class="quiz-answer-box"><strong>答案: A</strong> — Let me + 动词原形</div>
+                        </div>
+                    </div>
+
+                    <!-- chorus lines: no blanks -->
+                    <div class="bg-indigo-50 p-4 rounded-xl text-center italic text-gray-600">
+                        <p>School is great. School's for everyone.</p>
+                    </div>
+
+                    <!-- 6 -->
+                    <div class="bg-indigo-50 p-4 rounded-xl">
+                        <p class="font-bold mb-3">Don't <strong>(6)</strong> anybody that</p>
+                        <div class="reading-card p-3">
+                            <p class="font-bold text-sm mb-2">6. A. tell &nbsp; B. tells &nbsp; C. telling &nbsp; D. to tell</p>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">A. tell</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. tells</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. telling</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. to tell</div>
+                            <div class="quiz-answer-box"><strong>答案: A</strong> — Don't + 动词原形（祈使句否定）</div>
+                        </div>
+                    </div>
+
+                    <!-- chorus lines: no blanks -->
+                    <div class="bg-indigo-50 p-4 rounded-xl text-center italic text-gray-600">
+                        <p>School is great. And it's lots of fun.</p>
+                    </div>
+
+                    <!-- 7 -->
+                    <div class="bg-indigo-50 p-4 rounded-xl">
+                        <p class="font-bold mb-3">I love <strong>(7)</strong> all my Geography,</p>
+                        <div class="reading-card p-3">
+                            <p class="font-bold text-sm mb-2">7. A. learn &nbsp; B. learns &nbsp; C. learning &nbsp; D. to learn</p>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. learn</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. learns</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">C. learning</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. to learn</div>
+                            <div class="quiz-answer-box"><strong>答案: C</strong> — love + doing</div>
+                        </div>
+                    </div>
+
+                    <!-- 8 -->
+                    <div class="bg-indigo-50 p-4 rounded-xl">
+                        <p class="font-bold mb-3">I'm good <strong>(8)</strong> names and places.</p>
+                        <div class="reading-card p-3">
+                            <p class="font-bold text-sm mb-2">8. A. in &nbsp; B. on &nbsp; C. at &nbsp; D. for</p>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. in</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. on</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">C. at</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. for</div>
+                            <div class="quiz-answer-box"><strong>答案: C</strong> — be good at 固定搭配</div>
+                        </div>
+                    </div>
+
+                    <!-- 9 -->
+                    <div class="bg-indigo-50 p-4 rounded-xl">
+                        <p class="font-bold mb-3">I love <strong>(9)</strong> all my History</p>
+                        <div class="reading-card p-3">
+                            <p class="font-bold text-sm mb-2">9. A. learn &nbsp; B. learns &nbsp; C. learning &nbsp; D. to learn</p>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. learn</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">B. learns</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">C. learning</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. to learn</div>
+                            <div class="quiz-answer-box"><strong>答案: C</strong> — love + doing</div>
+                        </div>
+                    </div>
+
+                    <!-- 10 -->
+                    <div class="bg-indigo-50 p-4 rounded-xl">
+                        <p class="font-bold mb-3">And all those famous <strong>(10)</strong>.</p>
+                        <div class="reading-card p-3">
+                            <p class="font-bold text-sm mb-2">10. A. face &nbsp; B. faces &nbsp; C. face's &nbsp; D. faces'</p>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">A. face</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, true)" role="button" tabindex="0">B. faces</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">C. face's</div>
+                            <div class="quiz-option" onclick="showQuizAnswer(this, false)" role="button" tabindex="0">D. faces'</div>
+                            <div class="quiz-answer-box"><strong>答案: B</strong> — famous faces 著名的面孔/人物，those + 复数</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== Word Quiz ====== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✍️</span> Word Quiz · 单词测验 <span>📝</span>
+            </h2>
+
+            <div class="tip-box">
+                <strong>练习说明:</strong> 点击空白处查看答案。先自己思考，再点击查看！
+            </div>
+
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">汉译英 · Chinese → English（学科）</div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <p>1. 英语 <span class="word-quiz-blank" data-placeholder="__________" data-answer="English" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>2. 地理 <span class="word-quiz-blank" data-placeholder="__________" data-answer="geography" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>3. 音乐 <span class="word-quiz-blank" data-placeholder="__________" data-answer="music" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>4. 历史 <span class="word-quiz-blank" data-placeholder="__________" data-answer="history" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>5. 舞蹈（课） <span class="word-quiz-blank" data-placeholder="__________" data-answer="dance" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>6. 美术 <span class="word-quiz-blank" data-placeholder="__________" data-answer="art" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>7. 体育 <span class="word-quiz-blank" data-placeholder="__________" data-answer="PE" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                </div>
+            </div>
+
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-green-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">英译汉 · English → Chinese（学科）</div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <p>1. English <span class="word-quiz-blank" data-placeholder="__________" data-answer="英语" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>2. geography <span class="word-quiz-blank" data-placeholder="__________" data-answer="地理" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>3. music <span class="word-quiz-blank" data-placeholder="__________" data-answer="音乐" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>4. history <span class="word-quiz-blank" data-placeholder="__________" data-answer="历史" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>5. dance <span class="word-quiz-blank" data-placeholder="__________" data-answer="舞蹈（课）" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>6. art <span class="word-quiz-blank" data-placeholder="__________" data-answer="美术" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>7. PE <span class="word-quiz-blank" data-placeholder="__________" data-answer="体育" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                </div>
+            </div>
+
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-purple-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">重点动词/短语 · Key Verbs &amp; Phrases</div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <p>1. memorize <span class="word-quiz-blank" data-placeholder="__________" data-answer="背，记" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>2. practice <span class="word-quiz-blank" data-placeholder="__________" data-answer="练习，训练" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>3. speak <span class="word-quiz-blank" data-placeholder="__________" data-answer="说，讲" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>4. remember <span class="word-quiz-blank" data-placeholder="__________" data-answer="记住，记" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>5. dates <span class="word-quiz-blank" data-placeholder="__________" data-answer="日期（几月几号）" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>6. in front of <span class="word-quiz-blank" data-placeholder="__________" data-answer="在...前面" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>7. others <span class="word-quiz-blank" data-placeholder="__________" data-answer="其他人" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>8. long distances <span class="word-quiz-blank" data-placeholder="__________" data-answer="长跑" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== Homework ====== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📅</span> Homework · 作业 (7.11.2026) <span>✏️</span>
+            </h2>
+
+            <div class="space-y-4">
+                <div class="bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-indigo-500">
+                    <div class="text-3xl">1️⃣</div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg">复习 like/likes 语法 + 完成练习</div>
+                        <div class="text-gray-600">掌握 PDF 上的单词（包括语法部分黄色阴影的名词+动词），完成选择题和助动词专项练习</div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-blue-500">
+                    <div class="text-3xl">2️⃣</div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg">完成完形填空 "School Is Great"</div>
+                        <div class="text-gray-600">主要考察动词形式以及 like/love doing 句式，理解每空选择的语法依据</div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-green-500">
+                    <div class="text-3xl">3️⃣</div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg">熟读 Superminds 3 Page 14-15 故事</div>
+                        <div class="text-gray-600">要熟读并能精准释义每一个句子</div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-amber-500">
+                    <div class="text-3xl">4️⃣</div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg">预习故事 Page 16-17</div>
+                        <div class="text-gray-600">提前阅读，标注不认识的单词</div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-rose-500">
+                    <div class="text-3xl">5️⃣</div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg">完成 7.4 号的 PDF</div>
+                        <div class="text-gray-600">单词 + 练习全部完成</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Today's Todo -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✅</span> Today's Todo · 今日任务 <span>📝</span>
+            </h2>
+
+            <div class="bg-white rounded-full p-1 mb-6 shadow-inner">
+                <div id="progressBar"
+                    class="h-8 bg-gradient-to-r from-indigo-500 to-indigo-400 rounded-full flex items-center justify-center text-white font-bold transition-all duration-500"
+                    style="width: 0%">0%</div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-red-500"
+                    data-todo="1" onclick="toggleTodoItem(this, 'sm3Unit1Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>1️⃣</span> 学习学科词汇</div>
+                        <div class="text-gray-600">掌握 7 个学科名词 (English, geography, music, history, dance, art, PE)，会读会写</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-blue-500"
+                    data-todo="2" onclick="toggleTodoItem(this, 'sm3Unit1Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>2️⃣</span> 掌握 like + doing 四种句型</div>
+                        <div class="text-gray-600">熟记规律总结表，能区分三单/非三单的肯定和否定形式</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-green-500"
+                    data-todo="3" onclick="toggleTodoItem(this, 'sm3Unit1Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>3️⃣</span> 完成 10 道选择题 + 10 道助动词题</div>
+                        <div class="text-gray-600">仔细阅读解析，理解每道题的判断依据</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-purple-500"
+                    data-todo="4" onclick="toggleTodoItem(this, 'sm3Unit1Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>4️⃣</span> 完成完形填空 "School Is Great"</div>
+                        <div class="text-gray-600">理解每个空的语法选择，掌握 love/like + doing 和固定搭配</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-amber-500"
+                    data-todo="5" onclick="toggleTodoItem(this, 'sm3Unit1Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>5️⃣</span> 完成单词测验</div>
+                        <div class="text-gray-600">完成汉译英和英译汉，特别注意黄色阴影的重点动词</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="button"
+                    class="bg-gradient-to-b from-gray-500 to-gray-600 text-white font-bold px-6 py-2 rounded-full shadow-lg hover:scale-105 transition"
+                    onclick="resetTodoItems('sm3Unit1Todos')">
+                    <i class="fas fa-redo mr-2"></i>重置所有任务
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-indigo-800 to-indigo-900 mt-12 py-6">
+        <div class="max-w-4xl mx-auto px-4 text-center text-white">
+            <p class="text-lg font-bold mb-2">📚 Super Minds 3 - Unit 1 School Subjects 学科 &amp; Like + Doing</p>
+            <p class="text-sm opacity-80">Keep practicing and have fun learning English! 坚持练习，快乐学英语！</p>
+        </div>
+    </footer>
+
+    <script>
+        // Todo list functionality
+        var todoStates = {};
+        try {
+            var saved = localStorage.getItem('sm3Unit1Todos');
+            if (saved) todoStates = JSON.parse(saved);
+        } catch (e) { }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            Object.keys(todoStates).forEach(function (id) {
+                if (todoStates[id]) {
+                    var item = document.querySelector('[data-todo="' + id + '"]');
+                    if (item) item.classList.add('completed');
+                }
+            });
+            updateTodoProgress('sm3Unit1Todos');
+        });
+    </script>
+    <script src="../../js/common.js"></script>
+</body>
+</html>

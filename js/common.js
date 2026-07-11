@@ -340,7 +340,7 @@ function switchTab(tabName, options = {}) {
 
 const NAV_LINKS = {
     A: {
-        home: { href: '../index.html', label: '首页 Home' },
+        home: { href: '../../index.html', label: '首页 Home' },
         unit7: {
             label: 'Unit 7',
             triggerHref: 'present-continuous-course.html',
@@ -367,6 +367,15 @@ const NAV_LINKS = {
                 { key: 'unit9-fairytales', href: '../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
         },
+        sm3: {
+            label: 'SM3',
+            triggerHref: '../../sm3/unit0/explorers-be-good-at.html',
+            pages: [
+                { key: 'sm3-unit0', href: '../../sm3/unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
+                { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' }
+            ]
+        },
+
         review: {
             label: '复习 Review',
             triggerHref: '../review/review-units-1-3.html',
@@ -379,7 +388,7 @@ const NAV_LINKS = {
         }
     },
     B_unit8: {
-        home: { href: '../index.html', label: '首页 Home' },
+        home: { href: '../../index.html', label: '首页 Home' },
         unit7: {
             label: 'Unit 7',
             triggerHref: '../unit7/present-continuous-course.html',
@@ -406,6 +415,15 @@ const NAV_LINKS = {
                 { key: 'unit9-fairytales', href: '../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
         },
+        sm3: {
+            label: 'SM3',
+            triggerHref: '../../sm3/unit0/explorers-be-good-at.html',
+            pages: [
+                { key: 'sm3-unit0', href: '../../sm3/unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
+                { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' }
+            ]
+        },
+
         review: {
             label: '复习 Review',
             triggerHref: '../review/review-units-1-3.html',
@@ -418,7 +436,7 @@ const NAV_LINKS = {
         }
     },
     B_unit9: {
-        home: { href: '../index.html', label: '首页 Home' },
+        home: { href: '../../index.html', label: '首页 Home' },
         unit7: {
             label: 'Unit 7',
             triggerHref: '../unit7/present-continuous-course.html',
@@ -445,6 +463,15 @@ const NAV_LINKS = {
                 { key: 'unit9-fairytales', href: 'fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
         },
+        sm3: {
+            label: 'SM3',
+            triggerHref: '../../sm3/unit0/explorers-be-good-at.html',
+            pages: [
+                { key: 'sm3-unit0', href: '../../sm3/unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
+                { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' }
+            ]
+        },
+
         review: {
             label: '复习 Review',
             triggerHref: '../review/review-units-1-3.html',
@@ -457,7 +484,7 @@ const NAV_LINKS = {
         }
     },
     B_review: {
-        home: { href: '../index.html', label: '首页 Home' },
+        home: { href: '../../index.html', label: '首页 Home' },
         unit7: {
             label: 'Unit 7',
             triggerHref: '../unit7/present-continuous-course.html',
@@ -484,6 +511,15 @@ const NAV_LINKS = {
                 { key: 'unit9-fairytales', href: '../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
         },
+        sm3: {
+            label: 'SM3',
+            triggerHref: '../../sm3/unit0/explorers-be-good-at.html',
+            pages: [
+                { key: 'sm3-unit0', href: '../../sm3/unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
+                { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' }
+            ]
+        },
+
         review: {
             label: '复习 Review',
             triggerHref: 'review-units-1-3.html',
@@ -520,6 +556,15 @@ const NAV_LINKS = {
                 { key: 'baseball-unit9-fairytales', href: '../../unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
             ]
         },
+        sm3: {
+            label: 'SM3',
+            triggerHref: '../../../sm3/unit0/explorers-be-good-at.html',
+            pages: [
+                { key: 'sm3-unit0', href: '../../../sm3/unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
+                { key: 'sm3-unit1', href: '../../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' }
+            ]
+        },
+
         review: {
             label: '复习 Review',
             triggerHref: '../../review/review-units-1-3.html',
@@ -528,6 +573,100 @@ const NAV_LINKS = {
                 { key: 'review-unit-4', href: '../../review/review-unit-4.html', label: '🍎 Unit 4 复习' },
                 { key: 'review-unit-5', href: '../../review/review-unit-5.html', label: '🛏️ Unit 5 复习' },
                 { key: 'review-unit-5-lecture2', href: '../../review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' }
+            ]
+        }
+    },
+    B_sm3_unit0: {
+        home: { href: '../../index.html', label: '首页 Home' },
+        unit7: {
+            label: 'Unit 7',
+            triggerHref: '../../sm2/unit7/present-continuous-course.html',
+            pages: [
+                { key: 'unit7-course', href: '../../sm2/unit7/present-continuous-course.html', label: '📖 现在进行时 Course' },
+                { key: 'unit7-homework', href: '../../sm2/unit7/present-continuous-homework.html', label: '✏️ 作业 Homework' }
+            ]
+        },
+        unit8: {
+            label: 'Unit 8',
+            triggerHref: '../../sm2/unit8/gerunds-ball-sports.html',
+            pages: [
+                { key: 'unit8-sports', href: '../../sm2/unit8/gerunds-ball-sports.html', label: '⚾ 球类运动 Sports' },
+                { key: 'unit8-vehicles', href: '../../sm2/unit8/amazing-vehicles-reading.html', label: '🚌 交通工具 Vehicles' },
+                { key: 'unit8-reading', href: '../../sm2/unit8/fun-things-we-do-reading.html', label: '📚 补充阅读 Reading' },
+                { key: 'unit8-homework', href: '../../sm2/unit8/question-words-grammar-homework.html', label: '✏️ 语法作业 Homework' }
+            ]
+        },
+        unit9: {
+            label: 'Unit 9',
+            triggerHref: '../../sm2/unit9/holiday-plans-grammar-review.html',
+            pages: [
+                { key: 'unit9-grammar', href: '../../sm2/unit9/holiday-plans-grammar-review.html', label: '🌴 假期计划语法 Grammar' },
+                { key: 'unit9-fairytales', href: '../../sm2/unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
+            ]
+        },
+        sm3: {
+            label: 'SM3',
+            triggerHref: 'explorers-be-good-at.html',
+            pages: [
+                { key: 'sm3-unit0', href: 'explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
+                { key: 'sm3-unit1', href: '../unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' }
+            ]
+        },
+        review: {
+            label: '复习 Review',
+            triggerHref: '../../sm2/review/review-units-1-3.html',
+            pages: [
+                { key: 'review-units-1-3', href: '../../sm2/review/review-units-1-3.html', label: '📝 Units 1-3 复习' },
+                { key: 'review-unit-4', href: '../../sm2/review/review-unit-4.html', label: '🍎 Unit 4 复习' },
+                { key: 'review-unit-5', href: '../../sm2/review/review-unit-5.html', label: '🛏️ Unit 5 复习' },
+                { key: 'review-unit-5-lecture2', href: '../../sm2/review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' }
+            ]
+        }
+    },
+    B_sm3_unit1: {
+        home: { href: '../../index.html', label: '首页 Home' },
+        unit7: {
+            label: 'Unit 7',
+            triggerHref: '../../sm2/unit7/present-continuous-course.html',
+            pages: [
+                { key: 'unit7-course', href: '../../sm2/unit7/present-continuous-course.html', label: '📖 现在进行时 Course' },
+                { key: 'unit7-homework', href: '../../sm2/unit7/present-continuous-homework.html', label: '✏️ 作业 Homework' }
+            ]
+        },
+        unit8: {
+            label: 'Unit 8',
+            triggerHref: '../../sm2/unit8/gerunds-ball-sports.html',
+            pages: [
+                { key: 'unit8-sports', href: '../../sm2/unit8/gerunds-ball-sports.html', label: '⚾ 球类运动 Sports' },
+                { key: 'unit8-vehicles', href: '../../sm2/unit8/amazing-vehicles-reading.html', label: '🚌 交通工具 Vehicles' },
+                { key: 'unit8-reading', href: '../../sm2/unit8/fun-things-we-do-reading.html', label: '📚 补充阅读 Reading' },
+                { key: 'unit8-homework', href: '../../sm2/unit8/question-words-grammar-homework.html', label: '✏️ 语法作业 Homework' }
+            ]
+        },
+        unit9: {
+            label: 'Unit 9',
+            triggerHref: '../../sm2/unit9/holiday-plans-grammar-review.html',
+            pages: [
+                { key: 'unit9-grammar', href: '../../sm2/unit9/holiday-plans-grammar-review.html', label: '🌴 假期计划语法 Grammar' },
+                { key: 'unit9-fairytales', href: '../../sm2/unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
+            ]
+        },
+        sm3: {
+            label: 'SM3',
+            triggerHref: '../unit0/explorers-be-good-at.html',
+            pages: [
+                { key: 'sm3-unit0', href: '../unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
+                { key: 'sm3-unit1', href: 'school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' }
+            ]
+        },
+        review: {
+            label: '复习 Review',
+            triggerHref: '../../sm2/review/review-units-1-3.html',
+            pages: [
+                { key: 'review-units-1-3', href: '../../sm2/review/review-units-1-3.html', label: '📝 Units 1-3 复习' },
+                { key: 'review-unit-4', href: '../../sm2/review/review-unit-4.html', label: '🍎 Unit 4 复习' },
+                { key: 'review-unit-5', href: '../../sm2/review/review-unit-5.html', label: '🛏️ Unit 5 复习' },
+                { key: 'review-unit-5-lecture2', href: '../../sm2/review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' }
             ]
         }
     },
@@ -570,6 +709,8 @@ const NAV_LINKS = {
 function getUnitFromActive(active) {
     if (active.startsWith('baseball-unit7')) return 'baseball-unit7';
     if (active.startsWith('baseball-unit8')) return 'baseball-unit8';
+    if (active.startsWith('sm3-unit0')) return 'sm3_unit0';
+    if (active.startsWith('sm3-unit1')) return 'sm3_unit1';
     if (active.startsWith('unit7')) return 'unit7';
     if (active.startsWith('unit8')) return 'unit8';
     if (active.startsWith('unit9')) return 'unit9';
@@ -606,94 +747,92 @@ function renderNav(config) {
 
 function buildNavPatternA(active) {
     const links = NAV_LINKS.A;
-    const isUnit7 = active.startsWith('unit7') || active.startsWith('baseball-unit7');
-    const isUnit8 = active.startsWith('unit8') || active.startsWith('baseball-unit8');
-    const isUnit9 = active.startsWith('unit9') || active.startsWith('baseball-unit9');
-    const isReview = active.startsWith('review');
+    const isSm2 = !active.startsWith('sm3-unit0') && !active.startsWith('sm3-unit1');
+    const isSm3 = active.startsWith('sm3-unit0') || active.startsWith('sm3-unit1');
+    const hasSm3 = links.sm3;
 
-    const homeClass = (!isUnit7 && !isUnit8 && !isUnit9 && !isReview)
+    const homeClass = (!isSm2 && !isSm3)
         ? 'px-3 py-2 text-sm font-medium text-white bg-white/20 rounded-lg border-b-2 border-yellow-400'
         : 'px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all';
-    
-    function unitTriggerClass(isActive) {
+
+    function triggerClass(isActive) {
         return isActive
             ? 'px-3 py-2 text-sm font-medium text-white bg-white/20 rounded-lg border-b-2 border-yellow-400 flex items-center gap-1'
             : 'px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all flex items-center gap-1';
     }
-    
+
     function dropdownItemClass(itemKey) {
         return active === itemKey
             ? 'block px-4 py-2 text-sm text-gray-700 bg-blue-50 font-medium'
             : 'block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50';
     }
-    
+
     function mobileItemClass(itemKey) {
         return active === itemKey
             ? 'block px-3 py-2 text-sm font-medium text-white bg-white/20 rounded-lg border-l-4 border-yellow-400'
             : 'block px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all';
     }
-    
-    return `<nav id="site-nav" class="sticky top-0 z-50 bg-gradient-to-r from-blue-600 to-blue-800 border-b-4 border-yellow-400 shadow-lg mb-8 -mt-4 -mx-4 px-4 md:-mx-8 md:px-8">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-14">
-                <div class="flex items-center space-x-3">
-                    <i data-lucide="book-open" class="text-white w-6 h-6"></i>
-                    <span class="text-white text-lg font-bold">Super Minds 2</span>
-                </div>
-                <div class="hidden md:flex space-x-1 items-center">
-                    <a href="${links.home.href}" class="${homeClass}">${links.home.label}</a>
-                    <div class="relative group">
-                        <a href="${links.unit7.triggerHref}" class="${unitTriggerClass(isUnit7)}">Unit 7 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
-                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
-                            ${links.unit7.pages.map(p => `<a href="${p.href}" class="${dropdownItemClass(p.key)}">${p.label}</a>`).join('\n                            ')}
-                        </div>
-                    </div>
-                    <div class="relative group">
-                        <a href="${links.unit8.triggerHref}" class="${unitTriggerClass(isUnit8)}">Unit 8 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
-                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
-                            ${links.unit8.pages.map(p => `<a href="${p.href}" class="${dropdownItemClass(p.key)}">${p.label}</a>`).join('\n                            ')}
-                        </div>
-                    </div>
-                    <div class="relative group">
-                        <a href="${links.unit9.triggerHref}" class="${unitTriggerClass(isUnit9)}">Unit 9 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
-                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
-                            ${links.unit9.pages.map(p => `<a href="${p.href}" class="${dropdownItemClass(p.key)}">${p.label}</a>`).join('\n                            ')}
-                        </div>
-                    </div>
-                    <div class="relative group">
-                        <a href="${links.review.triggerHref}" class="${unitTriggerClass(isReview)}">复习 Review <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
-                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
-                            ${links.review.pages.map(p => `<a href="${p.href}" class="${dropdownItemClass(p.key)}">${p.label}</a>`).join('\n                            ')}
-                        </div>
-                    </div>
-                </div>
-                <button type="button" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
-            <div id="mobileMenu" class="hidden md:hidden pb-4">
-                <div class="flex flex-col space-y-2">
-                    <a href="${links.home.href}" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">${links.home.label}</a>
-                    <div class="px-3 py-2">
-                        <div class="text-white/70 text-xs mb-1">Unit 7</div>
-                        ${links.unit7.pages.map(p => `<a href="${p.href}" class="${mobileItemClass(p.key)}">${p.label}</a>`).join('\n                        ')}
-                    </div>
-                    <div class="px-3 py-2">
-                        <div class="text-white/70 text-xs mb-1">Unit 8</div>
-                        ${links.unit8.pages.map(p => `<a href="${p.href}" class="${mobileItemClass(p.key)}">${p.label}</a>`).join('\n                        ')}
-                    </div>
-                    <div class="px-3 py-2">
-                        <div class="text-white/70 text-xs mb-1">Unit 9</div>
-                        ${links.unit9.pages.map(p => `<a href="${p.href}" class="${mobileItemClass(p.key)}">${p.label}</a>`).join('\n                        ')}
-                    </div>
-                    <div class="px-3 py-2">
-                        <div class="text-white/70 text-xs mb-1">复习 Review</div>
-                        ${links.review.pages.map(p => `<a href="${p.href}" class="${mobileItemClass(p.key)}">${p.label}</a>`).join('\n                        ')}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>`;
+
+    function sm2Group(label, pages) {
+        return '<div class="px-3 py-1 text-xs font-bold text-gray-400 uppercase tracking-wider mt-1">' + label + '</div>\n' +
+            pages.map(function(p) { return '<a href="' + p.href + '" class="' + dropdownItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n');
+    }
+
+    var sm2Groups = [
+        sm2Group('Unit 7', links.unit7.pages),
+        sm2Group('Unit 8', links.unit8.pages),
+        sm2Group('Unit 9', links.unit9.pages),
+        sm2Group('复习 Review', links.review.pages)
+    ].join('\n                            ');
+
+    return '<nav id="site-nav" class="sticky top-0 z-50 bg-gradient-to-r from-blue-600 to-blue-800 border-b-4 border-yellow-400 shadow-lg mb-8 -mt-4 -mx-4 px-4 md:-mx-8 md:px-8">\n' +
+        '        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">\n' +
+        '            <div class="flex items-center justify-between h-14">\n' +
+        '                <div class="flex items-center space-x-3">\n' +
+        '                    <i data-lucide="book-open" class="text-white w-6 h-6"></i>\n' +
+        '                    <span class="text-white text-lg font-bold">Super Minds</span>\n' +
+        '                </div>\n' +
+        '                <div class="hidden md:flex space-x-1 items-center">\n' +
+        '                    <a href="' + links.home.href + '" class="' + homeClass + '">' + links.home.label + '</a>\n' +
+        '                    <div class="relative group">\n' +
+        '                        <a href="#" class="' + triggerClass(isSm2) + '" onclick="return false">SM2 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>\n' +
+        '                        <div class="absolute left-0 top-full w-56 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
+        '                            ' + sm2Groups + '\n' +
+        '                        </div>\n' +
+        '                    </div>\n' +
+        (hasSm3 ?
+        '                    <div class="relative group">\n' +
+        '                        <a href="' + links.sm3.triggerHref + '" class="' + triggerClass(isSm3) + '">SM3 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>\n' +
+        '                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
+        '                            ' + links.sm3.pages.map(function(p) { return '<a href="' + p.href + '" class="' + dropdownItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                            ') + '\n' +
+        '                        </div>\n' +
+        '                    </div>\n'
+        : '') +
+        '                </div>\n' +
+        '                <button type="button" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">\n' +
+        '                    <i data-lucide="menu" class="w-6 h-6"></i>\n' +
+        '                </button>\n' +
+        '            </div>\n' +
+        '            <div id="mobileMenu" class="hidden md:hidden pb-4">\n' +
+        '                <div class="flex flex-col space-y-2">\n' +
+        '                    <a href="' + links.home.href + '" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">' + links.home.label + '</a>\n' +
+        '                    <div class="px-3 py-2">\n' +
+        '                        <div class="text-white/70 text-xs mb-1">SM2</div>\n' +
+        '                        ' + links.unit7.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
+        '                        ' + links.unit8.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
+        '                        ' + links.unit9.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
+        '                        ' + links.review.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
+        '                    </div>\n' +
+        (hasSm3 ?
+        '                    <div class="px-3 py-2">\n' +
+        '                        <div class="text-white/70 text-xs mb-1">SM3</div>\n' +
+        '                        ' + links.sm3.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
+        '                    </div>\n'
+        : '') +
+        '                </div>\n' +
+        '            </div>\n' +
+        '        </div>\n' +
+        '    </nav>';
 }
 
 function buildNavPatternB(active, brandIcon) {
@@ -702,99 +841,91 @@ function buildNavPatternB(active, brandIcon) {
     if (!links) return '';
     
     const icon = brandIcon || 'fa-baseball-ball';
-    const isUnit7 = active.startsWith('unit7');
-    const isUnit8 = active.startsWith('unit8');
-    const isUnit9 = active.startsWith('unit9');
-    const isReview = active.startsWith('review');
-    
+    const isSm2 = !active.startsWith('sm3-unit0') && !active.startsWith('sm3-unit1');
+    const isSm3 = active.startsWith('sm3-unit0') || active.startsWith('sm3-unit1');
+    const hasSm3 = links.sm3;
+
     const homeClass = 'nav-link px-3 py-2 text-sm font-medium';
 
-    function unitTriggerClass(isActive) {
+    function triggerClass(isActive) {
         return isActive
             ? 'nav-link px-3 py-2 text-sm font-medium border-b-2 border-red-500'
             : 'nav-link px-3 py-2 text-sm font-medium';
     }
-    
-    function unitTriggerLabel(unitNum) {
-        if (unitNum === 7) return 'Unit 7 <i class="fas fa-chevron-down text-xs"></i>';
-        if (unitNum === 8) return isUnit8 ? 'Unit 8 ⚾' : 'Unit 8 <i class="fas fa-chevron-down text-xs"></i>';
-        if (unitNum === 9) return 'Unit 9 <i class="fas fa-chevron-down text-xs"></i>';
-        return '';
-    }
-    
+
     function dropdownItemClass(itemKey) {
         return active === itemKey
             ? 'block px-4 py-2 text-sm text-gray-700 bg-gray-100 font-medium'
             : 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100';
     }
-    
+
     function mobileItemClass(itemKey) {
         return active === itemKey
             ? 'nav-link px-3 py-2 text-sm font-medium block text-white border-l-4 border-red-500 pl-4'
             : 'nav-link px-3 py-2 text-sm font-medium block';
     }
-    
-    return `<nav id="site-nav" class="sticky top-0 z-50 bg-gradient-to-r from-green-900 to-green-800 border-b-4 border-red-700 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center space-x-4">
-                    <i class="fas ${icon} text-white text-2xl"></i>
-                    <span class="baseball-font text-white text-xl font-bold">Super Minds 2</span>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="${links.home.href}" class="${homeClass}">${links.home.label}</a>
-                    <div class="relative group">
-                        <a href="${links.unit7.triggerHref}" class="${unitTriggerClass(isUnit7)}">${unitTriggerLabel(7)}</a>
-                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
-                            ${links.unit7.pages.map(p => `<a href="${p.href}" class="${dropdownItemClass(p.key)}">${p.label}</a>`).join('\n                            ')}
-                        </div>
-                    </div>
-                    <div class="relative group">
-                        <a href="${links.unit8.triggerHref}" class="${unitTriggerClass(isUnit8)}">${unitTriggerLabel(8)}</a>
-                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
-                            ${links.unit8.pages.map(p => `<a href="${p.href}" class="${dropdownItemClass(p.key)}">${p.label}</a>`).join('\n                            ')}
-                        </div>
-                    </div>
-                    <div class="relative group">
-                        <a href="${links.unit9.triggerHref}" class="${unitTriggerClass(isUnit9)}">${unitTriggerLabel(9)}</a>
-                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
-                            ${links.unit9.pages.map(p => `<a href="${p.href}" class="${dropdownItemClass(p.key)}">${p.label}</a>`).join('\n                            ')}
-                        </div>
-                    </div>
-                    <div class="relative group">
-                        <a href="${links.review.triggerHref}" class="${unitTriggerClass(isReview)}">复习 Review <i class="fas fa-chevron-down text-xs"></i></a>
-                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
-                            ${links.review.pages.map(p => `<a href="${p.href}" class="${dropdownItemClass(p.key)}">${p.label}</a>`).join('\n                            ')}
-                        </div>
-                    </div>
-                </div>
-                <button type="button" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
-            <div id="mobileMenu" class="hidden md:hidden pb-4">
-                <div class="flex flex-col space-y-2">
-                    <a href="${links.home.href}" class="nav-link px-3 py-2 text-sm font-medium">${links.home.label}</a>
-                    <div class="px-3 py-2">
-                        <div class="text-white/70 text-xs mb-1">Unit 7</div>
-                        ${links.unit7.pages.map(p => `<a href="${p.href}" class="${mobileItemClass(p.key)}">${p.label}</a>`).join('\n                        ')}
-                    </div>
-                    <div class="px-3 py-2">
-                        <div class="text-white/70 text-xs mb-1">Unit 8</div>
-                        ${links.unit8.pages.map(p => `<a href="${p.href}" class="${mobileItemClass(p.key)}">${p.label}</a>`).join('\n                        ')}
-                    </div>
-                    <div class="px-3 py-2">
-                        <div class="text-white/70 text-xs mb-1">Unit 9</div>
-                        ${links.unit9.pages.map(p => `<a href="${p.href}" class="${mobileItemClass(p.key)}">${p.label}</a>`).join('\n                        ')}
-                    </div>
-                    <div class="px-3 py-2">
-                        <div class="text-white/70 text-xs mb-1">复习 Review</div>
-                        ${links.review.pages.map(p => `<a href="${p.href}" class="${mobileItemClass(p.key)}">${p.label}</a>`).join('\n                        ')}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>`;
+
+    // Build SM2 mega-dropdown content — one group per unit
+    function sm2Group(label, pages) {
+        return '<div class="px-3 py-1 text-xs font-bold text-gray-400 uppercase tracking-wider mt-1">' + label + '</div>\n' +
+            pages.map(function(p) { return '<a href="' + p.href + '" class="' + dropdownItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n');
+    }
+
+    var sm2Groups = [
+        sm2Group('Unit 7', links.unit7.pages),
+        sm2Group('Unit 8', links.unit8.pages),
+        sm2Group('Unit 9', links.unit9.pages),
+        sm2Group('复习 Review', links.review.pages)
+    ].join('\n                            ');
+
+    return '<nav id="site-nav" class="sticky top-0 z-50 bg-gradient-to-r from-green-900 to-green-800 border-b-4 border-red-700 shadow-lg">\n' +
+        '        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">\n' +
+        '            <div class="flex items-center justify-between h-16">\n' +
+        '                <div class="flex items-center space-x-4">\n' +
+        '                    <i class="fas ' + icon + ' text-white text-2xl"></i>\n' +
+        '                    <span class="baseball-font text-white text-xl font-bold">Super Minds</span>\n' +
+        '                </div>\n' +
+        '                <div class="hidden md:flex space-x-6">\n' +
+        '                    <a href="' + links.home.href + '" class="' + homeClass + '">' + links.home.label + '</a>\n' +
+        '                    <div class="relative group">\n' +
+        '                        <a href="#" class="' + triggerClass(isSm2) + '" onclick="return false">SM2 <i class="fas fa-chevron-down text-xs"></i></a>\n' +
+        '                        <div class="absolute left-0 top-full w-56 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
+        '                            ' + sm2Groups + '\n' +
+        '                        </div>\n' +
+        '                    </div>\n' +
+        (hasSm3 ?
+        '                    <div class="relative group">\n' +
+        '                        <a href="' + links.sm3.triggerHref + '" class="' + triggerClass(isSm3) + '">SM3 <i class="fas fa-chevron-down text-xs"></i></a>\n' +
+        '                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
+        '                            ' + links.sm3.pages.map(function(p) { return '<a href="' + p.href + '" class="' + dropdownItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                            ') + '\n' +
+        '                        </div>\n' +
+        '                    </div>\n'
+        : '') +
+        '                </div>\n' +
+        '                <button type="button" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10">\n' +
+        '                    <i class="fas fa-bars text-xl"></i>\n' +
+        '                </button>\n' +
+        '            </div>\n' +
+        '            <div id="mobileMenu" class="hidden md:hidden pb-4">\n' +
+        '                <div class="flex flex-col space-y-2">\n' +
+        '                    <a href="' + links.home.href + '" class="nav-link px-3 py-2 text-sm font-medium">' + links.home.label + '</a>\n' +
+        '                    <div class="px-3 py-2">\n' +
+        '                        <div class="text-white/70 text-xs mb-1">SM2</div>\n' +
+        '                        ' + links.unit7.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
+        '                        ' + links.unit8.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
+        '                        ' + links.unit9.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
+        '                        ' + links.review.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
+        '                    </div>\n' +
+        (hasSm3 ?
+        '                    <div class="px-3 py-2">\n' +
+        '                        <div class="text-white/70 text-xs mb-1">SM3</div>\n' +
+        '                        ' + links.sm3.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
+        '                    </div>\n'
+        : '') +
+        '                </div>\n' +
+        '            </div>\n' +
+        '        </div>\n' +
+        '    </nav>';
 }
 
 function buildNavPatternC(active) {

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Super Minds 3 Unit 0 — The Explorers 词汇与 be good at 语法练习">
+    <title>Super Minds 3 Unit 0 · The Explorers & Be Good At</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+    <!-- Google Analytics -->
+    <script src="../../ga.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/baseball-theme.css">
+</head>
+<body class="text-gray-800">
+    <!-- Site Navigation -->
+    <script>window.NAV_CONFIG = {pattern:'B', active:'sm3-unit0', brandIcon: 'fa-compass'};</script>
+    <nav id="site-nav"></nav>
+
+    <!-- Hero Section -->
+    <header class="relative py-12 px-4 overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="stitch-border p-8 rounded-3xl shadow-2xl inline-block bg-white/95">
+                <h1 class="text-4xl md:text-5xl font-bold text-amber-800 mb-2">Super Minds 3 · Unit 0</h1>
+                <p class="text-2xl text-amber-700 font-medium mb-4">The Explorers · 探险家 &amp; be good at</p>
+                <div class="flex justify-center gap-4 text-5xl mb-4">
+                    <span class="float-anim" aria-hidden="true">🧭</span>
+                    <span class="float-anim" style="animation-delay: 0.5s" aria-hidden="true">🏰</span>
+                    <span class="float-anim" style="animation-delay: 1s" aria-hidden="true">📜</span>
+                    <span class="float-anim" style="animation-delay: 1.5s" aria-hidden="true">💎</span>
+                    <span class="float-anim" style="animation-delay: 2s" aria-hidden="true">🗺️</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="max-w-6xl mx-auto px-4 pb-16 space-y-8">
+
+        <!-- Hint Bar -->
+        <div class="max-w-3xl mx-auto">
+            <div class="hint-bar">
+                <div class="text-2xl mb-2">🎯📖✍️🔊✅</div>
+                <div class="text-sm md:text-base">点击词汇卡片听发音，点击练习空白处查看答案</div>
+            </div>
+        </div>
+
+        <!-- Quote -->
+        <div class="text-center text-white italic text-lg">
+            "Every adventure begins with a single step!" · 每次冒险都始于迈出的第一步！
+        </div>
+
+        <!-- ====== Part 1: Vocabulary ====== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📚</span> Part 1 · Vocabulary 生词表 (The Explorers) <span>🧭</span>
+            </h2>
+            <p class="text-center text-gray-600 mb-6">点击卡片听发音 🔊 — Meet Ben and Lucy, the explorers!</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('meet', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">🤝</div>
+                    <div class="font-bold text-lg">meet</div>
+                    <div class="text-sm text-gray-600 mt-1">遇见，结识 <span class="text-xs text-gray-400">(动词)</span></div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('explorers', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">🧭</div>
+                    <div class="font-bold text-lg">explorers</div>
+                    <div class="text-sm text-gray-600 mt-1">探险家，探索者 <span class="text-xs text-gray-400">(名词复数)</span></div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('find lost treasure', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">💎</div>
+                    <div class="font-bold text-lg">find lost treasure</div>
+                    <div class="text-sm text-gray-600 mt-1">找到丢失的宝藏 <span class="text-xs text-gray-400">(动词短语)</span></div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('museums', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">🏛️</div>
+                    <div class="font-bold text-lg">museums</div>
+                    <div class="text-sm text-gray-600 mt-1">博物馆 <span class="text-xs text-gray-400">(名词复数)</span></div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('exciting', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">🎉</div>
+                    <div class="font-bold text-lg">exciting</div>
+                    <div class="text-sm text-gray-600 mt-1">令人兴奋的 <span class="text-xs text-gray-400">(形容词)</span></div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('start', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">▶️</div>
+                    <div class="font-bold text-lg">start</div>
+                    <div class="text-sm text-gray-600 mt-1">开始 <span class="text-xs text-gray-400">(动词)</span></div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('new adventure', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">🗺️</div>
+                    <div class="font-bold text-lg">new adventure</div>
+                    <div class="text-sm text-gray-600 mt-1">新冒险，新奇遇 <span class="text-xs text-gray-400">(名词短语)</span></div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('castle', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">🏰</div>
+                    <div class="font-bold text-lg">castle</div>
+                    <div class="text-sm text-gray-600 mt-1">城堡 <span class="text-xs text-gray-400">(名词)</span></div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('look for', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">🔍</div>
+                    <div class="font-bold text-lg">look for</div>
+                    <div class="text-sm text-gray-600 mt-1">寻找 <span class="text-xs text-gray-400">(动词短语)</span></div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('tells the secret', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">🤫</div>
+                    <div class="font-bold text-lg">tells the secret</div>
+                    <div class="text-sm text-gray-600 mt-1">讲述秘密 <span class="text-xs text-gray-400">(动词短语)</span></div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('some lost treasure', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">👑</div>
+                    <div class="font-bold text-lg">some lost treasure</div>
+                    <div class="text-sm text-gray-600 mt-1">一些丢失的宝藏 <span class="text-xs text-gray-400">(名词短语)</span></div>
+                </div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('only people', this)" role="button" tabindex="0">
+                    <span class="speaker-icon" aria-hidden="true">🔊</span>
+                    <div class="text-3xl mb-2">🕵️</div>
+                    <div class="font-bold text-lg">only people</div>
+                    <div class="text-sm text-gray-600 mt-1">唯一的人（们） <span class="text-xs text-gray-400">(名词短语)</span></div>
+                </div>
+            </div>
+
+            <!-- Story context -->
+            <div class="reading-card p-5 space-y-3">
+                <h3 class="text-lg font-bold text-amber-700 mb-2">📖 Story Background · 故事背景</h3>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p class="text-lg leading-relaxed">Meet Ben and Lucy — they are the explorers. They find lost treasure and give it to museums.</p>
+                    <p class="translation">来认识一下 Ben 和 Lucy —— 他们是探险家。他们找到丢失的宝藏并交给博物馆。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p class="text-lg leading-relaxed">Their lives are very exciting. Today they are starting a new adventure in the castle.</p>
+                    <p class="translation">他们的生活非常令人兴奋。今天他们要在城堡里开始一场新的冒险。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p class="text-lg leading-relaxed">They are in a castle looking for an old book. The book tells the secret of some lost treasure.</p>
+                    <p class="translation">他们在城堡里寻找一本古书。这本书讲述了一些丢失宝藏的秘密。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p class="text-lg leading-relaxed">But they are not the only people looking for the book!</p>
+                    <p class="translation">但他们并不是唯一在寻找这本书的人！</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== Part 2: be good at + -ing ====== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>💪</span> Part 2 · be good at + doing <span>🎯</span>
+            </h2>
+
+            <!-- Verb → -ing table -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-blue-700 mb-4">📋 动词原形 → -ing 形式</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full max-w-2xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+                        <thead>
+                            <tr class="bg-amber-600 text-white">
+                                <th class="px-6 py-3 text-left">原形</th>
+                                <th class="px-6 py-3 text-left">-ing 形式</th>
+                                <th class="px-6 py-3 text-left">注意点</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr><td class="px-6 py-3 font-bold">ride</td><td class="px-6 py-3 text-blue-700 font-medium">riding</td><td class="px-6 py-3 text-gray-600">去 e 加 -ing</td></tr>
+                            <tr class="bg-amber-50"><td class="px-6 py-3 font-bold">fly</td><td class="px-6 py-3 text-blue-700 font-medium">flying</td><td class="px-6 py-3 text-gray-600">直接加 -ing</td></tr>
+                            <tr><td class="px-6 py-3 font-bold">climb</td><td class="px-6 py-3 text-blue-700 font-medium">climbing</td><td class="px-6 py-3 text-gray-600">直接加 -ing</td></tr>
+                            <tr class="bg-amber-50"><td class="px-6 py-3 font-bold">swim</td><td class="px-6 py-3 text-blue-700 font-medium">swimming</td><td class="px-6 py-3 text-red-600 font-medium">双写 m 再加 -ing</td></tr>
+                            <tr><td class="px-6 py-3 font-bold">do</td><td class="px-6 py-3 text-blue-700 font-medium">doing</td><td class="px-6 py-3 text-gray-600">直接加 -ing</td></tr>
+                            <tr class="bg-amber-50"><td class="px-6 py-3 font-bold">play</td><td class="px-6 py-3 text-blue-700 font-medium">playing</td><td class="px-6 py-3 text-gray-600">直接加 -ing</td></tr>
+                            <tr><td class="px-6 py-3 font-bold">skate</td><td class="px-6 py-3 text-blue-700 font-medium">skating</td><td class="px-6 py-3 text-gray-600">去 e 加 -ing</td></tr>
+                            <tr class="bg-amber-50"><td class="px-6 py-3 font-bold">run</td><td class="px-6 py-3 text-blue-700 font-medium">running</td><td class="px-6 py-3 text-red-600 font-medium">双写 n 再加 -ing</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tip-box mt-4">
+                    <strong>💡 规则总结:</strong> ① 大多数动词直接加 -ing；② 以不发音 e 结尾 → 去 e 加 -ing；③ 重读闭音节（辅+元+辅）→ 双写末尾辅音再加 -ing
+                </div>
+            </div>
+
+            <!-- Exercise 1: Fill in blanks -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">练习一 · 用所给动词的适当形式填空</div>
+                <p class="text-gray-600 mb-4">句型: <strong>be good at + 动词-ing</strong> (擅长做某事)</p>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <p>1. I'm good at <span class="word-quiz-blank" data-placeholder="__________" data-answer="riding" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span> (ride) bikes.</p>
+                    <p>2. My sister is good at <span class="word-quiz-blank" data-placeholder="__________" data-answer="flying" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span> (fly) kites.</p>
+                    <p>3. Ben is not good at <span class="word-quiz-blank" data-placeholder="__________" data-answer="climbing" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span> (climb) trees.</p>
+                    <p>4. Lucy is very good at <span class="word-quiz-blank" data-placeholder="__________" data-answer="swimming" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span> (swim).</p>
+                    <p>5. We are good at <span class="word-quiz-blank" data-placeholder="__________" data-answer="doing" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span> (do) puzzles.</p>
+                    <p>6. The boys are good at <span class="word-quiz-blank" data-placeholder="__________" data-answer="playing" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span> (play) football.</p>
+                    <p>7. Are you good at <span class="word-quiz-blank" data-placeholder="__________" data-answer="skating" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span> (skate)?</p>
+                    <p>8. I'm not good at <span class="word-quiz-blank" data-placeholder="__________" data-answer="running" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span> (run) fast.</p>
+                </div>
+            </div>
+
+            <!-- Exercise 2: Choose the right phrase -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-green-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">练习二 · 选词填空</div>
+                <p class="text-gray-600 mb-4">选词: <strong>play basketball / fly a kite / ride a horse / do puzzles / climb mountains</strong></p>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <p>1. My grandpa is good at <span class="word-quiz-blank" data-placeholder="__________" data-answer="doing puzzles" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span>. He can do 100 pieces in 5 minutes.</p>
+                    <p>2. Tom is good at <span class="word-quiz-blank" data-placeholder="__________" data-answer="playing basketball" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span>. He scores many points in the game.</p>
+                    <p>3. Look! The girl is good at <span class="word-quiz-blank" data-placeholder="__________" data-answer="riding a horse" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span>. Her horse runs very fast.</p>
+                    <p>4. I'm not good at <span class="word-quiz-blank" data-placeholder="__________" data-answer="climbing mountains" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span>. I always fall down on the hills.</p>
+                    <p>5. We are good at <span class="word-quiz-blank" data-placeholder="__________" data-answer="flying a kite" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span>. The kite goes very high.</p>
+                </div>
+            </div>
+
+            <!-- Exercise 3: Rewrite sentences -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-purple-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">练习三 · 按要求改写句子（肯定句 ↔ 否定句）</div>
+                <div class="tip-box mb-4">
+                    <strong>例子:</strong> I'm good at swimming. → 否定句: <strong>I'm not good at swimming.</strong>
+                </div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <p>1. She is good at playing chess. → 否定句: <span class="word-quiz-blank" data-placeholder="________________________" data-answer="She is not good at playing chess." onclick="revealAnswer(this)" role="button" tabindex="0">________________________</span></p>
+                    <p>2. They are not good at climbing trees. → 肯定句: <span class="word-quiz-blank" data-placeholder="________________________" data-answer="They are good at climbing trees." onclick="revealAnswer(this)" role="button" tabindex="0">________________________</span></p>
+                    <p>3. I'm good at flying kites. → 否定句: <span class="word-quiz-blank" data-placeholder="________________________" data-answer="I'm not good at flying kites." onclick="revealAnswer(this)" role="button" tabindex="0">________________________</span></p>
+                    <p>4. He is not good at doing puzzles. → 肯定句: <span class="word-quiz-blank" data-placeholder="________________________" data-answer="He is good at doing puzzles." onclick="revealAnswer(this)" role="button" tabindex="0">________________________</span></p>
+                </div>
+            </div>
+
+            <!-- Exercise 4: Unscramble -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-amber-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">练习四 · 连词成句（注意加 -ing）</div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <p>1. good / I'm / riding / at / bikes / .<br>→ <span class="word-quiz-blank" data-placeholder="___________________________________" data-answer="I'm good at riding bikes." onclick="revealAnswer(this)" role="button" tabindex="0">___________________________________</span></p>
+                    <p>2. not / They / climbing / good / at / are / trees / .<br>→ <span class="word-quiz-blank" data-placeholder="___________________________________" data-answer="They are not good at climbing trees." onclick="revealAnswer(this)" role="button" tabindex="0">___________________________________</span></p>
+                    <p>3. very / She / swimming / at / good / is / .<br>→ <span class="word-quiz-blank" data-placeholder="___________________________________" data-answer="She is very good at swimming." onclick="revealAnswer(this)" role="button" tabindex="0">___________________________________</span></p>
+                </div>
+            </div>
+
+            <!-- Exercise 5: Writing -->
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-rose-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">练习五 · 小写作 ✍️</div>
+                <p class="text-gray-700 mb-4">介绍你自己，用 <strong>be good at</strong> 和 <strong>be not good at</strong> 各说两件事。</p>
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-lg mb-4">
+                    <p class="text-gray-700"><strong>例子:</strong> I'm good at riding bikes. I'm not good at flying kites.</p>
+                </div>
+                <p class="text-gray-700 font-bold mb-2">请你写 3 句话（至少包含一个肯定和一个否定）:</p>
+                <div class="bg-white border-2 border-dashed border-gray-300 rounded-xl p-4 min-h-[120px] text-gray-400 italic">
+                    在这里写下你的句子... 📝<br><br>
+                    1. ________________________________<br>
+                    2. ________________________________<br>
+                    3. ________________________________
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== Word Quiz ====== -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✍️</span> Word Quiz · 单词测验 <span>📝</span>
+            </h2>
+
+            <div class="tip-box">
+                <strong>练习说明:</strong> 点击空白处查看答案。先自己思考，再点击查看！
+            </div>
+
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">汉译英 · Chinese → English</div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <p>1. 遇见，结识 <span class="word-quiz-blank" data-placeholder="__________" data-answer="meet" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>2. 探险家 <span class="word-quiz-blank" data-placeholder="__________" data-answer="explorers" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>3. 找到丢失的宝藏 <span class="word-quiz-blank" data-placeholder="__________" data-answer="find lost treasure" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>4. 博物馆 <span class="word-quiz-blank" data-placeholder="__________" data-answer="museums" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>5. 令人兴奋的 <span class="word-quiz-blank" data-placeholder="__________" data-answer="exciting" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>6. 开始 <span class="word-quiz-blank" data-placeholder="__________" data-answer="start" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>7. 新冒险 <span class="word-quiz-blank" data-placeholder="__________" data-answer="new adventure" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>8. 城堡 <span class="word-quiz-blank" data-placeholder="__________" data-answer="castle" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>9. 寻找 <span class="word-quiz-blank" data-placeholder="__________" data-answer="look for" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>10. 讲述秘密 <span class="word-quiz-blank" data-placeholder="__________" data-answer="tells the secret" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                </div>
+            </div>
+
+            <div class="grammar-card p-6 mb-6">
+                <div class="inline-block bg-green-600 text-white px-5 py-2 rounded-full font-bold text-lg mb-4">英译汉 · English → Chinese</div>
+                <div class="space-y-3 text-base leading-relaxed">
+                    <p>1. meet <span class="word-quiz-blank" data-placeholder="__________" data-answer="遇见，结识" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>2. explorers <span class="word-quiz-blank" data-placeholder="__________" data-answer="探险家" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>3. exciting <span class="word-quiz-blank" data-placeholder="__________" data-answer="令人兴奋的" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>4. castle <span class="word-quiz-blank" data-placeholder="__________" data-answer="城堡" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>5. look for <span class="word-quiz-blank" data-placeholder="__________" data-answer="寻找" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>6. new adventure <span class="word-quiz-blank" data-placeholder="__________" data-answer="新冒险，新奇遇" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>7. some lost treasure <span class="word-quiz-blank" data-placeholder="__________" data-answer="一些丢失的宝藏" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>8. only people <span class="word-quiz-blank" data-placeholder="__________" data-answer="唯一的人（们）" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>9. start <span class="word-quiz-blank" data-placeholder="__________" data-answer="开始" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                    <p>10. museums <span class="word-quiz-blank" data-placeholder="__________" data-answer="博物馆" onclick="revealAnswer(this)" role="button" tabindex="0">__________</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Today's Todo -->
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✅</span> Today's Todo · 今日任务 <span>📝</span>
+            </h2>
+
+            <div class="bg-white rounded-full p-1 mb-6 shadow-inner">
+                <div id="progressBar"
+                    class="h-8 bg-gradient-to-r from-amber-500 to-amber-400 rounded-full flex items-center justify-center text-white font-bold transition-all duration-500"
+                    style="width: 0%">0%</div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-red-500"
+                    data-todo="1" onclick="toggleTodoItem(this, 'sm3Unit0Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>1️⃣</span> 学习生词表</div>
+                        <div class="text-gray-600">掌握 The Explorers 的 12 个单词和短语，会读会写</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-blue-500"
+                    data-todo="2" onclick="toggleTodoItem(this, 'sm3Unit0Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>2️⃣</span> 熟读故事背景</div>
+                        <div class="text-gray-600">朗读 Ben and Lucy 的探险故事，理解大意并能精准释义</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-green-500"
+                    data-todo="3" onclick="toggleTodoItem(this, 'sm3Unit0Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>3️⃣</span> 掌握 be good at 句型</div>
+                        <div class="text-gray-600">背出 8 个动词的 -ing 变化规则，完成所有练习题</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-purple-500"
+                    data-todo="4" onclick="toggleTodoItem(this, 'sm3Unit0Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>4️⃣</span> 完成单词测验</div>
+                        <div class="text-gray-600">完成汉译英和英译汉练习，检查正确率</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-amber-500"
+                    data-todo="5" onclick="toggleTodoItem(this, 'sm3Unit0Todos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>5️⃣</span> 完成小写作</div>
+                        <div class="text-gray-600">用 be good at 和 be not good at 写 3 句话介绍自己</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="button"
+                    class="bg-gradient-to-b from-gray-500 to-gray-600 text-white font-bold px-6 py-2 rounded-full shadow-lg hover:scale-105 transition"
+                    onclick="resetTodoItems('sm3Unit0Todos')">
+                    <i class="fas fa-redo mr-2"></i>重置所有任务
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-amber-800 to-amber-900 mt-12 py-6">
+        <div class="max-w-4xl mx-auto px-4 text-center text-white">
+            <p class="text-lg font-bold mb-2">🧭 Super Minds 3 - Unit 0 The Explorers 探险家</p>
+            <p class="text-sm opacity-80">Keep practicing and have fun learning English! 坚持练习，快乐学英语！</p>
+        </div>
+    </footer>
+
+    <script>
+        // Todo list functionality
+        var todoStates = {};
+        try {
+            var saved = localStorage.getItem('sm3Unit0Todos');
+            if (saved) todoStates = JSON.parse(saved);
+        } catch (e) { }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            Object.keys(todoStates).forEach(function (id) {
+                if (todoStates[id]) {
+                    var item = document.querySelector('[data-todo="' + id + '"]');
+                    if (item) item.classList.add('completed');
+                }
+            });
+            updateTodoProgress('sm3Unit0Todos');
+        });
+    </script>
+    <script src="../../js/common.js"></script>
+</body>
+</html>

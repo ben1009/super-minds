@@ -15,31 +15,31 @@ transform = _generate_baseball.transform
 
 
 class TestTransformPathUpgrades(unittest.TestCase):
-    """Test that relative paths are correctly upgraded from ../ to ../../."""
+    """Test that relative paths are correctly upgraded from ../../ to ../../../."""
 
     def test_favicon_path(self):
-        source = '<link rel="icon" href="../favicon.svg" type="image/svg+xml">'
-        expected = '<link rel="icon" href="../../favicon.svg" type="image/svg+xml">\n'
+        source = '<link rel="icon" href="../../favicon.svg" type="image/svg+xml">'
+        expected = '<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">\n'
         self.assertEqual(transform(source), expected)
 
     def test_ga_js_path(self):
-        source = '<script src="../ga.js"></script>'
-        expected = '<script src="../../ga.js"></script>\n'
+        source = '<script src="../../ga.js"></script>'
+        expected = '<script src="../../../ga.js"></script>\n'
         self.assertEqual(transform(source), expected)
 
     def test_css_path(self):
-        source = '<link rel="stylesheet" href="../css/baseball-theme.css">'
-        expected = '<link rel="stylesheet" href="../../css/baseball-theme.css">\n'
+        source = '<link rel="stylesheet" href="../../css/baseball-theme.css">'
+        expected = '<link rel="stylesheet" href="../../../css/baseball-theme.css">\n'
         self.assertEqual(transform(source), expected)
 
     def test_common_js_path(self):
-        source = '<script src="../js/common.js"></script>'
-        expected = '<script src="../../js/common.js"></script>\n'
+        source = '<script src="../../js/common.js"></script>'
+        expected = '<script src="../../../js/common.js"></script>\n'
         self.assertEqual(transform(source), expected)
 
     def test_paths_not_double_upgraded(self):
-        """Paths that already have ../../ should not be changed."""
-        source = '<script src="../../js/common.js"></script>'
+        """Paths that already have ../../../ should not be changed."""
+        source = '<script src="../../../js/common.js"></script>'
         expected = source + '\n'
         self.assertEqual(transform(source), expected)
 
@@ -130,7 +130,7 @@ class TestTransformIdempotency(unittest.TestCase):
 
     def test_idempotent(self):
         source = (
-            '<script src="../ga.js"></script>\n'
+            '<script src="../../ga.js"></script>\n'
             "window.NAV_CONFIG = {pattern:'B', active:'unit8-sports'};\n"
             '他说："你好！"\n'
         )
