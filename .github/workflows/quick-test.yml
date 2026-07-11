@@ -38,8 +38,8 @@ jobs:
         echo ""
         echo "🔍 Checking for duplicate ga.js..."
         
-        if [ -f "super-minds-baseball/ga.js" ]; then
-          echo "  ❌ Duplicate ga.js found in super-minds-baseball/"
+        if [ -f "sm2/baseball/ga.js" ]; then
+          echo "  ❌ Duplicate ga.js found in sm2/baseball/"
           exit 1
         else
           echo "  ✅ No duplicate ga.js"
@@ -57,16 +57,16 @@ jobs:
         
         # Run script and compare output with committed file
         TEMP_DIR=$(mktemp -d)
-        cp -r unit8 "$TEMP_DIR/"
+        mkdir -p "$TEMP_DIR/sm2" && cp -r sm2/unit8 "$TEMP_DIR/sm2/"
         cp scripts/generate-baseball.py "$TEMP_DIR/"
         (cd "$TEMP_DIR" && python3 generate-baseball.py)
         
-        if diff -q "$TEMP_DIR/super-minds-baseball/unit8/baseball-gerunds-ball-sports.html" super-minds-baseball/unit8/baseball-gerunds-ball-sports.html >/dev/null 2>&1; then
+        if diff -q "$TEMP_DIR/sm2/baseball/unit8/baseball-gerunds-ball-sports.html" sm2/baseball/unit8/baseball-gerunds-ball-sports.html >/dev/null 2>&1; then
           echo "  ✅ Baseball gerunds page is in sync with build script"
         else
           echo "  ❌ Baseball gerunds page is OUT OF SYNC with build script!"
           echo "     Run: python3 scripts/generate-baseball.py"
-          diff -u "$TEMP_DIR/super-minds-baseball/unit8/baseball-gerunds-ball-sports.html" super-minds-baseball/unit8/baseball-gerunds-ball-sports.html || true
+          diff -u "$TEMP_DIR/sm2/baseball/unit8/baseball-gerunds-ball-sports.html" sm2/baseball/unit8/baseball-gerunds-ball-sports.html || true
           rm -rf "$TEMP_DIR"
           exit 1
         fi
@@ -80,7 +80,7 @@ jobs:
         ERRORS=0
         
         # Check main pages reference shared CSS
-        for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html; do
+        for file in index.html sm2/unit7/present-continuous-course.html sm2/unit7/present-continuous-homework.html; do
           if grep -q "common.css" "$file"; then
             echo "  ✅ $file → common.css"
           else
@@ -90,7 +90,7 @@ jobs:
         done
         
         # Check main pages reference shared JS
-        for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html; do
+        for file in index.html sm2/unit7/present-continuous-course.html sm2/unit7/present-continuous-homework.html; do
           if grep -q "common.js" "$file"; then
             echo "  ✅ $file → common.js"
           else
@@ -108,10 +108,10 @@ jobs:
         echo ""
         echo "🔍 Checking Baseball Pages..."
         
-        for file in super-minds-baseball/index.html \
-                    super-minds-baseball/unit7/baseball-present-continuous-course.html \
-                    super-minds-baseball/unit7/baseball-present-continuous-homework.html \
-                    super-minds-baseball/unit8/baseball-gerunds-ball-sports.html; do
+        for file in sm2/baseball/index.html \
+                    sm2/baseball/unit7/baseball-present-continuous-course.html \
+                    sm2/baseball/unit7/baseball-present-continuous-homework.html \
+                    sm2/baseball/unit8/baseball-gerunds-ball-sports.html; do
           if [ -f "$file" ]; then
             if grep -q '\.\./ga\.js' "$file"; then
               echo "  ✅ $file uses ../ga.js"
@@ -127,7 +127,7 @@ jobs:
         echo "🔍 Validating HTML Structure..."
         
         # Check for basic HTML structure
-        for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html; do
+        for file in index.html sm2/unit7/present-continuous-course.html sm2/unit7/present-continuous-homework.html sm2/unit8/gerunds-ball-sports.html sm2/unit8/amazing-vehicles-reading.html sm2/unit8/fun-things-we-do-reading.html sm2/unit8/question-words-grammar-homework.html sm2/unit9/holiday-plans-grammar-review.html; do
           if [ -f "$file" ]; then
             # Check for doctype
             if head -1 "$file" | grep -qi "<!doctype html>"; then
@@ -162,7 +162,7 @@ jobs:
         fi
         
         # Check all pages have favicon
-        for file in index.html unit7/*.html unit8/*.html unit9/*.html review/*.html super-minds-baseball/index.html super-minds-baseball/unit7/*.html super-minds-baseball/unit8/*.html; do
+        for file in index.html sm2/unit7/*.html sm2/unit8/*.html sm2/unit9/*.html sm2/review/*.html sm2/baseball/index.html sm2/baseball/unit7/*.html sm2/baseball/unit8/*.html; do
           if [ -f "$file" ]; then
             if grep -q 'rel="icon"' "$file"; then
               echo "  ✅ $file has favicon"
@@ -185,7 +185,7 @@ jobs:
         ERRORS=0
         
         # Check that reading.html is linked from all relevant pages
-        for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html; do
+        for file in index.html sm2/unit7/present-continuous-course.html sm2/unit7/present-continuous-homework.html sm2/unit8/gerunds-ball-sports.html sm2/unit8/amazing-vehicles-reading.html sm2/unit8/question-words-grammar-homework.html sm2/unit9/holiday-plans-grammar-review.html; do
           if [ -f "$file" ]; then
             if grep -q 'window.NAV_CONFIG' "$file"; then
               echo "  ✅ $file uses centralized nav"
@@ -217,7 +217,7 @@ jobs:
         
         ERRORS=0
         
-        for file in super-minds-baseball/index.html super-minds-baseball/unit7/baseball-present-continuous-course.html super-minds-baseball/unit7/baseball-present-continuous-homework.html super-minds-baseball/unit8/baseball-gerunds-ball-sports.html; do
+        for file in sm2/baseball/index.html sm2/baseball/unit7/baseball-present-continuous-course.html sm2/baseball/unit7/baseball-present-continuous-homework.html sm2/baseball/unit8/baseball-gerunds-ball-sports.html; do
           if [ -f "$file" ]; then
             if grep -q 'window.NAV_CONFIG' "$file"; then
               echo "  ✅ $file uses centralized nav"
@@ -324,7 +324,7 @@ jobs:
           // Test 2: CSS/JS loaded
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit7/present-continuous-course.html');
+            await page.goto('http://localhost:8000/sm2/unit7/present-continuous-course.html');
             
             const results = await page.evaluate(() => ({
               hasCommonCSS: !!document.querySelector('link[href*="common.css"]'),
@@ -350,7 +350,7 @@ jobs:
           // Test 3: Interactions work
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit7/present-continuous-course.html');
+            await page.goto('http://localhost:8000/sm2/unit7/present-continuous-course.html');
             
             // Helper function for delay
             const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -386,7 +386,7 @@ jobs:
           // Test 3b: Unit 8 Gerunds fill-blank toggle (deinlineOnclick + toggleBlank)
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit8/gerunds-ball-sports.html');
+            await page.goto('http://localhost:8000/sm2/unit8/gerunds-ball-sports.html');
             
             const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
             
@@ -427,7 +427,7 @@ jobs:
           // Test 4: Unit 8 Reading Page
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit8/fun-things-we-do-reading.html');
+            await page.goto('http://localhost:80../unit8/fun-things-we-do-reading.html');
             
             const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
             
@@ -514,7 +514,7 @@ jobs:
             
             // Check homepage has link to reading page
             const hasHomepageLink = await page.evaluate(() => {
-              return !!document.querySelector('a[href="unit8/fun-things-we-do-reading.html"]');
+              return !!document.querySelector('a[href="sm2/unit8/fun-things-we-do-reading.html"]');
             });
             
             if (hasHomepageLink) {
@@ -525,8 +525,8 @@ jobs:
               failed++;
             }
             
-            // Check unit8/gerunds-ball-sports.html has navigation link
-            await page.goto('http://localhost:8000/unit8/gerunds-ball-sports.html');
+            // Check sm2/unit8/gerunds-ball-sports.html has navigation link
+            await page.goto('http://localhost:8000/sm2/unit8/gerunds-ball-sports.html');
             const hasUnit8NavLink = await page.evaluate(() => {
               return !!document.querySelector('a[href="fun-things-we-do-reading.html"]');
             });
@@ -539,8 +539,8 @@ jobs:
               failed++;
             }
             
-            // Check unit7/present-continuous-course.html has navigation link
-            await page.goto('http://localhost:8000/unit7/present-continuous-course.html');
+            // Check sm2/unit7/present-continuous-course.html has navigation link
+            await page.goto('http://localhost:8000/sm2/unit7/present-continuous-course.html');
             const hasUnit7NavLink = await page.evaluate(() => {
               return !!document.querySelector('a[href="../unit8/fun-things-we-do-reading.html"]');
             });
@@ -562,7 +562,7 @@ jobs:
           // Test 6: Unit 9 Grammar Page
           try {
             const page = await browser.newPage();
-            await page.goto('http://localhost:8000/unit9/holiday-plans-grammar-review.html');
+            await page.goto('http://localhost:8000/sm2/unit9/holiday-plans-grammar-review.html');
             
             const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
             

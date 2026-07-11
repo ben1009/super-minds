@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-HTML_FILE = ROOT / 'review' / 'review-unit-5-lecture2.html'
+HTML_FILE = ROOT / 'sm2' / 'review' / 'review-unit-5-lecture2.html'
 COMMON_JS = ROOT / 'js' / 'common.js'
 INDEX_HTML = ROOT / 'index.html'
 
