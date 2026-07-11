@@ -232,16 +232,16 @@ jobs:
             await page.locator('button[onclick="toggleMobileMenu()"], button[aria-label*="navigation"]').first().click();
             
             // Click a link in mobile menu
-            await page.click('#mobileMenu a[href="../index.html"]');
+            await page.click('#mobileMenu a[href="../../index.html"]');
             const url = page.url();
             expect(url).toMatch(/http:\/\/localhost:8000\/(index\.html)?$/);
           });
           
           test('can navigate from Unit 8 Sports to Amazing Vehicles', async ({ page }) => {
             await page.goto('http://localhost:8000/sm2/unit8/gerunds-ball-sports.html');
-            // Hover over Unit 8 to open dropdown, then click Amazing Vehicles
-            await page.locator('a:has-text("Unit 8"), .group:has-text("Unit 8")').first().hover();
-            await page.waitForTimeout(100); // Wait for dropdown to appear
+            // Hover over SM2 mega-dropdown to open it, then click Amazing Vehicles
+            await page.locator('a:has-text("SM2")').first().hover();
+            await page.waitForTimeout(300); // Wait for mega-dropdown to appear
             await page.click('a[href="amazing-vehicles-reading.html"]');
             await expect(page).toHaveURL(/amazing-vehicles-reading\.html/);
           });
@@ -305,6 +305,9 @@ jobs:
           
           test('can navigate from Baseball Unit 8 to Unit 9', async ({ page }) => {
             await page.goto('http://localhost:8000/sm2/baseball/unit8/baseball-gerunds-ball-sports.html');
+            // Hover over SM2 mega-dropdown to find Unit 9 link
+            await page.locator('a:has-text("SM2")').first().hover();
+            await page.waitForTimeout(300);
             await page.waitForSelector('a[href="../../unit9/holiday-plans-grammar-review.html"]');
             await page.locator('a[href="../../unit9/holiday-plans-grammar-review.html"]').first().click();
             await expect(page).toHaveURL(/unit9\/holiday-plans-grammar-review\.html/);
