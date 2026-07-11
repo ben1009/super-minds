@@ -36,7 +36,7 @@ else
     ERRORS=$((ERRORS + 1))
 fi
 
-for file in unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html unit9/fairy-tales-reading.html sm2/baseball/unit7/baseball-present-continuous-course.html sm2/baseball/unit7/baseball-present-continuous-homework.html sm2/baseball/unit8/baseball-gerunds-ball-sports.html; do
+for file in sm2/unit7/present-continuous-course.html sm2/unit7/present-continuous-homework.html sm2/unit8/gerunds-ball-sports.html sm2/unit8/amazing-vehicles-reading.html sm2/unit8/fun-things-we-do-reading.html sm2/unit8/question-words-grammar-homework.html sm2/unit9/holiday-plans-grammar-review.html sm2/unit9/fairy-tales-reading.html sm2/baseball/unit7/baseball-present-continuous-course.html sm2/baseball/unit7/baseball-present-continuous-homework.html sm2/baseball/unit8/baseball-gerunds-ball-sports.html; do
     if [ -f "$file" ]; then
         if grep -q 'window.NAV_CONFIG' "$file"; then
             echo "   ✓ $file has NAV_CONFIG"
@@ -67,11 +67,11 @@ fi
 # Check Unit 9 index.html has required elements
 echo ""
 echo "4b. Checking Unit 9 index.html..."
-if [ -f "sm2/unit9/holiday-plans-grammar-review.html" ]; then
-    if grep -q 'data-answer' "sm2/unit9/holiday-plans-grammar-review.html"; then
-        echo "   ✓ unit9/holiday-plans-grammar-review.html uses data-answer attributes for blanks"
+if [ -f "sm2/sm2/unit9/holiday-plans-grammar-review.html" ]; then
+    if grep -q 'data-answer' "sm2/sm2/unit9/holiday-plans-grammar-review.html"; then
+        echo "   ✓ sm2/unit9/holiday-plans-grammar-review.html uses data-answer attributes for blanks"
     else
-        echo "   ⚠️ unit9/holiday-plans-grammar-review.html may be missing data-answer attributes"
+        echo "   ⚠️ sm2/unit9/holiday-plans-grammar-review.html may be missing data-answer attributes"
     fi
     
     if grep -q 'window.revealAnswer' "js/common.js"; then
@@ -86,37 +86,37 @@ if [ -f "sm2/unit9/holiday-plans-grammar-review.html" ]; then
         echo "   ⚠️ toggleTodoItem() may need updating"
     fi
 else
-    echo "   ✗ unit9/holiday-plans-grammar-review.html not found"
+    echo "   ✗ sm2/unit9/holiday-plans-grammar-review.html not found"
 fi
 
 # Check Unit 9 fairy-tales.html
 echo ""
 echo "4c. Checking Unit 9 fairy-tales.html..."
-if [ -f "sm2/unit9/fairy-tales-reading.html" ]; then
-    echo "   ✓ unit9/fairy-tales-reading.html exists"
+if [ -f "sm2/sm2/unit9/fairy-tales-reading.html" ]; then
+    echo "   ✓ sm2/unit9/fairy-tales-reading.html exists"
     
-    if grep -q 'fairy tale' "sm2/unit9/fairy-tales-reading.html"; then
+    if grep -q 'fairy tale' "sm2/sm2/unit9/fairy-tales-reading.html"; then
         echo "   ✓ fairy-tales.html has Fairy Tales vocabulary"
     else
         echo "   ✗ fairy-tales.html missing Fairy Tales vocabulary!"
         ERRORS=$((ERRORS + 1))
     fi
     
-    if grep -q 'on holiday' "sm2/unit9/fairy-tales-reading.html"; then
+    if grep -q 'on holiday' "sm2/sm2/unit9/fairy-tales-reading.html"; then
         echo "   ✓ fairy-tales.html has Reading on Holiday vocabulary"
     else
         echo "   ✗ fairy-tales.html missing Reading on Holiday vocabulary!"
         ERRORS=$((ERRORS + 1))
     fi
     
-    if grep -q 'Folk Tales Around the World' "sm2/unit9/fairy-tales-reading.html"; then
+    if grep -q 'Folk Tales Around the World' "sm2/sm2/unit9/fairy-tales-reading.html"; then
         echo "   ✓ fairy-tales.html has Reading Passage A"
     else
         echo "   ✗ fairy-tales.html missing Reading Passage A!"
         ERRORS=$((ERRORS + 1))
     fi
     
-    if grep -q 'Reading on Holiday' "sm2/unit9/fairy-tales-reading.html"; then
+    if grep -q 'Reading on Holiday' "sm2/sm2/unit9/fairy-tales-reading.html"; then
         echo "   ✓ fairy-tales.html has Reading Passage B"
     else
         echo "   ✗ fairy-tales.html missing Reading Passage B!"
@@ -158,64 +158,64 @@ if [ -f "sm2/unit9/fairy-tales-reading.html" ]; then
         ERRORS=$((ERRORS + 1))
     fi
     
-    if grep -q 'data-answer' "sm2/unit9/fairy-tales-reading.html"; then
+    if grep -q 'data-answer' "sm2/sm2/unit9/fairy-tales-reading.html"; then
         echo "   ✓ fairy-tales.html uses data-answer attributes"
     else
         echo "   ✗ fairy-tales.html missing data-answer attributes!"
         ERRORS=$((ERRORS + 1))
     fi
     
-    if grep -q 'word-quiz-blank' "sm2/unit9/fairy-tales-reading.html"; then
+    if grep -q 'word-quiz-blank' "sm2/sm2/unit9/fairy-tales-reading.html"; then
         echo "   ✓ fairy-tales.html has word quiz blanks"
     else
         echo "   ✗ fairy-tales.html missing word quiz blanks!"
         ERRORS=$((ERRORS + 1))
     fi
     
-    if grep -q 'quiz-option' "sm2/unit9/fairy-tales-reading.html"; then
+    if grep -q 'quiz-option' "sm2/sm2/unit9/fairy-tales-reading.html"; then
         echo "   ✓ fairy-tales.html has quiz options"
     else
         echo "   ✗ fairy-tales.html missing quiz options!"
         ERRORS=$((ERRORS + 1))
     fi
     
-    if grep -q 'reading-card' "sm2/unit9/fairy-tales-reading.html"; then
+    if grep -q 'reading-card' "sm2/sm2/unit9/fairy-tales-reading.html"; then
         echo "   ✓ fairy-tales.html uses reading-card class"
     else
         echo "   ✗ fairy-tales.html missing reading-card class!"
         ERRORS=$((ERRORS + 1))
     fi
     
-    if grep -q 'leather-card' "sm2/unit9/fairy-tales-reading.html"; then
+    if grep -q 'leather-card' "sm2/sm2/unit9/fairy-tales-reading.html"; then
         echo "   ✓ fairy-tales.html uses leather-card class"
     else
         echo "   ✗ fairy-tales.html missing leather-card class!"
         ERRORS=$((ERRORS + 1))
     fi
     
-    if grep -q "Today's Todo" "sm2/unit9/fairy-tales-reading.html"; then
+    if grep -q "Today's Todo" "sm2/sm2/unit9/fairy-tales-reading.html"; then
         echo "   ✓ fairy-tales.html has Today's Todo section"
     else
         echo "   ✗ fairy-tales.html missing Today's Todo section!"
         ERRORS=$((ERRORS + 1))
     fi
     
-    if grep -q '../ga.js' "sm2/unit9/fairy-tales-reading.html"; then
+    if grep -q '../ga.js' "sm2/sm2/unit9/fairy-tales-reading.html"; then
         echo "   ✓ fairy-tales.html uses ../ga.js"
     else
         echo "   ✗ fairy-tales.html not using ../ga.js!"
         ERRORS=$((ERRORS + 1))
     fi
 else
-    echo "   ✗ unit9/fairy-tales-reading.html not found!"
+    echo "   ✗ sm2/unit9/fairy-tales-reading.html not found!"
     ERRORS=$((ERRORS + 1))
 fi
 
 # Check Unit 8 reading.html has required elements
 echo ""
 echo "5. Checking Unit 8 fun-things-we-do-reading.html..."
-if [ -f "sm2/unit8/fun-things-we-do-reading.html" ]; then
-    if grep -q 'data-correct-option' "sm2/unit8/fun-things-we-do-reading.html"; then
+if [ -f "sm2/sm2/unit8/fun-things-we-do-reading.html" ]; then
+    if grep -q 'data-correct-option' "sm2/sm2/unit8/fun-things-we-do-reading.html"; then
         echo "   ✓ fun-things-we-do-reading.html uses data-correct-option attributes"
     else
         echo "   ⚠️ fun-things-we-do-reading.html may be missing data-correct-option attributes"
@@ -227,13 +227,13 @@ if [ -f "sm2/unit8/fun-things-we-do-reading.html" ]; then
         echo "   ⚠️ speak() function may need updating"
     fi
     
-    if grep -q '<button type="button"' "sm2/unit8/fun-things-we-do-reading.html"; then
+    if grep -q '<button type="button"' "sm2/sm2/unit8/fun-things-we-do-reading.html"; then
         echo "   ✓ reading.html uses semantic button elements"
     else
         echo "   ⚠️ reading.html may not use button elements"
     fi
 else
-    echo "   ✗ unit8/fun-things-we-do-reading.html not found"
+    echo "   ✗ sm2/unit8/fun-things-we-do-reading.html not found"
 fi
 
 echo ""
@@ -267,7 +267,7 @@ echo "5b. Checking Unit 9 page navigation links..."
 ERRORS=0
 
 # For pages with NAV_CONFIG, links are in common.js
-for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html review/review-units-1-3.html review/review-unit-4.html review/review-unit-5.html; do
+for file in index.html sm2/unit7/present-continuous-course.html sm2/unit7/present-continuous-homework.html sm2/unit8/gerunds-ball-sports.html sm2/unit8/amazing-vehicles-reading.html sm2/unit8/fun-things-we-do-reading.html sm2/unit8/question-words-grammar-homework.html sm2/review/review-units-1-3.html sm2/review/review-unit-4.html sm2/review/review-unit-5.html; do
     if [ -f "$file" ]; then
         if grep -q 'window.NAV_CONFIG' "$file"; then
             echo "   ✓ $file uses centralized nav (common.js)"
@@ -296,7 +296,7 @@ echo ""
 echo "5c. Checking fairy-tales.html navigation links from all pages..."
 ERRORS=0
 
-for file in index.html unit9/holiday-plans-grammar-review.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html; do
+for file in index.html sm2/unit9/holiday-plans-grammar-review.html sm2/unit7/present-continuous-course.html sm2/unit7/present-continuous-homework.html sm2/unit8/gerunds-ball-sports.html sm2/unit8/amazing-vehicles-reading.html sm2/unit8/fun-things-we-do-reading.html sm2/unit8/question-words-grammar-homework.html; do
     if [ -f "$file" ]; then
         if grep -q 'window.NAV_CONFIG' "$file"; then
             echo "   ✓ $file uses centralized nav (common.js)"
@@ -367,7 +367,7 @@ echo "6. Checking reading page navigation links..."
 ERRORS=0
 
 # Check that reading.html is linked from all relevant pages
-for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html review/review-units-1-3.html review/review-unit-4.html; do
+for file in index.html sm2/unit7/present-continuous-course.html sm2/unit7/present-continuous-homework.html sm2/unit8/gerunds-ball-sports.html sm2/unit8/amazing-vehicles-reading.html sm2/unit8/question-words-grammar-homework.html sm2/unit9/holiday-plans-grammar-review.html sm2/review/review-units-1-3.html sm2/review/review-unit-4.html; do
     if [ -f "$file" ]; then
         if grep -q 'window.NAV_CONFIG' "$file"; then
             echo "   ✓ $file uses centralized nav (common.js)"
@@ -410,40 +410,40 @@ check_content() {
 }
 
 # Check grammar.html exists
-if [ -f "sm2/unit8/question-words-grammar-homework.html" ]; then
-    echo "   ✓ unit8/question-words-grammar-homework.html exists"
+if [ -f "sm2/sm2/unit8/question-words-grammar-homework.html" ]; then
+    echo "   ✓ sm2/unit8/question-words-grammar-homework.html exists"
     
     # Check for navigation links (inline or centralized)
-    if grep -q 'window.NAV_CONFIG' "sm2/unit8/question-words-grammar-homework.html"; then
+    if grep -q 'window.NAV_CONFIG' "sm2/sm2/unit8/question-words-grammar-homework.html"; then
         echo "   ✓ question-words-grammar-homework.html uses centralized nav"
     else
-        check_content "sm2/unit8/question-words-grammar-homework.html" 'index.html' "question-words-grammar-homework.html has link to index.html"
-        check_content "sm2/unit8/question-words-grammar-homework.html" 'amazing-vehicles-reading.html' "question-words-grammar-homework.html has link to amazing-vehicles-reading.html"
-        check_content "sm2/unit8/question-words-grammar-homework.html" 'fun-things-we-do-reading.html' "question-words-grammar-homework.html has link to fun-things-we-do-reading.html"
+        check_content "sm2/sm2/unit8/question-words-grammar-homework.html" 'index.html' "question-words-grammar-homework.html has link to index.html"
+        check_content "sm2/sm2/unit8/question-words-grammar-homework.html" 'amazing-vehicles-reading.html' "question-words-grammar-homework.html has link to amazing-vehicles-reading.html"
+        check_content "sm2/sm2/unit8/question-words-grammar-homework.html" 'fun-things-we-do-reading.html' "question-words-grammar-homework.html has link to fun-things-we-do-reading.html"
     fi
     
     # Check for external CSS/JS files
-    check_content "sm2/unit8/question-words-grammar-homework.html" 'grammar.css' "grammar.html links to grammar.css"
-    check_content "sm2/unit8/question-words-grammar-homework.html" 'grammar.js' "grammar.html links to grammar.js"
+    check_content "sm2/sm2/unit8/question-words-grammar-homework.html" 'grammar.css' "grammar.html links to grammar.css"
+    check_content "sm2/sm2/unit8/question-words-grammar-homework.html" 'grammar.js' "grammar.html links to grammar.js"
     
     # Check for data-original attribute on trans-toggle buttons
-    check_content "sm2/unit8/question-words-grammar-homework.html" 'data-original' "grammar.html uses data-original attributes"
+    check_content "sm2/sm2/unit8/question-words-grammar-homework.html" 'data-original' "grammar.html uses data-original attributes"
     
     # Check for required sections
-    check_content "sm2/unit8/question-words-grammar-homework.html" 'Grammar Focus' "grammar.html has Grammar Focus section"
-    check_content "sm2/unit8/question-words-grammar-homework.html" 'New Dialogue' "grammar.html has New Dialogue section"
-    check_content "sm2/unit8/question-words-grammar-homework.html" 'Key Vocabulary' "grammar.html has Key Vocabulary section"
-    check_content "sm2/unit8/question-words-grammar-homework.html" 'Sentence Practice' "grammar.html has Sentence Practice section"
-    check_content "sm2/unit8/question-words-grammar-homework.html" 'Complete the Email' "grammar.html has Complete the Email section"
-    check_content "sm2/unit8/question-words-grammar-homework.html" "Today's Todo" "grammar.html has Today's Todo section"
+    check_content "sm2/sm2/unit8/question-words-grammar-homework.html" 'Grammar Focus' "grammar.html has Grammar Focus section"
+    check_content "sm2/sm2/unit8/question-words-grammar-homework.html" 'New Dialogue' "grammar.html has New Dialogue section"
+    check_content "sm2/sm2/unit8/question-words-grammar-homework.html" 'Key Vocabulary' "grammar.html has Key Vocabulary section"
+    check_content "sm2/sm2/unit8/question-words-grammar-homework.html" 'Sentence Practice' "grammar.html has Sentence Practice section"
+    check_content "sm2/sm2/unit8/question-words-grammar-homework.html" 'Complete the Email' "grammar.html has Complete the Email section"
+    check_content "sm2/sm2/unit8/question-words-grammar-homework.html" "Today's Todo" "grammar.html has Today's Todo section"
     
     # Check for interactive functions (now in grammar.js)
-    check_content "unit8/grammar.js" 'function toggleTrans' "grammar.js has toggleTrans function"
-    check_content "unit8/grammar.js" 'function toggleBlank' "grammar.js has toggleBlank function"
-    check_content "unit8/grammar.js" 'function speakText' "grammar.js has speakText function"
-    check_content "unit8/grammar.js" 'addEventListener' "grammar.js uses addEventListener"
+    check_content "sm2/unit8/grammar.js" 'function toggleTrans' "grammar.js has toggleTrans function"
+    check_content "sm2/unit8/grammar.js" 'function toggleBlank' "grammar.js has toggleBlank function"
+    check_content "sm2/unit8/grammar.js" 'function speakText' "grammar.js has speakText function"
+    check_content "sm2/unit8/grammar.js" 'addEventListener' "grammar.js uses addEventListener"
 else
-    echo "   ✗ unit8/question-words-grammar-homework.html not found!"
+    echo "   ✗ sm2/unit8/question-words-grammar-homework.html not found!"
     ERRORS=$((ERRORS + 1))
 fi
 
@@ -456,7 +456,7 @@ echo "8. Checking grammar.html navigation links from other pages..."
 ERRORS=0
 
 # Check that grammar.html is linked from all relevant pages
-for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/fun-things-we-do-reading.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html review/review-units-1-3.html; do
+for file in index.html sm2/unit7/present-continuous-course.html sm2/unit7/present-continuous-homework.html sm2/unit8/gerunds-ball-sports.html sm2/unit8/fun-things-we-do-reading.html sm2/unit8/amazing-vehicles-reading.html sm2/unit8/question-words-grammar-homework.html sm2/unit9/holiday-plans-grammar-review.html sm2/review/review-units-1-3.html; do
     if [ -f "$file" ]; then
         if grep -q 'window.NAV_CONFIG' "$file"; then
             echo "   ✓ $file uses centralized nav (common.js)"
@@ -482,11 +482,11 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
-echo "9. Checking unit9/holiday-plans-grammar-review.html navigation links from other pages..."
+echo "9. Checking sm2/unit9/holiday-plans-grammar-review.html navigation links from other pages..."
 ERRORS=0
 
 # Check that unit9 is linked from all relevant pages
-for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/fun-things-we-do-reading.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html review/review-units-1-3.html; do
+for file in index.html sm2/unit7/present-continuous-course.html sm2/unit7/present-continuous-homework.html sm2/unit8/gerunds-ball-sports.html sm2/unit8/fun-things-we-do-reading.html sm2/unit8/amazing-vehicles-reading.html sm2/unit8/question-words-grammar-homework.html sm2/review/review-units-1-3.html; do
     if [ -f "$file" ]; then
         if grep -q 'window.NAV_CONFIG' "$file"; then
             echo "   ✓ $file uses centralized nav (common.js)"
@@ -544,7 +544,7 @@ echo ""
 echo "11. Checking index.html has fairy-tales card and quick link..."
 ERRORS=0
 
-if grep -q 'unit9/fairy-tales-reading.html' "index.html"; then
+if grep -q 'sm2/unit9/fairy-tales-reading.html' "index.html"; then
     echo "   ✓ index.html links to fairy-tales.html"
 else
     echo "   ✗ index.html missing link to fairy-tales.html!"
@@ -570,15 +570,15 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
-echo "12. Checking unit9/holiday-plans-grammar-review.html has fairy-tales in nav dropdown..."
+echo "12. Checking sm2/unit9/holiday-plans-grammar-review.html has fairy-tales in nav dropdown..."
 ERRORS=0
 
-if grep -q 'window.NAV_CONFIG' "sm2/unit9/holiday-plans-grammar-review.html"; then
-    echo "   ✓ unit9/holiday-plans-grammar-review.html uses centralized nav"
-elif grep -q 'fairy-tales-reading.html' "sm2/unit9/holiday-plans-grammar-review.html"; then
-    echo "   ✓ unit9/holiday-plans-grammar-review.html has fairy-tales nav link"
+if grep -q 'window.NAV_CONFIG' "sm2/sm2/unit9/holiday-plans-grammar-review.html"; then
+    echo "   ✓ sm2/unit9/holiday-plans-grammar-review.html uses centralized nav"
+elif grep -q 'fairy-tales-reading.html' "sm2/sm2/unit9/holiday-plans-grammar-review.html"; then
+    echo "   ✓ sm2/unit9/holiday-plans-grammar-review.html has fairy-tales nav link"
 else
-    echo "   ✗ unit9/holiday-plans-grammar-review.html missing fairy-tales nav link!"
+    echo "   ✗ sm2/unit9/holiday-plans-grammar-review.html missing fairy-tales nav link!"
     ERRORS=$((ERRORS + 1))
 fi
 
@@ -598,7 +598,7 @@ echo ""
 echo "13. Checking TODO section consistency across all pages..."
 ERRORS=0
 
-for file in unit8/question-words-grammar-homework.html unit8/fun-things-we-do-reading.html unit9/holiday-plans-grammar-review.html unit9/fairy-tales-reading.html unit8/amazing-vehicles-reading.html review/review-units-1-3.html review/review-unit-4.html review/review-unit-5.html; do
+for file in sm2/unit8/question-words-grammar-homework.html sm2/unit8/fun-things-we-do-reading.html sm2/unit9/holiday-plans-grammar-review.html sm2/unit9/fairy-tales-reading.html sm2/unit8/amazing-vehicles-reading.html sm2/review/review-units-1-3.html sm2/review/review-unit-4.html sm2/review/review-unit-5.html; do
     if [ -f "$file" ]; then
         # Check data-todo attributes
         if grep -q 'data-todo' "$file"; then
@@ -609,8 +609,8 @@ for file in unit8/question-words-grammar-homework.html unit8/fun-things-we-do-re
         fi
         
         # Check localStorage persistence (grammar.html uses grammar.js)
-        if [ "$file" = "sm2/unit8/question-words-grammar-homework.html" ]; then
-            if grep -q 'localStorage' unit8/grammar.js; then
+        if [ "$file" = "sm2/sm2/unit8/question-words-grammar-homework.html" ]; then
+            if grep -q 'localStorage' sm2/unit8/grammar.js; then
                 echo "   ✓ $file uses localStorage (in grammar.js)"
             else
                 echo "   ✗ $file missing localStorage!"
@@ -657,20 +657,20 @@ echo ""
 echo "14. Checking width consistency (no max-w-4xl in content sections)..."
 ERRORS=0
 
-# Check unit8/gerunds-ball-sports.html content sections are full width
-if grep -q 'leather-card.*max-w-4xl.*mx-auto' unit8/gerunds-ball-sports.html; then
-    echo "   ✗ unit8/gerunds-ball-sports.html still has max-w-4xl content sections!"
+# Check sm2/unit8/gerunds-ball-sports.html content sections are full width
+if grep -q 'leather-card.*max-w-4xl.*mx-auto' sm2/unit8/gerunds-ball-sports.html; then
+    echo "   ✗ sm2/unit8/gerunds-ball-sports.html still has max-w-4xl content sections!"
     ERRORS=$((ERRORS + 1))
 else
-    echo "   ✓ unit8/gerunds-ball-sports.html content sections are full width"
+    echo "   ✓ sm2/unit8/gerunds-ball-sports.html content sections are full width"
 fi
 
-# Check unit8/amazing-vehicles-reading.html content sections are full width
-if grep -q 'leather-card.*max-w-4xl.*mx-auto' unit8/amazing-vehicles-reading.html; then
-    echo "   ✗ unit8/amazing-vehicles-reading.html still has max-w-4xl content sections!"
+# Check sm2/unit8/amazing-vehicles-reading.html content sections are full width
+if grep -q 'leather-card.*max-w-4xl.*mx-auto' sm2/unit8/amazing-vehicles-reading.html; then
+    echo "   ✗ sm2/unit8/amazing-vehicles-reading.html still has max-w-4xl content sections!"
     ERRORS=$((ERRORS + 1))
 else
-    echo "   ✓ unit8/amazing-vehicles-reading.html content sections are full width"
+    echo "   ✓ sm2/unit8/amazing-vehicles-reading.html content sections are full width"
 fi
 
 # Check sm2/baseball/unit8/baseball-gerunds-ball-sports.html content sections are full width
@@ -709,7 +709,7 @@ echo "16. Checking fun-things-we-do-reading.html todo matches fairy-tales.html p
 ERRORS=0
 
 # Check reading.html todo items use bg-white rounded-xl pattern
-if grep -q 'todo-item bg-white rounded-xl' unit8/fun-things-we-do-reading.html; then
+if grep -q 'todo-item bg-white rounded-xl' sm2/unit8/fun-things-we-do-reading.html; then
     echo "   ✓ fun-things-we-do-reading.html todo items use fairy-tales pattern"
 else
     echo "   ✗ fun-things-we-do-reading.html todo items missing bg-white rounded-xl pattern!"
@@ -717,7 +717,7 @@ else
 fi
 
 # Check reading.html todo items do NOT use reading-card class
-if grep -q 'reading-card.*todo-item' unit8/fun-things-we-do-reading.html; then
+if grep -q 'reading-card.*todo-item' sm2/unit8/fun-things-we-do-reading.html; then
     echo "   ✗ reading.html todo items still use reading-card class!"
     ERRORS=$((ERRORS + 1))
 else
@@ -733,7 +733,7 @@ echo "17. Checking amazing-vehicles.html vocabulary has leather-card wrapper..."
 ERRORS=0
 
 # Check Task 1 vocabulary has leather-card wrapper
-if grep -A10 'id="vocab"' unit8/amazing-vehicles-reading.html | grep -q 'leather-card'; then
+if grep -A10 'id="vocab"' sm2/unit8/amazing-vehicles-reading.html | grep -q 'leather-card'; then
     echo "   ✓ Task 1 vocabulary has leather-card wrapper"
 else
     echo "   ✗ Task 1 vocabulary missing leather-card wrapper!"
@@ -741,7 +741,7 @@ else
 fi
 
 # Check Extra vocabulary has leather-card wrapper
-if grep -A10 'id="extra-vocab"' unit8/amazing-vehicles-reading.html | grep -q 'leather-card'; then
+if grep -A10 'id="extra-vocab"' sm2/unit8/amazing-vehicles-reading.html | grep -q 'leather-card'; then
     echo "   ✓ Extra vocabulary has leather-card wrapper"
 else
     echo "   ✗ Extra vocabulary missing leather-card wrapper!"
@@ -757,7 +757,7 @@ echo "18. Checking main container width consistency across all pages..."
 ERRORS=0
 
 # All content pages should use max-w-6xl as main container
-for file in index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/question-words-grammar-homework.html unit8/fun-things-we-do-reading.html unit9/holiday-plans-grammar-review.html unit9/fairy-tales-reading.html review/review-units-1-3.html review/review-unit-4.html review/review-unit-5.html sm2/baseball/index.html sm2/baseball/unit7/baseball-present-continuous-course.html sm2/baseball/unit7/baseball-present-continuous-homework.html sm2/baseball/unit8/baseball-gerunds-ball-sports.html; do
+for file in index.html sm2/unit7/present-continuous-course.html sm2/unit7/present-continuous-homework.html sm2/unit8/gerunds-ball-sports.html sm2/unit8/amazing-vehicles-reading.html sm2/unit8/question-words-grammar-homework.html sm2/unit8/fun-things-we-do-reading.html sm2/unit9/holiday-plans-grammar-review.html sm2/unit9/fairy-tales-reading.html sm2/review/review-units-1-3.html sm2/review/review-unit-4.html sm2/review/review-unit-5.html sm2/baseball/index.html sm2/baseball/unit7/baseball-present-continuous-course.html sm2/baseball/unit7/baseball-present-continuous-homework.html sm2/baseball/unit8/baseball-gerunds-ball-sports.html; do
     if [ -f "$file" ]; then
         # Check that the main content container uses max-w-6xl
         if grep -q 'max-w-6xl.*mx-auto' "$file"; then
@@ -840,7 +840,7 @@ else
 fi
 
 # HTML: no inline toggleTranslation remaining
-for file in unit8/fun-things-we-do-reading.html unit9/fairy-tales-reading.html; do
+for file in sm2/unit8/fun-things-we-do-reading.html sm2/unit9/fairy-tales-reading.html; do
     if [ -f "$file" ]; then
         if grep -q 'function toggleTranslation' "$file"; then
             echo "   ✗ $file still has inline toggleTranslation!"
@@ -852,7 +852,7 @@ for file in unit8/fun-things-we-do-reading.html unit9/fairy-tales-reading.html; 
 done
 
 # HTML: no inline revealAnswer remaining
-for file in unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html; do
+for file in sm2/unit9/fairy-tales-reading.html sm2/unit9/holiday-plans-grammar-review.html; do
     if [ -f "$file" ]; then
         if grep -q 'function revealAnswer' "$file"; then
             echo "   ✗ $file still has inline revealAnswer!"
@@ -864,14 +864,14 @@ for file in unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.ht
 done
 
 # HTML: renamed toggleAnswer variants
-if grep -q 'toggleQuestionAnswer' unit8/fun-things-we-do-reading.html; then
+if grep -q 'toggleQuestionAnswer' sm2/unit8/fun-things-we-do-reading.html; then
     echo "   ✓ fun-things-we-do-reading.html uses toggleQuestionAnswer()"
 else
     echo "   ✗ fun-things-we-do-reading.html missing toggleQuestionAnswer()!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'toggleReadingAnswer' unit8/amazing-vehicles-reading.html; then
+if grep -q 'toggleReadingAnswer' sm2/unit8/amazing-vehicles-reading.html; then
     echo "   ✓ amazing-vehicles-reading.html uses toggleReadingAnswer()"
 else
     echo "   ✗ amazing-vehicles-reading.html missing toggleReadingAnswer()!"
@@ -891,7 +891,7 @@ for file in sm2/baseball/unit7/baseball-present-continuous-course.html sm2/baseb
 done
 
 # data-placeholder on fairy-tales word quiz blanks
-if grep -q 'data-placeholder=' unit9/fairy-tales-reading.html; then
+if grep -q 'data-placeholder=' sm2/unit9/fairy-tales-reading.html; then
     echo "   ✓ fairy-tales-reading.html uses data-placeholder attributes"
 else
     echo "   ✗ fairy-tales-reading.html missing data-placeholder attributes!"
@@ -899,7 +899,7 @@ else
 fi
 
 # data-copy-text on unit7 homework copy buttons
-for file in unit7/present-continuous-homework.html sm2/baseball/unit7/baseball-present-continuous-homework.html; do
+for file in sm2/unit7/present-continuous-homework.html sm2/baseball/unit7/baseball-present-continuous-homework.html; do
     if [ -f "$file" ]; then
         if grep -q 'data-copy-text' "$file"; then
             echo "   ✓ $file uses data-copy-text for clipboard"
@@ -911,7 +911,7 @@ for file in unit7/present-continuous-homework.html sm2/baseball/unit7/baseball-p
 done
 
 # fun-things-we-do-reading.html uses DOMContentLoaded for init
-if grep -q 'DOMContentLoaded' unit8/fun-things-we-do-reading.html; then
+if grep -q 'DOMContentLoaded' sm2/unit8/fun-things-we-do-reading.html; then
     echo "   ✓ fun-things-we-do-reading.html defers init with DOMContentLoaded"
 else
     echo "   ✗ fun-things-we-do-reading.html missing DOMContentLoaded guard!"
@@ -919,7 +919,7 @@ else
 fi
 
 # fun-things-we-do-reading.html has no inline <style> block
-if grep -q '<style>' unit8/fun-things-we-do-reading.html; then
+if grep -q '<style>' sm2/unit8/fun-things-we-do-reading.html; then
     echo "   ✗ fun-things-we-do-reading.html still has inline <style> block!"
     ERRORS=$((ERRORS + 1))
 else
@@ -927,7 +927,7 @@ else
 fi
 
 # copyDialogue no longer defined inline
-for file in unit7/present-continuous-homework.html sm2/baseball/unit7/baseball-present-continuous-homework.html; do
+for file in sm2/unit7/present-continuous-homework.html sm2/baseball/unit7/baseball-present-continuous-homework.html; do
     if [ -f "$file" ]; then
         if grep -q 'function copyDialogue' "$file"; then
             echo "   ✗ $file still has inline copyDialogue!"
@@ -939,15 +939,15 @@ for file in unit7/present-continuous-homework.html sm2/baseball/unit7/baseball-p
 done
 
 # PR #30: accessibility - semantic <main> tag
-if grep -q '<main.*class="max-w-6xl' unit8/gerunds-ball-sports.html; then
-    echo "   ✓ unit8/gerunds-ball-sports.html uses semantic <main> tag"
+if grep -q '<main.*class="max-w-6xl' sm2/unit8/gerunds-ball-sports.html; then
+    echo "   ✓ sm2/unit8/gerunds-ball-sports.html uses semantic <main> tag"
 else
-    echo "   ✗ unit8/gerunds-ball-sports.html missing semantic <main> tag!"
+    echo "   ✗ sm2/unit8/gerunds-ball-sports.html missing semantic <main> tag!"
     ERRORS=$((ERRORS + 1))
 fi
 
 # PR #37: toggleBlank uses unified signature (no event param, uses this)
-if grep -q "toggleBlank('blank" unit8/gerunds-ball-sports.html && ! grep -q "toggleBlank(event," unit8/gerunds-ball-sports.html; then
+if grep -q "toggleBlank('blank" sm2/unit8/gerunds-ball-sports.html && ! grep -q "toggleBlank(event," sm2/unit8/gerunds-ball-sports.html; then
     echo "   ✓ gerunds-ball-sports.html toggleBlank uses unified signature"
 else
     echo "   ✗ gerunds-ball-sports.html toggleBlank not unified!"
@@ -971,7 +971,7 @@ else
 fi
 
 # PR #32: baseball-theme.css referenced by migrated pages
-BASEBALL_PAGES="sm2/unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html sm2/baseball/unit8/baseball-gerunds-ball-sports.html"
+BASEBALL_PAGES="sm2/sm2/unit8/gerunds-ball-sports.html sm2/unit8/amazing-vehicles-reading.html sm2/unit8/fun-things-we-do-reading.html sm2/unit8/question-words-grammar-homework.html sm2/unit9/fairy-tales-reading.html sm2/unit9/holiday-plans-grammar-review.html sm2/baseball/unit8/baseball-gerunds-ball-sports.html"
 for file in $BASEBALL_PAGES; do
     if [ -f "$file" ]; then
         if grep -q 'baseball-theme.css' "$file"; then
@@ -1016,7 +1016,7 @@ else
 fi
 
 # PR #31: no inline <nav> HTML remaining (all use renderNav via NAV_CONFIG)
-INLINE_NAV_FILES="sm2/unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html review/review-units-1-3.html review/review-unit-4.html review/review-unit-5.html sm2/baseball/index.html sm2/baseball/unit7/baseball-present-continuous-course.html sm2/baseball/unit7/baseball-present-continuous-homework.html sm2/baseball/unit8/baseball-gerunds-ball-sports.html"
+INLINE_NAV_FILES="sm2/sm2/unit7/present-continuous-course.html sm2/unit7/present-continuous-homework.html sm2/unit8/gerunds-ball-sports.html sm2/unit8/amazing-vehicles-reading.html sm2/unit8/fun-things-we-do-reading.html sm2/unit8/question-words-grammar-homework.html sm2/unit9/fairy-tales-reading.html sm2/unit9/holiday-plans-grammar-review.html sm2/review/review-units-1-3.html sm2/review/review-unit-4.html sm2/review/review-unit-5.html sm2/baseball/index.html sm2/baseball/unit7/baseball-present-continuous-course.html sm2/baseball/unit7/baseball-present-continuous-homework.html sm2/baseball/unit8/baseball-gerunds-ball-sports.html"
 INLINE_NAV_ERRORS=0
 for file in $INLINE_NAV_FILES; do
     if [ -f "$file" ]; then
@@ -1035,7 +1035,7 @@ if [ $INLINE_NAV_ERRORS -eq 0 ]; then
 fi
 
 # PR #29: renamed course pages exist
-RENAME_FILES="sm2/unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/holiday-plans-grammar-review.html unit9/fairy-tales-reading.html review/review-units-1-3.html review/review-unit-4.html review/review-unit-5.html"
+RENAME_FILES="sm2/sm2/unit7/present-continuous-course.html sm2/unit7/present-continuous-homework.html sm2/unit8/gerunds-ball-sports.html sm2/unit8/amazing-vehicles-reading.html sm2/unit8/fun-things-we-do-reading.html sm2/unit8/question-words-grammar-homework.html sm2/unit9/holiday-plans-grammar-review.html sm2/unit9/fairy-tales-reading.html sm2/review/review-units-1-3.html sm2/review/review-unit-4.html sm2/review/review-unit-5.html"
 for file in $RENAME_FILES; do
     if [ -f "$file" ]; then
         :
@@ -1118,7 +1118,7 @@ fi
 
 # PR #37: both toggleBlank implementations use this for element access
 THIS_TOGGLEBLANK=0
-if grep -q "var element = this;" unit8/gerunds-ball-sports.html; then
+if grep -q "var element = this;" sm2/unit8/gerunds-ball-sports.html; then
     THIS_TOGGLEBLANK=$((THIS_TOGGLEBLANK + 1))
 fi
 if grep -q "var element = this;" sm2/baseball/unit8/baseball-gerunds-ball-sports.html; then
@@ -1132,7 +1132,7 @@ else
 fi
 
 # Accessibility: all pages have main-content landmark
-MAIN_CONTENT_FILES="index.html unit7/present-continuous-course.html unit7/present-continuous-homework.html unit8/gerunds-ball-sports.html unit8/amazing-vehicles-reading.html unit8/fun-things-we-do-reading.html unit8/question-words-grammar-homework.html unit9/fairy-tales-reading.html unit9/holiday-plans-grammar-review.html review/review-units-1-3.html review/review-unit-4.html review/review-unit-5.html sm2/baseball/index.html sm2/baseball/unit7/baseball-present-continuous-course.html sm2/baseball/unit7/baseball-present-continuous-homework.html sm2/baseball/unit8/baseball-gerunds-ball-sports.html"
+MAIN_CONTENT_FILES="index.html sm2/unit7/present-continuous-course.html sm2/unit7/present-continuous-homework.html sm2/unit8/gerunds-ball-sports.html sm2/unit8/amazing-vehicles-reading.html sm2/unit8/fun-things-we-do-reading.html sm2/unit8/question-words-grammar-homework.html sm2/unit9/fairy-tales-reading.html sm2/unit9/holiday-plans-grammar-review.html sm2/review/review-units-1-3.html sm2/review/review-unit-4.html sm2/review/review-unit-5.html sm2/baseball/index.html sm2/baseball/unit7/baseball-present-continuous-course.html sm2/baseball/unit7/baseball-present-continuous-homework.html sm2/baseball/unit8/baseball-gerunds-ball-sports.html"
 MAIN_CONTENT_ERRORS=0
 for file in $MAIN_CONTENT_FILES; do
     if [ -f "$file" ]; then
@@ -1204,18 +1204,18 @@ echo ""
 echo "19. Checking unit7 course page top spacing..."
 ERRORS=0
 
-if grep -q '<body class="sm-body">' unit7/present-continuous-course.html; then
-    echo "   ✓ unit7/present-continuous-course.html uses the shared body class"
+if grep -q '<body class="sm-body">' sm2/unit7/present-continuous-course.html; then
+    echo "   ✓ sm2/unit7/present-continuous-course.html uses the shared body class"
 else
-    echo "   ✗ unit7/present-continuous-course.html missing expected body class!"
+    echo "   ✗ sm2/unit7/present-continuous-course.html missing expected body class!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q '<body class="p-4 md:p-8 sm-body">' unit7/present-continuous-course.html; then
-    echo "   ✗ unit7/present-continuous-course.html still has top padding utilities!"
+if grep -q '<body class="p-4 md:p-8 sm-body">' sm2/unit7/present-continuous-course.html; then
+    echo "   ✗ sm2/unit7/present-continuous-course.html still has top padding utilities!"
     ERRORS=$((ERRORS + 1))
 else
-    echo "   ✓ unit7/present-continuous-course.html has no extra top padding"
+    echo "   ✓ sm2/unit7/present-continuous-course.html has no extra top padding"
 fi
 
 if [ $ERRORS -gt 0 ]; then
@@ -1255,26 +1255,26 @@ echo ""
 echo "21. Checking unit7 homework shared interaction hooks..."
 ERRORS=0
 
-if grep -Fq "onclick=\"this.classList.toggle('flipped')\"" unit7/present-continuous-homework.html; then
-    echo "   ✓ unit7/present-continuous-homework.html flashcards use shared onclick hooks"
+if grep -Fq "onclick=\"this.classList.toggle('flipped')\"" sm2/unit7/present-continuous-homework.html; then
+    echo "   ✓ sm2/unit7/present-continuous-homework.html flashcards use shared onclick hooks"
 else
-    echo "   ✗ unit7/present-continuous-homework.html flashcard onclick hooks missing!"
+    echo "   ✗ sm2/unit7/present-continuous-homework.html flashcard onclick hooks missing!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'onclick="toggleTimeline(this)"' unit7/present-continuous-homework.html; then
-    echo "   ✓ unit7/present-continuous-homework.html timeline nodes use shared onclick hooks"
+if grep -q 'onclick="toggleTimeline(this)"' sm2/unit7/present-continuous-homework.html; then
+    echo "   ✓ sm2/unit7/present-continuous-homework.html timeline nodes use shared onclick hooks"
 else
-    echo "   ✗ unit7/present-continuous-homework.html timeline onclick hooks missing!"
+    echo "   ✗ sm2/unit7/present-continuous-homework.html timeline onclick hooks missing!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q "document.querySelectorAll('.flashcard').forEach" unit7/present-continuous-homework.html || \
-   grep -q "document.querySelectorAll('.timeline-node').forEach" unit7/present-continuous-homework.html; then
-    echo "   ✗ unit7/present-continuous-homework.html still has page-local event bindings!"
+if grep -q "document.querySelectorAll('.flashcard').forEach" sm2/unit7/present-continuous-homework.html || \
+   grep -q "document.querySelectorAll('.timeline-node').forEach" sm2/unit7/present-continuous-homework.html; then
+    echo "   ✗ sm2/unit7/present-continuous-homework.html still has page-local event bindings!"
     ERRORS=$((ERRORS + 1))
 else
-    echo "   ✓ unit7/present-continuous-homework.html has no page-local flashcard/timeline bindings"
+    echo "   ✓ sm2/unit7/present-continuous-homework.html has no page-local flashcard/timeline bindings"
 fi
 
 if [ $ERRORS -gt 0 ]; then
@@ -1333,25 +1333,25 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
-echo "23. Checking review/review-units-1-3.html..."
+echo "23. Checking sm2/review/review-units-1-3.html..."
 ERRORS=0
 
-if [ -f "sm2/review/review-units-1-3.html" ]; then
-    echo "   ✓ review/review-units-1-3.html exists"
+if [ -f "sm2/sm2/review/review-units-1-3.html" ]; then
+    echo "   ✓ sm2/review/review-units-1-3.html exists"
 else
-    echo "   ✗ review/review-units-1-3.html missing!"
+    echo "   ✗ sm2/review/review-units-1-3.html missing!"
     ERRORS=$((ERRORS + 1))
 fi
 
 # Navigation
-if grep -q 'window.NAV_CONFIG' "sm2/review/review-units-1-3.html"; then
+if grep -q 'window.NAV_CONFIG' "sm2/sm2/review/review-units-1-3.html"; then
     echo "   ✓ review page uses centralized nav (NAV_CONFIG)"
 else
     echo "   ✗ review page missing NAV_CONFIG!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'id="site-nav"' "sm2/review/review-units-1-3.html"; then
+if grep -q 'id="site-nav"' "sm2/sm2/review/review-units-1-3.html"; then
     echo "   ✓ review page has site-nav container"
 else
     echo "   ✗ review page missing site-nav container!"
@@ -1359,21 +1359,21 @@ else
 fi
 
 # Shared resources
-if grep -q '../css/baseball-theme.css' "sm2/review/review-units-1-3.html"; then
+if grep -q '../css/baseball-theme.css' "sm2/sm2/review/review-units-1-3.html"; then
     echo "   ✓ review page references baseball-theme.css"
 else
     echo "   ✗ review page missing baseball-theme.css reference!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q '../js/common.js' "sm2/review/review-units-1-3.html"; then
+if grep -q '../js/common.js' "sm2/sm2/review/review-units-1-3.html"; then
     echo "   ✓ review page references common.js"
 else
     echo "   ✗ review page missing common.js reference!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q '../ga.js' "sm2/review/review-units-1-3.html"; then
+if grep -q '../ga.js' "sm2/sm2/review/review-units-1-3.html"; then
     echo "   ✓ review page uses ../ga.js"
 else
     echo "   ✗ review page not using ../ga.js!"
@@ -1381,17 +1381,17 @@ else
 fi
 
 # Content sections
-check_content "sm2/review/review-units-1-3.html" 'Present Simple' "review page has Present Simple grammar"
-check_content "sm2/review/review-units-1-3.html" 'Can (Ability' "review page has Can grammar"
-check_content "sm2/review/review-units-1-3.html" 'Have got / Has got' "review page has Have got grammar"
-check_content "sm2/review/review-units-1-3.html" 'reptile' "review page has reptile vocabulary"
-check_content "sm2/review/review-units-1-3.html" 'Exercise A' "review page has Exercise A"
-check_content "sm2/review/review-units-1-3.html" 'Exercise B' "review page has Exercise B"
-check_content "sm2/review/review-units-1-3.html" 'Exercise C' "review page has Exercise C"
-check_content "sm2/review/review-units-1-3.html" 'The Strange Pet Shop' "review page has KET Reading A"
-check_content "sm2/review/review-units-1-3.html" 'The Reptile House' "review page has KET Reading B"
-check_content "sm2/review/review-units-1-3.html" 'PET Level' "review page has PET Reading"
-check_content "sm2/review/review-units-1-3.html" "Today's Todo" "review page has Today's Todo"
+check_content "sm2/sm2/review/review-units-1-3.html" 'Present Simple' "review page has Present Simple grammar"
+check_content "sm2/sm2/review/review-units-1-3.html" 'Can (Ability' "review page has Can grammar"
+check_content "sm2/sm2/review/review-units-1-3.html" 'Have got / Has got' "review page has Have got grammar"
+check_content "sm2/sm2/review/review-units-1-3.html" 'reptile' "review page has reptile vocabulary"
+check_content "sm2/sm2/review/review-units-1-3.html" 'Exercise A' "review page has Exercise A"
+check_content "sm2/sm2/review/review-units-1-3.html" 'Exercise B' "review page has Exercise B"
+check_content "sm2/sm2/review/review-units-1-3.html" 'Exercise C' "review page has Exercise C"
+check_content "sm2/sm2/review/review-units-1-3.html" 'The Strange Pet Shop' "review page has KET Reading A"
+check_content "sm2/sm2/review/review-units-1-3.html" 'The Reptile House' "review page has KET Reading B"
+check_content "sm2/sm2/review/review-units-1-3.html" 'PET Level' "review page has PET Reading"
+check_content "sm2/sm2/review/review-units-1-3.html" "Today's Todo" "review page has Today's Todo"
 
 # Interactive features
 if grep -q 'window.showQuizAnswer' "js/common.js"; then
@@ -1401,56 +1401,56 @@ else
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'quiz-option' "sm2/review/review-units-1-3.html"; then
+if grep -q 'quiz-option' "sm2/sm2/review/review-units-1-3.html"; then
     echo "   ✓ review page has quiz-option elements"
 else
     echo "   ✗ review page missing quiz-option elements!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'data-placeholder' "sm2/review/review-units-1-3.html"; then
+if grep -q 'data-placeholder' "sm2/sm2/review/review-units-1-3.html"; then
     echo "   ✓ review page uses data-placeholder attributes"
 else
     echo "   ✗ review page missing data-placeholder attributes!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'data-todo' "sm2/review/review-units-1-3.html"; then
+if grep -q 'data-todo' "sm2/sm2/review/review-units-1-3.html"; then
     echo "   ✓ review page has data-todo attributes"
 else
     echo "   ✗ review page missing data-todo attributes!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'progressBar' "sm2/review/review-units-1-3.html"; then
+if grep -q 'progressBar' "sm2/sm2/review/review-units-1-3.html"; then
     echo "   ✓ review page has progressBar"
 else
     echo "   ✗ review page missing progressBar!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'resetTodoItems' "sm2/review/review-units-1-3.html"; then
+if grep -q 'resetTodoItems' "sm2/sm2/review/review-units-1-3.html"; then
     echo "   ✓ review page has resetTodoItems"
 else
     echo "   ✗ review page missing resetTodoItems!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'localStorage' "sm2/review/review-units-1-3.html"; then
+if grep -q 'localStorage' "sm2/sm2/review/review-units-1-3.html"; then
     echo "   ✓ review page uses localStorage"
 else
     echo "   ✗ review page missing localStorage!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'leather-card' "sm2/review/review-units-1-3.html"; then
+if grep -q 'leather-card' "sm2/sm2/review/review-units-1-3.html"; then
     echo "   ✓ review page uses leather-card class"
 else
     echo "   ✗ review page missing leather-card class!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'reading-card' "sm2/review/review-units-1-3.html"; then
+if grep -q 'reading-card' "sm2/sm2/review/review-units-1-3.html"; then
     echo "   ✓ review page uses reading-card class"
 else
     echo "   ✗ review page missing reading-card class!"
@@ -1458,14 +1458,14 @@ else
 fi
 
 # Layout
-if grep -q 'max-w-6xl.*mx-auto' "sm2/review/review-units-1-3.html"; then
+if grep -q 'max-w-6xl.*mx-auto' "sm2/sm2/review/review-units-1-3.html"; then
     echo "   ✓ review page uses max-w-6xl main container"
 else
     echo "   ✗ review page missing max-w-6xl main container!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'id="main-content"' "sm2/review/review-units-1-3.html"; then
+if grep -q 'id="main-content"' "sm2/sm2/review/review-units-1-3.html"; then
     echo "   ✓ review page has id=main-content landmark"
 else
     echo "   ✗ review page missing id=main-content landmark!"
@@ -1477,25 +1477,25 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
-echo "23b. Checking review/review-unit-4.html..."
+echo "23b. Checking sm2/review/review-unit-4.html..."
 ERRORS=0
 
-if [ -f "sm2/review/review-unit-4.html" ]; then
-    echo "   ✓ review/review-unit-4.html exists"
+if [ -f "sm2/sm2/review/review-unit-4.html" ]; then
+    echo "   ✓ sm2/review/review-unit-4.html exists"
 else
-    echo "   ✗ review/review-unit-4.html missing!"
+    echo "   ✗ sm2/review/review-unit-4.html missing!"
     ERRORS=$((ERRORS + 1))
 fi
 
 # Navigation
-if grep -q 'window.NAV_CONFIG' "sm2/review/review-unit-4.html"; then
+if grep -q 'window.NAV_CONFIG' "sm2/sm2/review/review-unit-4.html"; then
     echo "   ✓ review-unit-4 page uses centralized nav (NAV_CONFIG)"
 else
     echo "   ✗ review-unit-4 page missing NAV_CONFIG!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'id="site-nav"' "sm2/review/review-unit-4.html"; then
+if grep -q 'id="site-nav"' "sm2/sm2/review/review-unit-4.html"; then
     echo "   ✓ review-unit-4 page has site-nav container"
 else
     echo "   ✗ review-unit-4 page missing site-nav container!"
@@ -1503,21 +1503,21 @@ else
 fi
 
 # Shared resources
-if grep -q '../css/baseball-theme.css' "sm2/review/review-unit-4.html"; then
+if grep -q '../css/baseball-theme.css' "sm2/sm2/review/review-unit-4.html"; then
     echo "   ✓ review-unit-4 page references baseball-theme.css"
 else
     echo "   ✗ review-unit-4 page missing baseball-theme.css reference!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q '../js/common.js' "sm2/review/review-unit-4.html"; then
+if grep -q '../js/common.js' "sm2/sm2/review/review-unit-4.html"; then
     echo "   ✓ review-unit-4 page references common.js"
 else
     echo "   ✗ review-unit-4 page missing common.js reference!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q '../ga.js' "sm2/review/review-unit-4.html"; then
+if grep -q '../ga.js' "sm2/sm2/review/review-unit-4.html"; then
     echo "   ✓ review-unit-4 page uses ../ga.js"
 else
     echo "   ✗ review-unit-4 page not using ../ga.js!"
@@ -1525,63 +1525,63 @@ else
 fi
 
 # Content sections
-check_content "sm2/review/review-unit-4.html" 'would like' "review-unit-4 page has would like grammar"
-check_content "sm2/review/review-unit-4.html" 'There Be' "review-unit-4 page has There Be grammar"
-check_content "sm2/review/review-unit-4.html" 'At the Market' "review-unit-4 page has reading passage"
-check_content "sm2/review/review-unit-4.html" 'Synonym Matching' "review-unit-4 page has synonym matching"
-check_content "sm2/review/review-unit-4.html" "Today's Todo" "review-unit-4 page has Today's Todo"
+check_content "sm2/sm2/review/review-unit-4.html" 'would like' "review-unit-4 page has would like grammar"
+check_content "sm2/sm2/review/review-unit-4.html" 'There Be' "review-unit-4 page has There Be grammar"
+check_content "sm2/sm2/review/review-unit-4.html" 'At the Market' "review-unit-4 page has reading passage"
+check_content "sm2/sm2/review/review-unit-4.html" 'Synonym Matching' "review-unit-4 page has synonym matching"
+check_content "sm2/sm2/review/review-unit-4.html" "Today's Todo" "review-unit-4 page has Today's Todo"
 
 # Interactive features
-if grep -q 'quiz-option' "sm2/review/review-unit-4.html"; then
+if grep -q 'quiz-option' "sm2/sm2/review/review-unit-4.html"; then
     echo "   ✓ review-unit-4 page has quiz-option elements"
 else
     echo "   ✗ review-unit-4 page missing quiz-option elements!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'data-placeholder' "sm2/review/review-unit-4.html"; then
+if grep -q 'data-placeholder' "sm2/sm2/review/review-unit-4.html"; then
     echo "   ✓ review-unit-4 page uses data-placeholder attributes"
 else
     echo "   ✗ review-unit-4 page missing data-placeholder attributes!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'data-todo' "sm2/review/review-unit-4.html"; then
+if grep -q 'data-todo' "sm2/sm2/review/review-unit-4.html"; then
     echo "   ✓ review-unit-4 page has data-todo attributes"
 else
     echo "   ✗ review-unit-4 page missing data-todo attributes!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'progressBar' "sm2/review/review-unit-4.html"; then
+if grep -q 'progressBar' "sm2/sm2/review/review-unit-4.html"; then
     echo "   ✓ review-unit-4 page has progressBar"
 else
     echo "   ✗ review-unit-4 page missing progressBar!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'resetTodoItems' "sm2/review/review-unit-4.html"; then
+if grep -q 'resetTodoItems' "sm2/sm2/review/review-unit-4.html"; then
     echo "   ✓ review-unit-4 page has resetTodoItems"
 else
     echo "   ✗ review-unit-4 page missing resetTodoItems!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'localStorage' "sm2/review/review-unit-4.html"; then
+if grep -q 'localStorage' "sm2/sm2/review/review-unit-4.html"; then
     echo "   ✓ review-unit-4 page uses localStorage"
 else
     echo "   ✗ review-unit-4 page missing localStorage!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'leather-card' "sm2/review/review-unit-4.html"; then
+if grep -q 'leather-card' "sm2/sm2/review/review-unit-4.html"; then
     echo "   ✓ review-unit-4 page uses leather-card class"
 else
     echo "   ✗ review-unit-4 page missing leather-card class!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'reading-card' "sm2/review/review-unit-4.html"; then
+if grep -q 'reading-card' "sm2/sm2/review/review-unit-4.html"; then
     echo "   ✓ review-unit-4 page uses reading-card class"
 else
     echo "   ✗ review-unit-4 page missing reading-card class!"
@@ -1589,14 +1589,14 @@ else
 fi
 
 # Layout
-if grep -q 'max-w-6xl.*mx-auto' "sm2/review/review-unit-4.html"; then
+if grep -q 'max-w-6xl.*mx-auto' "sm2/sm2/review/review-unit-4.html"; then
     echo "   ✓ review-unit-4 page uses max-w-6xl main container"
 else
     echo "   ✗ review-unit-4 page missing max-w-6xl main container!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'id="main-content"' "sm2/review/review-unit-4.html"; then
+if grep -q 'id="main-content"' "sm2/sm2/review/review-unit-4.html"; then
     echo "   ✓ review-unit-4 page has id=main-content landmark"
 else
     echo "   ✗ review-unit-4 page missing id=main-content landmark!"
@@ -1608,25 +1608,25 @@ if [ $ERRORS -gt 0 ]; then
 fi
 
 echo ""
-echo "23c. Checking review/review-unit-5.html..."
+echo "23c. Checking sm2/review/review-unit-5.html..."
 ERRORS=0
 
-if [ -f "sm2/review/review-unit-5.html" ]; then
-    echo "   ✓ review/review-unit-5.html exists"
+if [ -f "sm2/sm2/review/review-unit-5.html" ]; then
+    echo "   ✓ sm2/review/review-unit-5.html exists"
 else
-    echo "   ✗ review/review-unit-5.html missing!"
+    echo "   ✗ sm2/review/review-unit-5.html missing!"
     ERRORS=$((ERRORS + 1))
 fi
 
 # Navigation
-if grep -q 'window.NAV_CONFIG' "sm2/review/review-unit-5.html"; then
+if grep -q 'window.NAV_CONFIG' "sm2/sm2/review/review-unit-5.html"; then
     echo "   ✓ review-unit-5 page uses centralized nav (NAV_CONFIG)"
 else
     echo "   ✗ review-unit-5 page missing NAV_CONFIG!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'id="site-nav"' "sm2/review/review-unit-5.html"; then
+if grep -q 'id="site-nav"' "sm2/sm2/review/review-unit-5.html"; then
     echo "   ✓ review-unit-5 page has site-nav container"
 else
     echo "   ✗ review-unit-5 page missing site-nav container!"
@@ -1634,21 +1634,21 @@ else
 fi
 
 # Shared resources
-if grep -q '../css/baseball-theme.css' "sm2/review/review-unit-5.html"; then
+if grep -q '../css/baseball-theme.css' "sm2/sm2/review/review-unit-5.html"; then
     echo "   ✓ review-unit-5 page references baseball-theme.css"
 else
     echo "   ✗ review-unit-5 page missing baseball-theme.css reference!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q '../js/common.js' "sm2/review/review-unit-5.html"; then
+if grep -q '../js/common.js' "sm2/sm2/review/review-unit-5.html"; then
     echo "   ✓ review-unit-5 page references common.js"
 else
     echo "   ✗ review-unit-5 page missing common.js reference!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q '../ga.js' "sm2/review/review-unit-5.html"; then
+if grep -q '../ga.js' "sm2/sm2/review/review-unit-5.html"; then
     echo "   ✓ review-unit-5 page uses ../ga.js"
 else
     echo "   ✗ review-unit-5 page not using ../ga.js!"
@@ -1656,70 +1656,70 @@ else
 fi
 
 # Content sections
-check_content "sm2/review/review-unit-5.html" 'In the Bedroom' "review-unit-5 page has bedroom vocabulary"
-check_content "sm2/review/review-unit-5.html" 'prepositions' "review-unit-5 page has prepositions grammar"
-check_content "sm2/review/review-unit-5.html" 'this, that, these, those' "review-unit-5 page has demonstratives grammar"
-check_content "sm2/review/review-unit-5.html" 'Keeping Food Safe' "review-unit-5 page has reading passage"
-check_content "sm2/review/review-unit-5.html" "Today's Todo" "review-unit-5 page has Today's Todo"
+check_content "sm2/sm2/review/review-unit-5.html" 'In the Bedroom' "review-unit-5 page has bedroom vocabulary"
+check_content "sm2/sm2/review/review-unit-5.html" 'prepositions' "review-unit-5 page has prepositions grammar"
+check_content "sm2/sm2/review/review-unit-5.html" 'this, that, these, those' "review-unit-5 page has demonstratives grammar"
+check_content "sm2/sm2/review/review-unit-5.html" 'Keeping Food Safe' "review-unit-5 page has reading passage"
+check_content "sm2/sm2/review/review-unit-5.html" "Today's Todo" "review-unit-5 page has Today's Todo"
 
 # Interactive features
-if grep -q 'speakable' "sm2/review/review-unit-5.html"; then
+if grep -q 'speakable' "sm2/sm2/review/review-unit-5.html"; then
     echo "   ✓ review-unit-5 page has speakable vocabulary"
 else
     echo "   ✗ review-unit-5 page missing speakable vocabulary!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'quiz-option' "sm2/review/review-unit-5.html"; then
+if grep -q 'quiz-option' "sm2/sm2/review/review-unit-5.html"; then
     echo "   ✓ review-unit-5 page has quiz-option elements"
 else
     echo "   ✗ review-unit-5 page missing quiz-option elements!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'data-placeholder' "sm2/review/review-unit-5.html"; then
+if grep -q 'data-placeholder' "sm2/sm2/review/review-unit-5.html"; then
     echo "   ✓ review-unit-5 page uses data-placeholder attributes"
 else
     echo "   ✗ review-unit-5 page missing data-placeholder attributes!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'data-todo' "sm2/review/review-unit-5.html"; then
+if grep -q 'data-todo' "sm2/sm2/review/review-unit-5.html"; then
     echo "   ✓ review-unit-5 page has data-todo attributes"
 else
     echo "   ✗ review-unit-5 page missing data-todo attributes!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'progressBar' "sm2/review/review-unit-5.html"; then
+if grep -q 'progressBar' "sm2/sm2/review/review-unit-5.html"; then
     echo "   ✓ review-unit-5 page has progressBar"
 else
     echo "   ✗ review-unit-5 page missing progressBar!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'resetTodoItems' "sm2/review/review-unit-5.html"; then
+if grep -q 'resetTodoItems' "sm2/sm2/review/review-unit-5.html"; then
     echo "   ✓ review-unit-5 page has resetTodoItems"
 else
     echo "   ✗ review-unit-5 page missing resetTodoItems!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'localStorage' "sm2/review/review-unit-5.html"; then
+if grep -q 'localStorage' "sm2/sm2/review/review-unit-5.html"; then
     echo "   ✓ review-unit-5 page uses localStorage"
 else
     echo "   ✗ review-unit-5 page missing localStorage!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'leather-card' "sm2/review/review-unit-5.html"; then
+if grep -q 'leather-card' "sm2/sm2/review/review-unit-5.html"; then
     echo "   ✓ review-unit-5 page uses leather-card class"
 else
     echo "   ✗ review-unit-5 page missing leather-card class!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'reading-card' "sm2/review/review-unit-5.html"; then
+if grep -q 'reading-card' "sm2/sm2/review/review-unit-5.html"; then
     echo "   ✓ review-unit-5 page uses reading-card class"
 else
     echo "   ✗ review-unit-5 page missing reading-card class!"
@@ -1727,14 +1727,14 @@ else
 fi
 
 # Layout
-if grep -q 'max-w-6xl.*mx-auto' "sm2/review/review-unit-5.html"; then
+if grep -q 'max-w-6xl.*mx-auto' "sm2/sm2/review/review-unit-5.html"; then
     echo "   ✓ review-unit-5 page uses max-w-6xl main container"
 else
     echo "   ✗ review-unit-5 page missing max-w-6xl main container!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'id="main-content"' "sm2/review/review-unit-5.html"; then
+if grep -q 'id="main-content"' "sm2/sm2/review/review-unit-5.html"; then
     echo "   ✓ review-unit-5 page has id=main-content landmark"
 else
     echo "   ✗ review-unit-5 page missing id=main-content landmark!"
@@ -1750,21 +1750,21 @@ echo "24. Checking review page bidirectional navigation..."
 ERRORS=0
 
 # Review pages linked from index.html
-if grep -q 'review/review-units-1-3.html' "index.html"; then
+if grep -q 'sm2/review/review-units-1-3.html' "index.html"; then
     echo "   ✓ index.html links to review-units-1-3 page"
 else
     echo "   ✗ index.html missing link to review-units-1-3 page!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'review/review-unit-4.html' "index.html"; then
+if grep -q 'sm2/review/review-unit-4.html' "index.html"; then
     echo "   ✓ index.html links to review-unit-4 page"
 else
     echo "   ✗ index.html missing link to review-unit-4 page!"
     ERRORS=$((ERRORS + 1))
 fi
 
-if grep -q 'review/review-unit-5.html' "index.html"; then
+if grep -q 'sm2/review/review-unit-5.html' "index.html"; then
     echo "   ✓ index.html links to review-unit-5 page"
 else
     echo "   ✗ index.html missing link to review-unit-5 page!"
@@ -1850,9 +1850,9 @@ echo ""
 echo "Next steps:"
 echo "1. Start a local server: python3 -m http.server 8000"
 echo "2. Open http://localhost:8000"
-echo "3. Test the new grammar page: http://localhost:8000/unit8/question-words-grammar-homework.html"
-echo "4. Test the reading page: http://localhost:8000/unit8/fun-things-we-do-reading.html"
-echo "5. Test the Unit 9 page: http://localhost:8000/unit9/holiday-plans-grammar-review.html"
-echo "6. Test the Fairy Tales page: http://localhost:8000/unit9/fairy-tales-reading.html"
-echo "7. Test the Unit 5 review page: http://localhost:8000/review/review-unit-5.html"
+echo "3. Test the new grammar page: http://localhost:8000/sm2/unit8/question-words-grammar-homework.html"
+echo "4. Test the reading page: http://localhost:8000/sm2/unit8/fun-things-we-do-reading.html"
+echo "5. Test the Unit 9 page: http://localhost:8000/sm2/unit9/holiday-plans-grammar-review.html"
+echo "6. Test the Fairy Tales page: http://localhost:8000/sm2/unit9/fairy-tales-reading.html"
+echo "7. Test the Unit 5 review page: http://localhost:8000/sm2/review/review-unit-5.html"
 echo "8. Follow TESTING.md checklist"
