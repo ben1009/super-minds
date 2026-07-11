@@ -1180,7 +1180,8 @@ fi
 # Build script sync check: baseball gerunds must match generated output
 if [ -f "scripts/generate-baseball.py" ]; then
     TEMP_DIR=$(mktemp -d)
-    cp -r unit8 "$TEMP_DIR/"
+    mkdir -p "$TEMP_DIR/sm2"
+    cp -r sm2/unit8 "$TEMP_DIR/sm2/"
     cp scripts/generate-baseball.py "$TEMP_DIR/"
     (cd "$TEMP_DIR" && python3 generate-baseball.py >/dev/null 2>&1)
     if diff -q "$TEMP_DIR/sm2/baseball/unit8/baseball-gerunds-ball-sports.html" sm2/baseball/unit8/baseball-gerunds-ball-sports.html >/dev/null 2>&1; then
