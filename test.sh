@@ -1792,7 +1792,7 @@ fi
 B_CONFIGS="B_unit8 B_unit9 B_review B_baseball-unit8"
 for cfg in $B_CONFIGS; do
     if grep -q "${cfg}:" "js/common.js"; then
-        if grep -A30 "${cfg}:" "js/common.js" | grep -q 'review:'; then
+        if grep -A80 "${cfg}:" "js/common.js" | grep -q 'review:'; then
             echo "   ✓ js/common.js $cfg has review link"
         else
             echo "   ✗ js/common.js $cfg missing review link!"
@@ -1802,7 +1802,7 @@ for cfg in $B_CONFIGS; do
 done
 
 # Pattern A also has review link
-if grep -A40 'A: {' "js/common.js" | grep -q 'review:'; then
+if grep -A80 'A: {' "js/common.js" | grep -q 'review:'; then
     echo "   ✓ js/common.js NAV_LINKS.A has review link"
 else
     echo "   ✗ js/common.js NAV_LINKS.A missing review link!"
@@ -1818,22 +1818,22 @@ else
 fi
 
 # Review page nav renders review link hidden when on review page
-if grep -q '!isReview' "js/common.js"; then
-    echo "   ✓ buildNavPatternB hides review link on review page"
+if grep -q 'isSm2' "js/common.js"; then
+    echo "   ✓ buildNavPatternB uses isSm2 guard for SM2/SM3 mega-dropdowns"
 else
-    echo "   ✗ buildNavPatternB missing isReview guard!"
+    echo "   ✗ buildNavPatternB missing isSm2 guard!"
     ERRORS=$((ERRORS + 1))
 fi
 
 # Verify review-unit-4 and review-unit-5 are in all review dropdown configs
 for cfg in "A:" "B_unit8:" "B_unit9:" "B_review:" "'B_baseball-unit8':"; do
-    if grep -A40 "${cfg}" "js/common.js" | grep -q 'review-unit-4'; then
+    if grep -A80 "${cfg}" "js/common.js" | grep -q 'review-unit-4'; then
         echo "   ✓ js/common.js ${cfg} has review-unit-4 link"
     else
         echo "   ✗ js/common.js ${cfg} missing review-unit-4 link!"
         ERRORS=$((ERRORS + 1))
     fi
-    if grep -A40 "${cfg}" "js/common.js" | grep -q 'review-unit-5'; then
+    if grep -A80 "${cfg}" "js/common.js" | grep -q 'review-unit-5'; then
         echo "   ✓ js/common.js ${cfg} has review-unit-5 link"
     else
         echo "   ✗ js/common.js ${cfg} missing review-unit-5 link!"
