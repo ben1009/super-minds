@@ -372,7 +372,8 @@ const NAV_LINKS = {
             triggerHref: '../../sm3/unit0/explorers-be-good-at.html',
             pages: [
                 { key: 'sm3-unit0', href: '../../sm3/unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
-                { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' }
+                { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
+                { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' }
             ]
         },
 
@@ -420,7 +421,8 @@ const NAV_LINKS = {
             triggerHref: '../../sm3/unit0/explorers-be-good-at.html',
             pages: [
                 { key: 'sm3-unit0', href: '../../sm3/unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
-                { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' }
+                { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
+                { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' }
             ]
         },
 
@@ -468,7 +470,8 @@ const NAV_LINKS = {
             triggerHref: '../../sm3/unit0/explorers-be-good-at.html',
             pages: [
                 { key: 'sm3-unit0', href: '../../sm3/unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
-                { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' }
+                { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
+                { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' }
             ]
         },
 
@@ -516,7 +519,8 @@ const NAV_LINKS = {
             triggerHref: '../../sm3/unit0/explorers-be-good-at.html',
             pages: [
                 { key: 'sm3-unit0', href: '../../sm3/unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
-                { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' }
+                { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
+                { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' }
             ]
         },
 
@@ -561,7 +565,8 @@ const NAV_LINKS = {
             triggerHref: '../../../sm3/unit0/explorers-be-good-at.html',
             pages: [
                 { key: 'sm3-unit0', href: '../../../sm3/unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
-                { key: 'sm3-unit1', href: '../../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' }
+                { key: 'sm3-unit1', href: '../../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
+                { key: 'sm3-unit1-story', href: '../../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' }
             ]
         },
 
@@ -609,7 +614,8 @@ const NAV_LINKS = {
             triggerHref: 'explorers-be-good-at.html',
             pages: [
                 { key: 'sm3-unit0', href: 'explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
-                { key: 'sm3-unit1', href: '../unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' }
+                { key: 'sm3-unit1', href: '../unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
+                { key: 'sm3-unit1-story', href: '../unit1/story-part.html', label: '📖 Unit 1 Story' }
             ]
         },
         review: {
@@ -656,7 +662,8 @@ const NAV_LINKS = {
             triggerHref: '../unit0/explorers-be-good-at.html',
             pages: [
                 { key: 'sm3-unit0', href: '../unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
-                { key: 'sm3-unit1', href: 'school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' }
+                { key: 'sm3-unit1', href: 'school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
+                { key: 'sm3-unit1-story', href: 'story-part.html', label: '📖 Unit 1 Story' }
             ]
         },
         review: {
@@ -682,10 +689,11 @@ const NAV_LINKS = {
                 { href: '../../review/review-units-1-3.html', label: '📝 复习 1-3' },
                 { href: '../../review/review-unit-4.html', label: '🍎 复习 4' },
                 { href: '../../review/review-unit-5.html', label: '🛏️ 复习 5' },
-                { href: '../../review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' }
+                { href: '../../review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' },
+                { href: '../../../sm3/unit1/story-part.html', label: '📖 SM3 Unit 1 Story' }
             ],
             activeLabel: '⚾ Unit 7',
-            separators: [0, 1, 2, 3, 4, 5]
+            separators: [0, 1, 2, 3, 4, 5, 8]
         },
         'baseball-unit7-homework': {
             home: { href: '../index.html', label: '⚾ Super Minds' },
@@ -698,10 +706,11 @@ const NAV_LINKS = {
                 { href: '../../review/review-units-1-3.html', label: '📝 复习 1-3' },
                 { href: '../../review/review-unit-4.html', label: '🍎 复习 4' },
                 { href: '../../review/review-unit-5.html', label: '🛏️ 复习 5' },
-                { href: '../../review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' }
+                { href: '../../review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' },
+                { href: '../../../sm3/unit1/story-part.html', label: '📖 SM3 Unit 1 Story' }
             ],
             activeLabel: '📚 课后作业',
-            separators: [0, 1, 2, 3, 4, 5]
+            separators: [0, 1, 2, 3, 4, 5, 8]
         }
     }
 };
@@ -1035,6 +1044,15 @@ if (typeof speak !== 'function') {
 document.addEventListener('click', function(e) {
     var el = e.target.closest('[data-speak]');
     if (!el) return;
+    var text = el.getAttribute('data-speak');
+    if (text) window.speak(text, el);
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var el = e.target;
+    if (!el.hasAttribute('data-speak')) return;
+    e.preventDefault();
     var text = el.getAttribute('data-speak');
     if (text) window.speak(text, el);
 });
