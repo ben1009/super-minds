@@ -280,6 +280,7 @@ class TestSM3Unit1StoryStructure(unittest.TestCase):
     def test_asset_paths(self):
         self.assertIn('../../favicon.svg', self.html)
         self.assertIn('../../ga.js', self.html)
+        self.assertIn('../../css/common.css', self.html)
         self.assertIn('../../css/baseball-theme.css', self.html)
         self.assertIn('../../js/common.js', self.html)
 
