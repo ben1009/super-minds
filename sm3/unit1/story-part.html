@@ -305,7 +305,12 @@
         var todoStates = {};
         try {
             var saved = localStorage.getItem('sm3Unit1StoryTodos');
-            if (saved) todoStates = JSON.parse(saved);
+            if (saved) {
+                var parsed = JSON.parse(saved);
+                if (parsed && typeof parsed === 'object') {
+                    todoStates = parsed;
+                }
+            }
         } catch (e) { }
 
         document.addEventListener('DOMContentLoaded', function () {

@@ -1050,8 +1050,8 @@ document.addEventListener('click', function(e) {
 
 document.addEventListener('keydown', function(e) {
     if (e.key !== 'Enter' && e.key !== ' ') return;
-    var el = e.target.closest('[data-speak]');
-    if (!el) return;
+    var el = e.target;
+    if (!el.hasAttribute('data-speak')) return;
     e.preventDefault();
     var text = el.getAttribute('data-speak');
     if (text) window.speak(text, el);
