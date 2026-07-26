@@ -503,13 +503,13 @@ class TestCommonJSNavStructure(unittest.TestCase):
     def test_sm3_desktop_dropdown_is_right_aligned(self):
         """SM3 desktop dropdown should not clip at the right viewport edge."""
         self.assertIn('absolute right-0 top-full min-w-72', self.js)
-        self.assertIn('whitespace-nowrap', self.js)
+        self.assertIn('whitespace-normal break-words leading-snug', self.js)
 
     def test_sm2_desktop_dropdown_uses_columns(self):
         """SM2 desktop dropdown should be compact enough to show all groups."""
         self.assertIn('w-[42rem] max-w-[calc(100vw-2rem)]', self.js)
         self.assertIn('group-hover:grid grid-cols-2 lg:grid-cols-4', self.js)
-        self.assertIn('gap-x-2', self.js)
+        self.assertIn('gap-x-6', self.js)
 
     def test_desktop_dropdowns_are_height_constrained(self):
         """Long desktop dropdowns should scroll inside the menu."""

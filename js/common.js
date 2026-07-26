@@ -831,8 +831,8 @@ function buildNavPatternA(active) {
 
     function dropdownItemClass(itemKey) {
         return active === itemKey
-            ? 'block px-4 py-2 text-sm text-gray-700 bg-blue-50 font-medium whitespace-nowrap'
-            : 'block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 whitespace-nowrap';
+            ? 'block px-4 py-2 text-sm text-gray-700 bg-blue-50 font-medium whitespace-normal break-words leading-snug'
+            : 'block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 whitespace-normal break-words leading-snug';
     }
 
     function mobileItemClass(itemKey) {
@@ -901,7 +901,7 @@ function buildNavPatternA(active) {
         '                    <a href="' + links.home.href + '" class="' + homeClass + '">' + links.home.label + '</a>\n' +
         '                    <div class="relative group">\n' +
         '                        <a href="#" class="' + triggerClass(isSm2) + '" onclick="return false">SM2 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>\n' +
-        '                        <div class="absolute right-0 top-full w-[42rem] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg p-3 hidden group-hover:grid grid-cols-2 lg:grid-cols-4 gap-x-2 z-50">\n' +
+        '                        <div class="absolute right-0 top-full w-[42rem] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg p-3 hidden group-hover:grid grid-cols-2 lg:grid-cols-4 gap-x-6 z-50">\n' +
         '                            ' + sm2Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n' +
@@ -949,8 +949,8 @@ function buildNavPatternB(active, brandIcon) {
 
     function dropdownItemClass(itemKey) {
         return active === itemKey
-            ? 'block px-4 py-2 text-sm text-gray-700 bg-gray-100 font-medium whitespace-nowrap'
-            : 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap';
+            ? 'block px-4 py-2 text-sm text-gray-700 bg-gray-100 font-medium whitespace-normal break-words leading-snug'
+            : 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-normal break-words leading-snug';
     }
 
     function mobileItemClass(itemKey) {
@@ -1020,7 +1020,7 @@ function buildNavPatternB(active, brandIcon) {
         '                    <a href="' + links.home.href + '" class="' + homeClass + '">' + links.home.label + '</a>\n' +
         '                    <div class="relative group">\n' +
         '                        <a href="#" class="' + triggerClass(isSm2) + '" onclick="return false">SM2 <i class="fas fa-chevron-down text-xs"></i></a>\n' +
-        '                        <div class="absolute right-0 top-full w-[42rem] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg p-3 hidden group-hover:grid grid-cols-2 lg:grid-cols-4 gap-x-2 z-50">\n' +
+        '                        <div class="absolute right-0 top-full w-[42rem] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg p-3 hidden group-hover:grid grid-cols-2 lg:grid-cols-4 gap-x-6 z-50">\n' +
         '                            ' + sm2Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n' +
