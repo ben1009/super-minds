@@ -11,6 +11,7 @@ INDEX_HTML = ROOT / 'index.html'
 SM3_U0 = ROOT / 'sm3' / 'unit0' / 'explorers-be-good-at.html'
 SM3_U1 = ROOT / 'sm3' / 'unit1' / 'school-subjects-like-doing.html'
 SM3_U1_STORY = ROOT / 'sm3' / 'unit1' / 'story-part.html'
+SM3_U2 = ROOT / 'sm3' / 'unit2' / 'there-is-there-are-picnic.html'
 
 # SM2 sample pages for cross-ref checks
 SM2_U7_COURSE = ROOT / 'sm2' / 'unit7' / 'present-continuous-course.html'
@@ -43,7 +44,7 @@ class TestFolderStructure(unittest.TestCase):
                 self.assertTrue((ROOT / 'sm2' / d).is_dir())
 
     def test_sm3_unit_dirs(self):
-        for d in ['unit0', 'unit1']:
+        for d in ['unit0', 'unit1', 'unit2']:
             with self.subTest(dir=d):
                 self.assertTrue((ROOT / 'sm3' / d).is_dir())
 
@@ -77,6 +78,7 @@ class TestFolderStructure(unittest.TestCase):
         self.assertTrue(SM3_U0.exists())
         self.assertTrue(SM3_U1.exists())
         self.assertTrue(SM3_U1_STORY.exists())
+        self.assertTrue(SM3_U2.exists())
 
 
 # ============================================================
@@ -301,6 +303,79 @@ class TestSM3Unit1StoryStructure(unittest.TestCase):
             with self.subTest(text=text):
                 self.assertIn(text, self.html)
 
+    def test_pdf_source_images_exist(self):
+        for asset in ['assets/unit2-source-000.jpg', 'assets/unit2-source-001.jpg']:
+            with self.subTest(asset=asset):
+                self.assertTrue((SM3_U2.parent / asset).is_file())
+
+    def test_section_tags_balanced(self):
+        opens = len(re.findall(r'<section[\s>]', self.html))
+        closes = len(re.findall(r'</section>', self.html))
+        self.assertEqual(opens, closes)
+
+
+class TestSM3Unit2Structure(unittest.TestCase):
+    """Test basic HTML structure of sm3/unit2/there-is-there-are-picnic.html."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.html = read(SM3_U2)
+
+    def test_doctype(self):
+        self.assertTrue(self.html.startswith('<!DOCTYPE html>'))
+
+    def test_title(self):
+        self.assertIn('Super Minds 3 Unit 2', self.html)
+        self.assertIn('There Is / There Are', self.html)
+
+    def test_asset_paths(self):
+        self.assertIn('../../favicon.svg', self.html)
+        self.assertIn('../../ga.js', self.html)
+        self.assertIn('../../css/common.css', self.html)
+        self.assertIn('../../css/baseball-theme.css', self.html)
+        self.assertIn('../../js/common.js', self.html)
+
+    def test_nav_config(self):
+        self.assertIn("active:'sm3-unit2'", self.html)
+        self.assertIn("brandIcon: 'fa-basket-shopping'", self.html)
+        self.assertIn('id="site-nav"', self.html)
+
+    def test_pdf_derived_content(self):
+        for text in [
+            'assets/unit2-source-000.jpg',
+            'assets/unit2-source-001.jpg',
+            'Source Pictures',
+            'There is + 可数名词单数',
+            'D. A shopping list',
+            'D. us',
+            'D. Drinks',
+            'Look at our picnic basket! It is so big.',
+            'They are red and sweet.',
+            'They are my favourite.',
+            "Let's eat it!",
+            'A Picnic Song',
+            'A Supermarket Food Adventure',
+            'four happy friends are ready for an adventure',
+            'broccoli soldiers',
+            'vegetable aisle',
+            'shiny glaze',
+            'casting spells',
+            'rows of fizzy soda cans',
+            'every flavor of juice',
+            'bag like a treasure',
+            'eyes sparkling',
+            'There are four hungry friends ready for a big picnic',
+            'they find a king, fairies, and dancing strawberries',
+            'cook a big feast together',
+            'laughter, friendship, and endless imagination',
+            'There are some apples in the picnic basket.',
+            'How much bread is there?',
+            '复述故事 26-27 页',
+            'sm3Unit2ThereBeTodos',
+        ]:
+            with self.subTest(text=text):
+                self.assertIn(text, self.html)
+
     def test_section_tags_balanced(self):
         opens = len(re.findall(r'<section[\s>]', self.html))
         closes = len(re.findall(r'</section>', self.html))
@@ -359,10 +434,12 @@ class TestCommonJSNavStructure(unittest.TestCase):
     def test_get_unit_from_active_has_sm3(self):
         self.assertIn("startsWith('sm3-unit0')", self.js)
         self.assertIn("startsWith('sm3-unit1')", self.js)
+        self.assertIn("startsWith('sm3-unit2')", self.js)
 
     def test_nav_links_has_sm3_patterns(self):
         self.assertIn('B_sm3_unit0:', self.js)
         self.assertIn('B_sm3_unit1:', self.js)
+        self.assertIn('B_sm3_unit2:', self.js)
 
     def test_sm3_patterns_have_sm2_cross_refs(self):
         """SM3 patterns should have sm2/ prefix in cross-refs."""
@@ -376,6 +453,7 @@ class TestCommonJSNavStructure(unittest.TestCase):
         self.assertIn('../unit1/school-subjects-like-doing.html', self.js)
         self.assertIn('../unit1/story-part.html', self.js)
         self.assertIn('../unit0/explorers-be-good-at.html', self.js)
+        self.assertIn('../unit2/there-is-there-are-picnic.html', self.js)
 
     def test_data_speak_has_keyboard_support(self):
         self.assertIn("closest('[data-speak]')", self.js)
@@ -385,8 +463,8 @@ class TestCommonJSNavStructure(unittest.TestCase):
     def test_sm2_patterns_have_sm3_section(self):
         """All SM2 NAV_LINKS patterns should have sm3: section."""
         sm3_count = len(re.findall(r'^\s+sm3:\s*\{', self.js, re.MULTILINE))
-        # A, B_unit8, B_unit9, B_review, B_baseball-unit8, B_sm3_unit0, B_sm3_unit1 = 7
-        self.assertGreaterEqual(sm3_count, 7)
+        # A, B_unit8, B_unit9, B_review, B_baseball-unit8, B_sm3_unit0, B_sm3_unit1, B_sm3_unit2 = 8
+        self.assertGreaterEqual(sm3_count, 8)
 
     def test_build_pattern_b_has_sm3_rendering(self):
         self.assertIn('hasSm3', self.js)
@@ -401,6 +479,14 @@ class TestCommonJSNavStructure(unittest.TestCase):
         self.assertIn('sm2Group', self.js)
         self.assertIn('Unit 7', self.js)
         self.assertIn('复习 Review', self.js)
+
+    def test_sm3_dropdown_matches_sm2_group_pattern(self):
+        """SM3 dropdown should use grouped unit headings like SM2."""
+        self.assertIn('var sm3Groups', self.js)
+        self.assertIn("sm2Group('Unit 0'", self.js)
+        self.assertIn("sm2Group('Unit 1'", self.js)
+        self.assertIn("sm2Group('Unit 2'", self.js)
+        self.assertIn('mobileSm3Groups', self.js)
 
     def test_brand_label(self):
         """Brand should be 'Super Minds' not 'Super Minds 2'."""
@@ -430,7 +516,7 @@ class TestAssetPathsDepth(unittest.TestCase):
 
     def test_sm3_pages_depth2(self):
         """SM3 pages are at depth 2, use ../../ for root."""
-        for p in [SM3_U0, SM3_U1]:
+        for p in [SM3_U0, SM3_U1, SM3_U1_STORY, SM3_U2]:
             html = read(p)
             with self.subTest(file=p.name):
                 self.assertIn('../../favicon.svg', html)
@@ -478,11 +564,13 @@ class TestIndexPage(unittest.TestCase):
     def test_sm3_cards_exist(self):
         self.assertIn('SM3 · Unit 0', self.html)
         self.assertIn('SM3 · Unit 1', self.html)
+        self.assertIn('SM3 · Unit 2', self.html)
 
     def test_sm3_links(self):
         self.assertIn('sm3/unit0/explorers-be-good-at.html', self.html)
         self.assertIn('sm3/unit1/school-subjects-like-doing.html', self.html)
         self.assertIn('sm3/unit1/story-part.html', self.html)
+        self.assertIn('sm3/unit2/there-is-there-are-picnic.html', self.html)
 
     def test_sm2_card_order(self):
         """SM2 cards should appear before SM3 cards."""
@@ -520,6 +608,7 @@ class TestCrossPageNavigation(unittest.TestCase):
         self.assertIn('../../sm3/unit0/explorers-be-good-at.html', js)
         self.assertIn('../../sm3/unit1/school-subjects-like-doing.html', js)
         self.assertIn('../../sm3/unit1/story-part.html', js)
+        self.assertIn('../../sm3/unit2/there-is-there-are-picnic.html', js)
 
     def test_baseball_sm3_paths_at_depth_3(self):
         """B_baseball-unit8 SM3 paths must use ../../../sm3/ (depth 3)."""
@@ -528,6 +617,7 @@ class TestCrossPageNavigation(unittest.TestCase):
                       "B_baseball-unit8 SM3 paths must use ../../../sm3/ for depth 3")
         self.assertIn("../../../sm3/unit1/school-subjects-like-doing.html", js)
         self.assertIn("../../../sm3/unit1/story-part.html", js)
+        self.assertIn("../../../sm3/unit2/there-is-there-are-picnic.html", js)
 
     def test_sm3_pages_have_sm2_in_navlinks(self):
         """SM3 patterns should have cross-references to SM2 pages."""
@@ -581,8 +671,20 @@ class TestAccessibility(unittest.TestCase):
         aria_floats = re.findall(r'class="float-anim".*aria-hidden="true"', html)
         self.assertEqual(len(floats), len(aria_floats))
 
+    def test_sm3_u2_aria_hidden_on_speaker_icons(self):
+        html = read(SM3_U2)
+        speakers = re.findall(r'<span class="speaker-icon"', html)
+        aria_hidden = re.findall(r'<span class="speaker-icon" aria-hidden="true"', html)
+        self.assertEqual(len(speakers), len(aria_hidden))
+
+    def test_sm3_u2_aria_hidden_on_float_anims(self):
+        html = read(SM3_U2)
+        floats = re.findall(r'class="float-anim"', html)
+        aria_floats = re.findall(r'class="float-anim".*aria-hidden="true"', html)
+        self.assertEqual(len(floats), len(aria_floats))
+
     def test_sm3_pages_have_tabindex_on_interactive(self):
-        for p in [SM3_U0, SM3_U1, SM3_U1_STORY]:
+        for p in [SM3_U0, SM3_U1, SM3_U1_STORY, SM3_U2]:
             html = read(p)
             with self.subTest(file=p.name):
                 self.assertIn('tabindex="0"', html)

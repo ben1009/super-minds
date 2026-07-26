@@ -373,7 +373,8 @@ const NAV_LINKS = {
             pages: [
                 { key: 'sm3-unit0', href: '../../sm3/unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
                 { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
-                { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' }
+                { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' },
+                { key: 'sm3-unit2', href: '../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' }
             ]
         },
 
@@ -422,7 +423,8 @@ const NAV_LINKS = {
             pages: [
                 { key: 'sm3-unit0', href: '../../sm3/unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
                 { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
-                { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' }
+                { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' },
+                { key: 'sm3-unit2', href: '../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' }
             ]
         },
 
@@ -471,7 +473,8 @@ const NAV_LINKS = {
             pages: [
                 { key: 'sm3-unit0', href: '../../sm3/unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
                 { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
-                { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' }
+                { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' },
+                { key: 'sm3-unit2', href: '../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' }
             ]
         },
 
@@ -520,7 +523,8 @@ const NAV_LINKS = {
             pages: [
                 { key: 'sm3-unit0', href: '../../sm3/unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
                 { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
-                { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' }
+                { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' },
+                { key: 'sm3-unit2', href: '../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' }
             ]
         },
 
@@ -566,7 +570,8 @@ const NAV_LINKS = {
             pages: [
                 { key: 'sm3-unit0', href: '../../../sm3/unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
                 { key: 'sm3-unit1', href: '../../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
-                { key: 'sm3-unit1-story', href: '../../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' }
+                { key: 'sm3-unit1-story', href: '../../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' },
+                { key: 'sm3-unit2', href: '../../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' }
             ]
         },
 
@@ -615,7 +620,8 @@ const NAV_LINKS = {
             pages: [
                 { key: 'sm3-unit0', href: 'explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
                 { key: 'sm3-unit1', href: '../unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
-                { key: 'sm3-unit1-story', href: '../unit1/story-part.html', label: '📖 Unit 1 Story' }
+                { key: 'sm3-unit1-story', href: '../unit1/story-part.html', label: '📖 Unit 1 Story' },
+                { key: 'sm3-unit2', href: '../unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' }
             ]
         },
         review: {
@@ -663,7 +669,57 @@ const NAV_LINKS = {
             pages: [
                 { key: 'sm3-unit0', href: '../unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
                 { key: 'sm3-unit1', href: 'school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
-                { key: 'sm3-unit1-story', href: 'story-part.html', label: '📖 Unit 1 Story' }
+                { key: 'sm3-unit1-story', href: 'story-part.html', label: '📖 Unit 1 Story' },
+                { key: 'sm3-unit2', href: '../unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' }
+            ]
+        },
+        review: {
+            label: '复习 Review',
+            triggerHref: '../../sm2/review/review-units-1-3.html',
+            pages: [
+                { key: 'review-units-1-3', href: '../../sm2/review/review-units-1-3.html', label: '📝 Units 1-3 复习' },
+                { key: 'review-unit-4', href: '../../sm2/review/review-unit-4.html', label: '🍎 Unit 4 复习' },
+                { key: 'review-unit-5', href: '../../sm2/review/review-unit-5.html', label: '🛏️ Unit 5 复习' },
+                { key: 'review-unit-5-lecture2', href: '../../sm2/review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' }
+            ]
+        }
+    },
+    B_sm3_unit2: {
+        home: { href: '../../index.html', label: '首页 Home' },
+        unit7: {
+            label: 'Unit 7',
+            triggerHref: '../../sm2/unit7/present-continuous-course.html',
+            pages: [
+                { key: 'unit7-course', href: '../../sm2/unit7/present-continuous-course.html', label: '📖 现在进行时 Course' },
+                { key: 'unit7-homework', href: '../../sm2/unit7/present-continuous-homework.html', label: '✏️ 作业 Homework' }
+            ]
+        },
+        unit8: {
+            label: 'Unit 8',
+            triggerHref: '../../sm2/unit8/gerunds-ball-sports.html',
+            pages: [
+                { key: 'unit8-sports', href: '../../sm2/unit8/gerunds-ball-sports.html', label: '⚾ 球类运动 Sports' },
+                { key: 'unit8-vehicles', href: '../../sm2/unit8/amazing-vehicles-reading.html', label: '🚌 交通工具 Vehicles' },
+                { key: 'unit8-reading', href: '../../sm2/unit8/fun-things-we-do-reading.html', label: '📚 补充阅读 Reading' },
+                { key: 'unit8-homework', href: '../../sm2/unit8/question-words-grammar-homework.html', label: '✏️ 语法作业 Homework' }
+            ]
+        },
+        unit9: {
+            label: 'Unit 9',
+            triggerHref: '../../sm2/unit9/holiday-plans-grammar-review.html',
+            pages: [
+                { key: 'unit9-grammar', href: '../../sm2/unit9/holiday-plans-grammar-review.html', label: '🌴 假期计划语法 Grammar' },
+                { key: 'unit9-fairytales', href: '../../sm2/unit9/fairy-tales-reading.html', label: '🏰 Fairy Tales 童话' }
+            ]
+        },
+        sm3: {
+            label: 'SM3',
+            triggerHref: '../unit0/explorers-be-good-at.html',
+            pages: [
+                { key: 'sm3-unit0', href: '../unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
+                { key: 'sm3-unit1', href: '../unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
+                { key: 'sm3-unit1-story', href: '../unit1/story-part.html', label: '📖 Unit 1 Story' },
+                { key: 'sm3-unit2', href: 'there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' }
             ]
         },
         review: {
@@ -690,7 +746,8 @@ const NAV_LINKS = {
                 { href: '../../review/review-unit-4.html', label: '🍎 复习 4' },
                 { href: '../../review/review-unit-5.html', label: '🛏️ 复习 5' },
                 { href: '../../review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' },
-                { href: '../../../sm3/unit1/story-part.html', label: '📖 SM3 Unit 1 Story' }
+                { href: '../../../sm3/unit1/story-part.html', label: '📖 SM3 Unit 1 Story' },
+                { href: '../../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 SM3 Unit 2 There be' }
             ],
             activeLabel: '⚾ Unit 7',
             separators: [0, 1, 2, 3, 4, 5, 8]
@@ -707,7 +764,8 @@ const NAV_LINKS = {
                 { href: '../../review/review-unit-4.html', label: '🍎 复习 4' },
                 { href: '../../review/review-unit-5.html', label: '🛏️ 复习 5' },
                 { href: '../../review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' },
-                { href: '../../../sm3/unit1/story-part.html', label: '📖 SM3 Unit 1 Story' }
+                { href: '../../../sm3/unit1/story-part.html', label: '📖 SM3 Unit 1 Story' },
+                { href: '../../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 SM3 Unit 2 There be' }
             ],
             activeLabel: '📚 课后作业',
             separators: [0, 1, 2, 3, 4, 5, 8]
@@ -720,6 +778,7 @@ function getUnitFromActive(active) {
     if (active.startsWith('baseball-unit8')) return 'baseball-unit8';
     if (active.startsWith('sm3-unit0')) return 'sm3_unit0';
     if (active.startsWith('sm3-unit1')) return 'sm3_unit1';
+    if (active.startsWith('sm3-unit2')) return 'sm3_unit2';
     if (active.startsWith('unit7')) return 'unit7';
     if (active.startsWith('unit8')) return 'unit8';
     if (active.startsWith('unit9')) return 'unit9';
@@ -756,8 +815,8 @@ function renderNav(config) {
 
 function buildNavPatternA(active) {
     const links = NAV_LINKS.A;
-    const isSm2 = !active.startsWith('sm3-unit0') && !active.startsWith('sm3-unit1');
-    const isSm3 = active.startsWith('sm3-unit0') || active.startsWith('sm3-unit1');
+    const isSm2 = !active.startsWith('sm3-unit');
+    const isSm3 = active.startsWith('sm3-unit');
     const hasSm3 = links.sm3;
 
     const homeClass = (!isSm2 && !isSm3)
@@ -787,12 +846,29 @@ function buildNavPatternA(active) {
             pages.map(function(p) { return '<a href="' + p.href + '" class="' + dropdownItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n');
     }
 
+    function mobileGroup(label, pages) {
+        return '<div class="text-white/70 text-xs mt-2 mb-1">' + label + '</div>\n' +
+            pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n');
+    }
+
     var sm2Groups = [
         sm2Group('Unit 7', links.unit7.pages),
         sm2Group('Unit 8', links.unit8.pages),
         sm2Group('Unit 9', links.unit9.pages),
         sm2Group('复习 Review', links.review.pages)
     ].join('\n                            ');
+
+    var sm3Groups = hasSm3 ? [
+        sm2Group('Unit 0', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit0'; })),
+        sm2Group('Unit 1', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit1' || p.key === 'sm3-unit1-story'; })),
+        sm2Group('Unit 2', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit2'; }))
+    ].join('\n                            ') : '';
+
+    var mobileSm3Groups = hasSm3 ? [
+        mobileGroup('Unit 0', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit0'; })),
+        mobileGroup('Unit 1', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit1' || p.key === 'sm3-unit1-story'; })),
+        mobileGroup('Unit 2', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit2'; }))
+    ].join('\n                        ') : '';
 
     return '<nav id="site-nav" class="sticky top-0 z-50 bg-gradient-to-r from-blue-600 to-blue-800 border-b-4 border-yellow-400 shadow-lg mb-8 -mt-4 -mx-4 px-4 md:-mx-8 md:px-8">\n' +
         '        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">\n' +
@@ -812,8 +888,8 @@ function buildNavPatternA(active) {
         (hasSm3 ?
         '                    <div class="relative group">\n' +
         '                        <a href="' + links.sm3.triggerHref + '" class="' + triggerClass(isSm3) + '">SM3 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>\n' +
-        '                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
-        '                            ' + links.sm3.pages.map(function(p) { return '<a href="' + p.href + '" class="' + dropdownItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                            ') + '\n' +
+        '                        <div class="absolute left-0 top-full w-56 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
+        '                            ' + sm3Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n'
         : '') +
@@ -835,7 +911,7 @@ function buildNavPatternA(active) {
         (hasSm3 ?
         '                    <div class="px-3 py-2">\n' +
         '                        <div class="text-white/70 text-xs mb-1">SM3</div>\n' +
-        '                        ' + links.sm3.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
+        '                        ' + mobileSm3Groups + '\n' +
         '                    </div>\n'
         : '') +
         '                </div>\n' +
@@ -850,8 +926,8 @@ function buildNavPatternB(active, brandIcon) {
     if (!links) return '';
     
     const icon = brandIcon || 'fa-baseball-ball';
-    const isSm2 = !active.startsWith('sm3-unit0') && !active.startsWith('sm3-unit1');
-    const isSm3 = active.startsWith('sm3-unit0') || active.startsWith('sm3-unit1');
+    const isSm2 = !active.startsWith('sm3-unit');
+    const isSm3 = active.startsWith('sm3-unit');
     const hasSm3 = links.sm3;
 
     const homeClass = 'nav-link px-3 py-2 text-sm font-medium';
@@ -880,12 +956,29 @@ function buildNavPatternB(active, brandIcon) {
             pages.map(function(p) { return '<a href="' + p.href + '" class="' + dropdownItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n');
     }
 
+    function mobileGroup(label, pages) {
+        return '<div class="text-white/70 text-xs mt-2 mb-1">' + label + '</div>\n' +
+            pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n');
+    }
+
     var sm2Groups = [
         sm2Group('Unit 7', links.unit7.pages),
         sm2Group('Unit 8', links.unit8.pages),
         sm2Group('Unit 9', links.unit9.pages),
         sm2Group('复习 Review', links.review.pages)
     ].join('\n                            ');
+
+    var sm3Groups = hasSm3 ? [
+        sm2Group('Unit 0', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit0'; })),
+        sm2Group('Unit 1', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit1' || p.key === 'sm3-unit1-story'; })),
+        sm2Group('Unit 2', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit2'; }))
+    ].join('\n                            ') : '';
+
+    var mobileSm3Groups = hasSm3 ? [
+        mobileGroup('Unit 0', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit0'; })),
+        mobileGroup('Unit 1', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit1' || p.key === 'sm3-unit1-story'; })),
+        mobileGroup('Unit 2', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit2'; }))
+    ].join('\n                        ') : '';
 
     return '<nav id="site-nav" class="sticky top-0 z-50 bg-gradient-to-r from-green-900 to-green-800 border-b-4 border-red-700 shadow-lg">\n' +
         '        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">\n' +
@@ -905,8 +998,8 @@ function buildNavPatternB(active, brandIcon) {
         (hasSm3 ?
         '                    <div class="relative group">\n' +
         '                        <a href="' + links.sm3.triggerHref + '" class="' + triggerClass(isSm3) + '">SM3 <i class="fas fa-chevron-down text-xs"></i></a>\n' +
-        '                        <div class="absolute left-0 top-full w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
-        '                            ' + links.sm3.pages.map(function(p) { return '<a href="' + p.href + '" class="' + dropdownItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                            ') + '\n' +
+        '                        <div class="absolute left-0 top-full w-56 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
+        '                            ' + sm3Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n'
         : '') +
@@ -928,7 +1021,7 @@ function buildNavPatternB(active, brandIcon) {
         (hasSm3 ?
         '                    <div class="px-3 py-2">\n' +
         '                        <div class="text-white/70 text-xs mb-1">SM3</div>\n' +
-        '                        ' + links.sm3.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
+        '                        ' + mobileSm3Groups + '\n' +
         '                    </div>\n'
         : '') +
         '                </div>\n' +
