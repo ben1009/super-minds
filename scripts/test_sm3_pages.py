@@ -343,7 +343,14 @@ class TestSM3Unit2Structure(unittest.TestCase):
     def test_lesson_actions_do_not_shadow_mobile_nav(self):
         self.assertNotIn('data-action=', self.html)
         self.assertIn('data-lesson-action="toggle-translation"', self.html)
-        self.assertIn("closest('[data-lesson-action]')", self.html)
+        self.assertRegex(
+            self.html,
+            r"(?s)addEventListener\('click'.*?closest\('\[data-lesson-action\]'\)",
+        )
+        self.assertRegex(
+            self.html,
+            r"(?s)addEventListener\('keydown'.*?closest\('\[data-lesson-action\]'\)",
+        )
 
     def test_pdf_derived_content(self):
         for text in [
