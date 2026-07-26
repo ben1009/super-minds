@@ -500,6 +500,12 @@ class TestCommonJSNavStructure(unittest.TestCase):
         self.assertIn("sm2Group('Unit 2'", self.js)
         self.assertIn('mobileSm3Groups', self.js)
 
+    def test_sm3_desktop_dropdown_is_right_aligned(self):
+        """SM3 desktop dropdown should not clip at the right viewport edge."""
+        self.assertIn('absolute right-0 top-full min-w-72', self.js)
+        self.assertIn('absolute left-0 top-full min-w-64', self.js)
+        self.assertIn('whitespace-nowrap', self.js)
+
     def test_mobile_nav_uses_collapsible_sections(self):
         self.assertIn('function mobileSection', self.js)
         self.assertIn('<details class="rounded-lg bg-white/5"', self.js)

@@ -831,8 +831,8 @@ function buildNavPatternA(active) {
 
     function dropdownItemClass(itemKey) {
         return active === itemKey
-            ? 'block px-4 py-2 text-sm text-gray-700 bg-blue-50 font-medium'
-            : 'block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50';
+            ? 'block px-4 py-2 text-sm text-gray-700 bg-blue-50 font-medium whitespace-nowrap'
+            : 'block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 whitespace-nowrap';
     }
 
     function mobileItemClass(itemKey) {
@@ -899,14 +899,14 @@ function buildNavPatternA(active) {
         '                    <a href="' + links.home.href + '" class="' + homeClass + '">' + links.home.label + '</a>\n' +
         '                    <div class="relative group">\n' +
         '                        <a href="#" class="' + triggerClass(isSm2) + '" onclick="return false">SM2 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>\n' +
-        '                        <div class="absolute left-0 top-full w-56 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
+        '                        <div class="absolute left-0 top-full min-w-64 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
         '                            ' + sm2Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n' +
         (hasSm3 ?
         '                    <div class="relative group">\n' +
         '                        <a href="' + links.sm3.triggerHref + '" class="' + triggerClass(isSm3) + '">SM3 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>\n' +
-        '                        <div class="absolute left-0 top-full w-56 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
+        '                        <div class="absolute right-0 top-full min-w-72 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
         '                            ' + sm3Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n'
@@ -947,8 +947,8 @@ function buildNavPatternB(active, brandIcon) {
 
     function dropdownItemClass(itemKey) {
         return active === itemKey
-            ? 'block px-4 py-2 text-sm text-gray-700 bg-gray-100 font-medium'
-            : 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100';
+            ? 'block px-4 py-2 text-sm text-gray-700 bg-gray-100 font-medium whitespace-nowrap'
+            : 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap';
     }
 
     function mobileItemClass(itemKey) {
@@ -1016,14 +1016,14 @@ function buildNavPatternB(active, brandIcon) {
         '                    <a href="' + links.home.href + '" class="' + homeClass + '">' + links.home.label + '</a>\n' +
         '                    <div class="relative group">\n' +
         '                        <a href="#" class="' + triggerClass(isSm2) + '" onclick="return false">SM2 <i class="fas fa-chevron-down text-xs"></i></a>\n' +
-        '                        <div class="absolute left-0 top-full w-56 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
+        '                        <div class="absolute left-0 top-full min-w-64 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
         '                            ' + sm2Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n' +
         (hasSm3 ?
         '                    <div class="relative group">\n' +
         '                        <a href="' + links.sm3.triggerHref + '" class="' + triggerClass(isSm3) + '">SM3 <i class="fas fa-chevron-down text-xs"></i></a>\n' +
-        '                        <div class="absolute left-0 top-full w-56 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
+        '                        <div class="absolute right-0 top-full min-w-72 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
         '                            ' + sm3Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n'
