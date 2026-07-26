@@ -1,167 +1,167 @@
-# Super Minds 2 - English Learning Platform
+# Super Minds - English Learning Platform
 
-> 🎓 An interactive English learning resource designed for children
+An interactive English learning resource for children, covering Super Minds 2 and Super Minds 3 grammar, vocabulary, reading, and homework practice.
 
-## 📚 Available Courses
+## Available Courses
 
-### Unit 7 - Present Continuous Tense (现在进行时)
-An interactive web-based course to help children learn the **Present Continuous Tense**.
+### Super Minds 2
 
-Through engaging and fun methods, children can easily master:
-- 📝 The structure and rules of present continuous tense
-- 🎯 Correct usage of "be" verbs (am/is/are)
-- ✏️ Spelling rules for verb present participles (-ing forms)
-- 🎮 Interactive exercises to reinforce learning
+#### Unit 7 - Present Continuous Tense
 
-### Unit 8 - Gerunds as Subjects (动名词作主语)
-A baseball-themed course focusing on **using gerunds as subjects** with ball sports vocabulary.
+**Course:** `sm2/unit7/present-continuous-course.html`
 
-**Two learning tracks available:**
+- Present continuous structure and usage
+- Be verb practice with `am`, `is`, and `are`
+- Verb `-ing` spelling rules
+- Interactive quizzes, story reading, and cloze practice
 
-1. **Ball Sports** (`unit8/gerunds-ball-sports.html`)
-   - 🏀 10 ball sports vocabulary words (soccer, basketball, tennis, volleyball, golf, bowling, baseball, badminton, rugby, ping-pong)
-   - 📝 Grammar structure: Playing + sport + is + adjective
-   - 🎵 Song activities with fill-in-the-blank exercises
-   - 📖 Reading comprehension with interactive translations
-   - ✏️ Chinese-to-English translation practice
+**Homework:** `sm2/unit7/present-continuous-homework.html`
 
-2. **Amazing Vehicles** (`unit8/amazing-vehicles-reading.html`)
-   - 🚌 9 vehicle-related vocabulary words (amazing, because, inside, difficult, front, back, party, drive, pool)
-   - 📏 Grammar: Measure vs Measuring, There be with length units (1cm=10mm, 1m=100cm)
-   - 📖 Two reading passages with comprehension questions
-   - 📝 Cloze exercise with interactive blanks
-   - ✏️ Homework todo list with progress tracking
+- Sentence transformations
+- Story retelling and dialogue writing
+- Homework checklist with progress tracking
 
-3. **Fun Things We Do** (`unit8/fun-things-we-do-reading.html`)
-   - 🎨 Character cards with hobbies (Amy, Ben, Cindy, David)
-   - 📖 Reading passage with clickable translations
-   - 📝 5 reading comprehension questions
-   - 🎯 Key vocabulary with pronunciation (Web Speech API)
-   - 📚 Grammar focus: like/enjoy/love + V-ing, be interested in + V-ing
-   - ✅ Interactive todo list for homework tracking
+#### Unit 8 - Gerunds, Reading, and Question Words
 
-4. **Grammar Homework** (`unit8/question-words-grammar-homework.html`)
-   - 📝 Grammar focus: 5 question words (Where, When, Which, Who, How often)
-   - 💬 New dialogue: Creating a football team story
-   - 🎯 9 Unit 9 verb phrases with audio pronunciation
-   - ✍️ Sentence practice with Where/When/Which patterns
-   - 📧 Email cloze exercise (Harry's study trip to France)
-   - ✅ Interactive todo list for homework tracking
+1. **Ball Sports:** `sm2/unit8/gerunds-ball-sports.html`
+   - Ball sports vocabulary
+   - `Playing + sport + is + adjective`
+   - Song blanks, reading translations, and translation practice
 
-### Unit 9 - Holiday Plans Grammar (假期计划语法)
-Unit 9 now includes a grammar review track and a reading track.
+2. **Amazing Vehicles:** `sm2/unit8/amazing-vehicles-reading.html`
+   - Vehicle vocabulary
+   - Measure vs. Measuring
+   - `There be` with length units
+   - Reading questions and cloze practice
 
-1. **Holiday Plans Grammar** (`unit9/holiday-plans-grammar-review.html`)
-   - 🎵 Page 108 song grammar: `It's time for...`, `Can I...`, `I'm going to...`
-   - 📝 Page 109 grammar summary: question words, be verbs, can, have got, there be
-   - 💬 Two dialogue fill-in-the-blank exercises (35+ blanks)
-   - 🎯 5 verb phrases with audio pronunciation (Web Speech API)
-   - ✅ Interactive todo list for homework tracking
+3. **Fun Things We Do:** `sm2/unit8/fun-things-we-do-reading.html`
+   - Hobbies and character reading
+   - Like/enjoy/love + `V-ing`
+   - Vocabulary pronunciation and reading questions
 
-2. **Fairy Tales Reading** (`unit9/fairy-tales-reading.html`)
-   - 🏰 Fairy Tales vocabulary set and Reading on Holiday vocabulary set
-   - 📖 Two reading passages: Folk Tales Around the World and Reading on Holiday
-   - 📝 8 reading comprehension questions with interactive answer feedback
-   - ✍️ 40 word quiz blanks across Chinese-English and English-Chinese practice
-   - ✅ Interactive todo list with progress tracking
+4. **Question Words Grammar Homework:** `sm2/unit8/question-words-grammar-homework.html`
+   - Where, When, Which, Who, and How often
+   - Dialogue cards, sentence practice, and email cloze
 
-### Review - Units 1-3 (复习)
+#### Unit 9 - Holiday Plans and Fairy Tales
 
-**Review Page** (`review/review-units-1-3.html`)
-   - 📝 Grammar notes: Present Simple (3rd person singular), Can, Have got / Has got
-   - 🎯 8 core vocabulary cards with audio pronunciation
-   - ✏️ Exercises: multiple choice, sentence rewriting, fill-in-the-blanks
-   - 📖 KET reading: The Strange Pet Shop + The Reptile House
-   - 🚀 PET extension: advanced reading with academic vocabulary (optional)
-   - ✅ Interactive todo list for homework tracking
+1. **Holiday Plans Grammar:** `sm2/unit9/holiday-plans-grammar-review.html`
+   - `It's time for...`, `Can I...`, and `be going to...`
+   - Grammar summary, dialogue blanks, and todo tracking
 
-## 🌐 Access the Course
+2. **Fairy Tales Reading:** `sm2/unit9/fairy-tales-reading.html`
+   - Fairy tale vocabulary and holiday reading vocabulary
+   - Two reading passages, comprehension questions, and word quiz blanks
 
-**Click the link below to start learning:**
+#### Reviews
 
-👉 **[Access the Course](https://ben1009.github.io/super-minds/)**
+- `sm2/review/review-units-1-3.html`
+- `sm2/review/review-unit-4.html`
+- `sm2/review/review-unit-5.html`
+- `sm2/review/review-unit-5-lecture2.html`
 
-No installation required — just open it in your browser!
+#### Baseball Edition
 
-## 🏗️ Project Structure
+- `sm2/baseball/index.html`
+- `sm2/baseball/unit7/baseball-present-continuous-course.html`
+- `sm2/baseball/unit7/baseball-present-continuous-homework.html`
+- `sm2/baseball/unit8/baseball-gerunds-ball-sports.html`
 
-```
-├── index.html              # Homepage - course navigation
-├── ga.js                   # Shared Google Analytics loader
+The baseball Unit 8 page is generated from `sm2/unit8/gerunds-ball-sports.html` by `scripts/generate-baseball.py`.
+
+### Super Minds 3
+
+1. **Unit 0 - Explorers:** `sm3/unit0/explorers-be-good-at.html`
+   - Explorer vocabulary
+   - `be good at` grammar
+   - Reading, speaking, and review practice
+
+2. **Unit 1 - School Subjects:** `sm3/unit1/school-subjects-like-doing.html`
+   - School subject vocabulary
+   - Like doing / enjoy doing patterns
+   - Interactive reading and pronunciation practice
+
+3. **Unit 1 - Story Part:** `sm3/unit1/story-part.html`
+   - PDF-based story lesson
+   - Story reading, translations, vocabulary, and comprehension practice
+
+4. **Unit 2 - Picnic and There Be:** `sm3/unit2/there-is-there-are-picnic.html`
+   - Two source pictures from the PDF at the top of the lesson
+   - Countable and uncountable food vocabulary
+   - `There is`, `There are`, questions, and negatives
+   - Picnic song, supermarket story, fill-in practice, and todo tracking
+
+## Access
+
+Open the published site here:
+
+https://ben1009.github.io/super-minds/
+
+## Project Structure
+
+```text
+├── index.html
+├── ga.js
+├── favicon.svg
 ├── css/
-│   └── common.css          # Shared styles (variables, animations)
+│   ├── common.css
+│   ├── baseball-theme.css
+│   └── baseball-unit7.css
 ├── js/
-│   └── common.js           # Shared utilities (navigation, toggles, progress)
-├── unit7/
-│   ├── present-continuous-course.html    # Unit 7: Present Continuous Tense
-│   └── present-continuous-homework.html  # Unit 7 Homework
-├── unit8/
-│   ├── gerunds-ball-sports.html              # Unit 8: Gerunds as Subjects (Ball Sports)
-│   ├── amazing-vehicles-reading.html         # Unit 8: Amazing Vehicles (Reading & Vocabulary)
-│   ├── fun-things-we-do-reading.html         # Unit 8: Fun Things We Do (Reading & Hobbies)
-│   ├── question-words-grammar-homework.html  # Unit 8: Question Words Grammar Homework
-│   ├── grammar.css                           # Unit 8: Grammar page styles
-│   └── grammar.js                            # Unit 8: Grammar page interactions
-├── unit9/
-│   ├── holiday-plans-grammar-review.html  # Unit 9: Holiday Plans Grammar Review
-│   ├── fairy-tales-reading.html           # Unit 9: Fairy Tales Reading
-│   └── Super minds2 -page 114.pdf         # Source PDF for Fairy Tales content
-├── review/
-│   └── review-units-1-3.html              # Review: Units 1-3 Grammar & Reading
-├── super-minds-baseball/   # Baseball-themed edition
-│   ├── index.html          # Baseball homepage with links to all units
+│   └── common.js
+├── scripts/
+│   ├── generate-baseball.py
+│   ├── test_generate_baseball.py
+│   ├── test_review_unit5_lecture2.py
+│   └── test_sm3_pages.py
+├── sm2/
 │   ├── unit7/
-│   │   ├── baseball-present-continuous-course.html    # Baseball Unit 7: Present Continuous
-│   │   └── baseball-present-continuous-homework.html  # Baseball Unit 7 Homework
-│   └── unit8/
-│       └── baseball-gerunds-ball-sports.html          # Baseball Unit 8: Gerunds
-└── .github/workflows/      # CI/CD automation
+│   ├── unit8/
+│   ├── unit9/
+│   ├── review/
+│   └── baseball/
+├── sm3/
+│   ├── unit0/
+│   ├── unit1/
+│   └── unit2/
+│       └── assets/
+├── README.md
+├── TESTING.md
+├── AGENTS.md
+└── todo.md
 ```
 
-## ✨ Features
+## Features
 
-- 🖼️ Beautiful visual design to capture children's attention
-- 🖱️ Interactive learning experience
-- 📖 Clear and organized knowledge structure
-- ✅ Instant feedback on practice exercises
-- 🌴 Unit 9 grammar review: Holiday Plans with dialogue fill-in-the-blanks
-- 🏰 Unit 9 reading: Fairy Tales and Reading on Holiday
-- 📝 Units 1-3 review: Grammar notes, exercises, and KET/PET reading practice
-- ⚾ Baseball-themed special edition with cross-navigation to all units
-- 🔄 Shared code architecture for maintainability
-- ✅ Automated testing with GitHub Actions
+- Interactive single-page lessons with translations, revealable answers, quizzes, and todo progress
+- Shared navigation rendered by `js/common.js`
+- Compact mobile navigation with collapsible SM2 and SM3 sections
+- Web Speech API pronunciation practice
+- Shared Google Analytics loader through `ga.js`
+- Static deployment through GitHub Pages
+- Automated checks for page structure, generated baseball output, links, and SM3 lesson regressions
 
-## 🧪 Testing
+## Testing
 
-This project includes comprehensive automated testing:
+Run the main local checks:
 
-| Test Type | Tool | Coverage |
-|-----------|------|----------|
-| File Structure | Bash | Required files, references |
-| HTML/CSS/JS | html-validate, stylelint, ESLint | Syntax validation |
-| Functional | Puppeteer, Playwright | Headless browser E2E tests |
-| Performance | Lighthouse CI | Performance, accessibility |
-| Visual | Puppeteer | Screenshot comparisons |
-| Unit-specific | Bash/Puppeteer | Unit 8 Reading, Unit 9 Grammar, Unit 9 Fairy Tales structure |
-
-**Run tests locally:**
 ```bash
-# File structure validation
-./test.sh
+PYTHONDONTWRITEBYTECODE=1 ./test.sh
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest scripts/test_sm3_pages.py
+python3 scripts/test_generate_baseball.py
+```
 
-# Start local server
+For browser testing:
+
+```bash
 python3 -m http.server 8000
 ```
 
-## 📄 License
+Then open http://localhost:8000.
 
-This project uses a dual-license model:
+## License
 
-| Component | License | Description |
-|-----------|---------|-------------|
-| **Source Code** | [Apache License 2.0](./LICENSE) | The code is freely available for use, modification, and distribution |
-| **Course Content** | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) | The educational content is for non-commercial use only, with attribution and share-alike requirements |
-
----
-
-*Happy Learning! 🎉*
+| Component | License |
+|-----------|---------|
+| Source code | [Apache License 2.0](./LICENSE) |
+| Course content | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) |
