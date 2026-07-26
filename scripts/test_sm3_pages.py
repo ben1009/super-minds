@@ -303,6 +303,11 @@ class TestSM3Unit1StoryStructure(unittest.TestCase):
             with self.subTest(text=text):
                 self.assertIn(text, self.html)
 
+    def test_pdf_source_images_exist(self):
+        for asset in ['assets/unit2-source-000.jpg', 'assets/unit2-source-001.jpg']:
+            with self.subTest(asset=asset):
+                self.assertTrue((SM3_U2.parent / asset).is_file())
+
     def test_section_tags_balanced(self):
         opens = len(re.findall(r'<section[\s>]', self.html))
         closes = len(re.findall(r'</section>', self.html))
