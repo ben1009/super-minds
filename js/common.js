@@ -851,6 +851,15 @@ function buildNavPatternA(active) {
             pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n');
     }
 
+    function mobileSection(label, content, isOpen) {
+        return '<details class="rounded-lg bg-white/5" ' + (isOpen ? 'open' : '') + '>\n' +
+            '                            <summary class="cursor-pointer select-none px-3 py-2 text-sm font-bold text-white list-none">' + label + '</summary>\n' +
+            '                            <div class="px-3 pb-3 space-y-1">\n' +
+            '                                ' + content + '\n' +
+            '                            </div>\n' +
+            '                        </details>';
+    }
+
     var sm2Groups = [
         sm2Group('Unit 7', links.unit7.pages),
         sm2Group('Unit 8', links.unit8.pages),
@@ -869,6 +878,15 @@ function buildNavPatternA(active) {
         mobileGroup('Unit 1', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit1' || p.key === 'sm3-unit1-story'; })),
         mobileGroup('Unit 2', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit2'; }))
     ].join('\n                        ') : '';
+
+    var mobileSm2Content = [
+        mobileGroup('Unit 7', links.unit7.pages),
+        mobileGroup('Unit 8', links.unit8.pages),
+        mobileGroup('Unit 9', links.unit9.pages),
+        mobileGroup('复习 Review', links.review.pages)
+    ].join('\n                                ');
+
+    var mobileSm3Section = hasSm3 ? mobileSection('SM3', mobileSm3Groups, isSm3) : '';
 
     return '<nav id="site-nav" class="sticky top-0 z-50 bg-gradient-to-r from-blue-600 to-blue-800 border-b-4 border-yellow-400 shadow-lg mb-8 -mt-4 -mx-4 px-4 md:-mx-8 md:px-8">\n' +
         '        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">\n' +
@@ -901,19 +919,8 @@ function buildNavPatternA(active) {
         '            <div id="mobileMenu" class="hidden md:hidden pb-4">\n' +
         '                <div class="flex flex-col space-y-2">\n' +
         '                    <a href="' + links.home.href + '" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">' + links.home.label + '</a>\n' +
-        '                    <div class="px-3 py-2">\n' +
-        '                        <div class="text-white/70 text-xs mb-1">SM2</div>\n' +
-        '                        ' + links.unit7.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
-        '                        ' + links.unit8.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
-        '                        ' + links.unit9.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
-        '                        ' + links.review.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
-        '                    </div>\n' +
-        (hasSm3 ?
-        '                    <div class="px-3 py-2">\n' +
-        '                        <div class="text-white/70 text-xs mb-1">SM3</div>\n' +
-        '                        ' + mobileSm3Groups + '\n' +
-        '                    </div>\n'
-        : '') +
+        '                    ' + mobileSection('SM2', mobileSm2Content, isSm2) + '\n' +
+        (hasSm3 ? '                    ' + mobileSm3Section + '\n' : '') +
         '                </div>\n' +
         '            </div>\n' +
         '        </div>\n' +
@@ -961,6 +968,15 @@ function buildNavPatternB(active, brandIcon) {
             pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n');
     }
 
+    function mobileSection(label, content, isOpen) {
+        return '<details class="rounded-lg bg-white/5" ' + (isOpen ? 'open' : '') + '>\n' +
+            '                            <summary class="cursor-pointer select-none px-3 py-2 text-sm font-bold text-white list-none">' + label + '</summary>\n' +
+            '                            <div class="px-3 pb-3 space-y-1">\n' +
+            '                                ' + content + '\n' +
+            '                            </div>\n' +
+            '                        </details>';
+    }
+
     var sm2Groups = [
         sm2Group('Unit 7', links.unit7.pages),
         sm2Group('Unit 8', links.unit8.pages),
@@ -979,6 +995,15 @@ function buildNavPatternB(active, brandIcon) {
         mobileGroup('Unit 1', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit1' || p.key === 'sm3-unit1-story'; })),
         mobileGroup('Unit 2', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit2'; }))
     ].join('\n                        ') : '';
+
+    var mobileSm2Content = [
+        mobileGroup('Unit 7', links.unit7.pages),
+        mobileGroup('Unit 8', links.unit8.pages),
+        mobileGroup('Unit 9', links.unit9.pages),
+        mobileGroup('复习 Review', links.review.pages)
+    ].join('\n                                ');
+
+    var mobileSm3Section = hasSm3 ? mobileSection('SM3', mobileSm3Groups, isSm3) : '';
 
     return '<nav id="site-nav" class="sticky top-0 z-50 bg-gradient-to-r from-green-900 to-green-800 border-b-4 border-red-700 shadow-lg">\n' +
         '        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">\n' +
@@ -1011,19 +1036,8 @@ function buildNavPatternB(active, brandIcon) {
         '            <div id="mobileMenu" class="hidden md:hidden pb-4">\n' +
         '                <div class="flex flex-col space-y-2">\n' +
         '                    <a href="' + links.home.href + '" class="nav-link px-3 py-2 text-sm font-medium">' + links.home.label + '</a>\n' +
-        '                    <div class="px-3 py-2">\n' +
-        '                        <div class="text-white/70 text-xs mb-1">SM2</div>\n' +
-        '                        ' + links.unit7.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
-        '                        ' + links.unit8.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
-        '                        ' + links.unit9.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
-        '                        ' + links.review.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
-        '                    </div>\n' +
-        (hasSm3 ?
-        '                    <div class="px-3 py-2">\n' +
-        '                        <div class="text-white/70 text-xs mb-1">SM3</div>\n' +
-        '                        ' + mobileSm3Groups + '\n' +
-        '                    </div>\n'
-        : '') +
+        '                    ' + mobileSection('SM2', mobileSm2Content, isSm2) + '\n' +
+        (hasSm3 ? '                    ' + mobileSm3Section + '\n' : '') +
         '                </div>\n' +
         '            </div>\n' +
         '        </div>\n' +

@@ -500,6 +500,13 @@ class TestCommonJSNavStructure(unittest.TestCase):
         self.assertIn("sm2Group('Unit 2'", self.js)
         self.assertIn('mobileSm3Groups', self.js)
 
+    def test_mobile_nav_uses_collapsible_sections(self):
+        self.assertIn('function mobileSection', self.js)
+        self.assertIn('<details class="rounded-lg bg-white/5"', self.js)
+        self.assertIn('<summary class="cursor-pointer select-none px-3 py-2 text-sm font-bold text-white list-none">', self.js)
+        self.assertIn("mobileSection('SM2', mobileSm2Content, isSm2)", self.js)
+        self.assertIn("mobileSection('SM3', mobileSm3Groups, isSm3)", self.js)
+
     def test_mobile_nav_action_remains_common_only(self):
         self.assertIn('button[data-action="toggle-mobile-menu"]', self.js)
         self.assertNotIn('toggle-mobile-menu', read(SM3_U2))
