@@ -506,6 +506,12 @@ class TestCommonJSNavStructure(unittest.TestCase):
         self.assertIn('absolute left-0 top-full min-w-64', self.js)
         self.assertIn('whitespace-nowrap', self.js)
 
+    def test_desktop_dropdowns_are_height_constrained(self):
+        """Long desktop dropdowns should scroll inside the menu."""
+        self.assertIn('max-h-[calc(100vh-5rem)]', self.js)
+        self.assertIn('overflow-y-auto', self.js)
+        self.assertIn('overscroll-contain', self.js)
+
     def test_mobile_nav_uses_collapsible_sections(self):
         self.assertIn('function mobileSection', self.js)
         self.assertIn('<details class="rounded-lg bg-white/5"', self.js)
