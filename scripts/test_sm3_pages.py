@@ -340,6 +340,11 @@ class TestSM3Unit2Structure(unittest.TestCase):
         self.assertIn("brandIcon: 'fa-basket-shopping'", self.html)
         self.assertIn('id="site-nav"', self.html)
 
+    def test_lesson_actions_do_not_shadow_mobile_nav(self):
+        self.assertNotIn('data-action=', self.html)
+        self.assertIn('data-lesson-action="toggle-translation"', self.html)
+        self.assertIn("closest('[data-lesson-action]')", self.html)
+
     def test_pdf_derived_content(self):
         for text in [
             'assets/unit2-source-000.jpg',
@@ -487,6 +492,10 @@ class TestCommonJSNavStructure(unittest.TestCase):
         self.assertIn("sm2Group('Unit 1'", self.js)
         self.assertIn("sm2Group('Unit 2'", self.js)
         self.assertIn('mobileSm3Groups', self.js)
+
+    def test_mobile_nav_action_remains_common_only(self):
+        self.assertIn('button[data-action="toggle-mobile-menu"]', self.js)
+        self.assertNotIn('toggle-mobile-menu', read(SM3_U2))
 
     def test_brand_label(self):
         """Brand should be 'Super Minds' not 'Super Minds 2'."""
