@@ -340,6 +340,18 @@ class TestSM3Unit2Structure(unittest.TestCase):
         self.assertIn("brandIcon: 'fa-basket-shopping'", self.html)
         self.assertIn('id="site-nav"', self.html)
 
+    def test_lesson_actions_do_not_shadow_mobile_nav(self):
+        self.assertNotIn('data-action=', self.html)
+        self.assertIn('data-lesson-action="toggle-translation"', self.html)
+        self.assertRegex(
+            self.html,
+            r"(?s)addEventListener\('click'.*?closest\('\[data-lesson-action\]'\)",
+        )
+        self.assertRegex(
+            self.html,
+            r"(?s)addEventListener\('keydown'.*?closest\('\[data-lesson-action\]'\)",
+        )
+
     def test_pdf_derived_content(self):
         for text in [
             'assets/unit2-source-000.jpg',
@@ -487,6 +499,34 @@ class TestCommonJSNavStructure(unittest.TestCase):
         self.assertIn("sm2Group('Unit 1'", self.js)
         self.assertIn("sm2Group('Unit 2'", self.js)
         self.assertIn('mobileSm3Groups', self.js)
+
+    def test_sm3_desktop_dropdown_is_right_aligned(self):
+        """SM3 desktop dropdown should not clip at the right viewport edge."""
+        self.assertIn('absolute right-0 top-full min-w-72', self.js)
+        self.assertIn('whitespace-normal break-words leading-snug', self.js)
+
+    def test_sm2_desktop_dropdown_uses_columns(self):
+        """SM2 desktop dropdown should be compact enough to show all groups."""
+        self.assertIn('w-[42rem] max-w-[calc(100vw-2rem)]', self.js)
+        self.assertIn('group-hover:grid grid-cols-2 lg:grid-cols-4', self.js)
+        self.assertIn('gap-x-6', self.js)
+
+    def test_desktop_dropdowns_are_height_constrained(self):
+        """Long desktop dropdowns should scroll inside the menu."""
+        self.assertIn('max-h-[calc(100vh-5rem)]', self.js)
+        self.assertIn('overflow-y-auto', self.js)
+        self.assertIn('overscroll-contain', self.js)
+
+    def test_mobile_nav_uses_collapsible_sections(self):
+        self.assertIn('function mobileSection', self.js)
+        self.assertIn('<details class="rounded-lg bg-white/5"', self.js)
+        self.assertIn('<summary class="cursor-pointer select-none px-3 py-2 text-sm font-bold text-white list-none">', self.js)
+        self.assertIn("mobileSection('SM2', mobileSm2Content, isSm2)", self.js)
+        self.assertIn("mobileSection('SM3', mobileSm3Groups, isSm3)", self.js)
+
+    def test_mobile_nav_action_remains_common_only(self):
+        self.assertIn('button[data-action="toggle-mobile-menu"]', self.js)
+        self.assertNotIn('toggle-mobile-menu', read(SM3_U2))
 
     def test_brand_label(self):
         """Brand should be 'Super Minds' not 'Super Minds 2'."""

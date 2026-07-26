@@ -831,8 +831,8 @@ function buildNavPatternA(active) {
 
     function dropdownItemClass(itemKey) {
         return active === itemKey
-            ? 'block px-4 py-2 text-sm text-gray-700 bg-blue-50 font-medium'
-            : 'block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50';
+            ? 'block px-4 py-2 text-sm text-gray-700 bg-blue-50 font-medium whitespace-normal break-words leading-snug'
+            : 'block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 whitespace-normal break-words leading-snug';
     }
 
     function mobileItemClass(itemKey) {
@@ -842,13 +842,24 @@ function buildNavPatternA(active) {
     }
 
     function sm2Group(label, pages) {
-        return '<div class="px-3 py-1 text-xs font-bold text-gray-400 uppercase tracking-wider mt-1">' + label + '</div>\n' +
-            pages.map(function(p) { return '<a href="' + p.href + '" class="' + dropdownItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n');
+        return '<div class="min-w-40">\n' +
+            '                                <div class="px-3 py-1 text-xs font-bold text-gray-400 uppercase tracking-wider mt-1">' + label + '</div>\n' +
+            '                                ' + pages.map(function(p) { return '<a href="' + p.href + '" class="' + dropdownItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                                ') + '\n' +
+            '                            </div>';
     }
 
     function mobileGroup(label, pages) {
         return '<div class="text-white/70 text-xs mt-2 mb-1">' + label + '</div>\n' +
             pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n');
+    }
+
+    function mobileSection(label, content, isOpen) {
+        return '<details class="rounded-lg bg-white/5" ' + (isOpen ? 'open' : '') + '>\n' +
+            '                            <summary class="cursor-pointer select-none px-3 py-2 text-sm font-bold text-white list-none">' + label + '</summary>\n' +
+            '                            <div class="px-3 pb-3 space-y-1">\n' +
+            '                                ' + content + '\n' +
+            '                            </div>\n' +
+            '                        </details>';
     }
 
     var sm2Groups = [
@@ -870,6 +881,15 @@ function buildNavPatternA(active) {
         mobileGroup('Unit 2', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit2'; }))
     ].join('\n                        ') : '';
 
+    var mobileSm2Content = [
+        mobileGroup('Unit 7', links.unit7.pages),
+        mobileGroup('Unit 8', links.unit8.pages),
+        mobileGroup('Unit 9', links.unit9.pages),
+        mobileGroup('复习 Review', links.review.pages)
+    ].join('\n                                ');
+
+    var mobileSm3Section = hasSm3 ? mobileSection('SM3', mobileSm3Groups, isSm3) : '';
+
     return '<nav id="site-nav" class="sticky top-0 z-50 bg-gradient-to-r from-blue-600 to-blue-800 border-b-4 border-yellow-400 shadow-lg mb-8 -mt-4 -mx-4 px-4 md:-mx-8 md:px-8">\n' +
         '        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">\n' +
         '            <div class="flex items-center justify-between h-14">\n' +
@@ -881,14 +901,14 @@ function buildNavPatternA(active) {
         '                    <a href="' + links.home.href + '" class="' + homeClass + '">' + links.home.label + '</a>\n' +
         '                    <div class="relative group">\n' +
         '                        <a href="#" class="' + triggerClass(isSm2) + '" onclick="return false">SM2 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>\n' +
-        '                        <div class="absolute left-0 top-full w-56 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
+        '                        <div class="absolute right-0 top-full w-[42rem] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg p-3 hidden group-hover:grid grid-cols-2 lg:grid-cols-4 gap-x-6 z-50">\n' +
         '                            ' + sm2Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n' +
         (hasSm3 ?
         '                    <div class="relative group">\n' +
         '                        <a href="' + links.sm3.triggerHref + '" class="' + triggerClass(isSm3) + '">SM3 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>\n' +
-        '                        <div class="absolute left-0 top-full w-56 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
+        '                        <div class="absolute right-0 top-full min-w-72 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
         '                            ' + sm3Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n'
@@ -901,19 +921,8 @@ function buildNavPatternA(active) {
         '            <div id="mobileMenu" class="hidden md:hidden pb-4">\n' +
         '                <div class="flex flex-col space-y-2">\n' +
         '                    <a href="' + links.home.href + '" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">' + links.home.label + '</a>\n' +
-        '                    <div class="px-3 py-2">\n' +
-        '                        <div class="text-white/70 text-xs mb-1">SM2</div>\n' +
-        '                        ' + links.unit7.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
-        '                        ' + links.unit8.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
-        '                        ' + links.unit9.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
-        '                        ' + links.review.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
-        '                    </div>\n' +
-        (hasSm3 ?
-        '                    <div class="px-3 py-2">\n' +
-        '                        <div class="text-white/70 text-xs mb-1">SM3</div>\n' +
-        '                        ' + mobileSm3Groups + '\n' +
-        '                    </div>\n'
-        : '') +
+        '                    ' + mobileSection('SM2', mobileSm2Content, isSm2) + '\n' +
+        (hasSm3 ? '                    ' + mobileSm3Section + '\n' : '') +
         '                </div>\n' +
         '            </div>\n' +
         '        </div>\n' +
@@ -940,8 +949,8 @@ function buildNavPatternB(active, brandIcon) {
 
     function dropdownItemClass(itemKey) {
         return active === itemKey
-            ? 'block px-4 py-2 text-sm text-gray-700 bg-gray-100 font-medium'
-            : 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100';
+            ? 'block px-4 py-2 text-sm text-gray-700 bg-gray-100 font-medium whitespace-normal break-words leading-snug'
+            : 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-normal break-words leading-snug';
     }
 
     function mobileItemClass(itemKey) {
@@ -952,13 +961,24 @@ function buildNavPatternB(active, brandIcon) {
 
     // Build SM2 mega-dropdown content — one group per unit
     function sm2Group(label, pages) {
-        return '<div class="px-3 py-1 text-xs font-bold text-gray-400 uppercase tracking-wider mt-1">' + label + '</div>\n' +
-            pages.map(function(p) { return '<a href="' + p.href + '" class="' + dropdownItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n');
+        return '<div class="min-w-40">\n' +
+            '                                <div class="px-3 py-1 text-xs font-bold text-gray-400 uppercase tracking-wider mt-1">' + label + '</div>\n' +
+            '                                ' + pages.map(function(p) { return '<a href="' + p.href + '" class="' + dropdownItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                                ') + '\n' +
+            '                            </div>';
     }
 
     function mobileGroup(label, pages) {
         return '<div class="text-white/70 text-xs mt-2 mb-1">' + label + '</div>\n' +
             pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n');
+    }
+
+    function mobileSection(label, content, isOpen) {
+        return '<details class="rounded-lg bg-white/5" ' + (isOpen ? 'open' : '') + '>\n' +
+            '                            <summary class="cursor-pointer select-none px-3 py-2 text-sm font-bold text-white list-none">' + label + '</summary>\n' +
+            '                            <div class="px-3 pb-3 space-y-1">\n' +
+            '                                ' + content + '\n' +
+            '                            </div>\n' +
+            '                        </details>';
     }
 
     var sm2Groups = [
@@ -980,6 +1000,15 @@ function buildNavPatternB(active, brandIcon) {
         mobileGroup('Unit 2', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit2'; }))
     ].join('\n                        ') : '';
 
+    var mobileSm2Content = [
+        mobileGroup('Unit 7', links.unit7.pages),
+        mobileGroup('Unit 8', links.unit8.pages),
+        mobileGroup('Unit 9', links.unit9.pages),
+        mobileGroup('复习 Review', links.review.pages)
+    ].join('\n                                ');
+
+    var mobileSm3Section = hasSm3 ? mobileSection('SM3', mobileSm3Groups, isSm3) : '';
+
     return '<nav id="site-nav" class="sticky top-0 z-50 bg-gradient-to-r from-green-900 to-green-800 border-b-4 border-red-700 shadow-lg">\n' +
         '        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">\n' +
         '            <div class="flex items-center justify-between h-16">\n' +
@@ -991,14 +1020,14 @@ function buildNavPatternB(active, brandIcon) {
         '                    <a href="' + links.home.href + '" class="' + homeClass + '">' + links.home.label + '</a>\n' +
         '                    <div class="relative group">\n' +
         '                        <a href="#" class="' + triggerClass(isSm2) + '" onclick="return false">SM2 <i class="fas fa-chevron-down text-xs"></i></a>\n' +
-        '                        <div class="absolute left-0 top-full w-56 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
+        '                        <div class="absolute right-0 top-full w-[42rem] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg p-3 hidden group-hover:grid grid-cols-2 lg:grid-cols-4 gap-x-6 z-50">\n' +
         '                            ' + sm2Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n' +
         (hasSm3 ?
         '                    <div class="relative group">\n' +
         '                        <a href="' + links.sm3.triggerHref + '" class="' + triggerClass(isSm3) + '">SM3 <i class="fas fa-chevron-down text-xs"></i></a>\n' +
-        '                        <div class="absolute left-0 top-full w-56 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
+        '                        <div class="absolute right-0 top-full min-w-72 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
         '                            ' + sm3Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n'
@@ -1011,19 +1040,8 @@ function buildNavPatternB(active, brandIcon) {
         '            <div id="mobileMenu" class="hidden md:hidden pb-4">\n' +
         '                <div class="flex flex-col space-y-2">\n' +
         '                    <a href="' + links.home.href + '" class="nav-link px-3 py-2 text-sm font-medium">' + links.home.label + '</a>\n' +
-        '                    <div class="px-3 py-2">\n' +
-        '                        <div class="text-white/70 text-xs mb-1">SM2</div>\n' +
-        '                        ' + links.unit7.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
-        '                        ' + links.unit8.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
-        '                        ' + links.unit9.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
-        '                        ' + links.review.pages.map(function(p) { return '<a href="' + p.href + '" class="' + mobileItemClass(p.key) + '">' + p.label + '</a>'; }).join('\n                        ') + '\n' +
-        '                    </div>\n' +
-        (hasSm3 ?
-        '                    <div class="px-3 py-2">\n' +
-        '                        <div class="text-white/70 text-xs mb-1">SM3</div>\n' +
-        '                        ' + mobileSm3Groups + '\n' +
-        '                    </div>\n'
-        : '') +
+        '                    ' + mobileSection('SM2', mobileSm2Content, isSm2) + '\n' +
+        (hasSm3 ? '                    ' + mobileSm3Section + '\n' : '') +
         '                </div>\n' +
         '            </div>\n' +
         '        </div>\n' +
