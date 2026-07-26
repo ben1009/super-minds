@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Super Minds 3 Unit 2 — There is / There are, picnic song, supermarket reading and translation practice">
+    <title>Super Minds 3 Unit 2 · There Is / There Are</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+    <!-- Google Analytics -->
+    <script src="../../ga.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/baseball-theme.css">
+</head>
+<body class="text-gray-800">
+    <!-- Site Navigation -->
+    <script>window.NAV_CONFIG = {pattern:'B', active:'sm3-unit2', brandIcon: 'fa-basket-shopping'};</script>
+    <nav id="site-nav"></nav>
+
+    <header class="relative py-12 px-4 overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="stitch-border p-8 rounded-3xl shadow-2xl inline-block bg-white/95">
+                <h1 class="text-4xl md:text-5xl font-bold text-indigo-800 mb-2">Super Minds 3 · Unit 2</h1>
+                <p class="text-2xl text-indigo-700 font-medium mb-4">There is / There are · Picnic &amp; Food</p>
+                <div class="flex justify-center gap-4 text-5xl mb-4">
+                    <span class="float-anim" aria-hidden="true">🧺</span>
+                    <span class="float-anim" style="animation-delay: 0.5s" aria-hidden="true">🍎</span>
+                    <span class="float-anim" style="animation-delay: 1s" aria-hidden="true">🥪</span>
+                    <span class="float-anim" style="animation-delay: 1.5s" aria-hidden="true">🥛</span>
+                    <span class="float-anim" style="animation-delay: 2s" aria-hidden="true">🛒</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" class="max-w-6xl mx-auto px-4 pb-16 space-y-8">
+        <div class="max-w-3xl mx-auto">
+            <div class="hint-bar">
+                <div class="text-2xl mb-2">🔊📖✍️✅</div>
+                <div class="text-sm md:text-base">点击词汇听发音，点击段落看中文，点击空白处显示参考答案</div>
+            </div>
+        </div>
+
+        <div class="text-center text-white italic text-lg">
+            "There is a story in every food we choose." · 每一种食物里都有一个故事。
+        </div>
+
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>🖼️</span> Source Pictures · Countable &amp; Uncountable Food <span>🍽️</span>
+            </h2>
+            <p class="text-center text-gray-600 mb-6">PDF 开头的两张食物分类图。先观察图片，再判断名词应该用 is 还是 are。</p>
+            <div class="grid lg:grid-cols-2 gap-6 items-start">
+                <figure class="bg-white rounded-xl shadow-md p-3">
+                    <img src="assets/unit2-source-000.jpg" alt="Countable and uncountable food chart with burgers, sandwiches, bread, milk, juice and other food words" class="w-full h-auto rounded-lg">
+                    <figcaption class="text-center text-sm text-gray-600 mt-3">Food · Countables and Uncountables</figcaption>
+                </figure>
+                <figure class="bg-white rounded-xl shadow-md p-3">
+                    <img src="assets/unit2-source-001.jpg" alt="Countable and uncountable food chart with apples, grapes, eggs, rice, oil, coffee and other food words" class="w-full h-auto rounded-lg">
+                    <figcaption class="text-center text-sm text-gray-600 mt-3">Countable / Uncountable Food</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>📌</span> Part 1 · There be 句型 <span>🧠</span>
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-4 mb-6">
+                <div class="grammar-card p-5">
+                    <div class="font-bold text-lg text-indigo-700 mb-2">There is + 可数名词单数</div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>There is a big watermelon.</p>
+                        <p class="translation">有一个大西瓜。</p>
+                    </div>
+                </div>
+                <div class="grammar-card p-5">
+                    <div class="font-bold text-lg text-indigo-700 mb-2">There is + 不可数名词</div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>There is some milk.</p>
+                        <p class="translation">有一些牛奶。</p>
+                    </div>
+                </div>
+                <div class="grammar-card p-5">
+                    <div class="font-bold text-lg text-indigo-700 mb-2">There are + 可数名词复数</div>
+                    <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                        <p>There are some apples.</p>
+                        <p class="translation">有一些苹果。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>用法提醒:</strong> 肯定句常用 <strong>some</strong>；否定句和疑问句常用 <strong>any</strong>。可数名词问数量用 <strong>How many</strong>，不可数名词问数量用 <strong>How much</strong>。
+            </div>
+        </section>
+
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>🍱</span> Part 2 · Picnic Vocabulary <span>🔊</span>
+            </h2>
+            <p class="text-center text-gray-600 mb-6">点击卡片听发音。注意哪些是可数，哪些是不可数。</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('picnic', this)" role="button" tabindex="0"><span class="speaker-icon" aria-hidden="true">🔊</span><div class="text-3xl mb-2">🧺</div><div class="font-bold text-lg">picnic</div><div class="text-sm text-gray-600 mt-1">野餐</div></div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('apples', this)" role="button" tabindex="0"><span class="speaker-icon" aria-hidden="true">🔊</span><div class="text-3xl mb-2">🍎</div><div class="font-bold text-lg">apples</div><div class="text-sm text-gray-600 mt-1">苹果（可数复数）</div></div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('bread', this)" role="button" tabindex="0"><span class="speaker-icon" aria-hidden="true">🔊</span><div class="text-3xl mb-2">🍞</div><div class="font-bold text-lg">bread</div><div class="text-sm text-gray-600 mt-1">面包（不可数）</div></div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('milk', this)" role="button" tabindex="0"><span class="speaker-icon" aria-hidden="true">🔊</span><div class="text-3xl mb-2">🥛</div><div class="font-bold text-lg">milk</div><div class="text-sm text-gray-600 mt-1">牛奶（不可数）</div></div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('juice', this)" role="button" tabindex="0"><span class="speaker-icon" aria-hidden="true">🔊</span><div class="text-3xl mb-2">🧃</div><div class="font-bold text-lg">juice</div><div class="text-sm text-gray-600 mt-1">果汁（不可数）</div></div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('sandwiches', this)" role="button" tabindex="0"><span class="speaker-icon" aria-hidden="true">🔊</span><div class="text-3xl mb-2">🥪</div><div class="font-bold text-lg">sandwiches</div><div class="text-sm text-gray-600 mt-1">三明治（可数复数）</div></div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('cake', this)" role="button" tabindex="0"><span class="speaker-icon" aria-hidden="true">🔊</span><div class="text-3xl mb-2">🍰</div><div class="font-bold text-lg">cake</div><div class="text-sm text-gray-600 mt-1">蛋糕</div></div>
+                <div class="vocab-card p-5 rounded-xl" onclick="speak('watermelon', this)" role="button" tabindex="0"><span class="speaker-icon" aria-hidden="true">🔊</span><div class="text-3xl mb-2">🍉</div><div class="font-bold text-lg">watermelon</div><div class="text-sm text-gray-600 mt-1">西瓜</div></div>
+            </div>
+        </section>
+
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>🎵</span> Part 3 · A Picnic Song <span>📖</span>
+            </h2>
+
+            <div class="grammar-card p-6 space-y-4 text-lg leading-relaxed">
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p>A picnic, a picnic,<br>A picnic's lots of fun!</p>
+                    <p class="translation">野餐，野餐，野餐非常有趣！</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p>Come with us, there's lots of food,<br>For a picnic in the sun.</p>
+                    <p class="translation">跟我们一起来吧，有很多食物，在阳光下野餐。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p>Are there any apples?<br>Is there any bread?<br>Yes, there's lots of lovely food,<br>For all my friends and me.</p>
+                    <p class="translation">有苹果吗？有面包吗？是的，有很多可爱的食物，给我和所有朋友。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p>Is there any milk?<br>Is there any juice?<br>Yes, there are lots of lovely drinks,<br>Come along and see.</p>
+                    <p class="translation">有牛奶吗？有果汁吗？是的，有很多好喝的饮料，过来看看吧。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p>Are there any sandwiches?<br>Is there any cake?<br>Yes, there are lots of lovely things,<br>For a picnic by the lake.</p>
+                    <p class="translation">有三明治吗？有蛋糕吗？是的，有很多可爱的东西，在湖边野餐。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✅</span> Part 4 · Read and Choose <span>🧩</span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="reading-card p-5">
+                    <div class="font-bold mb-3">1. What is the song mainly about?</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)" data-correct="false">A. A school party</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, true)" data-correct="true">B. A picnic</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)" data-correct="false">C. A birthday dinner</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)" data-correct="false">D. A shopping list</div>
+                    <div class="quiz-answer-box">答案: B. A picnic</div>
+                </div>
+                <div class="reading-card p-5">
+                    <div class="font-bold mb-3">2. In "A picnic's lots of fun!", the "'s" means...</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)" data-correct="false">A. was</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)" data-correct="false">B. has</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, true)" data-correct="true">C. is</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)" data-correct="false">D. us</div>
+                    <div class="quiz-answer-box">答案: C. is。A picnic's = A picnic is.</div>
+                </div>
+                <div class="reading-card p-5">
+                    <div class="font-bold mb-3">3. Which food is uncountable?</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)" data-correct="false">A. Apples</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)" data-correct="false">B. Sandwiches</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, true)" data-correct="true">C. Bread</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)" data-correct="false">D. Drinks</div>
+                    <div class="quiz-answer-box">答案: C. Bread 是不可数名词。</div>
+                </div>
+                <div class="reading-card p-5">
+                    <div class="font-bold mb-3">4. Where do they have the picnic?</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)" data-correct="false">A. In the park and near the river.</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, true)" data-correct="true">B. In the sun and by the lake.</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)" data-correct="false">C. In the house and in the sun.</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)" data-correct="false">D. By the lake and in the mountains.</div>
+                    <div class="quiz-answer-box">答案: B. in the sun / by the lake。</div>
+                </div>
+                <div class="reading-card p-5 md:col-span-2">
+                    <div class="font-bold mb-3">5. What drinks are mentioned in the song?</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, true)" data-correct="true">A. Juice and milk</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)" data-correct="false">B. Bread and cake</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)" data-correct="false">C. Apples and sandwiches</div>
+                    <div class="quiz-option" onclick="showQuizAnswer(this, false)" data-correct="false">D. Water and cola</div>
+                    <div class="quiz-answer-box">答案: A. Juice and milk.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✍️</span> Part 5 · Picnic Basket Grammar Fill <span>🧺</span>
+            </h2>
+            <div class="grammar-card p-6">
+                <p class="mb-4 text-gray-600">点击空白处核对答案。</p>
+                <div class="space-y-4 leading-relaxed">
+                    <p>Look at our picnic basket! It is so big.</p>
+                    <p>In the basket, <span class="word-quiz-blank" data-placeholder="________" data-answer="there are" onclick="revealAnswer(this)" role="button" tabindex="0">________</span> some apples. They are red and sweet.</p>
+                    <p><span class="word-quiz-blank" data-placeholder="________" data-answer="Is" onclick="revealAnswer(this)" role="button" tabindex="0">________</span> there any bread? Yes, there <span class="word-quiz-blank" data-placeholder="________" data-answer="are" onclick="revealAnswer(this)" role="button" tabindex="0">________</span> two pieces of bread.</p>
+                    <p>But there <span class="word-quiz-blank" data-placeholder="________" data-answer="isn't" onclick="revealAnswer(this)" role="button" tabindex="0">________</span> any juice, because my sister drank it.</p>
+                    <p>For drinks, there <span class="word-quiz-blank" data-placeholder="________" data-answer="is" onclick="revealAnswer(this)" role="button" tabindex="0">________</span> some milk and three boxes of orange juice.</p>
+                    <p>There <span class="word-quiz-blank" data-placeholder="________" data-answer="are" onclick="revealAnswer(this)" role="button" tabindex="0">________</span> also some sandwiches. They are my favourite.</p>
+                    <p>"<span class="word-quiz-blank" data-placeholder="________" data-answer="Are" onclick="revealAnswer(this)" role="button" tabindex="0">________</span> there any cakes?" my little brother asks.</p>
+                    <p>No, but there <span class="word-quiz-blank" data-placeholder="________" data-answer="is" onclick="revealAnswer(this)" role="button" tabindex="0">________</span> a big watermelon. Let's eat it!</p>
+                    <p>We have so many <span class="word-quiz-blank" data-placeholder="________" data-answer="things" onclick="revealAnswer(this)" role="button" tabindex="0">________</span> to eat.</p>
+                    <p>There <span class="word-quiz-blank" data-placeholder="________" data-answer="is" onclick="revealAnswer(this)" role="button" tabindex="0">________</span> lots of love in our picnic, too!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>🛒</span> Part 6 · A Supermarket Food Adventure <span>📚</span>
+            </h2>
+            <p class="text-center text-gray-600 mb-6">分区域阅读。点击每段显示中文。</p>
+
+            <div class="space-y-4">
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p><strong>Opening.</strong> On a sunny Saturday morning, Ben, Lucy, Horrocks and Zelda push a big shopping cart into the supermarket. There is a big supermarket with shining lights, and four happy friends are ready for an adventure.</p>
+                    <p class="translation">开头：在一个阳光明媚的星期六早晨，Ben、Lucy、Horrocks 和 Zelda 推着一辆大购物车走进超市。超市很大，灯光明亮，四个快乐的朋友准备开始一场冒险。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p><strong>Fruit section.</strong> There are red apples, yellow bananas, and juicy oranges piled high like little hills. There is also a huge green watermelon that looks like a giant ball. Horrocks pats the watermelon and Zelda sees a tiny ant crawling on a grape.</p>
+                    <p class="translation">水果区：这里有红苹果、黄香蕉和多汁的橙子，堆得像小山一样高。还有一个巨大的绿西瓜，看起来像一个大球。Horrocks 拍了拍西瓜，Zelda 看见一只小蚂蚁在葡萄上爬。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p><strong>Vegetable section.</strong> There are long carrots, round tomatoes, leafy lettuce, and a huge pumpkin sitting like a king. Ben calls it the Pumpkin King and says there are broccoli soldiers standing around him. Lucy says there is a broccoli monster, too. The children make up stories in the vegetable aisle.</p>
+                    <p class="translation">蔬菜区：这里有长胡萝卜、圆番茄、绿叶生菜和一个像国王一样坐着的大南瓜。Ben 说它是南瓜国王，还说周围有西兰花士兵。Lucy 说这里还有一个西兰花怪物。孩子们就在蔬菜过道里编故事。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p><strong>Bakery section.</strong> There are fresh baguettes, soft buns, and sweet doughnuts with shiny glaze. A lovely warm smell fills the aisle. Horrocks says there is magic in the smell. Zelda imagines little fairies baking inside the oven and casting spells, so the bread is fluffy.</p>
+                    <p class="translation">烘焙区：这里有新鲜法棍、软面包和带闪亮糖衣的甜甜圈。温暖好闻的香味充满整个过道。Horrocks 说香味里有魔法。Zelda 想象小仙子在烤箱里烘焙并施魔法，所以面包才这么松软。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p><strong>Drinks section.</strong> There are colorful juice boxes, big milk jugs, rows of fizzy soda cans, and a whole shelf full of strawberry yogurt. Lucy sees a pink cow on the strawberry milk box, and Ben counts five dancing strawberries. They almost want to put every flavor of juice into their cart.</p>
+                    <p class="translation">饮料区：这里有彩色盒装果汁、大牛奶壶、一排排冒泡的汽水罐，还有一整架草莓酸奶。Lucy 在草莓牛奶盒上看见一头粉色奶牛，Ben 数出五个跳舞的草莓。他们几乎想把每一种口味的果汁都放进购物车。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p><strong>Snack section.</strong> There are crispy chips, salty pretzels, chocolate bars with nuts, and a whole shelf just for cream-filled cookies. Horrocks finds his favorite star-shaped crackers and hugs the bag like a treasure. Zelda counts twenty different kinds of candy, her eyes sparkling.</p>
+                    <p class="translation">零食区：这里有脆薯片、咸脆饼、带坚果的巧克力棒，还有一整架专门放夹心饼干。Horrocks 找到他最喜欢的星形饼干，像抱着宝物一样抱住袋子。Zelda 数出二十种不同的糖果，眼睛闪闪发亮。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p><strong>Checkout.</strong> They fill the cart with all kinds of goodies and go to the checkout. The cashier smiles and says, "There is so much food in your cart!" Ben answers proudly, "There are four hungry friends ready for a big picnic!"</p>
+                    <p class="translation">结账：他们把各种好吃的东西装进购物车，然后去收银台。收银员笑着说：“你们的购物车里有好多食物！”Ben 自豪地回答：“有四个饥饿的朋友准备去大野餐！”</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p><strong>Going home.</strong> Outside the supermarket, Lucy says there is a story in every food they choose. Zelda says there are always surprises in the supermarket: today they find a king, fairies, and dancing strawberries.</p>
+                    <p class="translation">回家路上：走出超市后，Lucy 说他们选择的每一种食物里都有一个故事。Zelda 说超市里总是有惊喜：今天他们找到了国王、仙子和跳舞的草莓。</p>
+                </div>
+                <div class="passage-paragraph" onclick="toggleTranslation(this)" role="button" tabindex="0">
+                    <p><strong>Ending.</strong> Horrocks hugs his star-shaped crackers and says there is love in every bite they share. They laugh and skip home. Tonight they cook a big feast together and eat all the happiness they find in the supermarket. In that big store, there is not just food, but also laughter, friendship, and endless imagination.</p>
+                    <p class="translation">结尾：Horrocks 抱着他的星形饼干，说他们分享的每一口食物里都有爱。他们笑着跳着回家。今晚他们一起做一顿大餐，吃下他们在超市里找到的所有快乐。在那家大商店里，不只有食物，还有欢笑、友谊和无尽的想象力。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>❓</span> Part 7 · Story Questions <span>💬</span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="reading-card p-5" onclick="toggleCompAnswer(this)" role="button" tabindex="0">
+                    <div class="font-bold">1. What fruits are there in the fruit section?</div>
+                    <div class="comp-a mt-3 text-green-800">There are red apples, yellow bananas, juicy oranges, grapes, and a huge green watermelon.</div>
+                </div>
+                <div class="reading-card p-5" onclick="toggleCompAnswer(this)" role="button" tabindex="0">
+                    <div class="font-bold">2. What does Ben pretend the pumpkin is?</div>
+                    <div class="comp-a mt-3 text-green-800">Ben pretends the pumpkin is a Pumpkin King, and Lucy says there is a broccoli monster.</div>
+                </div>
+                <div class="reading-card p-5" onclick="toggleCompAnswer(this)" role="button" tabindex="0">
+                    <div class="font-bold">3. What does Horrocks say about the bakery smell?</div>
+                    <div class="comp-a mt-3 text-green-800">He says there is magic in the smell. Zelda imagines little fairies baking inside the oven.</div>
+                </div>
+                <div class="reading-card p-5" onclick="toggleCompAnswer(this)" role="button" tabindex="0">
+                    <div class="font-bold">4. What does Lucy see on the strawberry milk box?</div>
+                    <div class="comp-a mt-3 text-green-800">She sees a pink cow, and Ben sees five dancing strawberries.</div>
+                </div>
+                <div class="reading-card p-5 md:col-span-2" onclick="toggleCompAnswer(this)" role="button" tabindex="0">
+                    <div class="font-bold">5. What are Horrocks' favorite crackers?</div>
+                    <div class="comp-a mt-3 text-green-800">His favorite crackers are star-shaped crackers. Zelda counts twenty different kinds of candy.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✍️</span> Part 8 · 汉译英 There be 专练 <span>✅</span>
+            </h2>
+            <div class="grammar-card p-6">
+                <div class="space-y-4 text-base leading-relaxed">
+                    <p>1. 野餐篮子里有一些苹果。<br><span class="word-quiz-blank" data-placeholder="________________________" data-answer="There are some apples in the picnic basket." onclick="revealAnswer(this)" role="button" tabindex="0">________________________</span></p>
+                    <p>2. 有一些面包。<br><span class="word-quiz-blank" data-placeholder="________________________" data-answer="There is some bread." onclick="revealAnswer(this)" role="button" tabindex="0">________________________</span></p>
+                    <p>3. 篮子里没有果汁。<br><span class="word-quiz-blank" data-placeholder="________________________" data-answer="There isn't any juice in the basket." onclick="revealAnswer(this)" role="button" tabindex="0">________________________</span></p>
+                    <p>4. 没有三明治。<br><span class="word-quiz-blank" data-placeholder="________________________" data-answer="There aren't any sandwiches." onclick="revealAnswer(this)" role="button" tabindex="0">________________________</span></p>
+                    <p>5. 篮子里有一些牛奶吗？<br><span class="word-quiz-blank" data-placeholder="________________________" data-answer="Is there any milk in the basket?" onclick="revealAnswer(this)" role="button" tabindex="0">________________________</span></p>
+                    <p>6. 有一些蛋糕吗？<br><span class="word-quiz-blank" data-placeholder="________________________" data-answer="Are there any cakes?" onclick="revealAnswer(this)" role="button" tabindex="0">________________________</span></p>
+                    <p>7. 篮子里有多少个苹果？<br><span class="word-quiz-blank" data-placeholder="________________________" data-answer="How many apples are there in the basket?" onclick="revealAnswer(this)" role="button" tabindex="0">________________________</span></p>
+                    <p>8. 有多少面包？<br><span class="word-quiz-blank" data-placeholder="________________________" data-answer="How much bread is there?" onclick="revealAnswer(this)" role="button" tabindex="0">________________________</span></p>
+                    <p>9. 篮子里有什么？<br><span class="word-quiz-blank" data-placeholder="________________________" data-answer="What is there in the basket?" onclick="revealAnswer(this)" role="button" tabindex="0">________________________</span></p>
+                    <p>10. 篮子里有两片面包和一些牛奶。<br><span class="word-quiz-blank" data-placeholder="________________________" data-answer="There are two pieces of bread and some milk in the basket." onclick="revealAnswer(this)" role="button" tabindex="0">________________________</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="leather-card p-6 rounded-2xl">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center flex items-center justify-center gap-3">
+                <span>✅</span> Today's Todo · 今日任务 <span>📝</span>
+            </h2>
+
+            <div class="bg-white rounded-full p-1 mb-6 shadow-inner">
+                <div id="progressBar"
+                    class="h-8 bg-gradient-to-r from-indigo-500 to-indigo-400 rounded-full flex items-center justify-center text-white font-bold transition-all duration-500"
+                    style="width: 0%">0%</div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-indigo-500" data-todo="1" onclick="toggleTodoItem(this, 'sm3Unit2ThereBeTodos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>1️⃣</span> 背诵 There be 三个核心结构</div>
+                        <div class="text-gray-600">There is + 单数 / 不可数，There are + 复数。</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-blue-500" data-todo="2" onclick="toggleTodoItem(this, 'sm3Unit2ThereBeTodos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>2️⃣</span> 熟读 A Picnic Song</div>
+                        <div class="text-gray-600">重点读准 Is there any...? / Are there any...?</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-green-500" data-todo="3" onclick="toggleTodoItem(this, 'sm3Unit2ThereBeTodos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>3️⃣</span> 分区复述超市故事</div>
+                        <div class="text-gray-600">复述故事 26-27 页：按 fruit, vegetable, bakery, drinks, snack 五个区域复述。</div>
+                    </div>
+                </div>
+                <div class="todo-item bg-white rounded-xl p-5 shadow-md flex items-start gap-4 border-l-4 border-purple-500" data-todo="4" onclick="toggleTodoItem(this, 'sm3Unit2ThereBeTodos')" role="button" tabindex="0">
+                    <div class="todo-checkbox"></div>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg todo-title"><span>4️⃣</span> 完成 10 句汉译英</div>
+                        <div class="text-gray-600">检查 some / any, is / are, How many / How much。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="button"
+                    class="bg-gradient-to-b from-gray-500 to-gray-600 text-white font-bold px-6 py-2 rounded-full shadow-lg hover:scale-105 transition"
+                    onclick="resetTodoItems('sm3Unit2ThereBeTodos')">
+                    <i class="fas fa-redo mr-2"></i>重置所有任务
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gradient-to-r from-indigo-800 to-indigo-900 mt-12 py-6">
+        <div class="max-w-4xl mx-auto px-4 text-center text-white">
+            <p class="text-lg font-bold mb-2">🧺 Super Minds 3 - Unit 2 There Is / There Are</p>
+            <p class="text-sm opacity-80">Read the picnic song, retell the supermarket story, and use there be correctly.</p>
+        </div>
+    </footer>
+
+    <script>
+        var todoStates = {};
+        try {
+            var saved = localStorage.getItem('sm3Unit2ThereBeTodos');
+            if (saved) {
+                var parsed = JSON.parse(saved);
+                if (parsed && typeof parsed === 'object') {
+                    todoStates = parsed;
+                }
+            }
+        } catch (e) { }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            Object.keys(todoStates).forEach(function (id) {
+                if (todoStates[id]) {
+                    var item = document.querySelector('[data-todo="' + id + '"]');
+                    if (item) item.classList.add('completed');
+                }
+            });
+            updateTodoProgress('sm3Unit2ThereBeTodos');
+        });
+    </script>
+    <script src="../../js/common.js"></script>
+</body>
+</html>
