@@ -12,6 +12,7 @@ SM3_U0 = ROOT / 'sm3' / 'unit0' / 'explorers-be-good-at.html'
 SM3_U1 = ROOT / 'sm3' / 'unit1' / 'school-subjects-like-doing.html'
 SM3_U1_STORY = ROOT / 'sm3' / 'unit1' / 'story-part.html'
 SM3_U2 = ROOT / 'sm3' / 'unit2' / 'there-is-there-are-picnic.html'
+SM3_U2_BREAKFAST = ROOT / 'sm3' / 'unit2' / 'breakfast-foods-simple-present.html'
 
 # SM2 sample pages for cross-ref checks
 SM2_U7_COURSE = ROOT / 'sm2' / 'unit7' / 'present-continuous-course.html'
@@ -79,6 +80,7 @@ class TestFolderStructure(unittest.TestCase):
         self.assertTrue(SM3_U1.exists())
         self.assertTrue(SM3_U1_STORY.exists())
         self.assertTrue(SM3_U2.exists())
+        self.assertTrue(SM3_U2_BREAKFAST.exists())
 
 
 # ============================================================
@@ -394,6 +396,125 @@ class TestSM3Unit2Structure(unittest.TestCase):
         self.assertEqual(opens, closes)
 
 
+class TestSM3Unit2BreakfastStructure(unittest.TestCase):
+    """Test basic HTML structure of sm3/unit2/breakfast-foods-simple-present.html."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.html = read(SM3_U2_BREAKFAST)
+
+    def test_doctype(self):
+        self.assertTrue(self.html.startswith('<!DOCTYPE html>'))
+
+    def test_title(self):
+        self.assertIn('Super Minds 3 Unit 2', self.html)
+        self.assertIn('Breakfast &amp; Simple Present', self.html)
+
+    def test_asset_paths(self):
+        self.assertIn('../../favicon.svg', self.html)
+        self.assertIn('../../ga.js', self.html)
+        self.assertIn('../../css/common.css', self.html)
+        self.assertIn('../../css/baseball-theme.css', self.html)
+        self.assertIn('../../js/common.js', self.html)
+
+    def test_nav_config(self):
+        self.assertIn("active:'sm3-unit2-breakfast'", self.html)
+        self.assertIn("brandIcon: 'fa-utensils'", self.html)
+        self.assertIn('id="site-nav"', self.html)
+
+    def test_lesson_actions_do_not_shadow_mobile_nav(self):
+        self.assertNotIn('data-action=', self.html)
+        self.assertIn('data-lesson-action="toggle-translation"', self.html)
+        self.assertRegex(
+            self.html,
+            r"(?s)addEventListener\('click'.*?closest\('\[data-lesson-action\]'\)",
+        )
+        self.assertRegex(
+            self.html,
+            r"(?s)addEventListener\('keydown'.*?closest\('\[data-lesson-action\]'\)",
+        )
+
+    def test_pdf_derived_content(self):
+        for text in [
+            'Breakfast Around the World',
+            'Britain',
+            'Brazil',
+            'Mexico',
+            'make',
+            'a special breakfast',
+            'have breakfast',
+            'have lunch',
+            'call',
+            'café-da-manhã',
+            'scrambled eggs',
+            'special cake',
+            'eat',
+            'fried tomatoes',
+            'tortillas',
+            'sausage',
+            'bacon',
+            'beans',
+            'fried eggs',
+            'toast',
+            'tea',
+            'orange juice',
+            'bread',
+            'cheese',
+            'mango',
+            'watermelon',
+            'olives',
+            'honey',
+            'black tea',
+            'At the Pizza Place (order pizza)',
+            'Waiter</strong>（服务员）：Student A',
+            'Customer</strong>（顾客）：Student B',
+            "I'd like a pizza with chicken and mushrooms.",
+            "Have you got any onions?",
+            'Can I have...?',
+            'Customer:</strong> Thank you!',
+            "We haven't got any yellow ones. How about a red one?",
+            'A Busy Saturday at Home',
+            'Dad does the shopping at the supermarket.',
+            'She sweeps the floor and tidies up the living room.',
+            'He is very happy today because he gets a big bone!',
+            'What does Dad do on Saturday?',
+            'What does Lucy do after she sweeps the floor?',
+            'A Helping Hand at Home',
+            "What is the problem at the Johnson family's house every Sunday?",
+            "Because she doesn't tidy her room.",
+            'Because she gives chocolate cake to the dog.',
+            'Who does the shopping?',
+            "Lucy's feeling about chores changes",
+            'dogs cannot eat chocolate',
+            'Lucy feels sorry and quickly gives him his dog food instead.',
+            'She buys vegetables, meat and bread.',
+            'They also dry all the dishes and put them away.',
+            'Dad feels very proud.',
+            'Finally, the house is clean, the dog is happy, and the family enjoys a wonderful meal.',
+            'fun when doing them together',
+            'Simple Present Grammar',
+            'do → does',
+            'tidy → tidies',
+            'Everyone',
+            '11. (shout)',
+            '12. (feel)',
+            '13. (give)',
+            '16. (return)',
+            '17. (see)',
+            '21. (say)',
+            '27. (think)',
+            "Can I have...?, How about...?",
+            'sm3Unit2BreakfastTodos',
+        ]:
+            with self.subTest(text=text):
+                self.assertIn(text, self.html)
+
+    def test_section_tags_balanced(self):
+        opens = len(re.findall(r'<section[\s>]', self.html))
+        closes = len(re.findall(r'</section>', self.html))
+        self.assertEqual(opens, closes)
+
+
 class TestSM3Unit1Cloze(unittest.TestCase):
     """Test the inline cloze passage section."""
 
@@ -556,7 +677,7 @@ class TestAssetPathsDepth(unittest.TestCase):
 
     def test_sm3_pages_depth2(self):
         """SM3 pages are at depth 2, use ../../ for root."""
-        for p in [SM3_U0, SM3_U1, SM3_U1_STORY, SM3_U2]:
+        for p in [SM3_U0, SM3_U1, SM3_U1_STORY, SM3_U2, SM3_U2_BREAKFAST]:
             html = read(p)
             with self.subTest(file=p.name):
                 self.assertIn('../../favicon.svg', html)
@@ -611,6 +732,7 @@ class TestIndexPage(unittest.TestCase):
         self.assertIn('sm3/unit1/school-subjects-like-doing.html', self.html)
         self.assertIn('sm3/unit1/story-part.html', self.html)
         self.assertIn('sm3/unit2/there-is-there-are-picnic.html', self.html)
+        self.assertIn('sm3/unit2/breakfast-foods-simple-present.html', self.html)
 
     def test_sm2_card_order(self):
         """SM2 cards should appear before SM3 cards."""
@@ -649,6 +771,7 @@ class TestCrossPageNavigation(unittest.TestCase):
         self.assertIn('../../sm3/unit1/school-subjects-like-doing.html', js)
         self.assertIn('../../sm3/unit1/story-part.html', js)
         self.assertIn('../../sm3/unit2/there-is-there-are-picnic.html', js)
+        self.assertIn('../../sm3/unit2/breakfast-foods-simple-present.html', js)
 
     def test_baseball_sm3_paths_at_depth_3(self):
         """B_baseball-unit8 SM3 paths must use ../../../sm3/ (depth 3)."""
@@ -658,6 +781,8 @@ class TestCrossPageNavigation(unittest.TestCase):
         self.assertIn("../../../sm3/unit1/school-subjects-like-doing.html", js)
         self.assertIn("../../../sm3/unit1/story-part.html", js)
         self.assertIn("../../../sm3/unit2/there-is-there-are-picnic.html", js)
+        self.assertIn("../../../sm3/unit2/breakfast-foods-simple-present.html", js)
+        self.assertIn("🍳 SM3 Unit 2 Breakfast", js)
 
     def test_sm3_pages_have_sm2_in_navlinks(self):
         """SM3 patterns should have cross-references to SM2 pages."""

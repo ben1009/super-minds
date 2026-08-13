@@ -12,6 +12,13 @@
 - [x] Updated homepage and shared navigation links.
 - [x] Added SM3 regression coverage in `scripts/test_sm3_pages.py`.
 
+### SM3 Unit 2 Breakfast Lesson From PDF ✅
+
+- [x] Created `sm3/unit2/breakfast-foods-simple-present.html`.
+- [x] Added breakfast vocabulary, pizza ordering dialogue, Saturday housework reading, extension reading, simple present cloze, and todo tracking.
+- [x] Updated homepage and shared navigation links.
+- [x] Updated README, TESTING, AGENTS, and SM3 regression coverage.
+
 ### Mobile Navigation Fixes ✅
 
 - [x] Isolated SM3 Unit 2 lesson controls with `data-lesson-action`.
