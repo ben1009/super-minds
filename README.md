@@ -91,6 +91,12 @@ The baseball Unit 8 page is generated from `sm2/unit8/gerunds-ball-sports.html` 
    - `There is`, `There are`, questions, and negatives
    - Picnic song, supermarket story, fill-in practice, and todo tracking
 
+5. **Unit 2 - Breakfast and Simple Present:** `sm3/unit2/breakfast-foods-simple-present.html`
+   - Breakfast vocabulary from the new PDF
+   - Pizza ordering dialogue and sentence patterns
+   - Saturday housework reading and comprehension practice
+   - Simple present verb-form cloze and todo tracking
+
 ## Access
 
 Open the published site here:

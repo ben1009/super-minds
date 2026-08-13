@@ -79,6 +79,7 @@ Super Minds 是一个面向儿童的互动式英语学习网站，涵盖 Super M
 | `sm3/unit1/school-subjects-like-doing.html` | SM3 Unit 1 school subjects 与 like doing |
 | `sm3/unit1/story-part.html` | SM3 Unit 1 story part，基于新增 PDF |
 | `sm3/unit2/there-is-there-are-picnic.html` | SM3 Unit 2 picnic / food / `There is` / `There are`，基于新增 PDF |
+| `sm3/unit2/breakfast-foods-simple-present.html` | SM3 Unit 2 breakfast foods / pizza ordering / simple present，基于新增 PDF |
 
 ## Shared Architecture
 
@@ -126,6 +127,24 @@ Required content:
 - Picnic basket cloze and Chinese-to-English translation practice.
 - Supermarket story reading and comprehension cards.
 - Todo list using localStorage key `sm3Unit2ThereBeTodos`.
+
+Implementation rule:
+
+- Lesson controls on this page use `data-lesson-action`.
+- Do not use `data-action` for lesson controls because `data-action` is used by shared mobile navigation.
+
+## SM3 Unit 2 Breakfast Notes
+
+`sm3/unit2/breakfast-foods-simple-present.html` was generated from `Superminds 3  Unit 2 -3.pdf`.
+
+Required content:
+
+- Breakfast vocabulary for Britain, Brazil, Mexico, special breakfasts, and common food words.
+- Pizza ordering dialogue using `I'd like...`, `Have you got any...?`, `We haven't got any...`, and `How about...?`.
+- Required reading passage `A Busy Saturday at Home` with comprehension feedback.
+- Extension reading `A Helping Hand at Home` with simple-present comprehension cards.
+- Simple present grammar notes and cloze practice.
+- Todo list using localStorage key `sm3Unit2BreakfastTodos`.
 
 Implementation rule:
 

@@ -30,7 +30,7 @@ python3 scripts/test_generate_baseball.py
 node --check js/common.js
 ```
 
-`scripts/test_sm3_pages.py` covers SM3 Unit 0, Unit 1, Unit 1 Story, and Unit 2. It also verifies that the mobile menu uses compact collapsible SM2/SM3 sections and that SM3 Unit 2 lesson controls use `data-lesson-action` instead of the shared nav `data-action` attribute.
+`scripts/test_sm3_pages.py` covers SM3 Unit 0, Unit 1, Unit 1 Story, Unit 2 There Be, and Unit 2 Breakfast. It also verifies that the mobile menu uses compact collapsible SM2/SM3 sections and that SM3 Unit 2 lesson controls use `data-lesson-action` instead of the shared nav `data-action` attribute.
 
 ## Build Script Testing
 
@@ -156,6 +156,14 @@ Open http://localhost:8000 in the browser.
 - [ ] Supermarket story translations and questions work
 - [ ] Translation practice answers reveal correctly
 - [ ] Todo progress uses `sm3Unit2ThereBeTodos`
+- [ ] Lesson controls use `data-lesson-action` and do not conflict with mobile nav `data-action`
+- [ ] `http://localhost:8000/sm3/unit2/breakfast-foods-simple-present.html` loads
+- [ ] Breakfast vocabulary pronunciation works
+- [ ] Pizza dialogue translations toggle
+- [ ] Busy Saturday reading comprehension options show correct/wrong feedback
+- [ ] Helping Hand reading translations and questions work
+- [ ] Simple present cloze answers reveal and hide correctly
+- [ ] Todo progress uses `sm3Unit2BreakfastTodos`
 - [ ] Lesson controls use `data-lesson-action` and do not conflict with mobile nav `data-action`
 
 ## Regression Matrix
