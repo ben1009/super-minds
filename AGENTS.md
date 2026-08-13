@@ -135,7 +135,7 @@ Implementation rule:
 
 ## SM3 Unit 2 Breakfast Notes
 
-`sm3/unit2/breakfast-foods-simple-present.html` was generated from `Superminds 3  Unit 2 -3.pdf`.
+`sm3/unit2/breakfast-foods-simple-present.html` was generated from the Unit 2 breakfast PDF before source cleanup.
 
 Required content:
 
