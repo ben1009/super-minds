@@ -120,6 +120,7 @@ if (typeof toggleTranslation !== 'function') {
         
         if (trans) {
             toggleVisibility(trans, 'show', icon);
+            container.setAttribute('aria-expanded', trans.classList.contains('show') ? 'true' : 'false');
             if (hint) {
                 const isShown = trans.classList.contains('show');
                 hint.textContent = isShown
@@ -138,6 +139,7 @@ function toggleCompAnswer(container) {
     const answer = container.querySelector('.comp-a');
     if (answer) {
         answer.classList.toggle('show');
+        container.setAttribute('aria-expanded', answer.classList.contains('show') ? 'true' : 'false');
     }
 }
 
@@ -375,7 +377,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
                 { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' },
                 { key: 'sm3-unit2', href: '../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
-                { key: 'sm3-unit2-breakfast', href: '../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' }
+                { key: 'sm3-unit2-breakfast', href: '../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
+                { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
             ]
         },
 
@@ -426,7 +429,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
                 { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' },
                 { key: 'sm3-unit2', href: '../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
-                { key: 'sm3-unit2-breakfast', href: '../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' }
+                { key: 'sm3-unit2-breakfast', href: '../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
+                { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
             ]
         },
 
@@ -477,7 +481,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
                 { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' },
                 { key: 'sm3-unit2', href: '../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
-                { key: 'sm3-unit2-breakfast', href: '../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' }
+                { key: 'sm3-unit2-breakfast', href: '../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
+                { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
             ]
         },
 
@@ -528,7 +533,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit1', href: '../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
                 { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' },
                 { key: 'sm3-unit2', href: '../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
-                { key: 'sm3-unit2-breakfast', href: '../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' }
+                { key: 'sm3-unit2-breakfast', href: '../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
+                { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
             ]
         },
 
@@ -576,7 +582,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit1', href: '../../../sm3/unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
                 { key: 'sm3-unit1-story', href: '../../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' },
                 { key: 'sm3-unit2', href: '../../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
-                { key: 'sm3-unit2-breakfast', href: '../../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' }
+                { key: 'sm3-unit2-breakfast', href: '../../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
+                { key: 'sm3-unit3-routines', href: '../../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
             ]
         },
 
@@ -627,7 +634,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit1', href: '../unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
                 { key: 'sm3-unit1-story', href: '../unit1/story-part.html', label: '📖 Unit 1 Story' },
                 { key: 'sm3-unit2', href: '../unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
-                { key: 'sm3-unit2-breakfast', href: '../unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' }
+                { key: 'sm3-unit2-breakfast', href: '../unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
+                { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
             ]
         },
         review: {
@@ -677,7 +685,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit1', href: 'school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
                 { key: 'sm3-unit1-story', href: 'story-part.html', label: '📖 Unit 1 Story' },
                 { key: 'sm3-unit2', href: '../unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
-                { key: 'sm3-unit2-breakfast', href: '../unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' }
+                { key: 'sm3-unit2-breakfast', href: '../unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
+                { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
             ]
         },
         review: {
@@ -727,7 +736,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit1', href: '../unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
                 { key: 'sm3-unit1-story', href: '../unit1/story-part.html', label: '📖 Unit 1 Story' },
                 { key: 'sm3-unit2', href: 'there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
-                { key: 'sm3-unit2-breakfast', href: 'breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' }
+                { key: 'sm3-unit2-breakfast', href: 'breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
+                { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
             ]
         },
         review: {
@@ -756,7 +766,8 @@ const NAV_LINKS = {
                 { href: '../../review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' },
                 { href: '../../../sm3/unit1/story-part.html', label: '📖 SM3 Unit 1 Story' },
                 { href: '../../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 SM3 Unit 2 There be' },
-                { href: '../../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 SM3 Unit 2 Breakfast' }
+                { href: '../../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 SM3 Unit 2 Breakfast' },
+                { href: '../../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ SM3 Unit 3 Routines' }
             ],
             activeLabel: '⚾ Unit 7',
             separators: [0, 1, 2, 3, 4, 5, 8]
@@ -775,11 +786,27 @@ const NAV_LINKS = {
                 { href: '../../review/review-unit-5-lecture2.html', label: '❓ Unit 5 第二讲' },
                 { href: '../../../sm3/unit1/story-part.html', label: '📖 SM3 Unit 1 Story' },
                 { href: '../../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 SM3 Unit 2 There be' },
-                { href: '../../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 SM3 Unit 2 Breakfast' }
+                { href: '../../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 SM3 Unit 2 Breakfast' },
+                { href: '../../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ SM3 Unit 3 Routines' }
             ],
             activeLabel: '📚 课后作业',
             separators: [0, 1, 2, 3, 4, 5, 8]
         }
+    }
+};
+
+NAV_LINKS.B_sm3_unit3 = {
+    ...NAV_LINKS.B_sm3_unit2,
+    sm3: {
+        ...NAV_LINKS.B_sm3_unit2.sm3,
+        pages: [
+            { key: 'sm3-unit0', href: '../unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
+            { key: 'sm3-unit1', href: '../unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
+            { key: 'sm3-unit1-story', href: '../unit1/story-part.html', label: '📖 Unit 1 Story' },
+            { key: 'sm3-unit2', href: '../unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
+            { key: 'sm3-unit2-breakfast', href: '../unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
+            { key: 'sm3-unit3-routines', href: 'daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
+        ]
     }
 };
 
@@ -789,6 +816,7 @@ function getUnitFromActive(active) {
     if (active.startsWith('sm3-unit0')) return 'sm3_unit0';
     if (active.startsWith('sm3-unit1')) return 'sm3_unit1';
     if (active.startsWith('sm3-unit2')) return 'sm3_unit2';
+    if (active.startsWith('sm3-unit3')) return 'sm3_unit3';
     if (active.startsWith('unit7')) return 'unit7';
     if (active.startsWith('unit8')) return 'unit8';
     if (active.startsWith('unit9')) return 'unit9';
@@ -882,13 +910,15 @@ function buildNavPatternA(active) {
     var sm3Groups = hasSm3 ? [
         sm2Group('Unit 0', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit0'; })),
         sm2Group('Unit 1', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit1' || p.key === 'sm3-unit1-story'; })),
-        sm2Group('Unit 2', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit2'); }))
+        sm2Group('Unit 2', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit2'); })),
+        sm2Group('Unit 3', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit3'); }))
     ].join('\n                            ') : '';
 
     var mobileSm3Groups = hasSm3 ? [
         mobileGroup('Unit 0', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit0'; })),
         mobileGroup('Unit 1', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit1' || p.key === 'sm3-unit1-story'; })),
-        mobileGroup('Unit 2', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit2'); }))
+        mobileGroup('Unit 2', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit2'); })),
+        mobileGroup('Unit 3', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit3'); }))
     ].join('\n                        ') : '';
 
     var mobileSm2Content = [
@@ -910,15 +940,15 @@ function buildNavPatternA(active) {
         '                <div class="hidden md:flex space-x-1 items-center">\n' +
         '                    <a href="' + links.home.href + '" class="' + homeClass + '">' + links.home.label + '</a>\n' +
         '                    <div class="relative group">\n' +
-        '                        <a href="#" class="' + triggerClass(isSm2) + '" onclick="return false">SM2 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>\n' +
-        '                        <div class="absolute right-0 top-full w-[42rem] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg p-3 hidden group-hover:grid grid-cols-2 lg:grid-cols-4 gap-x-6 z-50">\n' +
+        '                        <a href="#" class="' + triggerClass(isSm2) + '" onclick="return false" aria-haspopup="true">SM2 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>\n' +
+        '                        <div role="menu" class="absolute right-0 top-full w-[42rem] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg p-3 hidden group-hover:grid group-focus-within:grid grid-cols-2 lg:grid-cols-4 gap-x-6 z-50">\n' +
         '                            ' + sm2Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n' +
         (hasSm3 ?
         '                    <div class="relative group">\n' +
-        '                        <a href="' + links.sm3.triggerHref + '" class="' + triggerClass(isSm3) + '">SM3 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>\n' +
-        '                        <div class="absolute right-0 top-full min-w-72 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
+        '                        <a href="' + links.sm3.triggerHref + '" class="' + triggerClass(isSm3) + '" aria-haspopup="true">SM3 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>\n' +
+        '                        <div role="menu" class="absolute right-0 top-full min-w-72 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg py-2 hidden group-hover:block group-focus-within:block z-50">\n' +
         '                            ' + sm3Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n'
@@ -1001,13 +1031,15 @@ function buildNavPatternB(active, brandIcon) {
     var sm3Groups = hasSm3 ? [
         sm2Group('Unit 0', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit0'; })),
         sm2Group('Unit 1', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit1' || p.key === 'sm3-unit1-story'; })),
-        sm2Group('Unit 2', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit2'); }))
+        sm2Group('Unit 2', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit2'); })),
+        sm2Group('Unit 3', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit3'); }))
     ].join('\n                            ') : '';
 
     var mobileSm3Groups = hasSm3 ? [
         mobileGroup('Unit 0', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit0'; })),
         mobileGroup('Unit 1', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit1' || p.key === 'sm3-unit1-story'; })),
-        mobileGroup('Unit 2', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit2'); }))
+        mobileGroup('Unit 2', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit2'); })),
+        mobileGroup('Unit 3', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit3'); }))
     ].join('\n                        ') : '';
 
     var mobileSm2Content = [
@@ -1029,15 +1061,15 @@ function buildNavPatternB(active, brandIcon) {
         '                <div class="hidden md:flex space-x-6">\n' +
         '                    <a href="' + links.home.href + '" class="' + homeClass + '">' + links.home.label + '</a>\n' +
         '                    <div class="relative group">\n' +
-        '                        <a href="#" class="' + triggerClass(isSm2) + '" onclick="return false">SM2 <i class="fas fa-chevron-down text-xs"></i></a>\n' +
-        '                        <div class="absolute right-0 top-full w-[42rem] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg p-3 hidden group-hover:grid grid-cols-2 lg:grid-cols-4 gap-x-6 z-50">\n' +
+        '                        <a href="#" class="' + triggerClass(isSm2) + '" onclick="return false" aria-haspopup="true">SM2 <i class="fas fa-chevron-down text-xs"></i></a>\n' +
+        '                        <div role="menu" class="absolute right-0 top-full w-[42rem] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg p-3 hidden group-hover:grid group-focus-within:grid grid-cols-2 lg:grid-cols-4 gap-x-6 z-50">\n' +
         '                            ' + sm2Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n' +
         (hasSm3 ?
         '                    <div class="relative group">\n' +
-        '                        <a href="' + links.sm3.triggerHref + '" class="' + triggerClass(isSm3) + '">SM3 <i class="fas fa-chevron-down text-xs"></i></a>\n' +
-        '                        <div class="absolute right-0 top-full min-w-72 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-50">\n' +
+        '                        <a href="' + links.sm3.triggerHref + '" class="' + triggerClass(isSm3) + '" aria-haspopup="true">SM3 <i class="fas fa-chevron-down text-xs"></i></a>\n' +
+        '                        <div role="menu" class="absolute right-0 top-full min-w-72 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg py-2 hidden group-hover:block group-focus-within:block z-50">\n' +
         '                            ' + sm3Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n'

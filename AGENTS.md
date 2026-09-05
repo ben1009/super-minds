@@ -80,6 +80,7 @@ Super Minds 是一个面向儿童的互动式英语学习网站，涵盖 Super M
 | `sm3/unit1/story-part.html` | SM3 Unit 1 story part，基于新增 PDF |
 | `sm3/unit2/there-is-there-are-picnic.html` | SM3 Unit 2 picnic / food / `There is` / `There are`，基于新增 PDF |
 | `sm3/unit2/breakfast-foods-simple-present.html` | SM3 Unit 2 breakfast foods / pizza ordering / simple present，基于新增 PDF |
+| `sm3/unit3/daily-routines-frequency-adverbs.html` | SM3 Unit 3 frequency adverbs / daily routines / Helping Hands，基于新增 PDF |
 
 ## Shared Architecture
 
@@ -98,6 +99,7 @@ Super Minds 是一个面向儿童的互动式英语学习网站，涵盖 Super M
 - `toggleMobileMenu()` opens/closes the generated mobile menu.
 - `buildNavPatternA()` and `buildNavPatternB()` generate desktop dropdown nav and compact mobile nav.
 - Mobile nav uses native `<details>` sections for `SM2` and `SM3`; the active course family is open by default.
+- Desktop `SM2` and `SM3` dropdowns open on hover or keyboard focus.
 - `data-action` is reserved for shared nav actions such as `toggle-mobile-menu`.
 - Page-specific delegated actions should use a separate attribute, such as `data-lesson-action`, to avoid nav conflicts.
 - Shared lesson helpers include translation toggles, answer reveals, todo progress, copy helpers, speech, keyboard binding, and progress restore.
@@ -145,6 +147,23 @@ Required content:
 - Extension reading `A Helping Hand at Home` with simple-present comprehension cards.
 - Simple present grammar notes and cloze practice.
 - Todo list using localStorage key `sm3Unit2BreakfastTodos`.
+
+Implementation rule:
+
+- Lesson controls on this page use `data-lesson-action`.
+- Do not use `data-action` for lesson controls because `data-action` is used by shared mobile navigation.
+
+## SM3 Unit 3 Daily Routines Notes
+
+`sm3/unit3/daily-routines-frequency-adverbs.html` was generated from the Unit 3 PDF.
+
+Required content:
+
+- Frequency adverbs from `always` through `never`, including placement rules and time expressions.
+- `My Weekday Routine` reading with clickable Chinese translations and true/false feedback.
+- Page 38 story vocabulary and `Our Daily Search` reading with a cloze exercise.
+- Frequency-adverb grammar practice and a Helping Hands story preview.
+- Todo list using localStorage key `sm3Unit3RoutinesTodos`.
 
 Implementation rule:
 
