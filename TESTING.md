@@ -157,6 +157,16 @@ Open http://localhost:8000 in the browser.
 - [ ] Translation practice answers reveal correctly
 - [ ] Todo progress uses `sm3Unit2ThereBeTodos`
 - [ ] Lesson controls use `data-lesson-action` and do not conflict with mobile nav `data-action`
+
+#### Unit 3
+
+- [ ] `http://localhost:8000/sm3/unit3/daily-routines-frequency-adverbs.html` loads
+- [ ] Frequency adverbs and time-expression practice reveal answers correctly
+- [ ] Daily-routine and story translations toggle
+- [ ] Reading choices show correct/wrong feedback
+- [ ] Vocabulary pronunciation and Helping Hands answers work
+- [ ] Todo progress uses `sm3Unit3RoutinesTodos`
+- [ ] Lesson controls use `data-lesson-action` and do not conflict with mobile nav `data-action`
 - [ ] `http://localhost:8000/sm3/unit2/breakfast-foods-simple-present.html` loads
 - [ ] Breakfast vocabulary pronunciation works
 - [ ] Pizza dialogue translations toggle
@@ -172,7 +182,7 @@ Open http://localhost:8000 in the browser.
 |---------|---------------------------|
 | Page load | All root, SM2, SM3, review, and baseball pages load without console errors |
 | Mobile menu | Compact collapsible SM2/SM3 sections; active course family opens by default |
-| Desktop nav | Full dropdown navigation remains visible on desktop |
+| Desktop nav | Full dropdown navigation remains visible on desktop and opens on hover or keyboard focus |
 | Lesson actions | Translations, answers, vocabulary audio, and todos respond to click and keyboard activation |
 | Progress save | Todo progress persists through localStorage |
 | Baseball generation | Generated SM2 baseball Unit 8 file stays in sync with source |

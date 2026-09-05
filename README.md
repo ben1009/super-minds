@@ -97,6 +97,11 @@ The baseball Unit 8 page is generated from `sm2/unit8/gerunds-ball-sports.html` 
    - Saturday housework reading and comprehension practice
    - Simple present verb-form cloze and todo tracking
 
+6. **Unit 3 - Daily Routines and Frequency Adverbs:** `sm3/unit3/daily-routines-frequency-adverbs.html`
+   - Frequency adverbs, placement rules, and time expressions
+   - Daily-routine reading with translations and true/false feedback
+   - Story vocabulary, cloze, grammar practice, and Helping Hands preview
+
 ## Access
 
 Open the published site here:
@@ -129,8 +134,9 @@ https://ben1009.github.io/super-minds/
 ├── sm3/
 │   ├── unit0/
 │   ├── unit1/
-│   └── unit2/
+│   ├── unit2/
 │       └── assets/
+└── unit3/
 ├── README.md
 ├── TESTING.md
 ├── AGENTS.md

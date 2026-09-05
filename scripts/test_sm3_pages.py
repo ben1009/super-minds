@@ -13,6 +13,7 @@ SM3_U1 = ROOT / 'sm3' / 'unit1' / 'school-subjects-like-doing.html'
 SM3_U1_STORY = ROOT / 'sm3' / 'unit1' / 'story-part.html'
 SM3_U2 = ROOT / 'sm3' / 'unit2' / 'there-is-there-are-picnic.html'
 SM3_U2_BREAKFAST = ROOT / 'sm3' / 'unit2' / 'breakfast-foods-simple-present.html'
+SM3_U3_ROUTINES = ROOT / 'sm3' / 'unit3' / 'daily-routines-frequency-adverbs.html'
 
 # SM2 sample pages for cross-ref checks
 SM2_U7_COURSE = ROOT / 'sm2' / 'unit7' / 'present-continuous-course.html'
@@ -45,7 +46,7 @@ class TestFolderStructure(unittest.TestCase):
                 self.assertTrue((ROOT / 'sm2' / d).is_dir())
 
     def test_sm3_unit_dirs(self):
-        for d in ['unit0', 'unit1', 'unit2']:
+        for d in ['unit0', 'unit1', 'unit2', 'unit3']:
             with self.subTest(dir=d):
                 self.assertTrue((ROOT / 'sm3' / d).is_dir())
 
@@ -81,6 +82,7 @@ class TestFolderStructure(unittest.TestCase):
         self.assertTrue(SM3_U1_STORY.exists())
         self.assertTrue(SM3_U2.exists())
         self.assertTrue(SM3_U2_BREAKFAST.exists())
+        self.assertTrue(SM3_U3_ROUTINES.exists())
 
 
 # ============================================================
@@ -515,6 +517,79 @@ class TestSM3Unit2BreakfastStructure(unittest.TestCase):
         self.assertEqual(opens, closes)
 
 
+class TestSM3Unit3RoutinesStructure(unittest.TestCase):
+    """Test the PDF-derived SM3 Unit 3 daily-routines lesson."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.html = read(SM3_U3_ROUTINES)
+
+    def test_document_and_shared_assets(self):
+        self.assertTrue(self.html.startswith('<!DOCTYPE html>'))
+        for text in ['Super Minds 3 Unit 3', '../../favicon.svg', '../../ga.js',
+                     '../../css/common.css', '../../css/baseball-theme.css',
+                     '../../js/common.js']:
+            with self.subTest(text=text):
+                self.assertIn(text, self.html)
+
+    def test_nav_and_safe_lesson_actions(self):
+        self.assertIn("active:'sm3-unit3-routines'", self.html)
+        self.assertIn("brandIcon: 'fa-clock'", self.html)
+        self.assertIn('id="site-nav"', self.html)
+        self.assertNotIn('data-action=', self.html)
+        self.assertIn('data-lesson-action="toggle-translation"', self.html)
+        self.assertRegex(self.html, r"(?s)addEventListener\('click'.*?closest\('\[data-lesson-action\]'\)")
+        self.assertRegex(self.html, r"(?s)addEventListener\('keydown'.*?closest\('\[data-lesson-action\]'\)")
+
+    def test_pdf_derived_content(self):
+        for text in [
+            'always', 'usually', 'often', 'sometimes', 'seldom / hardly ever', 'never',
+            'My Weekday Routine', 'half past six', 'quarter to eight', 'quarter to ten',
+            'Our Daily Search', 'the next clue', 'look for', 'after dark', 'What a mess!',
+            'helping hands', 'quarter past nine', 'half past ten', 'have to',
+            'scientist', 'do their housework', 'keep ... clean and tidy', 'press a button',
+            'wash dishes', 'tidy rooms', 'sleep on the floor', 'teach sb how to do sth',
+            'difficult work', 'fill the bucket with water', 'throw the water over the floor',
+            'press another button', "doesn't know what to do", 'go over to',
+            'in this village', 'tomorrow morning', 'the next letter', "Let's wait for dark",
+            'half past ten', 'remember the clue', 'maybe this is what we have to do',
+            'the horrible jobs', "I've got something to show you", 'have an idea',
+            'She sometimes has only a glass of milk for breakfast.', 'I always sleep for 24 hours a day.',
+            'He always helps me with heavy boxes.', 'wash up (do the dishes)', "That's my daily life!",
+            'Arnold is a scientist. He works in a lab.', 'Helping Hands Vocabulary in Context',
+            'sm3Unit3RoutinesTodos',
+        ]:
+            with self.subTest(text=text):
+                self.assertIn(text, self.html)
+
+    def test_section_tags_balanced(self):
+        self.assertEqual(len(re.findall(r'<section[\s>]', self.html)),
+                         len(re.findall(r'</section>', self.html)))
+
+    def test_disclosures_expose_state_and_answers_start_hidden(self):
+        self.assertIn('aria-controls="routine-translation-1"', self.html)
+        self.assertIn('aria-controls="search-translation-1"', self.html)
+        self.assertIn('aria-controls="helper-answer"', self.html)
+        self.assertIn('.comp-a { display: none; }', self.html)
+        self.assertIn('.comp-a.show { display: block; }', self.html)
+
+    def test_baseball_unit7_nav_includes_unit3_at_both_pages(self):
+        js = read(COMMON_JS)
+        course = re.search(r"'baseball-unit7-course': \{.*?\n        \},\n        'baseball-unit7-homework'", js, re.DOTALL)
+        homework = re.search(r"'baseball-unit7-homework': \{.*?\n        \}\n    \}", js, re.DOTALL)
+        self.assertIsNotNone(course)
+        self.assertIsNotNone(homework)
+        target = '../../../sm3/unit3/daily-routines-frequency-adverbs.html'
+        self.assertIn(target, course.group(0))
+        self.assertIn(target, homework.group(0))
+
+    def test_desktop_nav_supports_keyboard_focus_within(self):
+        js = read(COMMON_JS)
+        self.assertIn('group-focus-within:grid', js)
+        self.assertIn('group-focus-within:block', js)
+        self.assertIn('aria-haspopup="true"', js)
+
+
 class TestSM3Unit1Cloze(unittest.TestCase):
     """Test the inline cloze passage section."""
 
@@ -568,11 +643,14 @@ class TestCommonJSNavStructure(unittest.TestCase):
         self.assertIn("startsWith('sm3-unit0')", self.js)
         self.assertIn("startsWith('sm3-unit1')", self.js)
         self.assertIn("startsWith('sm3-unit2')", self.js)
+        self.assertIn("startsWith('sm3-unit3')", self.js)
 
     def test_nav_links_has_sm3_patterns(self):
         self.assertIn('B_sm3_unit0:', self.js)
         self.assertIn('B_sm3_unit1:', self.js)
         self.assertIn('B_sm3_unit2:', self.js)
+        self.assertIn('NAV_LINKS.B_sm3_unit3', self.js)
+        self.assertIn("daily-routines-frequency-adverbs.html", self.js)
 
     def test_sm3_patterns_have_sm2_cross_refs(self):
         """SM3 patterns should have sm2/ prefix in cross-refs."""
@@ -629,7 +707,7 @@ class TestCommonJSNavStructure(unittest.TestCase):
     def test_sm2_desktop_dropdown_uses_columns(self):
         """SM2 desktop dropdown should be compact enough to show all groups."""
         self.assertIn('w-[42rem] max-w-[calc(100vw-2rem)]', self.js)
-        self.assertIn('group-hover:grid grid-cols-2 lg:grid-cols-4', self.js)
+        self.assertIn('group-hover:grid group-focus-within:grid grid-cols-2 lg:grid-cols-4', self.js)
         self.assertIn('gap-x-6', self.js)
 
     def test_desktop_dropdowns_are_height_constrained(self):

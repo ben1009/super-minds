@@ -2,6 +2,12 @@
 
 ## Recently Completed
 
+### SM3 Unit 3 Daily Routines Lesson From PDF ✅
+
+- [x] Created `sm3/unit3/daily-routines-frequency-adverbs.html` from the Unit 3 PDF.
+- [x] Added frequency adverbs, routine and story readings, time expressions, grammar practice, and todo tracking.
+- [x] Updated homepage, shared navigation, documentation, and SM3 regression coverage.
+
 ### SM3 Unit 2 Lesson From PDF ✅
 
 - [x] Created `sm3/unit2/there-is-there-are-picnic.html`.
