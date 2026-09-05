@@ -643,11 +643,14 @@ class TestCommonJSNavStructure(unittest.TestCase):
         self.assertIn("startsWith('sm3-unit0')", self.js)
         self.assertIn("startsWith('sm3-unit1')", self.js)
         self.assertIn("startsWith('sm3-unit2')", self.js)
+        self.assertIn("startsWith('sm3-unit3')", self.js)
 
     def test_nav_links_has_sm3_patterns(self):
         self.assertIn('B_sm3_unit0:', self.js)
         self.assertIn('B_sm3_unit1:', self.js)
         self.assertIn('B_sm3_unit2:', self.js)
+        self.assertIn('NAV_LINKS.B_sm3_unit3', self.js)
+        self.assertIn("daily-routines-frequency-adverbs.html", self.js)
 
     def test_sm3_patterns_have_sm2_cross_refs(self):
         """SM3 patterns should have sm2/ prefix in cross-refs."""

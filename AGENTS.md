@@ -46,8 +46,8 @@ Super Minds 是一个面向儿童的互动式英语学习网站，涵盖 Super M
 ├── sm3/
 │   ├── unit0/
 │   ├── unit1/
-│   └── unit2/
-│       └── assets/
+│   ├── unit2/
+│   └── unit3/
 ├── README.md
 ├── TESTING.md
 ├── todo.md

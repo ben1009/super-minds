@@ -941,14 +941,14 @@ function buildNavPatternA(active) {
         '                    <a href="' + links.home.href + '" class="' + homeClass + '">' + links.home.label + '</a>\n' +
         '                    <div class="relative group">\n' +
         '                        <a href="#" class="' + triggerClass(isSm2) + '" onclick="return false" aria-haspopup="true">SM2 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>\n' +
-        '                        <div role="menu" class="absolute right-0 top-full w-[42rem] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg p-3 hidden group-hover:grid group-focus-within:grid grid-cols-2 lg:grid-cols-4 gap-x-6 z-50">\n' +
+        '                        <div class="absolute right-0 top-full w-[42rem] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg p-3 hidden group-hover:grid group-focus-within:grid grid-cols-2 lg:grid-cols-4 gap-x-6 z-50">\n' +
         '                            ' + sm2Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n' +
         (hasSm3 ?
         '                    <div class="relative group">\n' +
         '                        <a href="' + links.sm3.triggerHref + '" class="' + triggerClass(isSm3) + '" aria-haspopup="true">SM3 <i data-lucide="chevron-down" class="w-4 h-4"></i></a>\n' +
-        '                        <div role="menu" class="absolute right-0 top-full min-w-72 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg py-2 hidden group-hover:block group-focus-within:block z-50">\n' +
+        '                        <div class="absolute right-0 top-full min-w-72 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg py-2 hidden group-hover:block group-focus-within:block z-50">\n' +
         '                            ' + sm3Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n'
@@ -1062,14 +1062,14 @@ function buildNavPatternB(active, brandIcon) {
         '                    <a href="' + links.home.href + '" class="' + homeClass + '">' + links.home.label + '</a>\n' +
         '                    <div class="relative group">\n' +
         '                        <a href="#" class="' + triggerClass(isSm2) + '" onclick="return false" aria-haspopup="true">SM2 <i class="fas fa-chevron-down text-xs"></i></a>\n' +
-        '                        <div role="menu" class="absolute right-0 top-full w-[42rem] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg p-3 hidden group-hover:grid group-focus-within:grid grid-cols-2 lg:grid-cols-4 gap-x-6 z-50">\n' +
+        '                        <div class="absolute right-0 top-full w-[42rem] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg p-3 hidden group-hover:grid group-focus-within:grid grid-cols-2 lg:grid-cols-4 gap-x-6 z-50">\n' +
         '                            ' + sm2Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n' +
         (hasSm3 ?
         '                    <div class="relative group">\n' +
         '                        <a href="' + links.sm3.triggerHref + '" class="' + triggerClass(isSm3) + '" aria-haspopup="true">SM3 <i class="fas fa-chevron-down text-xs"></i></a>\n' +
-        '                        <div role="menu" class="absolute right-0 top-full min-w-72 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg py-2 hidden group-hover:block group-focus-within:block z-50">\n' +
+        '                        <div class="absolute right-0 top-full min-w-72 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain bg-white rounded-lg shadow-lg py-2 hidden group-hover:block group-focus-within:block z-50">\n' +
         '                            ' + sm3Groups + '\n' +
         '                        </div>\n' +
         '                    </div>\n'
