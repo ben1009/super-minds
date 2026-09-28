@@ -683,6 +683,12 @@ class TestSM3Unit3SavingWaterStructure(unittest.TestCase):
         js = read(COMMON_JS)
         self.assertIn("setAttribute('aria-pressed'", js)
 
+    def test_todo_restore_matches_saved_ids_without_building_selectors(self):
+        self.assertIn("Array.from(document.querySelectorAll('[data-todo]')).find", self.html)
+        self.assertIn("candidate.getAttribute('data-todo') === id", self.html)
+        self.assertNotIn("document.querySelector('[data-todo=\"' + id + '\"]')", self.html)
+        self.assertIn("updateTodoProgress('sm3Unit3SavingWaterTodos')", self.html)
+
     def test_revealable_answers_expose_pressed_state(self):
         self.assertIn(
             'querySelectorAll(\'[data-lesson-action="reveal-answer"]\')',
