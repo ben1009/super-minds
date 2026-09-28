@@ -102,6 +102,11 @@ The baseball Unit 8 page is generated from `sm2/unit8/gerunds-ball-sports.html` 
    - Daily-routine reading with translations and true/false feedback
    - Story vocabulary, cloze, grammar practice, and Helping Hands preview
 
+7. **Unit 3 - Saving Water:** `sm3/unit3/saving-water.html`
+   - Water-saving vocabulary and action phrases
+   - `less`, `fewer`, `more`, `because`, `have to`, and present continuous negatives
+   - "Let's Save Water!" reading, comprehension questions, and vocabulary worksheet
+
 ## Access
 
 Open the published site here:

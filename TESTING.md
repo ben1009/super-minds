@@ -30,7 +30,7 @@ python3 scripts/test_generate_baseball.py
 node --check js/common.js
 ```
 
-`scripts/test_sm3_pages.py` covers SM3 Unit 0, Unit 1, Unit 1 Story, Unit 2 There Be, and Unit 2 Breakfast. It also verifies that the mobile menu uses compact collapsible SM2/SM3 sections and that SM3 Unit 2 lesson controls use `data-lesson-action` instead of the shared nav `data-action` attribute.
+`scripts/test_sm3_pages.py` covers SM3 Unit 0, Unit 1, Unit 1 Story, Unit 2 There Be, Unit 2 Breakfast, and the two Unit 3 lessons. It also verifies that the mobile menu uses compact collapsible SM2/SM3 sections and that SM3 lesson controls use `data-lesson-action` instead of the shared nav `data-action` attribute.
 
 ## Build Script Testing
 
@@ -77,7 +77,7 @@ Open http://localhost:8000 in the browser.
 
 - [ ] `http://localhost:8000/` loads
 - [ ] SM2 course cards link to `sm2/unit7/`, `sm2/unit8/`, `sm2/unit9/`, and `sm2/review/`
-- [ ] SM3 course cards link to `sm3/unit0/`, `sm3/unit1/`, and `sm3/unit2/`
+- [ ] SM3 course cards link to `sm3/unit0/`, `sm3/unit1/`, `sm3/unit2/`, and both Unit 3 lessons
 - [ ] Baseball entry links to `sm2/baseball/`
 
 ### Super Minds 2
@@ -167,6 +167,12 @@ Open http://localhost:8000 in the browser.
 - [ ] Vocabulary pronunciation and Helping Hands answers work
 - [ ] Todo progress uses `sm3Unit3RoutinesTodos`
 - [ ] Lesson controls use `data-lesson-action` and do not conflict with mobile nav `data-action`
+- [ ] `http://localhost:8000/sm3/unit3/saving-water.html` loads
+- [ ] Saving-water vocabulary pronunciation works
+- [ ] Water-reading translations and comprehension options work, including changing a selected answer
+- [ ] `less`, `fewer`, `more`, `because`, and `have to` practice reveals answers
+- [ ] Revealable answers expose their pressed state and update it when toggled
+- [ ] Todo progress uses `sm3Unit3SavingWaterTodos`
 - [ ] `http://localhost:8000/sm3/unit2/breakfast-foods-simple-present.html` loads
 - [ ] Breakfast vocabulary pronunciation works
 - [ ] Pizza dialogue translations toggle

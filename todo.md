@@ -8,6 +8,13 @@
 - [x] Added frequency adverbs, routine and story readings, time expressions, grammar practice, and todo tracking.
 - [x] Updated homepage, shared navigation, documentation, and SM3 regression coverage.
 
+### SM3 Unit 3 Saving Water Lesson From PDF ✅
+
+- [x] Created `sm3/unit3/saving-water.html` from the new Saving Water PDF.
+- [x] Added water-saving vocabulary, comparison grammar, `because`, `have to`, and present continuous negative practice.
+- [x] Added the "Let's Save Water!" reading, translations, comprehension questions, action test, worksheet review, and todo tracking.
+- [x] Updated homepage, shared navigation, documentation, and SM3 regression coverage.
+
 ### SM3 Unit 2 Lesson From PDF ✅
 
 - [x] Created `sm3/unit2/there-is-there-are-picnic.html`.

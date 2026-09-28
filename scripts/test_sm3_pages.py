@@ -14,6 +14,7 @@ SM3_U1_STORY = ROOT / 'sm3' / 'unit1' / 'story-part.html'
 SM3_U2 = ROOT / 'sm3' / 'unit2' / 'there-is-there-are-picnic.html'
 SM3_U2_BREAKFAST = ROOT / 'sm3' / 'unit2' / 'breakfast-foods-simple-present.html'
 SM3_U3_ROUTINES = ROOT / 'sm3' / 'unit3' / 'daily-routines-frequency-adverbs.html'
+SM3_U3_WATER = ROOT / 'sm3' / 'unit3' / 'saving-water.html'
 
 # SM2 sample pages for cross-ref checks
 SM2_U7_COURSE = ROOT / 'sm2' / 'unit7' / 'present-continuous-course.html'
@@ -83,6 +84,7 @@ class TestFolderStructure(unittest.TestCase):
         self.assertTrue(SM3_U2.exists())
         self.assertTrue(SM3_U2_BREAKFAST.exists())
         self.assertTrue(SM3_U3_ROUTINES.exists())
+        self.assertTrue(SM3_U3_WATER.exists())
 
 
 # ============================================================
@@ -573,6 +575,16 @@ class TestSM3Unit3RoutinesStructure(unittest.TestCase):
         self.assertIn('.comp-a { display: none; }', self.html)
         self.assertIn('.comp-a.show { display: block; }', self.html)
 
+    def test_quiz_feedback_matches_selected_answer(self):
+        self.assertEqual(self.html.count('class="quiz-feedback" aria-live="polite"'), 10)
+        self.assertEqual(len(re.findall(
+            r'data-lesson-action="show-quiz-answer"[^>]*aria-pressed="false"',
+            self.html,
+        )), 20)
+        self.assertIn("selectQuizAnswer(trigger, trigger.dataset.correct === 'true')", self.html)
+        js = read(COMMON_JS)
+        self.assertIn("feedback.textContent = isCorrect ? 'Correct! ' : 'Not quite. ';", js)
+
     def test_baseball_unit7_nav_includes_unit3_at_both_pages(self):
         js = read(COMMON_JS)
         course = re.search(r"'baseball-unit7-course': \{.*?\n        \},\n        'baseball-unit7-homework'", js, re.DOTALL)
@@ -588,6 +600,142 @@ class TestSM3Unit3RoutinesStructure(unittest.TestCase):
         self.assertIn('group-focus-within:grid', js)
         self.assertIn('group-focus-within:block', js)
         self.assertIn('aria-haspopup="true"', js)
+
+
+class TestSM3Unit3SavingWaterStructure(unittest.TestCase):
+    """Test the PDF-derived SM3 Unit 3 saving-water lesson."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.html = read(SM3_U3_WATER)
+
+    def test_document_and_shared_assets(self):
+        self.assertTrue(self.html.startswith('<!DOCTYPE html>'))
+        for text in ['Super Minds 3 Unit 3', 'Saving Water', '../../favicon.svg', '../../ga.js',
+                     '../../css/common.css', '../../css/baseball-theme.css',
+                     '../../js/common.js']:
+            with self.subTest(text=text):
+                self.assertIn(text, self.html)
+
+    def test_nav_and_safe_lesson_actions(self):
+        self.assertIn("active:'sm3-unit3-saving-water'", self.html)
+        self.assertIn("brandIcon: 'fa-tint'", self.html)
+        self.assertIn('id="site-nav"', self.html)
+        self.assertNotIn('data-action=', self.html)
+        self.assertIn('data-lesson-action="toggle-translation"', self.html)
+        self.assertRegex(self.html, r"(?s)addEventListener\('click'.*?closest\('\[data-lesson-action\]'")
+        self.assertRegex(self.html, r"(?s)addEventListener\('keydown'.*?closest\('\[data-lesson-action\]'")
+
+    def test_pdf_derived_content(self):
+        for text in [
+            'a lot of', 'on the Earth', 'have much water', 'waste water', 'are not using',
+            'because', 'mean / means', 'less', 'fewer', 'more', 'have to', 'save water',
+            'dirty', 'rain', 'Turn the tap off', 'Brush your teeth', 'Have a shower',
+            'Have a bath', 'Use a bucket of water', 'Wash your bike', 'Put a cup under a dripping tap',
+            'wait for', 'measure', 'Wasted water', "Let's Save Water!", 'hose-pipe',
+            'there are more people who need water', 'sm3Unit3SavingWaterTodos',
+        ]:
+            with self.subTest(text=text):
+                self.assertIn(text, self.html)
+
+    def test_pdf_worksheet_has_all_25_prompts(self):
+        english = [
+            'Turn the tap off', 'Brush your teeth', 'Have a shower', 'Have a bath',
+            'Use a bucket of water', 'Wash your bike', 'Tap',
+            'Put a cup under a dripping tap', 'Wait for', 'Measure', 'Wasted water',
+            'Dripping tap', 'Save water', 'Waste water', 'A lot of', 'On the earth',
+            'Have much water', 'Are not using', 'Because', 'Mean / Means',
+            'Less / Fewer / More', 'Have to', 'Dirty', 'Rain', 'Drip',
+        ]
+        chinese = [
+            '关掉水龙头', '刷牙', '洗淋浴', '洗盆浴', '用一桶水', '洗自行车',
+            '水龙头（英式）', '在滴水的水龙头下放个杯子', '等待', '测量',
+            '浪费掉的水；废水', '滴水的水龙头', '节约用水', '浪费水',
+            '许多，大量', '在地球上', '有许多水', '没有在使用', '因为', '意味着',
+            '更少（不可数）/ 更少（可数）/ 更多', '必须，不得不', '脏的',
+            '下雨；雨', '滴水',
+        ]
+        for worksheet, prompts in [
+            ('english-to-chinese', english),
+            ('chinese-to-english', chinese),
+        ]:
+            match = re.search(
+                rf'<div[^>]*data-worksheet="{worksheet}"[^>]*>(.*?)</div>',
+                self.html,
+                re.DOTALL,
+            )
+            self.assertIsNotNone(match, worksheet)
+            content = match.group(1)
+            self.assertEqual(len(re.findall(r'<p>\d+\.', content)), 25)
+            for prompt in prompts:
+                with self.subTest(worksheet=worksheet, prompt=prompt):
+                    self.assertIn(prompt, content)
+        self.assertIn('data-answer="are not using"', self.html)
+
+    def test_todo_controls_expose_pressed_state(self):
+        self.assertEqual(
+            len(re.findall(
+                r'data-lesson-action="toggle-todo"[^>]*aria-pressed="false"',
+                self.html,
+            )),
+            5,
+        )
+        js = read(COMMON_JS)
+        self.assertIn("setAttribute('aria-pressed'", js)
+
+    def test_todo_restore_matches_saved_ids_without_building_selectors(self):
+        self.assertIn("Array.from(document.querySelectorAll('[data-todo]')).find", self.html)
+        self.assertIn("candidate.getAttribute('data-todo') === id", self.html)
+        self.assertNotIn("document.querySelector('[data-todo=\"' + id + '\"]')", self.html)
+        self.assertIn("updateTodoProgress('sm3Unit3SavingWaterTodos')", self.html)
+
+    def test_revealable_answers_expose_pressed_state(self):
+        self.assertIn(
+            'querySelectorAll(\'[data-lesson-action="reveal-answer"]\')',
+            self.html,
+        )
+        js = read(COMMON_JS)
+        self.assertIn("element.setAttribute('aria-pressed', 'true')", js)
+        self.assertIn("element.setAttribute('aria-pressed', 'false')", js)
+
+    def test_quiz_answer_uses_single_selection(self):
+        self.assertEqual(
+            len(re.findall(
+                r'data-lesson-action="show-quiz-answer"[^>]*aria-pressed="false"',
+                self.html,
+            )),
+            12,
+        )
+        self.assertIn("selectQuizAnswer(trigger, trigger.dataset.correct === 'true')", self.html)
+        js = read(COMMON_JS)
+        self.assertIn("lesson.querySelectorAll('.reading-card')", js)
+        self.assertIn("option.classList.remove('correct', 'wrong')", js)
+        self.assertIn("option.setAttribute('aria-pressed', 'false')", js)
+        self.assertIn("element.classList.add(isCorrect ? 'correct' : 'wrong')", js)
+        self.assertIn("card.classList.add('revealed')", js)
+        self.assertIn("feedback.textContent = isCorrect ? 'Correct! ' : 'Not quite. ';", js)
+
+    def test_interactive_reading_and_quiz_content(self):
+        self.assertIn('aria-controls="water-translation-1"', self.html)
+        self.assertIn('aria-controls="water-translation-2"', self.html)
+        self.assertIn('aria-controls="water-translation-3"', self.html)
+        self.assertIn('quiz-answer-box', self.html)
+        self.assertIn('data-correct="true"', self.html)
+        self.assertIn('data-lesson-action="reveal-answer"', self.html)
+
+    def test_quiz_feedback_matches_selected_answer(self):
+        self.assertEqual(self.html.count('class="quiz-feedback" aria-live="polite"'), 4)
+        js = read(COMMON_JS)
+        self.assertIn("feedback.textContent = isCorrect ? 'Correct! ' : 'Not quite. ';", js)
+
+    def test_speaker_icons_are_hidden_from_screen_readers(self):
+        speakers = re.findall(r'<span class="speaker-icon"', self.html)
+        aria_hidden = re.findall(r'<span class="speaker-icon" aria-hidden="true"', self.html)
+        self.assertEqual(len(speakers), len(aria_hidden))
+
+    def test_section_tags_balanced(self):
+        self.assertEqual(len(re.findall(r'<section[\s>]', self.html)),
+                         len(re.findall(r'</section>', self.html)))
 
 
 class TestSM3Unit1Cloze(unittest.TestCase):
@@ -755,7 +903,8 @@ class TestAssetPathsDepth(unittest.TestCase):
 
     def test_sm3_pages_depth2(self):
         """SM3 pages are at depth 2, use ../../ for root."""
-        for p in [SM3_U0, SM3_U1, SM3_U1_STORY, SM3_U2, SM3_U2_BREAKFAST]:
+        for p in [SM3_U0, SM3_U1, SM3_U1_STORY, SM3_U2, SM3_U2_BREAKFAST,
+                  SM3_U3_ROUTINES, SM3_U3_WATER]:
             html = read(p)
             with self.subTest(file=p.name):
                 self.assertIn('../../favicon.svg', html)
@@ -811,6 +960,8 @@ class TestIndexPage(unittest.TestCase):
         self.assertIn('sm3/unit1/story-part.html', self.html)
         self.assertIn('sm3/unit2/there-is-there-are-picnic.html', self.html)
         self.assertIn('sm3/unit2/breakfast-foods-simple-present.html', self.html)
+        self.assertIn('sm3/unit3/daily-routines-frequency-adverbs.html', self.html)
+        self.assertIn('sm3/unit3/saving-water.html', self.html)
 
     def test_sm2_card_order(self):
         """SM2 cards should appear before SM3 cards."""
