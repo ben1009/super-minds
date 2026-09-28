@@ -81,6 +81,7 @@ Super Minds 是一个面向儿童的互动式英语学习网站，涵盖 Super M
 | `sm3/unit2/there-is-there-are-picnic.html` | SM3 Unit 2 picnic / food / `There is` / `There are`，基于新增 PDF |
 | `sm3/unit2/breakfast-foods-simple-present.html` | SM3 Unit 2 breakfast foods / pizza ordering / simple present，基于新增 PDF |
 | `sm3/unit3/daily-routines-frequency-adverbs.html` | SM3 Unit 3 frequency adverbs / daily routines / Helping Hands，基于新增 PDF |
+| `sm3/unit3/saving-water.html` | SM3 Unit 3 节水词汇、比较级与阅读，基于新增 PDF |
 
 ## Shared Architecture
 
@@ -164,6 +165,21 @@ Required content:
 - Page 38 story vocabulary and `Our Daily Search` reading with a cloze exercise.
 - Frequency-adverb grammar practice and a Helping Hands story preview.
 - Todo list using localStorage key `sm3Unit3RoutinesTodos`.
+
+Implementation rule:
+
+- Lesson controls on this page use `data-lesson-action`.
+- Do not use `data-action` for lesson controls because `data-action` is used by shared mobile navigation.
+
+`sm3/unit3/saving-water.html` was generated from the Unit 3 Saving Water PDF.
+
+Required content:
+
+- Water-saving vocabulary and action phrases from the PDF.
+- `because`, `a lot of`, `There are ... who ...`, `much` / `many`, `mean` / `means`, and `less` / `fewer` / `more` grammar notes.
+- Present continuous negative `are not using`, `have to`, and `don't have to` practice.
+- "Let's Save Water!" reading with translations, comprehension questions, dripping-tap test, and vocabulary worksheet.
+- Todo list using localStorage key `sm3Unit3SavingWaterTodos`.
 
 Implementation rule:
 

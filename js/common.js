@@ -69,7 +69,7 @@ function toggleQuizAnswer(container, answerSelector = '.quiz-answer', iconSelect
 
 /**
  * Show / hide quiz answer with correct/wrong highlighting
- * Relies on data-correct attribute set by deinlineOnclick()
+ * Uses the data-correct attribute on each quiz option
  * @param {HTMLElement} element - The clicked quiz option
  * @param {boolean} isCorrect - Whether the clicked option is correct
  */
@@ -80,32 +80,63 @@ if (typeof showQuizAnswer !== 'function') {
         const revealed = card.classList.contains('revealed');
 
         if (revealed) {
-            // Hide answer
             card.classList.remove('revealed');
             card.querySelectorAll('.quiz-option').forEach(function(opt) {
                 opt.classList.remove('correct', 'wrong');
+                opt.setAttribute('aria-pressed', 'false');
             });
             const box = card.querySelector('.quiz-answer-box');
             if (box) box.classList.remove('show');
         } else {
-            // Show answer — highlight correct option(s)
             card.classList.add('revealed');
             card.querySelectorAll('.quiz-option').forEach(function(opt) {
                 if (opt.dataset.correct === 'true') {
                     opt.classList.add('correct');
                 }
             });
-
-            // If user clicked a wrong answer, mark it red
+            element.setAttribute('aria-pressed', 'true');
             if (!isCorrect) {
                 element.classList.remove('correct');
                 element.classList.add('wrong');
             }
 
             const box = card.querySelector('.quiz-answer-box');
-            if (box) box.classList.add('show');
+            if (box) {
+                const feedback = box.querySelector('.quiz-feedback');
+                if (feedback) feedback.textContent = isCorrect ? 'Correct! ' : 'Not quite. ';
+                box.classList.add('show');
+            }
         }
     };
+}
+
+/** Select one quiz choice at a time within a lesson page. */
+function selectQuizAnswer(element, isCorrect) {
+    const card = element.closest('.reading-card');
+    if (!card) return;
+    const lesson = card.closest('main') || card;
+    const wasSelected = element.getAttribute('aria-pressed') === 'true';
+
+    lesson.querySelectorAll('.reading-card').forEach(function(quizCard) {
+        quizCard.classList.remove('revealed');
+        quizCard.querySelectorAll('.quiz-option').forEach(function(option) {
+            option.classList.remove('correct', 'wrong');
+            option.setAttribute('aria-pressed', 'false');
+        });
+        const answerBox = quizCard.querySelector('.quiz-answer-box');
+        if (answerBox) answerBox.classList.remove('show');
+    });
+
+    if (wasSelected) return;
+    card.classList.add('revealed');
+    element.classList.add(isCorrect ? 'correct' : 'wrong');
+    element.setAttribute('aria-pressed', 'true');
+    const box = card.querySelector('.quiz-answer-box');
+    if (box) {
+        const feedback = box.querySelector('.quiz-feedback');
+        if (feedback) feedback.textContent = isCorrect ? 'Correct! ' : 'Not quite. ';
+        box.classList.add('show');
+    }
 }
 
 /**
@@ -378,7 +409,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' },
                 { key: 'sm3-unit2', href: '../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
                 { key: 'sm3-unit2-breakfast', href: '../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
-                { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
+                { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
+                { key: 'sm3-unit3-saving-water', href: '../../sm3/unit3/saving-water.html', label: '💧 Unit 3 Saving Water' }
             ]
         },
 
@@ -430,7 +462,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' },
                 { key: 'sm3-unit2', href: '../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
                 { key: 'sm3-unit2-breakfast', href: '../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
-                { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
+                { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
+                { key: 'sm3-unit3-saving-water', href: '../../sm3/unit3/saving-water.html', label: '💧 Unit 3 Saving Water' }
             ]
         },
 
@@ -482,7 +515,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' },
                 { key: 'sm3-unit2', href: '../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
                 { key: 'sm3-unit2-breakfast', href: '../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
-                { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
+                { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
+                { key: 'sm3-unit3-saving-water', href: '../../sm3/unit3/saving-water.html', label: '💧 Unit 3 Saving Water' }
             ]
         },
 
@@ -534,7 +568,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit1-story', href: '../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' },
                 { key: 'sm3-unit2', href: '../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
                 { key: 'sm3-unit2-breakfast', href: '../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
-                { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
+                { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
+                { key: 'sm3-unit3-saving-water', href: '../../sm3/unit3/saving-water.html', label: '💧 Unit 3 Saving Water' }
             ]
         },
 
@@ -583,7 +618,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit1-story', href: '../../../sm3/unit1/story-part.html', label: '📖 Unit 1 Story' },
                 { key: 'sm3-unit2', href: '../../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
                 { key: 'sm3-unit2-breakfast', href: '../../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
-                { key: 'sm3-unit3-routines', href: '../../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
+                { key: 'sm3-unit3-routines', href: '../../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
+                { key: 'sm3-unit3-saving-water', href: '../../../sm3/unit3/saving-water.html', label: '💧 Unit 3 Saving Water' }
             ]
         },
 
@@ -635,7 +671,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit1-story', href: '../unit1/story-part.html', label: '📖 Unit 1 Story' },
                 { key: 'sm3-unit2', href: '../unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
                 { key: 'sm3-unit2-breakfast', href: '../unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
-                { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
+                { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
+                { key: 'sm3-unit3-saving-water', href: '../unit3/saving-water.html', label: '💧 Unit 3 Saving Water' }
             ]
         },
         review: {
@@ -686,7 +723,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit1-story', href: 'story-part.html', label: '📖 Unit 1 Story' },
                 { key: 'sm3-unit2', href: '../unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
                 { key: 'sm3-unit2-breakfast', href: '../unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
-                { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
+                { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
+                { key: 'sm3-unit3-saving-water', href: '../unit3/saving-water.html', label: '💧 Unit 3 Saving Water' }
             ]
         },
         review: {
@@ -737,7 +775,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit1-story', href: '../unit1/story-part.html', label: '📖 Unit 1 Story' },
                 { key: 'sm3-unit2', href: 'there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
                 { key: 'sm3-unit2-breakfast', href: 'breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
-                { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
+                { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
+                { key: 'sm3-unit3-saving-water', href: '../unit3/saving-water.html', label: '💧 Unit 3 Saving Water' }
             ]
         },
         review: {
@@ -767,7 +806,8 @@ const NAV_LINKS = {
                 { href: '../../../sm3/unit1/story-part.html', label: '📖 SM3 Unit 1 Story' },
                 { href: '../../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 SM3 Unit 2 There be' },
                 { href: '../../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 SM3 Unit 2 Breakfast' },
-                { href: '../../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ SM3 Unit 3 Routines' }
+                { href: '../../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ SM3 Unit 3 Routines' },
+                { href: '../../../sm3/unit3/saving-water.html', label: '💧 SM3 Unit 3 Saving Water' }
             ],
             activeLabel: '⚾ Unit 7',
             separators: [0, 1, 2, 3, 4, 5, 8]
@@ -787,7 +827,8 @@ const NAV_LINKS = {
                 { href: '../../../sm3/unit1/story-part.html', label: '📖 SM3 Unit 1 Story' },
                 { href: '../../../sm3/unit2/there-is-there-are-picnic.html', label: '🧺 SM3 Unit 2 There be' },
                 { href: '../../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 SM3 Unit 2 Breakfast' },
-                { href: '../../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ SM3 Unit 3 Routines' }
+                { href: '../../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ SM3 Unit 3 Routines' },
+                { href: '../../../sm3/unit3/saving-water.html', label: '💧 SM3 Unit 3 Saving Water' }
             ],
             activeLabel: '📚 课后作业',
             separators: [0, 1, 2, 3, 4, 5, 8]
@@ -805,7 +846,8 @@ NAV_LINKS.B_sm3_unit3 = {
             { key: 'sm3-unit1-story', href: '../unit1/story-part.html', label: '📖 Unit 1 Story' },
             { key: 'sm3-unit2', href: '../unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 There be' },
             { key: 'sm3-unit2-breakfast', href: '../unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
-            { key: 'sm3-unit3-routines', href: 'daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' }
+            { key: 'sm3-unit3-routines', href: 'daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
+            { key: 'sm3-unit3-saving-water', href: 'saving-water.html', label: '💧 Unit 3 Saving Water' }
         ]
     }
 };
@@ -1139,9 +1181,11 @@ window.revealAnswer = function(element) {
     if (element.classList.contains('revealed')) {
         element.classList.remove('revealed');
         element.textContent = element.getAttribute('data-placeholder') || '_____';
+        element.setAttribute('aria-pressed', 'false');
     } else {
         element.classList.add('revealed');
         element.textContent = element.getAttribute('data-answer');
+        element.setAttribute('aria-pressed', 'true');
     }
 };
 
@@ -1250,7 +1294,8 @@ if (typeof updateTodoProgress !== 'function') {
  */
 if (typeof toggleTodoItem !== 'function') {
     window.toggleTodoItem = function(item, storageKey) {
-        item.classList.toggle('completed');
+        const completed = item.classList.toggle('completed');
+        item.setAttribute('aria-pressed', completed ? 'true' : 'false');
         updateTodoProgress(storageKey);
     };
 }
@@ -1264,6 +1309,7 @@ if (typeof resetTodoItems !== 'function') {
         if (!confirm('确定要重置所有任务吗？Are you sure you want to reset all tasks?')) return;
         document.querySelectorAll('.todo-item').forEach(function(item) {
             item.classList.remove('completed');
+            item.setAttribute('aria-pressed', 'false');
         });
         updateTodoProgress(storageKey);
         if (storageKey) {
