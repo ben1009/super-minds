@@ -393,29 +393,29 @@ jobs:
 
             const cards = page.locator('.reading-card');
             await expect(cards).toHaveCount(4);
-          for (let index = 0; index < 4; index++) {
-            const quizCard = cards.nth(index);
-            const option = quizCard.locator('.quiz-option').first();
-            await option.click();
-            await expect(quizCard.locator('.quiz-answer-box')).toHaveClass(/show/);
-            await expect(page.locator('.quiz-answer-box.show')).toHaveCount(1);
-          }
-        });
-
-        test('malformed saved todo keys do not stop valid progress restoration', async ({ page }) => {
-          const pageErrors = [];
-          page.on('pageerror', error => pageErrors.push(error.message));
-          await page.addInitScript(() => {
-            localStorage.setItem('sm3Unit3SavingWaterTodos', JSON.stringify({ '"': true, '2': true, '999': true }));
+            for (let index = 0; index < 4; index++) {
+              const quizCard = cards.nth(index);
+              const option = quizCard.locator('.quiz-option').first();
+              await option.click();
+              await expect(quizCard.locator('.quiz-answer-box')).toHaveClass(/show/);
+              await expect(page.locator('.quiz-answer-box.show')).toHaveCount(1);
+            }
           });
-          await page.goto('http://localhost:8000/sm3/unit3/saving-water.html');
 
-          const savedTodo = page.locator('[data-lesson-action="toggle-todo"][data-todo="2"]');
-          await expect(savedTodo).toHaveClass(/completed/);
-          await expect.poll(() => page.locator('#progressBar').evaluate(element => element.style.width)).toBe('20%');
-          expect(pageErrors).toHaveLength(0);
+          test('malformed saved todo keys do not stop valid progress restoration', async ({ page }) => {
+            const pageErrors = [];
+            page.on('pageerror', error => pageErrors.push(error.message));
+            await page.addInitScript(() => {
+              localStorage.setItem('sm3Unit3SavingWaterTodos', JSON.stringify({ '"': true, '2': true, '999': true }));
+            });
+            await page.goto('http://localhost:8000/sm3/unit3/saving-water.html');
+
+            const savedTodo = page.locator('[data-lesson-action="toggle-todo"][data-todo="2"]');
+            await expect(savedTodo).toHaveClass(/completed/);
+            await expect.poll(() => page.locator('#progressBar').evaluate(element => element.style.width)).toBe('20%');
+            expect(pageErrors).toHaveLength(0);
+          });
         });
-      });
 
         test('SM3 Daily Routines clears a previous choice in another section', async ({ page }) => {
           await page.goto('http://localhost:8000/sm3/unit3/daily-routines-frequency-adverbs.html');
