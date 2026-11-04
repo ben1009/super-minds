@@ -47,7 +47,8 @@ Super Minds 是一个面向儿童的互动式英语学习网站，涵盖 Super M
 │   ├── unit0/
 │   ├── unit1/
 │   ├── unit2/
-│   └── unit3/
+│   ├── unit3/
+│   └── unit5/
 ├── README.md
 ├── TESTING.md
 ├── todo.md
@@ -58,7 +59,7 @@ Super Minds 是一个面向儿童的互动式英语学习网站，涵盖 Super M
 
 | File | Description |
 |------|-------------|
-| `index.html` | 主页，展示 SM2、SM3、复习和棒球版入口 |
+| `index.html` | 主页，按 SM2/SM3 和单元分组展示课程，保留复习和棒球版入口 |
 | `sm2/unit7/present-continuous-course.html` | SM2 Unit 7 现在进行时课程 |
 | `sm2/unit7/present-continuous-homework.html` | SM2 Unit 7 作业页面 |
 | `sm2/unit8/gerunds-ball-sports.html` | SM2 Unit 8 球类运动与动名词作主语 |
@@ -82,6 +83,7 @@ Super Minds 是一个面向儿童的互动式英语学习网站，涵盖 Super M
 | `sm3/unit2/breakfast-foods-simple-present.html` | SM3 Unit 2 breakfast foods / pizza ordering / simple present，基于新增 PDF |
 | `sm3/unit3/daily-routines-frequency-adverbs.html` | SM3 Unit 3 frequency adverbs / daily routines / Helping Hands，基于新增 PDF |
 | `sm3/unit3/saving-water.html` | SM3 Unit 3 节水词汇、比较级与阅读，基于新增 PDF |
+| `sm3/unit5/past-was-were.html` | SM3 Unit 5 Lesson 2 was/were、there was/there were 与厨房故事，基于新增 PDF |
 
 ## Shared Architecture
 
@@ -180,6 +182,24 @@ Required content:
 - Present continuous negative `are not using`, `have to`, and `don't have to` practice.
 - "Let's Save Water!" reading with translations, comprehension questions, dripping-tap test, and vocabulary worksheet.
 - Todo list using localStorage key `sm3Unit3SavingWaterTodos`.
+
+Implementation rule:
+
+- Lesson controls on this page use `data-lesson-action`.
+- Do not use `data-action` for lesson controls because `data-action` is used by shared mobile navigation.
+
+## SM3 Unit 5 Lesson 2 Notes
+
+`sm3/unit5/past-was-were.html` is based on `Superminds 3 Unit 5-2.pdf`.
+
+Required content:
+
+- Past forms of `am / is / are`, with subject-to-form mapping and the `you` reminder.
+- `There was / There were`, affirmative, negative, and question forms.
+- Past time expressions, including `yesterday`, `last night`, `ago`, and `just now`.
+- Fill-in, negative, question, and Chinese-to-English practice.
+- `The Kitchen Mess Last Night` reading with translations, comprehension feedback, and a story cloze.
+- Todo list using localStorage key `sm3Unit5PastWasWereTodos`.
 
 Implementation rule:
 

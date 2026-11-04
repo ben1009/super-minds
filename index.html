@@ -13,7 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/common.css">
     <style>
-        /* Page-specific styles only */
+        .course-group > summary { list-style: none; }
+        .course-group > summary::-webkit-details-marker { display: none; }
+        .course-group[open] .course-chevron { transform: rotate(180deg); }
     </style>
 </head>
 <body class="text-gray-800 min-h-screen sm-body">
@@ -32,10 +34,28 @@
         <!-- 课程单元列表 -->
         <section class="animate-fade-in">
             <h2 class="text-3xl calligraphy cinnabar mb-8 flex items-center gap-3">
-                <span class="text-4xl">📚</span> 课程单元
+                <span class="text-4xl">📚</span> 选择课程
             </h2>
+            <p class="text-gray-600 mb-6">先选择教材，再打开对应的课程、阅读、作业或复习内容。</p>
 
-            <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+                <details id="sm2-course-list" class="course-group bg-white rounded-2xl border border-blue-200 shadow-md overflow-hidden">
+                    <summary class="px-5 py-5 cursor-pointer hover:bg-blue-50 transition-colors">
+                        <h3 class="flex items-center justify-between gap-4">
+                            <span class="block">
+                                <span class="block text-2xl font-bold text-blue-900">Super Minds 2 <span class="text-base font-medium text-gray-500">· SM2</span></span>
+                                <span class="block text-sm text-gray-600 mt-1">Units 7–9 与复习 · 课程、阅读、作业</span>
+                            </span>
+                            <span class="flex items-center gap-3 shrink-0">
+                                <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-bold">12 项</span>
+                                <span class="course-chevron text-2xl text-blue-800 transition-transform" aria-hidden="true">⌄</span>
+                            </span>
+                        </h3>
+                    </summary>
+                    <div class="grid md:grid-cols-2 gap-6 px-5 pb-6">
+                <h4 id="sm2-unit-7-heading" class="md:col-span-2 flex items-center justify-between border-b border-blue-100 pb-2 text-lg font-bold text-blue-900">
+                    <span>Unit 7</span><span class="text-xs font-medium text-gray-500">2 项</span>
+                </h4>
                 <!-- SM2 · Unit 7 Course -->
                 <a href="sm2/unit7/present-continuous-course.html" class="block">
                     <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 card-hover">
@@ -45,7 +65,7 @@
                             </div>
                             <span class="text-3xl">🚌</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">现在进行时</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">现在进行时</h5>
                         <p class="text-gray-600 mb-4">Present Continuous · The Bus Trip</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">语法</span>
@@ -64,7 +84,7 @@
                             </div>
                             <span class="text-3xl">✏️</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Unit 7 作业</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">Unit 7 作业</h5>
                         <p class="text-gray-600 mb-4">Homework · 句型转换与造句练习</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs">句型转换</span>
@@ -74,6 +94,9 @@
                     </div>
                 </a>
 
+                <h4 id="sm2-unit-8-heading" class="md:col-span-2 flex items-center justify-between border-b border-blue-100 pb-2 text-lg font-bold text-blue-900">
+                    <span>Unit 8</span><span class="text-xs font-medium text-gray-500">4 项</span>
+                </h4>
                 <!-- SM2 · Unit 8 Sports -->
                 <a href="sm2/unit8/gerunds-ball-sports.html" class="block">
                     <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 card-hover">
@@ -83,7 +106,7 @@
                             </div>
                             <span class="text-3xl">⚾</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">动名词作主语</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">动名词作主语</h5>
                         <p class="text-gray-600 mb-4">Gerunds as Subjects · Ball Sports</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs">语法</span>
@@ -102,7 +125,7 @@
                             </div>
                             <span class="text-3xl">🚌</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">神奇的交通工具</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">神奇的交通工具</h5>
                         <p class="text-gray-600 mb-4">Amazing Vehicles · Reading</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">词汇</span>
@@ -121,7 +144,7 @@
                             </div>
                             <span class="text-3xl">📚</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Fun Things We Do</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">Fun Things We Do</h5>
                         <p class="text-gray-600 mb-4">Reading · Hobbies</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">阅读</span>
@@ -140,7 +163,7 @@
                             </div>
                             <span class="text-3xl">✏️</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Unit 8 语法作业</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">Unit 8 语法作业</h5>
                         <p class="text-gray-600 mb-4">Grammar Homework · 疑问词练习</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs">语法</span>
@@ -150,6 +173,9 @@
                     </div>
                 </a>
 
+                <h4 id="sm2-unit-9-heading" class="md:col-span-2 flex items-center justify-between border-b border-blue-100 pb-2 text-lg font-bold text-blue-900">
+                    <span>Unit 9</span><span class="text-xs font-medium text-gray-500">2 项</span>
+                </h4>
                 <!-- SM2 · Unit 9 Grammar -->
                 <a href="sm2/unit9/holiday-plans-grammar-review.html" class="block">
                     <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 card-hover">
@@ -159,7 +185,7 @@
                             </div>
                             <span class="text-3xl">🌴</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">假期计划语法</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">假期计划语法</h5>
                         <p class="text-gray-600 mb-4">Holiday Plans · Grammar Review</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-xs">语法</span>
@@ -178,7 +204,7 @@
                             </div>
                             <span class="text-3xl">🏰</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">童话故事</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">童话故事</h5>
                         <p class="text-gray-600 mb-4">Fairy Tales · Reading</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">阅读</span>
@@ -188,6 +214,9 @@
                     </div>
                 </a>
 
+                <h4 id="sm2-review-units-1-3-heading" class="md:col-span-2 flex items-center justify-between border-b border-blue-100 pb-2 text-lg font-bold text-blue-900">
+                    <span>复习 · Units 1–3</span><span class="text-xs font-medium text-gray-500">1 项</span>
+                </h4>
                 <!-- SM2 · Review 1-3 -->
                 <a href="sm2/review/review-units-1-3.html" class="block">
                     <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 card-hover">
@@ -197,7 +226,7 @@
                             </div>
                             <span class="text-3xl">📝</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Units 1-3 复习</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">Units 1-3 复习</h5>
                         <p class="text-gray-600 mb-4">Review · Grammar &amp; Reading</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-xs">语法</span>
@@ -207,6 +236,9 @@
                     </div>
                 </a>
 
+                <h4 id="sm2-review-unit-4-heading" class="md:col-span-2 flex items-center justify-between border-b border-blue-100 pb-2 text-lg font-bold text-blue-900">
+                    <span>复习 · Unit 4</span><span class="text-xs font-medium text-gray-500">1 项</span>
+                </h4>
                 <!-- SM2 · Review Unit 4 -->
                 <a href="sm2/review/review-unit-4.html" class="block">
                     <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 card-hover">
@@ -216,7 +248,7 @@
                             </div>
                             <span class="text-3xl">🍎</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Unit 4 复习</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">Unit 4 复习</h5>
                         <p class="text-gray-600 mb-4">At the Market · 市场购物</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-xs">语法</span>
@@ -226,6 +258,9 @@
                     </div>
                 </a>
 
+                <h4 id="sm2-review-unit-5-heading" class="md:col-span-2 flex items-center justify-between border-b border-blue-100 pb-2 text-lg font-bold text-blue-900">
+                    <span>复习 · Unit 5</span><span class="text-xs font-medium text-gray-500">2 项</span>
+                </h4>
                 <!-- SM2 · Review Unit 5 -->
                 <a href="sm2/review/review-unit-5.html" class="block">
                     <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 card-hover">
@@ -235,7 +270,7 @@
                             </div>
                             <span class="text-3xl">🛏️</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Unit 5 复习</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">Unit 5 复习</h5>
                         <p class="text-gray-600 mb-4">In the Bedroom · 在卧室里</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-xs">语法</span>
@@ -254,7 +289,7 @@
                             </div>
                             <span class="text-3xl">❓</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Unit 5 第二讲</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">Unit 5 第二讲</h5>
                         <p class="text-gray-600 mb-4">特殊疑问句 · Recycling</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-rose-100 text-rose-800 rounded-full text-xs">特殊疑问句</span>
@@ -264,6 +299,26 @@
                     </div>
                 </a>
 
+                    </div>
+                </details>
+
+                <details id="sm3-course-list" class="course-group bg-white rounded-2xl border border-emerald-200 shadow-md overflow-hidden">
+                    <summary class="px-5 py-5 cursor-pointer hover:bg-emerald-50 transition-colors">
+                        <h3 class="flex items-center justify-between gap-4">
+                            <span class="block">
+                                <span class="block text-2xl font-bold text-emerald-900">Super Minds 3 <span class="text-base font-medium text-gray-500">· SM3</span></span>
+                                <span class="block text-sm text-gray-600 mt-1">Units 0–5 · Grammar, stories, and practice</span>
+                            </span>
+                            <span class="flex items-center gap-3 shrink-0">
+                                <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-sm font-bold">8 项</span>
+                                <span class="course-chevron text-2xl text-emerald-800 transition-transform" aria-hidden="true">⌄</span>
+                            </span>
+                        </h3>
+                    </summary>
+                    <div class="grid md:grid-cols-2 gap-6 px-5 pb-6">
+                <h4 id="sm3-unit-0-heading" class="md:col-span-2 flex items-center justify-between border-b border-emerald-100 pb-2 text-lg font-bold text-emerald-900">
+                    <span>Unit 0</span><span class="text-xs font-medium text-gray-500">1 项</span>
+                </h4>
                 <!-- SM3 · Unit 0 -->
                 <a href="sm3/unit0/explorers-be-good-at.html" class="block">
                     <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 card-hover">
@@ -273,7 +328,7 @@
                             </div>
                             <span class="text-3xl">🧭</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">探险家 · The Explorers</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">探险家 · The Explorers</h5>
                         <p class="text-gray-600 mb-4">be good at · 语法练习</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs">词汇</span>
@@ -283,6 +338,9 @@
                     </div>
                 </a>
 
+                <h4 id="sm3-unit-1-heading" class="md:col-span-2 flex items-center justify-between border-b border-emerald-100 pb-2 text-lg font-bold text-emerald-900">
+                    <span>Unit 1</span><span class="text-xs font-medium text-gray-500">2 项</span>
+                </h4>
                 <!-- SM3 · Unit 1 -->
                 <a href="sm3/unit1/school-subjects-like-doing.html" class="block">
                     <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 card-hover">
@@ -292,7 +350,7 @@
                             </div>
                             <span class="text-3xl">📚</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">学科 · School Subjects</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">学科 · School Subjects</h5>
                         <p class="text-gray-600 mb-4">like / love / hate + doing</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">词汇</span>
@@ -311,7 +369,7 @@
                             </div>
                             <span class="text-3xl">📖</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">故事重点 · Story Part</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">故事重点 · Story Part</h5>
                         <p class="text-gray-600 mb-4">when 从句 · 短语 · 汉译英</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">故事</span>
@@ -321,6 +379,9 @@
                     </div>
                 </a>
 
+                <h4 id="sm3-unit-2-heading" class="md:col-span-2 flex items-center justify-between border-b border-emerald-100 pb-2 text-lg font-bold text-emerald-900">
+                    <span>Unit 2</span><span class="text-xs font-medium text-gray-500">2 项</span>
+                </h4>
                 <!-- SM3 · Unit 2 -->
                 <a href="sm3/unit2/there-is-there-are-picnic.html" class="block">
                     <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 card-hover">
@@ -330,7 +391,7 @@
                             </div>
                             <span class="text-3xl">🧺</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">野餐与食物 · There be</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">野餐与食物 · There be</h5>
                         <p class="text-gray-600 mb-4">There is / There are · Picnic Song</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-xs">语法</span>
@@ -349,7 +410,7 @@
                             </div>
                             <span class="text-3xl">🍳</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">早餐与家务 · Simple Present</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">早餐与家务 · Simple Present</h5>
                         <p class="text-gray-600 mb-4">Breakfast foods · Pizza order · Chores reading</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs">词汇</span>
@@ -359,6 +420,9 @@
                     </div>
                 </a>
 
+                <h4 id="sm3-unit-3-heading" class="md:col-span-2 flex items-center justify-between border-b border-emerald-100 pb-2 text-lg font-bold text-emerald-900">
+                    <span>Unit 3</span><span class="text-xs font-medium text-gray-500">2 项</span>
+                </h4>
                 <!-- SM3 · Unit 3 -->
                 <a href="sm3/unit3/daily-routines-frequency-adverbs.html" class="block">
                     <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 card-hover">
@@ -366,7 +430,7 @@
                             <div class="unit-badge bg-indigo-700 text-white px-4 py-2 rounded-full text-sm font-bold">SM3 · Unit 3</div>
                             <span class="text-3xl">⏰</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">日常生活与帮手 · Daily Routines</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">日常生活与帮手 · Daily Routines</h5>
                         <p class="text-gray-600 mb-4">Frequency adverbs · Telling the time · Helping Hands</p>
                         <div class="flex flex-wrap gap-2"><span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">频率副词</span><span class="px-3 py-1 bg-violet-100 text-violet-800 rounded-full text-xs">时间表达</span><span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs">故事阅读</span></div>
                     </div>
@@ -379,101 +443,29 @@
                             <div class="unit-badge bg-cyan-700 text-white px-4 py-2 rounded-full text-sm font-bold">SM3 · Unit 3</div>
                             <span class="text-3xl">💧</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">节约用水 · Saving Water</h3>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">节约用水 · Saving Water</h5>
                         <p class="text-gray-600 mb-4">Water vocabulary · Comparisons · Reading</p>
                         <div class="flex flex-wrap gap-2"><span class="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-xs">节水词汇</span><span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">less / fewer / more</span><span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs">阅读理解</span></div>
                     </div>
                 </a>
-            </div>
-        </section>
 
-        <!-- 快速链接 -->
-        <section class="animate-fade-in">
-            <h2 class="text-3xl calligraphy cinnabar mb-8 flex items-center gap-3">
-                <span class="text-4xl">🔗</span> 快速链接
-            </h2>
-
-            <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-200">
-                <div class="grid md:grid-cols-2 gap-4">
-                    <!-- SM2 -->
-                    <a href="sm2/unit7/present-continuous-course.html" class="flex items-center gap-4 p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white text-xl">📖</div>
-                        <div><div class="font-bold text-gray-800">SM2 · Unit 7 课程</div><div class="text-sm text-gray-600">现在进行时 · Present Continuous</div></div>
-                    </a>
-                    <a href="sm2/unit7/present-continuous-homework.html" class="flex items-center gap-4 p-4 rounded-xl bg-orange-50 hover:bg-orange-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center text-white text-xl">✏️</div>
-                        <div><div class="font-bold text-gray-800">SM2 · Unit 7 作业</div><div class="text-sm text-gray-600">句型转换 · 造句练习</div></div>
-                    </a>
-                    <a href="sm2/unit8/gerunds-ball-sports.html" class="flex items-center gap-4 p-4 rounded-xl bg-red-50 hover:bg-red-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center text-white text-xl">⚾</div>
-                        <div><div class="font-bold text-gray-800">SM2 · Unit 8 课程</div><div class="text-sm text-gray-600">动名词作主语 · Ball Sports</div></div>
-                    </a>
-                    <a href="sm2/unit8/amazing-vehicles-reading.html" class="flex items-center gap-4 p-4 rounded-xl bg-sky-50 hover:bg-sky-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-sky-500 flex items-center justify-center text-white text-xl">🚌</div>
-                        <div><div class="font-bold text-gray-800">SM2 · Unit 8 阅读</div><div class="text-sm text-gray-600">Amazing Vehicles</div></div>
-                    </a>
-                    <a href="sm2/unit8/fun-things-we-do-reading.html" class="flex items-center gap-4 p-4 rounded-xl bg-pink-50 hover:bg-pink-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-pink-500 flex items-center justify-center text-white text-xl">📚</div>
-                        <div><div class="font-bold text-gray-800">SM2 · Unit 8 阅读</div><div class="text-sm text-gray-600">Fun Things We Do</div></div>
-                    </a>
-                    <a href="sm2/unit8/question-words-grammar-homework.html" class="flex items-center gap-4 p-4 rounded-xl bg-amber-50 hover:bg-amber-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-amber-500 flex items-center justify-center text-white text-xl">📝</div>
-                        <div><div class="font-bold text-gray-800">SM2 · Unit 8 作业</div><div class="text-sm text-gray-600">语法练习 · Grammar</div></div>
-                    </a>
-                    <a href="sm2/unit9/holiday-plans-grammar-review.html" class="flex items-center gap-4 p-4 rounded-xl bg-teal-50 hover:bg-teal-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-teal-500 flex items-center justify-center text-white text-xl">🌴</div>
-                        <div><div class="font-bold text-gray-800">SM2 · Unit 9 语法</div><div class="text-sm text-gray-600">Holiday Plans</div></div>
-                    </a>
-                    <a href="sm2/unit9/fairy-tales-reading.html" class="flex items-center gap-4 p-4 rounded-xl bg-purple-50 hover:bg-purple-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center text-white text-xl">🏰</div>
-                        <div><div class="font-bold text-gray-800">SM2 · Unit 9 阅读</div><div class="text-sm text-gray-600">Fairy Tales · 童话故事</div></div>
-                    </a>
-                    <a href="sm2/review/review-units-1-3.html" class="flex items-center gap-4 p-4 rounded-xl bg-teal-50 hover:bg-teal-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-teal-500 flex items-center justify-center text-white text-xl">📝</div>
-                        <div><div class="font-bold text-gray-800">SM2 · Units 1-3 复习</div><div class="text-sm text-gray-600">Review · Grammar &amp; Reading</div></div>
-                    </a>
-                    <a href="sm2/review/review-unit-4.html" class="flex items-center gap-4 p-4 rounded-xl bg-orange-50 hover:bg-orange-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center text-white text-xl">🍎</div>
-                        <div><div class="font-bold text-gray-800">SM2 · Unit 4 复习</div><div class="text-sm text-gray-600">At the Market</div></div>
-                    </a>
-                    <a href="sm2/review/review-unit-5.html" class="flex items-center gap-4 p-4 rounded-xl bg-green-50 hover:bg-green-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white text-xl">🛏️</div>
-                        <div><div class="font-bold text-gray-800">SM2 · Unit 5 复习</div><div class="text-sm text-gray-600">In the Bedroom</div></div>
-                    </a>
-                    <a href="sm2/review/review-unit-5-lecture2.html" class="flex items-center gap-4 p-4 rounded-xl bg-rose-50 hover:bg-rose-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-rose-500 flex items-center justify-center text-white text-xl">❓</div>
-                        <div><div class="font-bold text-gray-800">SM2 · Unit 5 第二讲</div><div class="text-sm text-gray-600">特殊疑问句 · Recycling</div></div>
-                    </a>
-                    <!-- SM3 -->
-                    <a href="sm3/unit0/explorers-be-good-at.html" class="flex items-center gap-4 p-4 rounded-xl bg-amber-50 hover:bg-amber-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-amber-500 flex items-center justify-center text-white text-xl">🧭</div>
-                        <div><div class="font-bold text-gray-800">SM3 · Unit 0</div><div class="text-sm text-gray-600">The Explorers · be good at</div></div>
-                    </a>
-                    <a href="sm3/unit1/school-subjects-like-doing.html" class="flex items-center gap-4 p-4 rounded-xl bg-indigo-50 hover:bg-indigo-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xl">📚</div>
-                        <div><div class="font-bold text-gray-800">SM3 · Unit 1</div><div class="text-sm text-gray-600">School Subjects · like + doing</div></div>
-                    </a>
-                    <a href="sm3/unit1/story-part.html" class="flex items-center gap-4 p-4 rounded-xl bg-violet-50 hover:bg-violet-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-violet-500 flex items-center justify-center text-white text-xl">📖</div>
-                        <div><div class="font-bold text-gray-800">SM3 · Unit 1 Story</div><div class="text-sm text-gray-600">when 从句 · Story phrases</div></div>
-                    </a>
-                    <a href="sm3/unit2/there-is-there-are-picnic.html" class="flex items-center gap-4 p-4 rounded-xl bg-teal-50 hover:bg-teal-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-teal-600 flex items-center justify-center text-white text-xl">🧺</div>
-                        <div><div class="font-bold text-gray-800">SM3 · Unit 2</div><div class="text-sm text-gray-600">There is / There are · Picnic</div></div>
-                    </a>
-                    <a href="sm3/unit2/breakfast-foods-simple-present.html" class="flex items-center gap-4 p-4 rounded-xl bg-amber-50 hover:bg-amber-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-amber-600 flex items-center justify-center text-white text-xl">🍳</div>
-                        <div><div class="font-bold text-gray-800">SM3 · Unit 2 Breakfast</div><div class="text-sm text-gray-600">Breakfast foods · Simple Present</div></div>
-                    </a>
-                    <a href="sm3/unit3/daily-routines-frequency-adverbs.html" class="flex items-center gap-4 p-4 rounded-xl bg-indigo-50 hover:bg-indigo-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center text-white text-xl">⏰</div>
-                        <div><div class="font-bold text-gray-800">SM3 · Unit 3</div><div class="text-sm text-gray-600">Daily Routines · Frequency Adverbs</div></div>
-                    </a>
-                    <a href="sm3/unit3/saving-water.html" class="flex items-center gap-4 p-4 rounded-xl bg-cyan-50 hover:bg-cyan-100 transition-colors">
-                        <div class="w-12 h-12 rounded-full bg-cyan-600 flex items-center justify-center text-white text-xl">💧</div>
-                        <div><div class="font-bold text-gray-800">SM3 · Unit 3 Saving Water</div><div class="text-sm text-gray-600">Water vocabulary · Comparisons · Reading</div></div>
-                    </a>
-                </div>
+                <h4 id="sm3-unit-5-heading" class="md:col-span-2 flex items-center justify-between border-b border-emerald-100 pb-2 text-lg font-bold text-emerald-900">
+                    <span>Unit 5</span><span class="text-xs font-medium text-gray-500">1 项</span>
+                </h4>
+                <!-- SM3 · Unit 5 Lesson 2 -->
+                <a href="sm3/unit5/past-was-were.html" class="block">
+                    <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 card-hover">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="unit-badge bg-violet-700 text-white px-4 py-2 rounded-full text-sm font-bold">SM3 · Unit 5</div>
+                            <span class="text-3xl">🕰️</span>
+                        </div>
+                        <h5 class="text-xl font-bold text-gray-800 mb-2">过去时 · Was / Were</h5>
+                        <p class="text-gray-600 mb-4">There was / There were · The Kitchen Mess</p>
+                        <div class="flex flex-wrap gap-2"><span class="px-3 py-1 bg-violet-100 text-violet-800 rounded-full text-xs">一般过去时</span><span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">There was / were</span><span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs">故事阅读</span></div>
+                    </div>
+                </a>
+                    </div>
+                </details>
             </div>
         </section>
 

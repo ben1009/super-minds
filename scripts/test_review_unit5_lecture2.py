@@ -391,7 +391,7 @@ class TestNavigation(unittest.TestCase):
         self.assertIn('review-unit-5-lecture2', section)
 
     def test_index_card_link(self):
-        self.assertIn('href="review/review-unit-5-lecture2.html"', self.index)
+        self.assertIn('href="sm2/review/review-unit-5-lecture2.html"', self.index)
 
     def test_index_bottom_link(self):
         bottom = self.index[self.index.rfind('review-unit-5-lecture2'):]

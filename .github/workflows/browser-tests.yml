@@ -103,10 +103,37 @@ jobs:
             await expect(page).toHaveTitle(/Super Minds/);
           });
           
-          test('homepage has navigation links', async ({ page }) => {
+          test('course groups reveal their lesson links', async ({ page }) => {
             await page.goto('http://localhost:8000/');
-            const unit7Link = page.locator('a[href="sm2/unit7/present-continuous-course.html"]').first();
+            const sm2 = page.locator('#sm2-course-list');
+            const sm3 = page.locator('#sm3-course-list');
+            const unit7Link = sm2.locator('a[href="sm2/unit7/present-continuous-course.html"]');
+            const unit5Link = sm3.locator('a[href="sm3/unit5/past-was-were.html"]');
+            await expect(sm2).toHaveJSProperty('open', false);
+            await expect(sm3).toHaveJSProperty('open', false);
+            await expect(unit7Link).toBeHidden();
+            await expect(unit5Link).toBeHidden();
+            await sm2.locator('summary').click();
             await expect(unit7Link).toBeVisible();
+            await expect(sm3).toHaveJSProperty('open', false);
+            await sm3.locator('summary').click();
+            await expect(unit5Link).toBeVisible();
+            await sm2.locator('summary').click();
+            await expect(unit7Link).toBeHidden();
+            await expect(unit5Link).toBeVisible();
+          });
+
+          test('course groups support keyboard activation', async ({ page }) => {
+            await page.goto('http://localhost:8000/');
+            for (const id of ['sm2-course-list', 'sm3-course-list']) {
+              const group = page.locator('#' + id);
+              const summary = group.locator('summary');
+              await summary.focus();
+              await summary.press('Enter');
+              await expect(group).toHaveJSProperty('open', true);
+              await summary.press('Space');
+              await expect(group).toHaveJSProperty('open', false);
+            }
           });
           
           test('shared CSS is loaded', async ({ page }) => {
@@ -211,8 +238,16 @@ jobs:
         test.describe('Navigation', () => {
           test('can navigate from home to Unit 7', async ({ page }) => {
             await page.goto('http://localhost:8000/');
+            await page.locator('#sm2-course-list > summary').click();
             await page.click('a[href="sm2/unit7/present-continuous-course.html"]');
             await expect(page).toHaveURL(/unit7\/present-continuous-course\.html/);
+          });
+
+          test('can navigate from home to SM3 Unit 5', async ({ page }) => {
+            await page.goto('http://localhost:8000/');
+            await page.locator('#sm3-course-list > summary').click();
+            await page.click('a[href="sm3/unit5/past-was-were.html"]');
+            await expect(page).toHaveURL(/sm3\/unit5\/past-was-were\.html/);
           });
           
           test('can navigate from Unit 7 to Homework', async ({ page }) => {
@@ -312,6 +347,20 @@ jobs:
             await page.locator('a[href="../../unit9/holiday-plans-grammar-review.html"]').first().click();
             await expect(page).toHaveURL(/unit9\/holiday-plans-grammar-review\.html/);
           });
+        });
+
+        // ============================================
+        // SM3 Unit 5 Tests
+        // ============================================
+        test('SM3 Unit 5 header fits the mobile viewport', async ({ page }) => {
+          await page.setViewportSize({ width: 375, height: 667 });
+          await page.goto('http://localhost:8000/sm3/unit5/past-was-were.html');
+          const headerCard = page.locator('header .stitch-border');
+          const bounds = await headerCard.boundingBox();
+          expect(bounds).not.toBeNull();
+          expect(bounds.x).toBeGreaterThanOrEqual(0);
+          expect(bounds.x + bounds.width).toBeLessThanOrEqual(page.viewportSize().width);
+          expect(await headerCard.evaluate(element => element.scrollWidth <= element.clientWidth)).toBeTruthy();
         });
 
         // ============================================
@@ -440,21 +489,28 @@ jobs:
         // ============================================
         test.describe('Responsive Design', () => {
           test('page adapts to mobile viewport', async ({ page }) => {
-            await page.goto('http://localhost:8000/');
             await page.setViewportSize({ width: 375, height: 667 });
+            await page.goto('http://localhost:8000/');
             
             // Check that content is still visible
             const main = page.locator('main');
             await expect(main).toBeVisible();
             
-            // Check that cards are visible on mobile
+            // Open each curriculum before checking its lesson cards.
+            await page.locator('#sm2-course-list > summary').click();
             const cards = page.locator('a[href="sm2/unit7/present-continuous-course.html"]');
             await expect(cards.first()).toBeVisible();
+            await expect(page.locator('#sm2-unit-7-heading')).toBeVisible();
+            await page.locator('#sm3-course-list > summary').click();
+            await expect(page.locator('a[href="sm3/unit5/past-was-were.html"]')).toBeVisible();
+            expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
           });
           
           test('page adapts to desktop viewport', async ({ page }) => {
-            await page.goto('http://localhost:8000/');
             await page.setViewportSize({ width: 1280, height: 720 });
+            await page.goto('http://localhost:8000/');
+            await page.locator('#sm2-course-list > summary').click();
+            await page.locator('#sm3-course-list > summary').click();
             
             // Desktop: grid should show multiple columns
             const grid = page.locator('.grid.md\\:grid-cols-2');
@@ -463,6 +519,7 @@ jobs:
             // Cards should be visible
             const cards = page.locator('a[href="sm2/unit7/present-continuous-course.html"]');
             await expect(cards.first()).toBeVisible();
+            await expect(page.locator('#sm3-unit-5-heading')).toBeVisible();
           });
         });
         TEST

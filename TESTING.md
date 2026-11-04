@@ -30,7 +30,7 @@ python3 scripts/test_generate_baseball.py
 node --check js/common.js
 ```
 
-`scripts/test_sm3_pages.py` covers SM3 Unit 0, Unit 1, Unit 1 Story, Unit 2 There Be, Unit 2 Breakfast, and the two Unit 3 lessons. It also verifies that the mobile menu uses compact collapsible SM2/SM3 sections and that SM3 lesson controls use `data-lesson-action` instead of the shared nav `data-action` attribute.
+`scripts/test_sm3_pages.py` covers SM3 Unit 0, Unit 1, Unit 1 Story, Unit 2 There Be, Unit 2 Breakfast, both Unit 3 lessons, and Unit 5 Lesson 2. It also verifies that the mobile menu uses compact collapsible SM2/SM3 sections and that SM3 lesson controls use `data-lesson-action` instead of the shared nav `data-action` attribute.
 
 ## Build Script Testing
 
@@ -71,13 +71,17 @@ Open http://localhost:8000 in the browser.
 - [ ] On SM2 pages, the SM2 section is open by default and SM3 is collapsed
 - [ ] On SM3 pages, the SM3 section is open by default and SM2 is collapsed
 - [ ] Desktop navigation remains visible at desktop width and the mobile menu is hidden
+- [ ] SM3 dropdowns include Unit 5 Was / Were on desktop and mobile
 - [ ] SM3 Unit 2 lesson clicks do not open or close the mobile nav accidentally
 
 ### Homepage
 
 - [ ] `http://localhost:8000/` loads
+- [ ] SM2 and SM3 course groups start collapsed and open independently with click, Enter, and Space
+- [ ] Each unit heading appears above its lesson cards, and item counts match the cards
 - [ ] SM2 course cards link to `sm2/unit7/`, `sm2/unit8/`, `sm2/unit9/`, and `sm2/review/`
-- [ ] SM3 course cards link to `sm3/unit0/`, `sm3/unit1/`, `sm3/unit2/`, and both Unit 3 lessons
+- [ ] SM3 course cards link to `sm3/unit0/`, `sm3/unit1/`, `sm3/unit2/`, both Unit 3 lessons, and `sm3/unit5/`
+- [ ] Opened course groups fit mobile and desktop viewports without horizontal scrolling
 - [ ] Baseball entry links to `sm2/baseball/`
 
 ### Super Minds 2
@@ -156,6 +160,13 @@ Open http://localhost:8000 in the browser.
 - [ ] Supermarket story translations and questions work
 - [ ] Translation practice answers reveal correctly
 - [ ] Todo progress uses `sm3Unit2ThereBeTodos`
+- [ ] `http://localhost:8000/sm3/unit2/breakfast-foods-simple-present.html` loads
+- [ ] Breakfast vocabulary pronunciation works
+- [ ] Pizza dialogue translations toggle
+- [ ] Busy Saturday reading comprehension options show correct/wrong feedback
+- [ ] Helping Hand reading translations and questions work
+- [ ] Simple present cloze answers reveal and hide correctly
+- [ ] Todo progress uses `sm3Unit2BreakfastTodos`
 - [ ] Lesson controls use `data-lesson-action` and do not conflict with mobile nav `data-action`
 
 #### Unit 3
@@ -173,13 +184,13 @@ Open http://localhost:8000 in the browser.
 - [ ] `less`, `fewer`, `more`, `because`, and `have to` practice reveals answers
 - [ ] Revealable answers expose their pressed state and update it when toggled
 - [ ] Todo progress uses `sm3Unit3SavingWaterTodos`
-- [ ] `http://localhost:8000/sm3/unit2/breakfast-foods-simple-present.html` loads
-- [ ] Breakfast vocabulary pronunciation works
-- [ ] Pizza dialogue translations toggle
-- [ ] Busy Saturday reading comprehension options show correct/wrong feedback
-- [ ] Helping Hand reading translations and questions work
-- [ ] Simple present cloze answers reveal and hide correctly
-- [ ] Todo progress uses `sm3Unit2BreakfastTodos`
+
+#### Unit 5 Lesson 2
+
+- [ ] `http://localhost:8000/sm3/unit5/past-was-were.html` loads
+- [ ] Was / were and there was / there were exercises reveal answers correctly
+- [ ] Kitchen story translations and comprehension choices work
+- [ ] Todo progress uses `sm3Unit5PastWasWereTodos`
 - [ ] Lesson controls use `data-lesson-action` and do not conflict with mobile nav `data-action`
 
 ## Regression Matrix
