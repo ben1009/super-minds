@@ -110,22 +110,19 @@ if (typeof showQuizAnswer !== 'function') {
     };
 }
 
-/** Select one quiz choice at a time within a lesson page. */
+/** Select one quiz choice at a time within its reading card. */
 function selectQuizAnswer(element, isCorrect) {
     const card = element.closest('.reading-card');
     if (!card) return;
-    const lesson = card.closest('main') || card;
     const wasSelected = element.getAttribute('aria-pressed') === 'true';
 
-    lesson.querySelectorAll('.reading-card').forEach(function(quizCard) {
-        quizCard.classList.remove('revealed');
-        quizCard.querySelectorAll('.quiz-option').forEach(function(option) {
-            option.classList.remove('correct', 'wrong');
-            option.setAttribute('aria-pressed', 'false');
-        });
-        const answerBox = quizCard.querySelector('.quiz-answer-box');
-        if (answerBox) answerBox.classList.remove('show');
+    card.classList.remove('revealed');
+    card.querySelectorAll('.quiz-option').forEach(function(option) {
+        option.classList.remove('correct', 'wrong');
+        option.setAttribute('aria-pressed', 'false');
     });
+    const answerBox = card.querySelector('.quiz-answer-box');
+    if (answerBox) answerBox.classList.remove('show');
 
     if (wasSelected) return;
     card.classList.add('revealed');

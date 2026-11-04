@@ -363,11 +363,57 @@ jobs:
           expect(await headerCard.evaluate(element => element.scrollWidth <= element.clientWidth)).toBeTruthy();
         });
 
+        test('SM3 Unit 5 lesson controls work and feedback stays with each question', async ({ page }) => {
+          await page.goto('http://localhost:8000/sm3/unit5/past-was-were.html');
+
+          const translation = page.locator('[data-lesson-action="toggle-translation"]').first();
+          await expect(translation).toHaveAttribute('aria-expanded', 'false');
+          await translation.click();
+          await expect(translation).toHaveAttribute('aria-expanded', 'true');
+
+          const reveal = page.locator('[data-lesson-action="reveal-answer"]').first();
+          await expect(reveal).toHaveAttribute('aria-pressed', 'false');
+          await reveal.press('Enter');
+          await expect(reveal).toHaveAttribute('aria-pressed', 'true');
+
+          const firstCard = page.locator('.reading-card').first();
+          const firstWrong = firstCard.locator('.quiz-option[data-correct="false"]').first();
+          await firstWrong.click();
+          await expect(firstCard.locator('.quiz-answer-box')).toContainText('Not quite.');
+
+          const secondCard = page.locator('.reading-card').nth(1);
+          const secondCorrect = secondCard.locator('.quiz-option[data-correct="true"]').first();
+          await secondCorrect.click();
+          await expect(secondCard.locator('.quiz-answer-box')).toContainText('Correct!');
+          await expect(firstWrong).toHaveAttribute('aria-pressed', 'true');
+          await expect(firstCard.locator('.quiz-answer-box')).toContainText('Not quite.');
+
+          const todo = page.locator('[data-lesson-action="toggle-todo"]').first();
+          await todo.click();
+          await expect(todo).toHaveAttribute('aria-pressed', 'true');
+          const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('sm3Unit5PastWasWereTodos')));
+          expect(saved['1']).toBe(true);
+        });
+
+        test('SM3 Unit 5 checklist merges progress changed in another tab', async ({ page, context }) => {
+          await page.goto('http://localhost:8000/sm3/unit5/past-was-were.html');
+          const secondTab = await context.newPage();
+          await secondTab.goto('http://localhost:8000/sm3/unit5/past-was-were.html');
+
+          await page.locator('[data-lesson-action="toggle-todo"][data-todo="1"]').click();
+          await secondTab.locator('[data-lesson-action="toggle-todo"][data-todo="2"]').click();
+
+          const saved = await secondTab.evaluate(() => JSON.parse(localStorage.getItem('sm3Unit5PastWasWereTodos')));
+          expect(saved['1']).toBe(true);
+          expect(saved['2']).toBe(true);
+          await expect(page.locator('[data-lesson-action="toggle-todo"][data-todo="2"]')).toHaveAttribute('aria-pressed', 'true');
+        });
+
         // ============================================
         // SM3 Saving Water Tests
         // ============================================
         test.describe('SM3 Saving Water', () => {
-          test('quiz highlights only the latest selection and updates feedback', async ({ page }) => {
+          test('quiz keeps feedback for each question and updates one card at a time', async ({ page }) => {
             await page.goto('http://localhost:8000/sm3/unit3/saving-water.html');
             const card = page.locator('.reading-card').first();
             const wrong = card.locator('.quiz-option[data-correct="false"]').first();
@@ -393,9 +439,9 @@ jobs:
             await expect(card.locator('.quiz-answer-box')).toContainText('Correct!');
 
             await nextWrong.click();
-            await expect(correct).not.toHaveClass(/correct/);
-            await expect(correct).toHaveAttribute('aria-pressed', 'false');
-            await expect(card.locator('.quiz-answer-box')).not.toHaveClass(/show/);
+            await expect(correct).toHaveClass(/correct/);
+            await expect(correct).toHaveAttribute('aria-pressed', 'true');
+            await expect(card.locator('.quiz-answer-box')).toHaveClass(/show/);
             await expect(nextWrong).toHaveClass(/wrong/);
             await expect(nextCorrect).not.toHaveClass(/correct/);
             await expect(nextWrong).toHaveAttribute('aria-pressed', 'true');
@@ -407,7 +453,8 @@ jobs:
             await expect(nextWrong).toHaveAttribute('aria-pressed', 'false');
             await expect(nextCorrect).not.toHaveClass(/correct/);
             await expect(nextCard.locator('.quiz-answer-box')).not.toHaveClass(/show/);
-            await expect(page.locator('section').filter({ has: card }).locator('.quiz-option.correct, .quiz-option.wrong')).toHaveCount(0);
+            await expect(correct).toHaveClass(/correct/);
+            await expect(card.locator('.quiz-answer-box')).toContainText('Correct!');
           });
 
           test('lesson controls expose and update their state', async ({ page }) => {
@@ -447,7 +494,7 @@ jobs:
               const option = quizCard.locator('.quiz-option').first();
               await option.click();
               await expect(quizCard.locator('.quiz-answer-box')).toHaveClass(/show/);
-              await expect(page.locator('.quiz-answer-box.show')).toHaveCount(1);
+              await expect(page.locator('.quiz-answer-box.show')).toHaveCount(index + 1);
             }
           });
 

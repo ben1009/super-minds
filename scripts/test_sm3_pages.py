@@ -700,7 +700,7 @@ class TestSM3Unit3SavingWaterStructure(unittest.TestCase):
         self.assertIn("element.setAttribute('aria-pressed', 'true')", js)
         self.assertIn("element.setAttribute('aria-pressed', 'false')", js)
 
-    def test_quiz_answer_uses_single_selection(self):
+    def test_quiz_answer_selection_is_scoped_to_one_card(self):
         self.assertEqual(
             len(re.findall(
                 r'data-lesson-action="show-quiz-answer"[^>]*aria-pressed="false"',
@@ -710,7 +710,9 @@ class TestSM3Unit3SavingWaterStructure(unittest.TestCase):
         )
         self.assertIn("selectQuizAnswer(trigger, trigger.dataset.correct === 'true')", self.html)
         js = read(COMMON_JS)
-        self.assertIn("lesson.querySelectorAll('.reading-card')", js)
+        self.assertIn("card.querySelectorAll('.quiz-option')", js)
+        self.assertIn("card.querySelector('.quiz-answer-box')", js)
+        self.assertNotIn("lesson.querySelectorAll('.reading-card')", js)
         self.assertIn("option.classList.remove('correct', 'wrong')", js)
         self.assertIn("option.setAttribute('aria-pressed', 'false')", js)
         self.assertIn("element.classList.add(isCorrect ? 'correct' : 'wrong')", js)
@@ -781,6 +783,9 @@ class TestSM3Unit5PastWasWereStructure(unittest.TestCase):
         self.assertIn('data-answer="not"', self.html)
         self.assertIn('data-lesson-action="toggle-todo"', self.html)
         self.assertIn('data-lesson-action="reset-todos"', self.html)
+        self.assertIn('function toggleUnit5TodoItem(item)', self.html)
+        self.assertIn('localStorage.getItem(todoStorageKey)', self.html)
+        self.assertIn("event.key === todoStorageKey", self.html)
 
 
 class TestSM3Unit1Cloze(unittest.TestCase):

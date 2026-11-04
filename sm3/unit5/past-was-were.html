@@ -201,12 +201,81 @@
     <footer class="bg-gradient-to-r from-violet-800 to-indigo-900 mt-12 py-6"><div class="max-w-4xl mx-auto px-4 text-center text-white"><p class="text-lg font-bold mb-2">🕰️ Super Minds 3 · Unit 5 Lesson 2</p><p class="text-sm opacity-80">Yesterday, everything was different!</p></div></footer>
 
     <script>
+        var todoStorageKey = 'sm3Unit5PastWasWereTodos';
         var todoStates = {};
-        try { var saved = localStorage.getItem('sm3Unit5PastWasWereTodos'); if (saved) { var parsed = JSON.parse(saved); if (parsed && typeof parsed === 'object') todoStates = parsed; } } catch (e) { }
-        document.addEventListener('DOMContentLoaded', function () { document.querySelectorAll('[data-lesson-action="reveal-answer"]').forEach(function (item) { item.setAttribute('aria-pressed', 'false'); }); Object.keys(todoStates).forEach(function (id) { if (todoStates[id]) { var item = Array.from(document.querySelectorAll('[data-todo]')).find(function (candidate) { return candidate.getAttribute('data-todo') === id; }); if (item) { item.classList.add('completed'); item.setAttribute('aria-pressed', 'true'); } } }); updateTodoProgress('sm3Unit5PastWasWereTodos'); });
-        function runInteractiveAction(trigger) { var action = trigger.dataset.lessonAction; if (action === 'toggle-translation') toggleTranslation(trigger); else if (action === 'speak') speak(trigger.dataset.word, trigger); else if (action === 'show-quiz-answer') selectQuizAnswer(trigger, trigger.dataset.correct === 'true'); else if (action === 'reveal-answer') revealAnswer(trigger); else if (action === 'toggle-todo') toggleTodoItem(trigger, 'sm3Unit5PastWasWereTodos'); else if (action === 'reset-todos') resetTodoItems('sm3Unit5PastWasWereTodos'); }
-        document.addEventListener('click', function (event) { var trigger = event.target.closest('[data-lesson-action]'); if (trigger) runInteractiveAction(trigger); });
-        document.addEventListener('keydown', function (event) { if (event.key !== 'Enter' && event.key !== ' ') return; var trigger = event.target.closest('[data-lesson-action]'); if (!trigger || trigger.tagName === 'BUTTON') return; event.preventDefault(); runInteractiveAction(trigger); });
+
+        function readUnit5TodoStates() {
+            try {
+                var saved = localStorage.getItem(todoStorageKey);
+                var parsed = saved ? JSON.parse(saved) : {};
+                if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) return parsed;
+            } catch (e) { }
+            return {};
+        }
+
+        function saveUnit5TodoStates(states) {
+            try { localStorage.setItem(todoStorageKey, JSON.stringify(states)); } catch (e) { }
+        }
+
+        function applyUnit5TodoStates(states) {
+            todoStates = states;
+            document.querySelectorAll('[data-todo]').forEach(function (item) {
+                var completed = states[item.getAttribute('data-todo')] === true;
+                item.classList.toggle('completed', completed);
+                item.setAttribute('aria-pressed', completed ? 'true' : 'false');
+            });
+            updateTodoProgress();
+        }
+
+        function toggleUnit5TodoItem(item) {
+            var states = readUnit5TodoStates();
+            var id = item.getAttribute('data-todo');
+            states[id] = !Boolean(states[id]);
+            saveUnit5TodoStates(states);
+            applyUnit5TodoStates(states);
+        }
+
+        function resetUnit5TodoItems() {
+            if (!confirm('确定要重置所有任务吗？Are you sure you want to reset all tasks?')) return;
+            var states = {};
+            saveUnit5TodoStates(states);
+            applyUnit5TodoStates(states);
+        }
+
+        window.addEventListener('storage', function (event) {
+            if (event.key === todoStorageKey) applyUnit5TodoStates(readUnit5TodoStates());
+            else if (event.key === null) applyUnit5TodoStates({});
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('[data-lesson-action="reveal-answer"]').forEach(function (item) {
+                item.setAttribute('aria-pressed', 'false');
+            });
+            applyUnit5TodoStates(readUnit5TodoStates());
+        });
+
+        function runInteractiveAction(trigger) {
+            var action = trigger.dataset.lessonAction;
+            if (action === 'toggle-translation') toggleTranslation(trigger);
+            else if (action === 'speak') speak(trigger.dataset.word, trigger);
+            else if (action === 'show-quiz-answer') selectQuizAnswer(trigger, trigger.dataset.correct === 'true');
+            else if (action === 'reveal-answer') revealAnswer(trigger);
+            else if (action === 'toggle-todo') toggleUnit5TodoItem(trigger);
+            else if (action === 'reset-todos') resetUnit5TodoItems();
+        }
+
+        document.addEventListener('click', function (event) {
+            var trigger = event.target.closest('[data-lesson-action]');
+            if (trigger) runInteractiveAction(trigger);
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            var trigger = event.target.closest('[data-lesson-action]');
+            if (!trigger || trigger.tagName === 'BUTTON') return;
+            event.preventDefault();
+            runInteractiveAction(trigger);
+        });
     </script>
     <script src="../../js/common.js"></script>
 </body>
