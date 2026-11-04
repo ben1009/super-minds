@@ -513,21 +513,24 @@ jobs:
           });
         });
 
-        test('SM3 Daily Routines clears a previous choice in another section', async ({ page }) => {
+        test('SM3 Daily Routines preserves earlier feedback in another section', async ({ page }) => {
           await page.goto('http://localhost:8000/sm3/unit3/daily-routines-frequency-adverbs.html');
           const first = page.locator('.reading-card').first();
           const later = page.locator('.reading-card').nth(5);
           await expect(page.locator('.quiz-option[aria-pressed="false"]')).toHaveCount(20);
           await first.locator('.quiz-option[data-correct="true"]').first().click();
           await later.locator('.quiz-option[data-correct="false"]').first().click();
-          await expect(page.locator('.quiz-option.correct')).toHaveCount(0);
+          await expect(page.locator('.quiz-option.correct')).toHaveCount(1);
           await expect(page.locator('.quiz-option.wrong')).toHaveCount(1);
-          await expect(page.locator('.quiz-answer-box.show')).toHaveCount(1);
-          await expect(first.locator('.quiz-option[aria-pressed="true"]')).toHaveCount(0);
+          await expect(page.locator('.quiz-answer-box.show')).toHaveCount(2);
+          await expect(first.locator('.quiz-option[aria-pressed="true"]')).toHaveCount(1);
+          await expect(first.locator('.quiz-answer-box')).toContainText('Correct!');
           await expect(later.locator('.quiz-answer-box')).toContainText('Not quite.');
           await later.locator('.quiz-option[data-correct="true"]').first().press('Space');
-          await expect(page.locator('.quiz-option.correct')).toHaveCount(1);
+          await expect(page.locator('.quiz-option.correct')).toHaveCount(2);
           await expect(page.locator('.quiz-option.wrong')).toHaveCount(0);
+          await expect(page.locator('.quiz-answer-box.show')).toHaveCount(2);
+          await expect(first.locator('.quiz-answer-box')).toContainText('Correct!');
           await expect(later.locator('.quiz-answer-box')).toContainText('Correct!');
         });
         
