@@ -2,6 +2,18 @@
 
 ## Recently Completed
 
+### Homepage Course and Unit Groups ✅
+
+- [x] Grouped lessons in expandable SM2 and SM3 course sections with unit headings and item counts.
+- [x] Removed the duplicate quick-link list and updated homepage browser checks for click and keyboard navigation.
+
+### SM3 Unit 5 Lesson 2 Was / Were Lesson From PDF ✅
+
+- [x] Created `sm3/unit5/past-was-were.html` from `Superminds 3 Unit 5-2.pdf`.
+- [x] Added was / were and there was / there were grammar, time-expression practice, the kitchen story, translations, quiz feedback, and todo tracking.
+- [x] Added the lesson to the homepage and the Unit 5 group in the shared SM3 dropdown.
+- [x] Updated project documentation and SM3 regression coverage.
+
 ### SM3 Unit 3 Daily Routines Lesson From PDF ✅
 
 - [x] Created `sm3/unit3/daily-routines-frequency-adverbs.html` from the Unit 3 PDF.

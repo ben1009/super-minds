@@ -107,6 +107,11 @@ The baseball Unit 8 page is generated from `sm2/unit8/gerunds-ball-sports.html` 
    - `less`, `fewer`, `more`, `because`, `have to`, and present continuous negatives
    - "Let's Save Water!" reading, comprehension questions, and vocabulary worksheet
 
+8. **Unit 5 Lesson 2 - Was / Were:** `sm3/unit5/past-was-were.html`
+   - Past forms of `am / is / are` and subject agreement for `was / were`
+   - `There was / There were` statements, negatives, and questions
+   - Past time expressions, practice, and "The Kitchen Mess Last Night" reading
+
 ## Access
 
 Open the published site here:
@@ -140,8 +145,9 @@ https://ben1009.github.io/super-minds/
 │   ├── unit0/
 │   ├── unit1/
 │   ├── unit2/
-│       └── assets/
-└── unit3/
+│   │   └── assets/
+│   ├── unit3/
+│   └── unit5/
 ├── README.md
 ├── TESTING.md
 ├── AGENTS.md
@@ -151,6 +157,7 @@ https://ben1009.github.io/super-minds/
 ## Features
 
 - Interactive single-page lessons with translations, revealable answers, quizzes, and todo progress
+- Homepage lessons grouped by SM2/SM3 and unit, with expandable course sections
 - Shared navigation rendered by `js/common.js`
 - Compact mobile navigation with collapsible SM2 and SM3 sections
 - Web Speech API pronunciation practice

@@ -15,6 +15,7 @@ SM3_U2 = ROOT / 'sm3' / 'unit2' / 'there-is-there-are-picnic.html'
 SM3_U2_BREAKFAST = ROOT / 'sm3' / 'unit2' / 'breakfast-foods-simple-present.html'
 SM3_U3_ROUTINES = ROOT / 'sm3' / 'unit3' / 'daily-routines-frequency-adverbs.html'
 SM3_U3_WATER = ROOT / 'sm3' / 'unit3' / 'saving-water.html'
+SM3_U5_PAST = ROOT / 'sm3' / 'unit5' / 'past-was-were.html'
 
 # SM2 sample pages for cross-ref checks
 SM2_U7_COURSE = ROOT / 'sm2' / 'unit7' / 'present-continuous-course.html'
@@ -47,7 +48,7 @@ class TestFolderStructure(unittest.TestCase):
                 self.assertTrue((ROOT / 'sm2' / d).is_dir())
 
     def test_sm3_unit_dirs(self):
-        for d in ['unit0', 'unit1', 'unit2', 'unit3']:
+        for d in ['unit0', 'unit1', 'unit2', 'unit3', 'unit5']:
             with self.subTest(dir=d):
                 self.assertTrue((ROOT / 'sm3' / d).is_dir())
 
@@ -85,6 +86,7 @@ class TestFolderStructure(unittest.TestCase):
         self.assertTrue(SM3_U2_BREAKFAST.exists())
         self.assertTrue(SM3_U3_ROUTINES.exists())
         self.assertTrue(SM3_U3_WATER.exists())
+        self.assertTrue(SM3_U5_PAST.exists())
 
 
 # ============================================================
@@ -698,7 +700,7 @@ class TestSM3Unit3SavingWaterStructure(unittest.TestCase):
         self.assertIn("element.setAttribute('aria-pressed', 'true')", js)
         self.assertIn("element.setAttribute('aria-pressed', 'false')", js)
 
-    def test_quiz_answer_uses_single_selection(self):
+    def test_quiz_answer_selection_is_scoped_to_one_card(self):
         self.assertEqual(
             len(re.findall(
                 r'data-lesson-action="show-quiz-answer"[^>]*aria-pressed="false"',
@@ -708,7 +710,9 @@ class TestSM3Unit3SavingWaterStructure(unittest.TestCase):
         )
         self.assertIn("selectQuizAnswer(trigger, trigger.dataset.correct === 'true')", self.html)
         js = read(COMMON_JS)
-        self.assertIn("lesson.querySelectorAll('.reading-card')", js)
+        self.assertIn("card.querySelectorAll('.quiz-option')", js)
+        self.assertIn("card.querySelector('.quiz-answer-box')", js)
+        self.assertNotIn("lesson.querySelectorAll('.reading-card')", js)
         self.assertIn("option.classList.remove('correct', 'wrong')", js)
         self.assertIn("option.setAttribute('aria-pressed', 'false')", js)
         self.assertIn("element.classList.add(isCorrect ? 'correct' : 'wrong')", js)
@@ -736,6 +740,52 @@ class TestSM3Unit3SavingWaterStructure(unittest.TestCase):
     def test_section_tags_balanced(self):
         self.assertEqual(len(re.findall(r'<section[\s>]', self.html)),
                          len(re.findall(r'</section>', self.html)))
+
+
+class TestSM3Unit5PastWasWereStructure(unittest.TestCase):
+    """Test the PDF-derived SM3 Unit 5 Lesson 2 lesson."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.html = read(SM3_U5_PAST)
+
+    def test_document_and_shared_assets(self):
+        self.assertTrue(self.html.startswith('<!DOCTYPE html>'))
+        for text in ['Super Minds 3 · Unit 5', 'Lesson 2', 'Was / Were',
+                     '../../favicon.svg', '../../ga.js', '../../css/common.css',
+                     '../../css/baseball-theme.css', '../../js/common.js']:
+            with self.subTest(text=text):
+                self.assertIn(text, self.html)
+
+    def test_nav_and_safe_lesson_actions(self):
+        self.assertIn("active:'sm3-unit5-past'", self.html)
+        self.assertIn("brandIcon: 'fa-clock-rotate-left'", self.html)
+        self.assertIn('id="site-nav"', self.html)
+        self.assertNotIn('data-action=', self.html)
+        self.assertIn('data-lesson-action="toggle-translation"', self.html)
+        self.assertIn('data-lesson-action="show-quiz-answer"', self.html)
+        self.assertRegex(self.html, r"(?s)addEventListener\('click'.*?closest\('\[data-lesson-action\]'")
+        self.assertRegex(self.html, r"(?s)addEventListener\('keydown'.*?closest\('\[data-lesson-action\]'")
+
+    def test_pdf_derived_grammar_practice_and_reading(self):
+        for text in ['am / is / are', 'There was / There were', 'was not = wasn\'t',
+                     'were not = weren\'t', 'yesterday', 'last night', 'two days ago',
+                     'just now', 'The Kitchen Mess Last Night', 'There was a big fish',
+                     'There were three small fish', 'There were no fish on the floor',
+                     'sm3Unit5PastWasWereTodos']:
+            with self.subTest(text=text):
+                self.assertIn(text, self.html)
+
+    def test_translation_quiz_and_todo_controls(self):
+        self.assertIn('class="translation', self.html)
+        self.assertIn('class="quiz-answer-box', self.html)
+        self.assertEqual(self.html.count('class="quiz-feedback" aria-live="polite"'), 4)
+        self.assertIn('data-answer="not"', self.html)
+        self.assertIn('data-lesson-action="toggle-todo"', self.html)
+        self.assertIn('data-lesson-action="reset-todos"', self.html)
+        self.assertIn('function toggleUnit5TodoItem(item)', self.html)
+        self.assertIn('localStorage.getItem(todoStorageKey)', self.html)
+        self.assertIn("event.key === todoStorageKey", self.html)
 
 
 class TestSM3Unit1Cloze(unittest.TestCase):
@@ -792,13 +842,18 @@ class TestCommonJSNavStructure(unittest.TestCase):
         self.assertIn("startsWith('sm3-unit1')", self.js)
         self.assertIn("startsWith('sm3-unit2')", self.js)
         self.assertIn("startsWith('sm3-unit3')", self.js)
+        self.assertIn("startsWith('sm3-unit5')", self.js)
 
     def test_nav_links_has_sm3_patterns(self):
         self.assertIn('B_sm3_unit0:', self.js)
         self.assertIn('B_sm3_unit1:', self.js)
         self.assertIn('B_sm3_unit2:', self.js)
         self.assertIn('NAV_LINKS.B_sm3_unit3', self.js)
+        self.assertIn('NAV_LINKS.B_sm3_unit5', self.js)
         self.assertIn("daily-routines-frequency-adverbs.html", self.js)
+
+    def test_sm3_unit5_nav_uses_page_local_href(self):
+        self.assertIn("{ key: 'sm3-unit5-past', href: 'past-was-were.html'", self.js)
 
     def test_sm3_patterns_have_sm2_cross_refs(self):
         """SM3 patterns should have sm2/ prefix in cross-refs."""
@@ -846,6 +901,8 @@ class TestCommonJSNavStructure(unittest.TestCase):
         self.assertIn("sm2Group('Unit 1'", self.js)
         self.assertIn("sm2Group('Unit 2'", self.js)
         self.assertIn('mobileSm3Groups', self.js)
+        self.assertIn("sm2Group('Unit 5'", self.js)
+        self.assertIn("mobileGroup('Unit 5'", self.js)
 
     def test_sm3_desktop_dropdown_is_right_aligned(self):
         """SM3 desktop dropdown should not clip at the right viewport edge."""
@@ -904,7 +961,7 @@ class TestAssetPathsDepth(unittest.TestCase):
     def test_sm3_pages_depth2(self):
         """SM3 pages are at depth 2, use ../../ for root."""
         for p in [SM3_U0, SM3_U1, SM3_U1_STORY, SM3_U2, SM3_U2_BREAKFAST,
-                  SM3_U3_ROUTINES, SM3_U3_WATER]:
+                  SM3_U3_ROUTINES, SM3_U3_WATER, SM3_U5_PAST]:
             html = read(p)
             with self.subTest(file=p.name):
                 self.assertIn('../../favicon.svg', html)
@@ -962,14 +1019,95 @@ class TestIndexPage(unittest.TestCase):
         self.assertIn('sm3/unit2/breakfast-foods-simple-present.html', self.html)
         self.assertIn('sm3/unit3/daily-routines-frequency-adverbs.html', self.html)
         self.assertIn('sm3/unit3/saving-water.html', self.html)
+        self.assertIn('sm3/unit5/past-was-were.html', self.html)
+
+    def test_course_lists_are_grouped_by_curriculum(self):
+        self.assertIn('<details id="sm2-course-list"', self.html)
+        self.assertIn('<details id="sm3-course-list"', self.html)
+        self.assertIn('12 项', self.html)
+        self.assertIn('8 项', self.html)
+        self.assertNotIn('快速链接', self.html)
+
+        for href in (
+            'sm2/unit7/present-continuous-course.html',
+            'sm3/unit0/explorers-be-good-at.html',
+        ):
+            with self.subTest(href=href):
+                self.assertEqual(self.html.count(f'href="{href}"'), 1)
+
+    def test_course_cards_are_grouped_by_unit(self):
+        curricula = (
+            ('sm2-course-list', (
+                ('sm2-unit-7-heading', (
+                    'sm2/unit7/present-continuous-course.html',
+                    'sm2/unit7/present-continuous-homework.html',
+                )),
+                ('sm2-unit-8-heading', (
+                    'sm2/unit8/gerunds-ball-sports.html',
+                    'sm2/unit8/amazing-vehicles-reading.html',
+                    'sm2/unit8/fun-things-we-do-reading.html',
+                    'sm2/unit8/question-words-grammar-homework.html',
+                )),
+                ('sm2-unit-9-heading', (
+                    'sm2/unit9/holiday-plans-grammar-review.html',
+                    'sm2/unit9/fairy-tales-reading.html',
+                )),
+                ('sm2-review-units-1-3-heading', (
+                    'sm2/review/review-units-1-3.html',
+                )),
+                ('sm2-review-unit-4-heading', (
+                    'sm2/review/review-unit-4.html',
+                )),
+                ('sm2-review-unit-5-heading', (
+                    'sm2/review/review-unit-5.html',
+                    'sm2/review/review-unit-5-lecture2.html',
+                )),
+            )),
+            ('sm3-course-list', (
+                ('sm3-unit-0-heading', ('sm3/unit0/explorers-be-good-at.html',)),
+                ('sm3-unit-1-heading', (
+                    'sm3/unit1/school-subjects-like-doing.html',
+                    'sm3/unit1/story-part.html',
+                )),
+                ('sm3-unit-2-heading', (
+                    'sm3/unit2/there-is-there-are-picnic.html',
+                    'sm3/unit2/breakfast-foods-simple-present.html',
+                )),
+                ('sm3-unit-3-heading', (
+                    'sm3/unit3/daily-routines-frequency-adverbs.html',
+                    'sm3/unit3/saving-water.html',
+                )),
+                ('sm3-unit-5-heading', ('sm3/unit5/past-was-were.html',)),
+            )),
+        )
+
+        for details_id, groups in curricula:
+            details_start = self.html.index(f'<details id="{details_id}"')
+            details_end = self.html.index('</details>', details_start)
+            details = self.html[details_start:details_end]
+            heading_positions = [details.index(f'id="{group_id}"') for group_id, _ in groups]
+            self.assertEqual(heading_positions, sorted(heading_positions))
+
+            for index, (group_id, expected_links) in enumerate(groups):
+                start = heading_positions[index]
+                end = heading_positions[index + 1] if index + 1 < len(groups) else len(details)
+                group = details[start:end]
+                with self.subTest(group=group_id):
+                    self.assertEqual(
+                        re.findall(r'href="((?:sm2|sm3)/[^"]+)"', group),
+                        list(expected_links),
+                    )
+                    self.assertIn(f'{len(expected_links)} 项', group)
 
     def test_sm2_card_order(self):
         """SM2 cards should appear before SM3 cards."""
-        sm2_first = self.html.find('SM2 · Unit 7')
-        sm2_last = self.html.rfind('SM2 · Review')
-        sm3_first = self.html.find('SM3 · Unit 0')
-        self.assertLess(sm2_first, sm3_first)
-        self.assertLess(sm2_last, sm3_first)
+        sm2_start = self.html.index('<details id="sm2-course-list"')
+        sm2_end = self.html.index('</details>', sm2_start)
+        sm3_start = self.html.index('<details id="sm3-course-list"')
+        self.assertLess(sm2_start, sm2_end)
+        self.assertLess(sm2_end, sm3_start)
+        self.assertLess(self.html.index('SM2 · Unit 7', sm2_start), sm2_end)
+        self.assertLess(self.html.rindex('SM2 · Review', sm2_start, sm2_end), sm2_end)
 
     def test_sm2_links_use_sm2_prefix(self):
         self.assertIn('sm2/unit7/', self.html)
