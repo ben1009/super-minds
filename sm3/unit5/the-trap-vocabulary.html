@@ -219,6 +219,7 @@
         var trapTodoStates = {};
         var trapTodoStorageAvailable = true;
 
+        /** Parse saved checklist JSON, falling back to an empty state for invalid data. */
         function parseTrapTodoStates(saved) {
             try {
                 var parsed = saved ? JSON.parse(saved) : {};
@@ -227,6 +228,7 @@
             return {};
         }
 
+        /** Read saved checklist state, using the in-memory copy when storage is unavailable. */
         function readTrapTodoStates() {
             if (!trapTodoStorageAvailable) return trapTodoStates;
             try {
@@ -237,6 +239,7 @@
             }
         }
 
+        /** Save checklist state and remember when browser storage cannot be used. */
         function saveTrapTodoStates(states) {
             trapTodoStates = states;
             try {
@@ -247,6 +250,7 @@
             }
         }
 
+        /** Sync checklist state to item styling, pressed states, and the progress bar. */
         function applyTrapTodoStates(states) {
             trapTodoStates = states;
             document.querySelectorAll('.todo-item[data-todo]').forEach(function (item) {
@@ -261,6 +265,7 @@
             }
         }
 
+        /** Toggle one checklist item and render the updated state. */
         function toggleTrapTodoItem(item) {
             var states = readTrapTodoStates();
             var id = item.getAttribute('data-todo');
@@ -269,6 +274,7 @@
             applyTrapTodoStates(states);
         }
 
+        /** Clear the checklist after the learner confirms the reset. */
         function resetTrapTodoItems() {
             if (!confirm('确定要重置所有任务吗？Are you sure you want to reset all tasks?')) return;
             var states = {};
@@ -276,6 +282,7 @@
             applyTrapTodoStates(states);
         }
 
+        /** Announce the answer's revealed or hidden state to assistive technology. */
         function announceTrapAnswer(trigger) {
             var announcer = document.getElementById('trap-answer-announcer');
             if (!announcer) return;
@@ -301,6 +308,7 @@
             applyTrapTodoStates(readTrapTodoStates());
         });
 
+        /** Route a lesson control to its matching shared or page-specific action. */
         function runInteractiveAction(trigger) {
             var action = trigger.dataset.lessonAction;
             if (action === 'speak') speak(trigger.dataset.word, trigger);

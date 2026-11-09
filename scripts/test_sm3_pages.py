@@ -795,10 +795,12 @@ class TestSM3Unit5TrapStructure(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
+        """Load the lesson and shared navigation source for structural assertions."""
         cls.html = read(SM3_U5_TRAP)
         cls.js = read(COMMON_JS)
 
     def test_document_and_shared_navigation(self):
+        """Check document metadata and all shared navigation paths for the lesson."""
         for text in ['Super Minds 3 · Unit 5', 'The Trap', '../../favicon.svg',
                      '../../ga.js', '../../css/common.css', '../../css/baseball-theme.css',
                      '../../js/common.js', 'id="site-nav"', "active:'sm3-unit5-trap'"]:
@@ -810,6 +812,7 @@ class TestSM3Unit5TrapStructure(unittest.TestCase):
         self.assertIn("{ key: 'sm3-unit5-trap', href: '../../sm3/unit5/the-trap-vocabulary.html'", self.js)
 
     def test_pdf_vocabulary_and_language_points(self):
+        """Check the required story vocabulary and language points from the source PDF."""
         for text in ['letter', "I can't see a letter", 'giant shell', 'have a look', 'hurry up', 'think so',
                      'different place', 'stuck', 'scared', 'be happy with',
                      'Get the children!', "I don't think he was happy in Horax's cage.",
@@ -828,6 +831,7 @@ class TestSM3Unit5TrapStructure(unittest.TestCase):
         )
 
     def test_translation_practice_and_todo_controls(self):
+        """Check accessible lesson controls, translation practice, and checklist persistence."""
         self.assertGreaterEqual(self.html.count('data-lesson-action="speak"'), 16)
         self.assertEqual(self.html.count('data-lesson-action="toggle-translation"'), 7)
         self.assertGreaterEqual(self.html.count('data-lesson-action="reveal-answer"'), 8)
@@ -848,6 +852,7 @@ class TestSM3Unit5TrapStructure(unittest.TestCase):
         self.assertRegex(self.html, r"(?s)addEventListener\('keydown'.*?closest\('\[data-lesson-action\]'")
 
     def test_revealed_answer_text_meets_normal_text_contrast(self):
+        """Ensure revealed quiz answers meet WCAG's normal-text contrast threshold."""
         css = read(ROOT / 'css' / 'baseball-theme.css')
         rule = re.search(r'\.word-quiz-blank\.revealed\s*\{([^}]+)\}', css, re.S)
         self.assertIsNotNone(rule)
@@ -857,6 +862,7 @@ class TestSM3Unit5TrapStructure(unittest.TestCase):
         self.assertIsNotNone(background_match)
 
         def luminance(hex_color):
+            """Convert a hexadecimal sRGB color to relative luminance."""
             channels = [int(hex_color[i:i + 2], 16) / 255 for i in (1, 3, 5)]
             linear = [value / 12.92 if value <= 0.04045 else ((value + 0.055) / 1.055) ** 2.4
                       for value in channels]
@@ -1101,6 +1107,7 @@ class TestIndexPage(unittest.TestCase):
         self.assertIn('sm3/unit5/past-was-were.html', self.html)
 
     def test_course_lists_are_grouped_by_curriculum(self):
+        """Check the homepage groups course cards under SM2 and SM3."""
         self.assertIn('<details id="sm2-course-list"', self.html)
         self.assertIn('<details id="sm3-course-list"', self.html)
         self.assertIn('12 项', self.html)
@@ -1115,6 +1122,7 @@ class TestIndexPage(unittest.TestCase):
                 self.assertEqual(self.html.count(f'href="{href}"'), 1)
 
     def test_course_cards_are_grouped_by_unit(self):
+        """Check course cards stay grouped under the correct unit headings."""
         curricula = (
             ('sm2-course-list', (
                 ('sm2-unit-7-heading', (
