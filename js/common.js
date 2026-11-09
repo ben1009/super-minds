@@ -408,7 +408,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit2-breakfast', href: '../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
                 { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
                 { key: 'sm3-unit3-saving-water', href: '../../sm3/unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
-                { key: 'sm3-unit5-past', href: '../../sm3/unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' }
+                { key: 'sm3-unit5-past', href: '../../sm3/unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+                { key: 'sm3-unit5-trap', href: '../../sm3/unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
             ]
         },
 
@@ -462,7 +463,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit2-breakfast', href: '../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
                 { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
                 { key: 'sm3-unit3-saving-water', href: '../../sm3/unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
-                { key: 'sm3-unit5-past', href: '../../sm3/unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' }
+                { key: 'sm3-unit5-past', href: '../../sm3/unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+                { key: 'sm3-unit5-trap', href: '../../sm3/unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
             ]
         },
 
@@ -516,7 +518,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit2-breakfast', href: '../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
                 { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
                 { key: 'sm3-unit3-saving-water', href: '../../sm3/unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
-                { key: 'sm3-unit5-past', href: '../../sm3/unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' }
+                { key: 'sm3-unit5-past', href: '../../sm3/unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+                { key: 'sm3-unit5-trap', href: '../../sm3/unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
             ]
         },
 
@@ -570,7 +573,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit2-breakfast', href: '../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
                 { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
                 { key: 'sm3-unit3-saving-water', href: '../../sm3/unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
-                { key: 'sm3-unit5-past', href: '../../sm3/unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' }
+                { key: 'sm3-unit5-past', href: '../../sm3/unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+                { key: 'sm3-unit5-trap', href: '../../sm3/unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
             ]
         },
 
@@ -621,7 +625,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit2-breakfast', href: '../../../sm3/unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
                 { key: 'sm3-unit3-routines', href: '../../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
                 { key: 'sm3-unit3-saving-water', href: '../../../sm3/unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
-                { key: 'sm3-unit5-past', href: '../../../sm3/unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' }
+                { key: 'sm3-unit5-past', href: '../../../sm3/unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+                { key: 'sm3-unit5-trap', href: '../../../sm3/unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
             ]
         },
 
@@ -675,7 +680,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit2-breakfast', href: '../unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
                 { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
                 { key: 'sm3-unit3-saving-water', href: '../unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
-                { key: 'sm3-unit5-past', href: '../unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' }
+                { key: 'sm3-unit5-past', href: '../unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+                { key: 'sm3-unit5-trap', href: '../unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
             ]
         },
         review: {
@@ -728,7 +734,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit2-breakfast', href: '../unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
                 { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
                 { key: 'sm3-unit3-saving-water', href: '../unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
-                { key: 'sm3-unit5-past', href: '../unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' }
+                { key: 'sm3-unit5-past', href: '../unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+                { key: 'sm3-unit5-trap', href: '../unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
             ]
         },
         review: {
@@ -781,7 +788,8 @@ const NAV_LINKS = {
                 { key: 'sm3-unit2-breakfast', href: 'breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
                 { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
                 { key: 'sm3-unit3-saving-water', href: '../unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
-                { key: 'sm3-unit5-past', href: '../unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' }
+                { key: 'sm3-unit5-past', href: '../unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+                { key: 'sm3-unit5-trap', href: '../unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
             ]
         },
         review: {
@@ -853,7 +861,8 @@ NAV_LINKS.B_sm3_unit3 = {
             { key: 'sm3-unit2-breakfast', href: '../unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
             { key: 'sm3-unit3-routines', href: 'daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
             { key: 'sm3-unit3-saving-water', href: 'saving-water.html', label: '💧 Unit 3 Saving Water' },
-            { key: 'sm3-unit5-past', href: '../unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' }
+            { key: 'sm3-unit5-past', href: '../unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+            { key: 'sm3-unit5-trap', href: '../unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
         ]
     }
 };
@@ -870,7 +879,8 @@ NAV_LINKS.B_sm3_unit5 = {
             { key: 'sm3-unit2-breakfast', href: '../unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
             { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
             { key: 'sm3-unit3-saving-water', href: '../unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
-            { key: 'sm3-unit5-past', href: 'past-was-were.html', label: '🕰️ Unit 5 Was / Were' }
+            { key: 'sm3-unit5-past', href: 'past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+            { key: 'sm3-unit5-trap', href: 'the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
         ]
     }
 };

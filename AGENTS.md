@@ -84,6 +84,7 @@ Super Minds 是一个面向儿童的互动式英语学习网站，涵盖 Super M
 | `sm3/unit3/daily-routines-frequency-adverbs.html` | SM3 Unit 3 frequency adverbs / daily routines / Helping Hands，基于新增 PDF |
 | `sm3/unit3/saving-water.html` | SM3 Unit 3 节水词汇、比较级与阅读，基于新增 PDF |
 | `sm3/unit5/past-was-were.html` | SM3 Unit 5 Lesson 2 was/were、there was/there were 与厨房故事，基于新增 PDF |
+| `sm3/unit5/the-trap-vocabulary.html` | SM3 Unit 5 The Trap 词汇、语言点与句子练习，基于新增 PDF |
 
 ## Shared Architecture
 
@@ -200,6 +201,24 @@ Required content:
 - Fill-in, negative, question, and Chinese-to-English practice.
 - `The Kitchen Mess Last Night` reading with translations, comprehension feedback, and a story cloze.
 - Todo list using localStorage key `sm3Unit5PastWasWereTodos`.
+
+Implementation rule:
+
+- Lesson controls on this page use `data-lesson-action`.
+- Do not use `data-action` for lesson controls because `data-action` is used by shared mobile navigation.
+
+## SM3 Unit 5 The Trap Notes
+
+`sm3/unit5/the-trap-vocabulary.html` is based on `Superminds 3 Unit 5-3.pdf`.
+
+Required content:
+
+- Story vocabulary and example sentences for `letter`, `giant shell`, `have a look`, `hurry up`, `think so`, `different place`, `stuck`, `scared`, `be happy with`, `get`, and `cage`.
+- The target `I don't think…` pattern and the PDF's examples.
+- `fish` singular/plural, the past-to-present `There were … but now there are not many` sentence, `What sort of…?`, and `be good at`.
+- `look for` / `look at`, ordinal numbers from `first` to `fifth`, and the four uses of `'s` shown in the source.
+- Key sentence translations and the homework directions from the PDF.
+- Todo list using localStorage key `sm3Unit5TheTrapTodos`.
 
 Implementation rule:
 

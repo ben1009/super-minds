@@ -14,6 +14,13 @@
 - [x] Added the lesson to the homepage and the Unit 5 group in the shared SM3 dropdown.
 - [x] Updated project documentation and SM3 regression coverage.
 
+### SM3 Unit 5 The Trap Lesson From PDF ✅
+
+- [x] Created `sm3/unit5/the-trap-vocabulary.html` from `Superminds 3 Unit 5-3.pdf`.
+- [x] Added story vocabulary, key sentences, grammar notes, ordinal practice, apostrophe-s examples, and todo tracking.
+- [x] Added the lesson to the homepage and shared SM3 dropdown.
+- [x] Updated course documentation and SM3 regression coverage.
+
 ### SM3 Unit 3 Daily Routines Lesson From PDF ✅
 
 - [x] Created `sm3/unit3/daily-routines-frequency-adverbs.html` from the Unit 3 PDF.

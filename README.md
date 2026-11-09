@@ -112,6 +112,11 @@ The baseball Unit 8 page is generated from `sm2/unit8/gerunds-ball-sports.html` 
    - `There was / There were` statements, negatives, and questions
    - Past time expressions, practice, and "The Kitchen Mess Last Night" reading
 
+9. **Unit 5 - The Trap:** `sm3/unit5/the-trap-vocabulary.html`
+   - Vocabulary and key sentences from the Unit 5 story notes
+   - `I don't think…`, `fish`, `look for` / `look at`, and `be good at`
+   - Ordinal numbers, the four lesson uses of apostrophe-s, and homework checklist
+
 ## Access
 
 Open the published site here:

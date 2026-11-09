@@ -16,6 +16,7 @@ SM3_U2_BREAKFAST = ROOT / 'sm3' / 'unit2' / 'breakfast-foods-simple-present.html
 SM3_U3_ROUTINES = ROOT / 'sm3' / 'unit3' / 'daily-routines-frequency-adverbs.html'
 SM3_U3_WATER = ROOT / 'sm3' / 'unit3' / 'saving-water.html'
 SM3_U5_PAST = ROOT / 'sm3' / 'unit5' / 'past-was-were.html'
+SM3_U5_TRAP = ROOT / 'sm3' / 'unit5' / 'the-trap-vocabulary.html'
 
 # SM2 sample pages for cross-ref checks
 SM2_U7_COURSE = ROOT / 'sm2' / 'unit7' / 'present-continuous-course.html'
@@ -87,6 +88,7 @@ class TestFolderStructure(unittest.TestCase):
         self.assertTrue(SM3_U3_ROUTINES.exists())
         self.assertTrue(SM3_U3_WATER.exists())
         self.assertTrue(SM3_U5_PAST.exists())
+        self.assertTrue(SM3_U5_TRAP.exists())
 
 
 # ============================================================
@@ -788,6 +790,89 @@ class TestSM3Unit5PastWasWereStructure(unittest.TestCase):
         self.assertIn("event.key === todoStorageKey", self.html)
 
 
+class TestSM3Unit5TrapStructure(unittest.TestCase):
+    """Test the PDF-derived Unit 5 story vocabulary and language page."""
+
+    @classmethod
+    def setUpClass(cls):
+        """Load the lesson and shared navigation source for structural assertions."""
+        cls.html = read(SM3_U5_TRAP)
+        cls.js = read(COMMON_JS)
+
+    def test_document_and_shared_navigation(self):
+        """Check document metadata and all shared navigation paths for the lesson."""
+        for text in ['Super Minds 3 · Unit 5', 'The Trap', '../../favicon.svg',
+                     '../../ga.js', '../../css/common.css', '../../css/baseball-theme.css',
+                     '../../js/common.js', 'id="site-nav"', "active:'sm3-unit5-trap'"]:
+            with self.subTest(text=text):
+                self.assertIn(text, self.html)
+        self.assertNotIn('data-action=', self.html)
+        self.assertIn("{ key: 'sm3-unit5-trap', href: 'the-trap-vocabulary.html'", self.js)
+        self.assertIn("{ key: 'sm3-unit5-trap', href: '../unit5/the-trap-vocabulary.html'", self.js)
+        self.assertIn("{ key: 'sm3-unit5-trap', href: '../../sm3/unit5/the-trap-vocabulary.html'", self.js)
+
+    def test_pdf_vocabulary_and_language_points(self):
+        """Check the required story vocabulary and language points from the source PDF."""
+        for text in ['letter', "I can't see a letter", 'giant shell', 'have a look', 'hurry up', 'think so',
+                     'different place', 'stuck', 'scared', 'be happy with',
+                     'Get the children!', "I don't think he was happy in Horax's cage.",
+                     'Horax', "I don't think the shark is very happy with us.",
+                     '我看不见一个字母。', '我们来找那个字母吧。',
+                     'I don\'t think', 'Many fish, one fish, a fish.',
+                     'There were', 'What sort of bird is that?', 'be good at',
+                     'look for', 'look at', 'the first', 'the second', 'the third',
+                     'the fourth', 'the fifth', 'my mom', 'She\'s got',
+                     "He<strong>'s</strong> got two sisters", "Let<strong>'s</strong> go", 'sm3Unit5TheTrapTodos']:
+            with self.subTest(text=text):
+                self.assertIn(text, self.html)
+        self.assertEqual(
+            self.js.count("key: 'sm3-unit5-trap'"),
+            self.js.count("key: 'sm3-unit5-past'"),
+        )
+
+    def test_translation_practice_and_todo_controls(self):
+        """Check accessible lesson controls, translation practice, and checklist persistence."""
+        self.assertGreaterEqual(self.html.count('data-lesson-action="speak"'), 16)
+        self.assertEqual(self.html.count('data-lesson-action="toggle-translation"'), 7)
+        self.assertGreaterEqual(self.html.count('data-lesson-action="reveal-answer"'), 8)
+        self.assertIn('class="translation', self.html)
+        self.assertIn('data-lesson-action="toggle-todo"', self.html)
+        self.assertIn('data-lesson-action="reset-todos"', self.html)
+        reveal_controls = re.findall(r'<span\b[^>]*data-lesson-action="reveal-answer"[^>]*>', self.html)
+        self.assertTrue(reveal_controls)
+        self.assertTrue(all('aria-label=' in control for control in reveal_controls))
+        self.assertIn('id="trap-answer-announcer" class="sr-only" aria-live="polite"', self.html)
+        self.assertRegex(self.html, r"(?s)event\.preventDefault\(\);\s*if \(event\.repeat\) return;")
+        self.assertIn('role="progressbar"', self.html)
+        self.assertIn('aria-valuenow="0"', self.html)
+        self.assertIn("progressBar.setAttribute('aria-valuenow'", self.html)
+        self.assertIn('localStorage.getItem(todoStorageKey)', self.html)
+        self.assertIn('event.key === todoStorageKey', self.html)
+        self.assertRegex(self.html, r"(?s)addEventListener\('click'.*?closest\('\[data-lesson-action\]'")
+        self.assertRegex(self.html, r"(?s)addEventListener\('keydown'.*?closest\('\[data-lesson-action\]'")
+
+    def test_revealed_answer_text_meets_normal_text_contrast(self):
+        """Ensure revealed quiz answers meet WCAG's normal-text contrast threshold."""
+        css = read(ROOT / 'css' / 'baseball-theme.css')
+        rule = re.search(r'\.word-quiz-blank\.revealed\s*\{([^}]+)\}', css, re.S)
+        self.assertIsNotNone(rule)
+        color_match = re.search(r'color:\s*(#[0-9a-fA-F]{6})', rule.group(1))
+        background_match = re.search(r'background:\s*(#[0-9a-fA-F]{6})', rule.group(1))
+        self.assertIsNotNone(color_match)
+        self.assertIsNotNone(background_match)
+
+        def luminance(hex_color):
+            """Convert a hexadecimal sRGB color to relative luminance."""
+            channels = [int(hex_color[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+            linear = [value / 12.92 if value <= 0.04045 else ((value + 0.055) / 1.055) ** 2.4
+                      for value in channels]
+            return 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2]
+
+        luminances = sorted((luminance(color_match.group(1)), luminance(background_match.group(1))), reverse=True)
+        contrast = (luminances[0] + 0.05) / (luminances[1] + 0.05)
+        self.assertGreaterEqual(contrast, 4.5)
+
+
 class TestSM3Unit1Cloze(unittest.TestCase):
     """Test the inline cloze passage section."""
 
@@ -1022,10 +1107,11 @@ class TestIndexPage(unittest.TestCase):
         self.assertIn('sm3/unit5/past-was-were.html', self.html)
 
     def test_course_lists_are_grouped_by_curriculum(self):
+        """Check the homepage groups course cards under SM2 and SM3."""
         self.assertIn('<details id="sm2-course-list"', self.html)
         self.assertIn('<details id="sm3-course-list"', self.html)
         self.assertIn('12 项', self.html)
-        self.assertIn('8 项', self.html)
+        self.assertIn('9 项', self.html)
         self.assertNotIn('快速链接', self.html)
 
         for href in (
@@ -1036,6 +1122,7 @@ class TestIndexPage(unittest.TestCase):
                 self.assertEqual(self.html.count(f'href="{href}"'), 1)
 
     def test_course_cards_are_grouped_by_unit(self):
+        """Check course cards stay grouped under the correct unit headings."""
         curricula = (
             ('sm2-course-list', (
                 ('sm2-unit-7-heading', (
@@ -1077,7 +1164,10 @@ class TestIndexPage(unittest.TestCase):
                     'sm3/unit3/daily-routines-frequency-adverbs.html',
                     'sm3/unit3/saving-water.html',
                 )),
-                ('sm3-unit-5-heading', ('sm3/unit5/past-was-were.html',)),
+                ('sm3-unit-5-heading', (
+                    'sm3/unit5/past-was-were.html',
+                    'sm3/unit5/the-trap-vocabulary.html',
+                )),
             )),
         )
 
