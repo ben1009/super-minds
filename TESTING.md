@@ -30,7 +30,7 @@ python3 scripts/test_generate_baseball.py
 node --check js/common.js
 ```
 
-`scripts/test_sm3_pages.py` covers SM3 Unit 0, Unit 1, Unit 1 Story, Unit 2 There Be, Unit 2 Breakfast, both Unit 3 lessons, and Unit 5 Lesson 2. It also verifies that the mobile menu uses compact collapsible SM2/SM3 sections and that SM3 lesson controls use `data-lesson-action` instead of the shared nav `data-action` attribute.
+`scripts/test_sm3_pages.py` covers SM3 Unit 0, Unit 1, Unit 1 Story, Unit 2 There Be, Unit 2 Breakfast, both Unit 3 lessons, and both Unit 5 lessons. It also verifies that the mobile menu uses compact collapsible SM2/SM3 sections and that SM3 lesson controls use `data-lesson-action` instead of the shared nav `data-action` attribute.
 
 ## Build Script Testing
 
@@ -71,7 +71,7 @@ Open http://localhost:8000 in the browser.
 - [ ] On SM2 pages, the SM2 section is open by default and SM3 is collapsed
 - [ ] On SM3 pages, the SM3 section is open by default and SM2 is collapsed
 - [ ] Desktop navigation remains visible at desktop width and the mobile menu is hidden
-- [ ] SM3 dropdowns include Unit 5 Was / Were on desktop and mobile
+- [ ] SM3 dropdowns include both Unit 5 lessons on desktop and mobile
 - [ ] SM3 Unit 2 lesson clicks do not open or close the mobile nav accidentally
 
 ### Homepage
@@ -191,6 +191,15 @@ Open http://localhost:8000 in the browser.
 - [ ] Was / were and there was / there were exercises reveal answers correctly
 - [ ] Kitchen story translations and comprehension choices work
 - [ ] Todo progress uses `sm3Unit5PastWasWereTodos`
+- [ ] Lesson controls use `data-lesson-action` and do not conflict with mobile nav `data-action`
+
+#### Unit 5 The Trap
+
+- [ ] `http://localhost:8000/sm3/unit5/the-trap-vocabulary.html` loads
+- [ ] Vocabulary cards speak and key-sentence translations toggle by click and keyboard
+- [ ] `I don't think…`, `look for` / `look at`, ordinals, and apostrophe-s answers reveal correctly
+- [ ] Todo progress uses `sm3Unit5TheTrapTodos`
+- [ ] With site storage blocked or full, multiple tasks can still be checked, unchecked, and reset during the current visit
 - [ ] Lesson controls use `data-lesson-action` and do not conflict with mobile nav `data-action`
 
 ## Regression Matrix

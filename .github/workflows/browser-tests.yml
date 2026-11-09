@@ -109,6 +109,7 @@ jobs:
             const sm3 = page.locator('#sm3-course-list');
             const unit7Link = sm2.locator('a[href="sm2/unit7/present-continuous-course.html"]');
             const unit5Link = sm3.locator('a[href="sm3/unit5/past-was-were.html"]');
+            const trapLink = sm3.locator('a[href="sm3/unit5/the-trap-vocabulary.html"]');
             await expect(sm2).toHaveJSProperty('open', false);
             await expect(sm3).toHaveJSProperty('open', false);
             await expect(unit7Link).toBeHidden();
@@ -118,6 +119,7 @@ jobs:
             await expect(sm3).toHaveJSProperty('open', false);
             await sm3.locator('summary').click();
             await expect(unit5Link).toBeVisible();
+            await expect(trapLink).toBeVisible();
             await sm2.locator('summary').click();
             await expect(unit7Link).toBeHidden();
             await expect(unit5Link).toBeVisible();
@@ -408,6 +410,85 @@ jobs:
           expect(saved['2']).toBe(true);
           await expect(page.locator('[data-lesson-action="toggle-todo"][data-todo="2"]')).toHaveAttribute('aria-pressed', 'true');
         });
+
+        test('SM3 Unit 5 The Trap controls work and checklist progress persists', async ({ page }) => {
+          await page.setViewportSize({ width: 375, height: 667 });
+          await page.goto('http://localhost:8000/sm3/unit5/the-trap-vocabulary.html');
+          await expect(page.locator('h1')).toContainText('Unit 5');
+          const headerCard = page.locator('header .stitch-border');
+          const bounds = await headerCard.boundingBox();
+          expect(bounds).not.toBeNull();
+          expect(bounds.x).toBeGreaterThanOrEqual(0);
+          expect(bounds.x + bounds.width).toBeLessThanOrEqual(page.viewportSize().width);
+
+          const translation = page.locator('[data-lesson-action="toggle-translation"]').first();
+          await expect(translation).toHaveAttribute('aria-expanded', 'false');
+          await translation.click();
+          await expect(translation).toHaveAttribute('aria-expanded', 'true');
+          await expect(translation.locator('.translation')).toHaveClass(/show/);
+
+          const reveal = page.locator('[data-lesson-action="reveal-answer"]').first();
+          await expect(reveal).toHaveAttribute('aria-pressed', 'false');
+          await expect(reveal).toHaveAttribute('aria-label', /Question 1/);
+          await reveal.press('Enter');
+          await expect(reveal).toHaveAttribute('aria-pressed', 'true');
+          await expect(reveal).toHaveText("don't think");
+          await expect(page.locator('#trap-answer-announcer')).toContainText("Answer: don't think");
+          await reveal.dispatchEvent('keydown', { key: 'Enter', repeat: true });
+          await expect(reveal).toHaveAttribute('aria-pressed', 'true');
+          const repeatedSpaceWasPrevented = await reveal.evaluate(element => {
+            const event = new KeyboardEvent('keydown', { key: ' ', repeat: true, bubbles: true, cancelable: true });
+            element.dispatchEvent(event);
+            return event.defaultPrevented;
+          });
+          expect(repeatedSpaceWasPrevented).toBeTruthy();
+          await expect(reveal).toHaveAttribute('aria-pressed', 'true');
+
+          const todo = page.locator('[data-lesson-action="toggle-todo"][data-todo="1"]');
+          await todo.click();
+          await expect(todo).toHaveAttribute('aria-pressed', 'true');
+          const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('sm3Unit5TheTrapTodos')));
+          expect(saved['1']).toBe(true);
+          await expect(page.locator('#progressBar')).toHaveAttribute('aria-valuenow', '25');
+
+          await page.reload();
+          await expect(page.locator('[data-lesson-action="toggle-todo"][data-todo="1"]')).toHaveAttribute('aria-pressed', 'true');
+          await expect(page.locator('#progressBar')).toHaveAttribute('aria-valuenow', '25');
+          page.once('dialog', dialog => dialog.accept());
+          await page.locator('[data-lesson-action="reset-todos"]').click();
+          await expect(page.locator('[data-lesson-action="toggle-todo"][data-todo="1"]')).toHaveAttribute('aria-pressed', 'false');
+          await expect(page.locator('#progressBar')).toHaveAttribute('aria-valuenow', '0');
+        });
+
+        for (const storageMethod of ['getItem', 'setItem']) {
+          test(`SM3 Unit 5 The Trap checklist works when storage ${storageMethod} fails`, async ({ page }) => {
+            await page.addInitScript(method => {
+              const original = Storage.prototype[method];
+              Storage.prototype[method] = function(key, ...args) {
+                if (key === 'sm3Unit5TheTrapTodos') {
+                  throw new DOMException('Storage unavailable', method === 'getItem' ? 'SecurityError' : 'QuotaExceededError');
+                }
+                return original.call(this, key, ...args);
+              };
+            }, storageMethod);
+            await page.goto('http://localhost:8000/sm3/unit5/the-trap-vocabulary.html');
+            const first = page.locator('[data-lesson-action="toggle-todo"][data-todo="1"]');
+            const second = page.locator('[data-lesson-action="toggle-todo"][data-todo="2"]');
+            await first.click();
+            await second.click();
+            await expect(first).toHaveAttribute('aria-pressed', 'true');
+            await expect(second).toHaveAttribute('aria-pressed', 'true');
+            await expect(page.locator('#progressBar')).toHaveAttribute('aria-valuenow', '50');
+            await second.click();
+            await expect(first).toHaveAttribute('aria-pressed', 'true');
+            await expect(second).toHaveAttribute('aria-pressed', 'false');
+            await expect(page.locator('#progressBar')).toHaveAttribute('aria-valuenow', '25');
+            page.once('dialog', dialog => dialog.accept());
+            await page.locator('[data-lesson-action="reset-todos"]').click();
+            await expect(first).toHaveAttribute('aria-pressed', 'false');
+            await expect(page.locator('#progressBar')).toHaveAttribute('aria-valuenow', '0');
+          });
+        }
 
         // ============================================
         // SM3 Saving Water Tests
