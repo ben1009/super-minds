@@ -409,6 +409,7 @@ const NAV_LINKS = {
                 { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
                 { key: 'sm3-unit3-saving-water', href: '../../sm3/unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
                 { key: 'sm3-unit5-past', href: '../../sm3/unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+                { key: 'sm3-unit6-comparatives', href: '../../sm3/unit6/comparatives-superlatives.html', label: '📏 Unit 6 Comparatives' },
                 { key: 'sm3-unit5-trap', href: '../../sm3/unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
             ]
         },
@@ -464,6 +465,7 @@ const NAV_LINKS = {
                 { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
                 { key: 'sm3-unit3-saving-water', href: '../../sm3/unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
                 { key: 'sm3-unit5-past', href: '../../sm3/unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+                { key: 'sm3-unit6-comparatives', href: '../../sm3/unit6/comparatives-superlatives.html', label: '📏 Unit 6 Comparatives' },
                 { key: 'sm3-unit5-trap', href: '../../sm3/unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
             ]
         },
@@ -519,6 +521,7 @@ const NAV_LINKS = {
                 { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
                 { key: 'sm3-unit3-saving-water', href: '../../sm3/unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
                 { key: 'sm3-unit5-past', href: '../../sm3/unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+                { key: 'sm3-unit6-comparatives', href: '../../sm3/unit6/comparatives-superlatives.html', label: '📏 Unit 6 Comparatives' },
                 { key: 'sm3-unit5-trap', href: '../../sm3/unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
             ]
         },
@@ -574,6 +577,7 @@ const NAV_LINKS = {
                 { key: 'sm3-unit3-routines', href: '../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
                 { key: 'sm3-unit3-saving-water', href: '../../sm3/unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
                 { key: 'sm3-unit5-past', href: '../../sm3/unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+                { key: 'sm3-unit6-comparatives', href: '../../sm3/unit6/comparatives-superlatives.html', label: '📏 Unit 6 Comparatives' },
                 { key: 'sm3-unit5-trap', href: '../../sm3/unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
             ]
         },
@@ -626,6 +630,7 @@ const NAV_LINKS = {
                 { key: 'sm3-unit3-routines', href: '../../../sm3/unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
                 { key: 'sm3-unit3-saving-water', href: '../../../sm3/unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
                 { key: 'sm3-unit5-past', href: '../../../sm3/unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+                { key: 'sm3-unit6-comparatives', href: '../../../sm3/unit6/comparatives-superlatives.html', label: '📏 Unit 6 Comparatives' },
                 { key: 'sm3-unit5-trap', href: '../../../sm3/unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
             ]
         },
@@ -681,6 +686,7 @@ const NAV_LINKS = {
                 { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
                 { key: 'sm3-unit3-saving-water', href: '../unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
                 { key: 'sm3-unit5-past', href: '../unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+                { key: 'sm3-unit6-comparatives', href: '../unit6/comparatives-superlatives.html', label: '📏 Unit 6 Comparatives' },
                 { key: 'sm3-unit5-trap', href: '../unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
             ]
         },
@@ -735,6 +741,7 @@ const NAV_LINKS = {
                 { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
                 { key: 'sm3-unit3-saving-water', href: '../unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
                 { key: 'sm3-unit5-past', href: '../unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+                { key: 'sm3-unit6-comparatives', href: '../unit6/comparatives-superlatives.html', label: '📏 Unit 6 Comparatives' },
                 { key: 'sm3-unit5-trap', href: '../unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
             ]
         },
@@ -789,6 +796,7 @@ const NAV_LINKS = {
                 { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
                 { key: 'sm3-unit3-saving-water', href: '../unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
                 { key: 'sm3-unit5-past', href: '../unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+                { key: 'sm3-unit6-comparatives', href: '../unit6/comparatives-superlatives.html', label: '📏 Unit 6 Comparatives' },
                 { key: 'sm3-unit5-trap', href: '../unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
             ]
         },
@@ -862,6 +870,7 @@ NAV_LINKS.B_sm3_unit3 = {
             { key: 'sm3-unit3-routines', href: 'daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
             { key: 'sm3-unit3-saving-water', href: 'saving-water.html', label: '💧 Unit 3 Saving Water' },
             { key: 'sm3-unit5-past', href: '../unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+            { key: 'sm3-unit6-comparatives', href: '../unit6/comparatives-superlatives.html', label: '📏 Unit 6 Comparatives' },
             { key: 'sm3-unit5-trap', href: '../unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
         ]
     }
@@ -880,7 +889,27 @@ NAV_LINKS.B_sm3_unit5 = {
             { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
             { key: 'sm3-unit3-saving-water', href: '../unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
             { key: 'sm3-unit5-past', href: 'past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+            { key: 'sm3-unit6-comparatives', href: '../unit6/comparatives-superlatives.html', label: '📏 Unit 6 Comparatives' },
             { key: 'sm3-unit5-trap', href: 'the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' }
+        ]
+    }
+};
+
+NAV_LINKS.B_sm3_unit6 = {
+    ...NAV_LINKS.B_sm3_unit5,
+    sm3: {
+        ...NAV_LINKS.B_sm3_unit5.sm3,
+        pages: [
+            { key: 'sm3-unit0', href: '../unit0/explorers-be-good-at.html', label: '🧭 Unit 0 Explorers' },
+            { key: 'sm3-unit1', href: '../unit1/school-subjects-like-doing.html', label: '📚 Unit 1 Subjects' },
+            { key: 'sm3-unit1-story', href: '../unit1/story-part.html', label: '📖 Unit 1 Story' },
+            { key: 'sm3-unit2', href: '../unit2/there-is-there-are-picnic.html', label: '🧺 Unit 2 Picnic' },
+            { key: 'sm3-unit2-breakfast', href: '../unit2/breakfast-foods-simple-present.html', label: '🍳 Unit 2 Breakfast' },
+            { key: 'sm3-unit3-routines', href: '../unit3/daily-routines-frequency-adverbs.html', label: '⏰ Unit 3 Routines' },
+            { key: 'sm3-unit3-saving-water', href: '../unit3/saving-water.html', label: '💧 Unit 3 Saving Water' },
+            { key: 'sm3-unit5-past', href: '../unit5/past-was-were.html', label: '🕰️ Unit 5 Was / Were' },
+            { key: 'sm3-unit5-trap', href: '../unit5/the-trap-vocabulary.html', label: '🦈 Unit 5 The Trap' },
+            { key: 'sm3-unit6-comparatives', href: 'comparatives-superlatives.html', label: '📏 Unit 6 Comparatives' }
         ]
     }
 };
@@ -893,6 +922,7 @@ function getUnitFromActive(active) {
     if (active.startsWith('sm3-unit2')) return 'sm3_unit2';
     if (active.startsWith('sm3-unit3')) return 'sm3_unit3';
     if (active.startsWith('sm3-unit5')) return 'sm3_unit5';
+    if (active.startsWith('sm3-unit6')) return 'sm3_unit6';
     if (active.startsWith('unit7')) return 'unit7';
     if (active.startsWith('unit8')) return 'unit8';
     if (active.startsWith('unit9')) return 'unit9';
@@ -988,7 +1018,8 @@ function buildNavPatternA(active) {
         sm2Group('Unit 1', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit1' || p.key === 'sm3-unit1-story'; })),
         sm2Group('Unit 2', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit2'); })),
         sm2Group('Unit 3', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit3'); })),
-        sm2Group('Unit 5', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit5'); }))
+        sm2Group('Unit 5', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit5'); })),
+        sm2Group('Unit 6', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit6'); }))
     ].join('\n                            ') : '';
 
     var mobileSm3Groups = hasSm3 ? [
@@ -996,7 +1027,8 @@ function buildNavPatternA(active) {
         mobileGroup('Unit 1', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit1' || p.key === 'sm3-unit1-story'; })),
         mobileGroup('Unit 2', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit2'); })),
         mobileGroup('Unit 3', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit3'); })),
-        mobileGroup('Unit 5', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit5'); }))
+        mobileGroup('Unit 5', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit5'); })),
+        mobileGroup('Unit 6', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit6'); }))
     ].join('\n                        ') : '';
 
     var mobileSm2Content = [
@@ -1036,7 +1068,7 @@ function buildNavPatternA(active) {
         '                    <i data-lucide="menu" class="w-6 h-6"></i>\n' +
         '                </button>\n' +
         '            </div>\n' +
-        '            <div id="mobileMenu" class="hidden md:hidden pb-4">\n' +
+        '            <div id="mobileMenu" class="hidden md:hidden max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain pb-4">\n' +
         '                <div class="flex flex-col space-y-2">\n' +
         '                    <a href="' + links.home.href + '" class="px-3 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all">' + links.home.label + '</a>\n' +
         '                    ' + mobileSection('SM2', mobileSm2Content, isSm2) + '\n' +
@@ -1111,7 +1143,8 @@ function buildNavPatternB(active, brandIcon) {
         sm2Group('Unit 1', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit1' || p.key === 'sm3-unit1-story'; })),
         sm2Group('Unit 2', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit2'); })),
         sm2Group('Unit 3', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit3'); })),
-        sm2Group('Unit 5', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit5'); }))
+        sm2Group('Unit 5', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit5'); })),
+        sm2Group('Unit 6', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit6'); }))
     ].join('\n                            ') : '';
 
     var mobileSm3Groups = hasSm3 ? [
@@ -1119,7 +1152,8 @@ function buildNavPatternB(active, brandIcon) {
         mobileGroup('Unit 1', links.sm3.pages.filter(function(p) { return p.key === 'sm3-unit1' || p.key === 'sm3-unit1-story'; })),
         mobileGroup('Unit 2', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit2'); })),
         mobileGroup('Unit 3', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit3'); })),
-        mobileGroup('Unit 5', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit5'); }))
+        mobileGroup('Unit 5', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit5'); })),
+        mobileGroup('Unit 6', links.sm3.pages.filter(function(p) { return p.key.startsWith('sm3-unit6'); }))
     ].join('\n                        ') : '';
 
     var mobileSm2Content = [
@@ -1159,7 +1193,7 @@ function buildNavPatternB(active, brandIcon) {
         '                    <i class="fas fa-bars text-xl"></i>\n' +
         '                </button>\n' +
         '            </div>\n' +
-        '            <div id="mobileMenu" class="hidden md:hidden pb-4">\n' +
+        '            <div id="mobileMenu" class="hidden md:hidden max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain pb-4">\n' +
         '                <div class="flex flex-col space-y-2">\n' +
         '                    <a href="' + links.home.href + '" class="nav-link px-3 py-2 text-sm font-medium">' + links.home.label + '</a>\n' +
         '                    ' + mobileSection('SM2', mobileSm2Content, isSm2) + '\n' +

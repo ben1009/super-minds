@@ -48,7 +48,9 @@ Super Minds 是一个面向儿童的互动式英语学习网站，涵盖 Super M
 │   ├── unit1/
 │   ├── unit2/
 │   ├── unit3/
-│   └── unit5/
+│   ├── unit5/
+│   └── unit6/
+│       └── assets/
 ├── README.md
 ├── TESTING.md
 ├── todo.md
@@ -85,6 +87,7 @@ Super Minds 是一个面向儿童的互动式英语学习网站，涵盖 Super M
 | `sm3/unit3/saving-water.html` | SM3 Unit 3 节水词汇、比较级与阅读，基于新增 PDF |
 | `sm3/unit5/past-was-were.html` | SM3 Unit 5 Lesson 2 was/were、there was/there were 与厨房故事，基于新增 PDF |
 | `sm3/unit5/the-trap-vocabulary.html` | SM3 Unit 5 The Trap 词汇、语言点与句子练习，基于新增 PDF |
+| `sm3/unit6/comparatives-superlatives.html` | SM3 Unit 6 比较级/最高级、家庭照片与 Friendly Farm 漫画、例句与练习，基于新增 PDF |
 
 ## Shared Architecture
 
@@ -224,6 +227,23 @@ Implementation rule:
 
 - Lesson controls on this page use `data-lesson-action`.
 - Do not use `data-action` for lesson controls because `data-action` is used by shared mobile navigation.
+
+## SM3 Unit 6 Comparatives Notes
+
+`sm3/unit6/comparatives-superlatives.html` is based on `Superminds 3 Unit 6-2.pdf`.
+
+Required content:
+
+- Adjective comparative/superlative forms, spelling rules, and usage notes.
+- Both embedded comic pages from PDF pages 6–7. Text extraction alone misses these pages:
+  - `sm3/unit6/assets/unit6-source-000.jpg`
+  - `sm3/unit6/assets/unit6-source-001.jpg`
+- Bilingual panel dialogue for the family-photo comparison story and `The Friendly Farm` superlative story, with translation toggles and comprehension practice.
+- Preserve the supplied first image's cropped left edge and identify the incomplete source line without inventing dialogue.
+- Story adjective forms such as `curlier`, `thinner`, `nicer`, `angriest`, and `naughtiest`.
+- The 50 comparison examples, 15 source cloze questions, and 50-question comparative worksheet.
+
+Lesson controls use `data-lesson-action`, keeping shared navigation's `data-action` separate.
 
 ## Baseball Generation
 

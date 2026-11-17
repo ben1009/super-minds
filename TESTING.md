@@ -30,7 +30,9 @@ python3 scripts/test_generate_baseball.py
 node --check js/common.js
 ```
 
-`scripts/test_sm3_pages.py` covers SM3 Unit 0, Unit 1, Unit 1 Story, Unit 2 There Be, Unit 2 Breakfast, both Unit 3 lessons, and both Unit 5 lessons. It also verifies that the mobile menu uses compact collapsible SM2/SM3 sections and that SM3 lesson controls use `data-lesson-action` instead of the shared nav `data-action` attribute.
+`scripts/test_sm3_pages.py` covers SM3 Unit 0, Unit 1, Unit 1 Story, Unit 2 There Be, Unit 2 Breakfast, both Unit 3 lessons, both Unit 5 lessons, and the Unit 6 comparatives lesson. It also verifies that the mobile menu uses compact collapsible SM2/SM3 sections and that SM3 lesson controls use `data-lesson-action` instead of the shared nav `data-action` attribute.
+
+The Browser Tests workflow also checks Unit 6 navigation from SM2 and SM3, links back to other lessons, both PDF comic images, story translation toggles, answer buttons, keyboard activation, quiz feedback, and independence from the mobile menu.
 
 ## Build Script Testing
 
@@ -72,6 +74,8 @@ Open http://localhost:8000 in the browser.
 - [ ] On SM3 pages, the SM3 section is open by default and SM2 is collapsed
 - [ ] Desktop navigation remains visible at desktop width and the mobile menu is hidden
 - [ ] SM3 dropdowns include both Unit 5 lessons on desktop and mobile
+- [ ] SM3 dropdowns include Unit 6 on desktop and mobile, and its links work from both SM2 and SM3 pages
+- [ ] Long mobile menus scroll within the viewport so the final unit link remains reachable
 - [ ] SM3 Unit 2 lesson clicks do not open or close the mobile nav accidentally
 
 ### Homepage
@@ -80,7 +84,7 @@ Open http://localhost:8000 in the browser.
 - [ ] SM2 and SM3 course groups start collapsed and open independently with click, Enter, and Space
 - [ ] Each unit heading appears above its lesson cards, and item counts match the cards
 - [ ] SM2 course cards link to `sm2/unit7/`, `sm2/unit8/`, `sm2/unit9/`, and `sm2/review/`
-- [ ] SM3 course cards link to `sm3/unit0/`, `sm3/unit1/`, `sm3/unit2/`, both Unit 3 lessons, and `sm3/unit5/`
+- [ ] SM3 course cards link to `sm3/unit0/`, `sm3/unit1/`, `sm3/unit2/`, both Unit 3 lessons, `sm3/unit5/`, and `sm3/unit6/`
 - [ ] Opened course groups fit mobile and desktop viewports without horizontal scrolling
 - [ ] Baseball entry links to `sm2/baseball/`
 
@@ -201,6 +205,17 @@ Open http://localhost:8000 in the browser.
 - [ ] Todo progress uses `sm3Unit5TheTrapTodos`
 - [ ] With site storage blocked or full, multiple tasks can still be checked, unchecked, and reset during the current visit
 - [ ] Lesson controls use `data-lesson-action` and do not conflict with mobile nav `data-action`
+
+#### Unit 6 Comparatives and Superlatives
+
+- [ ] `http://localhost:8000/sm3/unit6/comparatives-superlatives.html` loads with the shared navigation and menu icons
+- [ ] Adjective forms, 50 examples, 15 cloze questions, and the 50-question worksheet are present
+- [ ] Both original PDF comic images load and open at full size, including the first image's existing cropped edge
+- [ ] All 12 story panels toggle their Chinese translation with click, Enter, and Space; story questions show feedback
+- [ ] Answer buttons reveal and hide the answer with click, Enter, and Space and update `aria-pressed`
+- [ ] Quiz choices show correct/wrong feedback, allow changing the selection, and preserve feedback in other questions
+- [ ] Lesson controls do not change the mobile menu state
+- [ ] Links from Unit 6 back to SM2 and other SM3 units reach the intended lessons
 
 ## Regression Matrix
 
