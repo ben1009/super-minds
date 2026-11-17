@@ -117,6 +117,12 @@ The baseball Unit 8 page is generated from `sm2/unit8/gerunds-ball-sports.html` 
    - `I don't think…`, `fish`, `look for` / `look at`, and `be good at`
    - Ordinal numbers, the four lesson uses of apostrophe-s, and homework checklist
 
+10. **Unit 6 - Comparatives and Superlatives:** `sm3/unit6/comparatives-superlatives.html`
+    - Adjective forms, spelling rules, and usage notes
+    - Both original PDF comic pages, bilingual family-photo and Friendly Farm dialogue, and story practice
+    - 50 bilingual examples, answer reveals, and 15 multiple-choice questions
+    - 50-question comparative worksheet
+
 ## Access
 
 Open the published site here:
@@ -152,7 +158,9 @@ https://ben1009.github.io/super-minds/
 │   ├── unit2/
 │   │   └── assets/
 │   ├── unit3/
-│   └── unit5/
+│   ├── unit5/
+│   └── unit6/
+│       └── assets/
 ├── README.md
 ├── TESTING.md
 ├── AGENTS.md

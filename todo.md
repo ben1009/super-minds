@@ -21,6 +21,14 @@
 - [x] Added the lesson to the homepage and shared SM3 dropdown.
 - [x] Updated course documentation and SM3 regression coverage.
 
+### SM3 Unit 6 Comparatives Lesson From PDF ✅
+
+- [x] Created `sm3/unit6/comparatives-superlatives.html` from the Unit 6 PDF.
+- [x] Included both image-only PDF comic pages, bilingual panel dialogue, story adjective forms, and comprehension practice.
+- [x] Added adjective forms, comparative examples, quizzes, worksheet practice, and interactive answer feedback.
+- [x] Added the lesson to the homepage and shared SM3 dropdown.
+- [x] Updated course documentation and SM3 regression coverage.
+
 ### SM3 Unit 3 Daily Routines Lesson From PDF ✅
 
 - [x] Created `sm3/unit3/daily-routines-frequency-adverbs.html` from the Unit 3 PDF.

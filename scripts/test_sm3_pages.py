@@ -16,6 +16,7 @@ SM3_U2_BREAKFAST = ROOT / 'sm3' / 'unit2' / 'breakfast-foods-simple-present.html
 SM3_U3_ROUTINES = ROOT / 'sm3' / 'unit3' / 'daily-routines-frequency-adverbs.html'
 SM3_U3_WATER = ROOT / 'sm3' / 'unit3' / 'saving-water.html'
 SM3_U5_PAST = ROOT / 'sm3' / 'unit5' / 'past-was-were.html'
+SM3_U6_COMPARATIVES = ROOT / 'sm3' / 'unit6' / 'comparatives-superlatives.html'
 SM3_U5_TRAP = ROOT / 'sm3' / 'unit5' / 'the-trap-vocabulary.html'
 
 # SM2 sample pages for cross-ref checks
@@ -873,6 +874,56 @@ class TestSM3Unit5TrapStructure(unittest.TestCase):
         self.assertGreaterEqual(contrast, 4.5)
 
 
+class TestSM3Unit6Comparatives(unittest.TestCase):
+    """Verify the PDF-derived Unit 6 comparison lesson and its integration."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.html = read(SM3_U6_COMPARATIVES)
+        cls.js = read(COMMON_JS)
+        cls.index = read(INDEX_HTML)
+
+    def test_lesson_has_complete_practice_material(self):
+        self.assertIn('Comparatives and Superlatives', self.html)
+        examples = self.html.split('id="comparison-examples"', 1)[1].split('</section>', 1)[0]
+        worksheet = self.html.split('id="comparative-worksheet"', 1)[1].split('</section>', 1)[0]
+        cloze = self.html.split('id="comparison-cloze"', 1)[1].split('</section>', 1)[0]
+        self.assertEqual(examples.count('<li>'), 50)
+        self.assertEqual(examples.count('I get up earlier than my sister.'), 1)
+        self.assertIn('The sun is farther from Earth than the moon.', examples)
+        self.assertIn('太阳比月亮离地球更远。</span></li>', examples)
+        self.assertIn('Their family is poorer than ours.', examples)
+        self.assertIn('further/furthest', self.html)
+        self.assertIn('elder/eldest', self.html)
+        self.assertEqual(worksheet.count('<li '), 50)
+        self.assertEqual(cloze.count('class="reading-card'), 15)
+
+    def test_lesson_appears_in_shared_navigation_and_homepage(self):
+        self.assertIn("active:'sm3-unit6-comparatives'", self.html)
+        self.assertEqual(self.js.count("key: 'sm3-unit6-comparatives'"),
+                         self.js.count("key: 'sm3-unit5-past'"))
+        self.assertIn('sm3/unit6/comparatives-superlatives.html', self.index)
+
+    def test_image_only_pdf_story_pages_are_preserved(self):
+        for filename in ('unit6-source-000.jpg', 'unit6-source-001.jpg'):
+            with self.subTest(image=filename):
+                self.assertIn('src="assets/' + filename + '"', self.html)
+                asset = SM3_U6_COMPARATIVES.parent / 'assets' / filename
+                self.assertTrue(asset.is_file())
+                self.assertTrue(asset.read_bytes().startswith(b'\xff\xd8\xff'))
+
+    def test_both_comics_have_bilingual_panel_dialogue(self):
+        for story_id in ('family-photo-story', 'friendly-farm-story'):
+            with self.subTest(story=story_id):
+                story = self.html.split('id="' + story_id + '"', 1)[1].split('</section>', 1)[0]
+                self.assertEqual(story.count('data-lesson-action="toggle-translation"'), 6)
+                self.assertEqual(story.count('class="translation"'), 6)
+        self.assertIn('We must all be nicer to everyone.', self.html)
+        self.assertIn('the longest tail.', self.html)
+        self.assertIn('the naughtiest animal in this barn!', self.html)
+        self.assertIn('一处台词被裁切', self.html)
+
+
 class TestSM3Unit1Cloze(unittest.TestCase):
     """Test the inline cloze passage section."""
 
@@ -1105,13 +1156,14 @@ class TestIndexPage(unittest.TestCase):
         self.assertIn('sm3/unit3/daily-routines-frequency-adverbs.html', self.html)
         self.assertIn('sm3/unit3/saving-water.html', self.html)
         self.assertIn('sm3/unit5/past-was-were.html', self.html)
+        self.assertIn('sm3/unit6/comparatives-superlatives.html', self.html)
 
     def test_course_lists_are_grouped_by_curriculum(self):
         """Check the homepage groups course cards under SM2 and SM3."""
         self.assertIn('<details id="sm2-course-list"', self.html)
         self.assertIn('<details id="sm3-course-list"', self.html)
         self.assertIn('12 项', self.html)
-        self.assertIn('9 项', self.html)
+        self.assertIn('10 项', self.html)
         self.assertNotIn('快速链接', self.html)
 
         for href in (
@@ -1167,6 +1219,9 @@ class TestIndexPage(unittest.TestCase):
                 ('sm3-unit-5-heading', (
                     'sm3/unit5/past-was-were.html',
                     'sm3/unit5/the-trap-vocabulary.html',
+                )),
+                ('sm3-unit-6-heading', (
+                    'sm3/unit6/comparatives-superlatives.html',
                 )),
             )),
         )

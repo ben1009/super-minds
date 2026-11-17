@@ -69,6 +69,8 @@ jobs:
               '.html': 'text/html',
               '.js': 'text/javascript',
               '.css': 'text/css',
+              '.jpg': 'image/jpeg',
+              '.jpeg': 'image/jpeg',
             };
             
             const contentType = mimeTypes[extname] || 'application/octet-stream';
@@ -489,6 +491,139 @@ jobs:
             await expect(page.locator('#progressBar')).toHaveAttribute('aria-valuenow', '0');
           });
         }
+
+        // ============================================
+        // SM3 Unit 6 Tests
+        // ============================================
+        test.describe('SM3 Unit 6', () => {
+          test('homepage reaches the lesson with working navigation links', async ({ page }) => {
+            const errors = [];
+            page.on('pageerror', error => errors.push(error.message));
+            await page.goto('http://localhost:8000/');
+            await page.locator('#sm3-course-list > summary').click();
+            await page.locator('a[href="sm3/unit6/comparatives-superlatives.html"]').click();
+            await expect(page.locator('#site-nav')).toBeVisible();
+            await expect(page.locator('#site-nav a[href="comparatives-superlatives.html"]')).toHaveCount(2);
+
+            const hrefs = await page.locator('#site-nav a[href]').evaluateAll(anchors =>
+              [...new Set(anchors.map(anchor => anchor.href).filter(href => !href.endsWith('#')))]
+            );
+            expect(hrefs.some(href => href.endsWith('/sm3/unit5/past-was-were.html'))).toBeTruthy();
+            expect(hrefs.some(href => href.endsWith('/sm2/unit7/present-continuous-course.html'))).toBeTruthy();
+            for (const href of hrefs) {
+              const response = await page.request.get(href);
+              expect(response.status(), href).toBe(200);
+            }
+            expect(errors).toEqual([]);
+          });
+
+          for (const lesson of ['sm2/unit7/present-continuous-course.html', 'sm3/unit5/past-was-were.html']) {
+            test(`mobile dropdown links to Unit 6 from ${lesson}`, async ({ page }) => {
+              await page.setViewportSize({ width: 375, height: 667 });
+              await page.goto(`http://localhost:8000/${lesson}`);
+              await expect(page.locator('#site-nav a[href$="/comparatives-superlatives.html"]')).toHaveCount(2);
+              await page.locator('#site-nav button[data-action="toggle-mobile-menu"]').click();
+              const section = page.locator('#mobileMenu details').filter({ has: page.locator('summary', { hasText: 'SM3' }) });
+              if (!(await section.evaluate(element => element.open))) await section.locator('summary').click();
+              await section.locator('a[href$="/comparatives-superlatives.html"]').click();
+              await expect(page).toHaveURL(/sm3\/unit6\/comparatives-superlatives\.html$/);
+              await expect(page.locator('#site-nav')).toBeVisible();
+            });
+          }
+
+          test('both PDF comics load and story translations work with click and keyboard', async ({ page }) => {
+            await page.goto('http://localhost:8000/sm3/unit6/comparatives-superlatives.html');
+            for (const storyId of ['family-photo-story', 'friendly-farm-story']) {
+              const story = page.locator(`#${storyId}`);
+              const image = story.locator('img');
+              await image.scrollIntoViewIfNeeded();
+              await expect.poll(() => image.evaluate(element => element.complete && element.naturalWidth > 0)).toBeTruthy();
+              const popupPromise = page.waitForEvent('popup');
+              await story.locator('figure a').click();
+              const popup = await popupPromise;
+              await popup.waitForLoadState();
+              await expect(popup).toHaveURL(/unit6-source-00[01]\.jpg$/);
+              await popup.close();
+              const panels = story.locator('[data-lesson-action="toggle-translation"]');
+              await expect(panels).toHaveCount(6);
+              for (const panel of await panels.all()) {
+                await expect(panel).toHaveAttribute('aria-expanded', 'false');
+                await panel.click();
+                await expect(panel).toHaveAttribute('aria-expanded', 'true');
+                await expect(panel.locator('.translation')).toBeVisible();
+                await panel.press('Enter');
+                await expect(panel).toHaveAttribute('aria-expanded', 'false');
+                await panel.press('Space');
+                await expect(panel).toHaveAttribute('aria-expanded', 'true');
+                await panel.press('Space');
+                await expect(panel.locator('.translation')).not.toBeVisible();
+              }
+            }
+          });
+
+          test('farm story questions give feedback independently of the source cloze', async ({ page }) => {
+            await page.goto('http://localhost:8000/sm3/unit6/comparatives-superlatives.html');
+            const cards = page.locator('#farm-story-practice .reading-card');
+            await expect(cards).toHaveCount(4);
+            for (const card of await cards.all()) {
+              const wrong = card.locator('[data-correct="false"]').first();
+              const correct = card.locator('[data-correct="true"]');
+              await wrong.click();
+              await expect(card.locator('.quiz-feedback')).toContainText('Not quite.');
+              await correct.press('Enter');
+              await expect(wrong).toHaveAttribute('aria-pressed', 'false');
+              await expect(correct).toHaveAttribute('aria-pressed', 'true');
+              await expect(card.locator('.quiz-feedback')).toContainText('Correct!');
+            }
+            await expect(page.locator('#farm-story-practice .quiz-answer-box.show')).toHaveCount(4);
+            await expect(page.locator('#comparison-cloze .quiz-answer-box.show')).toHaveCount(0);
+          });
+
+          test('answer buttons and quizzes work with click, Enter, and Space', async ({ page }) => {
+            await page.setViewportSize({ width: 375, height: 667 });
+            await page.goto('http://localhost:8000/sm3/unit6/comparatives-superlatives.html');
+            await page.locator('#site-nav button[data-action="toggle-mobile-menu"]').click();
+            const menu = page.locator('#mobileMenu');
+            await expect(menu).not.toHaveClass(/(^|\s)hidden(\s|$)/);
+            await page.locator('#site-nav button[data-action="toggle-mobile-menu"]').click();
+            await expect(menu).toHaveClass(/(^|\s)hidden(\s|$)/);
+            const blanks = page.locator('[data-lesson-action="reveal-answer"]');
+            await expect(blanks).toHaveCount(5);
+            for (const blank of await blanks.all()) {
+              const answer = await blank.getAttribute('data-answer');
+              await expect(blank).toHaveAttribute('aria-pressed', 'false');
+              await blank.press('Enter');
+              await expect(blank).toHaveText(answer);
+              await expect(blank).toHaveAttribute('aria-pressed', 'true');
+              await blank.press('Space');
+              await expect(blank).toHaveText('显示答案');
+              await expect(blank).toHaveAttribute('aria-pressed', 'false');
+            }
+
+            const cards = page.locator('#comparison-cloze .reading-card');
+            await expect(cards).toHaveCount(15);
+            for (const card of await cards.all()) {
+              const wrong = card.locator('[data-correct="false"]').first();
+              const correct = card.locator('[data-correct="true"]');
+              await wrong.click();
+              await expect(wrong).toHaveClass(/wrong/);
+              await expect(card.locator('.quiz-feedback')).toHaveText('Not quite. ');
+              await correct.press('Enter');
+              await expect(wrong).not.toHaveClass(/wrong/);
+              await expect(wrong).toHaveAttribute('aria-pressed', 'false');
+              await expect(correct).toHaveClass(/correct/);
+              await expect(correct).toHaveAttribute('aria-pressed', 'true');
+              await expect(card.locator('.quiz-feedback')).toHaveText('Correct! ');
+              await expect(card.locator('.quiz-answer-box')).toHaveClass(/show/);
+            }
+            const firstCorrect = cards.first().locator('[data-correct="true"]');
+            await firstCorrect.press('Space');
+            await expect(firstCorrect).toHaveAttribute('aria-pressed', 'false');
+            await expect(cards.first().locator('.quiz-answer-box')).not.toHaveClass(/show/);
+            await expect(page.locator('#comparison-cloze .quiz-answer-box.show')).toHaveCount(14);
+            await expect(menu).toHaveClass(/(^|\s)hidden(\s|$)/);
+          });
+        });
 
         // ============================================
         // SM3 Saving Water Tests
